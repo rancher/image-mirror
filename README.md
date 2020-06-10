@@ -19,3 +19,8 @@ An EIO team member or manager will need to create the repo in DockerHub as well 
 ## Existing Images
 
 Update the tag in the `images-list` repo for an updated image to be pulled/pushed.
+
+
+## Images Requiring Multi-Arch support
+- Flannel
+- CoreDNS
