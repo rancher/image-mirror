@@ -1,0 +1,16 @@
+FROM docker:19.03.8-dind
+
+RUN apk add --no-cache bash jq tar curl git
+
+RUN curl -L -o /bin/manifest-tool https://github.com/estesp/manifest-tool/releases/download/v1.0.2/manifest-tool-linux-amd64
+RUN chmod a+x /bin/manifest-tool
+
+ENV DOCKER_CLI_EXPERMENTAL enabled
+
+ENV DAPPER_RUN_ARGS --privileged
+ENV DAPPER_SOURCE /go/src/github.com/rancher/image-mirror
+ENV DAPPER_ENV USERNAME PASSWORD DOCKER_CLI_EXPERMENTAL
+
+WORKDIR ${DAPPER_SOURCE}
+
+CMD ["--experimental"]

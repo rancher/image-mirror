@@ -26,6 +26,25 @@ steps:
     event:
     - push
 
+- name: make-manifests
+  image: rancher/dapper:v0.5.2
+  volumes:
+  - name: docker
+    path: /var/run/docker.sock
+  environment:
+    PASSWORD:
+      from_secret: docker_password
+    USERNAME:
+      from_secret: docker_username
+  commands:
+  - dapper sleep 1 && ./make-manifest.sh manifest-images-list rancher
+  privileged: true
+  settings:
+    custom_dns: 1.1.1.1
+  when:
+    event:
+    - push
+
 volumes:
 - name: docker
   host:

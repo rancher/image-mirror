@@ -8,7 +8,9 @@ There are 2 types of images that are mirrored.
 
 * Single Arch Images - This list is maintained in the `images-list` file. The file is structured as `Name of Original Image`, `Name of Rancher Image`, `Image Tag`. 
 
-* Multi-Arch Images - Coming Soon!
+* Multi-Arch Images - To clone multi arch images, add the image to manifest-images-list file.
+  	     	      Repo path:version-tag comma separated list of architectures
+  
 
 ## New Images
 
