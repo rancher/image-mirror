@@ -34,8 +34,8 @@ us.gcr.io/k8s-artifacts-prod/external-dns/external-dns rancher/kubernetes-extern
 openpolicyagent/gatekeeper rancher/opa-gatekeeper v3.1.0-beta.11
 k8s.gcr.io/k8s-dns-node-cache rancher/k8s-dns-node-cache 1.15.7
 sonobuoy/sonobuoy rancher/sonobuoy-sonobuoy v0.16.3
-banzaicloud/logging-operator rancher/logging-operator 3.4.0
-jimmidyson/configmap-reload rancher/configmap-reload v0.2.2
-paynejacob/fluent-bit-out-syslog rancher/fluent-bit-out-syslog latest
-banzaicloud/fluentd rancher/fluentd v1.10.4-alpine-2
-fluent/fluent-bit rancher/fluent-bit 1.5.0
+banzaicloud/logging-operator rancher/banzaicloud-logging-operator 3.4.0
+jimmidyson/configmap-reload rancher/jimmidyson-configmap-reload v0.2.2
+paynejacob/fluent-bit-out-syslog rancher/fluent-bit-out-syslog 0.1.0
+banzaicloud/fluentd rancher/banzaicloud-fluentd v1.10.4-alpine-2
+fluent/fluent-bit rancher/fluent-fluent-bit 1.5.0
