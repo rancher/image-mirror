@@ -18,7 +18,7 @@ quay.io/coreos/kube-state-metrics rancher/coreos-kube-state-metrics v1.9.5
 plugins/docker rancher/plugins-docker 18.09
 minio/minio rancher/minio-minio RELEASE.2020-07-13T18-09-56Z
 grafana/grafana rancher/grafana-grafana 7.1.0
-prom/prometheus rancher/prom-prometheus v2.17.2
+prom/prometheus rancher/prom-prometheus v2.18.1
 prom/alertmanager rancher/prom-alertmanager v0.20.0
 prom/node-exporter rancher/prom-node-exporter v0.18.1
 library/nginx rancher/nginx 1.17.4-alpine
@@ -35,7 +35,9 @@ openpolicyagent/gatekeeper rancher/opa-gatekeeper v3.1.0-rc.1
 k8s.gcr.io/k8s-dns-node-cache rancher/k8s-dns-node-cache 1.15.7
 sonobuoy/sonobuoy rancher/sonobuoy-sonobuoy v0.16.3
 banzaicloud/logging-operator rancher/banzaicloud-logging-operator 3.4.0
-jimmidyson/configmap-reload rancher/jimmidyson-configmap-reload v0.2.2
+jimmidyson/configmap-reload rancher/jimmidyson-configmap-reload v0.3.0
 paynejacob/fluent-bit-out-syslog rancher/fluent-bit-out-syslog 0.1.0
 banzaicloud/fluentd rancher/banzaicloud-fluentd v1.10.4-alpine-2
 fluent/fluent-bit rancher/fluent-fluent-bit 1.5.0
+jettech/kube-webhook-certgen rancher/jettech-kube-webhook-certgen v1.2.1
+squareup/ghostunnel rancher/squareup-ghostunnel v1.5.2
