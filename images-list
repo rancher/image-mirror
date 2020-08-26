@@ -45,4 +45,4 @@ kiwigrid/k8s-sidecar rancher/kiwigrid-k8s-sidecar 0.1.151
 directxman12/k8s-prometheus-adapter-amd64 rancher/directxman12-k8s-prometheus-adapter-amd64 v0.6.0
 bats/bats rancher/bats-bats v1.1.0
 curlimages/curl rancher/curlimages-curl 7.70.0
-busybox rancher/busybox 1.31.1 
+busybox rancher/busybox 1.31.1
