@@ -46,3 +46,6 @@ directxman12/k8s-prometheus-adapter-amd64 rancher/directxman12-k8s-prometheus-ad
 bats/bats rancher/bats-bats v1.1.0
 curlimages/curl rancher/curlimages-curl 7.70.0
 busybox rancher/busybox 1.31.1
+coredns/coredns rancher/coredns-coredns 1.6.9
+k8s.gcr.io/metrics-server/metrics-server rancher/metrics-server v0.3.7
+k8s.gcr.io/pause rancher/pause 3.1
