@@ -46,3 +46,8 @@ directxman12/k8s-prometheus-adapter-amd64 rancher/directxman12-k8s-prometheus-ad
 bats/bats rancher/bats-bats v1.1.0
 curlimages/curl rancher/curlimages-curl 7.70.0
 busybox rancher/busybox 1.31.1
+quay.io/calico/node rancher/calico-node v3.16.0
+quay.io/calico/cni rancher/calico-cni v3.16.0
+quay.io/calico/kube-controllers rancher/calico-kube-controllers v3.16.0
+quay.io/calico/pod2daemon-flexvol rancher/calico-pod2daemon-flexvol v3.16.0
+quay.io/calico/ctl rancher/calico-ctl v3.16.0
