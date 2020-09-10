@@ -57,3 +57,4 @@ quay.io/calico/cni rancher/calico-cni v3.16.1
 quay.io/calico/kube-controllers rancher/calico-kube-controllers v3.16.1
 quay.io/calico/pod2daemon-flexvol rancher/calico-pod2daemon-flexvol v3.16.1
 quay.io/calico/ctl rancher/calico-ctl v3.16.1
+quay.io/kiali/kiali rancher/kiali-kiali v1.23.0
