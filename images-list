@@ -35,10 +35,13 @@ openpolicyagent/gatekeeper rancher/opa-gatekeeper v3.1.0-rc.1
 k8s.gcr.io/k8s-dns-node-cache rancher/k8s-dns-node-cache 1.15.7
 sonobuoy/sonobuoy rancher/sonobuoy-sonobuoy v0.16.3
 banzaicloud/logging-operator rancher/banzaicloud-logging-operator 3.4.0
+banzaicloud/logging-operator rancher/banzaicloud-logging-operator 3.6.0
 jimmidyson/configmap-reload rancher/jimmidyson-configmap-reload v0.3.0
 paynejacob/fluent-bit-out-syslog rancher/fluent-bit-out-syslog 0.1.0
 banzaicloud/fluentd rancher/banzaicloud-fluentd v1.10.4-alpine-2
+banzaicloud/fluentd rancher/banzaicloud-fluentd v1.11.2-alpine-2
 fluent/fluent-bit rancher/fluent-fluent-bit 1.5.0
+fluent/fluent-bit rancher/fluent-fluent-bit 1.5.4
 jettech/kube-webhook-certgen rancher/jettech-kube-webhook-certgen v1.2.1
 squareup/ghostunnel rancher/squareup-ghostunnel v1.5.2
 kiwigrid/k8s-sidecar rancher/kiwigrid-k8s-sidecar 0.1.151
