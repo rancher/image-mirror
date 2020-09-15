@@ -8,18 +8,17 @@ platform:
 
 steps:
 - name: mirror-images
-  image: docker
+  image: rancher/dapper:v0.5.3
   volumes:
   - name: docker
     path: /var/run/docker.sock
   environment:
-    PASSWORD:
+    DOCKER_PASSWORD:
       from_secret: docker_password
-    USERNAME:
+    DOCKER_USERNAME:
       from_secret: docker_username
   commands:
-  - docker login -u $USERNAME -p $PASSWORD
-  - cat images-list | ./docker-pull-pusher.sh
+  - cat images-list | dapper
   settings:
     custom_dns: 1.1.1.1
   when:
