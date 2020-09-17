@@ -1,6 +1,20 @@
-# This list should be sorted alphabetically. Do not change existing entries. Comments lines may be started with # or //.
+# This list should be sorted lexographically (alphabetically). Do not change existing entries. Comments lines may be started with # or //.
 # This list was reset in order to prevent breakage when moving to multiarch mirroring. See the following PR for more information:
 # https://github.com/rancher/image-mirror/pull/27
 #
 # LIST FORMAT: <SOURCE> <DESTINATION> <TAG>
+coredns/coredns rancher/coredns-coredns 1.7.0
+coredns/coredns rancher/coredns-coredns 1.7.1
+istio/coredns-plugin rancher/istio-coredns-plugin 0.2-istio-1.1
+istio/install-cni rancher/istio-install-cni 1.7.0
+istio/install-cni rancher/istio-install-cni 1.7.1
+istio/mixer rancher/istio-mixer 1.7.0
+istio/mixer rancher/istio-mixer 1.7.1
+istio/pilot rancher/istio-pilot 1.7.0
+istio/pilot rancher/istio-pilot 1.7.1
+istio/proxyv2 rancher/istio-proxyv2 1.7.0
+istio/proxyv2 rancher/istio-proxyv2 1.7.1
 library/busybox rancher/library-busybox 1.31.1
+quay.io/kiali/kiali rancher/kiali-kiali v1.22.1
+quay.io/kiali/kiali rancher/kiali-kiali v1.23.0
+
