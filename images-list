@@ -5,7 +5,6 @@
 # LIST FORMAT: <SOURCE> <DESTINATION> <TAG>
 bats/bats rancher/bats-bats v1.1.0
 coredns/coredns rancher/coredns-coredns 1.7.0
-coredns/coredns rancher/coredns-coredns 1.7.1
 curlimages/curl rancher/curlimages-curl 7.70.0
 directxman12/k8s-prometheus-adapter-amd64 rancher/directxman12-k8s-prometheus-adapter-amd64 v0.6.0
 grafana/grafana rancher/grafana-grafana 7.1.5
