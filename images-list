@@ -1,20 +1,35 @@
-# This list should be sorted lexographically (alphabetically). Do not change existing entries. Comments lines may be started with # or //.
+# This list should be sorted in lexicographical (alphabetical) order. Do not change existing entries. Comments lines may be started with # or //.
 # This list was reset in order to prevent breakage when moving to multiarch mirroring. See the following PR for more information:
 # https://github.com/rancher/image-mirror/pull/27
 #
 # LIST FORMAT: <SOURCE> <DESTINATION> <TAG>
+bats/bats rancher/bats-bats v1.1.0
 coredns/coredns rancher/coredns-coredns 1.7.0
 coredns/coredns rancher/coredns-coredns 1.7.1
+curlimages/curl rancher/curlimages-curl 7.70.0
+directxman12/k8s-prometheus-adapter-amd64 rancher/directxman12-k8s-prometheus-adapter-amd64 v0.6.0
+grafana/grafana rancher/grafana-grafana 7.1.5
 istio/coredns-plugin rancher/istio-coredns-plugin 0.2-istio-1.1
 istio/install-cni rancher/istio-install-cni 1.7.0
 istio/install-cni rancher/istio-install-cni 1.7.1
+istio/kubectl rancher/istio-kubectl 1.5.10
 istio/mixer rancher/istio-mixer 1.7.0
 istio/mixer rancher/istio-mixer 1.7.1
 istio/pilot rancher/istio-pilot 1.7.0
 istio/pilot rancher/istio-pilot 1.7.1
 istio/proxyv2 rancher/istio-proxyv2 1.7.0
 istio/proxyv2 rancher/istio-proxyv2 1.7.1
+jettech/kube-webhook-certgen rancher/jettech-kube-webhook-certgen v1.2.1
+jimmidyson/configmap-reload rancher/jimmidyson-configmap-reload v0.3.0
+kiwigrid/k8s-sidecar rancher/kiwigrid-k8s-sidecar 0.1.151
 library/busybox rancher/library-busybox 1.31.1
+library/nginx rancher/library-nginx 1.19.2-alpine
+openpolicyagent/gatekeeper rancher/openpolicyagent-gatekeeper v3.1.0
+prom/alertmanager rancher/prom-alertmanager v0.21.0
+prom/node-exporter rancher/prom-node-exporter v1.0.1
+prom/prometheus rancher/prom-prometheus v2.18.2
 quay.io/kiali/kiali rancher/kiali-kiali v1.22.1
 quay.io/kiali/kiali rancher/kiali-kiali v1.23.0
-
+squareup/ghostunnel rancher/squareup-ghostunnel v1.5.2
+thanosio/thanos rancher/thanosio-thanos v0.15.0
+us.gcr.io/k8s-artifacts-prod/external-dns/external-dns rancher/kubernetes-external-dns v0.7.3
