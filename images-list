@@ -3,9 +3,9 @@
 # https://github.com/rancher/image-mirror/pull/27
 #
 # LIST FORMAT: <SOURCE> <DESTINATION> <TAG>
-bats/bats rancher/bats-bats v1.1.0
-banzaicloud/logging-operator rancher/banzaicloud-logging-operator 3.6.0
 banzaicloud/fluentd rancher/banzaicloud-fluentd v1.11.2-alpine-2
+banzaicloud/logging-operator rancher/banzaicloud-logging-operator 3.6.0
+bats/bats rancher/bats-bats v1.1.0
 coredns/coredns rancher/coredns-coredns 1.7.0
 coredns/coredns rancher/coredns-coredns 1.7.1
 curlimages/curl rancher/curlimages-curl 7.70.0
@@ -28,6 +28,7 @@ kiwigrid/k8s-sidecar rancher/kiwigrid-k8s-sidecar 0.1.151
 library/busybox rancher/library-busybox 1.31.1
 library/nginx rancher/library-nginx 1.19.2-alpine
 openpolicyagent/gatekeeper rancher/openpolicyagent-gatekeeper v3.1.0
+openpolicyagent/gatekeeper rancher/openpolicyagent-gatekeeper v3.1.1
 prom/alertmanager rancher/prom-alertmanager v0.21.0
 prom/node-exporter rancher/prom-node-exporter v1.0.1
 prom/prometheus rancher/prom-prometheus v2.18.2
