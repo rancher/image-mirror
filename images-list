@@ -31,6 +31,8 @@ openpolicyagent/gatekeeper rancher/openpolicyagent-gatekeeper v3.1.1
 prom/alertmanager rancher/prom-alertmanager v0.21.0
 prom/node-exporter rancher/prom-node-exporter v1.0.1
 prom/prometheus rancher/prom-prometheus v2.18.2
+quay.io/coreos/prometheus-operator rancher/coreos-prometheus-operator v0.39.0
+quay.io/coreos/prometheus-config-reloader rancher/coreos-prometheus-config-reloader v0.39.0
 quay.io/kiali/kiali rancher/kiali-kiali v1.22.1
 quay.io/kiali/kiali rancher/kiali-kiali v1.23.0
 squareup/ghostunnel rancher/squareup-ghostunnel v1.5.2
