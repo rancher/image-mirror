@@ -14,13 +14,17 @@ grafana/grafana rancher/grafana-grafana 7.1.5
 istio/coredns-plugin rancher/istio-coredns-plugin 0.2-istio-1.1
 istio/install-cni rancher/istio-install-cni 1.7.0
 istio/install-cni rancher/istio-install-cni 1.7.1
+istio/install-cni rancher/istio-install-cni 1.7.3
 istio/kubectl rancher/istio-kubectl 1.5.10
 istio/mixer rancher/istio-mixer 1.7.0
 istio/mixer rancher/istio-mixer 1.7.1
+istio/mixer rancher/istio-mixer 1.7.3
 istio/pilot rancher/istio-pilot 1.7.0
 istio/pilot rancher/istio-pilot 1.7.1
+istio/pilot rancher/istio-pilot 1.7.3
 istio/proxyv2 rancher/istio-proxyv2 1.7.0
 istio/proxyv2 rancher/istio-proxyv2 1.7.1
+istio/proxyv2 rancher/istio-proxyv2 1.7.3
 jettech/kube-webhook-certgen rancher/jettech-kube-webhook-certgen v1.2.1
 jimmidyson/configmap-reload rancher/jimmidyson-configmap-reload v0.3.0
 kiwigrid/k8s-sidecar rancher/kiwigrid-k8s-sidecar 0.1.151
@@ -41,6 +45,7 @@ prom/node-exporter rancher/prom-node-exporter v1.0.1
 prom/prometheus rancher/prom-prometheus v2.18.2
 quay.io/kiali/kiali rancher/kiali-kiali v1.22.1
 quay.io/kiali/kiali rancher/kiali-kiali v1.23.0
+quay.io/kiali/kiali rancher/kiali-kiali v1.24.0
 squareup/ghostunnel rancher/squareup-ghostunnel v1.5.2
 thanosio/thanos rancher/thanosio-thanos v0.15.0
 us.gcr.io/k8s-artifacts-prod/external-dns/external-dns rancher/kubernetes-external-dns v0.7.3
