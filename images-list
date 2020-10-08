@@ -9,6 +9,7 @@ bats/bats rancher/bats-bats v1.1.0
 coredns/coredns rancher/coredns-coredns 1.7.0
 curlimages/curl rancher/curlimages-curl 7.70.0
 directxman12/k8s-prometheus-adapter-amd64 rancher/directxman12-k8s-prometheus-adapter-amd64 v0.6.0
+fluent/fluent-bit rancher/fluent-fluent-bit 1.5.4-debug
 fluent/fluent-bit rancher/fluent-fluent-bit 1.5.4
 grafana/grafana rancher/grafana-grafana 7.1.5
 istio/coredns-plugin rancher/istio-coredns-plugin 0.2-istio-1.1
