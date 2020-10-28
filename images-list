@@ -4,13 +4,17 @@
 #
 # LIST FORMAT: <SOURCE> <DESTINATION> <TAG>
 banzaicloud/fluentd rancher/banzaicloud-fluentd v1.11.2-alpine-2
+banzaicloud/fluentd rancher/banzaicloud-fluentd v1.11.4-alpine-1
 banzaicloud/logging-operator rancher/banzaicloud-logging-operator 3.6.0
+banzaicloud/logging-operator rancher/banzaicloud-logging-operator 3.7.0
 bats/bats rancher/bats-bats v1.1.0
 coredns/coredns rancher/coredns-coredns 1.7.0
 curlimages/curl rancher/curlimages-curl 7.70.0
 directxman12/k8s-prometheus-adapter-amd64 rancher/directxman12-k8s-prometheus-adapter-amd64 v0.6.0
-fluent/fluent-bit rancher/fluent-fluent-bit 1.5.4-debug
 fluent/fluent-bit rancher/fluent-fluent-bit 1.5.4
+fluent/fluent-bit rancher/fluent-fluent-bit 1.5.4-debug
+fluent/fluent-bit rancher/fluent-fluent-bit 1.6.1
+fluent/fluent-bit rancher/fluent-fluent-bit 1.6.1-debug
 grafana/grafana rancher/grafana-grafana 7.1.5
 istio/coredns-plugin rancher/istio-coredns-plugin 0.2-istio-1.1
 istio/install-cni rancher/istio-install-cni 1.7.0
