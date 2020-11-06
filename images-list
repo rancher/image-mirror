@@ -10,12 +10,15 @@ banzaicloud/logging-operator rancher/banzaicloud-logging-operator 3.7.0
 bats/bats rancher/bats-bats v1.1.0
 coredns/coredns rancher/coredns-coredns 1.7.0
 curlimages/curl rancher/curlimages-curl 7.70.0
+curlimages/curl rancher/curlimages-curl 7.73.0
 directxman12/k8s-prometheus-adapter-amd64 rancher/directxman12-k8s-prometheus-adapter-amd64 v0.6.0
 fluent/fluent-bit rancher/fluent-fluent-bit 1.5.4
 fluent/fluent-bit rancher/fluent-fluent-bit 1.5.4-debug
 fluent/fluent-bit rancher/fluent-fluent-bit 1.6.1
 fluent/fluent-bit rancher/fluent-fluent-bit 1.6.1-debug
 grafana/grafana rancher/grafana-grafana 7.1.5
+grafana/grafana rancher/grafana-grafana 7.2.1
+grafana/grafana-image-renderer rancher/grafana-grafana-image-renderer 2.0.0
 istio/coredns-plugin rancher/istio-coredns-plugin 0.2-istio-1.1
 istio/install-cni rancher/istio-install-cni 1.7.0
 istio/install-cni rancher/istio-install-cni 1.7.1
@@ -31,8 +34,11 @@ istio/proxyv2 rancher/istio-proxyv2 1.7.0
 istio/proxyv2 rancher/istio-proxyv2 1.7.1
 istio/proxyv2 rancher/istio-proxyv2 1.7.3
 jettech/kube-webhook-certgen rancher/jettech-kube-webhook-certgen v1.2.1
+jettech/kube-webhook-certgen rancher/jettech-kube-webhook-certgen v1.5.0
 jimmidyson/configmap-reload rancher/jimmidyson-configmap-reload v0.3.0
+jimmidyson/configmap-reload rancher/jimmidyson-configmap-reload v0.4.0
 kiwigrid/k8s-sidecar rancher/kiwigrid-k8s-sidecar 0.1.151
+kiwigrid/k8s-sidecar rancher/kiwigrid-k8s-sidecar 1.1.0
 library/busybox rancher/library-busybox 1.31.1
 library/nginx rancher/library-nginx 1.19.2-alpine
 longhornio/csi-attacher rancher/longhornio-csi-attacher v2.0.0
@@ -51,6 +57,9 @@ prom/prometheus rancher/prom-prometheus v2.18.2
 quay.io/kiali/kiali rancher/kiali-kiali v1.22.1
 quay.io/kiali/kiali rancher/kiali-kiali v1.23.0
 quay.io/kiali/kiali rancher/kiali-kiali v1.24.0
+quay.io/prometheus-operator/prometheus-config-reloader rancher/coreos-prometheus-config-reloader v0.43.0
+quay.io/prometheus-operator/prometheus-operator rancher/coreos-prometheus-operator v0.43.0
+quay.io/prometheus/prometheus rancher/prom-prometheus v2.22.0
 sonobuoy/sonobuoy rancher/sonobuoy-sonobuoy v0.19.0
 squareup/ghostunnel rancher/squareup-ghostunnel v1.5.2
 thanosio/thanos rancher/thanosio-thanos v0.15.0
