@@ -7,6 +7,7 @@ banzaicloud/fluentd rancher/banzaicloud-fluentd v1.11.2-alpine-2
 banzaicloud/fluentd rancher/banzaicloud-fluentd v1.11.4-alpine-1
 banzaicloud/logging-operator rancher/banzaicloud-logging-operator 3.6.0
 banzaicloud/logging-operator rancher/banzaicloud-logging-operator 3.7.0
+banzaicloud/logging-operator rancher/banzaicloud-logging-operator 3.7.3
 bats/bats rancher/bats-bats v1.1.0
 coredns/coredns rancher/coredns-coredns 1.7.0
 curlimages/curl rancher/curlimages-curl 7.70.0
