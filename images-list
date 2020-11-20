@@ -39,6 +39,7 @@ istio/pilot rancher/istio-pilot 1.7.3
 istio/proxyv2 rancher/istio-proxyv2 1.7.0
 istio/proxyv2 rancher/istio-proxyv2 1.7.1
 istio/proxyv2 rancher/istio-proxyv2 1.7.3
+jaegertracing/all-in-one rancher/jaegertracing-all-in-one 1.20.0
 jettech/kube-webhook-certgen rancher/jettech-kube-webhook-certgen v1.2.1
 jettech/kube-webhook-certgen rancher/jettech-kube-webhook-certgen v1.5.0
 jimmidyson/configmap-reload rancher/jimmidyson-configmap-reload v0.3.0
