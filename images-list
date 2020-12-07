@@ -10,6 +10,7 @@ banzaicloud/logging-operator rancher/banzaicloud-logging-operator 3.6.0
 banzaicloud/logging-operator rancher/banzaicloud-logging-operator 3.7.0
 banzaicloud/logging-operator rancher/banzaicloud-logging-operator 3.7.3
 banzaicloud/logging-operator rancher/banzaicloud-logging-operator 3.8.0
+banzaicloud/logging-operator rancher/banzaicloud-logging-operator 3.8.2
 bats/bats rancher/bats-bats v1.1.0
 coredns/coredns rancher/coredns-coredns 1.7.0
 coredns/coredns rancher/coredns-coredns 1.7.1
