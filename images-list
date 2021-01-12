@@ -96,6 +96,7 @@ quay.io/kiali/kiali rancher/kiali-kiali v1.24.0
 quay.io/kiali/kiali rancher/kiali-kiali v1.28.0
 quay.io/prometheus-operator/prometheus-config-reloader rancher/coreos-prometheus-config-reloader v0.43.0
 quay.io/prometheus-operator/prometheus-operator rancher/coreos-prometheus-operator v0.43.0
+quay.io/prometheus/prometheus rancher/prom-prometheus v2.19.2
 quay.io/prometheus/prometheus rancher/prom-prometheus v2.22.0
 rpardini/docker-registry-proxy rancher/rpardini-docker-registry-proxy 0.6.1
 sonobuoy/sonobuoy rancher/sonobuoy-sonobuoy v0.19.0
