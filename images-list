@@ -59,6 +59,7 @@ jettech/kube-webhook-certgen rancher/jettech-kube-webhook-certgen v1.2.1
 jettech/kube-webhook-certgen rancher/jettech-kube-webhook-certgen v1.5.0
 jimmidyson/configmap-reload rancher/jimmidyson-configmap-reload v0.3.0
 jimmidyson/configmap-reload rancher/jimmidyson-configmap-reload v0.4.0
+k8s.gcr.io/metrics-server/metrics-server rancher/metrics-server v0.4.1
 kiwigrid/k8s-sidecar rancher/kiwigrid-k8s-sidecar 0.1.151
 kiwigrid/k8s-sidecar rancher/kiwigrid-k8s-sidecar 1.1.0
 library/busybox rancher/library-busybox 1.31.1
@@ -88,10 +89,15 @@ prom/alertmanager rancher/prom-alertmanager v0.21.0
 prom/node-exporter rancher/prom-node-exporter v1.0.1
 prom/prometheus rancher/prom-prometheus v2.18.2
 quay.io/calico/cni rancher/calico-cni v3.16.5
+quay.io/calico/cni rancher/calico-cni v3.16.6
 quay.io/calico/ctl rancher/calico-ctl v3.16.5
+quay.io/calico/ctl rancher/calico-ctl v3.16.6
 quay.io/calico/kube-controllers rancher/calico-kube-controllers v3.16.5
+quay.io/calico/kube-controllers rancher/calico-kube-controllers v3.16.6
 quay.io/calico/node rancher/calico-node v3.16.5
+quay.io/calico/node rancher/calico-node v3.16.6
 quay.io/calico/pod2daemon-flexvol rancher/calico-pod2daemon-flexvol v3.16.5
+quay.io/calico/pod2daemon-flexvol rancher/calico-pod2daemon-flexvol v3.16.6
 quay.io/coreos/prometheus-config-reloader rancher/coreos-prometheus-config-reloader v0.39.0
 quay.io/coreos/prometheus-operator rancher/coreos-prometheus-operator v0.39.0
 quay.io/kiali/kiali rancher/kiali-kiali v1.22.1
