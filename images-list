@@ -40,6 +40,7 @@ istio/install-cni rancher/istio-install-cni 1.7.1
 istio/install-cni rancher/istio-install-cni 1.7.3
 istio/install-cni rancher/istio-install-cni 1.7.6
 istio/install-cni rancher/istio-install-cni 1.8.1
+istio/install-cni rancher/istio-install-cni 1.8.3
 istio/kubectl rancher/istio-kubectl 1.5.10
 istio/mixer rancher/istio-mixer 1.7.0
 istio/mixer rancher/istio-mixer 1.7.1
@@ -50,11 +51,13 @@ istio/pilot rancher/istio-pilot 1.7.1
 istio/pilot rancher/istio-pilot 1.7.3
 istio/pilot rancher/istio-pilot 1.7.6
 istio/pilot rancher/istio-pilot 1.8.1
+istio/pilot rancher/istio-pilot 1.8.3
 istio/proxyv2 rancher/istio-proxyv2 1.7.0
 istio/proxyv2 rancher/istio-proxyv2 1.7.1
 istio/proxyv2 rancher/istio-proxyv2 1.7.3
 istio/proxyv2 rancher/istio-proxyv2 1.7.6
 istio/proxyv2 rancher/istio-proxyv2 1.8.1
+istio/proxyv2 rancher/istio-proxyv2 1.8.3
 jaegertracing/all-in-one rancher/jaegertracing-all-in-one 1.20.0
 jettech/kube-webhook-certgen rancher/jettech-kube-webhook-certgen v1.2.1
 jettech/kube-webhook-certgen rancher/jettech-kube-webhook-certgen v1.5.0
