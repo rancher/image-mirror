@@ -115,6 +115,11 @@ quay.io/calico/pod2daemon-flexvol rancher/calico-pod2daemon-flexvol v3.16.5
 quay.io/calico/pod2daemon-flexvol rancher/calico-pod2daemon-flexvol v3.16.6
 quay.io/calico/pod2daemon-flexvol rancher/calico-pod2daemon-flexvol v3.17.1
 quay.io/calico/pod2daemon-flexvol rancher/calico-pod2daemon-flexvol v3.17.2
+quay.io/cilium/cilium rancher/mirrored-cilium-cilium v1.9.4
+quay.io/cilium/operator-aws rancher/mirrored-cilium-operator-aws v1.9.4
+quay.io/cilium/operator-azure rancher/mirrored-cilium-operator-azure v1.9.4
+quay.io/cilium/operator-generic rancher/mirrored-cilium-operator-generic v1.9.4
+quay.io/cilium/startup-script rancher/mirrored-cilium-startup-script 62bfbe88c17778aad7bef9fa57ff9e2d4a9ba0d8
 quay.io/coreos/prometheus-config-reloader rancher/coreos-prometheus-config-reloader v0.39.0
 quay.io/coreos/prometheus-operator rancher/coreos-prometheus-operator v0.39.0
 quay.io/kiali/kiali rancher/kiali-kiali v1.22.1
