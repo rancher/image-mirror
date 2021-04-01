@@ -106,6 +106,7 @@ library/busybox rancher/library-busybox 1.32.1
 library/busybox rancher/mirrored-library-busybox 1.31.1
 library/nginx rancher/library-nginx 1.19.2-alpine
 library/nginx rancher/mirrored-library-nginx 1.19.2-alpine
+library/nginx rancher/mirrored-library-nginx 1.19.9-alpine
 library/traefik rancher/library-traefik 2.4.2
 longhornio/csi-attacher rancher/longhornio-csi-attacher v2.0.0
 longhornio/csi-attacher rancher/longhornio-csi-attacher v2.2.1-lh1
