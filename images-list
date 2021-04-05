@@ -8,6 +8,7 @@ banzaicloud/fluentd rancher/banzaicloud-fluentd v1.11.4-alpine-1
 banzaicloud/fluentd rancher/banzaicloud-fluentd v1.11.5-alpine-1
 banzaicloud/fluentd rancher/banzaicloud-fluentd v1.11.5-alpine-9
 banzaicloud/fluentd rancher/mirrored-banzaicloud-fluentd v1.11.5-alpine-9
+banzaicloud/fluentd rancher/mirrored-banzaicloud-fluentd v1.11.5-alpine-12
 banzaicloud/logging-operator rancher/banzaicloud-logging-operator 3.6.0
 banzaicloud/logging-operator rancher/banzaicloud-logging-operator 3.7.0
 banzaicloud/logging-operator rancher/banzaicloud-logging-operator 3.7.3
@@ -15,6 +16,7 @@ banzaicloud/logging-operator rancher/banzaicloud-logging-operator 3.8.0
 banzaicloud/logging-operator rancher/banzaicloud-logging-operator 3.8.2
 banzaicloud/logging-operator rancher/banzaicloud-logging-operator 3.9.0
 banzaicloud/logging-operator rancher/mirrored-banzaicloud-logging-operator 3.9.0
+banzaicloud/logging-operator rancher/mirrored-banzaicloud-logging-operator 3.9.4
 bats/bats rancher/bats-bats v1.1.0
 bats/bats rancher/mirrored-bats-bats v1.1.0
 coredns/coredns rancher/coredns-coredns 1.7.0
