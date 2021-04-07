@@ -137,6 +137,7 @@ library/nginx rancher/library-nginx 1.19.2-alpine
 library/nginx rancher/mirrored-library-nginx 1.19.2-alpine
 library/nginx rancher/mirrored-library-nginx 1.19.9-alpine
 library/traefik rancher/library-traefik 2.4.2
+library/traefik rancher/library-traefik 2.4.8
 longhornio/csi-attacher rancher/longhornio-csi-attacher v2.0.0
 longhornio/csi-attacher rancher/longhornio-csi-attacher v2.2.1-lh1
 longhornio/csi-attacher rancher/mirrored-longhornio-csi-attacher v2.2.1-lh1
