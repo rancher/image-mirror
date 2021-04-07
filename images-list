@@ -36,6 +36,7 @@ directxman12/k8s-prometheus-adapter-amd64 rancher/directxman12-k8s-prometheus-ad
 directxman12/k8s-prometheus-adapter-amd64 rancher/directxman12-k8s-prometheus-adapter-amd64 v0.7.0
 directxman12/k8s-prometheus-adapter-amd64 rancher/mirrored-directxman12-k8s-prometheus-adapter-amd64 v0.7.0
 directxman12/k8s-prometheus-adapter-amd64 rancher/mirrored-directxman12-k8s-prometheus-adapter-amd64 v0.8.3
+directxman12/k8s-prometheus-adapter rancher/mirrored-directxman12-k8s-prometheus-adapter v0.8.3
 fluent/fluent-bit rancher/fluent-fluent-bit 1.5.4
 fluent/fluent-bit rancher/fluent-fluent-bit 1.5.4-debug
 fluent/fluent-bit rancher/fluent-fluent-bit 1.6.1
