@@ -235,6 +235,7 @@ quay.io/kiali/kiali rancher/kiali-kiali v1.24.0
 quay.io/kiali/kiali rancher/kiali-kiali v1.28.0
 quay.io/kiali/kiali rancher/kiali-kiali v1.29.0
 quay.io/kiali/kiali rancher/mirrored-kiali-kiali v1.29.0
+quay.io/kiali/kiali rancher/mirrored-kiali-kiali v1.32.0
 quay.io/kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 1.10.7
 quay.io/prometheus-operator/prometheus-config-reloader rancher/coreos-prometheus-config-reloader v0.43.0
 quay.io/prometheus-operator/prometheus-config-reloader rancher/mirrored-prometheus-operator-prometheus-config-reloader v0.46.0
