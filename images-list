@@ -56,8 +56,10 @@ grafana/grafana rancher/mirrored-grafana-grafana 7.4.5
 grafana/grafana-image-renderer rancher/grafana-grafana-image-renderer 2.0.0
 grafana/grafana-image-renderer rancher/mirrored-grafana-grafana-image-renderer 2.0.1
 gcr.io/cloud-provider-vsphere/csi/release/driver rancher/mirrored-cloud-provider-vsphere-csi-release-driver v2.1.0
+gcr.io/cloud-provider-vsphere/csi/release/driver rancher/mirrored-cloud-provider-vsphere-csi-release-driver v2.2.0
 gcr.io/cloud-provider-vsphere/cpi/release/manager rancher/mirrored-cloud-provider-vsphere-cpi-release-manager v1.2.1
 gcr.io/cloud-provider-vsphere/csi/release/syncer rancher/mirrored-cloud-provider-vsphere-csi-release-syncer v2.1.0
+gcr.io/cloud-provider-vsphere/csi/release/syncer rancher/mirrored-cloud-provider-vsphere-csi-release-syncer v2.2.0
 gcr.io/google_containers/k8s-dns-dnsmasq-nanny rancher/mirrored-k8s-dns-dnsmasq-nanny 1.15.0
 gcr.io/google_containers/k8s-dns-dnsmasq-nanny rancher/mirrored-k8s-dns-dnsmasq-nanny 1.15.10
 gcr.io/google_containers/k8s-dns-dnsmasq-nanny rancher/mirrored-k8s-dns-dnsmasq-nanny 1.15.2
@@ -223,10 +225,15 @@ quay.io/calico/pod2daemon-flexvol rancher/mirrored-calico-pod2daemon-flexvol v3.
 quay.io/calico/pod2daemon-flexvol rancher/mirrored-calico-pod2daemon-flexvol v3.16.5
 quay.io/calico/pod2daemon-flexvol rancher/mirrored-calico-pod2daemon-flexvol v3.17.2
 quay.io/k8scsi/csi-attacher rancher/mirrored-k8scsi-csi-attacher v3.0.0
+quay.io/k8scsi/csi-attacher rancher/mirrored-k8scsi-csi-attacher v3.1.0
 quay.io/k8scsi/csi-node-driver-registrar rancher/mirrored-k8scsi-csi-node-driver-registrar v2.0.1
+quay.io/k8scsi/csi-node-driver-registrar rancher/mirrored-k8scsi-csi-node-driver-registrar v2.1.0
 quay.io/k8scsi/csi-provisioner rancher/mirrored-k8scsi-csi-provisioner v2.0.0
+quay.io/k8scsi/csi-provisioner rancher/mirrored-k8scsi-csi-provisioner v2.1.0
 quay.io/k8scsi/csi-resizer rancher/mirrored-k8scsi-csi-resizer v1.0.0
+quay.io/k8scsi/csi-resizer rancher/mirrored-k8scsi-csi-resizer v1.1.0
 quay.io/k8scsi/livenessprobe rancher/mirrored-k8scsi-livenessprobe v2.1.0
+quay.io/k8scsi/livenessprobe rancher/mirrored-k8scsi-livenessprobe v2.2.0
 quay.io/calico/kube-controllers rancher/calico-kube-controllers v3.16.5
 quay.io/calico/kube-controllers rancher/calico-kube-controllers v3.16.6
 quay.io/calico/kube-controllers rancher/calico-kube-controllers v3.17.1
@@ -287,4 +294,3 @@ squareup/ghostunnel rancher/mirrored-squareup-ghostunnel v1.5.2
 squareup/ghostunnel rancher/squareup-ghostunnel v1.5.2
 thanosio/thanos rancher/thanosio-thanos v0.15.0
 us.gcr.io/k8s-artifacts-prod/external-dns/external-dns rancher/kubernetes-external-dns v0.7.3
-
