@@ -280,8 +280,10 @@ quay.io/cilium/startup-script rancher/mirrored-cilium-startup-script 62bfbe88c17
 quay.io/coreos/kube-state-metrics rancher/mirrored-coreos-kube-state-metrics v1.9.7
 quay.io/coreos/prometheus-config-reloader rancher/coreos-prometheus-config-reloader v0.39.0
 quay.io/coreos/prometheus-config-reloader rancher/mirrored-coreos-prometheus-config-reloader v0.38.1
+quay.io/coreos/prometheus-config-reloader rancher/mirrored-coreos-prometheus-config-reloader v0.39.0
 quay.io/coreos/prometheus-operator rancher/coreos-prometheus-operator v0.39.0
 quay.io/coreos/prometheus-operator rancher/mirrored-coreos-prometheus-operator v0.38.1
+quay.io/coreos/prometheus-operator rancher/mirrored-coreos-prometheus-operator v0.39.0
 quay.io/jetstack/cert-manager-controller rancher/mirrored-jetstack-cert-manager-controller v0.8.1
 quay.io/k8scsi/csi-attacher rancher/mirrored-k8scsi-csi-attacher v3.0.0
 quay.io/k8scsi/csi-attacher rancher/mirrored-k8scsi-csi-attacher v3.1.0
@@ -330,5 +332,6 @@ sonobuoy/sonobuoy rancher/mirrored-sonobuoy-sonobuoy v0.16.3
 sonobuoy/sonobuoy rancher/sonobuoy-sonobuoy v0.19.0
 squareup/ghostunnel rancher/mirrored-squareup-ghostunnel v1.5.2
 squareup/ghostunnel rancher/squareup-ghostunnel v1.5.2
+thanosio/thanos rancher/mirrored-thanosio-thanos v0.15.0
 thanosio/thanos rancher/thanosio-thanos v0.15.0
 us.gcr.io/k8s-artifacts-prod/external-dns/external-dns rancher/kubernetes-external-dns v0.7.3
