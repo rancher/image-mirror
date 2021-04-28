@@ -7,6 +7,10 @@ platform:
   arch: amd64
 
 steps:
+- name: validate-list
+  image: library/busybox:1.33.0
+  commands:
+  - grep -vE '^\s*(#|//)' images-list | sort -dc
 - name: mirror-images
   image: rancher/dapper:v0.5.3
   volumes:
