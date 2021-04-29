@@ -7,30 +7,29 @@ platform:
   arch: amd64
 
 steps:
-- name: validate-list
-  image: library/busybox:1.33.0
-  commands:
-  - grep -vE '^\s*(#|//)' images-list | sort -dc
-- name: mirror-images
-  image: rancher/dapper:v0.5.3
-  volumes:
-  - name: docker
-    path: /var/run/docker.sock
-  environment:
-    DOCKER_PASSWORD:
-      from_secret: docker_password
-    DOCKER_USERNAME:
-      from_secret: docker_username
-  commands:
-  - cat images-list | dapper
-  settings:
-    custom_dns: 1.1.1.1
-  when:
-    event:
-    - push
+  - name: validate-list
+    image: library/ubuntu:21.04
+    commands:
+      - grep -vE '^\s*(#|//)' images-list | sort -Vc
+  - name: mirror-images
+    image: rancher/dapper:v0.5.3
+    volumes:
+      - name: docker
+        path: /var/run/docker.sock
+    environment:
+      DOCKER_PASSWORD:
+        from_secret: docker_password
+      DOCKER_USERNAME:
+        from_secret: docker_username
+    commands:
+      - cat images-list | dapper
+    settings:
+      custom_dns: 1.1.1.1
+    when:
+      event:
+        - push
 
 volumes:
-- name: docker
-  host:
-    path: /var/run/docker.sock
-...
+  - name: docker
+    host:
+      path: /var/run/docker.sock
