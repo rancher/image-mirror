@@ -29,6 +29,7 @@ coredns/coredns rancher/mirrored-coredns-coredns 1.6.5
 coredns/coredns rancher/mirrored-coredns-coredns 1.6.9
 coredns/coredns rancher/mirrored-coredns-coredns 1.7.0
 coredns/coredns rancher/mirrored-coredns-coredns 1.8.0
+coredns/coredns rancher/mirrored-coredns-coredns 1.8.3
 curlimages/curl rancher/curlimages-curl 7.70.0
 curlimages/curl rancher/curlimages-curl 7.73.0
 curlimages/curl rancher/mirrored-curlimages-curl 7.70.0
@@ -58,14 +59,18 @@ gcr.io/google-containers/k8s-dns-node-cache rancher/mirrored-k8s-dns-node-cache 
 gcr.io/google_containers/k8s-dns-dnsmasq-nanny rancher/mirrored-k8s-dns-dnsmasq-nanny 1.15.0
 gcr.io/google_containers/k8s-dns-dnsmasq-nanny rancher/mirrored-k8s-dns-dnsmasq-nanny 1.15.2
 gcr.io/google_containers/k8s-dns-dnsmasq-nanny rancher/mirrored-k8s-dns-dnsmasq-nanny 1.15.10
+gcr.io/google_containers/k8s-dns-dnsmasq-nanny rancher/mirrored-k8s-dns-dnsmasq-nanny 1.17.3
 gcr.io/google_containers/k8s-dns-kube-dns rancher/mirrored-k8s-dns-kube-dns 1.15.0
 gcr.io/google_containers/k8s-dns-kube-dns rancher/mirrored-k8s-dns-kube-dns 1.15.2
 gcr.io/google_containers/k8s-dns-kube-dns rancher/mirrored-k8s-dns-kube-dns 1.15.10
+gcr.io/google_containers/k8s-dns-kube-dns rancher/mirrored-k8s-dns-kube-dns 1.17.3
 gcr.io/google_containers/k8s-dns-sidecar rancher/mirrored-k8s-dns-sidecar 1.15.0
 gcr.io/google_containers/k8s-dns-sidecar rancher/mirrored-k8s-dns-sidecar 1.15.2
 gcr.io/google_containers/k8s-dns-sidecar rancher/mirrored-k8s-dns-sidecar 1.15.10
+gcr.io/google_containers/k8s-dns-sidecar rancher/mirrored-k8s-dns-sidecar 1.17.3
 gcr.io/google_containers/pause rancher/mirrored-pause 3.1
 gcr.io/google_containers/pause rancher/mirrored-pause 3.2
+gcr.io/google_containers/pause rancher/mirrored-pause 3.4.1
 gcr.io/kubebuilder/kube-rbac-proxy rancher/kube-rbac-proxy v0.5.0
 gcr.io/kubebuilder/kube-rbac-proxy rancher/mirrored-kube-rbac-proxy v0.5.0
 grafana/grafana rancher/grafana-grafana 7.1.5
@@ -146,6 +151,7 @@ jimmidyson/configmap-reload rancher/mirrored-jimmidyson-configmap-reload v0.4.0
 k8s.gcr.io/kube-state-metrics/kube-state-metrics rancher/mirrored-kube-state-metrics-kube-state-metrics v1.9.8
 k8s.gcr.io/metrics-server/metrics-server rancher/metrics-server v0.4.1
 k8s.gcr.io/metrics-server/metrics-server rancher/mirrored-metrics-server v0.4.1
+k8s.gcr.io/metrics-server/metrics-server rancher/mirrored-metrics-server v0.4.4
 kiwigrid/k8s-sidecar rancher/kiwigrid-k8s-sidecar 0.1.151
 kiwigrid/k8s-sidecar rancher/kiwigrid-k8s-sidecar 1.1.0
 kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 0.1.151
@@ -309,6 +315,7 @@ quay.io/prometheus/prometheus rancher/prom-prometheus v2.22.0
 quay.io/tigera/operator rancher/mirrored-calico-operator v1.15.1
 rancher/cluster-proportional-autoscaler rancher/mirrored-cluster-proportional-autoscaler 1.7.1
 rancher/cluster-proportional-autoscaler rancher/mirrored-cluster-proportional-autoscaler 1.8.1
+rancher/cluster-proportional-autoscaler rancher/mirrored-cluster-proportional-autoscaler 1.8.3
 rancher/coreos-etcd rancher/mirrored-coreos-etcd v3.3.15-rancher1
 rancher/coreos-etcd rancher/mirrored-coreos-etcd v3.4.3-rancher1
 rancher/coreos-etcd rancher/mirrored-coreos-etcd v3.4.13-rancher1
