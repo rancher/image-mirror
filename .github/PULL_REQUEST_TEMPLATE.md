@@ -18,3 +18,6 @@
 #### Additional Notes ####
 
 <!-- Any additional details / test results / etc -->
+
+#### Final Checks after the PR is merged ####
+- [ ] Confirm that you can pull the new images and tags from DockerHub
