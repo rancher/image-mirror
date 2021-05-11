@@ -140,6 +140,7 @@ jettech/kube-webhook-certgen rancher/jettech-kube-webhook-certgen v1.2.1
 jettech/kube-webhook-certgen rancher/jettech-kube-webhook-certgen v1.5.0
 jettech/kube-webhook-certgen rancher/mirrored-jettech-kube-webhook-certgen v1.2.1
 jettech/kube-webhook-certgen rancher/mirrored-jettech-kube-webhook-certgen v1.5.0
+jettech/kube-webhook-certgen rancher/mirrored-jettech-kube-webhook-certgen v1.5.1
 jimmidyson/configmap-reload rancher/jimmidyson-configmap-reload v0.3.0
 jimmidyson/configmap-reload rancher/jimmidyson-configmap-reload v0.4.0
 jimmidyson/configmap-reload rancher/mirrored-jimmidyson-configmap-reload v0.3.0
