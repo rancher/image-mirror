@@ -344,3 +344,4 @@ squareup/ghostunnel rancher/squareup-ghostunnel v1.5.2
 thanosio/thanos rancher/mirrored-thanosio-thanos v0.15.0
 thanosio/thanos rancher/thanosio-thanos v0.15.0
 us.gcr.io/k8s-artifacts-prod/external-dns/external-dns rancher/kubernetes-external-dns v0.7.3
+us.gcr.io/k8s-artifacts-prod/external-dns/external-dns rancher/mirrored-kubernetes-external-dns v0.7.3
