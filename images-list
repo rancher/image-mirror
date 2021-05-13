@@ -331,6 +331,7 @@ rancher/coreos-etcd rancher/mirrored-coreos-etcd v3.4.3-rancher1
 rancher/coreos-etcd rancher/mirrored-coreos-etcd v3.4.13-rancher1
 rancher/coreos-etcd rancher/mirrored-coreos-etcd v3.4.14-rancher1
 rancher/coreos-etcd rancher/mirrored-coreos-etcd v3.4.15-rancher1
+rancher/coreos-etcd rancher/mirrored-coreos-etcd v3.4.16-rancher1
 rancher/coreos-flannel rancher/mirrored-coreos-flannel v0.12.0
 rancher/metrics-server rancher/mirrored-metrics-server v0.3.4
 rancher/metrics-server rancher/mirrored-metrics-server v0.3.6
