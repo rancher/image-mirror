@@ -153,9 +153,13 @@ jimmidyson/configmap-reload rancher/mirrored-jimmidyson-configmap-reload v0.3.0
 jimmidyson/configmap-reload rancher/mirrored-jimmidyson-configmap-reload v0.4.0
 k8s.gcr.io/cpa/cluster-proportional-autoscaler rancher/mirrored-cluster-proportional-autoscaler 1.8.3
 k8s.gcr.io/dns/k8s-dns-dnsmasq-nanny rancher/mirrored-k8s-dns-dnsmasq-nanny 1.17.3
+k8s.gcr.io/dns/k8s-dns-dnsmasq-nanny rancher/mirrored-k8s-dns-dnsmasq-nanny 1.17.4
 k8s.gcr.io/dns/k8s-dns-kube-dns rancher/mirrored-k8s-dns-kube-dns 1.17.3
+k8s.gcr.io/dns/k8s-dns-kube-dns rancher/mirrored-k8s-dns-kube-dns 1.17.4
 k8s.gcr.io/dns/k8s-dns-node-cache rancher/mirrored-k8s-dns-node-cache 1.17.3
+k8s.gcr.io/dns/k8s-dns-node-cache rancher/mirrored-k8s-dns-node-cache 1.17.4
 k8s.gcr.io/dns/k8s-dns-sidecar rancher/mirrored-k8s-dns-sidecar 1.17.3
+k8s.gcr.io/dns/k8s-dns-sidecar rancher/mirrored-k8s-dns-sidecar 1.17.4
 k8s.gcr.io/kube-state-metrics/kube-state-metrics rancher/mirrored-kube-state-metrics-kube-state-metrics v1.9.8
 k8s.gcr.io/metrics-server/metrics-server rancher/metrics-server v0.4.1
 k8s.gcr.io/metrics-server/metrics-server rancher/mirrored-metrics-server v0.4.1
