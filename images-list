@@ -324,6 +324,7 @@ quay.io/prometheus-operator/prometheus-config-reloader rancher/coreos-prometheus
 quay.io/prometheus-operator/prometheus-config-reloader rancher/mirrored-prometheus-operator-prometheus-config-reloader v0.46.0
 quay.io/prometheus-operator/prometheus-operator rancher/coreos-prometheus-operator v0.43.0
 quay.io/prometheus-operator/prometheus-operator rancher/mirrored-prometheus-operator-prometheus-operator v0.46.0
+quay.io/prometheus/alertmanager rancher/mirrored-prometheus-alertmanager v0.22.0
 quay.io/prometheus/node-exporter rancher/mirrored-coreos-node-exporter v1.0.1
 quay.io/prometheus/node-exporter rancher/mirrored-prometheus-node-exporter v1.1.2
 quay.io/prometheus/prometheus rancher/mirrored-prometheus-prometheus v2.24.0
