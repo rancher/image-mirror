@@ -224,6 +224,7 @@ openpolicyagent/gatekeeper rancher/openpolicyagent-gatekeeper v3.2.1
 openpolicyagent/gatekeeper rancher/openpolicyagent-gatekeeper v3.3.0
 openzipkin/zipkin rancher/mirrored-openzipkin-zipkin 2.14.2
 plugins/docker rancher/mirrored-plugins-docker 18.09
+plugins/docker rancher/mirrored-plugins-docker 19.03.8
 prom/alertmanager rancher/mirrored-prom-alertmanager v0.21.0
 prom/alertmanager rancher/prom-alertmanager v0.21.0
 prom/node-exporter rancher/mirrored-prom-node-exporter v1.0.1
