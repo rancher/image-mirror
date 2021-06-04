@@ -100,6 +100,7 @@ istio/install-cni rancher/mirrored-istio-install-cni 1.9.1
 istio/install-cni rancher/mirrored-istio-install-cni 1.9.2
 istio/install-cni rancher/mirrored-istio-install-cni 1.9.3
 istio/install-cni rancher/mirrored-istio-install-cni 1.9.5
+istio/install-cni rancher/mirrored-istio-install-cni 1.10.0
 istio/kubectl rancher/istio-kubectl 1.5.10
 istio/kubectl rancher/mirrored-istio-kubectl 1.5.9
 istio/mixer rancher/istio-mixer 1.7.0
@@ -125,6 +126,7 @@ istio/pilot rancher/mirrored-istio-pilot 1.9.1
 istio/pilot rancher/mirrored-istio-pilot 1.9.2
 istio/pilot rancher/mirrored-istio-pilot 1.9.3
 istio/pilot rancher/mirrored-istio-pilot 1.9.5
+istio/pilot rancher/mirrored-istio-pilot 1.10.0
 istio/proxyv2 rancher/istio-proxyv2 1.7.0
 istio/proxyv2 rancher/istio-proxyv2 1.7.1
 istio/proxyv2 rancher/istio-proxyv2 1.7.3
@@ -141,6 +143,7 @@ istio/proxyv2 rancher/mirrored-istio-proxyv2 1.9.1
 istio/proxyv2 rancher/mirrored-istio-proxyv2 1.9.2
 istio/proxyv2 rancher/mirrored-istio-proxyv2 1.9.3
 istio/proxyv2 rancher/mirrored-istio-proxyv2 1.9.5
+istio/proxyv2 rancher/mirrored-istio-proxyv2 1.10.0
 istio/sidecar_injector rancher/mirrored-istio-sidecar_injector 1.5.9
 jaegertracing/all-in-one rancher/jaegertracing-all-in-one 1.20.0
 jaegertracing/all-in-one rancher/mirrored-jaegertracing-all-in-one 1.14
@@ -330,6 +333,7 @@ quay.io/kiali/kiali rancher/mirrored-kiali-kiali v1.17
 quay.io/kiali/kiali rancher/mirrored-kiali-kiali v1.29.0
 quay.io/kiali/kiali rancher/mirrored-kiali-kiali v1.32.0
 quay.io/kiali/kiali rancher/mirrored-kiali-kiali v1.34.1
+quay.io/kiali/kiali rancher/mirrored-kiali-kiali v1.35.0
 quay.io/kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 1.10.7
 quay.io/prometheus-operator/prometheus-config-reloader rancher/coreos-prometheus-config-reloader v0.43.0
 quay.io/prometheus-operator/prometheus-config-reloader rancher/mirrored-prometheus-operator-prometheus-config-reloader v0.46.0
