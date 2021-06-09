@@ -169,6 +169,7 @@ k8s.gcr.io/dns/k8s-dns-node-cache rancher/mirrored-k8s-dns-node-cache 1.17.4
 k8s.gcr.io/dns/k8s-dns-sidecar rancher/mirrored-k8s-dns-sidecar 1.17.3
 k8s.gcr.io/dns/k8s-dns-sidecar rancher/mirrored-k8s-dns-sidecar 1.17.4
 k8s.gcr.io/kube-state-metrics/kube-state-metrics rancher/mirrored-kube-state-metrics-kube-state-metrics v1.9.8
+k8s.gcr.io/kube-state-metrics/kube-state-metrics rancher/mirrored-kube-state-metrics-kube-state-metrics v2.0.0
 k8s.gcr.io/metrics-server/metrics-server rancher/metrics-server v0.4.1
 k8s.gcr.io/metrics-server/metrics-server rancher/mirrored-metrics-server v0.4.1
 k8s.gcr.io/metrics-server/metrics-server rancher/mirrored-metrics-server v0.4.4
