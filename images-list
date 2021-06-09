@@ -19,6 +19,7 @@ banzaicloud/logging-operator rancher/banzaicloud-logging-operator 3.9.0
 banzaicloud/logging-operator rancher/mirrored-banzaicloud-logging-operator 3.9.0
 banzaicloud/logging-operator rancher/mirrored-banzaicloud-logging-operator 3.9.4
 banzaicloud/logging-operator rancher/mirrored-banzaicloud-logging-operator 3.9.5
+banzaicloud/logging-operator rancher/mirrored-banzaicloud-logging-operator 3.10.0
 bats/bats rancher/bats-bats v1.1.0
 bats/bats rancher/mirrored-bats-bats v1.1.0
 coredns/coredns rancher/coredns-coredns 1.7.0
