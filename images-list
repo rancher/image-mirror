@@ -179,6 +179,7 @@ k8s.gcr.io/metrics-server/metrics-server rancher/metrics-server v0.4.1
 k8s.gcr.io/metrics-server/metrics-server rancher/mirrored-metrics-server v0.4.1
 k8s.gcr.io/metrics-server/metrics-server rancher/mirrored-metrics-server v0.4.4
 k8s.gcr.io/pause rancher/mirrored-pause 3.4.1
+k8s.gcr.io/pause rancher/mirrored-pause 3.5
 kiwigrid/k8s-sidecar rancher/kiwigrid-k8s-sidecar 0.1.151
 kiwigrid/k8s-sidecar rancher/kiwigrid-k8s-sidecar 1.1.0
 kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 0.1.151
