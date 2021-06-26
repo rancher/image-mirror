@@ -38,6 +38,7 @@ curlimages/curl rancher/curlimages-curl 7.70.0
 curlimages/curl rancher/curlimages-curl 7.73.0
 curlimages/curl rancher/mirrored-curlimages-curl 7.70.0
 curlimages/curl rancher/mirrored-curlimages-curl 7.73.0
+curlimages/curl rancher/mirrored-curlimages-curl 7.77.0
 directxman12/k8s-prometheus-adapter rancher/mirrored-directxman12-k8s-prometheus-adapter v0.8.3
 directxman12/k8s-prometheus-adapter rancher/mirrored-directxman12-k8s-prometheus-adapter v0.8.4
 directxman12/k8s-prometheus-adapter-amd64 rancher/directxman12-k8s-prometheus-adapter-amd64 v0.6.0
@@ -84,6 +85,7 @@ grafana/grafana rancher/mirrored-grafana-grafana 7.4.5
 grafana/grafana rancher/mirrored-grafana-grafana 7.5.8
 grafana/grafana-image-renderer rancher/grafana-grafana-image-renderer 2.0.0
 grafana/grafana-image-renderer rancher/mirrored-grafana-grafana-image-renderer 2.0.1
+grafana/grafana-image-renderer rancher/mirrored-grafana-grafana-image-renderer 3.0.1
 idealista/prom2teams rancher/mirrored-idealista-prom2teams 3.2.1
 istio/citadel rancher/mirrored-istio-citadel 1.5.9
 istio/coredns-plugin rancher/istio-coredns-plugin 0.2-istio-1.1
@@ -361,6 +363,7 @@ quay.io/kiali/kiali rancher/mirrored-kiali-kiali v1.32.0
 quay.io/kiali/kiali rancher/mirrored-kiali-kiali v1.34.1
 quay.io/kiali/kiali rancher/mirrored-kiali-kiali v1.35.0
 quay.io/kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 1.10.7
+quay.io/kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 1.12.2
 quay.io/prometheus-operator/prometheus-config-reloader rancher/coreos-prometheus-config-reloader v0.43.0
 quay.io/prometheus-operator/prometheus-config-reloader rancher/mirrored-prometheus-operator-prometheus-config-reloader v0.46.0
 quay.io/prometheus-operator/prometheus-config-reloader rancher/mirrored-prometheus-operator-prometheus-config-reloader v0.48.0
