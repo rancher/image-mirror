@@ -87,6 +87,7 @@ grafana/grafana-image-renderer rancher/grafana-grafana-image-renderer 2.0.0
 grafana/grafana-image-renderer rancher/mirrored-grafana-grafana-image-renderer 2.0.1
 grafana/grafana-image-renderer rancher/mirrored-grafana-grafana-image-renderer 3.0.1
 idealista/prom2teams rancher/mirrored-idealista-prom2teams 3.2.1
+idealista/prom2teams rancher/mirrored-idealista-prom2teams 3.2.2
 istio/citadel rancher/mirrored-istio-citadel 1.5.9
 istio/coredns-plugin rancher/istio-coredns-plugin 0.2-istio-1.1
 istio/coredns-plugin rancher/mirrored-istio-coredns-plugin 0.2-istio-1.1
