@@ -10,6 +10,7 @@ banzaicloud/fluentd rancher/banzaicloud-fluentd v1.11.5-alpine-9
 banzaicloud/fluentd rancher/mirrored-banzaicloud-fluentd v1.11.5-alpine-9
 banzaicloud/fluentd rancher/mirrored-banzaicloud-fluentd v1.11.5-alpine-12
 banzaicloud/fluentd rancher/mirrored-banzaicloud-fluentd v1.11.5-alpine-21
+banzaicloud/fluentd rancher/mirrored-banzaicloud-fluentd v1.12.4-alpine-1
 banzaicloud/logging-operator rancher/banzaicloud-logging-operator 3.6.0
 banzaicloud/logging-operator rancher/banzaicloud-logging-operator 3.7.0
 banzaicloud/logging-operator rancher/banzaicloud-logging-operator 3.7.3
@@ -20,6 +21,7 @@ banzaicloud/logging-operator rancher/mirrored-banzaicloud-logging-operator 3.9.0
 banzaicloud/logging-operator rancher/mirrored-banzaicloud-logging-operator 3.9.4
 banzaicloud/logging-operator rancher/mirrored-banzaicloud-logging-operator 3.9.5
 banzaicloud/logging-operator rancher/mirrored-banzaicloud-logging-operator 3.10.0
+banzaicloud/logging-operator rancher/mirrored-banzaicloud-logging-operator 3.12.0
 bats/bats rancher/bats-bats v1.1.0
 bats/bats rancher/mirrored-bats-bats v1.1.0
 coredns/coredns rancher/coredns-coredns 1.7.0
@@ -57,6 +59,8 @@ fluent/fluent-bit rancher/mirrored-fluent-fluent-bit 1.6.10
 fluent/fluent-bit rancher/mirrored-fluent-fluent-bit 1.6.10-debug
 fluent/fluent-bit rancher/mirrored-fluent-fluent-bit 1.7.4
 fluent/fluent-bit rancher/mirrored-fluent-fluent-bit 1.7.4-debug
+fluent/fluent-bit rancher/mirrored-fluent-fluent-bit 1.7.9
+fluent/fluent-bit rancher/mirrored-fluent-fluent-bit 1.7.9-debug
 gcr.io/cloud-provider-vsphere/cpi/release/manager rancher/mirrored-cloud-provider-vsphere-cpi-release-manager v1.2.1
 gcr.io/cloud-provider-vsphere/csi/release/driver rancher/mirrored-cloud-provider-vsphere-csi-release-driver v2.1.0
 gcr.io/cloud-provider-vsphere/csi/release/driver rancher/mirrored-cloud-provider-vsphere-csi-release-driver v2.2.0
