@@ -10,7 +10,6 @@ banzaicloud/fluentd rancher/banzaicloud-fluentd v1.11.5-alpine-9
 banzaicloud/fluentd rancher/mirrored-banzaicloud-fluentd v1.11.5-alpine-9
 banzaicloud/fluentd rancher/mirrored-banzaicloud-fluentd v1.11.5-alpine-12
 banzaicloud/fluentd rancher/mirrored-banzaicloud-fluentd v1.11.5-alpine-21
-banzaicloud/fluentd rancher/mirrored-banzaicloud-fluentd v1.12.4-alpine-1
 banzaicloud/logging-operator rancher/banzaicloud-logging-operator 3.6.0
 banzaicloud/logging-operator rancher/banzaicloud-logging-operator 3.7.0
 banzaicloud/logging-operator rancher/banzaicloud-logging-operator 3.7.3
@@ -83,6 +82,7 @@ gcr.io/google_containers/pause rancher/mirrored-pause 3.1
 gcr.io/google_containers/pause rancher/mirrored-pause 3.2
 gcr.io/kubebuilder/kube-rbac-proxy rancher/kube-rbac-proxy v0.5.0
 gcr.io/kubebuilder/kube-rbac-proxy rancher/mirrored-kube-rbac-proxy v0.5.0
+ghcr.io/banzaicloud/fluentd rancher/mirrored-banzaicloud-fluentd v1.12.4-alpine-1
 grafana/grafana rancher/grafana-grafana 7.1.5
 grafana/grafana rancher/grafana-grafana 7.2.1
 grafana/grafana rancher/mirrored-grafana-grafana 6.7.4
