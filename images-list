@@ -63,6 +63,8 @@ fluent/fluent-bit rancher/mirrored-fluent-fluent-bit 1.7.9
 fluent/fluent-bit rancher/mirrored-fluent-fluent-bit 1.7.9-debug
 fluent/fluent-bit rancher/mirrored-fluent-fluent-bit 1.8.5
 fluent/fluent-bit rancher/mirrored-fluent-fluent-bit 1.8.5-debug
+fluent/fluent-bit rancher/mirrored-fluent-fluent-bit 1.8.7
+fluent/fluent-bit rancher/mirrored-fluent-fluent-bit 1.8.7-debug
 gcr.io/cloud-provider-vsphere/cpi/release/manager rancher/mirrored-cloud-provider-vsphere-cpi-release-manager v1.2.1
 gcr.io/cloud-provider-vsphere/csi/release/driver rancher/mirrored-cloud-provider-vsphere-csi-release-driver v2.1.0
 gcr.io/cloud-provider-vsphere/csi/release/driver rancher/mirrored-cloud-provider-vsphere-csi-release-driver v2.2.0
