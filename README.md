@@ -15,9 +15,9 @@ This list is maintained in the `images-list` file, which is structured with the 
 <original-image-name> <rancher-image-name> <image-tag>
 ```
 
-Here is an example...
+The basic `rancher-image-name` structure is `mirrored-<org>-<repo>` and here is an example...
 ```
-banzaicloud/logging-operator rancher/banzaicloud-logging-operator 3.7.0
+banzaicloud/logging-operator rancher/mirrored-banzaicloud-logging-operator 3.7.0
 ```
 
 ### 2. Multi-Arch Images
