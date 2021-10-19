@@ -12,7 +12,7 @@ steps:
     commands:
       - grep -vE '^\s*(#|//)' images-list | sort -Vc
   - name: mirror-images
-    image: rancher/dapper:v0.5.3
+    image: rancher/dapper:v0.5.7
     volumes:
       - name: docker
         path: /var/run/docker.sock
