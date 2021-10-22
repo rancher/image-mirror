@@ -199,6 +199,7 @@ jaegertracing/all-in-one rancher/jaegertracing-all-in-one 1.20.0
 jaegertracing/all-in-one rancher/mirrored-jaegertracing-all-in-one 1.14
 jaegertracing/all-in-one rancher/mirrored-jaegertracing-all-in-one 1.20.0
 jaegertracing/all-in-one rancher/mirrored-jaegertracing-all-in-one 1.26.0
+jaegertracing/all-in-one rancher/mirrored-jaegertracing-all-in-one 1.27.0
 jenkins/jnlp-slave rancher/mirrored-jenkins-jnlp-slave 3.35-4
 jenkins/jnlp-slave rancher/mirrored-jenkins-jnlp-slave 4.7-1
 jettech/kube-webhook-certgen rancher/jettech-kube-webhook-certgen v1.2.1
