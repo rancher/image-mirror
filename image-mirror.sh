@@ -43,7 +43,7 @@ function set_repo_description {
   trap 'echo -e "===\nFailed to set description for ${DEST_SPEC}\n==="' ERR
 
   # Updates the Overview tab on Docker Hub with a description of the source and tag.
-  if [ ! -z "${DOCKER_TOKEN:-}" ] && grep -qF 'docker.io' <<< ${DEST_SPEC}; then
+  if [ -n "${DOCKER_TOKEN:-}" ] && grep -qF 'docker.io' <<< ${DEST_SPEC}; then
     echo "Updating description for ${DEST_SPEC}"
     MESSAGE=$(sed -E 's/^\s+//g' <<< "This repository is an automated partial mirror of  \`${SOURCE_SPEC}\`.
 
@@ -80,7 +80,7 @@ function mirror_image {
   fi
 
   # override destination org/user if set
-  if [ ! -z "${DEST_ORG_OVERRIDE:-}" ]; then
+  if [ -n "${DEST_ORG_OVERRIDE:-}" ]; then
     DEST[1]="${DEST_ORG_OVERRIDE}"
   fi
 
@@ -99,7 +99,8 @@ function mirror_image {
     # then recombining them into a single manifest list on the bare tags.
     if [ "${MEDIATYPE}" == "application/vnd.docker.distribution.manifest.list.v2+json" ]; then
       echo "${SOURCE}:${TAG} is manifest.list.v2"
-      DOCKER_FLAGS=""
+      SOURCES=()
+      DIGESTS=()
       for ARCH in ${ARCH_LIST}; do
         VARIANT_INDEX="0"
         DIGEST_VARIANT_LIST=$(jq -r --arg ARCH "${ARCH}" \
@@ -122,15 +123,14 @@ function mirror_image {
           if [ -z "${DIGEST}" ] || [ "${DIGEST}" == "null" ]; then
             echo -e "\t${ARCH} NOT FOUND"
           else
-            # We have to copy the full descriptor here; if we just point buildx at another tag or hash it will loose the variant
+            # We have to copy the full descriptor here; if we just point buildx at another tag or hash it will lose the variant
             # info since that's not stored anywhere outside the manifest list itself.
+            copy_if_changed "${SOURCE}@${DIGEST}" "${DEST}:${TAG}-${ARCH}${VARIANT}" "${ARCH}"
+            echo -e "\tAdding ${DEST}:${TAG}-${ARCH}${VARIANT} => ${DEST}:${TAG}"
             DESCRIPTOR=$(jq -c -r --arg DIGEST "${DIGEST}" '.manifests | map(select(.digest == $DIGEST)) | first' <<< ${MANIFEST})
-            if copy_if_changed "${SOURCE}@${DIGEST}" "${DEST}:${TAG}-${ARCH}${VARIANT}" "${ARCH}"; then
-              echo -e "\tAdding ${DEST}:${TAG}-${ARCH}${VARIANT} => ${DEST}:${TAG}"
-              docker buildx imagetools create ${DOCKER_FLAGS} --tag "${DEST}:${TAG}" "${DESCRIPTOR}"
-              DOCKER_FLAGS="--append"
-            fi
-            let "++VARIANT_INDEX"
+            SOURCES+=("${DESCRIPTOR}")
+            DIGESTS+=("${DIGEST}")
+            ((++VARIANT_INDEX))
           fi
         done <<< ${DIGEST_VARIANT_LIST}
       done
@@ -142,10 +142,10 @@ function mirror_image {
       ARCH=$(jq -r '.architecture' <<< ${CONFIG})
       DIGEST=$(jq -r '.config.digest' <<< ${MANIFEST})
       if grep -wqF ${ARCH} <<< ${ARCH_LIST}; then
-        if copy_if_changed "${SOURCE}:${TAG}" "${DEST}:${TAG}-${ARCH}" "${ARCH}"; then
-          echo -e "\tAdding ${DEST}:${TAG}-${ARCH} => ${DEST}:${TAG}"
-          docker buildx imagetools create --tag ${DEST}:${TAG} ${DEST}:${TAG}-${ARCH}
-        fi
+        copy_if_changed "${SOURCE}:${TAG}" "${DEST}:${TAG}-${ARCH}" "${ARCH}"
+        echo -e "\tAdding ${DEST}:${TAG}-${ARCH} => ${DEST}:${TAG}"
+        SOURCES+=("${DEST}:${TAG}-${ARCH}")
+        DIGESTS+=("${DIGEST}")
       fi
     else 
       echo "${SOURCE}:${TAG} has unknown mediaType ${MEDIATYPE}"
@@ -160,7 +160,8 @@ function mirror_image {
     if grep -wqF ${ARCH} <<< ${ARCH_LIST}; then
       if copy_if_changed "${SOURCE}:${TAG}" "${DEST}:${TAG}-${ARCH}" "${ARCH}" "--format=v2s2"; then
         echo -e "\tAdding ${DEST}:${TAG}-${ARCH} => ${DEST}:${TAG}"
-        docker buildx imagetools create --tag ${DEST}:${TAG} ${DEST}:${TAG}-${ARCH}
+        SOURCES+=("${DEST}:${TAG}-${ARCH}")
+        DIGESTS+=("${DIGEST}")
       fi
     fi
   else
@@ -168,12 +169,29 @@ function mirror_image {
     return 1
   fi
 
-  set_repo_description ${SOURCE} ${DEST}
+  NEW_DIGESTS=$(printf '%s\n' "${DIGESTS[@]}" | sort)
+  CUR_MANIFEST=$(skopeo inspect docker://${DEST}:${TAG} --raw 2>/dev/null || true)
+  CUR_SCHEMAVERSION=$(jq -r '.schemaVersion' <<< ${CUR_MANIFEST})
+  CUR_MEDIATYPE=$(jq -r '.mediaType' <<< ${CUR_MANIFEST})
+ 
+  if [ "${CUR_SCHEMAVERSION}" == "2" ] && [ "${CUR_MEDIATYPE}" == "application/vnd.docker.distribution.manifest.list.v2+json" ]; then
+    CUR_DIGESTS=$(jq -r '.manifests[].digest' <<< ${CUR_MANIFEST} | sort)
+  else
+    CUR_DIGESTS=""
+  fi
+
+  if [ "${NEW_DIGESTS}" == "${CUR_DIGESTS}" ]; then
+    echo -e "\tNo changes to manifest list for ${DEST}:${TAG}"
+  else
+    echo -e "\tWriting manifest list to ${DEST}:${TAG}\n${NEW_DIGESTS}"
+    docker buildx imagetools create --tag ${DEST}:${TAG} "${SOURCES[@]}"
+    set_repo_description ${SOURCE} ${DEST}
+  fi
 }
 
 # Figure out if we should read input from a file or stdin
 # If we're given a file, verify that it exists
-if [ ! -z "${1:-}" ]; then
+if [ -n "${1:-}" ]; then
   INFILE="${1}"
   if [ ! -f "${INFILE}" ]; then
     echo "File ${INFILE} does not exist!"
