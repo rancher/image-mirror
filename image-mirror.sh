@@ -126,7 +126,6 @@ function mirror_image {
             # We have to copy the full descriptor here; if we just point buildx at another tag or hash it will lose the variant
             # info since that's not stored anywhere outside the manifest list itself.
             copy_if_changed "${SOURCE}@${DIGEST}" "${DEST}:${TAG}-${ARCH}${VARIANT}" "${ARCH}"
-            echo -e "\tAdding ${DEST}:${TAG}-${ARCH}${VARIANT} => ${DEST}:${TAG}"
             DESCRIPTOR=$(jq -c -r --arg DIGEST "${DIGEST}" '.manifests | map(select(.digest == $DIGEST)) | first' <<< ${MANIFEST})
             SOURCES+=("${DESCRIPTOR}")
             DIGESTS+=("${DIGEST}")
@@ -143,7 +142,6 @@ function mirror_image {
       DIGEST=$(jq -r '.config.digest' <<< ${MANIFEST})
       if grep -wqF ${ARCH} <<< ${ARCH_LIST}; then
         copy_if_changed "${SOURCE}:${TAG}" "${DEST}:${TAG}-${ARCH}" "${ARCH}"
-        echo -e "\tAdding ${DEST}:${TAG}-${ARCH} => ${DEST}:${TAG}"
         SOURCES+=("${DEST}:${TAG}-${ARCH}")
         DIGESTS+=("${DIGEST}")
       fi
@@ -159,7 +157,6 @@ function mirror_image {
     ARCH=$(jq -r '.architecture' <<< ${MANIFEST})
     if grep -wqF ${ARCH} <<< ${ARCH_LIST}; then
       if copy_if_changed "${SOURCE}:${TAG}" "${DEST}:${TAG}-${ARCH}" "${ARCH}" "--format=v2s2"; then
-        echo -e "\tAdding ${DEST}:${TAG}-${ARCH} => ${DEST}:${TAG}"
         SOURCES+=("${DEST}:${TAG}-${ARCH}")
         DIGESTS+=("${DIGEST}")
       fi
