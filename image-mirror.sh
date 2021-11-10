@@ -91,6 +91,8 @@ function mirror_image {
   MANIFEST=$(skopeo inspect docker://${SOURCE}:${TAG} --raw)
   SCHEMAVERSION=$(jq -r '.schemaVersion' <<< ${MANIFEST})
   MEDIATYPE=$(jq -r '.mediaType' <<< ${MANIFEST})
+  SOURCES=()
+  DIGESTS=()
  
   # Most everything should use a v2 schema, but some old images (on quay.io mostly) are still on v1
   if [ "${SCHEMAVERSION}" == "2" ]; then
@@ -99,8 +101,6 @@ function mirror_image {
     # then recombining them into a single manifest list on the bare tags.
     if [ "${MEDIATYPE}" == "application/vnd.docker.distribution.manifest.list.v2+json" ]; then
       echo "${SOURCE}:${TAG} is manifest.list.v2"
-      SOURCES=()
-      DIGESTS=()
       for ARCH in ${ARCH_LIST}; do
         VARIANT_INDEX="0"
         DIGEST_VARIANT_LIST=$(jq -r --arg ARCH "${ARCH}" \
