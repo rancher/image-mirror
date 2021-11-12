@@ -3,7 +3,7 @@
 set -uo pipefail
 export DOCKER_CLI_EXPERIMENTAL="enabled"
 
-ARCH_LIST="amd64 arm64 arm"
+ARCH_LIST="amd64 arm64 arm s390x"
 
 function copy_if_changed {
   SOURCE_REF="${1}"
