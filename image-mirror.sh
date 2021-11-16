@@ -79,6 +79,11 @@ function mirror_image {
     DEST=("docker.io" "${DEST[@]}")
   fi
 
+  # override destination registry if set
+  if [ -n "${DEST_REGISTRY_OVERRIDE:-}" ]; then
+    DEST[0]=${DEST_REGISTRY_OVERRIDE}
+  fi
+
   # override destination org/user if set
   if [ -n "${DEST_ORG_OVERRIDE:-}" ]; then
     DEST[1]="${DEST_ORG_OVERRIDE}"
