@@ -39,3 +39,4 @@ An EIO team member or manager will need to create the repo in DockerHub as well 
 
 - Flannel
 - CoreDNS
+- Longhorn
