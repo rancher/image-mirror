@@ -265,6 +265,7 @@ library/busybox rancher/library-busybox 1.31.1
 library/busybox rancher/library-busybox 1.32.1
 library/busybox rancher/mirrored-library-busybox 1.31.1
 library/busybox rancher/mirrored-library-busybox 1.32.1
+library/busybox rancher/mirrored-library-busybox 1.34.1
 library/nginx rancher/library-nginx 1.19.2-alpine
 library/nginx rancher/mirrored-library-nginx 1.19.2-alpine
 library/nginx rancher/mirrored-library-nginx 1.19.9-alpine
@@ -275,6 +276,7 @@ library/traefik rancher/library-traefik 2.4.8
 library/traefik rancher/library-traefik 2.4.9
 library/traefik rancher/mirrored-library-traefik 2.4.8
 library/traefik rancher/mirrored-library-traefik 2.5.0
+library/traefik rancher/mirrored-library-traefik 2.5.6
 longhornio/backing-image-manager rancher/longhornio-backing-image-manager v1_20210422
 longhornio/backing-image-manager rancher/longhornio-backing-image-manager v1_20210422_patch1
 longhornio/backing-image-manager rancher/longhornio-backing-image-manager v2_20210820
