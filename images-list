@@ -230,6 +230,7 @@ k8s.gcr.io/cpa/cluster-proportional-autoscaler rancher/mirrored-cluster-proporti
 k8s.gcr.io/cpa/cluster-proportional-autoscaler rancher/mirrored-cluster-proportional-autoscaler 1.8.5
 k8s.gcr.io/dns/k8s-dns-dnsmasq-nanny rancher/mirrored-k8s-dns-dnsmasq-nanny 1.17.3
 k8s.gcr.io/dns/k8s-dns-dnsmasq-nanny rancher/mirrored-k8s-dns-dnsmasq-nanny 1.17.4
+k8s.gcr.io/dns/k8s-dns-dnsmasq-nanny rancher/mirrored-k8s-dns-dnsmasq-nanny 1.21.1
 k8s.gcr.io/dns/k8s-dns-kube-dns rancher/mirrored-k8s-dns-kube-dns 1.17.3
 k8s.gcr.io/dns/k8s-dns-kube-dns rancher/mirrored-k8s-dns-kube-dns 1.17.4
 k8s.gcr.io/dns/k8s-dns-node-cache rancher/mirrored-k8s-dns-node-cache 1.17.3
@@ -238,6 +239,7 @@ k8s.gcr.io/dns/k8s-dns-node-cache rancher/mirrored-k8s-dns-node-cache 1.18.0
 k8s.gcr.io/dns/k8s-dns-node-cache rancher/mirrored-k8s-dns-node-cache 1.21.1
 k8s.gcr.io/dns/k8s-dns-sidecar rancher/mirrored-k8s-dns-sidecar 1.17.3
 k8s.gcr.io/dns/k8s-dns-sidecar rancher/mirrored-k8s-dns-sidecar 1.17.4
+k8s.gcr.io/dns/k8s-dns-sidecar rancher/mirrored-k8s-dns-sidecar 1.21.1
 k8s.gcr.io/ingress-nginx/kube-webhook-certgen rancher/mirrored-ingress-nginx-kube-webhook-certgen v1.0
 k8s.gcr.io/ingress-nginx/kube-webhook-certgen rancher/mirrored-ingress-nginx-kube-webhook-certgen v1.1.1
 k8s.gcr.io/kube-state-metrics/kube-state-metrics rancher/mirrored-kube-state-metrics-kube-state-metrics v1.9.8
@@ -249,6 +251,7 @@ k8s.gcr.io/metrics-server/metrics-server rancher/mirrored-metrics-server v0.4.4
 k8s.gcr.io/metrics-server/metrics-server rancher/mirrored-metrics-server v0.5.0
 k8s.gcr.io/metrics-server/metrics-server rancher/mirrored-metrics-server v0.5.1
 k8s.gcr.io/metrics-server/metrics-server rancher/mirrored-metrics-server v0.5.2
+k8s.gcr.io/metrics-server/metrics-server rancher/mirrored-metrics-server v0.6.1
 k8s.gcr.io/pause rancher/mirrored-pause 3.4.1
 k8s.gcr.io/pause rancher/mirrored-pause 3.5
 k8s.gcr.io/pause rancher/mirrored-pause 3.6
@@ -553,6 +556,7 @@ quay.io/cilium/operator-generic rancher/mirrored-cilium-operator-generic v1.11.0
 quay.io/cilium/operator-generic rancher/mirrored-cilium-operator-generic v1.11.1
 quay.io/cilium/startup-script rancher/mirrored-cilium-startup-script 62bfbe88c17778aad7bef9fa57ff9e2d4a9ba0d8
 quay.io/coreos/etcd rancher/mirrored-coreos-etcd v3.5.0
+quay.io/coreos/etcd rancher/mirrored-coreos-etcd v3.5.2
 quay.io/coreos/flannel rancher/mirrored-coreos-flannel v0.13.0
 quay.io/coreos/flannel rancher/mirrored-coreos-flannel v0.14.0
 quay.io/coreos/flannel rancher/mirrored-coreos-flannel v0.15.0
