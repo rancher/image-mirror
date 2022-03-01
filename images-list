@@ -51,6 +51,7 @@ flannelcni/flannel rancher/mirrored-flannelcni-flannel v0.16.0
 flannelcni/flannel rancher/mirrored-flannelcni-flannel v0.16.1
 flannelcni/flannel rancher/mirrored-flannelcni-flannel v0.16.2
 flannelcni/flannel rancher/mirrored-flannelcni-flannel v0.16.3
+flannelcni/flannel rancher/mirrored-flannelcni-flannel v0.17.0
 flannelcni/flannel-cni-plugin rancher/mirrored-flannelcni-flannel-cni-plugin v1.0.0
 flannelcni/flannel-cni-plugin rancher/mirrored-flannelcni-flannel-cni-plugin v1.0.1
 fluent/fluent-bit rancher/fluent-fluent-bit 1.5.4
