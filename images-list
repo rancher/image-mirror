@@ -125,6 +125,7 @@ ghcr.io/banzaicloud/fluentd rancher/mirrored-banzaicloud-fluentd v1.14.4-alpine-
 ghcr.io/banzaicloud/logging-operator rancher/mirrored-banzaicloud-logging-operator 3.14.0
 ghcr.io/banzaicloud/logging-operator rancher/mirrored-banzaicloud-logging-operator 3.15.0
 ghcr.io/banzaicloud/logging-operator rancher/mirrored-banzaicloud-logging-operator 3.17.1
+ghcr.io/banzaicloud/logging-operator rancher/mirrored-banzaicloud-logging-operator 3.17.3
 grafana/grafana rancher/grafana-grafana 7.1.5
 grafana/grafana rancher/grafana-grafana 7.2.1
 grafana/grafana rancher/mirrored-grafana-grafana 6.7.4
