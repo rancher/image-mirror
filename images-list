@@ -447,8 +447,6 @@ minio/minio rancher/mirrored-minio-minio RELEASE.2020-07-13T18-09-56Z
 neuvector/controller rancher/mirrored-neuvector-controller 5.0.0-b1
 neuvector/enforcer rancher/mirrored-neuvector-enforcer 5.0.0-b1
 neuvector/manager rancher/mirrored-neuvector-manager 5.0.0-b1
-neuvector/scanner rancher/mirrored-neuvector-scanner latest
-neuvector/updater rancher/mirrored-neuvector-updater latest
 openpolicyagent/gatekeeper rancher/mirrored-openpolicyagent-gatekeeper v3.3.0
 openpolicyagent/gatekeeper rancher/mirrored-openpolicyagent-gatekeeper v3.4.0
 openpolicyagent/gatekeeper rancher/mirrored-openpolicyagent-gatekeeper v3.5.1
