@@ -632,6 +632,7 @@ quay.io/cilium/operator-generic rancher/mirrored-cilium-operator-generic v1.11.2
 quay.io/cilium/startup-script rancher/mirrored-cilium-startup-script 62bfbe88c17778aad7bef9fa57ff9e2d4a9ba0d8
 quay.io/coreos/etcd rancher/mirrored-coreos-etcd v3.5.0
 quay.io/coreos/etcd rancher/mirrored-coreos-etcd v3.5.2
+quay.io/coreos/etcd rancher/mirrored-coreos-etcd v3.5.3
 quay.io/coreos/flannel rancher/mirrored-coreos-flannel v0.13.0
 quay.io/coreos/flannel rancher/mirrored-coreos-flannel v0.14.0
 quay.io/coreos/flannel rancher/mirrored-coreos-flannel v0.15.0
