@@ -3,6 +3,8 @@
 # https://github.com/rancher/image-mirror/pull/27
 #
 # LIST FORMAT: <SOURCE> <DESTINATION> <TAG>
+amazon/aws-cli rancher/mirrored-amazon-aws-cli 2.0.52
+appscode/kubed rancher/mirrored-appscode-kubed v0.13.2
 banzaicloud/fluentd rancher/banzaicloud-fluentd v1.11.2-alpine-2
 banzaicloud/fluentd rancher/banzaicloud-fluentd v1.11.4-alpine-1
 banzaicloud/fluentd rancher/banzaicloud-fluentd v1.11.5-alpine-1
@@ -131,6 +133,8 @@ ghcr.io/banzaicloud/logging-operator rancher/mirrored-banzaicloud-logging-operat
 ghcr.io/banzaicloud/logging-operator rancher/mirrored-banzaicloud-logging-operator 3.17.1
 ghcr.io/banzaicloud/logging-operator rancher/mirrored-banzaicloud-logging-operator 3.17.3
 ghcr.io/banzaicloud/logging-operator rancher/mirrored-banzaicloud-logging-operator 3.17.4
+ghcr.io/epinio/epinio-server rancher/mirrored-epinio-server 0.7.1
+ghcr.io/epinio/epinio-ui rancher/mirrored-epinio-epinio-ui v0.6.2-0.0.1
 grafana/grafana rancher/grafana-grafana 7.1.5
 grafana/grafana rancher/grafana-grafana 7.2.1
 grafana/grafana rancher/mirrored-grafana-grafana 6.7.4
@@ -303,6 +307,8 @@ k8s.gcr.io/sig-storage/livenessprobe rancher/mirrored-sig-storage-livenessprobe 
 kiwigrid/k8s-sidecar rancher/kiwigrid-k8s-sidecar 0.1.151
 kiwigrid/k8s-sidecar rancher/kiwigrid-k8s-sidecar 1.1.0
 kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 0.1.151
+lachlanevenson/k8s-kubectl rancher/mirrored-lachlanevenson-k8s-kubectl v1.22.2
+library/bash rancher/mirrored-library-bash 5.1.4
 library/busybox rancher/library-busybox 1.31.1
 library/busybox rancher/library-busybox 1.32.1
 library/busybox rancher/mirrored-library-busybox 1.31.1
@@ -449,6 +455,7 @@ neuvector/enforcer rancher/mirrored-neuvector-enforcer 5.0.0-b1
 neuvector/enforcer rancher/mirrored-neuvector-enforcer 5.0.0-b2
 neuvector/manager rancher/mirrored-neuvector-manager 5.0.0-b1
 neuvector/manager rancher/mirrored-neuvector-manager 5.0.0-b2
+nginx rancher/mirrored-nginx 1.21.6
 openpolicyagent/gatekeeper rancher/mirrored-openpolicyagent-gatekeeper v3.3.0
 openpolicyagent/gatekeeper rancher/mirrored-openpolicyagent-gatekeeper v3.4.0
 openpolicyagent/gatekeeper rancher/mirrored-openpolicyagent-gatekeeper v3.5.1
@@ -464,6 +471,7 @@ openpolicyagent/gatekeeper-crds rancher/mirrored-openpolicyagent-gatekeeper-crds
 openpolicyagent/gatekeeper-crds rancher/mirrored-openpolicyagent-gatekeeper-crds v3.7.0
 openpolicyagent/gatekeeper-crds rancher/mirrored-openpolicyagent-gatekeeper-crds v3.7.1
 openzipkin/zipkin rancher/mirrored-openzipkin-zipkin 2.14.2
+paketobuildpacks/builder rancher/mirrored-paketobuildpacks-builder full
 plugins/docker rancher/mirrored-plugins-docker 18.09
 plugins/docker rancher/mirrored-plugins-docker 19.03.8
 prom/alertmanager rancher/mirrored-prom-alertmanager v0.21.0
@@ -678,6 +686,7 @@ quay.io/kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 1.10.7
 quay.io/kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 1.12.2
 quay.io/kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 1.12.3
 quay.io/kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 1.15.9
+quay.io/minio/minio rancher/mirrored-minio-minio RELEASE.2022-03-24T00-43-44Z
 quay.io/prometheus-operator/prometheus-config-reloader rancher/coreos-prometheus-config-reloader v0.43.0
 quay.io/prometheus-operator/prometheus-config-reloader rancher/mirrored-prometheus-operator-prometheus-config-reloader v0.46.0
 quay.io/prometheus-operator/prometheus-config-reloader rancher/mirrored-prometheus-operator-prometheus-config-reloader v0.48.0
@@ -723,6 +732,7 @@ rancher/coreos-flannel rancher/mirrored-coreos-flannel v0.12.0
 rancher/metrics-server rancher/mirrored-metrics-server v0.3.4
 rancher/metrics-server rancher/mirrored-metrics-server v0.3.6
 rancher/nginx-ingress-controller-defaultbackend rancher/mirrored-nginx-ingress-controller-defaultbackend 1.5-rancher1
+registry rancher/mirrored-registry 2.7.1
 rpardini/docker-registry-proxy rancher/rpardini-docker-registry-proxy 0.6.1
 sigwindowstools/k8s-gmsa-webhook rancher/mirrored-sigwindowstools-k8s-gmsa-webhook v0.3.0
 sonobuoy/sonobuoy rancher/mirrored-sonobuoy-sonobuoy v0.16.3
