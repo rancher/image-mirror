@@ -605,6 +605,7 @@ quay.io/cilium/cilium rancher/mirrored-cilium-cilium v1.10.7
 quay.io/cilium/cilium rancher/mirrored-cilium-cilium v1.11.0
 quay.io/cilium/cilium rancher/mirrored-cilium-cilium v1.11.1
 quay.io/cilium/cilium rancher/mirrored-cilium-cilium v1.11.2
+quay.io/cilium/cilium rancher/mirrored-cilium-cilium v1.11.4
 quay.io/cilium/operator-aws rancher/mirrored-cilium-operator-aws v1.9.4
 quay.io/cilium/operator-aws rancher/mirrored-cilium-operator-aws v1.9.6
 quay.io/cilium/operator-aws rancher/mirrored-cilium-operator-aws v1.9.8
@@ -614,6 +615,7 @@ quay.io/cilium/operator-aws rancher/mirrored-cilium-operator-aws v1.10.7
 quay.io/cilium/operator-aws rancher/mirrored-cilium-operator-aws v1.11.0
 quay.io/cilium/operator-aws rancher/mirrored-cilium-operator-aws v1.11.1
 quay.io/cilium/operator-aws rancher/mirrored-cilium-operator-aws v1.11.2
+quay.io/cilium/operator-aws rancher/mirrored-cilium-operator-aws v1.11.4
 quay.io/cilium/operator-azure rancher/mirrored-cilium-operator-azure v1.9.4
 quay.io/cilium/operator-azure rancher/mirrored-cilium-operator-azure v1.9.6
 quay.io/cilium/operator-azure rancher/mirrored-cilium-operator-azure v1.9.8
@@ -623,6 +625,7 @@ quay.io/cilium/operator-azure rancher/mirrored-cilium-operator-azure v1.10.7
 quay.io/cilium/operator-azure rancher/mirrored-cilium-operator-azure v1.11.0
 quay.io/cilium/operator-azure rancher/mirrored-cilium-operator-azure v1.11.1
 quay.io/cilium/operator-azure rancher/mirrored-cilium-operator-azure v1.11.2
+quay.io/cilium/operator-azure rancher/mirrored-cilium-operator-azure v1.11.4
 quay.io/cilium/operator-generic rancher/mirrored-cilium-operator-generic v1.9.4
 quay.io/cilium/operator-generic rancher/mirrored-cilium-operator-generic v1.9.6
 quay.io/cilium/operator-generic rancher/mirrored-cilium-operator-generic v1.9.8
@@ -632,6 +635,7 @@ quay.io/cilium/operator-generic rancher/mirrored-cilium-operator-generic v1.10.7
 quay.io/cilium/operator-generic rancher/mirrored-cilium-operator-generic v1.11.0
 quay.io/cilium/operator-generic rancher/mirrored-cilium-operator-generic v1.11.1
 quay.io/cilium/operator-generic rancher/mirrored-cilium-operator-generic v1.11.2
+quay.io/cilium/operator-generic rancher/mirrored-cilium-operator-generic v1.11.4
 quay.io/cilium/startup-script rancher/mirrored-cilium-startup-script 62bfbe88c17778aad7bef9fa57ff9e2d4a9ba0d8
 quay.io/coreos/etcd rancher/mirrored-coreos-etcd v3.5.0
 quay.io/coreos/etcd rancher/mirrored-coreos-etcd v3.5.2
