@@ -721,6 +721,7 @@ quay.io/tigera/operator rancher/mirrored-calico-operator v1.20.4
 quay.io/tigera/operator rancher/mirrored-calico-operator v1.23.3
 quay.io/tigera/operator rancher/mirrored-calico-operator v1.23.5
 quay.io/tigera/operator rancher/mirrored-calico-operator v1.23.6
+quay.io/tigera/operator rancher/mirrored-calico-operator v1.23.7
 quay.io/tigera/operator rancher/mirrored-calico-operator v1.25.0
 quay.io/tigera/operator rancher/mirrored-calico-operator v1.25.3
 quay.io/tigera/operator rancher/mirrored-calico-operator v1.25.4
