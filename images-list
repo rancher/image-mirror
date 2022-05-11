@@ -443,10 +443,13 @@ longhornio/longhorn-ui rancher/mirrored-longhornio-longhorn-ui v1.2.4
 messagebird/sachet rancher/mirrored-messagebird-sachet 0.2.3
 messagebird/sachet rancher/mirrored-messagebird-sachet 0.2.6
 minio/minio rancher/mirrored-minio-minio RELEASE.2020-07-13T18-09-56Z
+neuvector/controller rancher/mirrored-neuvector-controller 5.0.0
 neuvector/controller rancher/mirrored-neuvector-controller 5.0.0-b1
 neuvector/controller rancher/mirrored-neuvector-controller 5.0.0-b2
+neuvector/enforcer rancher/mirrored-neuvector-enforcer 5.0.0
 neuvector/enforcer rancher/mirrored-neuvector-enforcer 5.0.0-b1
 neuvector/enforcer rancher/mirrored-neuvector-enforcer 5.0.0-b2
+neuvector/manager rancher/mirrored-neuvector-manager 5.0.0
 neuvector/manager rancher/mirrored-neuvector-manager 5.0.0-b1
 neuvector/manager rancher/mirrored-neuvector-manager 5.0.0-b2
 openpolicyagent/gatekeeper rancher/mirrored-openpolicyagent-gatekeeper v3.3.0
