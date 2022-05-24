@@ -275,6 +275,7 @@ k8s.gcr.io/dns/k8s-dns-node-cache rancher/mirrored-k8s-dns-node-cache 1.21.1
 k8s.gcr.io/dns/k8s-dns-sidecar rancher/mirrored-k8s-dns-sidecar 1.17.3
 k8s.gcr.io/dns/k8s-dns-sidecar rancher/mirrored-k8s-dns-sidecar 1.17.4
 k8s.gcr.io/dns/k8s-dns-sidecar rancher/mirrored-k8s-dns-sidecar 1.21.1
+k8s.gcr.io/git-sync/git-sync rancher/mirrored-git-sync v3.5.0
 k8s.gcr.io/ingress-nginx/kube-webhook-certgen rancher/mirrored-ingress-nginx-kube-webhook-certgen v1.0
 k8s.gcr.io/ingress-nginx/kube-webhook-certgen rancher/mirrored-ingress-nginx-kube-webhook-certgen v1.1.1
 k8s.gcr.io/kube-state-metrics/kube-state-metrics rancher/mirrored-kube-state-metrics-kube-state-metrics v1.9.8
