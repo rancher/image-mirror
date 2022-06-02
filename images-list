@@ -319,6 +319,7 @@ library/nginx rancher/mirrored-library-nginx 1.19.2-alpine
 library/nginx rancher/mirrored-library-nginx 1.19.9-alpine
 library/nginx rancher/mirrored-library-nginx 1.21.0-alpine
 library/nginx rancher/mirrored-library-nginx 1.21.1-alpine
+library/registry rancher/mirrored-registry 2.7.1
 library/traefik rancher/library-traefik 2.4.2
 library/traefik rancher/library-traefik 2.4.8
 library/traefik rancher/library-traefik 2.4.9
@@ -471,7 +472,7 @@ openpolicyagent/gatekeeper-crds rancher/mirrored-openpolicyagent-gatekeeper-crds
 openpolicyagent/gatekeeper-crds rancher/mirrored-openpolicyagent-gatekeeper-crds v3.7.0
 openpolicyagent/gatekeeper-crds rancher/mirrored-openpolicyagent-gatekeeper-crds v3.7.1
 openzipkin/zipkin rancher/mirrored-openzipkin-zipkin 2.14.2
-paketobuildpacks/builder rancher/mirrored-paketobuildpacks-builder full
+paketobuildpacks/builder rancher/mirrored-paketobuildpacks-builder 0.2.95-full
 plugins/docker rancher/mirrored-plugins-docker 18.09
 plugins/docker rancher/mirrored-plugins-docker 19.03.8
 prom/alertmanager rancher/mirrored-prom-alertmanager v0.21.0
@@ -732,7 +733,6 @@ rancher/coreos-flannel rancher/mirrored-coreos-flannel v0.12.0
 rancher/metrics-server rancher/mirrored-metrics-server v0.3.4
 rancher/metrics-server rancher/mirrored-metrics-server v0.3.6
 rancher/nginx-ingress-controller-defaultbackend rancher/mirrored-nginx-ingress-controller-defaultbackend 1.5-rancher1
-registry rancher/mirrored-registry 2.7.1
 rpardini/docker-registry-proxy rancher/rpardini-docker-registry-proxy 0.6.1
 sigwindowstools/k8s-gmsa-webhook rancher/mirrored-sigwindowstools-k8s-gmsa-webhook v0.3.0
 sonobuoy/sonobuoy rancher/mirrored-sonobuoy-sonobuoy v0.16.3
