@@ -133,7 +133,7 @@ ghcr.io/banzaicloud/logging-operator rancher/mirrored-banzaicloud-logging-operat
 ghcr.io/banzaicloud/logging-operator rancher/mirrored-banzaicloud-logging-operator 3.17.1
 ghcr.io/banzaicloud/logging-operator rancher/mirrored-banzaicloud-logging-operator 3.17.3
 ghcr.io/banzaicloud/logging-operator rancher/mirrored-banzaicloud-logging-operator 3.17.4
-ghcr.io/epinio/epinio-server rancher/mirrored-epinio-server 0.7.1
+ghcr.io/epinio/epinio-server rancher/mirrored-epinio-epinio-server 0.7.1
 ghcr.io/epinio/epinio-ui rancher/mirrored-epinio-epinio-ui v0.6.2-0.0.1
 grafana/grafana rancher/grafana-grafana 7.1.5
 grafana/grafana rancher/grafana-grafana 7.2.1
@@ -319,6 +319,7 @@ library/nginx rancher/mirrored-library-nginx 1.19.2-alpine
 library/nginx rancher/mirrored-library-nginx 1.19.9-alpine
 library/nginx rancher/mirrored-library-nginx 1.21.0-alpine
 library/nginx rancher/mirrored-library-nginx 1.21.1-alpine
+library/nginx rancher/mirrored-library-nginx 1.21.6-alpine
 library/registry rancher/mirrored-registry 2.7.1
 library/traefik rancher/library-traefik 2.4.2
 library/traefik rancher/library-traefik 2.4.8
@@ -456,7 +457,6 @@ neuvector/enforcer rancher/mirrored-neuvector-enforcer 5.0.0-b1
 neuvector/enforcer rancher/mirrored-neuvector-enforcer 5.0.0-b2
 neuvector/manager rancher/mirrored-neuvector-manager 5.0.0-b1
 neuvector/manager rancher/mirrored-neuvector-manager 5.0.0-b2
-nginx rancher/mirrored-nginx 1.21.6
 openpolicyagent/gatekeeper rancher/mirrored-openpolicyagent-gatekeeper v3.3.0
 openpolicyagent/gatekeeper rancher/mirrored-openpolicyagent-gatekeeper v3.4.0
 openpolicyagent/gatekeeper rancher/mirrored-openpolicyagent-gatekeeper v3.5.1
