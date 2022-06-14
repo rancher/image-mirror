@@ -320,7 +320,6 @@ k8s.gcr.io/sig-storage/livenessprobe rancher/mirrored-sig-storage-livenessprobe 
 kiwigrid/k8s-sidecar rancher/kiwigrid-k8s-sidecar 0.1.151
 kiwigrid/k8s-sidecar rancher/kiwigrid-k8s-sidecar 1.1.0
 kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 0.1.151
-library/bash rancher/mirrored-library-bash 5.1.4
 library/busybox rancher/library-busybox 1.31.1
 library/busybox rancher/library-busybox 1.32.1
 library/busybox rancher/mirrored-library-busybox 1.31.1
@@ -332,7 +331,7 @@ library/nginx rancher/mirrored-library-nginx 1.19.9-alpine
 library/nginx rancher/mirrored-library-nginx 1.21.0-alpine
 library/nginx rancher/mirrored-library-nginx 1.21.1-alpine
 library/nginx rancher/mirrored-library-nginx 1.21.6-alpine
-library/registry rancher/mirrored-registry 2.7.1
+library/registry rancher/mirrored-library-registry 2.7.1
 library/traefik rancher/library-traefik 2.4.2
 library/traefik rancher/library-traefik 2.4.8
 library/traefik rancher/library-traefik 2.4.9
