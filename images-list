@@ -307,7 +307,6 @@ k8s.gcr.io/sig-storage/livenessprobe rancher/mirrored-sig-storage-livenessprobe 
 kiwigrid/k8s-sidecar rancher/kiwigrid-k8s-sidecar 0.1.151
 kiwigrid/k8s-sidecar rancher/kiwigrid-k8s-sidecar 1.1.0
 kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 0.1.151
-lachlanevenson/k8s-kubectl rancher/mirrored-lachlanevenson-k8s-kubectl v1.22.2
 library/bash rancher/mirrored-library-bash 5.1.4
 library/busybox rancher/library-busybox 1.31.1
 library/busybox rancher/library-busybox 1.32.1
