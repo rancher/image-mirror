@@ -469,6 +469,7 @@ openpolicyagent/gatekeeper rancher/mirrored-openpolicyagent-gatekeeper v3.5.2
 openpolicyagent/gatekeeper rancher/mirrored-openpolicyagent-gatekeeper v3.6.0
 openpolicyagent/gatekeeper rancher/mirrored-openpolicyagent-gatekeeper v3.7.0
 openpolicyagent/gatekeeper rancher/mirrored-openpolicyagent-gatekeeper v3.7.1
+openpolicyagent/gatekeeper rancher/mirrored-openpolicyagent-gatekeeper v3.8.1
 openpolicyagent/gatekeeper rancher/openpolicyagent-gatekeeper v3.1.0
 openpolicyagent/gatekeeper rancher/openpolicyagent-gatekeeper v3.1.1
 openpolicyagent/gatekeeper rancher/openpolicyagent-gatekeeper v3.2.1
@@ -476,6 +477,7 @@ openpolicyagent/gatekeeper rancher/openpolicyagent-gatekeeper v3.3.0
 openpolicyagent/gatekeeper-crds rancher/mirrored-openpolicyagent-gatekeeper-crds v3.6.0
 openpolicyagent/gatekeeper-crds rancher/mirrored-openpolicyagent-gatekeeper-crds v3.7.0
 openpolicyagent/gatekeeper-crds rancher/mirrored-openpolicyagent-gatekeeper-crds v3.7.1
+openpolicyagent/gatekeeper-crds rancher/mirrored-openpolicyagent-gatekeeper-crds v3.8.1
 openzipkin/zipkin rancher/mirrored-openzipkin-zipkin 2.14.2
 plugins/docker rancher/mirrored-plugins-docker 18.09
 plugins/docker rancher/mirrored-plugins-docker 19.03.8
