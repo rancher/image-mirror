@@ -153,7 +153,9 @@ ghcr.io/banzaicloud/logging-operator rancher/mirrored-banzaicloud-logging-operat
 ghcr.io/banzaicloud/logging-operator rancher/mirrored-banzaicloud-logging-operator 3.17.4
 ghcr.io/banzaicloud/logging-operator rancher/mirrored-banzaicloud-logging-operator 3.17.7
 ghcr.io/epinio/epinio-server rancher/mirrored-epinio-epinio-server 0.7.1
+ghcr.io/epinio/epinio-server rancher/mirrored-epinio-epinio-server v1.0.0
 ghcr.io/epinio/epinio-ui rancher/mirrored-epinio-epinio-ui v0.6.2-0.0.1
+ghcr.io/epinio/epinio-ui rancher/mirrored-epinio-epinio-ui v1.0.0-0.0.4
 grafana/grafana rancher/grafana-grafana 7.1.5
 grafana/grafana rancher/grafana-grafana 7.2.1
 grafana/grafana rancher/mirrored-grafana-grafana 6.7.4
@@ -497,7 +499,9 @@ longhornio/longhorn-ui rancher/mirrored-longhornio-longhorn-ui v1.3.0
 messagebird/sachet rancher/mirrored-messagebird-sachet 0.2.3
 messagebird/sachet rancher/mirrored-messagebird-sachet 0.2.6
 minio/mc rancher/mirrored-minio-mc RELEASE.2020-07-13T18-09-56Z
+minio/mc rancher/mirrored-minio-mc RELEASE.2022-05-09T04-08-26Z
 minio/minio rancher/mirrored-minio-minio RELEASE.2020-07-13T18-09-56Z
+minio/minio rancher/mirrored-minio-minio RELEASE.2022-05-08T23-50-31Z
 neuvector/controller rancher/mirrored-neuvector-controller 5.0.0
 neuvector/controller rancher/mirrored-neuvector-controller 5.0.0-b1
 neuvector/controller rancher/mirrored-neuvector-controller 5.0.0-b2
