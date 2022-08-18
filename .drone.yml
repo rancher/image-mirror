@@ -8,10 +8,19 @@ platform:
 
 steps:
   - name: validate-list
-    image: library/ubuntu:21.04
+    image: library/ubuntu:22.04
     commands:
     - grep -vE '^\s*(#|//)' images-list | sort -Vc
     - grep -vE '^\s*(#|//)' images-list-daily | sort -Vc
+  - name: check-new-images-exist
+    image: rancher/dapper:v0.5.7
+    commands:
+      - make check-new-images-exist.sh
+    settings:
+      custom_dns: 1.1.1.1
+    when:
+      event:
+        - pull-request
   # this step will run on every push
   - name: mirror-images
     image: rancher/dapper:v0.5.7
@@ -24,12 +33,15 @@ steps:
       DOCKER_USERNAME:
         from_secret: docker_username
     commands:
-      - cat images-list | dapper
+      - make image-mirror.sh images-list
     settings:
       custom_dns: 1.1.1.1
     when:
       event:
         - push
+      ref:
+        include:
+          - "refs/heads/master"
   # this step will run on every push, and also via cron every day
   - name: mirror-images-daily
     image: rancher/dapper:v0.5.7
@@ -42,13 +54,16 @@ steps:
       DOCKER_USERNAME:
         from_secret: docker_username
     commands:
-      - cat images-list-daily | dapper
+      - make image-mirror.sh images-list-daily
     settings:
       custom_dns: 1.1.1.1
     when:
       event:
       - push
       - cron
+      ref:
+        include:
+          - "refs/heads/master"
 
 volumes:
   - name: docker
