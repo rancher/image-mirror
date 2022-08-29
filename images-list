@@ -155,6 +155,7 @@ ghcr.io/banzaicloud/logging-operator rancher/mirrored-banzaicloud-logging-operat
 ghcr.io/banzaicloud/logging-operator rancher/mirrored-banzaicloud-logging-operator 3.17.7
 ghcr.io/epinio/epinio-server rancher/mirrored-epinio-epinio-server 0.7.1
 ghcr.io/epinio/epinio-server rancher/mirrored-epinio-epinio-server v1.0.0
+ghcr.io/epinio/epinio-server rancher/mirrored-epinio-epinio-server v1.2.0
 ghcr.io/epinio/epinio-ui rancher/mirrored-epinio-epinio-ui v0.6.2-0.0.1
 ghcr.io/epinio/epinio-ui rancher/mirrored-epinio-epinio-ui v1.0.0-0.0.4
 grafana/grafana rancher/grafana-grafana 7.1.5
@@ -353,7 +354,9 @@ library/nginx rancher/mirrored-library-nginx 1.19.9-alpine
 library/nginx rancher/mirrored-library-nginx 1.21.0-alpine
 library/nginx rancher/mirrored-library-nginx 1.21.1-alpine
 library/nginx rancher/mirrored-library-nginx 1.21.6-alpine
+library/nginx rancher/mirrored-library-nginx 1.23.0-alpine
 library/registry rancher/mirrored-library-registry 2.7.1
+library/registry rancher/mirrored-library-registry 2.8.1
 library/traefik rancher/library-traefik 2.4.2
 library/traefik rancher/library-traefik 2.4.8
 library/traefik rancher/library-traefik 2.4.9
