@@ -156,6 +156,7 @@ ghcr.io/banzaicloud/logging-operator rancher/mirrored-banzaicloud-logging-operat
 ghcr.io/banzaicloud/logging-operator rancher/mirrored-banzaicloud-logging-operator 3.17.4
 ghcr.io/banzaicloud/logging-operator rancher/mirrored-banzaicloud-logging-operator 3.17.7
 ghcr.io/banzaicloud/logging-operator rancher/mirrored-banzaicloud-logging-operator 3.17.8
+ghcr.io/banzaicloud/logging-operator rancher/mirrored-banzaicloud-logging-operator 3.17.9
 ghcr.io/epinio/epinio-server rancher/mirrored-epinio-epinio-server 0.7.1
 ghcr.io/epinio/epinio-server rancher/mirrored-epinio-epinio-server v1.0.0
 ghcr.io/epinio/epinio-ui rancher/mirrored-epinio-epinio-ui v0.6.2-0.0.1
