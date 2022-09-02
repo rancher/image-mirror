@@ -106,6 +106,7 @@ gcr.io/cloud-provider-vsphere/cpi/release/manager rancher/mirrored-cloud-provide
 gcr.io/cloud-provider-vsphere/cpi/release/manager rancher/mirrored-cloud-provider-vsphere-cpi-release-manager v1.23.0-alpha.1
 gcr.io/cloud-provider-vsphere/cpi/release/manager rancher/mirrored-cloud-provider-vsphere-cpi-release-manager v1.23.1
 gcr.io/cloud-provider-vsphere/cpi/release/manager rancher/mirrored-cloud-provider-vsphere-cpi-release-manager v1.24.0
+gcr.io/cloud-provider-vsphere/cpi/release/manager rancher/mirrored-cloud-provider-vsphere-cpi-release-manager v1.24.1
 gcr.io/cloud-provider-vsphere/csi/release/driver rancher/mirrored-cloud-provider-vsphere-csi-release-driver v2.1.0
 gcr.io/cloud-provider-vsphere/csi/release/driver rancher/mirrored-cloud-provider-vsphere-csi-release-driver v2.2.0
 gcr.io/cloud-provider-vsphere/csi/release/driver rancher/mirrored-cloud-provider-vsphere-csi-release-driver v2.2.1
