@@ -6,6 +6,7 @@
 - [ ] New entries are in format `SOURCE DESTINATION TAG`
 - [ ] New entries are added to the correct section of the list (sorted lexicographically)
 - [ ] New entries have a repo created in Rancher Dockerhub (where the image will be mirrored to)
+- [ ] New entries have licenses of images listed here: TODO
 - [ ] Changes to scripting or CI config have been tested to the best of your ability
 
 #### Types of Change ####
