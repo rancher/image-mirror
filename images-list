@@ -356,6 +356,7 @@ k8s.gcr.io/pause rancher/mirrored-pause 3.4.1
 k8s.gcr.io/pause rancher/mirrored-pause 3.5
 k8s.gcr.io/pause rancher/mirrored-pause 3.6
 k8s.gcr.io/prometheus-adapter/prometheus-adapter rancher/mirrored-prometheus-adapter-prometheus-adapter v0.9.0
+k8s.gcr.io/prometheus-adapter/prometheus-adapter rancher/mirrored-prometheus-adapter-prometheus-adapter v0.10.0
 k8s.gcr.io/sig-storage/csi-attacher rancher/mirrored-sig-storage-csi-attacher v3.2.0
 k8s.gcr.io/sig-storage/csi-attacher rancher/mirrored-sig-storage-csi-attacher v3.3.0
 k8s.gcr.io/sig-storage/csi-attacher rancher/mirrored-sig-storage-csi-attacher v3.4.0
