@@ -185,6 +185,7 @@ grafana/grafana rancher/mirrored-grafana-grafana 7.1.5
 grafana/grafana rancher/mirrored-grafana-grafana 7.4.5
 grafana/grafana rancher/mirrored-grafana-grafana 7.5.8
 grafana/grafana rancher/mirrored-grafana-grafana 7.5.11
+grafana/grafana rancher/mirrored-grafana-grafana 8.5.3
 grafana/grafana rancher/mirrored-grafana-grafana 9.1.5
 grafana/grafana-image-renderer rancher/grafana-grafana-image-renderer 2.0.0
 grafana/grafana-image-renderer rancher/mirrored-grafana-grafana-image-renderer 2.0.1
@@ -875,6 +876,7 @@ quay.io/kiali/kiali rancher/mirrored-kiali-kiali v1.55.0
 quay.io/kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 1.10.7
 quay.io/kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 1.12.2
 quay.io/kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 1.12.3
+quay.io/kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 1.15.6
 quay.io/kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 1.15.9
 quay.io/kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 1.19.2
 quay.io/minio/minio rancher/mirrored-minio-minio RELEASE.2022-03-24T00-43-44Z
