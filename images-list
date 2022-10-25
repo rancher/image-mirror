@@ -114,6 +114,8 @@ gcr.io/cloud-provider-vsphere/cpi/release/manager rancher/mirrored-cloud-provide
 gcr.io/cloud-provider-vsphere/cpi/release/manager rancher/mirrored-cloud-provider-vsphere-cpi-release-manager v1.23.1
 gcr.io/cloud-provider-vsphere/cpi/release/manager rancher/mirrored-cloud-provider-vsphere-cpi-release-manager v1.24.0
 gcr.io/cloud-provider-vsphere/cpi/release/manager rancher/mirrored-cloud-provider-vsphere-cpi-release-manager v1.24.1
+gcr.io/cloud-provider-vsphere/cpi/release/manager rancher/mirrored-cloud-provider-vsphere-cpi-release-manager v1.24.2
+gcr.io/cloud-provider-vsphere/cpi/release/manager rancher/mirrored-cloud-provider-vsphere-cpi-release-manager v1.25.0
 gcr.io/cloud-provider-vsphere/csi/release/driver rancher/mirrored-cloud-provider-vsphere-csi-release-driver v2.1.0
 gcr.io/cloud-provider-vsphere/csi/release/driver rancher/mirrored-cloud-provider-vsphere-csi-release-driver v2.2.0
 gcr.io/cloud-provider-vsphere/csi/release/driver rancher/mirrored-cloud-provider-vsphere-csi-release-driver v2.2.1
@@ -127,8 +129,11 @@ gcr.io/cloud-provider-vsphere/csi/release/driver rancher/mirrored-cloud-provider
 gcr.io/cloud-provider-vsphere/csi/release/driver rancher/mirrored-cloud-provider-vsphere-csi-release-driver v2.5.1
 gcr.io/cloud-provider-vsphere/csi/release/driver rancher/mirrored-cloud-provider-vsphere-csi-release-driver v2.5.2
 gcr.io/cloud-provider-vsphere/csi/release/driver rancher/mirrored-cloud-provider-vsphere-csi-release-driver v2.5.3
+gcr.io/cloud-provider-vsphere/csi/release/driver rancher/mirrored-cloud-provider-vsphere-csi-release-driver v2.5.4
 gcr.io/cloud-provider-vsphere/csi/release/driver rancher/mirrored-cloud-provider-vsphere-csi-release-driver v2.6.0
 gcr.io/cloud-provider-vsphere/csi/release/driver rancher/mirrored-cloud-provider-vsphere-csi-release-driver v2.6.1
+gcr.io/cloud-provider-vsphere/csi/release/driver rancher/mirrored-cloud-provider-vsphere-csi-release-driver v2.6.2
+gcr.io/cloud-provider-vsphere/csi/release/driver rancher/mirrored-cloud-provider-vsphere-csi-release-driver v2.7.0
 gcr.io/cloud-provider-vsphere/csi/release/syncer rancher/mirrored-cloud-provider-vsphere-csi-release-syncer v2.1.0
 gcr.io/cloud-provider-vsphere/csi/release/syncer rancher/mirrored-cloud-provider-vsphere-csi-release-syncer v2.2.0
 gcr.io/cloud-provider-vsphere/csi/release/syncer rancher/mirrored-cloud-provider-vsphere-csi-release-syncer v2.2.1
@@ -142,8 +147,11 @@ gcr.io/cloud-provider-vsphere/csi/release/syncer rancher/mirrored-cloud-provider
 gcr.io/cloud-provider-vsphere/csi/release/syncer rancher/mirrored-cloud-provider-vsphere-csi-release-syncer v2.5.1
 gcr.io/cloud-provider-vsphere/csi/release/syncer rancher/mirrored-cloud-provider-vsphere-csi-release-syncer v2.5.2
 gcr.io/cloud-provider-vsphere/csi/release/syncer rancher/mirrored-cloud-provider-vsphere-csi-release-syncer v2.5.3
+gcr.io/cloud-provider-vsphere/csi/release/syncer rancher/mirrored-cloud-provider-vsphere-csi-release-syncer v2.5.4
 gcr.io/cloud-provider-vsphere/csi/release/syncer rancher/mirrored-cloud-provider-vsphere-csi-release-syncer v2.6.0
 gcr.io/cloud-provider-vsphere/csi/release/syncer rancher/mirrored-cloud-provider-vsphere-csi-release-syncer v2.6.1
+gcr.io/cloud-provider-vsphere/csi/release/syncer rancher/mirrored-cloud-provider-vsphere-csi-release-syncer v2.6.2
+gcr.io/cloud-provider-vsphere/csi/release/syncer rancher/mirrored-cloud-provider-vsphere-csi-release-syncer v2.7.0
 gcr.io/google-containers/k8s-dns-node-cache rancher/mirrored-k8s-dns-node-cache 1.15.7
 gcr.io/google-containers/k8s-dns-node-cache rancher/mirrored-k8s-dns-node-cache 1.15.13
 gcr.io/google_containers/k8s-dns-dnsmasq-nanny rancher/mirrored-k8s-dns-dnsmasq-nanny 1.15.0
