@@ -5,6 +5,7 @@
 # LIST FORMAT: <SOURCE> <DESTINATION> <TAG>
 amazon/aws-cli rancher/mirrored-amazon-aws-cli 2.0.52
 amazon/aws-cli rancher/mirrored-amazon-aws-cli 2.8.5
+amazon/aws-cli rancher/mirrored-amazon-aws-cli 2.8.9
 appscode/kubed rancher/mirrored-appscode-kubed v0.13.2
 banzaicloud/fluentd rancher/banzaicloud-fluentd v1.11.2-alpine-2
 banzaicloud/fluentd rancher/banzaicloud-fluentd v1.11.4-alpine-1
