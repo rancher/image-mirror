@@ -979,6 +979,8 @@ rancher/coreos-flannel rancher/mirrored-coreos-flannel v0.12.0
 rancher/metrics-server rancher/mirrored-metrics-server v0.3.4
 rancher/metrics-server rancher/mirrored-metrics-server v0.3.6
 rancher/nginx-ingress-controller-defaultbackend rancher/mirrored-nginx-ingress-controller-defaultbackend 1.5-rancher1
+registry.k8s.io/sig-storage/snapshot-controller rancher/mirrored-sig-storage-snapshot-controller v6.1.0
+registry.k8s.io/sig-storage/snapshot-validation-webhook rancher/mirrored-sig-storage-snapshot-validation-webhook v6.1.0
 registry.suse.com/bci/bci-busybox rancher/mirrored-bci-busybox 15.4.11.2
 registry.suse.com/bci/bci-micro rancher/mirrored-bci-micro 15.4.14.3
 rpardini/docker-registry-proxy rancher/rpardini-docker-registry-proxy 0.6.1
