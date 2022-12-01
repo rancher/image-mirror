@@ -191,9 +191,11 @@ ghcr.io/epinio/epinio-server rancher/mirrored-epinio-epinio-server 0.7.1
 ghcr.io/epinio/epinio-server rancher/mirrored-epinio-epinio-server v1.0.0
 ghcr.io/epinio/epinio-server rancher/mirrored-epinio-epinio-server v1.2.0
 ghcr.io/epinio/epinio-server rancher/mirrored-epinio-epinio-server v1.4.0
+ghcr.io/epinio/epinio-server rancher/mirrored-epinio-epinio-server v1.5.1
 ghcr.io/epinio/epinio-ui rancher/mirrored-epinio-epinio-ui v0.6.2-0.0.1
 ghcr.io/epinio/epinio-ui rancher/mirrored-epinio-epinio-ui v1.0.0-0.0.4
 ghcr.io/epinio/epinio-ui rancher/mirrored-epinio-epinio-ui v1.2.0-0.0.1
+ghcr.io/epinio/epinio-ui rancher/mirrored-epinio-epinio-ui v1.5.1-0.0.3
 ghcr.io/epinio/epinio-unpacker rancher/mirrored-epinio-epinio-unpacker 1.0
 grafana/grafana rancher/grafana-grafana 7.1.5
 grafana/grafana rancher/grafana-grafana 7.2.1
@@ -984,6 +986,7 @@ quay.io/prometheus/prometheus rancher/mirrored-prometheus-prometheus v2.38.0
 quay.io/prometheus/prometheus rancher/mirrored-prom-prometheus v2.18.2
 quay.io/prometheus/prometheus rancher/prom-prometheus v2.19.2
 quay.io/prometheus/prometheus rancher/prom-prometheus v2.22.0
+quay.io/skopeo/stable rancher/mirrored-skopeo-skopeo v1.10
 quay.io/thanos/thanos rancher/mirrored-thanos-thanos v0.17.2
 quay.io/thanos/thanos rancher/mirrored-thanos-thanos v0.28.0
 quay.io/tigera/operator rancher/mirrored-calico-operator v1.15.1
