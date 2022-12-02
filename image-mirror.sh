@@ -157,14 +157,18 @@ function mirror_image {
 
   # v1 manifests contain arch but no variant, but can be treated similar to manifest.v2
   # We upconvert to v2 schema on copy, since v1 manifests cannot be added to manifest lists
+  # Note that this will cause the tag to always be copied, as we have no way to locally detect
+  # what the resulting digest will be when it is upconverted. The image itself will remain unchanged,
+  # but Docker Hub will show an updated `Last pushed` timestamp for upconverted v1 manifests.
   elif [ "${SCHEMAVERSION}" == "1" ]; then
     echo "${SOURCE}:${TAG} is manifest.v1"
     ARCH=$(jq -r '.architecture' <<< ${MANIFEST})
     if grep -wqF ${ARCH} <<< ${ARCH_LIST}; then
-      if copy_if_changed "${SOURCE}:${TAG}" "${DEST}:${TAG}-${ARCH}" "${ARCH}" "--format=v2s2"; then
-        SOURCES+=("${DEST}:${TAG}-${ARCH}")
-        DIGESTS+=("${DIGEST}")
-      fi
+      copy_if_changed "${SOURCE}:${TAG}" "${DEST}:${TAG}-${ARCH}" "${ARCH}" "--format=v2s2"
+      NEW_MANIFEST=$(skopeo inspect docker://${DEST}:${TAG}-${ARCH} --raw 2>/dev/null || true)
+      DIGEST=$(jq -r '.config.digest' <<< ${NEW_MANIFEST})
+      SOURCES+=("${DEST}:${TAG}-${ARCH}")
+      DIGESTS+=("${DIGEST}")
     fi
   else
     echo "${SOURCE}:${TAG} has unknown schemaVersion ${SCHEMAVERSION}"
