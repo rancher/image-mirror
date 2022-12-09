@@ -214,6 +214,7 @@ grafana/grafana-image-renderer rancher/mirrored-grafana-grafana-image-renderer 3
 idealista/prom2teams rancher/mirrored-idealista-prom2teams 3.2.1
 idealista/prom2teams rancher/mirrored-idealista-prom2teams 3.2.2
 idealista/prom2teams rancher/mirrored-idealista-prom2teams 3.2.3
+idealista/prom2teams rancher/mirrored-idealista-prom2teams 4.2.0
 istio/citadel rancher/mirrored-istio-citadel 1.5.9
 istio/coredns-plugin rancher/istio-coredns-plugin 0.2-istio-1.1
 istio/coredns-plugin rancher/mirrored-istio-coredns-plugin 0.2-istio-1.1
@@ -359,6 +360,7 @@ jimmidyson/configmap-reload rancher/jimmidyson-configmap-reload v0.3.0
 jimmidyson/configmap-reload rancher/jimmidyson-configmap-reload v0.4.0
 jimmidyson/configmap-reload rancher/mirrored-jimmidyson-configmap-reload v0.3.0
 jimmidyson/configmap-reload rancher/mirrored-jimmidyson-configmap-reload v0.4.0
+jimmidyson/configmap-reload rancher/mirrored-jimmidyson-configmap-reload v0.8.0
 k8s.gcr.io/cpa/cluster-proportional-autoscaler rancher/mirrored-cluster-proportional-autoscaler 1.8.3
 k8s.gcr.io/cpa/cluster-proportional-autoscaler rancher/mirrored-cluster-proportional-autoscaler 1.8.5
 k8s.gcr.io/cpa/cluster-proportional-autoscaler rancher/mirrored-cluster-proportional-autoscaler 1.8.6
@@ -618,6 +620,7 @@ longhornio/longhorn-ui rancher/mirrored-longhornio-longhorn-ui v1.3.1
 longhornio/longhorn-ui rancher/mirrored-longhornio-longhorn-ui v1.3.2
 messagebird/sachet rancher/mirrored-messagebird-sachet 0.2.3
 messagebird/sachet rancher/mirrored-messagebird-sachet 0.2.6
+messagebird/sachet rancher/mirrored-messagebird-sachet 0.3.1
 minio/mc rancher/mirrored-minio-mc RELEASE.2020-07-13T18-09-56Z
 minio/mc rancher/mirrored-minio-mc RELEASE.2022-05-09T04-08-26Z
 minio/mc rancher/mirrored-minio-mc RELEASE.2022-09-16T09-16-47Z
