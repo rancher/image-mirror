@@ -2,6 +2,9 @@
 kind: pipeline
 name: default-image-push-pull
 
+concurrency:
+  limit: 1
+
 platform:
   os: linux
   arch: amd64
