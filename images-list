@@ -643,7 +643,6 @@ minio/mc rancher/mirrored-minio-mc RELEASE.2022-09-16T09-16-47Z
 minio/mc rancher/mirrored-minio-mc RELEASE.2022-11-07T23-47-39Z
 minio/mc rancher/mirrored-minio-mc RELEASE.2022-12-13T00-23-28Z
 minio/minio rancher/mirrored-minio-minio RELEASE.2020-07-13T18-09-56Z
-minio/minio rancher/mirrored-minio-minio RELEASE.2022-03-24T00-43-44Z
 minio/minio rancher/mirrored-minio-minio RELEASE.2022-05-08T23-50-31Z
 minio/minio rancher/mirrored-minio-minio RELEASE.2022-09-17T00-09-45Z
 minio/minio rancher/mirrored-minio-minio RELEASE.2022-11-11T03-44-20Z
@@ -1005,6 +1004,7 @@ quay.io/kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 1.12.3
 quay.io/kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 1.15.6
 quay.io/kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 1.15.9
 quay.io/kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 1.19.2
+quay.io/minio/minio rancher/mirrored-minio-minio RELEASE.2022-03-24T00-43-44Z
 quay.io/prometheus-operator/prometheus-config-reloader rancher/coreos-prometheus-config-reloader v0.43.0
 quay.io/prometheus-operator/prometheus-config-reloader rancher/mirrored-prometheus-operator-prometheus-config-reloader v0.46.0
 quay.io/prometheus-operator/prometheus-config-reloader rancher/mirrored-prometheus-operator-prometheus-config-reloader v0.48.0
