@@ -214,6 +214,8 @@ grafana/grafana rancher/mirrored-grafana-grafana 7.5.8
 grafana/grafana rancher/mirrored-grafana-grafana 7.5.11
 grafana/grafana rancher/mirrored-grafana-grafana 8.5.3
 grafana/grafana rancher/mirrored-grafana-grafana 9.1.5
+grafana/grafana rancher/mirrored-grafana-grafana 9.2.10
+grafana/grafana rancher/mirrored-grafana-grafana 9.3.6
 grafana/grafana-image-renderer rancher/grafana-grafana-image-renderer 2.0.0
 grafana/grafana-image-renderer rancher/mirrored-grafana-grafana-image-renderer 2.0.1
 grafana/grafana-image-renderer rancher/mirrored-grafana-grafana-image-renderer 3.0.1
