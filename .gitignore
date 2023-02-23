@@ -1,0 +1,6 @@
+.idea
+/.dapper
+*.swp
+/.trash-cache
+/trash.lock
+.vscode

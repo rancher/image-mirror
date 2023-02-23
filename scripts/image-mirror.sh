@@ -1,6 +1,13 @@
 #!/bin/bash
 
 set -uo pipefail
+
+if [ ! -z "${DOCKER_USERNAME:-}" ] && [ ! -z "${DOCKER_PASSWORD:-}" ]; then
+  echo "Logging in to ${DOCKER_REGISTRY:-docker.io} as ${DOCKER_USERNAME}"
+  docker login ${DOCKER_REGISTRY:-docker.io} --username=${DOCKER_USERNAME} --password-stdin <<< ${DOCKER_PASSWORD}
+  export DOCKER_TOKEN=$(curl -s -d @- -X POST -H "Content-Type: application/json" https://hub.docker.com/v2/users/login/ <<< '{"username": "'${DOCKER_USERNAME}'", "password": "'${DOCKER_PASSWORD}'"}' | jq -r '.token')
+fi
+
 export DOCKER_CLI_EXPERIMENTAL="enabled"
 
 ARCH_LIST="amd64 arm64 arm s390x"
@@ -194,22 +201,21 @@ function mirror_image {
   fi
 }
 
-# Figure out if we should read input from a file or stdin
-# If we're given a file, verify that it exists
-if [ -n "${1:-}" ]; then
-  INFILE="${1}"
-  if [ ! -f "${INFILE}" ]; then
-    echo "File ${INFILE} does not exist!"
+# Read input from file
+if [ -n "${IMAGES_FILE:-}" ]; then
+  if [ ! -f "${IMAGES_FILE}" ]; then
+    echo "File ${IMAGES_FILE} does not exist!"
     exit 1
   fi
 else
-  INFILE="/dev/stdin"
+  echo "Environment variable ${IMAGES_FILE} is not set!"
+  exit 1
 fi
 
-echo "Reading SOURCE DESTINATION TAG from ${INFILE}"
+echo "Reading SOURCE DESTINATION TAG from ${IMAGES_FILE}"
 while IFS= read -r LINE; do
   echo -e "\nLine: ${LINE}"
   if grep -P '^(?!\s*(#|//))\S+\s+\S+\s+\S+' <<< ${LINE}; then
     mirror_image ${LINE}
   fi
-done < "${INFILE}"
+done < "${IMAGES_FILE}"
