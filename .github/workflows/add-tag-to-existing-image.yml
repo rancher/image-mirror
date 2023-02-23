@@ -79,3 +79,4 @@ jobs:
         if: ${{ env.changes_exist == 'true' }}
         run: |
           echo "Pull Request URL - ${{ steps.cpr.outputs.result }}"
+          echo "Pull Request URL - ${{ steps.cpr.outputs.result }}" >> $GITHUB_STEP_SUMMARY
