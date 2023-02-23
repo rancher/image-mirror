@@ -1,16 +1,20 @@
 #!/usr/bin/env bash
-CHECK_BRANCH="master"
+DIFF_CHECK="master"
 
-echo "Checking for new images in commit(s) against branch ${CHECK_BRANCH}"
+if [ "${DRONE}" = "true" ]; then
+  DIFF_CHECK="${DRONE_COMMIT_BEFORE} ${DRONE_COMMIT_AFTER}"
+fi
 
-NEW_IMAGES=$(git diff -U0 $CHECK_BRANCH -- images-list | tail -n +5 | grep -v ^@@ | cut -d+ -f2 | awk '{ print $1":"$3 }')
+echo "Checking for new images in commit(s) against ${DIFF_CHECK}"
 
-if [ -z "$NEW_IMAGES" ]; then
-  echo "Could not find new images in commit(s) against branch ${CHECK_BRANCH}"
+NEW_IMAGES=$(git diff -U0 $DIFF_CHECK -- images-list | tail -n +5 | grep -v ^@@ | cut -d+ -f2 | awk '{ print $1":"$3 }')
+
+if [ -z "${NEW_IMAGES}" ]; then
+  echo "Could not find new images in commit(s) against ${DIFF_CHECK}"
   exit 0
 fi
 
-echo "Found new images in commit(s) against branch ${CHECK_BRANCH}: ${NEW_IMAGES}"
+echo "Found new images in commit(s) against ${DIFF_CHECK}: ${NEW_IMAGES}"
 
 for NEW_IMAGE in $NEW_IMAGES; do
   echo "Checking if image ${NEW_IMAGE} exists"
