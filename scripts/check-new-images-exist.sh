@@ -7,7 +7,7 @@ fi
 
 echo "Checking for new images in commit(s) against ${DIFF_CHECK}"
 
-NEW_IMAGES=$(git diff -U0 $DIFF_CHECK -- images-list | tail -n +5 | grep -v ^@@ | cut -d+ -f2 | awk '{ print $1":"$3 }')
+NEW_IMAGES=$(git diff -U0 $DIFF_CHECK -- images-list | tail -n +5 | grep -v ^@@ | grep -v ^- | cut -d+ -f2 | awk '{ print $1":"$3 }')
 
 if [ -z "${NEW_IMAGES}" ]; then
   echo "Could not find new images in commit(s) against ${DIFF_CHECK}"
