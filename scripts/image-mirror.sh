@@ -101,6 +101,11 @@ function mirror_image {
 
   # Grab raw manifest or manifest list and extract schema info
   MANIFEST=$(skopeo inspect docker://${SOURCE}:${TAG} --raw)
+  # Return if it doesn't exist
+  if [ $? -ne 0 ]; then
+    echo "${SOURCE}:${TAG} does not exist"
+    return 1
+  fi
   SCHEMAVERSION=$(jq -r '.schemaVersion' <<< ${MANIFEST})
   MEDIATYPE=$(jq -r '.mediaType' <<< ${MANIFEST})
   SOURCES=()
