@@ -970,7 +970,6 @@ quay.io/coreos/flannel rancher/mirrored-coreos-flannel v0.13.0
 quay.io/coreos/flannel rancher/mirrored-coreos-flannel v0.14.0
 quay.io/coreos/flannel rancher/mirrored-coreos-flannel v0.15.0
 quay.io/coreos/flannel rancher/mirrored-coreos-flannel v0.15.1
-quay.io/coreos/flannel rancher/mirrored-coreos-flannel v0.19.2
 quay.io/coreos/kube-state-metrics rancher/mirrored-coreos-kube-state-metrics v1.9.7
 quay.io/coreos/prometheus-config-reloader rancher/coreos-prometheus-config-reloader v0.39.0
 quay.io/coreos/prometheus-config-reloader rancher/mirrored-coreos-prometheus-config-reloader v0.38.1
