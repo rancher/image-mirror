@@ -33,7 +33,6 @@ bats/bats rancher/mirrored-bats-bats v1.4.1
 coredns/coredns rancher/coredns-coredns 1.7.0
 coredns/coredns rancher/coredns-coredns 1.7.1
 coredns/coredns rancher/coredns-coredns 1.8.0
-coredns/coredns rancher/coredns-coredns 1.8.1
 coredns/coredns rancher/coredns-coredns 1.8.3
 coredns/coredns rancher/mirrored-coredns-coredns 1.6.2
 coredns/coredns rancher/mirrored-coredns-coredns 1.6.5
