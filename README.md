@@ -30,6 +30,80 @@ An EIO team member or manager will need to create the repo in DockerHub as well 
 
 ## Adding new tags to existing images
 
+### Scheduled
+
+There is also a scheduled workflow called [Retrieve image tags](https://github.com/rancher/image-mirror/actions/workflows/retrieve-image-tags.yml) that can be used if you have images that needs new tags added automatically. It will check a configurable source for available tags, and use the found tags to dispatch the workflow [Add tag to existing image
+](https://github.com/rancher/image-mirror/actions/workflows/add-tag-to-existing-image.yml). The configuration lives in [`config.json`](https://github.com/rancher/image-mirror/actions/workflows/retrieve-image-tags/config.json). The basic structure is having a descriptive key (pick your own), and specify the list of images for which the available tag(s) need to be looked up (`versionSource`), and an optional SemVer constraint if you need to limit what tags are used. The current datasources are:
+
+- `github-releases`: This will use GitHub releases as source, excluding pre-releases. This can be used if you need to keep all tags from the configured images in sync with GitHub releases
+- `github-latest-release`: This will use the release on GitHub marked as `Latest release`. This can be used if you only want one release to be added that is marked as latest.
+- `registry`: This will use the registry of the first image and look up available tags.
+
+The current filters for tags are:
+
+- `versionConstraint`: This is a semver constraint that will match the given expression and ignore tags that do not match.
+- `versionFilter`: This is a regex filter that will match the given expression and ignore tags that do not match.
+
+See an example configuration below:
+
+```
+{
+  "vsphere-cpi": {
+    "images": [
+      "gcr.io/cloud-provider-vsphere/cpi/release/manager"
+    ],
+    "versionSource": "github-releases:kubernetes/cloud-provider-vsphere",
+    "versionConstraint": ">1.21.0"
+  },
+  "flannel": {
+    "images": [
+      "flannel/flannel"
+    ],
+    "versionSource": "github-latest-release:flannel-io/flannel"
+  },
+  "bci-busybox": {
+    "images": [
+      "registry.suse.com/bci/bci-busybox"
+    ],
+    "versionSource": "registry",
+    "versionFilter": "^15.4.",
+    "latest": "true"
+  },
+  "skopeo": {
+    "images": [
+      "quay.io/skopeo/stable"
+    ],
+    "versionSource": "registry",
+    "versionFilter": "^v1.\\d{2}.\\d+$",
+    "latest": "true"
+  },
+  "pause": {
+    "images": [
+      "registry.k8s.io/pause"
+    ],
+    "versionSource": "registry",
+    "versionFilter": "^3.\\d+$",
+    "latest": "true"
+  },
+  "epinio": {
+    "images": [
+      "ghcr.io/epinio/epinio-server"
+    ],
+    "versionSource": "registry",
+    "versionFilter": "^v1.\\d+.\\d+$",
+    "latest": "true"
+  },
+  "csi-release-syncer": {
+    "images": [
+      "gcr.io/cloud-provider-vsphere/csi/release/syncer"
+    ],
+    "versionSource": "registry",
+    "versionFilter": "^v2.\\d+.\\d+$",
+    "latest": "true"
+  }
+}
+```
+
 ### Using scripts
 
 You can use the following commands/scripts to add a tag to an **existing** image. Make sure the `IMAGES` environment variable is set to the image(s) you want to add a tag to, and the `TAGS` environment variable is set to the tags you want to add to the images. The script will check:

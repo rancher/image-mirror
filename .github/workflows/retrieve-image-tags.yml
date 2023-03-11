@@ -1,0 +1,59 @@
+name: Retrieve image tags
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 9,13,17 * * *'
+
+permissions:
+  actions: write
+  contents: write
+  pull-requests: write
+
+jobs:
+  retrieve-image-tags:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
+    - uses: actions/setup-python@d27e3f3d7c64b4bbf8e4abfb9b63b83e846e0435 # v4.5.0
+      with:
+        python-version: '3.10'
+        cache: 'pip' # caching pip dependencies
+    - name: Pip
+      working-directory: ./retrieve-image-tags
+      run: pip install -r requirements.txt
+    - id: gimme-versions
+      working-directory: ./retrieve-image-tags
+      run: |
+        OUTPUT=$(python retrieve-image-tags.py)
+        echo "JSON=${OUTPUT}" >> $GITHUB_ENV
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - id: dispatch-add-tag-to-existing-image
+      run: |
+        JSON='${{ env.JSON }}'
+        IMAGE_KEYS=$(echo "${JSON}" | jq -r 'keys[]')
+        for IMAGE_KEY in $IMAGE_KEYS; do
+            echo "Image key: ${IMAGE_KEY}" >> $GITHUB_STEP_SUMMARY
+            IMAGES=$(echo "${JSON}" | jq -r --arg IMAGE_KEY "$IMAGE_KEY" '.[$IMAGE_KEY].images | join(",")')
+            TAGS=$(echo "${JSON}" | jq -r --arg IMAGE_KEY "$IMAGE_KEY" '.[$IMAGE_KEY].tags | join(",")')
+            PR_TITLE="Added tag(s) ${TAGS} for image(s) ${IMAGES}"
+            EXISTING_PR=$(gh pr list --limit 1500 --json title,url | jq --arg title "${PR_TITLE}" -r '.[] | select(.title==$title) | .url')
+            if [ -n "${IMAGES}" ] && [ -n "${TAGS}" ] && [ -z "${EXISTING_PR}" ]; then
+                gh workflow run add-tag-to-existing-image.yml --ref $GITHUB_REF_NAME -f images=$IMAGES -f tags=$TAGS
+                RETVAL=$?
+                if [ $RETVAL -ne 0 ]; then
+                    echo "Workflow run failed for ${IMAGE_KEY}, exit code ${RETVAL}"
+                    continue
+                fi
+                echo "Images: ${IMAGES}" >> $GITHUB_STEP_SUMMARY
+                echo -e "Tags: ${TAGS}\n" >> $GITHUB_STEP_SUMMARY
+            else
+                if [ -z "${EXISTING_PR}" ]; then
+                    echo -e "No new images/tags found ${IMAGE_KEY}\n" >> $GITHUB_STEP_SUMMARY
+                else
+                    echo -e "PR already exists (${EXISTING_PR})\n" >> $GITHUB_STEP_SUMMARY
+                fi
+            fi
+        done
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

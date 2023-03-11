@@ -1,0 +1,8 @@
+{
+  "flannel": {
+    "images": [
+      "flannel/flannel"
+    ],
+    "versionSource": "github-latest-release:flannel-io/flannel"
+  }
+}
