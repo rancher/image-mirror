@@ -4,5 +4,13 @@
       "flannel/flannel"
     ],
     "versionSource": "github-latest-release:flannel-io/flannel"
+  },
+  "traefik": {
+    "images": [
+      "library/traefik"
+    ],
+    "versionSource": "registry",
+    "versionFilter": "^2\\.[0-9]+\\.[0-9]+$",
+    "latest": true
   }
 }
