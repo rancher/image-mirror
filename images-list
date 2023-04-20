@@ -437,6 +437,7 @@ longhornio/backing-image-manager rancher/mirrored-longhornio-backing-image-manag
 longhornio/backing-image-manager rancher/mirrored-longhornio-backing-image-manager v3_20220609
 longhornio/backing-image-manager rancher/mirrored-longhornio-backing-image-manager v3_20220808
 longhornio/backing-image-manager rancher/mirrored-longhornio-backing-image-manager v3_20221003
+longhornio/backing-image-manager rancher/mirrored-longhornio-backing-image-manager v3_20230320
 longhornio/csi-attacher rancher/longhornio-csi-attacher v2.0.0
 longhornio/csi-attacher rancher/longhornio-csi-attacher v2.2.1-lh1
 longhornio/csi-attacher rancher/longhornio-csi-attacher v2.2.1-lh2
@@ -503,6 +504,7 @@ longhornio/longhorn-engine rancher/mirrored-longhornio-longhorn-engine v1.2.6
 longhornio/longhorn-engine rancher/mirrored-longhornio-longhorn-engine v1.3.0
 longhornio/longhorn-engine rancher/mirrored-longhornio-longhorn-engine v1.3.1
 longhornio/longhorn-engine rancher/mirrored-longhornio-longhorn-engine v1.3.2
+longhornio/longhorn-engine rancher/mirrored-longhornio-longhorn-engine v1.3.3
 longhornio/longhorn-engine rancher/mirrored-longhornio-longhorn-engine v1.4.0
 longhornio/longhorn-engine rancher/mirrored-longhornio-longhorn-engine v1.4.1
 longhornio/longhorn-instance-manager rancher/longhornio-longhorn-instance-manager v1_20200514
@@ -526,6 +528,7 @@ longhornio/longhorn-instance-manager rancher/mirrored-longhornio-longhorn-instan
 longhornio/longhorn-instance-manager rancher/mirrored-longhornio-longhorn-instance-manager v1_20220611
 longhornio/longhorn-instance-manager rancher/mirrored-longhornio-longhorn-instance-manager v1_20220808
 longhornio/longhorn-instance-manager rancher/mirrored-longhornio-longhorn-instance-manager v1_20221003
+longhornio/longhorn-instance-manager rancher/mirrored-longhornio-longhorn-instance-manager v1_20230407
 longhornio/longhorn-manager rancher/longhornio-longhorn-manager v1.0.2
 longhornio/longhorn-manager rancher/longhornio-longhorn-manager v1.1.0
 longhornio/longhorn-manager rancher/longhornio-longhorn-manager v1.1.1
@@ -553,6 +556,7 @@ longhornio/longhorn-manager rancher/mirrored-longhornio-longhorn-manager v1.2.6
 longhornio/longhorn-manager rancher/mirrored-longhornio-longhorn-manager v1.3.0
 longhornio/longhorn-manager rancher/mirrored-longhornio-longhorn-manager v1.3.1
 longhornio/longhorn-manager rancher/mirrored-longhornio-longhorn-manager v1.3.2
+longhornio/longhorn-manager rancher/mirrored-longhornio-longhorn-manager v1.3.3
 longhornio/longhorn-manager rancher/mirrored-longhornio-longhorn-manager v1.4.0
 longhornio/longhorn-manager rancher/mirrored-longhornio-longhorn-manager v1.4.1
 longhornio/longhorn-share-manager rancher/longhornio-longhorn-share-manager v1_20201204
@@ -577,6 +581,7 @@ longhornio/longhorn-share-manager rancher/mirrored-longhornio-longhorn-share-man
 longhornio/longhorn-share-manager rancher/mirrored-longhornio-longhorn-share-manager v1_20220531
 longhornio/longhorn-share-manager rancher/mirrored-longhornio-longhorn-share-manager v1_20220808
 longhornio/longhorn-share-manager rancher/mirrored-longhornio-longhorn-share-manager v1_20221003
+longhornio/longhorn-share-manager rancher/mirrored-longhornio-longhorn-share-manager v1_20230320
 longhornio/longhorn-ui rancher/longhornio-longhorn-ui v1.0.2
 longhornio/longhorn-ui rancher/longhornio-longhorn-ui v1.1.0
 longhornio/longhorn-ui rancher/longhornio-longhorn-ui v1.1.1
@@ -604,6 +609,7 @@ longhornio/longhorn-ui rancher/mirrored-longhornio-longhorn-ui v1.2.6
 longhornio/longhorn-ui rancher/mirrored-longhornio-longhorn-ui v1.3.0
 longhornio/longhorn-ui rancher/mirrored-longhornio-longhorn-ui v1.3.1
 longhornio/longhorn-ui rancher/mirrored-longhornio-longhorn-ui v1.3.2
+longhornio/longhorn-ui rancher/mirrored-longhornio-longhorn-ui v1.3.3
 longhornio/longhorn-ui rancher/mirrored-longhornio-longhorn-ui v1.4.0
 longhornio/longhorn-ui rancher/mirrored-longhornio-longhorn-ui v1.4.1
 longhornio/support-bundle-kit rancher/mirrored-longhornio-support-bundle-kit v0.0.17
