@@ -75,7 +75,7 @@ def _get_image_tags(registry, namespace, package, nexturl, page=1):
     # Return the correct data based on the registry we queried (or paginate if registry/query requires it)
     if registry == "dockerhub":
         tags = [tag["name"] for tag in data["results"]]
-        print(f"tags for {namespace}/{package}: {tags}")
+        #print(f"tags for {namespace}/{package}: {tags}")
         if not data["next"]:
             return tags
         return tags + _get_image_tags(registry, namespace, package, "", page=page + 1)
