@@ -104,6 +104,27 @@ See an example configuration below:
 }
 ```
 
+If you want to manually test your configuration changes to check if the correct tags are found, you can use the following commands depending on your available runtime:
+
+#### Docker 
+
+```
+docker run -v $PWD:/code -w /code/retrieve-image-tags python:3.10 bash -c "pip install -qr requirements.txt && python retrieve-image-tags.py"
+```
+
+#### podman
+
+```
+podman run -v $PWD:/code -w /code/retrieve-image-tags python:3.10 bash -c "pip install -qr requirements.txt && python retrieve-image-tags.py"
+```
+
+#### containerd
+
+```
+ctr images pull docker.io/library/python:3.10
+ctr run -t --net-host --mount type=bind,src=$PWD,dst=/code,options=rbind:ro --cwd /code/retrieve-image-tags --rm docker.io/library/python:3.10 workflow-test bash -c "pip install -qr requirements.txt && python retrieve-image-tags.py"
+```
+
 ### Using scripts
 
 You can use the following commands/scripts to add a tag to an **existing** image. Make sure the `IMAGES` environment variable is set to the image(s) you want to add a tag to, and the `TAGS` environment variable is set to the tags you want to add to the images. The script will check:
