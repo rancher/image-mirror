@@ -412,6 +412,7 @@ library/nginx rancher/mirrored-library-nginx 1.21.1-alpine
 library/nginx rancher/mirrored-library-nginx 1.21.6-alpine
 library/nginx rancher/mirrored-library-nginx 1.23.0-alpine
 library/nginx rancher/mirrored-library-nginx 1.23.2-alpine
+library/nginx rancher/mirrored-library-nginx 1.24.0-alpine
 library/registry rancher/mirrored-library-registry 2.7.1
 library/registry rancher/mirrored-library-registry 2.8.1
 library/traefik rancher/library-traefik 2.4.2
