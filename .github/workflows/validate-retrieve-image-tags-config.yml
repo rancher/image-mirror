@@ -1,0 +1,29 @@
+name: Validate retrieve-image-tags config
+on:
+  pull_request:
+    paths:
+      - 'retrieve-image-tags/config.json'
+
+permissions:
+  contents: read
+
+jobs:
+  validate-retrieve-image-tags:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
+    - name: Validate JSON
+      run: jq type retrieve-image-tags/config.json
+    - uses: actions/setup-python@d27e3f3d7c64b4bbf8e4abfb9b63b83e846e0435 # v4.5.0
+      with:
+        python-version: '3.10'
+        cache: 'pip' # caching pip dependencies
+    - name: Pip
+      working-directory: ./retrieve-image-tags
+      run: pip install -r requirements.txt
+    - id: gimme-versions
+      working-directory: ./retrieve-image-tags
+      run: |
+        python retrieve-image-tags.py
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
