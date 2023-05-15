@@ -18,5 +18,12 @@
       "sonobuoy/sonobuoy"
     ],
     "versionSource": "github-latest-release:vmware-tanzu/sonobuoy"
+  },
+  "prom2teams": {
+    "images": [
+      "idealista/prom2teams"
+    ],
+    "versionSource": "github-latest-release:idealista/prom2teams"
   }
 }
+
