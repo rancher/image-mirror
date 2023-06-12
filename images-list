@@ -211,6 +211,7 @@ ghcr.io/banzaicloud/logging-operator rancher/mirrored-banzaicloud-logging-operat
 ghcr.io/banzaicloud/logging-operator rancher/mirrored-banzaicloud-logging-operator 3.17.9
 ghcr.io/banzaicloud/logging-operator rancher/mirrored-banzaicloud-logging-operator 3.17.10
 ghcr.io/dexidp/dex rancher/mirrored-dexidp-dex v2.35.3
+ghcr.io/dexidp/dex rancher/mirrored-dexidp-dex v2.36.0
 ghcr.io/epinio/epinio-server rancher/mirrored-epinio-epinio-server v0.7.1
 ghcr.io/epinio/epinio-server rancher/mirrored-epinio-epinio-server v1.0.0
 ghcr.io/epinio/epinio-server rancher/mirrored-epinio-epinio-server v1.2.0
@@ -218,13 +219,16 @@ ghcr.io/epinio/epinio-server rancher/mirrored-epinio-epinio-server v1.4.0
 ghcr.io/epinio/epinio-server rancher/mirrored-epinio-epinio-server v1.5.1
 ghcr.io/epinio/epinio-server rancher/mirrored-epinio-epinio-server v1.6.1
 ghcr.io/epinio/epinio-server rancher/mirrored-epinio-epinio-server v1.6.2
+ghcr.io/epinio/epinio-server rancher/mirrored-epinio-epinio-server v1.8.1
 ghcr.io/epinio/epinio-ui rancher/mirrored-epinio-epinio-ui v0.6.2-0.0.1
 ghcr.io/epinio/epinio-ui rancher/mirrored-epinio-epinio-ui v1.0.0-0.0.4
 ghcr.io/epinio/epinio-ui rancher/mirrored-epinio-epinio-ui v1.2.0-0.0.1
 ghcr.io/epinio/epinio-ui rancher/mirrored-epinio-epinio-ui v1.5.1-0.0.3
+ghcr.io/epinio/epinio-ui rancher/mirrored-epinio-epinio-ui v1.8.1-0.0.1
 ghcr.io/epinio/epinio-unpacker rancher/mirrored-epinio-epinio-unpacker 1.0
 ghcr.io/epinio/epinio-unpacker rancher/mirrored-epinio-epinio-unpacker v1.6.1
 ghcr.io/epinio/epinio-unpacker rancher/mirrored-epinio-epinio-unpacker v1.6.2
+ghcr.io/epinio/epinio-unpacker rancher/mirrored-epinio-epinio-unpacker v1.8.1
 grafana/grafana rancher/grafana-grafana 7.1.5
 grafana/grafana rancher/grafana-grafana 7.2.1
 grafana/grafana rancher/mirrored-grafana-grafana 6.7.4
@@ -641,11 +645,13 @@ minio/mc rancher/mirrored-minio-mc RELEASE.2022-05-09T04-08-26Z
 minio/mc rancher/mirrored-minio-mc RELEASE.2022-09-16T09-16-47Z
 minio/mc rancher/mirrored-minio-mc RELEASE.2022-11-07T23-47-39Z
 minio/mc rancher/mirrored-minio-mc RELEASE.2022-12-13T00-23-28Z
+minio/mc rancher/mirrored-minio-mc RELEASE.2023-01-28T20-29-38Z
 minio/minio rancher/mirrored-minio-minio RELEASE.2020-07-13T18-09-56Z
 minio/minio rancher/mirrored-minio-minio RELEASE.2022-05-08T23-50-31Z
 minio/minio rancher/mirrored-minio-minio RELEASE.2022-09-17T00-09-45Z
 minio/minio rancher/mirrored-minio-minio RELEASE.2022-11-11T03-44-20Z
 minio/minio rancher/mirrored-minio-minio RELEASE.2022-12-12T19-27-27Z
+minio/minio rancher/mirrored-minio-minio RELEASE.2023-02-10T18-48-39Z
 neuvector/controller rancher/mirrored-neuvector-controller 5.0.0
 neuvector/controller rancher/mirrored-neuvector-controller 5.0.0-b1
 neuvector/controller rancher/mirrored-neuvector-controller 5.0.0-b2
@@ -707,6 +713,7 @@ paketobuildpacks/builder rancher/mirrored-paketobuildpacks-builder 0.2.95-full
 paketobuildpacks/builder rancher/mirrored-paketobuildpacks-builder 0.2.220-full
 paketobuildpacks/builder rancher/mirrored-paketobuildpacks-builder 0.2.234-full
 paketobuildpacks/builder rancher/mirrored-paketobuildpacks-builder 0.2.289-full
+paketobuildpacks/builder rancher/mirrored-paketobuildpacks-builder 0.2.407-full
 plugins/docker rancher/mirrored-plugins-docker 18.09
 plugins/docker rancher/mirrored-plugins-docker 19.03.8
 prom/alertmanager rancher/mirrored-prom-alertmanager v0.21.0
@@ -1063,6 +1070,7 @@ quay.io/prometheus/prometheus rancher/mirrored-prometheus-prometheus v2.38.0
 quay.io/prometheus/prometheus rancher/mirrored-prom-prometheus v2.18.2
 quay.io/prometheus/prometheus rancher/prom-prometheus v2.19.2
 quay.io/prometheus/prometheus rancher/prom-prometheus v2.22.0
+quay.io/s3gw/s3gw rancher/mirrored-s3gw-s3gw v0.14.0
 quay.io/skopeo/stable rancher/mirrored-skopeo-skopeo v1.10.0
 quay.io/thanos/thanos rancher/mirrored-thanos-thanos v0.17.2
 quay.io/thanos/thanos rancher/mirrored-thanos-thanos v0.28.0
