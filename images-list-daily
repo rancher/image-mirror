@@ -2,13 +2,5 @@
 # See images-list for more information
 #
 # LIST FORMAT: <SOURCE> <DESTINATION> <TAG>
-gcr.io/cloud-provider-vsphere/cpi/release/manager rancher/mirrored-cloud-provider-vsphere-cpi-release-manager latest
-gcr.io/cloud-provider-vsphere/csi/release/driver rancher/mirrored-cloud-provider-vsphere-csi-release-driver latest
-gcr.io/cloud-provider-vsphere/csi/release/syncer rancher/mirrored-cloud-provider-vsphere-csi-release-syncer latest
 neuvector/scanner rancher/mirrored-neuvector-scanner latest
 neuvector/updater rancher/mirrored-neuvector-updater latest
-registry.k8s.io/sig-storage/csi-attacher rancher/mirrored-sig-storage-csi-attacher latest
-registry.k8s.io/sig-storage/csi-node-driver-registrar rancher/mirrored-sig-storage-csi-node-driver-registrar latest
-registry.k8s.io/sig-storage/csi-provisioner rancher/mirrored-sig-storage-csi-provisioner latest
-registry.k8s.io/sig-storage/csi-resizer rancher/mirrored-sig-storage-csi-resizer latest
-registry.k8s.io/sig-storage/livenessprobe rancher/mirrored-sig-storage-livenessprobe latest
