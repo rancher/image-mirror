@@ -686,7 +686,7 @@ neuvector/manager rancher/mirrored-neuvector-manager 5.1.0
 neuvector/manager rancher/mirrored-neuvector-manager 5.1.1
 neuvector/manager rancher/mirrored-neuvector-manager 5.1.2
 neuvector/manager rancher/mirrored-neuvector-manager 5.1.3
-neuvector/prometheus-exporter rancher/mirrored-prometheus-exporter 5.1.3
+neuvector/prometheus-exporter rancher/mirrored-neuvector-prometheus-exporter 5.1.3
 openpolicyagent/gatekeeper rancher/mirrored-openpolicyagent-gatekeeper v3.3.0
 openpolicyagent/gatekeeper rancher/mirrored-openpolicyagent-gatekeeper v3.4.0
 openpolicyagent/gatekeeper rancher/mirrored-openpolicyagent-gatekeeper v3.5.1
