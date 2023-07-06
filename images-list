@@ -739,6 +739,7 @@ quay.io/calico/apiserver rancher/mirrored-calico-apiserver v3.23.3
 quay.io/calico/apiserver rancher/mirrored-calico-apiserver v3.24.1
 quay.io/calico/apiserver rancher/mirrored-calico-apiserver v3.24.5
 quay.io/calico/apiserver rancher/mirrored-calico-apiserver v3.25.0
+quay.io/calico/apiserver rancher/mirrored-calico-apiserver v3.26.1
 quay.io/calico/cni rancher/calico-cni v3.16.5
 quay.io/calico/cni rancher/calico-cni v3.16.6
 quay.io/calico/cni rancher/calico-cni v3.17.1
@@ -767,6 +768,7 @@ quay.io/calico/cni rancher/mirrored-calico-cni v3.23.3
 quay.io/calico/cni rancher/mirrored-calico-cni v3.24.1
 quay.io/calico/cni rancher/mirrored-calico-cni v3.24.5
 quay.io/calico/cni rancher/mirrored-calico-cni v3.25.0
+quay.io/calico/cni rancher/mirrored-calico-cni v3.26.1
 quay.io/calico/ctl rancher/calico-ctl v3.16.5
 quay.io/calico/ctl rancher/calico-ctl v3.16.6
 quay.io/calico/ctl rancher/calico-ctl v3.17.1
@@ -797,6 +799,7 @@ quay.io/calico/ctl rancher/mirrored-calico-ctl v3.23.3
 quay.io/calico/ctl rancher/mirrored-calico-ctl v3.24.1
 quay.io/calico/ctl rancher/mirrored-calico-ctl v3.24.5
 quay.io/calico/ctl rancher/mirrored-calico-ctl v3.25.0
+quay.io/calico/ctl rancher/mirrored-calico-ctl v3.26.1
 quay.io/calico/kube-controllers rancher/calico-kube-controllers v3.16.5
 quay.io/calico/kube-controllers rancher/calico-kube-controllers v3.16.6
 quay.io/calico/kube-controllers rancher/calico-kube-controllers v3.17.1
@@ -825,6 +828,7 @@ quay.io/calico/kube-controllers rancher/mirrored-calico-kube-controllers v3.23.3
 quay.io/calico/kube-controllers rancher/mirrored-calico-kube-controllers v3.24.1
 quay.io/calico/kube-controllers rancher/mirrored-calico-kube-controllers v3.24.5
 quay.io/calico/kube-controllers rancher/mirrored-calico-kube-controllers v3.25.0
+quay.io/calico/kube-controllers rancher/mirrored-calico-kube-controllers v3.26.1
 quay.io/calico/node rancher/calico-node v3.16.5
 quay.io/calico/node rancher/calico-node v3.16.6
 quay.io/calico/node rancher/calico-node v3.17.1
@@ -853,6 +857,7 @@ quay.io/calico/node rancher/mirrored-calico-node v3.23.3
 quay.io/calico/node rancher/mirrored-calico-node v3.24.1
 quay.io/calico/node rancher/mirrored-calico-node v3.24.5
 quay.io/calico/node rancher/mirrored-calico-node v3.25.0
+quay.io/calico/node rancher/mirrored-calico-node v3.26.1
 quay.io/calico/pod2daemon-flexvol rancher/calico-pod2daemon-flexvol v3.16.5
 quay.io/calico/pod2daemon-flexvol rancher/calico-pod2daemon-flexvol v3.16.6
 quay.io/calico/pod2daemon-flexvol rancher/calico-pod2daemon-flexvol v3.17.1
@@ -881,6 +886,7 @@ quay.io/calico/pod2daemon-flexvol rancher/mirrored-calico-pod2daemon-flexvol v3.
 quay.io/calico/pod2daemon-flexvol rancher/mirrored-calico-pod2daemon-flexvol v3.24.1
 quay.io/calico/pod2daemon-flexvol rancher/mirrored-calico-pod2daemon-flexvol v3.24.5
 quay.io/calico/pod2daemon-flexvol rancher/mirrored-calico-pod2daemon-flexvol v3.25.0
+quay.io/calico/pod2daemon-flexvol rancher/mirrored-calico-pod2daemon-flexvol v3.26.1
 quay.io/calico/typha rancher/mirrored-calico-typha v3.18.1
 quay.io/calico/typha rancher/mirrored-calico-typha v3.19.1
 quay.io/calico/typha rancher/mirrored-calico-typha v3.19.2
@@ -900,6 +906,7 @@ quay.io/calico/typha rancher/mirrored-calico-typha v3.23.3
 quay.io/calico/typha rancher/mirrored-calico-typha v3.24.1
 quay.io/calico/typha rancher/mirrored-calico-typha v3.24.5
 quay.io/calico/typha rancher/mirrored-calico-typha v3.25.0
+quay.io/calico/typha rancher/mirrored-calico-typha v3.26.1
 quay.io/cilium/certgen rancher/mirrored-cilium-certgen v0.1.8
 quay.io/cilium/cilium rancher/mirrored-cilium-cilium v1.9.4
 quay.io/cilium/cilium rancher/mirrored-cilium-cilium v1.9.6
@@ -919,15 +926,18 @@ quay.io/cilium/cilium rancher/mirrored-cilium-cilium v1.12.4
 quay.io/cilium/cilium rancher/mirrored-cilium-cilium v1.12.5
 quay.io/cilium/cilium rancher/mirrored-cilium-cilium v1.13.0
 quay.io/cilium/cilium rancher/mirrored-cilium-cilium v1.13.2
+quay.io/cilium/cilium rancher/mirrored-cilium-cilium v1.13.4
 quay.io/cilium/cilium-etcd-operator rancher/mirrored-cilium-cilium-etcd-operator v2.0.7
 quay.io/cilium/clustermesh-apiserver rancher/mirrored-cilium-clustermesh-apiserver v1.12.4
 quay.io/cilium/clustermesh-apiserver rancher/mirrored-cilium-clustermesh-apiserver v1.12.5
 quay.io/cilium/clustermesh-apiserver rancher/mirrored-cilium-clustermesh-apiserver v1.13.0
 quay.io/cilium/clustermesh-apiserver rancher/mirrored-cilium-clustermesh-apiserver v1.13.2
+quay.io/cilium/clustermesh-apiserver rancher/mirrored-cilium-clustermesh-apiserver v1.13.4
 quay.io/cilium/hubble-relay rancher/mirrored-cilium-hubble-relay v1.12.4
 quay.io/cilium/hubble-relay rancher/mirrored-cilium-hubble-relay v1.12.5
 quay.io/cilium/hubble-relay rancher/mirrored-cilium-hubble-relay v1.13.0
 quay.io/cilium/hubble-relay rancher/mirrored-cilium-hubble-relay v1.13.2
+quay.io/cilium/hubble-relay rancher/mirrored-cilium-hubble-relay v1.13.4
 quay.io/cilium/hubble-ui rancher/mirrored-cilium-hubble-ui v0.9.2
 quay.io/cilium/hubble-ui rancher/mirrored-cilium-hubble-ui v0.10.0
 quay.io/cilium/hubble-ui rancher/mirrored-cilium-hubble-ui v0.11.0
@@ -952,6 +962,7 @@ quay.io/cilium/operator-aws rancher/mirrored-cilium-operator-aws v1.12.4
 quay.io/cilium/operator-aws rancher/mirrored-cilium-operator-aws v1.12.5
 quay.io/cilium/operator-aws rancher/mirrored-cilium-operator-aws v1.13.0
 quay.io/cilium/operator-aws rancher/mirrored-cilium-operator-aws v1.13.2
+quay.io/cilium/operator-aws rancher/mirrored-cilium-operator-aws v1.13.4
 quay.io/cilium/operator-azure rancher/mirrored-cilium-operator-azure v1.9.4
 quay.io/cilium/operator-azure rancher/mirrored-cilium-operator-azure v1.9.6
 quay.io/cilium/operator-azure rancher/mirrored-cilium-operator-azure v1.9.8
@@ -970,6 +981,7 @@ quay.io/cilium/operator-azure rancher/mirrored-cilium-operator-azure v1.12.4
 quay.io/cilium/operator-azure rancher/mirrored-cilium-operator-azure v1.12.5
 quay.io/cilium/operator-azure rancher/mirrored-cilium-operator-azure v1.13.0
 quay.io/cilium/operator-azure rancher/mirrored-cilium-operator-azure v1.13.2
+quay.io/cilium/operator-azure rancher/mirrored-cilium-operator-azure v1.13.4
 quay.io/cilium/operator-generic rancher/mirrored-cilium-operator-generic v1.9.4
 quay.io/cilium/operator-generic rancher/mirrored-cilium-operator-generic v1.9.6
 quay.io/cilium/operator-generic rancher/mirrored-cilium-operator-generic v1.9.8
@@ -988,6 +1000,7 @@ quay.io/cilium/operator-generic rancher/mirrored-cilium-operator-generic v1.12.4
 quay.io/cilium/operator-generic rancher/mirrored-cilium-operator-generic v1.12.5
 quay.io/cilium/operator-generic rancher/mirrored-cilium-operator-generic v1.13.0
 quay.io/cilium/operator-generic rancher/mirrored-cilium-operator-generic v1.13.2
+quay.io/cilium/operator-generic rancher/mirrored-cilium-operator-generic v1.13.4
 quay.io/cilium/startup-script rancher/mirrored-cilium-startup-script 5e928f628f9fc644a1d2651d6cd6aecbde0e7acd
 quay.io/cilium/startup-script rancher/mirrored-cilium-startup-script 62bfbe88c17778aad7bef9fa57ff9e2d4a9ba0d8
 quay.io/cilium/startup-script rancher/mirrored-cilium-startup-script d69851597ea019af980891a4628fb36b7880ec26
@@ -1096,6 +1109,7 @@ quay.io/tigera/operator rancher/mirrored-calico-operator v1.27.12
 quay.io/tigera/operator rancher/mirrored-calico-operator v1.28.1
 quay.io/tigera/operator rancher/mirrored-calico-operator v1.28.5
 quay.io/tigera/operator rancher/mirrored-calico-operator v1.29.0
+quay.io/tigera/operator rancher/mirrored-calico-operator v1.30.4
 rancher/cluster-proportional-autoscaler rancher/mirrored-cluster-proportional-autoscaler 1.7.1
 rancher/cluster-proportional-autoscaler rancher/mirrored-cluster-proportional-autoscaler 1.8.1
 rancher/coreos-etcd rancher/mirrored-coreos-etcd v3.3.15-rancher1
