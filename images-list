@@ -81,6 +81,7 @@ flannelcni/flannel-cni-plugin rancher/mirrored-flannelcni-flannel-cni-plugin v1.
 flannel/flannel rancher/mirrored-flannel-flannel v0.21.2
 flannel/flannel rancher/mirrored-flannel-flannel v0.21.4
 flannel/flannel rancher/mirrored-flannel-flannel v0.21.5
+flannel/flannel rancher/mirrored-flannel-flannel v0.22.0
 fluent/fluent-bit rancher/fluent-fluent-bit 1.5.4
 fluent/fluent-bit rancher/fluent-fluent-bit 1.5.4-debug
 fluent/fluent-bit rancher/fluent-fluent-bit 1.6.1
@@ -131,9 +132,12 @@ gcr.io/cloud-provider-vsphere/cpi/release/manager rancher/mirrored-cloud-provide
 gcr.io/cloud-provider-vsphere/cpi/release/manager rancher/mirrored-cloud-provider-vsphere-cpi-release-manager v1.24.2
 gcr.io/cloud-provider-vsphere/cpi/release/manager rancher/mirrored-cloud-provider-vsphere-cpi-release-manager v1.24.3
 gcr.io/cloud-provider-vsphere/cpi/release/manager rancher/mirrored-cloud-provider-vsphere-cpi-release-manager v1.24.4
+gcr.io/cloud-provider-vsphere/cpi/release/manager rancher/mirrored-cloud-provider-vsphere-cpi-release-manager v1.24.5
 gcr.io/cloud-provider-vsphere/cpi/release/manager rancher/mirrored-cloud-provider-vsphere-cpi-release-manager v1.25.0
 gcr.io/cloud-provider-vsphere/cpi/release/manager rancher/mirrored-cloud-provider-vsphere-cpi-release-manager v1.25.1
+gcr.io/cloud-provider-vsphere/cpi/release/manager rancher/mirrored-cloud-provider-vsphere-cpi-release-manager v1.25.2
 gcr.io/cloud-provider-vsphere/cpi/release/manager rancher/mirrored-cloud-provider-vsphere-cpi-release-manager v1.26.0
+gcr.io/cloud-provider-vsphere/cpi/release/manager rancher/mirrored-cloud-provider-vsphere-cpi-release-manager v1.26.1
 gcr.io/cloud-provider-vsphere/csi/release/driver rancher/mirrored-cloud-provider-vsphere-csi-release-driver v2.1.0
 gcr.io/cloud-provider-vsphere/csi/release/driver rancher/mirrored-cloud-provider-vsphere-csi-release-driver v2.2.0
 gcr.io/cloud-provider-vsphere/csi/release/driver rancher/mirrored-cloud-provider-vsphere-csi-release-driver v2.2.1
@@ -207,6 +211,7 @@ ghcr.io/banzaicloud/logging-operator rancher/mirrored-banzaicloud-logging-operat
 ghcr.io/banzaicloud/logging-operator rancher/mirrored-banzaicloud-logging-operator 3.17.9
 ghcr.io/banzaicloud/logging-operator rancher/mirrored-banzaicloud-logging-operator 3.17.10
 ghcr.io/dexidp/dex rancher/mirrored-dexidp-dex v2.35.3
+ghcr.io/dexidp/dex rancher/mirrored-dexidp-dex v2.36.0
 ghcr.io/epinio/epinio-server rancher/mirrored-epinio-epinio-server v0.7.1
 ghcr.io/epinio/epinio-server rancher/mirrored-epinio-epinio-server v1.0.0
 ghcr.io/epinio/epinio-server rancher/mirrored-epinio-epinio-server v1.2.0
@@ -214,13 +219,17 @@ ghcr.io/epinio/epinio-server rancher/mirrored-epinio-epinio-server v1.4.0
 ghcr.io/epinio/epinio-server rancher/mirrored-epinio-epinio-server v1.5.1
 ghcr.io/epinio/epinio-server rancher/mirrored-epinio-epinio-server v1.6.1
 ghcr.io/epinio/epinio-server rancher/mirrored-epinio-epinio-server v1.6.2
+ghcr.io/epinio/epinio-server rancher/mirrored-epinio-epinio-server v1.8.1
 ghcr.io/epinio/epinio-ui rancher/mirrored-epinio-epinio-ui v0.6.2-0.0.1
 ghcr.io/epinio/epinio-ui rancher/mirrored-epinio-epinio-ui v1.0.0-0.0.4
 ghcr.io/epinio/epinio-ui rancher/mirrored-epinio-epinio-ui v1.2.0-0.0.1
 ghcr.io/epinio/epinio-ui rancher/mirrored-epinio-epinio-ui v1.5.1-0.0.3
+ghcr.io/epinio/epinio-ui rancher/mirrored-epinio-epinio-ui v1.8.1-0.0.1
 ghcr.io/epinio/epinio-unpacker rancher/mirrored-epinio-epinio-unpacker 1.0
 ghcr.io/epinio/epinio-unpacker rancher/mirrored-epinio-epinio-unpacker v1.6.1
 ghcr.io/epinio/epinio-unpacker rancher/mirrored-epinio-epinio-unpacker v1.6.2
+ghcr.io/epinio/epinio-unpacker rancher/mirrored-epinio-epinio-unpacker v1.8.1
+ghcr.io/kube-vip/kube-vip-iptables rancher/mirrored-kube-vip-kube-vip-iptables v0.6.0
 grafana/grafana rancher/grafana-grafana 7.1.5
 grafana/grafana rancher/grafana-grafana 7.2.1
 grafana/grafana rancher/mirrored-grafana-grafana 6.7.4
@@ -438,6 +447,8 @@ longhornio/backing-image-manager rancher/longhornio-backing-image-manager v3_202
 longhornio/backing-image-manager rancher/longhornio-backing-image-manager v3_20220808
 longhornio/backing-image-manager rancher/mirrored-longhornio-backing-image-manager v1.4.0
 longhornio/backing-image-manager rancher/mirrored-longhornio-backing-image-manager v1.4.1
+longhornio/backing-image-manager rancher/mirrored-longhornio-backing-image-manager v1.4.2
+longhornio/backing-image-manager rancher/mirrored-longhornio-backing-image-manager v1.5.0
 longhornio/backing-image-manager rancher/mirrored-longhornio-backing-image-manager v1_20210422
 longhornio/backing-image-manager rancher/mirrored-longhornio-backing-image-manager v1_20210422_patch1
 longhornio/backing-image-manager rancher/mirrored-longhornio-backing-image-manager v2_20210820
@@ -456,6 +467,7 @@ longhornio/csi-attacher rancher/mirrored-longhornio-csi-attacher v2.2.1-lh1
 longhornio/csi-attacher rancher/mirrored-longhornio-csi-attacher v2.2.1-lh2
 longhornio/csi-attacher rancher/mirrored-longhornio-csi-attacher v3.2.1
 longhornio/csi-attacher rancher/mirrored-longhornio-csi-attacher v3.4.0
+longhornio/csi-attacher rancher/mirrored-longhornio-csi-attacher v4.2.0
 longhornio/csi-node-driver-registrar rancher/longhornio-csi-node-driver-registrar v1.2.0
 longhornio/csi-node-driver-registrar rancher/longhornio-csi-node-driver-registrar v1.2.0-lh1
 longhornio/csi-node-driver-registrar rancher/longhornio-csi-node-driver-registrar v2.3.0
@@ -463,6 +475,7 @@ longhornio/csi-node-driver-registrar rancher/longhornio-csi-node-driver-registra
 longhornio/csi-node-driver-registrar rancher/mirrored-longhornio-csi-node-driver-registrar v1.2.0-lh1
 longhornio/csi-node-driver-registrar rancher/mirrored-longhornio-csi-node-driver-registrar v2.3.0
 longhornio/csi-node-driver-registrar rancher/mirrored-longhornio-csi-node-driver-registrar v2.5.0
+longhornio/csi-node-driver-registrar rancher/mirrored-longhornio-csi-node-driver-registrar v2.7.0
 longhornio/csi-provisioner rancher/longhornio-csi-provisioner v1.4.0
 longhornio/csi-provisioner rancher/longhornio-csi-provisioner v1.6.0-lh1
 longhornio/csi-provisioner rancher/longhornio-csi-provisioner v1.6.0-lh2
@@ -470,6 +483,7 @@ longhornio/csi-provisioner rancher/longhornio-csi-provisioner v2.1.2
 longhornio/csi-provisioner rancher/mirrored-longhornio-csi-provisioner v1.6.0-lh1
 longhornio/csi-provisioner rancher/mirrored-longhornio-csi-provisioner v1.6.0-lh2
 longhornio/csi-provisioner rancher/mirrored-longhornio-csi-provisioner v2.1.2
+longhornio/csi-provisioner rancher/mirrored-longhornio-csi-provisioner v3.4.1
 longhornio/csi-resizer rancher/longhornio-csi-resizer v0.3.0
 longhornio/csi-resizer rancher/longhornio-csi-resizer v0.5.1-lh1
 longhornio/csi-resizer rancher/longhornio-csi-resizer v0.5.1-lh2
@@ -478,6 +492,7 @@ longhornio/csi-resizer rancher/mirrored-longhornio-csi-resizer v0.5.1-lh1
 longhornio/csi-resizer rancher/mirrored-longhornio-csi-resizer v0.5.1-lh2
 longhornio/csi-resizer rancher/mirrored-longhornio-csi-resizer v1.2.0
 longhornio/csi-resizer rancher/mirrored-longhornio-csi-resizer v1.3.0
+longhornio/csi-resizer rancher/mirrored-longhornio-csi-resizer v1.7.0
 longhornio/csi-snapshotter rancher/longhornio-csi-snapshotter v2.1.1-lh1
 longhornio/csi-snapshotter rancher/longhornio-csi-snapshotter v2.1.1-lh2
 longhornio/csi-snapshotter rancher/longhornio-csi-snapshotter v3.0.3
@@ -485,7 +500,9 @@ longhornio/csi-snapshotter rancher/mirrored-longhornio-csi-snapshotter v2.1.1-lh
 longhornio/csi-snapshotter rancher/mirrored-longhornio-csi-snapshotter v2.1.1-lh2
 longhornio/csi-snapshotter rancher/mirrored-longhornio-csi-snapshotter v3.0.3
 longhornio/csi-snapshotter rancher/mirrored-longhornio-csi-snapshotter v5.0.1
+longhornio/csi-snapshotter rancher/mirrored-longhornio-csi-snapshotter v6.2.1
 longhornio/livenessprobe rancher/mirrored-longhornio-livenessprobe v2.8.0
+longhornio/livenessprobe rancher/mirrored-longhornio-livenessprobe v2.9.0
 longhornio/longhorn-engine rancher/longhornio-longhorn-engine v1.0.2
 longhornio/longhorn-engine rancher/longhornio-longhorn-engine v1.1.0
 longhornio/longhorn-engine rancher/longhornio-longhorn-engine v1.1.1
@@ -516,6 +533,8 @@ longhornio/longhorn-engine rancher/mirrored-longhornio-longhorn-engine v1.3.2
 longhornio/longhorn-engine rancher/mirrored-longhornio-longhorn-engine v1.3.3
 longhornio/longhorn-engine rancher/mirrored-longhornio-longhorn-engine v1.4.0
 longhornio/longhorn-engine rancher/mirrored-longhornio-longhorn-engine v1.4.1
+longhornio/longhorn-engine rancher/mirrored-longhornio-longhorn-engine v1.4.2
+longhornio/longhorn-engine rancher/mirrored-longhornio-longhorn-engine v1.5.0
 longhornio/longhorn-instance-manager rancher/longhornio-longhorn-instance-manager v1_20200514
 longhornio/longhorn-instance-manager rancher/longhornio-longhorn-instance-manager v1_20201216
 longhornio/longhorn-instance-manager rancher/longhornio-longhorn-instance-manager v1_20210621
@@ -527,6 +546,8 @@ longhornio/longhorn-instance-manager rancher/longhornio-longhorn-instance-manage
 longhornio/longhorn-instance-manager rancher/longhornio-longhorn-instance-manager v1_20220808
 longhornio/longhorn-instance-manager rancher/mirrored-longhornio-longhorn-instance-manager v1.4.0
 longhornio/longhorn-instance-manager rancher/mirrored-longhornio-longhorn-instance-manager v1.4.1
+longhornio/longhorn-instance-manager rancher/mirrored-longhornio-longhorn-instance-manager v1.4.2
+longhornio/longhorn-instance-manager rancher/mirrored-longhornio-longhorn-instance-manager v1.5.0
 longhornio/longhorn-instance-manager rancher/mirrored-longhornio-longhorn-instance-manager v1_20201216
 longhornio/longhorn-instance-manager rancher/mirrored-longhornio-longhorn-instance-manager v1_20210621
 longhornio/longhorn-instance-manager rancher/mirrored-longhornio-longhorn-instance-manager v1_20210731
@@ -568,6 +589,8 @@ longhornio/longhorn-manager rancher/mirrored-longhornio-longhorn-manager v1.3.2
 longhornio/longhorn-manager rancher/mirrored-longhornio-longhorn-manager v1.3.3
 longhornio/longhorn-manager rancher/mirrored-longhornio-longhorn-manager v1.4.0
 longhornio/longhorn-manager rancher/mirrored-longhornio-longhorn-manager v1.4.1
+longhornio/longhorn-manager rancher/mirrored-longhornio-longhorn-manager v1.4.2
+longhornio/longhorn-manager rancher/mirrored-longhornio-longhorn-manager v1.5.0
 longhornio/longhorn-share-manager rancher/longhornio-longhorn-share-manager v1_20201204
 longhornio/longhorn-share-manager rancher/longhornio-longhorn-share-manager v1_20210416
 longhornio/longhorn-share-manager rancher/longhornio-longhorn-share-manager v1_20210416_patch1
@@ -579,6 +602,8 @@ longhornio/longhorn-share-manager rancher/longhornio-longhorn-share-manager v1_2
 longhornio/longhorn-share-manager rancher/longhornio-longhorn-share-manager v1_20220808
 longhornio/longhorn-share-manager rancher/mirrored-longhornio-longhorn-share-manager v1.4.0
 longhornio/longhorn-share-manager rancher/mirrored-longhornio-longhorn-share-manager v1.4.1
+longhornio/longhorn-share-manager rancher/mirrored-longhornio-longhorn-share-manager v1.4.2
+longhornio/longhorn-share-manager rancher/mirrored-longhornio-longhorn-share-manager v1.5.0
 longhornio/longhorn-share-manager rancher/mirrored-longhornio-longhorn-share-manager v1_20201204
 longhornio/longhorn-share-manager rancher/mirrored-longhornio-longhorn-share-manager v1_20210416
 longhornio/longhorn-share-manager rancher/mirrored-longhornio-longhorn-share-manager v1_20210416_patch1
@@ -621,8 +646,11 @@ longhornio/longhorn-ui rancher/mirrored-longhornio-longhorn-ui v1.3.2
 longhornio/longhorn-ui rancher/mirrored-longhornio-longhorn-ui v1.3.3
 longhornio/longhorn-ui rancher/mirrored-longhornio-longhorn-ui v1.4.0
 longhornio/longhorn-ui rancher/mirrored-longhornio-longhorn-ui v1.4.1
+longhornio/longhorn-ui rancher/mirrored-longhornio-longhorn-ui v1.4.2
+longhornio/longhorn-ui rancher/mirrored-longhornio-longhorn-ui v1.5.0
 longhornio/support-bundle-kit rancher/mirrored-longhornio-support-bundle-kit v0.0.17
 longhornio/support-bundle-kit rancher/mirrored-longhornio-support-bundle-kit v0.0.19
+longhornio/support-bundle-kit rancher/mirrored-longhornio-support-bundle-kit v0.0.24
 messagebird/sachet rancher/mirrored-messagebird-sachet 0.2.3
 messagebird/sachet rancher/mirrored-messagebird-sachet 0.2.6
 messagebird/sachet rancher/mirrored-messagebird-sachet 0.3.1
@@ -630,11 +658,13 @@ minio/mc rancher/mirrored-minio-mc RELEASE.2022-05-09T04-08-26Z
 minio/mc rancher/mirrored-minio-mc RELEASE.2022-09-16T09-16-47Z
 minio/mc rancher/mirrored-minio-mc RELEASE.2022-11-07T23-47-39Z
 minio/mc rancher/mirrored-minio-mc RELEASE.2022-12-13T00-23-28Z
+minio/mc rancher/mirrored-minio-mc RELEASE.2023-01-28T20-29-38Z
 minio/minio rancher/mirrored-minio-minio RELEASE.2020-07-13T18-09-56Z
 minio/minio rancher/mirrored-minio-minio RELEASE.2022-05-08T23-50-31Z
 minio/minio rancher/mirrored-minio-minio RELEASE.2022-09-17T00-09-45Z
 minio/minio rancher/mirrored-minio-minio RELEASE.2022-11-11T03-44-20Z
 minio/minio rancher/mirrored-minio-minio RELEASE.2022-12-12T19-27-27Z
+minio/minio rancher/mirrored-minio-minio RELEASE.2023-02-10T18-48-39Z
 neuvector/controller rancher/mirrored-neuvector-controller 5.0.0
 neuvector/controller rancher/mirrored-neuvector-controller 5.0.0-b1
 neuvector/controller rancher/mirrored-neuvector-controller 5.0.0-b2
@@ -700,6 +730,7 @@ paketobuildpacks/builder rancher/mirrored-paketobuildpacks-builder 0.2.95-full
 paketobuildpacks/builder rancher/mirrored-paketobuildpacks-builder 0.2.220-full
 paketobuildpacks/builder rancher/mirrored-paketobuildpacks-builder 0.2.234-full
 paketobuildpacks/builder rancher/mirrored-paketobuildpacks-builder 0.2.289-full
+paketobuildpacks/builder rancher/mirrored-paketobuildpacks-builder 0.2.407-full
 plugins/docker rancher/mirrored-plugins-docker 18.09
 plugins/docker rancher/mirrored-plugins-docker 19.03.8
 prom/alertmanager rancher/mirrored-prom-alertmanager v0.21.0
@@ -724,6 +755,7 @@ quay.io/calico/apiserver rancher/mirrored-calico-apiserver v3.23.3
 quay.io/calico/apiserver rancher/mirrored-calico-apiserver v3.24.1
 quay.io/calico/apiserver rancher/mirrored-calico-apiserver v3.24.5
 quay.io/calico/apiserver rancher/mirrored-calico-apiserver v3.25.0
+quay.io/calico/apiserver rancher/mirrored-calico-apiserver v3.26.1
 quay.io/calico/cni rancher/calico-cni v3.16.5
 quay.io/calico/cni rancher/calico-cni v3.16.6
 quay.io/calico/cni rancher/calico-cni v3.17.1
@@ -752,6 +784,7 @@ quay.io/calico/cni rancher/mirrored-calico-cni v3.23.3
 quay.io/calico/cni rancher/mirrored-calico-cni v3.24.1
 quay.io/calico/cni rancher/mirrored-calico-cni v3.24.5
 quay.io/calico/cni rancher/mirrored-calico-cni v3.25.0
+quay.io/calico/cni rancher/mirrored-calico-cni v3.26.1
 quay.io/calico/ctl rancher/calico-ctl v3.16.5
 quay.io/calico/ctl rancher/calico-ctl v3.16.6
 quay.io/calico/ctl rancher/calico-ctl v3.17.1
@@ -782,6 +815,7 @@ quay.io/calico/ctl rancher/mirrored-calico-ctl v3.23.3
 quay.io/calico/ctl rancher/mirrored-calico-ctl v3.24.1
 quay.io/calico/ctl rancher/mirrored-calico-ctl v3.24.5
 quay.io/calico/ctl rancher/mirrored-calico-ctl v3.25.0
+quay.io/calico/ctl rancher/mirrored-calico-ctl v3.26.1
 quay.io/calico/kube-controllers rancher/calico-kube-controllers v3.16.5
 quay.io/calico/kube-controllers rancher/calico-kube-controllers v3.16.6
 quay.io/calico/kube-controllers rancher/calico-kube-controllers v3.17.1
@@ -810,6 +844,7 @@ quay.io/calico/kube-controllers rancher/mirrored-calico-kube-controllers v3.23.3
 quay.io/calico/kube-controllers rancher/mirrored-calico-kube-controllers v3.24.1
 quay.io/calico/kube-controllers rancher/mirrored-calico-kube-controllers v3.24.5
 quay.io/calico/kube-controllers rancher/mirrored-calico-kube-controllers v3.25.0
+quay.io/calico/kube-controllers rancher/mirrored-calico-kube-controllers v3.26.1
 quay.io/calico/node rancher/calico-node v3.16.5
 quay.io/calico/node rancher/calico-node v3.16.6
 quay.io/calico/node rancher/calico-node v3.17.1
@@ -838,6 +873,7 @@ quay.io/calico/node rancher/mirrored-calico-node v3.23.3
 quay.io/calico/node rancher/mirrored-calico-node v3.24.1
 quay.io/calico/node rancher/mirrored-calico-node v3.24.5
 quay.io/calico/node rancher/mirrored-calico-node v3.25.0
+quay.io/calico/node rancher/mirrored-calico-node v3.26.1
 quay.io/calico/pod2daemon-flexvol rancher/calico-pod2daemon-flexvol v3.16.5
 quay.io/calico/pod2daemon-flexvol rancher/calico-pod2daemon-flexvol v3.16.6
 quay.io/calico/pod2daemon-flexvol rancher/calico-pod2daemon-flexvol v3.17.1
@@ -866,6 +902,7 @@ quay.io/calico/pod2daemon-flexvol rancher/mirrored-calico-pod2daemon-flexvol v3.
 quay.io/calico/pod2daemon-flexvol rancher/mirrored-calico-pod2daemon-flexvol v3.24.1
 quay.io/calico/pod2daemon-flexvol rancher/mirrored-calico-pod2daemon-flexvol v3.24.5
 quay.io/calico/pod2daemon-flexvol rancher/mirrored-calico-pod2daemon-flexvol v3.25.0
+quay.io/calico/pod2daemon-flexvol rancher/mirrored-calico-pod2daemon-flexvol v3.26.1
 quay.io/calico/typha rancher/mirrored-calico-typha v3.18.1
 quay.io/calico/typha rancher/mirrored-calico-typha v3.19.1
 quay.io/calico/typha rancher/mirrored-calico-typha v3.19.2
@@ -885,6 +922,7 @@ quay.io/calico/typha rancher/mirrored-calico-typha v3.23.3
 quay.io/calico/typha rancher/mirrored-calico-typha v3.24.1
 quay.io/calico/typha rancher/mirrored-calico-typha v3.24.5
 quay.io/calico/typha rancher/mirrored-calico-typha v3.25.0
+quay.io/calico/typha rancher/mirrored-calico-typha v3.26.1
 quay.io/cilium/certgen rancher/mirrored-cilium-certgen v0.1.8
 quay.io/cilium/cilium rancher/mirrored-cilium-cilium v1.9.4
 quay.io/cilium/cilium rancher/mirrored-cilium-cilium v1.9.6
@@ -904,15 +942,18 @@ quay.io/cilium/cilium rancher/mirrored-cilium-cilium v1.12.4
 quay.io/cilium/cilium rancher/mirrored-cilium-cilium v1.12.5
 quay.io/cilium/cilium rancher/mirrored-cilium-cilium v1.13.0
 quay.io/cilium/cilium rancher/mirrored-cilium-cilium v1.13.2
+quay.io/cilium/cilium rancher/mirrored-cilium-cilium v1.13.4
 quay.io/cilium/cilium-etcd-operator rancher/mirrored-cilium-cilium-etcd-operator v2.0.7
 quay.io/cilium/clustermesh-apiserver rancher/mirrored-cilium-clustermesh-apiserver v1.12.4
 quay.io/cilium/clustermesh-apiserver rancher/mirrored-cilium-clustermesh-apiserver v1.12.5
 quay.io/cilium/clustermesh-apiserver rancher/mirrored-cilium-clustermesh-apiserver v1.13.0
 quay.io/cilium/clustermesh-apiserver rancher/mirrored-cilium-clustermesh-apiserver v1.13.2
+quay.io/cilium/clustermesh-apiserver rancher/mirrored-cilium-clustermesh-apiserver v1.13.4
 quay.io/cilium/hubble-relay rancher/mirrored-cilium-hubble-relay v1.12.4
 quay.io/cilium/hubble-relay rancher/mirrored-cilium-hubble-relay v1.12.5
 quay.io/cilium/hubble-relay rancher/mirrored-cilium-hubble-relay v1.13.0
 quay.io/cilium/hubble-relay rancher/mirrored-cilium-hubble-relay v1.13.2
+quay.io/cilium/hubble-relay rancher/mirrored-cilium-hubble-relay v1.13.4
 quay.io/cilium/hubble-ui rancher/mirrored-cilium-hubble-ui v0.9.2
 quay.io/cilium/hubble-ui rancher/mirrored-cilium-hubble-ui v0.10.0
 quay.io/cilium/hubble-ui rancher/mirrored-cilium-hubble-ui v0.11.0
@@ -937,6 +978,7 @@ quay.io/cilium/operator-aws rancher/mirrored-cilium-operator-aws v1.12.4
 quay.io/cilium/operator-aws rancher/mirrored-cilium-operator-aws v1.12.5
 quay.io/cilium/operator-aws rancher/mirrored-cilium-operator-aws v1.13.0
 quay.io/cilium/operator-aws rancher/mirrored-cilium-operator-aws v1.13.2
+quay.io/cilium/operator-aws rancher/mirrored-cilium-operator-aws v1.13.4
 quay.io/cilium/operator-azure rancher/mirrored-cilium-operator-azure v1.9.4
 quay.io/cilium/operator-azure rancher/mirrored-cilium-operator-azure v1.9.6
 quay.io/cilium/operator-azure rancher/mirrored-cilium-operator-azure v1.9.8
@@ -955,6 +997,7 @@ quay.io/cilium/operator-azure rancher/mirrored-cilium-operator-azure v1.12.4
 quay.io/cilium/operator-azure rancher/mirrored-cilium-operator-azure v1.12.5
 quay.io/cilium/operator-azure rancher/mirrored-cilium-operator-azure v1.13.0
 quay.io/cilium/operator-azure rancher/mirrored-cilium-operator-azure v1.13.2
+quay.io/cilium/operator-azure rancher/mirrored-cilium-operator-azure v1.13.4
 quay.io/cilium/operator-generic rancher/mirrored-cilium-operator-generic v1.9.4
 quay.io/cilium/operator-generic rancher/mirrored-cilium-operator-generic v1.9.6
 quay.io/cilium/operator-generic rancher/mirrored-cilium-operator-generic v1.9.8
@@ -973,6 +1016,7 @@ quay.io/cilium/operator-generic rancher/mirrored-cilium-operator-generic v1.12.4
 quay.io/cilium/operator-generic rancher/mirrored-cilium-operator-generic v1.12.5
 quay.io/cilium/operator-generic rancher/mirrored-cilium-operator-generic v1.13.0
 quay.io/cilium/operator-generic rancher/mirrored-cilium-operator-generic v1.13.2
+quay.io/cilium/operator-generic rancher/mirrored-cilium-operator-generic v1.13.4
 quay.io/cilium/startup-script rancher/mirrored-cilium-startup-script 5e928f628f9fc644a1d2651d6cd6aecbde0e7acd
 quay.io/cilium/startup-script rancher/mirrored-cilium-startup-script 62bfbe88c17778aad7bef9fa57ff9e2d4a9ba0d8
 quay.io/cilium/startup-script rancher/mirrored-cilium-startup-script d69851597ea019af980891a4628fb36b7880ec26
@@ -1056,6 +1100,7 @@ quay.io/prometheus/prometheus rancher/mirrored-prometheus-prometheus v2.38.0
 quay.io/prometheus/prometheus rancher/mirrored-prom-prometheus v2.18.2
 quay.io/prometheus/prometheus rancher/prom-prometheus v2.19.2
 quay.io/prometheus/prometheus rancher/prom-prometheus v2.22.0
+quay.io/s3gw/s3gw rancher/mirrored-s3gw-s3gw v0.14.0
 quay.io/skopeo/stable rancher/mirrored-skopeo-skopeo v1.10.0
 quay.io/thanos/thanos rancher/mirrored-thanos-thanos v0.17.2
 quay.io/thanos/thanos rancher/mirrored-thanos-thanos v0.28.0
@@ -1080,6 +1125,7 @@ quay.io/tigera/operator rancher/mirrored-calico-operator v1.27.12
 quay.io/tigera/operator rancher/mirrored-calico-operator v1.28.1
 quay.io/tigera/operator rancher/mirrored-calico-operator v1.28.5
 quay.io/tigera/operator rancher/mirrored-calico-operator v1.29.0
+quay.io/tigera/operator rancher/mirrored-calico-operator v1.30.4
 rancher/cluster-proportional-autoscaler rancher/mirrored-cluster-proportional-autoscaler 1.7.1
 rancher/cluster-proportional-autoscaler rancher/mirrored-cluster-proportional-autoscaler 1.8.1
 rancher/coreos-etcd rancher/mirrored-coreos-etcd v3.3.15-rancher1
@@ -1145,19 +1191,31 @@ registry.k8s.io/prometheus-adapter/prometheus-adapter rancher/mirrored-prometheu
 registry.k8s.io/sig-storage/csi-attacher rancher/mirrored-sig-storage-csi-attacher v3.2.0
 registry.k8s.io/sig-storage/csi-attacher rancher/mirrored-sig-storage-csi-attacher v3.3.0
 registry.k8s.io/sig-storage/csi-attacher rancher/mirrored-sig-storage-csi-attacher v3.4.0
+registry.k8s.io/sig-storage/csi-attacher rancher/mirrored-sig-storage-csi-attacher v3.5.0
+registry.k8s.io/sig-storage/csi-attacher rancher/mirrored-sig-storage-csi-attacher v4.2.0
 registry.k8s.io/sig-storage/csi-node-driver-registrar rancher/mirrored-sig-storage-csi-node-driver-registrar v2.3.0
 registry.k8s.io/sig-storage/csi-node-driver-registrar rancher/mirrored-sig-storage-csi-node-driver-registrar v2.5.0
 registry.k8s.io/sig-storage/csi-node-driver-registrar rancher/mirrored-sig-storage-csi-node-driver-registrar v2.5.1
+registry.k8s.io/sig-storage/csi-node-driver-registrar rancher/mirrored-sig-storage-csi-node-driver-registrar v2.6.2
+registry.k8s.io/sig-storage/csi-node-driver-registrar rancher/mirrored-sig-storage-csi-node-driver-registrar v2.7.0
 registry.k8s.io/sig-storage/csi-provisioner rancher/mirrored-sig-storage-csi-provisioner v2.2.0
 registry.k8s.io/sig-storage/csi-provisioner rancher/mirrored-sig-storage-csi-provisioner v3.0.0
 registry.k8s.io/sig-storage/csi-provisioner rancher/mirrored-sig-storage-csi-provisioner v3.1.0
 registry.k8s.io/sig-storage/csi-provisioner rancher/mirrored-sig-storage-csi-provisioner v3.2.1
+registry.k8s.io/sig-storage/csi-provisioner rancher/mirrored-sig-storage-csi-provisioner v3.3.0
+registry.k8s.io/sig-storage/csi-provisioner rancher/mirrored-sig-storage-csi-provisioner v3.4.0
 registry.k8s.io/sig-storage/csi-resizer rancher/mirrored-sig-storage-csi-resizer v1.3.0
 registry.k8s.io/sig-storage/csi-resizer rancher/mirrored-sig-storage-csi-resizer v1.4.0
+registry.k8s.io/sig-storage/csi-resizer rancher/mirrored-sig-storage-csi-resizer v1.6.0
+registry.k8s.io/sig-storage/csi-resizer rancher/mirrored-sig-storage-csi-resizer v1.7.0
 registry.k8s.io/sig-storage/csi-snapshotter rancher/mirrored-sig-storage-csi-snapshotter v5.0.1
+registry.k8s.io/sig-storage/csi-snapshotter rancher/mirrored-sig-storage-csi-snapshotter v6.0.1
+registry.k8s.io/sig-storage/csi-snapshotter rancher/mirrored-sig-storage-csi-snapshotter v6.2.1
 registry.k8s.io/sig-storage/livenessprobe rancher/mirrored-sig-storage-livenessprobe v2.4.0
 registry.k8s.io/sig-storage/livenessprobe rancher/mirrored-sig-storage-livenessprobe v2.6.0
 registry.k8s.io/sig-storage/livenessprobe rancher/mirrored-sig-storage-livenessprobe v2.7.0
+registry.k8s.io/sig-storage/livenessprobe rancher/mirrored-sig-storage-livenessprobe v2.8.0
+registry.k8s.io/sig-storage/livenessprobe rancher/mirrored-sig-storage-livenessprobe v2.9.0
 registry.k8s.io/sig-storage/snapshot-controller rancher/mirrored-sig-storage-snapshot-controller v6.1.0
 registry.k8s.io/sig-storage/snapshot-controller rancher/mirrored-sig-storage-snapshot-controller v6.2.1
 registry.k8s.io/sig-storage/snapshot-validation-webhook rancher/mirrored-sig-storage-snapshot-validation-webhook v6.1.0
@@ -1174,6 +1232,7 @@ sonobuoy/sonobuoy rancher/mirrored-sonobuoy-sonobuoy v0.56.7
 sonobuoy/sonobuoy rancher/mirrored-sonobuoy-sonobuoy v0.56.14
 sonobuoy/sonobuoy rancher/mirrored-sonobuoy-sonobuoy v0.56.15
 sonobuoy/sonobuoy rancher/mirrored-sonobuoy-sonobuoy v0.56.16
+sonobuoy/sonobuoy rancher/mirrored-sonobuoy-sonobuoy v0.56.17
 sonobuoy/sonobuoy rancher/sonobuoy-sonobuoy v0.19.0
 squareup/ghostunnel rancher/mirrored-squareup-ghostunnel v1.5.2
 squareup/ghostunnel rancher/squareup-ghostunnel v1.5.2

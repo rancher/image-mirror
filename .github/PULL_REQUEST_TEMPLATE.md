@@ -7,6 +7,7 @@
 - [ ] New entries are added to the correct section of the list (sorted lexicographically)
 - [ ] New entries have a repo created in Rancher Dockerhub (where the image will be mirrored to)
 - [ ] New entries are licensed with Rancher favored licenses - Apache 2 and MIT - or approved licenses - as according to [CNCF approved licenses](https://github.com/cncf/foundation/blob/main/allowed-third-party-license-policy.md).
+- [ ] New entries, when used in Rancher or Rancher's provided charts, have their corresponding origin added in Rancher's images [origins](https://github.com/rancher/rancher/blob/release/v2.7/pkg/image/origins.go) file (must be added for all Rancher versions `>= v2.7`).
 - [ ] Changes to scripting or CI config have been tested to the best of your ability
 
 #### Types of Change ####
