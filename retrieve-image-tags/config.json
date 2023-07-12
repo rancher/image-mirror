@@ -5,6 +5,48 @@
     ],
     "versionSource": "github-latest-release:flannel-io/flannel"
   },
+  "calico": {
+    "images": [
+      "quay.io/calico/apiserver",
+      "quay.io/calico/cni",
+      "quay.io/calico/ctl",
+      "quay.io/calico/kube-controllers",
+      "quay.io/calico/node",
+      "quay.io/calico/pod2daemon-flexvol",
+      "quay.io/calico/typha"
+    ],
+    "versionSource": "github-latest-release:projectcalico/calico"
+  },
+  "calico-operator": {
+    "images": [
+      "quay.io/tigera/operator"
+    ],
+    "versionSource": "github-latest-release:tigera/operator"
+  },
+  "cilium": {
+    "images": [
+      "quay.io/cilium/cilium",
+      "quay.io/cilium/clustermesh-apiserver",
+      "quay.io/cilium/hubble-relay",
+      "quay.io/cilium/operator-aws",
+      "quay.io/cilium/operator-azure",
+      "quay.io/cilium/operator-generic"
+    ],
+    "versionSource": "github-latest-release:cilium/cilium"
+  },
+  "cilium-certgen": {
+    "images": [
+      "quay.io/cilium/certgen"
+    ],
+    "versionSource": "github-latest-release:cilium/certgen"
+  },
+  "cilium-hubble-ui": {
+    "images": [
+      "quay.io/cilium/hubble-ui",
+      "quay.io/cilium/hubble-ui-backend"
+    ],
+    "versionSource": "github-latest-release:cilium/hubble-ui"
+  },
   "traefik": {
     "images": [
       "library/traefik"
