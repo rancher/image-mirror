@@ -43,6 +43,8 @@ The current filters for tags are:
 
 - `versionConstraint`: This is a semver constraint that will match the given expression and ignore tags that do not match.
 - `versionFilter`: This is a regex filter that will match the given expression and ignore tags that do not match.
+- `latest`: Sorts the found tags numerically and returns only the latest tag
+- `latest_entry`: Returns the last found (newest) tag only (can be used when tags are not semver/cannot be sorted numerically)
 
 See an example configuration below:
 

@@ -163,7 +163,9 @@ for (key, values) in data.items():
                     found_images.append(image_tag)
             else:
                     found_images.extend(image_tags)
-            if "latest" in values:
+            if "latest_entry" in values:
+                found_releases = [found_images[0]]
+            elif "latest" in values:
                 found_images.sort(key = lambda x: [int(y.removeprefix('v')) for y in x.split('.')])
                 found_releases = [found_images[-1]]
             else:
