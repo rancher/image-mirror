@@ -925,6 +925,7 @@ quay.io/calico/typha rancher/mirrored-calico-typha v3.24.1
 quay.io/calico/typha rancher/mirrored-calico-typha v3.24.5
 quay.io/calico/typha rancher/mirrored-calico-typha v3.25.0
 quay.io/calico/typha rancher/mirrored-calico-typha v3.26.1
+quay.io/cilium/certgen rancher/mirrored-cilium-certgen v0.1.7
 quay.io/cilium/certgen rancher/mirrored-cilium-certgen v0.1.8
 quay.io/cilium/cilium rancher/mirrored-cilium-cilium v1.9.4
 quay.io/cilium/cilium rancher/mirrored-cilium-cilium v1.9.6
