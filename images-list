@@ -83,6 +83,7 @@ flannel/flannel rancher/mirrored-flannel-flannel v0.21.4
 flannel/flannel rancher/mirrored-flannel-flannel v0.21.5
 flannel/flannel rancher/mirrored-flannel-flannel v0.22.0
 flannel/flannel rancher/mirrored-flannel-flannel v0.22.1
+flannel/flannel-cni-plugin rancher/mirrored-flannel-flannel-cni-plugin v1.2.0
 fluent/fluent-bit rancher/fluent-fluent-bit 1.5.4
 fluent/fluent-bit rancher/fluent-fluent-bit 1.5.4-debug
 fluent/fluent-bit rancher/fluent-fluent-bit 1.6.1
@@ -967,6 +968,7 @@ quay.io/cilium/cilium rancher/mirrored-cilium-cilium v1.13.0
 quay.io/cilium/cilium rancher/mirrored-cilium-cilium v1.13.2
 quay.io/cilium/cilium rancher/mirrored-cilium-cilium v1.13.4
 quay.io/cilium/cilium rancher/mirrored-cilium-cilium v1.14.0
+quay.io/cilium/cilium-envoy rancher/mirrored-cilium-cilium-envoy v1.25.9-f039e2bd380b7eef2f2feea5750676bb36133699
 quay.io/cilium/cilium-etcd-operator rancher/mirrored-cilium-cilium-etcd-operator v2.0.7
 quay.io/cilium/clustermesh-apiserver rancher/mirrored-cilium-clustermesh-apiserver v1.12.4
 quay.io/cilium/clustermesh-apiserver rancher/mirrored-cilium-clustermesh-apiserver v1.12.5
@@ -988,6 +990,7 @@ quay.io/cilium/hubble-ui-backend rancher/mirrored-cilium-hubble-ui-backend v0.9.
 quay.io/cilium/hubble-ui-backend rancher/mirrored-cilium-hubble-ui-backend v0.10.0
 quay.io/cilium/hubble-ui-backend rancher/mirrored-cilium-hubble-ui-backend v0.11.0
 quay.io/cilium/hubble-ui-backend rancher/mirrored-cilium-hubble-ui-backend v0.12.0
+quay.io/cilium/kvstoremesh rancher/mirrored-cilium-kvstoremesh v1.14.0
 quay.io/cilium/operator-aws rancher/mirrored-cilium-operator-aws v1.9.4
 quay.io/cilium/operator-aws rancher/mirrored-cilium-operator-aws v1.9.6
 quay.io/cilium/operator-aws rancher/mirrored-cilium-operator-aws v1.9.8

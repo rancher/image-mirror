@@ -5,6 +5,12 @@
     ],
     "versionSource": "github-latest-release:flannel-io/flannel"
   },
+  "flannel-cni-plugin": {
+    "images": [
+      "flannel/flannel-cni-plugin"
+    ],
+    "versionSource": "github-latest-release:flannel-io/cni-plugin"
+  },
   "calico": {
     "images": [
       "quay.io/calico/apiserver",
@@ -28,6 +34,7 @@
       "quay.io/cilium/cilium",
       "quay.io/cilium/clustermesh-apiserver",
       "quay.io/cilium/hubble-relay",
+      "quay.io/cilium/kvstoremesh",
       "quay.io/cilium/operator-aws",
       "quay.io/cilium/operator-azure",
       "quay.io/cilium/operator-generic"
@@ -39,6 +46,14 @@
       "quay.io/cilium/certgen"
     ],
     "versionSource": "github-latest-release:cilium/certgen"
+  },
+  "cilium-envoy": {
+    "images": [
+      "quay.io/cilium/cilium-envoy"
+    ],
+    "versionSource": "registry",
+    "versionFilter": "^v[0-9]+\\.[0-9]+\\.[0-9]+(-[0-9a-z]+)?$",
+    "latest_entry": true
   },
   "cilium-hubble-ui": {
     "images": [
