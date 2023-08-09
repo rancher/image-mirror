@@ -1183,6 +1183,7 @@ rancher/metrics-server rancher/mirrored-metrics-server v0.3.4
 rancher/metrics-server rancher/mirrored-metrics-server v0.3.6
 rancher/nginx-ingress-controller-defaultbackend rancher/mirrored-nginx-ingress-controller-defaultbackend 1.5-rancher1
 registry.k8s.io/cluster-api/cluster-api-controller rancher/mirrored-cluster-api-controller v1.4.4
+registry.k8s.io/cluster-api/cluster-api-controller rancher/mirrored-cluster-api-controller v1.5.0
 registry.k8s.io/cpa/cluster-proportional-autoscaler rancher/mirrored-cluster-proportional-autoscaler 1.8.3
 registry.k8s.io/cpa/cluster-proportional-autoscaler rancher/mirrored-cluster-proportional-autoscaler 1.8.5
 registry.k8s.io/cpa/cluster-proportional-autoscaler rancher/mirrored-cluster-proportional-autoscaler 1.8.6
