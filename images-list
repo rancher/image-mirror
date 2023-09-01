@@ -993,6 +993,7 @@ quay.io/cilium/cilium rancher/mirrored-cilium-cilium v1.13.0
 quay.io/cilium/cilium rancher/mirrored-cilium-cilium v1.13.2
 quay.io/cilium/cilium rancher/mirrored-cilium-cilium v1.13.4
 quay.io/cilium/cilium rancher/mirrored-cilium-cilium v1.14.0
+quay.io/cilium/cilium-envoy rancher/mirrored-cilium-cilium-envoy v1.25.9-67b2c6e6d8b7e9cad58db9bfdb6ef7b0d9ea7bcc
 quay.io/cilium/cilium-envoy rancher/mirrored-cilium-cilium-envoy v1.25.9-f039e2bd380b7eef2f2feea5750676bb36133699
 quay.io/cilium/cilium-envoy rancher/mirrored-cilium-cilium-envoy v1.26.4-c0f770db7b6accadd2c7171af9ad00370a7d8693
 quay.io/cilium/cilium-etcd-operator rancher/mirrored-cilium-cilium-etcd-operator v2.0.7
