@@ -37,7 +37,7 @@ jobs:
             IMAGES=$(echo "${JSON}" | jq -r --arg IMAGE_KEY "$IMAGE_KEY" '.[$IMAGE_KEY].images | join(",")')
             TAGS=$(echo "${JSON}" | jq -r --arg IMAGE_KEY "$IMAGE_KEY" '.[$IMAGE_KEY].tags | join(",")')
             PR_TITLE="Added tag(s) ${TAGS} for image(s) ${IMAGES}"
-            EXISTING_PR=$(gh pr list --limit 1500 --json title,url | jq --arg title "${PR_TITLE}" -r '.[] | select(.title==$title) | .url')
+            EXISTING_PR=$(gh pr list --state all --limit 1500 --json title,url | jq --arg title "${PR_TITLE}" -r '.[] | select(.title==$title) | .url')
             if [ -n "${IMAGES}" ] && [ -n "${TAGS}" ] && [ -z "${EXISTING_PR}" ]; then
                 gh workflow run add-tag-to-existing-image.yml --ref $GITHUB_REF_NAME -f images=$IMAGES -f tags=$TAGS
                 RETVAL=$?
@@ -51,7 +51,7 @@ jobs:
                 if [ -z "${EXISTING_PR}" ]; then
                     echo -e "No new images/tags found ${IMAGE_KEY}\n" >> $GITHUB_STEP_SUMMARY
                 else
-                    echo -e "PR already exists (${EXISTING_PR})\n" >> $GITHUB_STEP_SUMMARY
+                    echo -e "PR already exists (${EXISTING_PR}), rename existing PR title to recreate\n" >> $GITHUB_STEP_SUMMARY
                 fi
             fi
         done
