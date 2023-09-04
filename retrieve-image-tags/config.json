@@ -47,14 +47,6 @@
     ],
     "versionSource": "github-latest-release:cilium/certgen"
   },
-  "cilium-envoy": {
-    "images": [
-      "quay.io/cilium/cilium-envoy"
-    ],
-    "versionSource": "registry",
-    "versionFilter": "^v[0-9]+\\.[0-9]+\\.[0-9]+(-[0-9a-z]+)?$",
-    "latest_entry": true
-  },
   "cilium-hubble-ui": {
     "images": [
       "quay.io/cilium/hubble-ui",
