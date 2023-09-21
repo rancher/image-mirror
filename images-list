@@ -308,6 +308,8 @@ istio/install-cni rancher/mirrored-istio-install-cni 1.17.2
 istio/install-cni rancher/mirrored-istio-install-cni 1.17.2-distroless
 istio/install-cni rancher/mirrored-istio-install-cni 1.18.2
 istio/install-cni rancher/mirrored-istio-install-cni 1.18.2-distroless
+istio/install-cni rancher/mirrored-istio-install-cni 1.19.0
+istio/install-cni rancher/mirrored-istio-install-cni 1.19.0-distroless
 istio/kubectl rancher/istio-kubectl 1.5.10
 istio/kubectl rancher/mirrored-istio-kubectl 1.5.9
 istio/mixer rancher/istio-mixer 1.7.0
@@ -359,6 +361,8 @@ istio/pilot rancher/mirrored-istio-pilot 1.17.2
 istio/pilot rancher/mirrored-istio-pilot 1.17.2-distroless
 istio/pilot rancher/mirrored-istio-pilot 1.18.2
 istio/pilot rancher/mirrored-istio-pilot 1.18.2-distroless
+istio/pilot rancher/mirrored-istio-pilot 1.19.0
+istio/pilot rancher/mirrored-istio-pilot 1.19.0-distroless
 istio/proxyv2 rancher/istio-proxyv2 1.7.0
 istio/proxyv2 rancher/istio-proxyv2 1.7.1
 istio/proxyv2 rancher/istio-proxyv2 1.7.3
@@ -401,6 +405,8 @@ istio/proxyv2 rancher/mirrored-istio-proxyv2 1.17.2
 istio/proxyv2 rancher/mirrored-istio-proxyv2 1.17.2-distroless
 istio/proxyv2 rancher/mirrored-istio-proxyv2 1.18.2
 istio/proxyv2 rancher/mirrored-istio-proxyv2 1.18.2-distroless
+istio/proxyv2 rancher/mirrored-istio-proxyv2 1.19.0
+istio/proxyv2 rancher/mirrored-istio-proxyv2 1.19.0-distroless
 istio/sidecar_injector rancher/mirrored-istio-sidecar_injector 1.5.9
 jaegertracing/all-in-one rancher/jaegertracing-all-in-one 1.20.0
 jaegertracing/all-in-one rancher/mirrored-jaegertracing-all-in-one 1.14
@@ -417,6 +423,7 @@ jaegertracing/all-in-one rancher/mirrored-jaegertracing-all-in-one 1.39.0
 jaegertracing/all-in-one rancher/mirrored-jaegertracing-all-in-one 1.42.0
 jaegertracing/all-in-one rancher/mirrored-jaegertracing-all-in-one 1.43.0
 jaegertracing/all-in-one rancher/mirrored-jaegertracing-all-in-one 1.47.0
+jaegertracing/all-in-one rancher/mirrored-jaegertracing-all-in-one 1.49.0
 jenkins/jnlp-slave rancher/mirrored-jenkins-jnlp-slave 3.35-4
 jenkins/jnlp-slave rancher/mirrored-jenkins-jnlp-slave 4.7-1
 jettech/kube-webhook-certgen rancher/jettech-kube-webhook-certgen v1.2.1
@@ -1153,6 +1160,7 @@ quay.io/kiali/kiali rancher/mirrored-kiali-kiali v1.59.0
 quay.io/kiali/kiali rancher/mirrored-kiali-kiali v1.63.2
 quay.io/kiali/kiali rancher/mirrored-kiali-kiali v1.66.0
 quay.io/kiali/kiali rancher/mirrored-kiali-kiali v1.67.0
+quay.io/kiali/kiali rancher/mirrored-kiali-kiali v1.72.0
 quay.io/kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 1.10.7
 quay.io/kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 1.12.2
 quay.io/kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 1.12.3
