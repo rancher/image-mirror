@@ -73,6 +73,50 @@
       "idealista/prom2teams"
     ],
     "versionSource": "github-latest-release:idealista/prom2teams"
+  },
+  "vsphere-csi": {
+    "images": [
+      "gcr.io/cloud-provider-vsphere/csi/release/driver",
+      "gcr.io/cloud-provider-vsphere/csi/release/syncer"
+    ],
+    "versionSource": "github-latest-release:kubernetes-sigs/vsphere-csi-driver"
+  },
+  "csi-attacher": {
+    "images": [
+      "registry.k8s.io/sig-storage/csi-attacher"
+    ],
+    "versionSource": "github-latest-release:kubernetes-csi/external-attacher"
+  },
+  "csi-resizer": {
+    "images": [
+      "registry.k8s.io/sig-storage/csi-resizer"
+    ],
+    "versionSource": "github-latest-release:kubernetes-csi/external-resizer"
+  },
+  "storage-livenessprobe": {
+    "images": [
+      "registry.k8s.io/sig-storage/livenessprobe"
+    ],
+    "versionSource": "github-latest-release:kubernetes-csi/livenessprobe"
+  },
+  "csi-provisioner": {
+    "images": [
+      "registry.k8s.io/sig-storage/csi-provisioner"
+    ],
+    "versionSource": "github-latest-release:kubernetes-csi/external-provisioner"
+  },
+  "csi-driver-registrar": {
+    "images": [
+      "registry.k8s.io/sig-storage/csi-node-driver-registrar"
+    ],
+    "versionSource": "github-latest-release:kubernetes-csi/node-driver-registrar"
+  },
+  "cpi-release-manager": {
+    "images": [
+      "gcr.io/cloud-provider-vsphere/cpi/release/manager"
+    ],
+    "versionSource": "registry",
+    "versionFilter": "^v1\\.[2-9]+\\.[3-9]+$"
   }
 }
 
