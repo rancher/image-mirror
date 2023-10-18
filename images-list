@@ -9,13 +9,6 @@ amazon/aws-cli rancher/mirrored-amazon-aws-cli 2.8.9
 amazon/aws-cli rancher/mirrored-amazon-aws-cli 2.9.0
 amazon/aws-cli rancher/mirrored-amazon-aws-cli 2.9.14
 appscode/kubed rancher/mirrored-appscode-kubed v0.13.2
-banzaicloud/fluentd rancher/banzaicloud-fluentd v1.11.2-alpine-2
-banzaicloud/fluentd rancher/banzaicloud-fluentd v1.11.4-alpine-1
-banzaicloud/fluentd rancher/banzaicloud-fluentd v1.11.5-alpine-1
-banzaicloud/fluentd rancher/banzaicloud-fluentd v1.11.5-alpine-9
-banzaicloud/fluentd rancher/mirrored-banzaicloud-fluentd v1.11.5-alpine-9
-banzaicloud/fluentd rancher/mirrored-banzaicloud-fluentd v1.11.5-alpine-12
-banzaicloud/fluentd rancher/mirrored-banzaicloud-fluentd v1.11.5-alpine-21
 banzaicloud/logging-operator rancher/banzaicloud-logging-operator 3.6.0
 banzaicloud/logging-operator rancher/banzaicloud-logging-operator 3.7.0
 banzaicloud/logging-operator rancher/banzaicloud-logging-operator 3.7.3
@@ -1222,7 +1215,6 @@ quay.io/prometheus/alertmanager rancher/mirrored-prometheus-alertmanager v0.22.0
 quay.io/prometheus/alertmanager rancher/mirrored-prometheus-alertmanager v0.22.2
 quay.io/prometheus/alertmanager rancher/mirrored-prometheus-alertmanager v0.24.0
 quay.io/prometheus/alertmanager rancher/mirrored-prometheus-alertmanager v0.25.0
-quay.io/prometheus/node-exporter rancher/mirrored-coreos-node-exporter v1.0.1
 quay.io/prometheus/node-exporter rancher/mirrored-prometheus-node-exporter v1.1.2
 quay.io/prometheus/node-exporter rancher/mirrored-prometheus-node-exporter v1.2.2
 quay.io/prometheus/node-exporter rancher/mirrored-prometheus-node-exporter v1.3.1
