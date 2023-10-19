@@ -29,31 +29,6 @@
     ],
     "versionSource": "github-latest-release:tigera/operator"
   },
-  "cilium": {
-    "images": [
-      "quay.io/cilium/cilium",
-      "quay.io/cilium/clustermesh-apiserver",
-      "quay.io/cilium/hubble-relay",
-      "quay.io/cilium/kvstoremesh",
-      "quay.io/cilium/operator-aws",
-      "quay.io/cilium/operator-azure",
-      "quay.io/cilium/operator-generic"
-    ],
-    "versionSource": "github-latest-release:cilium/cilium"
-  },
-  "cilium-certgen": {
-    "images": [
-      "quay.io/cilium/certgen"
-    ],
-    "versionSource": "github-latest-release:cilium/certgen"
-  },
-  "cilium-hubble-ui": {
-    "images": [
-      "quay.io/cilium/hubble-ui",
-      "quay.io/cilium/hubble-ui-backend"
-    ],
-    "versionSource": "github-latest-release:cilium/hubble-ui"
-  },
   "traefik": {
     "images": [
       "library/traefik"
@@ -117,6 +92,37 @@
     ],
     "versionSource": "registry",
     "versionFilter": "^v1\\.[2-9]+\\.[3-9]+$"
+  },
+  "cilium": {
+    "versionSource": "helm-latest:https://helm.cilium.io",
+    "imageDenylist": [
+      "quay.io/cilium/operator",
+      "quay.io/cilium/startup-script"
+    ],
+    "helmCharts": {
+      "cilium": {
+        "chartConfig": {
+          "aws": {
+            "values": [
+              "eni.enabled=true"
+            ]
+          },
+          "azure":  {
+            "values": [
+              "azure.enabled=true"
+            ]
+          },
+          "generic": {
+            "values": [
+              "clustermesh.useAPIServer=true",
+              "envoy.enabled=true",
+              "hubble.ui.enabled=true",
+              "hubble.relay.enabled=true",
+              "hubble.enabled=true"
+            ]
+          }
+        }
+      }
+    }
   }
 }
-

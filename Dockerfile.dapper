@@ -1,7 +1,7 @@
 FROM quay.io/skopeo/stable:v1.13.2
 
-# Add jq
-RUN yum -y update && yum -y install jq git && yum -y clean all && rm -rf /var/cache/dnf/* /var/log/dnf* /var/log/yum*
+# Add jq, git, helm
+RUN yum -y update && yum -y install jq git helm && yum -y clean all && rm -rf /var/cache/dnf/* /var/log/dnf* /var/log/yum*
 
 # Add docker cli
 COPY --from=docker.io/library/docker:19.03.12 /usr/local/bin/docker /usr/local/bin/
@@ -11,7 +11,7 @@ RUN mkdir -p /usr/libexec/docker/cli-plugins/ && curl -sLo /usr/libexec/docker/c
 
 ENV DAPPER_SOURCE /source
 ENV DAPPER_OUTPUT ./images-list
-ENV DAPPER_ENV DEST_ORG_OVERRIDE DOCKER_REGISTRY DOCKER_USERNAME DOCKER_PASSWORD IMAGES TAGS IMAGES_FILE DRONE DRONE_COMMIT_BEFORE DRONE_COMMIT_AFTER
+ENV DAPPER_ENV DEST_ORG_OVERRIDE DOCKER_REGISTRY DOCKER_USERNAME DOCKER_PASSWORD FULL_IMAGES IMAGES TAGS IMAGES_FILE DRONE DRONE_COMMIT_BEFORE DRONE_COMMIT_AFTER
 ENV HOME ${DAPPER_SOURCE}
 WORKDIR ${DAPPER_SOURCE}
 
