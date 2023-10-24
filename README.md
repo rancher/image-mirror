@@ -52,6 +52,7 @@ Helm specific options:
 
 - `imageDenylist`: An array of images that will not be added (in case the image matching finds images that shouldn't be added as the automation only accounts for adding tags to existing images, not adding new images as they need to be approved first)
 - `kubeVersion`: What version to pass to `--kube-version` when running `helm template`
+- `devel`: Use chart development versions (adds `--devel` to `helm template` and `helm show values` commands)
 
 See example configuration for `github-releases`, `github-latest-release` and `registry`:
 
@@ -125,6 +126,7 @@ See example configuration for `helm-latest:helm-repo-fqdn`:
     ],
     "helmCharts": {
       "cilium": {
+        "devel": true,
         "chartConfig": {
           "aws": {
             "values": [

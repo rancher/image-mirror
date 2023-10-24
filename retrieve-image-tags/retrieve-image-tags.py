@@ -114,20 +114,23 @@ def _image_tag_already_exist(filetext, image, tag):
     return False
 
 # Function to retrieve images from helm chart using helm template
-def _extract_unique_images_from_helm_template(repo_name, chart, chart_values='', kube_version=''):
+def _extract_unique_images_from_helm_template(repo_name, chart, chart_values='', kube_version='', devel=False):
     rendered_chart = ''
     if kube_version != '':
         kube_version = f"--kube-version {kube_version}"
+    develArg = ''
+    if devel:
+        develArg = '--devel'
     if chart.startswith('oci://'):
         rendered_chart = subprocess.check_output(
-            f"helm template {kube_version} {chart_values} {chart}",
+            f"helm template {kube_version} {chart_values} {chart} {develArg}",
             stderr=subprocess.DEVNULL,
             shell=True,
         ).decode()
     else:
         chart = f"{repo_name}/{chart}"
         rendered_chart = subprocess.check_output(
-            f"helm template {kube_version} {chart_values} {repo_name} {chart}",
+            f"helm template {kube_version} {chart_values} {repo_name} {chart} {develArg}",
             stderr=subprocess.DEVNULL,
             shell=True,
         ).decode()
@@ -142,11 +145,14 @@ def _extract_unique_images_from_helm_template(repo_name, chart, chart_values='',
     images = [i.split('@')[0] for i in images]
     return images
 
-def _extract_unique_images_from_helm_values(repo_name, chart):
+def _extract_unique_images_from_helm_values(repo_name, chart, devel=False):
     if not chart.startswith('oci://'):
         chart = f"{repo_name}/{chart}"
+    develArg = ''
+    if devel:
+        develArg = '--devel'
     chart_values = subprocess.check_output(
-        f"helm show values {chart}",
+        f"helm show values {chart} {develArg}",
         stderr=subprocess.DEVNULL,
         shell=True,
     ).decode()
@@ -236,6 +242,9 @@ for (key, values) in data.items():
             if 'imageDenylist' in values:
                 image_denylist = values['imageDenylist']
             for chart in values['helmCharts']:
+                devel = False
+                if 'devel' in values['helmCharts'][chart]:
+                    devel = values['helmCharts'][chart]['devel']
                 if 'chartConfig' in values['helmCharts'][chart]:
                     for arg_key in values['helmCharts'][chart]['chartConfig']:
                         chart_values = ''
@@ -246,12 +255,12 @@ for (key, values) in data.items():
                         kube_version = ''
                         if 'kubeVersion' in values['helmCharts'][chart]['chartConfig'][arg_key]:
                             kube_version = values['helmCharts'][chart]['chartConfig'][arg_key]['kubeVersion']
-                        extracted_images = _extract_unique_images_from_helm_template(repo_name, chart, chart_values, kube_version)
+                        extracted_images = _extract_unique_images_from_helm_template(repo_name, chart, chart_values, kube_version, devel)
                         found_releases.extend(extracted_images)
                 else:
-                    extracted_images = _extract_unique_images_from_helm_template(repo_name, chart)
+                    extracted_images = _extract_unique_images_from_helm_template(repo_name, chart, devel=devel)
                     found_releases.extend(extracted_images)
-            extracted_images = _extract_unique_images_from_helm_values(repo_name, chart)
+            extracted_images = _extract_unique_images_from_helm_values(repo_name, chart, devel=devel)
             found_releases.extend(extracted_images)
         case 'github-releases':
             repo = g.get_repo(repoString[1])

@@ -2,7 +2,7 @@ name: Validate retrieve-image-tags config
 on:
   pull_request:
     paths:
-      - 'retrieve-image-tags/config.json'
+      - 'retrieve-image-tags/**'
 
 permissions:
   contents: read
