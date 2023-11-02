@@ -53,6 +53,8 @@ Helm specific options:
 - `imageDenylist`: An array of images that will not be added (in case the image matching finds images that shouldn't be added as the automation only accounts for adding tags to existing images, not adding new images as they need to be approved first)
 - `kubeVersion`: What version to pass to `--kube-version` when running `helm template`
 - `devel`: Use chart development versions (adds `--devel` to `helm template` and `helm show values` commands)
+- `additionalVersionFilter`: Next to retrieving the latest Helm chart, it will also run `helm template` and `helm show values` commands with `--version` parameters from this array. This is useful if you want to include images from multiple versions in a single pull request.
+- `versionFilter`: Specify what version of the Helm chart needs to be used (this will only run `helm template` and `helm show values` with the configured `versionFilter`)
 
 See example configuration for `github-releases`, `github-latest-release` and `registry`:
 
@@ -181,7 +183,25 @@ See example configuration for `helm-latest:helm-repo-fqdn`:
     "helmCharts": {
       "core": {}
     }
+  },
+  "longhorn": {
+    "versionSource": "helm-latest:https://charts.longhorn.io",
+    "additionalVersionFilter": [
+      "v1.4.*"
+    ],
+    "helmCharts": {
+      "longhorn": {}
+    }
+  },
+  "longhorn": {
+    "versionSource": "helm-latest:https://charts.longhorn.io",
+    "helmCharts": {
+      "longhorn": {
+        "versionFilter": "v1.4.*"
+      }
+    }
   }
+
 }
 ```
 

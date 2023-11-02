@@ -97,7 +97,9 @@
     "versionSource": "helm-latest:https://helm.cilium.io",
     "imageDenylist": [
       "quay.io/cilium/operator",
-      "quay.io/cilium/startup-script"
+      "quay.io/cilium/startup-script",
+      "ghcr.io/spiffe/spire-agent",
+      "ghcr.io/spiffe/spire-server"
     ],
     "helmCharts": {
       "cilium": {

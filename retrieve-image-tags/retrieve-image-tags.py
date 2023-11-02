@@ -114,79 +114,87 @@ def _image_tag_already_exist(filetext, image, tag):
     return False
 
 # Function to retrieve images from helm chart using helm template
-def _extract_unique_images_from_helm_template(repo_name, chart, chart_values='', kube_version='', devel=False):
+def _extract_unique_images_from_helm_template(repo_name, chart, chart_values='', kube_version='', devel=False, version=''):
     rendered_chart = ''
     if kube_version != '':
         kube_version = f"--kube-version {kube_version}"
     develArg = ''
     if devel:
         develArg = '--devel'
+    versionArg = ''
+    if version != '':
+        versionArg = f"--version {version}"
     if chart.startswith('oci://'):
         rendered_chart = subprocess.check_output(
-            f"helm template {kube_version} {chart_values} {chart} {develArg}",
+            f"helm template {kube_version} {chart_values} {chart} {develArg} {versionArg}",
             stderr=subprocess.DEVNULL,
             shell=True,
         ).decode()
     else:
         chart = f"{repo_name}/{chart}"
         rendered_chart = subprocess.check_output(
-            f"helm template {kube_version} {chart_values} {repo_name} {chart} {develArg}",
+            f"helm template {kube_version} {chart_values} {repo_name} {chart} {develArg} {versionArg}",
             stderr=subprocess.DEVNULL,
             shell=True,
         ).decode()
     yaml_output = yaml.safe_load_all(rendered_chart)
-    images = []
+    helm_template_images = []
     for doc in yaml_output:
         yaml_images = nested_lookup(key='image',document=doc,wild=True)
         for image in yaml_images:
             if not isinstance(image, str):
                 continue
-            images.append(image) if image not in images else images
-    images = [i.split('@')[0] for i in images]
+            helm_template_images.append(image) if image not in helm_template_images else helm_template_images
+    helm_template_images = [i.split('@')[0] for i in helm_template_images]
+    return helm_template_images
+
+def _extract_images_from_dict(d, images=[]):
+    if isinstance(d, dict):
+        for k, v in d.items():
+            #if not isinstance(v, dict):
+            if all(k in d for k in ('repository','tag')):
+                image = ''
+                if 'registry' in d:
+                    image = d['registry']
+                image += d['repository']
+                image += f":{d['tag']}"
+                images.append(image) if not image in images else images
+            else:
+                _extract_images_from_dict(v, images)
+    elif hasattr(d, '__iter__') and not isinstance(d, str):
+        for item in d:
+            _extract_images_from_dict(item, images)
+    elif isinstance(d, str):
+        image_regex = r"^(?:(?=[^:\/]{4,253})(?!-)[a-zA-Z0-9-]{1,63}(?<!-)(?:\.(?!-)[a-zA-Z0-9-]{1,63}(?<!-))*(?::[0-9]{1,5})?/)?((?![._-])(?:[a-z0-9._-]*)(?<![._-])(?:/(?![._-])[a-z0-9._-]*(?<![._-]))*)(?::(?![.-])[a-zA-Z0-9_.-]{1,128})?(@.*)?$"
+        if re.match(image_regex, d):
+            images.append(d) if not d in images else images
+    # for debugging
+    #else:
+    #    print(f"unknown type: {d}")
     return images
 
-def _extract_unique_images_from_helm_values(repo_name, chart, devel=False):
+def _extract_unique_images_from_helm_values(repo_name, chart, devel=False, version=''):
     if not chart.startswith('oci://'):
         chart = f"{repo_name}/{chart}"
     develArg = ''
     if devel:
         develArg = '--devel'
+    versionArg = ''
+    if version != '':
+        versionArg = f"--version {version}"
     chart_values = subprocess.check_output(
-        f"helm show values {chart} {develArg}",
+        f"helm show values {chart} {develArg} {versionArg}",
         stderr=subprocess.DEVNULL,
         shell=True,
     ).decode()
     chart_values_yaml = yaml.safe_load_all(chart_values)
-    images = []
+    found_images = []
     for chart_values_doc in chart_values_yaml:
         chart_yaml_images = nested_lookup(key='image',document=chart_values_doc,wild=True,with_keys=True)
-        for image_key in chart_yaml_images['image']:
-            if all(k in image_key for k in ('repository','tag')):
-                if image_key['tag'] == '':
-                    continue
-                image = ''
-                if 'registry' in image_key:
-                    image = image_key['registry']
-                image += image_key['repository']
-                image += f":{image_key['tag']}"
-                images.append(image) if image not in images else images
-            else:
-                if not isinstance(image_key, dict):
-                    continue
-                for subkey, subvalue in image_key.items():
-                    if not isinstance(subvalue, dict):
-                        continue
-                    if all(k in subvalue for k in ('repository','tag')):
-                        if subvalue['tag'] == '':
-                            continue
-                        image = ''
-                        if 'registry' in subvalue:
-                            image = subvalue['registry']
-                        image += subvalue['repository']
-                        image += f":{subvalue['tag']}"
-                        images.append(image) if image not in images else images
-    images = [i.split('@')[0] for i in images]
-    return images
+        extracted_images = _extract_images_from_dict(chart_yaml_images['image'], [])
+        found_images.append(extracted_images)
+    extracted_images = [i.split('@')[0] for i in extracted_images]
+    return extracted_images
 
 # using an access token
 github_token = os.getenv('GITHUB_TOKEN')
@@ -217,6 +225,8 @@ for (key, values) in data.items():
 
     found_releases = []
     image_denylist = []
+    additional_version_filter = []
+    extracted_images = []
 
     match repoString[0]:
         case 'helm-latest' | 'helm-oci':
@@ -241,10 +251,15 @@ for (key, values) in data.items():
                     stderr=subprocess.STDOUT)
             if 'imageDenylist' in values:
                 image_denylist = values['imageDenylist']
+            if 'additionalVersionFilter' in values:
+                additional_version_filter = values['additionalVersionFilter']
             for chart in values['helmCharts']:
                 devel = False
                 if 'devel' in values['helmCharts'][chart]:
                     devel = values['helmCharts'][chart]['devel']
+                version_filter = ''
+                if 'versionFilter' in values['helmCharts'][chart]:
+                    version_filter = values['helmCharts'][chart]['versionFilter']
                 if 'chartConfig' in values['helmCharts'][chart]:
                     for arg_key in values['helmCharts'][chart]['chartConfig']:
                         chart_values = ''
@@ -255,13 +270,26 @@ for (key, values) in data.items():
                         kube_version = ''
                         if 'kubeVersion' in values['helmCharts'][chart]['chartConfig'][arg_key]:
                             kube_version = values['helmCharts'][chart]['chartConfig'][arg_key]['kubeVersion']
-                        extracted_images = _extract_unique_images_from_helm_template(repo_name, chart, chart_values, kube_version, devel)
+                        extracted_images = _extract_unique_images_from_helm_template(repo_name, chart, chart_values, kube_version, devel, version_filter)
                         found_releases.extend(extracted_images)
+                        if additional_version_filter:
+                            for additional_version in additional_version_filter:
+                                extracted_images = _extract_unique_images_from_helm_template(repo_name, chart, chart_values, kube_version, devel, additional_version)
+                                found_releases.extend(extracted_images)
                 else:
-                    extracted_images = _extract_unique_images_from_helm_template(repo_name, chart, devel=devel)
+                    extracted_images = _extract_unique_images_from_helm_template(repo_name, chart, devel=devel, version=version_filter)
                     found_releases.extend(extracted_images)
-            extracted_images = _extract_unique_images_from_helm_values(repo_name, chart, devel=devel)
+                    if additional_version_filter:
+                        for additional_version in additional_version_filter:
+                            extracted_images = _extract_unique_images_from_helm_template(repo_name, chart, chart_values, kube_version, devel, additional_version)
+                            found_releases.extend(extracted_images)
+
+            extracted_images = _extract_unique_images_from_helm_values(repo_name, chart, devel=devel, version=version_filter)
             found_releases.extend(extracted_images)
+            if additional_version_filter:
+                for additional_version in additional_version_filter:
+                    extracted_images = _extract_unique_images_from_helm_values(repo_name, chart, devel=devel, version=additional_version)
+                    found_releases.extend(extracted_images)
         case 'github-releases':
             repo = g.get_repo(repoString[1])
             # Get all the releases used as source for the tag
