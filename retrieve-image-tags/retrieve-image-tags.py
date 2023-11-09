@@ -131,9 +131,14 @@ def _extract_unique_images_from_helm_template(repo_name, chart, chart_values='',
             shell=True,
         ).decode()
     else:
-        chart = f"{repo_name}/{chart}"
+        repo_and_chart = ''
+        # directory
+        if repo_name.startswith('/'):
+            repo_and_chart = f"{repo_name}/{chart}"
+        else:
+            repo_and_chart = f"{repo_name} {repo_name}/{chart}"
         rendered_chart = subprocess.check_output(
-            f"helm template {kube_version} {chart_values} {repo_name} {chart} {develArg} {versionArg}",
+            f"helm template {kube_version} {chart_values} {repo_and_chart} {develArg} {versionArg}",
             stderr=subprocess.DEVNULL,
             shell=True,
         ).decode()
@@ -229,7 +234,7 @@ for (key, values) in data.items():
     extracted_images = []
 
     match repoString[0]:
-        case 'helm-latest' | 'helm-oci':
+        case 'helm-latest' | 'helm-oci' | 'helm-directory':
             # check if helm binary is available
             helm_path = shutil.which('helm')
 
@@ -237,10 +242,12 @@ for (key, values) in data.items():
                 print("no executable found for command 'helm'")
                 sys.exit(1)
 
+            repo_name = key
+            if repoString[0] == 'helm-directory':
+                repo_name = repoString[1]
+
             if repoString[0] == 'helm-latest':
                 helm_repo = repoString[1]
-            repo_name = key
-            if helm_repo.startswith('https://'):
                 subprocess.check_call(f"helm repo add {repo_name} {helm_repo}",
                     shell=True,
                     stdout=subprocess.DEVNULL,
@@ -249,6 +256,7 @@ for (key, values) in data.items():
                     shell=True,
                     stdout=subprocess.DEVNULL,
                     stderr=subprocess.STDOUT)
+
             if 'imageDenylist' in values:
                 image_denylist = values['imageDenylist']
             if 'additionalVersionFilter' in values:
@@ -337,7 +345,7 @@ for (key, values) in data.items():
     found_releases = set(found_releases)
 
     match repoString[0]:
-        case 'helm-latest' | 'helm-oci':
+        case 'helm-latest' | 'helm-oci' | 'helm-directory':
             alldict[key]['full_images'] = []
             for full_image in found_releases:
                 full_image = full_image.removeprefix('docker.io/')
