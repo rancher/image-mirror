@@ -126,5 +126,11 @@
         }
       }
     }
+  },
+  "etcd": {
+    "images": [
+      "quay.io/coreos/etcd"
+    ],
+    "versionSource": "github-latest-release:etcd-io/etcd"
   }
 }
