@@ -40,6 +40,7 @@ There is also a scheduled workflow called [Retrieve image tags](https://github.c
 - `registry`: This will use the registry of the first image and look up available tags.
 - `helm-latest:helm-repo-fqdn`: This will add the helm-repo-fqdn, and use the latest version of configured Helm chart(s) (`helmCharts`) configured to extract the images. It uses `helm template` and `helm show values` to extract images. You can specify one ore more iterations of `helm template` by specifying one ore more `values` configurations to make sure all required images are extracted. If you want to block certain images from being extracted, you can use `imageDenylist` in the configuration. See example below.
 - `helm-oci`: This is the same as `helm-latest`, except you don't need to provide a repository but it will use the charts directly from the provided `helmCharts` (which should be formatted as `oci://hostname/chart`).
+- `helm-directory:/full_path_to_charts_directory`: Provide a directory with chart(s) to use, introduced for testing purposes. The full path used by the `helm` commands is `/full_path_to_charts_directory/chart_name_from_config`.
 
 The current filters for tags are:
 
@@ -216,6 +217,27 @@ See example configuration for `helm-oci`:
     ],
     "helmCharts": {
       "oci://registry.suse.com/rancher/elemental-operator-chart": {}
+    }
+  }
+}
+```
+
+See example configuration for `helm-directory`:
+
+```
+{
+  "epinio-directory": {
+    "versionSource": "helm-directory:/epinio-charts/chart",
+    "helmCharts": {
+      "epinio": {
+        "chartConfig": {
+          "generic": {
+            "values": [
+              "global.domain=myepiniodomain.org"
+            ]
+          }
+        }
+      }
     }
   }
 }
