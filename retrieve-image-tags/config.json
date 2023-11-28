@@ -131,6 +131,7 @@
     "images": [
       "quay.io/coreos/etcd"
     ],
-    "versionSource": "github-latest-release:etcd-io/etcd"
+    "versionSource": "github-releases:etcd-io/etcd",
+    "versionConstraint": ">3.5.10"
   }
 }
