@@ -314,6 +314,21 @@ for (key, values) in data.items():
                         if not semver.match(release.tag_name.removeprefix('v'), constraint):
                             continue
                     found_releases.append(release.tag_name)
+        case 'github-tagged-images-file':
+            repo = g.get_repo(repoString[1])
+            releases = repo.get_releases()
+            if 'versionConstraint' in values:
+                constraint = values['versionConstraint']
+            for release in releases:
+                if not release.prerelease and not release.draft and semver.VersionInfo.isvalid(release.tag_name.removeprefix('v')):
+                    if 'versionFilter' in values:
+                        if not re.search(values['versionFilter'], release.tag_name):
+                            continue
+                    if 'versionConstraint' in values:
+                        # Checking constraint
+                        if not semver.match(release.tag_name.removeprefix('v'), constraint):
+                            continue
+                    found_releases.append(release.tag_name)
         case 'github-latest-release':
             repo = g.get_repo(repoString[1])
             # Get all the releases used as source for the tag
@@ -359,6 +374,24 @@ for (key, values) in data.items():
                         continue
                     if not _image_tag_already_exist(filetext, splitted_image[0], splitted_image[1]):
                         alldict[key]['full_images'].append(full_image)
+            alldict[key]['full_images'].sort()
+        case 'github-tagged-images-file':
+            alldict[key]['full_images'] = []
+            repo = g.get_repo(repoString[1])
+            images_file_path = values['imagesFilePath']
+            for tag in found_releases:
+                file_content = repo.get_contents(images_file_path, ref=tag)
+                for full_image in file_content.decoded_content.decode('utf-8').split('\n'):
+                    full_image = full_image.strip()
+                    if not full_image:
+                        continue
+                    full_image = full_image.removeprefix('docker.io/')
+                    if full_image.startswith('rancher/'):
+                        continue
+                    splitted_image = full_image.split(':')
+                    if len(splitted_image) == 2:
+                        if not _image_tag_already_exist(filetext, splitted_image[0], splitted_image[1]):
+                            alldict[key]['full_images'].append(full_image)
             alldict[key]['full_images'].sort()
         case _:
             alldict[key]['images'] = []

@@ -86,6 +86,11 @@
     ],
     "versionSource": "github-latest-release:kubernetes-csi/node-driver-registrar"
   },
+  "longhorn": {
+    "imagesFilePath": "deploy/longhorn-images.txt",
+    "versionSource": "github-tagged-images-file:longhorn/longhorn",
+    "versionConstraint": ">=1.4.0"
+  },
   "cpi-release-manager": {
     "images": [
       "gcr.io/cloud-provider-vsphere/cpi/release/manager"
