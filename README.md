@@ -37,6 +37,7 @@ There is also a scheduled workflow called [Retrieve image tags](https://github.c
 
 - `github-releases`: This will use GitHub releases as source, excluding pre-releases. This can be used if you need to keep all tags from the configured images in sync with GitHub releases
 - `github-latest-release`: This will use the release on GitHub marked as `Latest release`. This can be used if you only want one release to be added that is marked as latest.
+- `github-tagged-images-file`: This will look up GitHub git repository tags, and find the list of images inside a specified file. The tag must have an associated release, with the pre-release flag unset. This can be used if your project maintains a list of images in a file, e.g., https://github.com/longhorn/longhorn/blob/master/deploy/longhorn-images.txt
 - `registry`: This will use the registry of the first image and look up available tags.
 - `helm-latest:helm-repo-fqdn`: This will add the helm-repo-fqdn, and use the latest version of configured Helm chart(s) (`helmCharts`) configured to extract the images. It uses `helm template` and `helm show values` to extract images. You can specify one ore more iterations of `helm template` by specifying one ore more `values` configurations to make sure all required images are extracted. If you want to block certain images from being extracted, you can use `imageDenylist` in the configuration. See example below.
 - `helm-oci`: This is the same as `helm-latest`, except you don't need to provide a repository but it will use the charts directly from the provided `helmCharts` (which should be formatted as `oci://hostname/chart`).
@@ -49,6 +50,9 @@ The current filters for tags are:
 - `latest`: Sorts the found tags numerically and returns only the latest tag
 - `latest_entry`: Returns the last found (newest) tag only (can be used when tags are not semver/cannot be sorted numerically)
 
+`github-tagged-images-file` specific options:
+- `imagesFilePath`: the path to the list of images inside a GitHub git repository
+
 Helm specific options:
 
 - `imageDenylist`: An array of images that will not be added (in case the image matching finds images that shouldn't be added as the automation only accounts for adding tags to existing images, not adding new images as they need to be approved first)
@@ -59,7 +63,7 @@ Helm specific options:
 
 See example configuration for `github-releases`, `github-latest-release` and `registry`:
 
-```
+```json
 {
   "vsphere-cpi": {
     "images": [
@@ -117,9 +121,20 @@ See example configuration for `github-releases`, `github-latest-release` and `re
 }
 ```
 
+See example configuration for `github-tagged-images-file`:
+```json
+{
+  "longhorn": {
+    "versionSource": "github-tagged-images-file:longhorn/longhorn",
+    "imagesFilePath": "deploy/longhorn-images.txt",
+    "versionConstraint": ">=1.4.0"
+  }
+}
+```
+
 See example configuration for `helm-latest:helm-repo-fqdn`:
 
-```
+```json
 {
   "cilium": {
     "versionSource": "helm-latest:https://helm.cilium.io",
