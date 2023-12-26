@@ -289,7 +289,7 @@ for (key, values) in data.items():
                     found_releases.extend(extracted_images)
                     if additional_version_filter:
                         for additional_version in additional_version_filter:
-                            extracted_images = _extract_unique_images_from_helm_template(repo_name, chart, chart_values, kube_version, devel, additional_version)
+                            extracted_images = _extract_unique_images_from_helm_template(repo_name, chart, devel=devel, version=additional_version)
                             found_releases.extend(extracted_images)
 
             extracted_images = _extract_unique_images_from_helm_values(repo_name, chart, devel=devel, version=version_filter)
