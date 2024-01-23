@@ -79,6 +79,7 @@ flannel/flannel rancher/mirrored-flannel-flannel v0.22.1
 flannel/flannel rancher/mirrored-flannel-flannel v0.22.2
 flannel/flannel rancher/mirrored-flannel-flannel v0.22.3
 flannel/flannel rancher/mirrored-flannel-flannel v0.23.0
+flannel/flannel rancher/mirrored-flannel-flannel v0.24.2
 flannel/flannel-cni-plugin rancher/mirrored-flannel-flannel-cni-plugin v1.2.0
 fluent/fluent-bit rancher/fluent-fluent-bit 1.5.4
 fluent/fluent-bit rancher/fluent-fluent-bit 1.5.4-debug
@@ -938,6 +939,7 @@ quay.io/calico/ctl rancher/mirrored-calico-ctl v3.26.1
 quay.io/calico/ctl rancher/mirrored-calico-ctl v3.26.2
 quay.io/calico/ctl rancher/mirrored-calico-ctl v3.26.3
 quay.io/calico/ctl rancher/mirrored-calico-ctl v3.26.4
+quay.io/calico/ctl rancher/mirrored-calico-ctl v3.27.0
 quay.io/calico/kube-controllers rancher/calico-kube-controllers v3.16.5
 quay.io/calico/kube-controllers rancher/calico-kube-controllers v3.16.6
 quay.io/calico/kube-controllers rancher/calico-kube-controllers v3.17.1
@@ -971,6 +973,7 @@ quay.io/calico/kube-controllers rancher/mirrored-calico-kube-controllers v3.26.1
 quay.io/calico/kube-controllers rancher/mirrored-calico-kube-controllers v3.26.2
 quay.io/calico/kube-controllers rancher/mirrored-calico-kube-controllers v3.26.3
 quay.io/calico/kube-controllers rancher/mirrored-calico-kube-controllers v3.26.4
+quay.io/calico/kube-controllers rancher/mirrored-calico-kube-controllers v3.27.0
 quay.io/calico/node rancher/calico-node v3.16.5
 quay.io/calico/node rancher/calico-node v3.16.6
 quay.io/calico/node rancher/calico-node v3.17.1
@@ -1004,6 +1007,7 @@ quay.io/calico/node rancher/mirrored-calico-node v3.26.1
 quay.io/calico/node rancher/mirrored-calico-node v3.26.2
 quay.io/calico/node rancher/mirrored-calico-node v3.26.3
 quay.io/calico/node rancher/mirrored-calico-node v3.26.4
+quay.io/calico/node rancher/mirrored-calico-node v3.27.0
 quay.io/calico/pod2daemon-flexvol rancher/calico-pod2daemon-flexvol v3.16.5
 quay.io/calico/pod2daemon-flexvol rancher/calico-pod2daemon-flexvol v3.16.6
 quay.io/calico/pod2daemon-flexvol rancher/calico-pod2daemon-flexvol v3.17.1
@@ -1037,6 +1041,7 @@ quay.io/calico/pod2daemon-flexvol rancher/mirrored-calico-pod2daemon-flexvol v3.
 quay.io/calico/pod2daemon-flexvol rancher/mirrored-calico-pod2daemon-flexvol v3.26.2
 quay.io/calico/pod2daemon-flexvol rancher/mirrored-calico-pod2daemon-flexvol v3.26.3
 quay.io/calico/pod2daemon-flexvol rancher/mirrored-calico-pod2daemon-flexvol v3.26.4
+quay.io/calico/pod2daemon-flexvol rancher/mirrored-calico-pod2daemon-flexvol v3.27.0
 quay.io/calico/typha rancher/mirrored-calico-typha v3.18.1
 quay.io/calico/typha rancher/mirrored-calico-typha v3.19.1
 quay.io/calico/typha rancher/mirrored-calico-typha v3.19.2
@@ -1354,6 +1359,7 @@ rancher/metrics-server rancher/mirrored-metrics-server v0.3.4
 rancher/metrics-server rancher/mirrored-metrics-server v0.3.6
 rancher/nginx-ingress-controller-defaultbackend rancher/mirrored-nginx-ingress-controller-defaultbackend 1.5-rancher1
 registry.k8s.io/cluster-api/cluster-api-controller rancher/mirrored-cluster-api-controller v1.4.4
+registry.k8s.io/cluster-api/cluster-api-controller rancher/mirrored-cluster-api-controller v1.5.5
 registry.k8s.io/cpa/cluster-proportional-autoscaler rancher/mirrored-cluster-proportional-autoscaler 1.8.3
 registry.k8s.io/cpa/cluster-proportional-autoscaler rancher/mirrored-cluster-proportional-autoscaler 1.8.5
 registry.k8s.io/cpa/cluster-proportional-autoscaler rancher/mirrored-cluster-proportional-autoscaler 1.8.6
