@@ -871,6 +871,7 @@ quay.io/calico/apiserver rancher/mirrored-calico-apiserver v3.26.1
 quay.io/calico/apiserver rancher/mirrored-calico-apiserver v3.26.2
 quay.io/calico/apiserver rancher/mirrored-calico-apiserver v3.26.3
 quay.io/calico/apiserver rancher/mirrored-calico-apiserver v3.26.4
+quay.io/calico/apiserver rancher/mirrored-calico-apiserver v3.27.0
 quay.io/calico/cni rancher/calico-cni v3.16.5
 quay.io/calico/cni rancher/calico-cni v3.16.6
 quay.io/calico/cni rancher/calico-cni v3.17.1
@@ -904,6 +905,7 @@ quay.io/calico/cni rancher/mirrored-calico-cni v3.26.1
 quay.io/calico/cni rancher/mirrored-calico-cni v3.26.2
 quay.io/calico/cni rancher/mirrored-calico-cni v3.26.3
 quay.io/calico/cni rancher/mirrored-calico-cni v3.26.4
+quay.io/calico/cni rancher/mirrored-calico-cni v3.27.0
 quay.io/calico/ctl rancher/calico-ctl v3.16.5
 quay.io/calico/ctl rancher/calico-ctl v3.16.6
 quay.io/calico/ctl rancher/calico-ctl v3.17.1
@@ -1066,6 +1068,7 @@ quay.io/calico/typha rancher/mirrored-calico-typha v3.26.1
 quay.io/calico/typha rancher/mirrored-calico-typha v3.26.2
 quay.io/calico/typha rancher/mirrored-calico-typha v3.26.3
 quay.io/calico/typha rancher/mirrored-calico-typha v3.26.4
+quay.io/calico/typha rancher/mirrored-calico-typha v3.27.0
 quay.io/cilium/certgen rancher/mirrored-cilium-certgen v0.1.8
 quay.io/cilium/certgen rancher/mirrored-cilium-certgen v0.1.9
 quay.io/cilium/cilium rancher/mirrored-cilium-cilium v1.9.4
