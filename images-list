@@ -1410,6 +1410,7 @@ registry.k8s.io/metrics-server/metrics-server rancher/mirrored-metrics-server v0
 registry.k8s.io/metrics-server/metrics-server rancher/mirrored-metrics-server v0.6.1
 registry.k8s.io/metrics-server/metrics-server rancher/mirrored-metrics-server v0.6.2
 registry.k8s.io/metrics-server/metrics-server rancher/mirrored-metrics-server v0.6.3
+registry.k8s.io/metrics-server/metrics-server rancher/mirrored-metrics-server v0.6.4
 registry.k8s.io/pause rancher/mirrored-pause 3.4.1
 registry.k8s.io/pause rancher/mirrored-pause 3.5
 registry.k8s.io/pause rancher/mirrored-pause 3.6
