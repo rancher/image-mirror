@@ -15,9 +15,11 @@
     "images": [
       "quay.io/calico/apiserver",
       "quay.io/calico/cni",
+      "quay.io/calico/csi",
       "quay.io/calico/ctl",
       "quay.io/calico/kube-controllers",
       "quay.io/calico/node",
+      "quay.io/calico/node-driver-registrar",
       "quay.io/calico/pod2daemon-flexvol",
       "quay.io/calico/typha"
     ],
