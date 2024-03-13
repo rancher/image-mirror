@@ -34,7 +34,7 @@ for NEW_IMAGE in $NEW_IMAGES; do
     echo "${TARGET_IMAGE} is not a new target repository"
   fi
   echo "Checking if image ${SOURCE_IMAGE} exists"
-  if ! skopeo inspect --retry-times=3 "docker://${SOURCE_IMAGE}" >/dev/null; then
+  if ! skopeo inspect --retry-times=3 --raw "docker://${SOURCE_IMAGE}" >/dev/null; then
     echo "ERROR: Image ${SOURCE_IMAGE} does not exist"
     exit 1
   fi
