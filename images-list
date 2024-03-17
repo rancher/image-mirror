@@ -212,6 +212,7 @@ gcr.io/google_containers/pause rancher/mirrored-pause 3.2
 gcr.io/kubebuilder/kube-rbac-proxy rancher/kube-rbac-proxy v0.5.0
 gcr.io/kubebuilder/kube-rbac-proxy rancher/mirrored-kube-rbac-proxy v0.5.0
 gcr.io/kubebuilder/kube-rbac-proxy rancher/mirrored-kube-rbac-proxy v0.14.0
+gcr.io/kubebuilder/kube-rbac-proxy rancher/mirrored-kube-rbac-proxy v0.15.0
 ghcr.io/banzaicloud/fluentd rancher/mirrored-banzaicloud-fluentd v1.12.4-alpine-1
 ghcr.io/banzaicloud/fluentd rancher/mirrored-banzaicloud-fluentd v1.13.3-alpine-1
 ghcr.io/banzaicloud/fluentd rancher/mirrored-banzaicloud-fluentd v1.13.3-alpine-11
@@ -265,10 +266,12 @@ grafana/grafana rancher/mirrored-grafana-grafana 7.5.11
 grafana/grafana rancher/mirrored-grafana-grafana 8.5.3
 grafana/grafana rancher/mirrored-grafana-grafana 9.1.5
 grafana/grafana rancher/mirrored-grafana-grafana 9.5.14
+grafana/grafana rancher/mirrored-grafana-grafana 10.3.3
 grafana/grafana-image-renderer rancher/grafana-grafana-image-renderer 2.0.0
 grafana/grafana-image-renderer rancher/mirrored-grafana-grafana-image-renderer 2.0.1
 grafana/grafana-image-renderer rancher/mirrored-grafana-grafana-image-renderer 3.0.1
 grafana/grafana-image-renderer rancher/mirrored-grafana-grafana-image-renderer 3.8.0
+grafana/grafana-image-renderer rancher/mirrored-grafana-grafana-image-renderer 3.10.1
 idealista/prom2teams rancher/mirrored-idealista-prom2teams 3.2.1
 idealista/prom2teams rancher/mirrored-idealista-prom2teams 3.2.2
 idealista/prom2teams rancher/mirrored-idealista-prom2teams 3.2.3
@@ -890,6 +893,7 @@ prom/alertmanager rancher/mirrored-prom-alertmanager v0.21.0
 prom/alertmanager rancher/prom-alertmanager v0.21.0
 prom/node-exporter rancher/mirrored-prom-node-exporter v1.0.1
 prom/node-exporter rancher/prom-node-exporter v1.0.1
+prom/node-exporter rancher/prom-node-exporter v1.3.1
 prom/prometheus rancher/mirrored-prom-prometheus v2.12.0
 prom/prometheus rancher/prom-prometheus v2.18.2
 pstauffer/curl rancher/mirrored-pstauffer-curl v1.0.3
@@ -1355,6 +1359,7 @@ quay.io/kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 1.15.6
 quay.io/kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 1.15.9
 quay.io/kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 1.19.2
 quay.io/kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 1.24.6
+quay.io/kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 1.26.1
 quay.io/minio/minio rancher/mirrored-minio-minio RELEASE.2022-03-24T00-43-44Z
 quay.io/prometheus-operator/prometheus-config-reloader rancher/coreos-prometheus-config-reloader v0.43.0
 quay.io/prometheus-operator/prometheus-config-reloader rancher/mirrored-prometheus-operator-prometheus-config-reloader v0.46.0
@@ -1375,6 +1380,7 @@ quay.io/prometheus/alertmanager rancher/mirrored-prometheus-alertmanager v0.22.2
 quay.io/prometheus/alertmanager rancher/mirrored-prometheus-alertmanager v0.24.0
 quay.io/prometheus/alertmanager rancher/mirrored-prometheus-alertmanager v0.25.0
 quay.io/prometheus/alertmanager rancher/mirrored-prometheus-alertmanager v0.26.0
+quay.io/prometheus/alertmanager rancher/mirrored-prometheus-alertmanager v0.27.0
 quay.io/prometheus/node-exporter rancher/mirrored-prometheus-node-exporter v1.1.2
 quay.io/prometheus/node-exporter rancher/mirrored-prometheus-node-exporter v1.2.2
 quay.io/prometheus/node-exporter rancher/mirrored-prometheus-node-exporter v1.3.1
@@ -1386,6 +1392,7 @@ quay.io/prometheus/prometheus rancher/mirrored-prometheus-prometheus v2.38.0
 quay.io/prometheus/prometheus rancher/mirrored-prometheus-prometheus v2.42.0
 quay.io/prometheus/prometheus rancher/mirrored-prometheus-prometheus v2.45.0
 quay.io/prometheus/prometheus rancher/mirrored-prometheus-prometheus v2.48.1
+quay.io/prometheus/prometheus rancher/mirrored-prometheus-prometheus v2.50.1
 quay.io/prometheus/prometheus rancher/mirrored-prom-prometheus v2.18.2
 quay.io/prometheus/prometheus rancher/prom-prometheus v2.19.2
 quay.io/prometheus/prometheus rancher/prom-prometheus v2.22.0
@@ -1395,6 +1402,7 @@ quay.io/skopeo/stable rancher/mirrored-skopeo-skopeo v1.13.2
 quay.io/thanos/thanos rancher/mirrored-thanos-thanos v0.17.2
 quay.io/thanos/thanos rancher/mirrored-thanos-thanos v0.28.0
 quay.io/thanos/thanos rancher/mirrored-thanos-thanos v0.30.2
+quay.io/thanos/thanos rancher/mirrored-thanos-thanos v0.34.1
 quay.io/tigera/operator rancher/mirrored-calico-operator v1.15.1
 quay.io/tigera/operator rancher/mirrored-calico-operator v1.17.2
 quay.io/tigera/operator rancher/mirrored-calico-operator v1.17.4
