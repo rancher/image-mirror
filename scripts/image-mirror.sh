@@ -126,25 +126,31 @@ function mirror_image {
           '.manifests | map(select(.platform.architecture == $ARCH))
                       | sort_by(.platform.variant)
                       | reverse
-                      | map(.digest + " " + .platform.variant)
+                      | map(.digest + " " + .platform.os + " " + if .platform.os == "linux" then .platform.variant else .platform."os.version" end)
                       | join("\n")' <<< ${MANIFEST});
-        while read DIGEST VARIANT; do 
+        while read DIGEST PLATFORM VARIANT; do
           # Add skopeo flags for multi-variant architectures (arm, mostly)
           if [ -z "${VARIANT}" ] || [ "${VARIANT}" == "null" ]; then
             VARIANT=""
           fi
 
-          # Make the first variant the default for this arch by omitting it from the tag
-          if [ "${VARIANT_INDEX}" -eq 0 ]; then
+          # For Linux images, make the first variant the default for this arch by omitting it from the tag.
+          # If this is a Windows image, $VARIANT represents a Windows OS version,
+          # which should always be included in an image tag if it is present
+          if [ "${VARIANT_INDEX}" -eq 0 ] && [ "${PLATFORM}" != "windows" ]; then
             VARIANT=""
           fi
 
           if [ -z "${DIGEST}" ] || [ "${DIGEST}" == "null" ]; then
             echo -e "\t${ARCH} NOT FOUND"
           else
-            # We have to copy the full descriptor here; if we just point buildx at another tag or hash it will lose the variant
-            # info since that's not stored anywhere outside the manifest list itself.
-            copy_if_changed "${SOURCE}@${DIGEST}" "${DEST}:${TAG}-${ARCH}${VARIANT}" "${ARCH}"
+            if [ "${PLATFORM}" == "linux" ]; then
+              # We have to copy the full descriptor here; if we just point buildx at another tag or hash it will lose the variant
+              # info since that's not stored anywhere outside the manifest list itself.
+              copy_if_changed "${SOURCE}@${DIGEST}" "${DEST}:${TAG}-${ARCH}${VARIANT}" "${ARCH}"
+            else
+              copy_if_changed "${SOURCE}@${DIGEST}" "${DEST}:${TAG}-${ARCH}-${PLATFORM}-${VARIANT}" "${ARCH}"
+            fi
             DESCRIPTOR=$(jq -c -r --arg DIGEST "${DIGEST}" '.manifests | map(select(.digest == $DIGEST)) | first' <<< ${MANIFEST})
             SOURCES+=("${DESCRIPTOR}")
             DIGESTS+=("${DIGEST}")
