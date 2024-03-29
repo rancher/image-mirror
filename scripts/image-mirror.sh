@@ -19,6 +19,12 @@ function copy_if_changed {
   ARCH="${3}"
   EXTRA_ARGS="${4:-}"
 
+  case {$DEST_REF} in
+    *@*)
+    DEST_REF=$(sed 's/@[^-]*//' <<< ${DEST_REF})
+    ;;
+  esac
+
   SOURCE_MANIFEST=$(skopeo inspect docker://${SOURCE_REF} --raw 2>/dev/null)
   if [ "${#SOURCE_MANIFEST}" -gt 0 ]; then
     SOURCE_DIGEST="sha256:"$(echo -n "${SOURCE_MANIFEST}" | sha256sum | awk '{print $1}')
@@ -101,7 +107,15 @@ function mirror_image {
   printf -v DEST "/%s" "${DEST[@]}"; DEST=${DEST:1}
 
   # Grab raw manifest or manifest list and extract schema info
-  MANIFEST=$(skopeo inspect docker://${SOURCE}:${TAG} --raw)
+  case ${TAG} in
+    *@*)
+    MANIFEST=$(skopeo inspect docker://${SOURCE}@$(cut --delimiter @ --field 2 <<< ${TAG}) --raw)
+    ;;
+    *)
+    MANIFEST=$(skopeo inspect docker://${SOURCE}:${TAG} --raw)
+    ;;
+  esac
+
   # Return if it doesn't exist
   if [ $? -ne 0 ]; then
     echo "${SOURCE}:${TAG} does not exist"
