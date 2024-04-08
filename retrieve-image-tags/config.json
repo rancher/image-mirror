@@ -26,10 +26,10 @@
     "versionSource": "github-latest-release:projectcalico/calico"
   },
   "calico-operator": {
-    "images": [
-      "quay.io/tigera/operator"
-    ],
-    "versionSource": "github-latest-release:tigera/operator"
+    "versionSource": "helm-latest:https://docs.tigera.io/calico/charts",
+    "helmCharts": {
+      "tigera-operator": {}
+    }
   },
   "traefik": {
     "images": [
