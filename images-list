@@ -268,11 +268,13 @@ grafana/grafana rancher/mirrored-grafana-grafana 8.5.3
 grafana/grafana rancher/mirrored-grafana-grafana 9.1.5
 grafana/grafana rancher/mirrored-grafana-grafana 9.5.14
 grafana/grafana rancher/mirrored-grafana-grafana 10.3.3
+grafana/grafana rancher/mirrored-grafana-grafana 10.4.1
 grafana/grafana-image-renderer rancher/grafana-grafana-image-renderer 2.0.0
 grafana/grafana-image-renderer rancher/mirrored-grafana-grafana-image-renderer 2.0.1
 grafana/grafana-image-renderer rancher/mirrored-grafana-grafana-image-renderer 3.0.1
 grafana/grafana-image-renderer rancher/mirrored-grafana-grafana-image-renderer 3.8.0
 grafana/grafana-image-renderer rancher/mirrored-grafana-grafana-image-renderer 3.10.1
+grafana/grafana-image-renderer rancher/mirrored-grafana-grafana-image-renderer 3.10.2
 idealista/prom2teams rancher/mirrored-idealista-prom2teams 3.2.1
 idealista/prom2teams rancher/mirrored-idealista-prom2teams 3.2.2
 idealista/prom2teams rancher/mirrored-idealista-prom2teams 3.2.3
