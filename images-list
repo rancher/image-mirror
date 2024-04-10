@@ -777,6 +777,7 @@ longhornio/longhorn-ui rancher/mirrored-longhornio-longhorn-ui v1.5.3
 longhornio/longhorn-ui rancher/mirrored-longhornio-longhorn-ui v1.5.4
 longhornio/longhorn-ui rancher/mirrored-longhornio-longhorn-ui v1.6.0
 longhornio/longhorn-ui rancher/mirrored-longhornio-longhorn-ui v1.6.1
+longhornio/openshift-origin-oauth-proxy rancher/mirrored-longhornio-openshift-origin-oauth-proxy 4.14
 longhornio/support-bundle-kit rancher/mirrored-longhornio-support-bundle-kit v0.0.17
 longhornio/support-bundle-kit rancher/mirrored-longhornio-support-bundle-kit v0.0.19
 longhornio/support-bundle-kit rancher/mirrored-longhornio-support-bundle-kit v0.0.24
