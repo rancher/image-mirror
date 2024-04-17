@@ -40,6 +40,7 @@ coredns/coredns rancher/mirrored-coredns-coredns 1.9.1
 coredns/coredns rancher/mirrored-coredns-coredns 1.9.3
 coredns/coredns rancher/mirrored-coredns-coredns 1.9.4
 coredns/coredns rancher/mirrored-coredns-coredns 1.10.1
+coredns/coredns rancher/mirrored-coredns-coredns 1.11.1
 curlimages/curl rancher/curlimages-curl 7.70.0
 curlimages/curl rancher/curlimages-curl 7.73.0
 curlimages/curl rancher/mirrored-curlimages-curl 7.70.0
@@ -80,6 +81,7 @@ flannel/flannel rancher/mirrored-flannel-flannel v0.22.2
 flannel/flannel rancher/mirrored-flannel-flannel v0.22.3
 flannel/flannel rancher/mirrored-flannel-flannel v0.23.0
 flannel/flannel rancher/mirrored-flannel-flannel v0.24.2
+flannel/flannel rancher/mirrored-flannel-flannel v0.25.1
 flannel/flannel-cni-plugin rancher/mirrored-flannel-flannel-cni-plugin v1.2.0
 fluent/fluent-bit rancher/fluent-fluent-bit 1.5.4
 fluent/fluent-bit rancher/fluent-fluent-bit 1.5.4-debug
@@ -1298,6 +1300,7 @@ quay.io/coreos/etcd rancher/mirrored-coreos-etcd v3.5.6
 quay.io/coreos/etcd rancher/mirrored-coreos-etcd v3.5.7
 quay.io/coreos/etcd rancher/mirrored-coreos-etcd v3.5.9
 quay.io/coreos/etcd rancher/mirrored-coreos-etcd v3.5.10
+quay.io/coreos/etcd rancher/mirrored-coreos-etcd v3.5.12
 quay.io/coreos/flannel rancher/mirrored-coreos-flannel v0.13.0
 quay.io/coreos/flannel rancher/mirrored-coreos-flannel v0.14.0
 quay.io/coreos/flannel rancher/mirrored-coreos-flannel v0.15.0
