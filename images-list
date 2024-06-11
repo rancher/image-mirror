@@ -847,6 +847,7 @@ neuvector/controller rancher/mirrored-neuvector-controller 5.2.4
 neuvector/controller rancher/mirrored-neuvector-controller 5.2.4-s1
 neuvector/controller rancher/mirrored-neuvector-controller 5.3.0
 neuvector/controller rancher/mirrored-neuvector-controller 5.3.2
+neuvector/controller rancher/mirrored-neuvector-controller 5.3.3
 neuvector/enforcer rancher/mirrored-neuvector-enforcer 5.0.0
 neuvector/enforcer rancher/mirrored-neuvector-enforcer 5.0.0-b1
 neuvector/enforcer rancher/mirrored-neuvector-enforcer 5.0.0-b2
@@ -868,6 +869,7 @@ neuvector/enforcer rancher/mirrored-neuvector-enforcer 5.2.4
 neuvector/enforcer rancher/mirrored-neuvector-enforcer 5.2.4-s1
 neuvector/enforcer rancher/mirrored-neuvector-enforcer 5.3.0
 neuvector/enforcer rancher/mirrored-neuvector-enforcer 5.3.2
+neuvector/enforcer rancher/mirrored-neuvector-enforcer 5.3.3
 neuvector/manager rancher/mirrored-neuvector-manager 5.0.0
 neuvector/manager rancher/mirrored-neuvector-manager 5.0.0-b1
 neuvector/manager rancher/mirrored-neuvector-manager 5.0.0-b2
@@ -889,6 +891,8 @@ neuvector/manager rancher/mirrored-neuvector-manager 5.2.4
 neuvector/manager rancher/mirrored-neuvector-manager 5.2.4-s1
 neuvector/manager rancher/mirrored-neuvector-manager 5.3.0
 neuvector/manager rancher/mirrored-neuvector-manager 5.3.2
+neuvector/manager rancher/mirrored-neuvector-manager 5.3.3
+neuvector/prometheus-exporter rancher/mirrored-neuvector-prometheus-exporter 1-1.0.0
 neuvector/prometheus-exporter rancher/mirrored-neuvector-prometheus-exporter 5.2.0
 neuvector/prometheus-exporter rancher/mirrored-neuvector-prometheus-exporter 5.2.1
 neuvector/prometheus-exporter rancher/mirrored-neuvector-prometheus-exporter 5.2.2
@@ -900,6 +904,7 @@ neuvector/registry-adapter rancher/mirrored-neuvector-registry-adapter 0.1.0
 neuvector/registry-adapter rancher/mirrored-neuvector-registry-adapter 0.1.1
 neuvector/registry-adapter rancher/mirrored-neuvector-registry-adapter 0.1.1-s1
 neuvector/registry-adapter rancher/mirrored-neuvector-registry-adapter 0.1.1-s2
+neuvector/registry-adapter rancher/mirrored-neuvector-registry-adapter 0.1.2
 openpolicyagent/gatekeeper rancher/mirrored-openpolicyagent-gatekeeper v3.3.0
 openpolicyagent/gatekeeper rancher/mirrored-openpolicyagent-gatekeeper v3.4.0
 openpolicyagent/gatekeeper rancher/mirrored-openpolicyagent-gatekeeper v3.5.1
