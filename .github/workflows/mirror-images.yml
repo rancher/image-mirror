@@ -30,7 +30,6 @@ jobs:
       - name: Log in to the Container registry
         uses: docker/login-action@0d4c9c5ea7693da7b068278f7b52bda2a190a446 # v3.2.0
         with:
-          registry: ${{ env.REGISTRY }}
           username: ${{ env.DOCKER_USERNAME }}
           password: ${{ env.DOCKER_PASSWORD }}
       - name: Run image-mirror.sh
