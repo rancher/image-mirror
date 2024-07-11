@@ -6,7 +6,7 @@ on:
       - master
 
 permissions:
-  contents: write
+  contents: read
   id-token: write # this is important, it's how we authenticate with Vault
 
 env:
