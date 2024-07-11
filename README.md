@@ -304,7 +304,7 @@ FULL_IMAGES=quay.io/skopeo/stable:v1.13.3,quay.io/cilium/cilium-envoy:v1.25.9-e1
 
 The wrapper script will run the `add-tag-to-existing-image.sh` script for each image, to be aligned with all the checks that are required.
 
-Optionally, you can also check if the newly added image tag exists (this will also be run in Drone):
+Optionally, you can also check if the newly added image tag exists (this will also be run in GitHub Action):
 
 ```
 make check-new-images-exist.sh

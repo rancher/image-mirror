@@ -42,8 +42,5 @@ jobs:
           username: ${{ env.DOCKER_USERNAME }}
           password: ${{ env.DOCKER_PASSWORD }}
 
-      - name: Verify that new images exist
-        run: ./scripts/check-new-images-exist.sh
-
       - name: Run image-mirror.sh
         run: ./scripts/image-mirror.sh
