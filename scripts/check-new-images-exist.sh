@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-DIFF_CHECK="master"
+DIFF_CHECK="origin/master"
 
 if [ "${DRONE}" = "true" ]; then
   DIFF_CHECK="${DRONE_COMMIT_BEFORE} ${DRONE_COMMIT_AFTER}"
