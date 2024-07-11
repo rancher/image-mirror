@@ -2,15 +2,6 @@
 
 set -uo pipefail
 
-if [ ! -z "${DOCKER_USERNAME:-}" ] && [ ! -z "${DOCKER_PASSWORD:-}" ]; then
-  echo "Logging in to ${DOCKER_REGISTRY:-docker.io} as ${DOCKER_USERNAME}"
-  docker login ${DOCKER_REGISTRY:-docker.io} --username=${DOCKER_USERNAME} --password-stdin <<< ${DOCKER_PASSWORD}
-  export DOCKER_TOKEN=$(curl -s -d @- -X POST -H "Content-Type: application/json" https://hub.docker.com/v2/users/login/ <<< '{"username": "'${DOCKER_USERNAME}'", "password": "'${DOCKER_PASSWORD}'"}' | jq -r '.token')
-  skopeo login ${DOCKER_REGISTRY:-docker.io} --username=${DOCKER_USERNAME} --password-stdin <<< ${DOCKER_PASSWORD}
-fi
-
-export DOCKER_CLI_EXPERIMENTAL="enabled"
-
 ARCH_LIST="amd64 arm64 arm s390x"
 
 function copy_if_changed {
