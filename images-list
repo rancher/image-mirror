@@ -220,10 +220,10 @@ gcr.io/google_containers/k8s-dns-sidecar rancher/mirrored-k8s-dns-sidecar 1.15.1
 gcr.io/google_containers/pause rancher/mirrored-pause 3.1
 gcr.io/google_containers/pause rancher/mirrored-pause 3.2
 gcr.io/kubebuilder/kube-rbac-proxy rancher/kube-rbac-proxy v0.5.0
-gcr.io/kubebuilder/kube-rbac-proxy rancher/mirrored-kubebuilder-kube-rbac-proxy v0.18.0
 gcr.io/kubebuilder/kube-rbac-proxy rancher/mirrored-kube-rbac-proxy v0.5.0
 gcr.io/kubebuilder/kube-rbac-proxy rancher/mirrored-kube-rbac-proxy v0.14.0
 gcr.io/kubebuilder/kube-rbac-proxy rancher/mirrored-kube-rbac-proxy v0.15.0
+gcr.io/kubebuilder/kube-rbac-proxy rancher/mirrored-kube-rbac-proxy v0.18.0
 ghcr.io/banzaicloud/fluentd rancher/mirrored-banzaicloud-fluentd v1.12.4-alpine-1
 ghcr.io/banzaicloud/fluentd rancher/mirrored-banzaicloud-fluentd v1.13.3-alpine-1
 ghcr.io/banzaicloud/fluentd rancher/mirrored-banzaicloud-fluentd v1.13.3-alpine-11
