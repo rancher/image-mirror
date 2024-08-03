@@ -32,10 +32,10 @@ jobs:
         uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
       - name: Run add-tag-to-existing-image.sh
         if: github.event.inputs.images != '' && github.event.inputs.tags != ''
-        run: make add-tag-to-existing-image.sh
+        run: ./scripts/add-tag-to-existing-image.sh
       - name: Run add-full-image-wrapper.sh
         if: github.event.inputs.full_images != ''
-        run: make add-full-image-wrapper.sh
+        run: ./scripts/add-full-image-wrapper.sh
       - name: Check for repository changes
         run: |
           if git diff --name-only --exit-code; then

@@ -288,18 +288,18 @@ You can use the following commands/scripts to add a tag to an **existing** image
 - If the tag for the image is not already present, else it will fail because it is not new.
 - If the tag for the image exists, else it will fail as it cannot be mirrored.
 
-After everything is successfull, it will add the tag to `images-list`. If all images and tags are added, it will sort `images-list`.
+After everything is successful, it will add the tag to `images-list`. If all images and tags are added, it will sort `images-list`.
 
 See an example below:
 
 ```
-IMAGES=quay.io/coreos/etcd TAGS=v3.4.20 make add-tag-to-existing-image.sh
+IMAGES=quay.io/coreos/etcd TAGS=v3.4.20 ./scripts/add-tag-to-existing-image.sh
 ```
 
 There is also a wrapper script to support supplying images with tags. This was added to support the `helm-latest` version source which extracts images from Helm charts and does not work with the images + tags inputs. The wrapper script for full images can be used as follows:
 
 ```
-FULL_IMAGES=quay.io/skopeo/stable:v1.13.3,quay.io/cilium/cilium-envoy:v1.25.9-e198a2824d309024cb91fb6a984445e73033291d make add-full-image-wrapper.sh
+FULL_IMAGES=quay.io/skopeo/stable:v1.13.3,quay.io/cilium/cilium-envoy:v1.25.9-e198a2824d309024cb91fb6a984445e73033291d ./scripts/add-full-image-wrapper.sh
 ```
 
 The wrapper script will run the `add-tag-to-existing-image.sh` script for each image, to be aligned with all the checks that are required.
@@ -307,7 +307,7 @@ The wrapper script will run the `add-tag-to-existing-image.sh` script for each i
 Optionally, you can also check if the newly added image tag exists (this will also be run in GitHub Action):
 
 ```
-make check-new-images-exist.sh
+./scripts/check-new-images-exist.sh
 ```
 
 ### Using GitHub Actions workflow
