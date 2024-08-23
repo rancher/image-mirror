@@ -178,6 +178,7 @@ gcr.io/cloud-provider-vsphere/csi/release/driver rancher/mirrored-cloud-provider
 gcr.io/cloud-provider-vsphere/csi/release/driver rancher/mirrored-cloud-provider-vsphere-csi-release-driver v3.1.2
 gcr.io/cloud-provider-vsphere/csi/release/driver rancher/mirrored-cloud-provider-vsphere-csi-release-driver v3.2.0
 gcr.io/cloud-provider-vsphere/csi/release/driver rancher/mirrored-cloud-provider-vsphere-csi-release-driver v3.3.0
+gcr.io/cloud-provider-vsphere/csi/release/driver rancher/mirrored-cloud-provider-vsphere-csi-release-driver v3.3.1
 gcr.io/cloud-provider-vsphere/csi/release/syncer rancher/mirrored-cloud-provider-vsphere-csi-release-syncer v2.1.0
 gcr.io/cloud-provider-vsphere/csi/release/syncer rancher/mirrored-cloud-provider-vsphere-csi-release-syncer v2.2.0
 gcr.io/cloud-provider-vsphere/csi/release/syncer rancher/mirrored-cloud-provider-vsphere-csi-release-syncer v2.2.1
@@ -206,6 +207,7 @@ gcr.io/cloud-provider-vsphere/csi/release/syncer rancher/mirrored-cloud-provider
 gcr.io/cloud-provider-vsphere/csi/release/syncer rancher/mirrored-cloud-provider-vsphere-csi-release-syncer v3.1.2
 gcr.io/cloud-provider-vsphere/csi/release/syncer rancher/mirrored-cloud-provider-vsphere-csi-release-syncer v3.2.0
 gcr.io/cloud-provider-vsphere/csi/release/syncer rancher/mirrored-cloud-provider-vsphere-csi-release-syncer v3.3.0
+gcr.io/cloud-provider-vsphere/csi/release/syncer rancher/mirrored-cloud-provider-vsphere-csi-release-syncer v3.3.1
 gcr.io/google-containers/k8s-dns-node-cache rancher/mirrored-k8s-dns-node-cache 1.15.7
 gcr.io/google-containers/k8s-dns-node-cache rancher/mirrored-k8s-dns-node-cache 1.15.13
 gcr.io/google_containers/k8s-dns-dnsmasq-nanny rancher/mirrored-k8s-dns-dnsmasq-nanny 1.15.0
@@ -1601,6 +1603,7 @@ rancher/coreos-flannel rancher/mirrored-coreos-flannel v0.12.0
 rancher/metrics-server rancher/mirrored-metrics-server v0.3.4
 rancher/metrics-server rancher/mirrored-metrics-server v0.3.6
 rancher/nginx-ingress-controller-defaultbackend rancher/mirrored-nginx-ingress-controller-defaultbackend 1.5-rancher1
+registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere rancher/mirrored-cloud-provider-vsphere v1.31.0
 registry.k8s.io/cluster-api/cluster-api-controller rancher/mirrored-cluster-api-controller v1.4.4
 registry.k8s.io/cluster-api/cluster-api-controller rancher/mirrored-cluster-api-controller v1.5.5
 registry.k8s.io/cluster-api/cluster-api-controller rancher/mirrored-cluster-api-controller v1.6.4
@@ -1687,6 +1690,7 @@ registry.k8s.io/sig-storage/csi-attacher rancher/mirrored-sig-storage-csi-attach
 registry.k8s.io/sig-storage/csi-attacher rancher/mirrored-sig-storage-csi-attacher v4.4.2
 registry.k8s.io/sig-storage/csi-attacher rancher/mirrored-sig-storage-csi-attacher v4.5.0
 registry.k8s.io/sig-storage/csi-attacher rancher/mirrored-sig-storage-csi-attacher v4.5.1
+registry.k8s.io/sig-storage/csi-attacher rancher/mirrored-sig-storage-csi-attacher v4.7.0
 registry.k8s.io/sig-storage/csi-node-driver-registrar rancher/mirrored-sig-storage-csi-node-driver-registrar v2.3.0
 registry.k8s.io/sig-storage/csi-node-driver-registrar rancher/mirrored-sig-storage-csi-node-driver-registrar v2.5.0
 registry.k8s.io/sig-storage/csi-node-driver-registrar rancher/mirrored-sig-storage-csi-node-driver-registrar v2.5.1
@@ -1697,6 +1701,7 @@ registry.k8s.io/sig-storage/csi-node-driver-registrar rancher/mirrored-sig-stora
 registry.k8s.io/sig-storage/csi-node-driver-registrar rancher/mirrored-sig-storage-csi-node-driver-registrar v2.9.1
 registry.k8s.io/sig-storage/csi-node-driver-registrar rancher/mirrored-sig-storage-csi-node-driver-registrar v2.10.0
 registry.k8s.io/sig-storage/csi-node-driver-registrar rancher/mirrored-sig-storage-csi-node-driver-registrar v2.10.1
+registry.k8s.io/sig-storage/csi-node-driver-registrar rancher/mirrored-sig-storage-csi-node-driver-registrar v2.12.0
 registry.k8s.io/sig-storage/csi-provisioner rancher/mirrored-sig-storage-csi-provisioner v2.2.0
 registry.k8s.io/sig-storage/csi-provisioner rancher/mirrored-sig-storage-csi-provisioner v3.0.0
 registry.k8s.io/sig-storage/csi-provisioner rancher/mirrored-sig-storage-csi-provisioner v3.1.0
@@ -1733,6 +1738,7 @@ registry.k8s.io/sig-storage/livenessprobe rancher/mirrored-sig-storage-livenessp
 registry.k8s.io/sig-storage/livenessprobe rancher/mirrored-sig-storage-livenessprobe v2.10.0
 registry.k8s.io/sig-storage/livenessprobe rancher/mirrored-sig-storage-livenessprobe v2.11.0
 registry.k8s.io/sig-storage/livenessprobe rancher/mirrored-sig-storage-livenessprobe v2.12.0
+registry.k8s.io/sig-storage/livenessprobe rancher/mirrored-sig-storage-livenessprobe v2.14.0
 registry.k8s.io/sig-storage/snapshot-controller rancher/mirrored-sig-storage-snapshot-controller v6.1.0
 registry.k8s.io/sig-storage/snapshot-controller rancher/mirrored-sig-storage-snapshot-controller v6.2.1
 registry.k8s.io/sig-storage/snapshot-validation-webhook rancher/mirrored-sig-storage-snapshot-validation-webhook v6.1.0
