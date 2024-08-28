@@ -265,6 +265,7 @@ ghcr.io/epinio/epinio-unpacker rancher/mirrored-epinio-epinio-unpacker v1.6.2
 ghcr.io/epinio/epinio-unpacker rancher/mirrored-epinio-epinio-unpacker v1.8.1
 ghcr.io/epinio/epinio-unpacker rancher/mirrored-epinio-epinio-unpacker v1.9.0
 ghcr.io/epinio/epinio-unpacker rancher/mirrored-epinio-epinio-unpacker v1.10.0
+ghcr.io/kube-logging/fluentd rancher/mirrored-kube-logging-fluentd v1.16-4.8-full
 ghcr.io/kube-logging/fluentd rancher/mirrored-kube-logging-fluentd v1.16-ruby3.3-full-build.140
 ghcr.io/kube-logging/logging-operator rancher/mirrored-kube-logging-logging-operator 4.4.0
 ghcr.io/kube-logging/logging-operator rancher/mirrored-kube-logging-logging-operator 4.8.0
