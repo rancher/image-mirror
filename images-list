@@ -223,7 +223,6 @@ gcr.io/kubebuilder/kube-rbac-proxy rancher/kube-rbac-proxy v0.5.0
 gcr.io/kubebuilder/kube-rbac-proxy rancher/mirrored-kube-rbac-proxy v0.5.0
 gcr.io/kubebuilder/kube-rbac-proxy rancher/mirrored-kube-rbac-proxy v0.14.0
 gcr.io/kubebuilder/kube-rbac-proxy rancher/mirrored-kube-rbac-proxy v0.15.0
-gcr.io/kubebuilder/kube-rbac-proxy rancher/mirrored-kube-rbac-proxy v0.18.0
 ghcr.io/banzaicloud/fluentd rancher/mirrored-banzaicloud-fluentd v1.12.4-alpine-1
 ghcr.io/banzaicloud/fluentd rancher/mirrored-banzaicloud-fluentd v1.13.3-alpine-1
 ghcr.io/banzaicloud/fluentd rancher/mirrored-banzaicloud-fluentd v1.13.3-alpine-11
@@ -966,6 +965,7 @@ prom/node-exporter rancher/prom-node-exporter v1.3.1
 prom/prometheus rancher/mirrored-prom-prometheus v2.12.0
 prom/prometheus rancher/prom-prometheus v2.18.2
 pstauffer/curl rancher/mirrored-pstauffer-curl v1.0.3
+quay.io/brancz/kube-rbac-proxy rancher/mirrored-brancz-kube-rbac-proxy v0.18.0
 quay.io/calico/apiserver rancher/mirrored-calico-apiserver v3.20.1
 quay.io/calico/apiserver rancher/mirrored-calico-apiserver v3.20.2
 quay.io/calico/apiserver rancher/mirrored-calico-apiserver v3.21.2
