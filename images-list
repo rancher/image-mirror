@@ -49,6 +49,7 @@ curlimages/curl rancher/mirrored-curlimages-curl 7.73.0
 curlimages/curl rancher/mirrored-curlimages-curl 7.77.0
 curlimages/curl rancher/mirrored-curlimages-curl 7.83.1
 curlimages/curl rancher/mirrored-curlimages-curl 7.85.0
+curlimages/curl rancher/mirrored-curlimages-curl 8.9.1
 directxman12/k8s-prometheus-adapter rancher/mirrored-directxman12-k8s-prometheus-adapter v0.8.3
 directxman12/k8s-prometheus-adapter rancher/mirrored-directxman12-k8s-prometheus-adapter v0.8.4
 directxman12/k8s-prometheus-adapter-amd64 rancher/directxman12-k8s-prometheus-adapter-amd64 v0.6.0
