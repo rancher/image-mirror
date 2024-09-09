@@ -49,6 +49,7 @@ curlimages/curl rancher/mirrored-curlimages-curl 7.73.0
 curlimages/curl rancher/mirrored-curlimages-curl 7.77.0
 curlimages/curl rancher/mirrored-curlimages-curl 7.83.1
 curlimages/curl rancher/mirrored-curlimages-curl 7.85.0
+curlimages/curl rancher/mirrored-curlimages-curl 8.9.1
 directxman12/k8s-prometheus-adapter rancher/mirrored-directxman12-k8s-prometheus-adapter v0.8.3
 directxman12/k8s-prometheus-adapter rancher/mirrored-directxman12-k8s-prometheus-adapter v0.8.4
 directxman12/k8s-prometheus-adapter-amd64 rancher/directxman12-k8s-prometheus-adapter-amd64 v0.6.0
@@ -270,6 +271,7 @@ ghcr.io/epinio/epinio-unpacker rancher/mirrored-epinio-epinio-unpacker v1.6.2
 ghcr.io/epinio/epinio-unpacker rancher/mirrored-epinio-epinio-unpacker v1.8.1
 ghcr.io/epinio/epinio-unpacker rancher/mirrored-epinio-epinio-unpacker v1.9.0
 ghcr.io/epinio/epinio-unpacker rancher/mirrored-epinio-epinio-unpacker v1.10.0
+ghcr.io/jimmidyson/configmap-reload rancher/mirrored-jimmidyson-configmap-reload v0.13.1
 ghcr.io/kube-logging/fluentd rancher/mirrored-kube-logging-fluentd v1.16-4.8-full
 ghcr.io/kube-logging/fluentd rancher/mirrored-kube-logging-fluentd v1.16-ruby3.3-full-build.140
 ghcr.io/kube-logging/logging-operator rancher/mirrored-kube-logging-logging-operator 4.4.0
@@ -1775,8 +1777,10 @@ registry.k8s.io/sig-storage/snapshot-validation-webhook rancher/mirrored-sig-sto
 registry.k8s.io/sig-storage/snapshot-validation-webhook rancher/mirrored-sig-storage-snapshot-validation-webhook v6.2.2
 registry.suse.com/bci/bci-busybox rancher/mirrored-bci-busybox 15.4.11.2
 registry.suse.com/bci/bci-busybox rancher/mirrored-bci-busybox 15.6.19.1
+registry.suse.com/bci/bci-busybox rancher/mirrored-bci-busybox 15.6.24.2
 registry.suse.com/bci/bci-micro rancher/mirrored-bci-micro 15.4.14.3
 registry.suse.com/bci/bci-micro rancher/mirrored-bci-micro 15.6.19.1
+registry.suse.com/bci/bci-micro rancher/mirrored-bci-micro 15.6.24.2
 registry.suse.com/rancher/elemental-operator rancher/mirrored-elemental-operator 1.3.4
 registry.suse.com/rancher/elemental-operator rancher/mirrored-elemental-operator 1.4.2
 registry.suse.com/rancher/elemental-operator rancher/mirrored-elemental-operator 1.4.3
