@@ -1,5 +1,5 @@
 PyGithub==1.59.1
-requests==2.31.0
+requests==2.32.2
 semver==2.13.0
 PyYAML==6.0.1
 nested_lookup==0.2.25
