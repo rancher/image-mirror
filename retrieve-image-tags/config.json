@@ -53,8 +53,8 @@
   },
   "vsphere-csi": {
     "images": [
-      "gcr.io/cloud-provider-vsphere/csi/release/driver",
-      "gcr.io/cloud-provider-vsphere/csi/release/syncer"
+      "registry.k8s.io/csi-vsphere/driver",
+      "registry.k8s.io/csi-vsphere/syncer"
     ],
     "versionSource": "github-latest-release:kubernetes-sigs/vsphere-csi-driver"
   },
@@ -95,10 +95,10 @@
   },
   "cpi-release-manager": {
     "images": [
-      "gcr.io/cloud-provider-vsphere/cpi/release/manager"
+      "registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere"
     ],
     "versionSource": "registry",
-    "versionFilter": "^v1\\.(2[4-9]|[3-9][0-9])\\.[0-9]+$"
+    "versionFilter": "^v1\\.([3-9][0-9])\\.[0-9]+$"
   },
   "cilium": {
     "versionSource": "helm-latest:https://helm.cilium.io",
