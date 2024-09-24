@@ -4,7 +4,7 @@ FROM quay.io/skopeo/stable:v1.13.2
 RUN yum -y update && yum -y install jq git helm && yum -y clean all && rm -rf /var/cache/dnf/* /var/log/dnf* /var/log/yum*
 
 # Add docker cli
-COPY --from=docker.io/library/docker:19.03.12 /usr/local/bin/docker /usr/local/bin/
+COPY --from=docker.io/library/docker:27.3.1 /usr/local/bin/docker /usr/local/bin/
 
 # Add buildx plugin from github
 RUN mkdir -p /usr/libexec/docker/cli-plugins/ && curl -sLo /usr/libexec/docker/cli-plugins/docker-buildx https://github.com/docker/buildx/releases/download/v0.4.2/buildx-v0.4.2.linux-amd64 && chmod a+x /usr/libexec/docker/cli-plugins/*
