@@ -868,6 +868,7 @@ minio/minio rancher/mirrored-minio-minio RELEASE.2022-11-11T03-44-20Z
 minio/minio rancher/mirrored-minio-minio RELEASE.2022-12-12T19-27-27Z
 minio/minio rancher/mirrored-minio-minio RELEASE.2023-02-10T18-48-39Z
 minio/minio rancher/mirrored-minio-minio RELEASE.2023-07-07T07-13-57Z
+neuvector/compliance-config rancher/mirrored-neuvector-compliance-config 1.0.0
 neuvector/controller rancher/mirrored-neuvector-controller 5.0.0
 neuvector/controller rancher/mirrored-neuvector-controller 5.0.0-b1
 neuvector/controller rancher/mirrored-neuvector-controller 5.0.0-b2
