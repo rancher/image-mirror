@@ -1830,9 +1830,11 @@ registry.k8s.io/sig-storage/livenessprobe rancher/mirrored-sig-storage-livenessp
 registry.k8s.io/sig-storage/livenessprobe rancher/mirrored-sig-storage-livenessprobe v2.14.0
 registry.k8s.io/sig-storage/snapshot-controller rancher/mirrored-sig-storage-snapshot-controller v6.1.0
 registry.k8s.io/sig-storage/snapshot-controller rancher/mirrored-sig-storage-snapshot-controller v6.2.1
+registry.k8s.io/sig-storage/snapshot-controller rancher/mirrored-sig-storage-snapshot-controller v8.1.0
 registry.k8s.io/sig-storage/snapshot-validation-webhook rancher/mirrored-sig-storage-snapshot-validation-webhook v6.1.0
 registry.k8s.io/sig-storage/snapshot-validation-webhook rancher/mirrored-sig-storage-snapshot-validation-webhook v6.2.1
 registry.k8s.io/sig-storage/snapshot-validation-webhook rancher/mirrored-sig-storage-snapshot-validation-webhook v6.2.2
+registry.k8s.io/sig-storage/snapshot-validation-webhook rancher/mirrored-sig-storage-snapshot-validation-webhook v8.1.0
 registry.suse.com/bci/bci-busybox rancher/mirrored-bci-busybox 15.4.11.2
 registry.suse.com/bci/bci-busybox rancher/mirrored-bci-busybox 15.6.19.1
 registry.suse.com/bci/bci-busybox rancher/mirrored-bci-busybox 15.6.24.2
