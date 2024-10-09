@@ -100,6 +100,12 @@
     ],
     "versionSource": "github-latest-release:kubernetes-csi/node-driver-registrar"
   },
+  "csi-snapshotter": {
+    "images": [
+      "registry.k8s.io/sig-storage/csi-snapshotter"
+    ],
+    "versionSource": "github-latest-release:kubernetes-sci/external-snapshotter"
+  },
   "longhorn": {
     "imagesFilePath": "deploy/longhorn-images.txt",
     "versionSource": "github-tagged-images-file:longhorn/longhorn",
