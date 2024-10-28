@@ -282,6 +282,7 @@ ghcr.io/kube-logging/logging-operator rancher/mirrored-kube-logging-logging-oper
 ghcr.io/kube-logging/logging-operator rancher/mirrored-kube-logging-logging-operator 4.8.0
 ghcr.io/kube-logging/logging-operator rancher/mirrored-kube-logging-logging-operator 4.9.1
 ghcr.io/kube-vip/kube-vip-iptables rancher/mirrored-kube-vip-kube-vip-iptables v0.6.0
+ghcr.io/kube-vip/kube-vip-iptables rancher/mirrored-kube-vip-kube-vip-iptables v0.8.4
 ghcr.io/prometheus-community/windows-exporter rancher/mirrored-prometheus-windows-exporter 0.25.1
 grafana/grafana rancher/grafana-grafana 7.1.5
 grafana/grafana rancher/grafana-grafana 7.2.1
