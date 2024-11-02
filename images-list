@@ -278,11 +278,13 @@ grafana/grafana rancher/mirrored-grafana-grafana 8.5.3
 grafana/grafana rancher/mirrored-grafana-grafana 9.1.5
 grafana/grafana rancher/mirrored-grafana-grafana 9.5.14
 grafana/grafana rancher/mirrored-grafana-grafana 10.3.3
+grafana/grafana rancher/mirrored-grafana-grafana 11.3.0
 grafana/grafana-image-renderer rancher/grafana-grafana-image-renderer 2.0.0
 grafana/grafana-image-renderer rancher/mirrored-grafana-grafana-image-renderer 2.0.1
 grafana/grafana-image-renderer rancher/mirrored-grafana-grafana-image-renderer 3.0.1
 grafana/grafana-image-renderer rancher/mirrored-grafana-grafana-image-renderer 3.8.0
 grafana/grafana-image-renderer rancher/mirrored-grafana-grafana-image-renderer 3.10.1
+grafana/grafana-image-renderer rancher/mirrored-grafana-grafana-image-renderer 3.11.6
 idealista/prom2teams rancher/mirrored-idealista-prom2teams 3.2.1
 idealista/prom2teams rancher/mirrored-idealista-prom2teams 3.2.2
 idealista/prom2teams rancher/mirrored-idealista-prom2teams 3.2.3
@@ -514,6 +516,7 @@ library/nginx rancher/mirrored-library-nginx 1.21.6-alpine
 library/nginx rancher/mirrored-library-nginx 1.23.0-alpine
 library/nginx rancher/mirrored-library-nginx 1.23.2-alpine
 library/nginx rancher/mirrored-library-nginx 1.24.0-alpine
+library/nginx rancher/mirrored-library-nginx 1.27.2-alpine
 library/registry rancher/mirrored-library-registry 2.7.1
 library/registry rancher/mirrored-library-registry 2.8.1
 library/traefik rancher/library-traefik 2.4.2
@@ -1510,6 +1513,7 @@ quay.io/prometheus/prometheus rancher/mirrored-prometheus-prometheus v2.42.0
 quay.io/prometheus/prometheus rancher/mirrored-prometheus-prometheus v2.45.0
 quay.io/prometheus/prometheus rancher/mirrored-prometheus-prometheus v2.48.1
 quay.io/prometheus/prometheus rancher/mirrored-prometheus-prometheus v2.50.1
+quay.io/prometheus/prometheus rancher/mirrored-prometheus-prometheus v2.55.0
 quay.io/prometheus/prometheus rancher/mirrored-prom-prometheus v2.18.2
 quay.io/prometheus/prometheus rancher/prom-prometheus v2.19.2
 quay.io/prometheus/prometheus rancher/prom-prometheus v2.22.0
@@ -1520,6 +1524,7 @@ quay.io/thanos/thanos rancher/mirrored-thanos-thanos v0.17.2
 quay.io/thanos/thanos rancher/mirrored-thanos-thanos v0.28.0
 quay.io/thanos/thanos rancher/mirrored-thanos-thanos v0.30.2
 quay.io/thanos/thanos rancher/mirrored-thanos-thanos v0.34.1
+quay.io/thanos/thanos rancher/mirrored-thanos-thanos v0.36.1
 quay.io/tigera/operator rancher/mirrored-calico-operator v1.15.1
 quay.io/tigera/operator rancher/mirrored-calico-operator v1.17.2
 quay.io/tigera/operator rancher/mirrored-calico-operator v1.17.4
