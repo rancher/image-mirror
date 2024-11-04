@@ -280,8 +280,8 @@ ghcr.io/jimmidyson/configmap-reload rancher/mirrored-jimmidyson-configmap-reload
 ghcr.io/kube-logging/config-reloader rancher/mirrored-kube-logging-config-reloader v0.0.5
 ghcr.io/kube-logging/config-reloader rancher/mirrored-kube-logging-config-reloader v0.0.6
 ghcr.io/kube-logging/fluentd rancher/mirrored-kube-logging-fluentd v1.16-4.8-full
-ghcr.io/kube-logging/fluentd rancher/mirrored-kube-logging-fluentd v1.16-ruby3.3-full-build.140
 ghcr.io/kube-logging/fluentd rancher/mirrored-kube-logging-fluentd v1.16-4.10-full
+ghcr.io/kube-logging/fluentd rancher/mirrored-kube-logging-fluentd v1.16-ruby3.3-full-build.140
 ghcr.io/kube-logging/logging-operator rancher/mirrored-kube-logging-logging-operator 4.4.0
 ghcr.io/kube-logging/logging-operator rancher/mirrored-kube-logging-logging-operator 4.8.0
 ghcr.io/kube-logging/logging-operator rancher/mirrored-kube-logging-logging-operator 4.9.1
