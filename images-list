@@ -124,6 +124,8 @@ fluent/fluent-bit rancher/mirrored-fluent-fluent-bit 2.2.0
 fluent/fluent-bit rancher/mirrored-fluent-fluent-bit 2.2.0-debug
 fluent/fluent-bit rancher/mirrored-fluent-fluent-bit 3.0.4
 fluent/fluent-bit rancher/mirrored-fluent-fluent-bit 3.0.4-debug
+fluent/fluent-bit rancher/mirrored-fluent-fluent-bit 3.1.8
+fluent/fluent-bit rancher/mirrored-fluent-fluent-bit 3.1.8-debug
 gcr.io/cloud-provider-vsphere/cpi/release/manager rancher/mirrored-cloud-provider-vsphere-cpi-release-manager v1.2.1
 gcr.io/cloud-provider-vsphere/cpi/release/manager rancher/mirrored-cloud-provider-vsphere-cpi-release-manager v1.18.0
 gcr.io/cloud-provider-vsphere/cpi/release/manager rancher/mirrored-cloud-provider-vsphere-cpi-release-manager v1.19.0
@@ -276,11 +278,14 @@ ghcr.io/epinio/epinio-unpacker rancher/mirrored-epinio-epinio-unpacker v1.9.0
 ghcr.io/epinio/epinio-unpacker rancher/mirrored-epinio-epinio-unpacker v1.10.0
 ghcr.io/jimmidyson/configmap-reload rancher/mirrored-jimmidyson-configmap-reload v0.13.1
 ghcr.io/kube-logging/config-reloader rancher/mirrored-kube-logging-config-reloader v0.0.5
+ghcr.io/kube-logging/config-reloader rancher/mirrored-kube-logging-config-reloader v0.0.6
 ghcr.io/kube-logging/fluentd rancher/mirrored-kube-logging-fluentd v1.16-4.8-full
+ghcr.io/kube-logging/fluentd rancher/mirrored-kube-logging-fluentd v1.16-4.10-full
 ghcr.io/kube-logging/fluentd rancher/mirrored-kube-logging-fluentd v1.16-ruby3.3-full-build.140
 ghcr.io/kube-logging/logging-operator rancher/mirrored-kube-logging-logging-operator 4.4.0
 ghcr.io/kube-logging/logging-operator rancher/mirrored-kube-logging-logging-operator 4.8.0
 ghcr.io/kube-logging/logging-operator rancher/mirrored-kube-logging-logging-operator 4.9.1
+ghcr.io/kube-logging/logging-operator rancher/mirrored-kube-logging-logging-operator 4.10.0
 ghcr.io/kube-vip/kube-vip-iptables rancher/mirrored-kube-vip-kube-vip-iptables v0.6.0
 ghcr.io/kube-vip/kube-vip-iptables rancher/mirrored-kube-vip-kube-vip-iptables v0.8.4
 ghcr.io/prometheus-community/windows-exporter rancher/mirrored-prometheus-windows-exporter 0.25.1
