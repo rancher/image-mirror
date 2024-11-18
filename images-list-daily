@@ -2,5 +2,6 @@
 # See images-list for more information
 #
 # LIST FORMAT: <SOURCE> <DESTINATION> <TAG>
+neuvector/compliance-config rancher/mirrored-neuvector-compliance-config latest
 neuvector/scanner rancher/mirrored-neuvector-scanner latest
 neuvector/updater rancher/mirrored-neuvector-updater latest
