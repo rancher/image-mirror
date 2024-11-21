@@ -42,6 +42,7 @@ coredns/coredns rancher/mirrored-coredns-coredns 1.9.4
 coredns/coredns rancher/mirrored-coredns-coredns 1.10.1
 coredns/coredns rancher/mirrored-coredns-coredns 1.11.1
 coredns/coredns rancher/mirrored-coredns-coredns 1.11.3
+coredns/coredns rancher/mirrored-coredns-coredns 1.11.4
 curlimages/curl rancher/curlimages-curl 7.70.0
 curlimages/curl rancher/curlimages-curl 7.73.0
 curlimages/curl rancher/mirrored-curlimages-curl 7.70.0
