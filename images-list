@@ -380,6 +380,8 @@ istio/install-cni rancher/mirrored-istio-install-cni 1.23.2
 istio/install-cni rancher/mirrored-istio-install-cni 1.23.2-distroless
 istio/install-cni rancher/mirrored-istio-install-cni 1.24.0
 istio/install-cni rancher/mirrored-istio-install-cni 1.24.0-distroless
+istio/install-cni rancher/mirrored-istio-install-cni 1.24.1
+istio/install-cni rancher/mirrored-istio-install-cni 1.24.1-distroless
 istio/kubectl rancher/istio-kubectl 1.5.10
 istio/kubectl rancher/mirrored-istio-kubectl 1.5.9
 istio/mixer rancher/istio-mixer 1.7.0
@@ -447,6 +449,8 @@ istio/pilot rancher/mirrored-istio-pilot 1.23.2
 istio/pilot rancher/mirrored-istio-pilot 1.23.2-distroless
 istio/pilot rancher/mirrored-istio-pilot 1.24.0
 istio/pilot rancher/mirrored-istio-pilot 1.24.0-distroless
+istio/pilot rancher/mirrored-istio-pilot 1.24.1
+istio/pilot rancher/mirrored-istio-pilot 1.24.1-distroless
 istio/proxyv2 rancher/istio-proxyv2 1.7.0
 istio/proxyv2 rancher/istio-proxyv2 1.7.1
 istio/proxyv2 rancher/istio-proxyv2 1.7.3
@@ -505,6 +509,8 @@ istio/proxyv2 rancher/mirrored-istio-proxyv2 1.23.2
 istio/proxyv2 rancher/mirrored-istio-proxyv2 1.23.2-distroless
 istio/proxyv2 rancher/mirrored-istio-proxyv2 1.24.0
 istio/proxyv2 rancher/mirrored-istio-proxyv2 1.24.0-distroless
+istio/proxyv2 rancher/mirrored-istio-proxyv2 1.24.1
+istio/proxyv2 rancher/mirrored-istio-proxyv2 1.24.1-distroless
 istio/sidecar_injector rancher/mirrored-istio-sidecar_injector 1.5.9
 jaegertracing/all-in-one rancher/jaegertracing-all-in-one 1.20.0
 jaegertracing/all-in-one rancher/mirrored-jaegertracing-all-in-one 1.14
