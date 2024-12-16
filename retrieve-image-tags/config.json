@@ -164,5 +164,11 @@
     ],
     "versionSource": "github-releases:etcd-io/etcd",
     "versionConstraint": ">3.5.10"
+  },
+  "tonistiigi-xx": {
+    "images": [
+      "tonistiigi/xx"
+    ],
+    "versionSource": "github-latest-release:tonistiigi/xx"
   }
 }
