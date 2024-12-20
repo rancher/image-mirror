@@ -76,12 +76,6 @@
     ],
     "versionSource": "github-latest-release:kubernetes-csi/external-snapshotter"
   },
-  "snapshot-validation-webhook": {
-    "images": [
-      "registry.k8s.io/sig-storage/snapshot-validation-webhook"
-    ],
-    "versionSource": "github-latest-release:kubernetes-csi/external-snapshotter"
-  },
   "storage-livenessprobe": {
     "images": [
       "registry.k8s.io/sig-storage/livenessprobe"
@@ -169,6 +163,7 @@
     "images": [
       "tonistiigi/xx"
     ],
-    "versionSource": "github-latest-release:tonistiigi/xx"
+    "versionSource": "registry",
+    "versionConstraint": ">1.6.0"
   }
 }
