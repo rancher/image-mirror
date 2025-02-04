@@ -1772,6 +1772,7 @@ quay.io/prometheus/prometheus rancher/mirrored-prometheus-prometheus v2.55.0
 quay.io/prometheus/prometheus rancher/mirrored-prom-prometheus v2.18.2
 quay.io/prometheus/prometheus rancher/prom-prometheus v2.19.2
 quay.io/prometheus/prometheus rancher/prom-prometheus v2.22.0
+quay.io/prometheus/prometheus rancher/prom-prometheus v2.55.1
 quay.io/s3gw/s3gw rancher/mirrored-s3gw-s3gw v0.14.0
 quay.io/skopeo/stable rancher/mirrored-skopeo-skopeo v1.10.0
 quay.io/skopeo/stable rancher/mirrored-skopeo-skopeo v1.13.2
