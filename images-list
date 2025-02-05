@@ -1739,6 +1739,7 @@ quay.io/prometheus-operator/prometheus-config-reloader rancher/mirrored-promethe
 quay.io/prometheus-operator/prometheus-config-reloader rancher/mirrored-prometheus-operator-prometheus-config-reloader v0.72.0
 quay.io/prometheus-operator/prometheus-config-reloader rancher/mirrored-prometheus-operator-prometheus-config-reloader v0.75.1
 quay.io/prometheus-operator/prometheus-config-reloader rancher/mirrored-prometheus-operator-prometheus-config-reloader v0.77.2
+quay.io/prometheus-operator/prometheus-config-reloader rancher/mirrored-prometheus-operator-prometheus-config-reloader v0.79.0
 quay.io/prometheus-operator/prometheus-operator rancher/coreos-prometheus-operator v0.43.0
 quay.io/prometheus-operator/prometheus-operator rancher/mirrored-prometheus-operator-prometheus-operator v0.46.0
 quay.io/prometheus-operator/prometheus-operator rancher/mirrored-prometheus-operator-prometheus-operator v0.48.0
@@ -1784,6 +1785,7 @@ quay.io/thanos/thanos rancher/mirrored-thanos-thanos v0.30.2
 quay.io/thanos/thanos rancher/mirrored-thanos-thanos v0.34.1
 quay.io/thanos/thanos rancher/mirrored-thanos-thanos v0.35.1
 quay.io/thanos/thanos rancher/mirrored-thanos-thanos v0.36.1
+quay.io/thanos/thanos rancher/mirrored-thanos-thanos v0.37.2
 quay.io/tigera/operator rancher/mirrored-calico-operator v1.15.1
 quay.io/tigera/operator rancher/mirrored-calico-operator v1.17.2
 quay.io/tigera/operator rancher/mirrored-calico-operator v1.17.4
