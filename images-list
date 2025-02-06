@@ -97,6 +97,7 @@ flannel/flannel rancher/mirrored-flannel-flannel v0.26.4
 flannel/flannel-cni-plugin rancher/mirrored-flannel-flannel-cni-plugin v1.2.0
 flannel/flannel-cni-plugin rancher/mirrored-flannel-flannel-cni-plugin v1.5.1-flannel1
 flannel/flannel-cni-plugin rancher/mirrored-flannel-flannel-cni-plugin v1.5.1-flannel2
+flannel/flannel-cni-plugin rancher/mirrored-flannel-flannel-cni-plugin v1.6.2-flannel1
 fluent/fluent-bit rancher/fluent-bit windows-2019-3.1.8
 fluent/fluent-bit rancher/fluent-bit windows-2022-3.1.8
 fluent/fluent-bit rancher/fluent-fluent-bit 1.5.4
