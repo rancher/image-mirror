@@ -1,3 +1,6 @@
+##################################################
+# THIS FILE IS AUTO-GENERATED. DO NOT MODIFY IT.
+##################################################
 creds:
 - pass: '{{ env "DISTRIBUTION_PLATFORM_PASSWORD" }}'
   registry: '{{ env "DISTRIBUTION_PLATFORM_ENDPOINT" }}'

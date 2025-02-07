@@ -52,10 +52,14 @@ func ReadConfig(fileName string) (Config, error) {
 }
 
 func WriteConfig(fileName string, config Config) error {
-	contents, err := yaml.Marshal(config)
+	contents := []byte("##################################################\n" +
+		"# THIS FILE IS AUTO-GENERATED. DO NOT MODIFY IT.\n" +
+		"##################################################\n")
+	yamlContents, err := yaml.Marshal(config)
 	if err != nil {
 		return fmt.Errorf("failed to marshal: %w", err)
 	}
+	contents = append(contents, yamlContents...)
 
 	if err := os.WriteFile(fileName, contents, 0o644); err != nil {
 		return fmt.Errorf("failed to write file: %w", err)
