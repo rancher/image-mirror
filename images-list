@@ -1869,6 +1869,7 @@ registry.k8s.io/cluster-api/cluster-api-controller rancher/mirrored-cluster-api-
 registry.k8s.io/cluster-api/cluster-api-controller rancher/mirrored-cluster-api-controller v1.7.2
 registry.k8s.io/cluster-api/cluster-api-controller rancher/mirrored-cluster-api-controller v1.7.3
 registry.k8s.io/cluster-api/cluster-api-controller rancher/mirrored-cluster-api-controller v1.8.3
+registry.k8s.io/cluster-api/cluster-api-controller rancher/mirrored-cluster-api-controller v1.9.4
 registry.k8s.io/cpa/cluster-proportional-autoscaler rancher/mirrored-cluster-proportional-autoscaler 1.8.3
 registry.k8s.io/cpa/cluster-proportional-autoscaler rancher/mirrored-cluster-proportional-autoscaler 1.8.5
 registry.k8s.io/cpa/cluster-proportional-autoscaler rancher/mirrored-cluster-proportional-autoscaler 1.8.6
