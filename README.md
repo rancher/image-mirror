@@ -4,10 +4,9 @@ This repo is dedicated to mirror images from other organizations into Rancher.
 There are no packaging changes or changes in the layers of these images.
 
 > [!IMPORTANT]
-> This repository is currently undergoing an overhaul in order to accomplish the
-> goals laid out in
-> [EDR 005](https://docs.google.com/document/d/1IVu4Lq13yKiSs0gl_tIJ3vuidVmt0FIkO2mlZXTRAH4/edit?pli=1&tab=t.0#heading=h.k15gkmaregsk).
-> The bespoke scripts that are used to mirror images are being replaced by
+> This repository is currently undergoing an overhaul in order to meet the
+> changing requirements of the Rancher project. The bespoke scripts that
+> are used to mirror images are being replaced by
 > [`regsync`](https://github.com/regclient/regclient/blob/main/docs/regsync.md).
 > Generation of `regsync` config, among other automations, is being written in Go.
 > As this migration takes place, no disruption to regular image mirroring
