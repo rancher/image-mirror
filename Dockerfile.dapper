@@ -1,4 +1,4 @@
-FROM quay.io/skopeo/stable:v1.13.2
+FROM quay.io/skopeo/stable:v1.18.0
 
 # Add jq, git, helm
 RUN yum -y update && yum -y install jq git helm && yum -y clean all && rm -rf /var/cache/dnf/* /var/log/dnf* /var/log/yum*
