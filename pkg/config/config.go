@@ -13,7 +13,8 @@ type Config struct {
 }
 
 type Image struct {
-	// The source image without any tags.
+	// The source image without any tags. For example: rancher/rancher
+	// or ghcr.io/banzaicloud/fluentd.
 	SourceImage string
 	// Used to specify the desired name of the image on the target. If it
 	// is not specified, defaults to mirrored-<repoName>-<imageName>.

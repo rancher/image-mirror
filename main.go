@@ -32,6 +32,8 @@ func main() {
 	}
 }
 
+// generateRegsyncYaml regenerates the regsync config file from the current state
+// of config.yaml.
 func generateRegsyncYaml(ctx *cli.Context) error {
 	cfg, err := config.Parse(configYamlPath)
 	if err != nil {
@@ -70,6 +72,9 @@ func generateRegsyncYaml(ctx *cli.Context) error {
 	return nil
 }
 
+// getRegsyncEntries converts image into one ConfigSync (i.e. an
+// image for regsync to sync) for each tag present in the image.
+// repo provides the target repository for each ConfigSync.
 func getRegsyncEntries(repo config.Repository, image config.Image) ([]regsync.ConfigSync, error) {
 	targetImageName := image.TargetImageName
 	if targetImageName == "" {

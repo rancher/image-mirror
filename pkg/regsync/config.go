@@ -17,20 +17,22 @@ import (
 	"sigs.k8s.io/yaml"
 )
 
-// Config is parsed configuration file for regsync
+// Config represents a regsync config file.
 type Config struct {
 	Version int          `json:"version,omitempty"`
 	Creds   []ConfigCred `json:"creds"`
 	Sync    []ConfigSync `json:"sync"`
 }
 
+// ConfigCred specifies the details for a registry that container images may
+// be pulled from or pushed to.
 type ConfigCred struct {
 	Registry string `json:"registry"`
 	User     string `json:"user"`
 	Pass     string `json:"pass"`
 }
 
-// ConfigSync defines a source/target repository to sync
+// ConfigSync defines a source/target repository to sync.
 type ConfigSync struct {
 	Source string `json:"source"`
 	Target string `json:"target"`
