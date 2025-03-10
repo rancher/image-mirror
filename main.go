@@ -11,8 +11,9 @@ import (
 	"github.com/urfave/cli/v2"
 )
 
-const configYamlPath = "config.yaml"
 const regsyncYamlPath = "regsync.yaml"
+
+var configYamlPath string
 
 func main() {
 	log.SetFlags(0)
@@ -23,6 +24,15 @@ func main() {
 			Name:   "generate-regsync",
 			Usage:  "Generate regsync.yaml",
 			Action: generateRegsyncYaml,
+			Flags: []cli.Flag{
+				&cli.PathFlag{
+					Name:        "config-path",
+					Aliases:     []string{"c"},
+					Value:       "config.yaml",
+					Usage:       "Path to config.yaml file",
+					Destination: &configYamlPath,
+				},
+			},
 		},
 	}
 
