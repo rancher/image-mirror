@@ -17,13 +17,12 @@ const regsyncYamlPath = "regsync.yaml"
 func main() {
 	log.SetFlags(0)
 
-	app := &cli.App{
-		Commands: []*cli.Command{
-			{
-				Name:   "generate-regsync",
-				Usage:  "Generate regsync.yaml",
-				Action: generateRegsyncYaml,
-			},
+	app := cli.NewApp()
+	app.Commands = []*cli.Command{
+		{
+			Name:   "generate-regsync",
+			Usage:  "Generate regsync.yaml",
+			Action: generateRegsyncYaml,
 		},
 	}
 
