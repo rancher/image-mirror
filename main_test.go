@@ -61,7 +61,7 @@ func TestGetRegsyncEntries(t *testing.T) {
 				EnvVarPrefix: "TEST1",
 				BaseUrl:      "docker.io/test1",
 			}
-			regsyncEntries, err := getRegsyncEntries(inputRepository, inputImage)
+			regsyncEntries, err := convertConfigImageToRegsyncImages(inputRepository, inputImage)
 			if err != nil {
 				t.Fatalf("unexpected error: %s", err)
 			}

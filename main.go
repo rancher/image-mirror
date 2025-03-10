@@ -66,7 +66,7 @@ func generateRegsyncYaml(ctx *cli.Context) error {
 			if !repo.Target {
 				continue
 			}
-			syncEntries, err := getRegsyncEntries(repo, image)
+			syncEntries, err := convertConfigImageToRegsyncImages(repo, image)
 			if err != nil {
 				return fmt.Errorf("failed to convert Image with SourceImage %q: %w", image.SourceImage, err)
 			}
@@ -81,10 +81,10 @@ func generateRegsyncYaml(ctx *cli.Context) error {
 	return nil
 }
 
-// getRegsyncEntries converts image into one ConfigSync (i.e. an
-// image for regsync to sync) for each tag present in the image.
-// repo provides the target repository for each ConfigSync.
-func getRegsyncEntries(repo config.Repository, image config.Image) ([]regsync.ConfigSync, error) {
+// convertConfigImageToRegsyncImages converts image into one ConfigSync (i.e. an
+// image for regsync to sync) for each tag present in image. repo provides the
+// target repository for each ConfigSync.
+func convertConfigImageToRegsyncImages(repo config.Repository, image config.Image) ([]regsync.ConfigSync, error) {
 	targetImageName := image.TargetImageName
 	if targetImageName == "" {
 		parts := strings.Split(image.SourceImage, "/")
