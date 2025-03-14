@@ -215,10 +215,20 @@ else
   exit 1
 fi
 
+MAX_POOL_SIZE=10
+CURRENT_POOL_SIZE=0
+
 echo "Reading SOURCE DESTINATION TAG from ${IMAGES_FILE}"
 while IFS= read -r LINE; do
+
+  while [ $CURRENT_POOL_SIZE -ge $MAX_POOL_SIZE ]; do
+    CURRENT_POOL_SIZE=$(jobs | wc -l)
+  done
+
   echo -e "\nLine: ${LINE}"
   if grep -P '^(?!\s*(#|//))\S+\s+\S+\s+\S+' <<< ${LINE}; then
-    mirror_image ${LINE}
+    mirror_image ${LINE} &
   fi
 done < "${IMAGES_FILE}"
+
+wait < <(jobs -p)
