@@ -1,0 +1,19 @@
+Repositories:
+  - EnvVarPrefix: DISTRIBUTION_PLATFORM
+    BaseUrl: dp.apps.rancher.io/containers
+  - EnvVarPrefix: DOCKER_HUB
+    BaseUrl: docker.io/rancher
+    Target: true
+  - EnvVarPrefix: PRIME_REGISTRY
+    BaseUrl: registry.suse.com/rancher
+    Target: true
+Images:
+  - SourceImage: test-org/test-image
+    Tags:
+      - v1.2.3
+      - v2.3.4
+  - SourceImage: docker.io/test-org/test-image-2
+    Tags:
+      - v2.3.4
+      - v4.50.6
+      - v40.5.6
