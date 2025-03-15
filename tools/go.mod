@@ -4,7 +4,7 @@ go 1.23.2
 
 require (
 	github.com/stretchr/testify v1.10.0
-	github.com/urfave/cli/v2 v2.27.5
+	github.com/urfave/cli/v2 v2.27.6
 	sigs.k8s.io/yaml v1.4.0
 )
 
