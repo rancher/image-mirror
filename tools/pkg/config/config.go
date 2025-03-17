@@ -3,6 +3,7 @@ package config
 import (
 	"fmt"
 	"os"
+	"slices"
 	"strings"
 
 	"sigs.k8s.io/yaml"
@@ -71,6 +72,8 @@ func Parse(fileName string) (Config, error) {
 }
 
 func Write(fileName string, config Config) error {
+	config.Sort()
+
 	contents, err := yaml.Marshal(config)
 	if err != nil {
 		return fmt.Errorf("failed to unmarshal as JSON: %w", err)
@@ -81,6 +84,29 @@ func Write(fileName string, config Config) error {
 	}
 
 	return nil
+}
+
+func (config *Config) Sort() {
+	for _, image := range config.Images {
+		image.Sort()
+	}
+	slices.SortStableFunc(config.Images, compareImages)
+	slices.SortStableFunc(config.Repositories, compareRepositories)
+}
+
+func compareImages(a, b *Image) int {
+	if sourceImageValue := strings.Compare(a.SourceImage, b.SourceImage); sourceImageValue != 0 {
+		return sourceImageValue
+	}
+	return strings.Compare(a.TargetImageName(), b.TargetImageName())
+}
+
+func compareRepositories(a, b Repository) int {
+	return strings.Compare(a.BaseUrl, b.BaseUrl)
+}
+
+func (image *Image) Sort() {
+	slices.Sort(image.Tags)
 }
 
 func (image *Image) SetDefaults() error {
