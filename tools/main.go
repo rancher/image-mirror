@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"strings"
 
 	"github.com/rancher/image-mirror/pkg/config"
 	"github.com/rancher/image-mirror/pkg/regsync"
@@ -86,22 +85,11 @@ func generateRegsyncYaml(_ context.Context, _ *cli.Command) error {
 // convertConfigImageToRegsyncImages converts image into one ConfigSync (i.e. an
 // image for regsync to sync) for each tag present in image. repo provides the
 // target repository for each ConfigSync.
-func convertConfigImageToRegsyncImages(repo config.Repository, image config.Image) ([]regsync.ConfigSync, error) {
-	targetImageName := image.TargetImageName
-	if targetImageName == "" {
-		parts := strings.Split(image.SourceImage, "/")
-		if len(parts) < 2 {
-			return nil, fmt.Errorf("source image split into %d parts (>=2 parts expected)", len(parts))
-		}
-		repoName := parts[len(parts)-2]
-		imageName := parts[len(parts)-1]
-		targetImageName = "mirrored-" + repoName + "-" + imageName
-	}
-
+func convertConfigImageToRegsyncImages(repo config.Repository, image *config.Image) ([]regsync.ConfigSync, error) {
 	entries := make([]regsync.ConfigSync, 0, len(image.Tags))
 	for _, tag := range image.Tags {
 		sourceImage := image.SourceImage + ":" + tag
-		targetImage := repo.BaseUrl + "/" + targetImageName + ":" + tag
+		targetImage := repo.BaseUrl + "/" + image.TargetImageName() + ":" + tag
 		entry := regsync.ConfigSync{
 			Source: sourceImage,
 			Target: targetImage,
