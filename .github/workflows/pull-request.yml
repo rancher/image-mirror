@@ -1,0 +1,33 @@
+name: Pull request checks
+
+on: [pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.23'
+
+      - name: Run unit tests
+        run: |
+          cd tools
+          go test ./...
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.23'
+
+      - name: Run linter
+        uses: golangci/golangci-lint-action@v5
+        with:
+          working-directory: tools
+          args: --timeout=5m
