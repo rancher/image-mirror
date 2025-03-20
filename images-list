@@ -303,6 +303,7 @@ ghcr.io/kube-vip/kube-vip-iptables rancher/mirrored-kube-vip-kube-vip-iptables v
 ghcr.io/kube-vip/kube-vip-iptables rancher/mirrored-kube-vip-kube-vip-iptables v0.8.8
 ghcr.io/kube-vip/kube-vip-iptables rancher/mirrored-kube-vip-kube-vip-iptables v0.8.9
 ghcr.io/prometheus-community/windows-exporter rancher/mirrored-prometheus-windows-exporter 0.25.1
+ghcr.io/prometheus-community/windows-exporter rancher/mirrored-prometheus-windows-exporter 0.30.5
 grafana/grafana rancher/grafana-grafana 7.1.5
 grafana/grafana rancher/grafana-grafana 7.2.1
 grafana/grafana rancher/mirrored-grafana-grafana 6.7.4
@@ -317,6 +318,7 @@ grafana/grafana rancher/mirrored-grafana-grafana 10.3.3
 grafana/grafana rancher/mirrored-grafana-grafana 10.4.9
 grafana/grafana rancher/mirrored-grafana-grafana 11.1.0
 grafana/grafana rancher/mirrored-grafana-grafana 11.3.0
+grafana/grafana rancher/mirrored-grafana-grafana 11.5.2
 grafana/grafana-image-renderer rancher/grafana-grafana-image-renderer 2.0.0
 grafana/grafana-image-renderer rancher/mirrored-grafana-grafana-image-renderer 2.0.1
 grafana/grafana-image-renderer rancher/mirrored-grafana-grafana-image-renderer 3.0.1
@@ -325,6 +327,7 @@ grafana/grafana-image-renderer rancher/mirrored-grafana-grafana-image-renderer 3
 grafana/grafana-image-renderer rancher/mirrored-grafana-grafana-image-renderer 3.10.5
 grafana/grafana-image-renderer rancher/mirrored-grafana-grafana-image-renderer 3.11.1
 grafana/grafana-image-renderer rancher/mirrored-grafana-grafana-image-renderer 3.11.6
+grafana/grafana-image-renderer rancher/mirrored-grafana-grafana-image-renderer 3.12.3
 idealista/prom2teams rancher/mirrored-idealista-prom2teams 3.2.1
 idealista/prom2teams rancher/mirrored-idealista-prom2teams 3.2.2
 idealista/prom2teams rancher/mirrored-idealista-prom2teams 3.2.3
@@ -1791,11 +1794,13 @@ quay.io/kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 1.19.2
 quay.io/kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 1.24.6
 quay.io/kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 1.26.1
 quay.io/kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 1.28.0
+quay.io/kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 1.30.0
 quay.io/minio/minio rancher/mirrored-minio-minio RELEASE.2022-03-24T00-43-44Z
 quay.io/prometheus-operator/admission-webhook rancher/mirrored-prometheus-operator-admission-webhook v0.72.0
 quay.io/prometheus-operator/admission-webhook rancher/mirrored-prometheus-operator-admission-webhook v0.75.1
 quay.io/prometheus-operator/admission-webhook rancher/mirrored-prometheus-operator-admission-webhook v0.77.2
 quay.io/prometheus-operator/admission-webhook rancher/mirrored-prometheus-operator-admission-webhook v0.79.0
+quay.io/prometheus-operator/admission-webhook rancher/mirrored-prometheus-operator-admission-webhook v0.80.1
 quay.io/prometheus-operator/prometheus-config-reloader rancher/coreos-prometheus-config-reloader v0.43.0
 quay.io/prometheus-operator/prometheus-config-reloader rancher/mirrored-prometheus-operator-prometheus-config-reloader v0.46.0
 quay.io/prometheus-operator/prometheus-config-reloader rancher/mirrored-prometheus-operator-prometheus-config-reloader v0.48.0
@@ -1807,6 +1812,7 @@ quay.io/prometheus-operator/prometheus-config-reloader rancher/mirrored-promethe
 quay.io/prometheus-operator/prometheus-config-reloader rancher/mirrored-prometheus-operator-prometheus-config-reloader v0.75.1
 quay.io/prometheus-operator/prometheus-config-reloader rancher/mirrored-prometheus-operator-prometheus-config-reloader v0.77.2
 quay.io/prometheus-operator/prometheus-config-reloader rancher/mirrored-prometheus-operator-prometheus-config-reloader v0.79.0
+quay.io/prometheus-operator/prometheus-config-reloader rancher/mirrored-prometheus-operator-prometheus-config-reloader v0.80.1
 quay.io/prometheus-operator/prometheus-operator rancher/coreos-prometheus-operator v0.43.0
 quay.io/prometheus-operator/prometheus-operator rancher/mirrored-prometheus-operator-prometheus-operator v0.46.0
 quay.io/prometheus-operator/prometheus-operator rancher/mirrored-prometheus-operator-prometheus-operator v0.48.0
@@ -1818,17 +1824,20 @@ quay.io/prometheus-operator/prometheus-operator rancher/mirrored-prometheus-oper
 quay.io/prometheus-operator/prometheus-operator rancher/mirrored-prometheus-operator-prometheus-operator v0.75.1
 quay.io/prometheus-operator/prometheus-operator rancher/mirrored-prometheus-operator-prometheus-operator v0.77.2
 quay.io/prometheus-operator/prometheus-operator rancher/mirrored-prometheus-operator-prometheus-operator v0.79.0
+quay.io/prometheus-operator/prometheus-operator rancher/mirrored-prometheus-operator-prometheus-operator v0.80.1
 quay.io/prometheus/alertmanager rancher/mirrored-prometheus-alertmanager v0.22.0
 quay.io/prometheus/alertmanager rancher/mirrored-prometheus-alertmanager v0.22.2
 quay.io/prometheus/alertmanager rancher/mirrored-prometheus-alertmanager v0.24.0
 quay.io/prometheus/alertmanager rancher/mirrored-prometheus-alertmanager v0.25.0
 quay.io/prometheus/alertmanager rancher/mirrored-prometheus-alertmanager v0.26.0
 quay.io/prometheus/alertmanager rancher/mirrored-prometheus-alertmanager v0.27.0
+quay.io/prometheus/alertmanager rancher/mirrored-prometheus-alertmanager v0.28.1
 quay.io/prometheus/node-exporter rancher/mirrored-prometheus-node-exporter v1.1.2
 quay.io/prometheus/node-exporter rancher/mirrored-prometheus-node-exporter v1.2.2
 quay.io/prometheus/node-exporter rancher/mirrored-prometheus-node-exporter v1.3.1
 quay.io/prometheus/node-exporter rancher/mirrored-prometheus-node-exporter v1.7.0
 quay.io/prometheus/node-exporter rancher/mirrored-prometheus-node-exporter v1.8.2
+quay.io/prometheus/node-exporter rancher/mirrored-prometheus-node-exporter v1.9.0
 quay.io/prometheus/prometheus rancher/mirrored-prometheus-prometheus v2.24.0
 quay.io/prometheus/prometheus rancher/mirrored-prometheus-prometheus v2.27.1
 quay.io/prometheus/prometheus rancher/mirrored-prometheus-prometheus v2.28.1
@@ -1843,6 +1852,7 @@ quay.io/prometheus/prometheus rancher/mirrored-prom-prometheus v2.18.2
 quay.io/prometheus/prometheus rancher/prom-prometheus v2.19.2
 quay.io/prometheus/prometheus rancher/prom-prometheus v2.22.0
 quay.io/prometheus/prometheus rancher/prom-prometheus v2.55.1
+quay.io/prometheus/prometheus rancher/prom-prometheus v3.2.1
 quay.io/s3gw/s3gw rancher/mirrored-s3gw-s3gw v0.14.0
 quay.io/skopeo/stable rancher/mirrored-skopeo-skopeo v1.10.0
 quay.io/skopeo/stable rancher/mirrored-skopeo-skopeo v1.13.2
@@ -1962,6 +1972,7 @@ registry.k8s.io/ingress-nginx/kube-webhook-certgen rancher/mirrored-ingress-ngin
 registry.k8s.io/ingress-nginx/kube-webhook-certgen rancher/mirrored-ingress-nginx-kube-webhook-certgen v1.4.3
 registry.k8s.io/ingress-nginx/kube-webhook-certgen rancher/mirrored-ingress-nginx-kube-webhook-certgen v1.4.4
 registry.k8s.io/ingress-nginx/kube-webhook-certgen rancher/mirrored-ingress-nginx-kube-webhook-certgen v1.5.0
+registry.k8s.io/ingress-nginx/kube-webhook-certgen rancher/mirrored-ingress-nginx-kube-webhook-certgen v1.5.1
 registry.k8s.io/ingress-nginx/kube-webhook-certgen rancher/mirrored-ingress-nginx-kube-webhook-certgen v20221220-controller-v1.5.1-58-g787ea74b6
 registry.k8s.io/ingress-nginx/kube-webhook-certgen rancher/mirrored-ingress-nginx-kube-webhook-certgen v20230312-helm-chart-4.5.2-28-g66a760794
 registry.k8s.io/ingress-nginx/kube-webhook-certgen rancher/mirrored-ingress-nginx-kube-webhook-certgen v20231011-8b53cabe0
@@ -1974,6 +1985,7 @@ registry.k8s.io/kube-state-metrics/kube-state-metrics rancher/mirrored-kube-stat
 registry.k8s.io/kube-state-metrics/kube-state-metrics rancher/mirrored-kube-state-metrics-kube-state-metrics v2.12.0
 registry.k8s.io/kube-state-metrics/kube-state-metrics rancher/mirrored-kube-state-metrics-kube-state-metrics v2.13.0
 registry.k8s.io/kube-state-metrics/kube-state-metrics rancher/mirrored-kube-state-metrics-kube-state-metrics v2.14.0
+registry.k8s.io/kube-state-metrics/kube-state-metrics rancher/mirrored-kube-state-metrics-kube-state-metrics v2.15.0
 registry.k8s.io/metrics-server/metrics-server rancher/metrics-server v0.4.1
 registry.k8s.io/metrics-server/metrics-server rancher/mirrored-metrics-server v0.4.1
 registry.k8s.io/metrics-server/metrics-server rancher/mirrored-metrics-server v0.4.4
