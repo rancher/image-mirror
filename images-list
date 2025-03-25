@@ -1975,6 +1975,7 @@ registry.k8s.io/ingress-nginx/kube-webhook-certgen rancher/mirrored-ingress-ngin
 registry.k8s.io/ingress-nginx/kube-webhook-certgen rancher/mirrored-ingress-nginx-kube-webhook-certgen v1.4.4
 registry.k8s.io/ingress-nginx/kube-webhook-certgen rancher/mirrored-ingress-nginx-kube-webhook-certgen v1.5.0
 registry.k8s.io/ingress-nginx/kube-webhook-certgen rancher/mirrored-ingress-nginx-kube-webhook-certgen v1.5.1
+registry.k8s.io/ingress-nginx/kube-webhook-certgen rancher/mirrored-ingress-nginx-kube-webhook-certgen v1.5.2
 registry.k8s.io/ingress-nginx/kube-webhook-certgen rancher/mirrored-ingress-nginx-kube-webhook-certgen v20221220-controller-v1.5.1-58-g787ea74b6
 registry.k8s.io/ingress-nginx/kube-webhook-certgen rancher/mirrored-ingress-nginx-kube-webhook-certgen v20230312-helm-chart-4.5.2-28-g66a760794
 registry.k8s.io/ingress-nginx/kube-webhook-certgen rancher/mirrored-ingress-nginx-kube-webhook-certgen v20231011-8b53cabe0
