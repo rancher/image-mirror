@@ -616,6 +616,7 @@ library/traefik rancher/mirrored-library-traefik 2.11.16
 library/traefik rancher/mirrored-library-traefik 2.11.17
 library/traefik rancher/mirrored-library-traefik 2.11.18
 library/traefik rancher/mirrored-library-traefik 2.11.20
+library/traefik rancher/mirrored-library-traefik 2.11.22
 library/traefik rancher/mirrored-library-traefik 3.3.2
 library/traefik rancher/mirrored-library-traefik 3.3.3
 library/traefik rancher/mirrored-library-traefik 3.3.5
