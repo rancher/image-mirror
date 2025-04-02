@@ -8,7 +8,7 @@ import (
 
 	"github.com/rancher/image-mirror/pkg/config"
 	"github.com/rancher/image-mirror/pkg/regsync"
-	"github.com/urfave/cli/v2"
+	"github.com/urfave/cli/v3"
 )
 
 const regsyncYamlPath = "regsync.yaml"
