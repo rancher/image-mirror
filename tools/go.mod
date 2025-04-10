@@ -1,6 +1,6 @@
 module github.com/rancher/image-mirror
 
-go 1.23.2
+go 1.24
 
 require (
 	github.com/stretchr/testify v1.10.0
