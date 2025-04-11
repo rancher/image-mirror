@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"log"
 	"os"
@@ -8,7 +9,7 @@ import (
 
 	"github.com/rancher/image-mirror/pkg/config"
 	"github.com/rancher/image-mirror/pkg/regsync"
-	"github.com/urfave/cli/v2"
+	"github.com/urfave/cli/v3"
 )
 
 const regsyncYamlPath = "regsync.yaml"
@@ -18,32 +19,33 @@ var configYamlPath string
 func main() {
 	log.SetFlags(0)
 
-	app := cli.NewApp()
-	app.Commands = []*cli.Command{
-		{
-			Name:   "generate-regsync",
-			Usage:  "Generate regsync.yaml",
-			Action: generateRegsyncYaml,
-			Flags: []cli.Flag{
-				&cli.PathFlag{
-					Name:        "config-path",
-					Aliases:     []string{"c"},
-					Value:       "config.yaml",
-					Usage:       "Path to config.yaml file",
-					Destination: &configYamlPath,
+	cmd := &cli.Command{
+		Commands: []*cli.Command{
+			{
+				Name:   "generate-regsync",
+				Usage:  "Generate regsync.yaml",
+				Action: generateRegsyncYaml,
+				Flags: []cli.Flag{
+					&cli.StringFlag{
+						Name:        "config-path",
+						Aliases:     []string{"c"},
+						Value:       "config.yaml",
+						Usage:       "Path to config.yaml file",
+						Destination: &configYamlPath,
+					},
 				},
 			},
 		},
 	}
 
-	if err := app.Run(os.Args); err != nil {
+	if err := cmd.Run(context.Background(), os.Args); err != nil {
 		log.Fatal(err)
 	}
 }
 
 // generateRegsyncYaml regenerates the regsync config file from the current state
 // of config.yaml.
-func generateRegsyncYaml(ctx *cli.Context) error {
+func generateRegsyncYaml(_ context.Context, _ *cli.Command) error {
 	cfg, err := config.Parse(configYamlPath)
 	if err != nil {
 		return fmt.Errorf("failed to parse %s: %w", configYamlPath, err)
