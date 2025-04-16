@@ -420,6 +420,24 @@ sync:
 - source: ghcr.io/kube-logging/config-reloader:v0.0.6
   target: registry.suse.com/rancher/mirrored-kube-logging-config-reloader:v0.0.6
   type: image
+- source: ghcr.io/kube-logging/fluentd:v1.16-4.10-full
+  target: docker.io/rancher/mirrored-kube-logging-fluentd:v1.16-4.10-full
+  type: image
+- source: ghcr.io/kube-logging/fluentd:v1.16-4.8-full
+  target: docker.io/rancher/mirrored-kube-logging-fluentd:v1.16-4.8-full
+  type: image
+- source: ghcr.io/kube-logging/fluentd:v1.16-ruby3.3-full-build.140
+  target: docker.io/rancher/mirrored-kube-logging-fluentd:v1.16-ruby3.3-full-build.140
+  type: image
+- source: ghcr.io/kube-logging/fluentd:v1.16-4.10-full
+  target: registry.suse.com/rancher/mirrored-kube-logging-fluentd:v1.16-4.10-full
+  type: image
+- source: ghcr.io/kube-logging/fluentd:v1.16-4.8-full
+  target: registry.suse.com/rancher/mirrored-kube-logging-fluentd:v1.16-4.8-full
+  type: image
+- source: ghcr.io/kube-logging/fluentd:v1.16-ruby3.3-full-build.140
+  target: registry.suse.com/rancher/mirrored-kube-logging-fluentd:v1.16-ruby3.3-full-build.140
+  type: image
 - source: ghcr.io/kube-logging/logging-operator:4.10.0
   target: docker.io/rancher/mirrored-kube-logging-logging-operator:4.10.0
   type: image
