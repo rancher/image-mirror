@@ -80,6 +80,12 @@ Images:
   Tags:
   - v0.0.5
   - v0.0.6
+- SourceImage: ghcr.io/kube-logging/logging-operator
+  Tags:
+  - 4.10.0
+  - 4.4.0
+  - 4.8.0
+  - 4.9.1
 - SourceImage: test-org/test-image
   Tags:
   - v1.2.3
