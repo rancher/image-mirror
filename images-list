@@ -9,11 +9,6 @@ amazon/aws-cli rancher/mirrored-amazon-aws-cli 2.8.9
 amazon/aws-cli rancher/mirrored-amazon-aws-cli 2.9.0
 amazon/aws-cli rancher/mirrored-amazon-aws-cli 2.9.14
 appscode/kubed rancher/mirrored-appscode-kubed v0.13.2
-banzaicloud/logging-operator rancher/mirrored-banzaicloud-logging-operator 3.9.0
-banzaicloud/logging-operator rancher/mirrored-banzaicloud-logging-operator 3.9.4
-banzaicloud/logging-operator rancher/mirrored-banzaicloud-logging-operator 3.9.5
-banzaicloud/logging-operator rancher/mirrored-banzaicloud-logging-operator 3.10.0
-banzaicloud/logging-operator rancher/mirrored-banzaicloud-logging-operator 3.12.0
 bats/bats rancher/bats-bats v1.1.0
 bats/bats rancher/mirrored-bats-bats v1.1.0
 bats/bats rancher/mirrored-bats-bats v1.4.1
