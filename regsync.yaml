@@ -2,28 +2,16 @@
 # THIS FILE IS AUTO-GENERATED. DO NOT MODIFY IT.
 ##################################################
 creds:
-- pass: '{{ env "APPCO_PASSWORD" }}'
-  registry: dp.apps.rancher.io
-  user: '{{ env "APPCO_USERNAME" }}'
 - pass: '{{ env "DOCKER_PASSWORD" }}'
   registry: docker.io
   user: '{{ env "DOCKER_USERNAME" }}'
+- pass: '{{ env "APPCO_PASSWORD" }}'
+  registry: dp.apps.rancher.io
+  user: '{{ env "APPCO_USERNAME" }}'
 - pass: '{{ env "PRIME_PASSWORD" }}'
   registry: registry.suse.com
   user: '{{ env "PRIME_USERNAME" }}'
 sync:
-- source: test-org/test-image:v1.2.3
-  target: docker.io/rancher/mirrored-test-org-test-image:v1.2.3
-  type: image
-- source: test-org/test-image:v2.3.4
-  target: docker.io/rancher/mirrored-test-org-test-image:v2.3.4
-  type: image
-- source: test-org/test-image:v1.2.3
-  target: registry.suse.com/rancher/mirrored-test-org-test-image:v1.2.3
-  type: image
-- source: test-org/test-image:v2.3.4
-  target: registry.suse.com/rancher/mirrored-test-org-test-image:v2.3.4
-  type: image
 - source: docker.io/test-org/test-image-2:v2.3.4
   target: docker.io/rancher/mirrored-test-org-test-image-2:v2.3.4
   type: image
@@ -41,4 +29,16 @@ sync:
   type: image
 - source: docker.io/test-org/test-image-2:v40.5.6
   target: registry.suse.com/rancher/mirrored-test-org-test-image-2:v40.5.6
+  type: image
+- source: test-org/test-image:v1.2.3
+  target: docker.io/rancher/mirrored-test-org-test-image:v1.2.3
+  type: image
+- source: test-org/test-image:v2.3.4
+  target: docker.io/rancher/mirrored-test-org-test-image:v2.3.4
+  type: image
+- source: test-org/test-image:v1.2.3
+  target: registry.suse.com/rancher/mirrored-test-org-test-image:v1.2.3
+  type: image
+- source: test-org/test-image:v2.3.4
+  target: registry.suse.com/rancher/mirrored-test-org-test-image:v2.3.4
   type: image

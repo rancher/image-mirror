@@ -34,6 +34,11 @@ func main() {
 		},
 		Commands: []*cli.Command{
 			{
+				Name:   "format",
+				Usage:  "Enforce formatting on certain files",
+				Action: formatFiles,
+			},
+			{
 				Name:   "generate-regsync",
 				Usage:  "Generate regsync.yaml",
 				Action: generateRegsyncYaml,
@@ -189,4 +194,15 @@ func convertImageListEntryToImage(imageListEntry legacy.ImagesListEntry) (*confi
 	image.SetTargetImageName(targetImageName)
 
 	return image, nil
+}
+
+func formatFiles(_ context.Context, _ *cli.Command) error {
+	configJson, err := config.Parse(configYamlPath)
+	if err != nil {
+		return fmt.Errorf("failed to parse config: %w", err)
+	}
+	if err := config.Write(configYamlPath, configJson); err != nil {
+		return fmt.Errorf("failed to write config: %w", err)
+	}
+	return nil
 }

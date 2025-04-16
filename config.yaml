@@ -1,25 +1,26 @@
-Repositories:
-  - BaseUrl: dp.apps.rancher.io/containers
-    Registry: dp.apps.rancher.io
-    Username: '{{ env "APPCO_USERNAME" }}'
-    Password: '{{ env "APPCO_PASSWORD" }}'
-  - BaseUrl: docker.io/rancher
-    Target: true
-    Registry: docker.io
-    Username: '{{ env "DOCKER_USERNAME" }}'
-    Password: '{{ env "DOCKER_PASSWORD" }}'
-  - BaseUrl: registry.suse.com/rancher
-    Target: true
-    Registry: registry.suse.com
-    Username: '{{ env "PRIME_USERNAME" }}'
-    Password: '{{ env "PRIME_PASSWORD" }}'
 Images:
-  - SourceImage: test-org/test-image
-    Tags:
-      - v1.2.3
-      - v2.3.4
-  - SourceImage: docker.io/test-org/test-image-2
-    Tags:
-      - v2.3.4
-      - v4.50.6
-      - v40.5.6
+- SourceImage: docker.io/test-org/test-image-2
+  Tags:
+  - v2.3.4
+  - v4.50.6
+  - v40.5.6
+- SourceImage: test-org/test-image
+  Tags:
+  - v1.2.3
+  - v2.3.4
+Repositories:
+- BaseUrl: docker.io/rancher
+  Password: '{{ env "DOCKER_PASSWORD" }}'
+  Registry: docker.io
+  Target: true
+  Username: '{{ env "DOCKER_USERNAME" }}'
+- BaseUrl: dp.apps.rancher.io/containers
+  Password: '{{ env "APPCO_PASSWORD" }}'
+  Registry: dp.apps.rancher.io
+  Target: false
+  Username: '{{ env "APPCO_USERNAME" }}'
+- BaseUrl: registry.suse.com/rancher
+  Password: '{{ env "PRIME_PASSWORD" }}'
+  Registry: registry.suse.com
+  Target: true
+  Username: '{{ env "PRIME_USERNAME" }}'
