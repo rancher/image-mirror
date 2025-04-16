@@ -9,6 +9,18 @@ Images:
   - windows-2019-3.1.8
   - windows-2022-3.1.8
   TargetImageName: fluent-bit
+- SourceImage: fluent/fluent-bit
+  Tags:
+  - 1.5.4
+  - 1.5.4-debug
+  - 1.6.1
+  - 1.6.1-debug
+  - 1.6.10
+  - 1.6.10-debug
+  - 1.6.4
+  - 1.6.4-debug
+  - 1.8.5-debug
+  TargetImageName: fluent-fluent-bit
 - SourceImage: ghcr.io/kube-logging/config-reloader
   Tags:
   - v0.0.5
