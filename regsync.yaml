@@ -318,6 +318,42 @@ sync:
 - source: fluent/fluent-bit:3.1.8-debug
   target: registry.suse.com/rancher/mirrored-fluent-fluent-bit:3.1.8-debug
   type: image
+- source: ghcr.io/banzaicloud/fluentd:v1.12.4-alpine-1
+  target: docker.io/rancher/mirrored-banzaicloud-fluentd:v1.12.4-alpine-1
+  type: image
+- source: ghcr.io/banzaicloud/fluentd:v1.13.3-alpine-1
+  target: docker.io/rancher/mirrored-banzaicloud-fluentd:v1.13.3-alpine-1
+  type: image
+- source: ghcr.io/banzaicloud/fluentd:v1.13.3-alpine-11
+  target: docker.io/rancher/mirrored-banzaicloud-fluentd:v1.13.3-alpine-11
+  type: image
+- source: ghcr.io/banzaicloud/fluentd:v1.14.4-alpine-2
+  target: docker.io/rancher/mirrored-banzaicloud-fluentd:v1.14.4-alpine-2
+  type: image
+- source: ghcr.io/banzaicloud/fluentd:v1.14.5-alpine-1
+  target: docker.io/rancher/mirrored-banzaicloud-fluentd:v1.14.5-alpine-1
+  type: image
+- source: ghcr.io/banzaicloud/fluentd:v1.14.6-alpine-5
+  target: docker.io/rancher/mirrored-banzaicloud-fluentd:v1.14.6-alpine-5
+  type: image
+- source: ghcr.io/banzaicloud/fluentd:v1.12.4-alpine-1
+  target: registry.suse.com/rancher/mirrored-banzaicloud-fluentd:v1.12.4-alpine-1
+  type: image
+- source: ghcr.io/banzaicloud/fluentd:v1.13.3-alpine-1
+  target: registry.suse.com/rancher/mirrored-banzaicloud-fluentd:v1.13.3-alpine-1
+  type: image
+- source: ghcr.io/banzaicloud/fluentd:v1.13.3-alpine-11
+  target: registry.suse.com/rancher/mirrored-banzaicloud-fluentd:v1.13.3-alpine-11
+  type: image
+- source: ghcr.io/banzaicloud/fluentd:v1.14.4-alpine-2
+  target: registry.suse.com/rancher/mirrored-banzaicloud-fluentd:v1.14.4-alpine-2
+  type: image
+- source: ghcr.io/banzaicloud/fluentd:v1.14.5-alpine-1
+  target: registry.suse.com/rancher/mirrored-banzaicloud-fluentd:v1.14.5-alpine-1
+  type: image
+- source: ghcr.io/banzaicloud/fluentd:v1.14.6-alpine-5
+  target: registry.suse.com/rancher/mirrored-banzaicloud-fluentd:v1.14.6-alpine-5
+  type: image
 - source: ghcr.io/banzaicloud/logging-operator:3.14.0
   target: docker.io/rancher/mirrored-banzaicloud-logging-operator:3.14.0
   type: image

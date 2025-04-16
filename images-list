@@ -200,12 +200,6 @@ gcr.io/kubebuilder/kube-rbac-proxy rancher/kube-rbac-proxy v0.5.0
 gcr.io/kubebuilder/kube-rbac-proxy rancher/mirrored-kube-rbac-proxy v0.5.0
 gcr.io/kubebuilder/kube-rbac-proxy rancher/mirrored-kube-rbac-proxy v0.14.0
 gcr.io/kubebuilder/kube-rbac-proxy rancher/mirrored-kube-rbac-proxy v0.15.0
-ghcr.io/banzaicloud/fluentd rancher/mirrored-banzaicloud-fluentd v1.12.4-alpine-1
-ghcr.io/banzaicloud/fluentd rancher/mirrored-banzaicloud-fluentd v1.13.3-alpine-1
-ghcr.io/banzaicloud/fluentd rancher/mirrored-banzaicloud-fluentd v1.13.3-alpine-11
-ghcr.io/banzaicloud/fluentd rancher/mirrored-banzaicloud-fluentd v1.14.4-alpine-2
-ghcr.io/banzaicloud/fluentd rancher/mirrored-banzaicloud-fluentd v1.14.5-alpine-1
-ghcr.io/banzaicloud/fluentd rancher/mirrored-banzaicloud-fluentd v1.14.6-alpine-5
 ghcr.io/dexidp/dex rancher/mirrored-dexidp-dex v2.35.3
 ghcr.io/dexidp/dex rancher/mirrored-dexidp-dex v2.36.0
 ghcr.io/dexidp/dex rancher/mirrored-dexidp-dex v2.37.0
