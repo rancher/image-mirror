@@ -97,6 +97,7 @@ flannel/flannel rancher/mirrored-flannel-flannel v0.26.3
 flannel/flannel rancher/mirrored-flannel-flannel v0.26.4
 flannel/flannel rancher/mirrored-flannel-flannel v0.26.5
 flannel/flannel rancher/mirrored-flannel-flannel v0.26.6
+flannel/flannel rancher/mirrored-flannel-flannel v0.26.7
 flannel/flannel-cni-plugin rancher/mirrored-flannel-flannel-cni-plugin v1.2.0
 flannel/flannel-cni-plugin rancher/mirrored-flannel-flannel-cni-plugin v1.5.1-flannel1
 flannel/flannel-cni-plugin rancher/mirrored-flannel-flannel-cni-plugin v1.5.1-flannel2
