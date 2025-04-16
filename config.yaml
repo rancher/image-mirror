@@ -4,6 +4,10 @@ Images:
   - v2.3.4
   - v4.50.6
   - v40.5.6
+- SourceImage: ghcr.io/kube-logging/config-reloader
+  Tags:
+  - v0.0.5
+  - v0.0.6
 - SourceImage: test-org/test-image
   Tags:
   - v1.2.3
