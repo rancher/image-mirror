@@ -3,8 +3,8 @@ package main
 import (
 	"testing"
 
-	"github.com/rancher/image-mirror/pkg/config"
-	"github.com/rancher/image-mirror/pkg/regsync"
+	"github.com/rancher/image-mirror/internal/config"
+	"github.com/rancher/image-mirror/internal/regsync"
 	"github.com/stretchr/testify/assert"
 )
 
