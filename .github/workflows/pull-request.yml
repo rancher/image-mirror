@@ -31,3 +31,35 @@ jobs:
         with:
           working-directory: tools
           args: --timeout=5m
+
+  formatting-is-valid:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+
+      - uses: actions/setup-go@0aaccfd150d50ccaeb58ebd88d36e91967a5f35b # v5
+        with:
+          go-version: '1.24'
+
+      - name: Ensure that files are formatted correctly
+        run: |
+          scripts/build-tools.sh
+          bin/image-mirror-tools format
+          # fail if there are changes in the working tree
+          git diff --exit-code
+
+  regsync-yaml-synced:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+
+      - uses: actions/setup-go@0aaccfd150d50ccaeb58ebd88d36e91967a5f35b # v5
+        with:
+          go-version: '1.24'
+
+      - name: Ensure that regsync.yaml is in sync with config.yaml
+        run: |
+          scripts/build-tools.sh
+          bin/image-mirror-tools generate-regsync
+          # fail if there are changes in the working tree
+          git diff --exit-code
