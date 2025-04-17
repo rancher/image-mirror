@@ -6,9 +6,9 @@ import (
 	"os"
 	"strings"
 
-	"github.com/rancher/image-mirror/pkg/config"
-	"github.com/rancher/image-mirror/pkg/legacy"
-	"github.com/rancher/image-mirror/pkg/regsync"
+	"github.com/rancher/image-mirror/internal/config"
+	"github.com/rancher/image-mirror/internal/legacy"
+	"github.com/rancher/image-mirror/internal/regsync"
 	"github.com/urfave/cli/v3"
 )
 
