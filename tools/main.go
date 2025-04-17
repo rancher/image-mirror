@@ -3,35 +3,53 @@ package main
 import (
 	"context"
 	"fmt"
-	"log"
 	"os"
 	"strings"
 
 	"github.com/rancher/image-mirror/pkg/config"
+	"github.com/rancher/image-mirror/pkg/legacy"
 	"github.com/rancher/image-mirror/pkg/regsync"
 	"github.com/urfave/cli/v3"
 )
 
 const regsyncYamlPath = "regsync.yaml"
+const configJsonPath = "retrieve-image-tags/config.json"
 
 var configYamlPath string
+var imagesListPath string
 
 func main() {
-	log.SetFlags(0)
-
 	cmd := &cli.Command{
+		Flags: []cli.Flag{
+			&cli.StringFlag{
+				Name:        "config-path",
+				Aliases:     []string{"c"},
+				Value:       "config.yaml",
+				Usage:       "Path to config.yaml file",
+				Destination: &configYamlPath,
+			},
+		},
 		Commands: []*cli.Command{
+			{
+				Name:   "format",
+				Usage:  "Enforce formatting on certain files",
+				Action: formatFiles,
+			},
 			{
 				Name:   "generate-regsync",
 				Usage:  "Generate regsync.yaml",
 				Action: generateRegsyncYaml,
+			},
+			{
+				Name:   "migrate-images-list",
+				Usage:  "Migrate images from images-list to config.yaml",
+				Action: migrateImagesList,
 				Flags: []cli.Flag{
 					&cli.StringFlag{
-						Name:        "config-path",
-						Aliases:     []string{"c"},
-						Value:       "config.yaml",
-						Usage:       "Path to config.yaml file",
-						Destination: &configYamlPath,
+						Name:        "images-list-path",
+						Value:       "images-list",
+						Usage:       "Path to images list file",
+						Destination: &imagesListPath,
 					},
 				},
 			},
@@ -39,7 +57,8 @@ func main() {
 	}
 
 	if err := cmd.Run(context.Background(), os.Args); err != nil {
-		log.Fatal(err)
+		fmt.Printf("error: %s\n", err)
+		os.Exit(1)
 	}
 }
 
@@ -86,22 +105,11 @@ func generateRegsyncYaml(_ context.Context, _ *cli.Command) error {
 // convertConfigImageToRegsyncImages converts image into one ConfigSync (i.e. an
 // image for regsync to sync) for each tag present in image. repo provides the
 // target repository for each ConfigSync.
-func convertConfigImageToRegsyncImages(repo config.Repository, image config.Image) ([]regsync.ConfigSync, error) {
-	targetImageName := image.TargetImageName
-	if targetImageName == "" {
-		parts := strings.Split(image.SourceImage, "/")
-		if len(parts) < 2 {
-			return nil, fmt.Errorf("source image split into %d parts (>=2 parts expected)", len(parts))
-		}
-		repoName := parts[len(parts)-2]
-		imageName := parts[len(parts)-1]
-		targetImageName = "mirrored-" + repoName + "-" + imageName
-	}
-
+func convertConfigImageToRegsyncImages(repo config.Repository, image *config.Image) ([]regsync.ConfigSync, error) {
 	entries := make([]regsync.ConfigSync, 0, len(image.Tags))
 	for _, tag := range image.Tags {
 		sourceImage := image.SourceImage + ":" + tag
-		targetImage := repo.BaseUrl + "/" + targetImageName + ":" + tag
+		targetImage := repo.BaseUrl + "/" + image.TargetImageName() + ":" + tag
 		entry := regsync.ConfigSync{
 			Source: sourceImage,
 			Target: targetImage,
@@ -111,4 +119,89 @@ func convertConfigImageToRegsyncImages(repo config.Repository, image config.Imag
 	}
 
 	return entries, nil
+}
+
+func migrateImagesList(_ context.Context, cmd *cli.Command) error {
+	if cmd.Args().Len() != 2 {
+		return fmt.Errorf("must pass source and target image")
+	}
+	sourceImage := cmd.Args().Get(0)
+	targetImage := cmd.Args().Get(1)
+
+	configYaml, err := config.Parse(configYamlPath)
+	if err != nil {
+		return fmt.Errorf("failed to parse config: %w", err)
+	}
+	accumulator := config.NewImageAccumulator()
+	for _, existingImage := range configYaml.Images {
+		accumulator.AddImage(existingImage)
+	}
+
+	imagesListComment, legacyImages, err := legacy.ParseImagesList(imagesListPath)
+	if err != nil {
+		return fmt.Errorf("failed to parse images list: %w", err)
+	}
+
+	configJson, err := legacy.ParseConfig(configJsonPath)
+	if err != nil {
+		return fmt.Errorf("failed to parse %q: %w", configJsonPath, err)
+	}
+
+	if configJson.Contains(sourceImage) {
+		fmt.Printf("warning: %s refers to image with source %q\n", configJsonPath, sourceImage)
+	}
+
+	legacyImagesToKeep := make([]legacy.ImagesListEntry, 0, len(legacyImages))
+	for _, legacyImage := range legacyImages {
+		if legacyImage.Source == sourceImage && legacyImage.Target == targetImage {
+			newImage, err := convertImageListEntryToImage(legacyImage)
+			if err != nil {
+				return fmt.Errorf("failed to convert %q: %w", legacyImage, err)
+			}
+			accumulator.AddImage(newImage)
+		} else {
+			legacyImagesToKeep = append(legacyImagesToKeep, legacyImage)
+			continue
+		}
+	}
+
+	// set config.Images to accumulated images and write config
+	configYaml.Images = accumulator.Images()
+	if err := config.Write(configYamlPath, configYaml); err != nil {
+		return fmt.Errorf("failed to write %s: %w", configYamlPath, err)
+	}
+
+	// write kept legacy images
+	if err := legacy.WriteImagesList(imagesListPath, imagesListComment, legacyImagesToKeep); err != nil {
+		return fmt.Errorf("failed to write %s: %w", imagesListPath, err)
+	}
+
+	return nil
+}
+
+func convertImageListEntryToImage(imageListEntry legacy.ImagesListEntry) (*config.Image, error) {
+	parts := strings.Split(imageListEntry.Target, "/")
+	if len(parts) != 2 {
+		return nil, fmt.Errorf("failed to split %q into 2 parts", imageListEntry.Target)
+	}
+	targetImageName := parts[len(parts)-1]
+
+	image, err := config.NewImage(imageListEntry.Source, []string{imageListEntry.Tag})
+	if err != nil {
+		return nil, fmt.Errorf("failed to create new Image: %w", err)
+	}
+	image.SetTargetImageName(targetImageName)
+
+	return image, nil
+}
+
+func formatFiles(_ context.Context, _ *cli.Command) error {
+	configJson, err := config.Parse(configYamlPath)
+	if err != nil {
+		return fmt.Errorf("failed to parse config: %w", err)
+	}
+	if err := config.Write(configYamlPath, configJson); err != nil {
+		return fmt.Errorf("failed to write config: %w", err)
+	}
+	return nil
 }
