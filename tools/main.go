@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"fmt"
-	"log"
 	"os"
 	"strings"
 
@@ -20,8 +19,6 @@ var configYamlPath string
 var imagesListPath string
 
 func main() {
-	log.SetFlags(0)
-
 	cmd := &cli.Command{
 		Flags: []cli.Flag{
 			&cli.StringFlag{
@@ -60,7 +57,8 @@ func main() {
 	}
 
 	if err := cmd.Run(context.Background(), os.Args); err != nil {
-		log.Fatal(err)
+		fmt.Printf("error: %s\n", err)
+		os.Exit(1)
 	}
 }
 
@@ -150,20 +148,21 @@ func migrateImagesList(_ context.Context, cmd *cli.Command) error {
 	}
 
 	if configJson.Contains(sourceImage) {
-		log.Printf("warning: %s refers to image with source %q", configJsonPath, sourceImage)
+		fmt.Printf("warning: %s refers to image with source %q\n", configJsonPath, sourceImage)
 	}
 
 	legacyImagesToKeep := make([]legacy.ImagesListEntry, 0, len(legacyImages))
 	for _, legacyImage := range legacyImages {
-		if legacyImage.Source != sourceImage || legacyImage.Target != targetImage {
+		if legacyImage.Source == sourceImage && legacyImage.Target == targetImage {
+			newImage, err := convertImageListEntryToImage(legacyImage)
+			if err != nil {
+				return fmt.Errorf("failed to convert %q: %w", legacyImage, err)
+			}
+			accumulator.AddImage(newImage)
+		} else {
 			legacyImagesToKeep = append(legacyImagesToKeep, legacyImage)
 			continue
 		}
-		newImage, err := convertImageListEntryToImage(legacyImage)
-		if err != nil {
-			return fmt.Errorf("failed to convert %q: %w", legacyImage, err)
-		}
-		accumulator.AddImage(newImage)
 	}
 
 	// set config.Images to accumulated images and write config
@@ -182,7 +181,7 @@ func migrateImagesList(_ context.Context, cmd *cli.Command) error {
 
 func convertImageListEntryToImage(imageListEntry legacy.ImagesListEntry) (*config.Image, error) {
 	parts := strings.Split(imageListEntry.Target, "/")
-	if len(parts) < 2 {
+	if len(parts) != 2 {
 		return nil, fmt.Errorf("failed to split %q into 2 parts", imageListEntry.Target)
 	}
 	targetImageName := parts[len(parts)-1]

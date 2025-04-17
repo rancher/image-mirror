@@ -131,7 +131,7 @@ func (image *Image) setDefaults() error {
 	return nil
 }
 
-func (image Image) TargetImageName() string {
+func (image *Image) TargetImageName() string {
 	if image.SpecifiedTargetImageName != "" {
 		return image.SpecifiedTargetImageName
 	}
