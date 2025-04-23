@@ -15,11 +15,6 @@ Images:
   - 3.9.0
   - 3.9.4
   - 3.9.5
-- SourceImage: docker.io/test-org/test-image-2
-  Tags:
-  - v2.3.4
-  - v4.50.6
-  - v40.5.6
 - SourceImage: fluent/fluent-bit
   Tags:
   - windows-2019-3.1.8
@@ -99,10 +94,6 @@ Images:
   - 4.4.0
   - 4.8.0
   - 4.9.1
-- SourceImage: test-org/test-image
-  Tags:
-  - v1.2.3
-  - v2.3.4
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
