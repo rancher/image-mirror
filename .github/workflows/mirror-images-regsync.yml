@@ -31,7 +31,7 @@ jobs:
 
       - name: Sync Container Images
         run: |
-          time regsync once --config --missing regsync.yaml
+          time ./regsync once --config --missing regsync.yaml
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
