@@ -78,24 +78,6 @@ sync:
 - source: banzaicloud/logging-operator:3.9.5
   target: registry.suse.com/rancher/mirrored-banzaicloud-logging-operator:3.9.5
   type: image
-- source: docker.io/test-org/test-image-2:v2.3.4
-  target: docker.io/rancher/mirrored-test-org-test-image-2:v2.3.4
-  type: image
-- source: docker.io/test-org/test-image-2:v4.50.6
-  target: docker.io/rancher/mirrored-test-org-test-image-2:v4.50.6
-  type: image
-- source: docker.io/test-org/test-image-2:v40.5.6
-  target: docker.io/rancher/mirrored-test-org-test-image-2:v40.5.6
-  type: image
-- source: docker.io/test-org/test-image-2:v2.3.4
-  target: registry.suse.com/rancher/mirrored-test-org-test-image-2:v2.3.4
-  type: image
-- source: docker.io/test-org/test-image-2:v4.50.6
-  target: registry.suse.com/rancher/mirrored-test-org-test-image-2:v4.50.6
-  type: image
-- source: docker.io/test-org/test-image-2:v40.5.6
-  target: registry.suse.com/rancher/mirrored-test-org-test-image-2:v40.5.6
-  type: image
 - source: fluent/fluent-bit:windows-2019-3.1.8
   target: docker.io/rancher/fluent-bit:windows-2019-3.1.8
   type: image
@@ -461,16 +443,4 @@ sync:
   type: image
 - source: ghcr.io/kube-logging/logging-operator:4.9.1
   target: registry.suse.com/rancher/mirrored-kube-logging-logging-operator:4.9.1
-  type: image
-- source: test-org/test-image:v1.2.3
-  target: docker.io/rancher/mirrored-test-org-test-image:v1.2.3
-  type: image
-- source: test-org/test-image:v2.3.4
-  target: docker.io/rancher/mirrored-test-org-test-image:v2.3.4
-  type: image
-- source: test-org/test-image:v1.2.3
-  target: registry.suse.com/rancher/mirrored-test-org-test-image:v1.2.3
-  type: image
-- source: test-org/test-image:v2.3.4
-  target: registry.suse.com/rancher/mirrored-test-org-test-image:v2.3.4
   type: image
