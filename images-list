@@ -1899,6 +1899,7 @@ registry.k8s.io/cpa/cluster-proportional-autoscaler rancher/mirrored-cluster-pro
 registry.k8s.io/cpa/cluster-proportional-autoscaler rancher/mirrored-cluster-proportional-autoscaler 1.8.5
 registry.k8s.io/cpa/cluster-proportional-autoscaler rancher/mirrored-cluster-proportional-autoscaler 1.8.6
 registry.k8s.io/cpa/cluster-proportional-autoscaler rancher/mirrored-cluster-proportional-autoscaler v1.8.9
+registry.k8s.io/cpa/cluster-proportional-autoscaler rancher/mirrored-cluster-proportional-autoscaler v1.9.0
 registry.k8s.io/csi-vsphere/driver rancher/mirrored-cloud-provider-vsphere-csi-release-driver v3.3.1
 registry.k8s.io/csi-vsphere/driver rancher/mirrored-cloud-provider-vsphere-csi-release-driver v3.4.0
 registry.k8s.io/csi-vsphere/syncer rancher/mirrored-cloud-provider-vsphere-csi-release-syncer v3.3.1
