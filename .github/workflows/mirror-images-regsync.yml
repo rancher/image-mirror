@@ -13,7 +13,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
 
-      - name: Read Secrets
+      - name: Read Secrets into environment
         uses: rancher-eio/read-vault-secrets@main
         with:
           secrets: |
@@ -34,9 +34,9 @@ jobs:
           export PATH=$PATH:$(pwd)
           time regsync once --missing --config regsync.yaml
         env:
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-          APPCO_USERNAME: ${{ secrets.APPCO_USERNAME }}
-          APPCO_PASSWORD: ${{ secrets.APPCO_PASSWORD }}
-          PRIME_USERNAME: ${{ secrets.PRIME_USERNAME }}
-          PRIME_PASSWORD: ${{ secrets.PRIME_PASSWORD }}
+          DOCKER_USERNAME: ${{ env.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ env.DOCKER_PASSWORD }}
+          APPCO_USERNAME: ${{ env.APPCO_USERNAME }}
+          APPCO_PASSWORD: ${{ env.APPCO_PASSWORD }}
+          PRIME_USERNAME: ${{ env.PRIME_USERNAME }}
+          PRIME_PASSWORD: ${{ env.PRIME_PASSWORD }}
