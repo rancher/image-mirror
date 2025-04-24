@@ -33,10 +33,3 @@ jobs:
         run: |
           export PATH=$PATH:$(pwd)
           time regsync once --missing --config regsync.yaml
-        env:
-          DOCKER_USERNAME: ${{ env.DOCKER_USERNAME }}
-          DOCKER_PASSWORD: ${{ env.DOCKER_PASSWORD }}
-          APPCO_USERNAME: ${{ env.APPCO_USERNAME }}
-          APPCO_PASSWORD: ${{ env.APPCO_PASSWORD }}
-          PRIME_USERNAME: ${{ env.PRIME_USERNAME }}
-          PRIME_PASSWORD: ${{ env.PRIME_PASSWORD }}
