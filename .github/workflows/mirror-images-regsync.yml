@@ -32,4 +32,4 @@ jobs:
       - name: Sync Container Images
         run: |
           export PATH=$PATH:$(pwd)
-          time regsync once --missing --config regsync.yaml
+          time regsync once --logopt json --missing --config regsync.yaml
