@@ -127,6 +127,10 @@ func (image *Image) setDefaults() error {
 	}
 
 	if parts[0] == "dp.apps.rancher.io" {
+		// AppCo images have only one significant part in their reference.
+		// For example, in dp.apps.rancher.io/containers/openjdk,
+		// dp.apps.rancher.io/containers is the repository and openjdk is
+		// the significant part.
 		imageName := parts[len(parts)-1]
 		image.defaultTargetImageName = "appco-" + imageName
 	} else {
