@@ -125,9 +125,19 @@ func (image *Image) setDefaults() error {
 	if len(parts) < 2 {
 		return fmt.Errorf("source image split into %d parts (>=2 parts expected)", len(parts))
 	}
-	repoName := parts[len(parts)-2]
-	imageName := parts[len(parts)-1]
-	image.defaultTargetImageName = "mirrored-" + repoName + "-" + imageName
+
+	if parts[0] == "dp.apps.rancher.io" {
+		// AppCo images have only one significant part in their reference.
+		// For example, in dp.apps.rancher.io/containers/openjdk,
+		// dp.apps.rancher.io/containers is the repository and openjdk is
+		// the significant part.
+		imageName := parts[len(parts)-1]
+		image.defaultTargetImageName = "appco-" + imageName
+	} else {
+		repoName := parts[len(parts)-2]
+		imageName := parts[len(parts)-1]
+		image.defaultTargetImageName = "mirrored-" + repoName + "-" + imageName
+	}
 	return nil
 }
 
