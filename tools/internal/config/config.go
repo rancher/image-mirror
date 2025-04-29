@@ -46,6 +46,10 @@ type Repository struct {
 	// for this repository. For more information please see
 	// https://github.com/regclient/regclient/blob/main/docs/regsync.md
 	Registry string
+	// ReqConcurrent is what goes into the "reqConcurrent" field of
+	// regsync.yaml for this repository. For more information please see
+	// https://github.com/regclient/regclient/blob/main/docs/regsync.md
+	ReqConcurrent int
 	// Username is what goes into the "user" field of regsync.yaml
 	// for this repository. For more information please see
 	// https://github.com/regclient/regclient/blob/main/docs/regsync.md
