@@ -27,9 +27,10 @@ type Config struct {
 // ConfigCred specifies the details for a registry that container images may
 // be pulled from or pushed to.
 type ConfigCred struct {
-	Registry string `json:"registry"`
-	User     string `json:"user"`
-	Pass     string `json:"pass"`
+	Registry      string `json:"registry"`
+	User          string `json:"user"`
+	Pass          string `json:"pass"`
+	ReqConcurrent int    `json:"reqConcurrent,omitempty"`
 }
 
 // ConfigSync defines a source/target repository to sync.

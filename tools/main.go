@@ -76,9 +76,10 @@ func generateRegsyncYaml(_ context.Context, _ *cli.Command) error {
 	}
 	for _, targetRepository := range cfg.Repositories {
 		credEntry := regsync.ConfigCred{
-			Registry: targetRepository.Registry,
-			User:     targetRepository.Username,
-			Pass:     targetRepository.Password,
+			Pass:          targetRepository.Password,
+			Registry:      targetRepository.Registry,
+			ReqConcurrent: targetRepository.ReqConcurrent,
+			User:          targetRepository.Username,
 		}
 		regsyncYaml.Creds = append(regsyncYaml.Creds, credEntry)
 	}

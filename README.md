@@ -41,9 +41,12 @@ This section roughly correlates to the `creds` section of `regsync.yaml`.
 
 | Field | Required | Description |
 | ------------- | ------------- |------------- |
-| `EnvVarPrefix` | yes | The prefix added to the environment variables used to set username, password and registry in `regsync.yaml`.
 | `BaseUrl` | yes | The base URL for the repository. Appending `/` plus an image name should be a valid image reference.
+| `Password` | yes | The password to use when authenticating against the registry. See [the regsync documentation](https://regclient.org/usage/regsync/) for more details.
+| `Registry` | yes | The registry URL. See [the regsync documentation](https://regclient.org/usage/regsync/) for more details.
+| `ReqConcurrent` | no | The number of concurrent requests that are made to this registry. See [the regsync documentation](https://regclient.org/usage/regsync/) for more details.
 | `Target` | no | When `true`, denotes a target repository. This means that all images will be mirrored to this repository.
+| `Username` | yes | The username to use when authenticating against the registry. See [the regsync documentation](https://regclient.org/usage/regsync/) for more details.
 
 
 #### `Images`
