@@ -3,8 +3,6 @@
 # https://github.com/rancher/image-mirror/pull/27
 #
 # LIST FORMAT: <SOURCE> <DESTINATION> <TAG>
-bats/bats rancher/mirrored-bats-bats v1.1.0
-bats/bats rancher/mirrored-bats-bats v1.4.1
 coredns/coredns rancher/coredns-coredns 1.7.0
 coredns/coredns rancher/coredns-coredns 1.7.1
 coredns/coredns rancher/coredns-coredns 1.8.0
