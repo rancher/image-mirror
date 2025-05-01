@@ -33,6 +33,13 @@ Images:
   Tags:
   - v1.1.0
   - v1.4.1
+- SourceImage: coredns/coredns
+  Tags:
+  - 1.7.0
+  - 1.7.1
+  - 1.8.0
+  - 1.8.3
+  TargetImageName: coredns-coredns
 - SourceImage: fluent/fluent-bit
   Tags:
   - windows-2019-3.1.8
