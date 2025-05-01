@@ -25,6 +25,14 @@ Images:
   - 3.9.0
   - 3.9.4
   - 3.9.5
+- SourceImage: bats/bats
+  Tags:
+  - v1.1.0
+  TargetImageName: bats-bats
+- SourceImage: bats/bats
+  Tags:
+  - v1.1.0
+  - v1.4.1
 - SourceImage: fluent/fluent-bit
   Tags:
   - windows-2019-3.1.8
