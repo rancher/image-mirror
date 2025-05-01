@@ -6,6 +6,9 @@ Images:
   - 2.8.9
   - 2.9.0
   - 2.9.14
+- SourceImage: appscode/kubed
+  Tags:
+  - v0.13.2
 - SourceImage: banzaicloud/logging-operator
   Tags:
   - 3.6.0
