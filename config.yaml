@@ -1,4 +1,11 @@
 Images:
+- SourceImage: amazon/aws-cli
+  Tags:
+  - 2.0.52
+  - 2.8.5
+  - 2.8.9
+  - 2.9.0
+  - 2.9.14
 - SourceImage: banzaicloud/logging-operator
   Tags:
   - 3.6.0
