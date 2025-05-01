@@ -3,11 +3,6 @@
 # https://github.com/rancher/image-mirror/pull/27
 #
 # LIST FORMAT: <SOURCE> <DESTINATION> <TAG>
-amazon/aws-cli rancher/mirrored-amazon-aws-cli 2.0.52
-amazon/aws-cli rancher/mirrored-amazon-aws-cli 2.8.5
-amazon/aws-cli rancher/mirrored-amazon-aws-cli 2.8.9
-amazon/aws-cli rancher/mirrored-amazon-aws-cli 2.9.0
-amazon/aws-cli rancher/mirrored-amazon-aws-cli 2.9.14
 appscode/kubed rancher/mirrored-appscode-kubed v0.13.2
 bats/bats rancher/bats-bats v1.1.0
 bats/bats rancher/mirrored-bats-bats v1.1.0
