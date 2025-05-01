@@ -267,6 +267,18 @@ sync:
 - source: coredns/coredns:1.9.4
   target: registry.suse.com/rancher/mirrored-coredns-coredns:1.9.4
   type: image
+- source: curlimages/curl:7.70.0
+  target: docker.io/rancher/curlimages-curl:7.70.0
+  type: image
+- source: curlimages/curl:7.73.0
+  target: docker.io/rancher/curlimages-curl:7.73.0
+  type: image
+- source: curlimages/curl:7.70.0
+  target: registry.suse.com/rancher/curlimages-curl:7.70.0
+  type: image
+- source: curlimages/curl:7.73.0
+  target: registry.suse.com/rancher/curlimages-curl:7.73.0
+  type: image
 - source: fluent/fluent-bit:windows-2019-3.1.8
   target: docker.io/rancher/fluent-bit:windows-2019-3.1.8
   type: image
