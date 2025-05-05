@@ -65,6 +65,17 @@ Images:
   - 7.70.0
   - 7.73.0
   TargetImageName: curlimages-curl
+- SourceImage: curlimages/curl
+  Tags:
+  - 7.70.0
+  - 7.73.0
+  - 7.77.0
+  - 7.83.1
+  - 7.85.0
+  - 8.10.1
+  - 8.12.1
+  - 8.13.0
+  - 8.9.1
 - SourceImage: fluent/fluent-bit
   Tags:
   - windows-2019-3.1.8
