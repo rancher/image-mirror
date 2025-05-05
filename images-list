@@ -3,7 +3,6 @@
 # https://github.com/rancher/image-mirror/pull/27
 #
 # LIST FORMAT: <SOURCE> <DESTINATION> <TAG>
-appscode/kubed rancher/mirrored-appscode-kubed v0.13.2
 bats/bats rancher/bats-bats v1.1.0
 bats/bats rancher/mirrored-bats-bats v1.1.0
 bats/bats rancher/mirrored-bats-bats v1.4.1
