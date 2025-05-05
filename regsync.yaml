@@ -117,6 +117,12 @@ sync:
 - source: banzaicloud/logging-operator:3.9.5
   target: registry.suse.com/rancher/mirrored-banzaicloud-logging-operator:3.9.5
   type: image
+- source: bats/bats:v1.1.0
+  target: docker.io/rancher/bats-bats:v1.1.0
+  type: image
+- source: bats/bats:v1.1.0
+  target: registry.suse.com/rancher/bats-bats:v1.1.0
+  type: image
 - source: fluent/fluent-bit:windows-2019-3.1.8
   target: docker.io/rancher/fluent-bit:windows-2019-3.1.8
   type: image
