@@ -135,6 +135,30 @@ sync:
 - source: bats/bats:v1.4.1
   target: registry.suse.com/rancher/mirrored-bats-bats:v1.4.1
   type: image
+- source: coredns/coredns:1.7.0
+  target: docker.io/rancher/coredns-coredns:1.7.0
+  type: image
+- source: coredns/coredns:1.7.1
+  target: docker.io/rancher/coredns-coredns:1.7.1
+  type: image
+- source: coredns/coredns:1.8.0
+  target: docker.io/rancher/coredns-coredns:1.8.0
+  type: image
+- source: coredns/coredns:1.8.3
+  target: docker.io/rancher/coredns-coredns:1.8.3
+  type: image
+- source: coredns/coredns:1.7.0
+  target: registry.suse.com/rancher/coredns-coredns:1.7.0
+  type: image
+- source: coredns/coredns:1.7.1
+  target: registry.suse.com/rancher/coredns-coredns:1.7.1
+  type: image
+- source: coredns/coredns:1.8.0
+  target: registry.suse.com/rancher/coredns-coredns:1.8.0
+  type: image
+- source: coredns/coredns:1.8.3
+  target: registry.suse.com/rancher/coredns-coredns:1.8.3
+  type: image
 - source: fluent/fluent-bit:windows-2019-3.1.8
   target: docker.io/rancher/fluent-bit:windows-2019-3.1.8
   type: image
