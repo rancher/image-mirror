@@ -3,24 +3,6 @@
 # https://github.com/rancher/image-mirror/pull/27
 #
 # LIST FORMAT: <SOURCE> <DESTINATION> <TAG>
-coredns/coredns rancher/mirrored-coredns-coredns 1.6.2
-coredns/coredns rancher/mirrored-coredns-coredns 1.6.5
-coredns/coredns rancher/mirrored-coredns-coredns 1.6.9
-coredns/coredns rancher/mirrored-coredns-coredns 1.7.0
-coredns/coredns rancher/mirrored-coredns-coredns 1.8.0
-coredns/coredns rancher/mirrored-coredns-coredns 1.8.3
-coredns/coredns rancher/mirrored-coredns-coredns 1.8.4
-coredns/coredns rancher/mirrored-coredns-coredns 1.8.6
-coredns/coredns rancher/mirrored-coredns-coredns 1.9.0
-coredns/coredns rancher/mirrored-coredns-coredns 1.9.1
-coredns/coredns rancher/mirrored-coredns-coredns 1.9.3
-coredns/coredns rancher/mirrored-coredns-coredns 1.9.4
-coredns/coredns rancher/mirrored-coredns-coredns 1.10.1
-coredns/coredns rancher/mirrored-coredns-coredns 1.11.1
-coredns/coredns rancher/mirrored-coredns-coredns 1.11.3
-coredns/coredns rancher/mirrored-coredns-coredns 1.11.4
-coredns/coredns rancher/mirrored-coredns-coredns 1.12.0
-coredns/coredns rancher/mirrored-coredns-coredns 1.12.1
 curlimages/curl rancher/curlimages-curl 7.70.0
 curlimages/curl rancher/curlimages-curl 7.73.0
 curlimages/curl rancher/mirrored-curlimages-curl 7.70.0
