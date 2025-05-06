@@ -16,6 +16,9 @@ type Config struct {
 
 // Image should not be instantiated directly. Instead, use NewImage().
 type Image struct {
+	// If true, the Image is not mirrored i.e. it is not added to the
+	// regsync config when the regsync config is generated.
+	DoNotMirror bool `json:",omitempty"`
 	// The source image without any tags.
 	SourceImage            string
 	defaultTargetImageName string

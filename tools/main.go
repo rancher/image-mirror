@@ -84,6 +84,9 @@ func generateRegsyncYaml(_ context.Context, _ *cli.Command) error {
 		regsyncYaml.Creds = append(regsyncYaml.Creds, credEntry)
 	}
 	for _, image := range cfg.Images {
+		if image.DoNotMirror {
+			continue
+		}
 		for _, repo := range cfg.Repositories {
 			if !repo.Target {
 				continue
