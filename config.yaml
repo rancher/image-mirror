@@ -191,6 +191,10 @@ Images:
   - 4.4.0
   - 4.8.0
   - 4.9.1
+- SourceImage: ghcr.io/prometheus-community/windows-exporter
+  Tags:
+  - 0.25.1
+  - 0.30.5
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
