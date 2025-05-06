@@ -45,12 +45,6 @@ sync:
 - source: amazon/aws-cli:2.9.14
   target: registry.suse.com/rancher/mirrored-amazon-aws-cli:2.9.14
   type: image
-- source: appscode/kubed:v0.13.2
-  target: docker.io/rancher/mirrored-appscode-kubed:v0.13.2
-  type: image
-- source: appscode/kubed:v0.13.2
-  target: registry.suse.com/rancher/mirrored-appscode-kubed:v0.13.2
-  type: image
 - source: banzaicloud/logging-operator:3.6.0
   target: docker.io/rancher/banzaicloud-logging-operator:3.6.0
   type: image
