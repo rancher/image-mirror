@@ -327,6 +327,18 @@ sync:
 - source: curlimages/curl:8.9.1
   target: registry.suse.com/rancher/mirrored-curlimages-curl:8.9.1
   type: image
+- source: directxman12/k8s-prometheus-adapter:v0.8.3
+  target: docker.io/rancher/mirrored-directxman12-k8s-prometheus-adapter:v0.8.3
+  type: image
+- source: directxman12/k8s-prometheus-adapter:v0.8.4
+  target: docker.io/rancher/mirrored-directxman12-k8s-prometheus-adapter:v0.8.4
+  type: image
+- source: directxman12/k8s-prometheus-adapter:v0.8.3
+  target: registry.suse.com/rancher/mirrored-directxman12-k8s-prometheus-adapter:v0.8.3
+  type: image
+- source: directxman12/k8s-prometheus-adapter:v0.8.4
+  target: registry.suse.com/rancher/mirrored-directxman12-k8s-prometheus-adapter:v0.8.4
+  type: image
 - source: fluent/fluent-bit:windows-2019-3.1.8
   target: docker.io/rancher/fluent-bit:windows-2019-3.1.8
   type: image

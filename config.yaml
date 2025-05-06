@@ -77,6 +77,10 @@ Images:
   - 8.12.1
   - 8.13.0
   - 8.9.1
+- SourceImage: directxman12/k8s-prometheus-adapter
+  Tags:
+  - v0.8.3
+  - v0.8.4
 - SourceImage: fluent/fluent-bit
   Tags:
   - windows-2019-3.1.8

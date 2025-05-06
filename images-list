@@ -3,8 +3,6 @@
 # https://github.com/rancher/image-mirror/pull/27
 #
 # LIST FORMAT: <SOURCE> <DESTINATION> <TAG>
-directxman12/k8s-prometheus-adapter rancher/mirrored-directxman12-k8s-prometheus-adapter v0.8.3
-directxman12/k8s-prometheus-adapter rancher/mirrored-directxman12-k8s-prometheus-adapter v0.8.4
 directxman12/k8s-prometheus-adapter-amd64 rancher/directxman12-k8s-prometheus-adapter-amd64 v0.6.0
 directxman12/k8s-prometheus-adapter-amd64 rancher/directxman12-k8s-prometheus-adapter-amd64 v0.7.0
 directxman12/k8s-prometheus-adapter-amd64 rancher/mirrored-directxman12-k8s-prometheus-adapter-amd64 v0.7.0
