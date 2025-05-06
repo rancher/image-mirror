@@ -441,6 +441,36 @@ sync:
 - source: flannelcni/flannel:v0.20.2
   target: registry.suse.com/rancher/mirrored-flannelcni-flannel:v0.20.2
   type: image
+- source: flannelcni/flannel-cni-plugin:v1.0.0
+  target: docker.io/rancher/mirrored-flannelcni-flannel-cni-plugin:v1.0.0
+  type: image
+- source: flannelcni/flannel-cni-plugin:v1.0.1
+  target: docker.io/rancher/mirrored-flannelcni-flannel-cni-plugin:v1.0.1
+  type: image
+- source: flannelcni/flannel-cni-plugin:v1.1.0
+  target: docker.io/rancher/mirrored-flannelcni-flannel-cni-plugin:v1.1.0
+  type: image
+- source: flannelcni/flannel-cni-plugin:v1.1.2
+  target: docker.io/rancher/mirrored-flannelcni-flannel-cni-plugin:v1.1.2
+  type: image
+- source: flannelcni/flannel-cni-plugin:v1.2.0
+  target: docker.io/rancher/mirrored-flannelcni-flannel-cni-plugin:v1.2.0
+  type: image
+- source: flannelcni/flannel-cni-plugin:v1.0.0
+  target: registry.suse.com/rancher/mirrored-flannelcni-flannel-cni-plugin:v1.0.0
+  type: image
+- source: flannelcni/flannel-cni-plugin:v1.0.1
+  target: registry.suse.com/rancher/mirrored-flannelcni-flannel-cni-plugin:v1.0.1
+  type: image
+- source: flannelcni/flannel-cni-plugin:v1.1.0
+  target: registry.suse.com/rancher/mirrored-flannelcni-flannel-cni-plugin:v1.1.0
+  type: image
+- source: flannelcni/flannel-cni-plugin:v1.1.2
+  target: registry.suse.com/rancher/mirrored-flannelcni-flannel-cni-plugin:v1.1.2
+  type: image
+- source: flannelcni/flannel-cni-plugin:v1.2.0
+  target: registry.suse.com/rancher/mirrored-flannelcni-flannel-cni-plugin:v1.2.0
+  type: image
 - source: fluent/fluent-bit:windows-2019-3.1.8
   target: docker.io/rancher/fluent-bit:windows-2019-3.1.8
   type: image

@@ -3,11 +3,6 @@
 # https://github.com/rancher/image-mirror/pull/27
 #
 # LIST FORMAT: <SOURCE> <DESTINATION> <TAG>
-flannelcni/flannel-cni-plugin rancher/mirrored-flannelcni-flannel-cni-plugin v1.0.0
-flannelcni/flannel-cni-plugin rancher/mirrored-flannelcni-flannel-cni-plugin v1.0.1
-flannelcni/flannel-cni-plugin rancher/mirrored-flannelcni-flannel-cni-plugin v1.1.0
-flannelcni/flannel-cni-plugin rancher/mirrored-flannelcni-flannel-cni-plugin v1.1.2
-flannelcni/flannel-cni-plugin rancher/mirrored-flannelcni-flannel-cni-plugin v1.2.0
 flannel/flannel rancher/mirrored-flannel-flannel v0.21.2
 flannel/flannel rancher/mirrored-flannel-flannel v0.21.4
 flannel/flannel rancher/mirrored-flannel-flannel v0.21.5
