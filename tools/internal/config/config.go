@@ -72,7 +72,7 @@ func Parse(fileName string) (Config, error) {
 
 	for _, image := range config.Images {
 		if err := image.setDefaults(); err != nil {
-			return Config{}, fmt.Errorf("failed to set defaults for image %q: %w", image, err)
+			return Config{}, fmt.Errorf("failed to set defaults for image %q: %w", image.SourceImage, err)
 		}
 	}
 
