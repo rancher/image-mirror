@@ -86,6 +86,10 @@ Images:
   - v0.6.0
   - v0.7.0
   TargetImageName: directxman12-k8s-prometheus-adapter-amd64
+- SourceImage: directxman12/k8s-prometheus-adapter-amd64
+  Tags:
+  - v0.7.0
+  - v0.8.3
 - SourceImage: fluent/fluent-bit
   Tags:
   - windows-2019-3.1.8
