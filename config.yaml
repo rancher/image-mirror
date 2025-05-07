@@ -865,6 +865,20 @@ Images:
   - v2.1.1-lh2
   - v3.0.3
   TargetImageName: longhornio-csi-snapshotter
+- SourceImage: longhornio/csi-snapshotter
+  Tags:
+  - v2.1.1-lh1
+  - v2.1.1-lh2
+  - v3.0.3
+  - v5.0.1
+  - v6.2.1
+  - v6.3.2
+  - v6.3.4
+  - v6.3.4-20241219
+  - v7.0.2
+  - v7.0.2-20241007
+  - v7.0.2-20250204
+  - v8.2.0
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
