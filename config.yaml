@@ -157,6 +157,145 @@ Images:
   - 3.0.4-debug
   - 3.1.8
   - 3.1.8-debug
+- SourceImage: gcr.io/cloud-provider-vsphere/cpi/release/manager
+  Tags:
+  - v1.18.0
+  - v1.19.0
+  - v1.2.1
+  - v1.20.0
+  - v1.20.1
+  - v1.21.0
+  - v1.21.3
+  - v1.22.5
+  - v1.22.6
+  - v1.22.7
+  - v1.22.8
+  - v1.23.0
+  - v1.23.0-alpha.1
+  - v1.23.1
+  - v1.23.3
+  - v1.23.4
+  - v1.24.0
+  - v1.24.1
+  - v1.24.2
+  - v1.24.3
+  - v1.24.4
+  - v1.24.5
+  - v1.24.6
+  - v1.25.0
+  - v1.25.1
+  - v1.25.2
+  - v1.25.3
+  - v1.26.0
+  - v1.26.1
+  - v1.26.2
+  - v1.27.0
+  - v1.28.0
+  - v1.29.0
+  - v1.30.1
+  TargetImageName: mirrored-cloud-provider-vsphere-cpi-release-manager
+- SourceImage: gcr.io/cloud-provider-vsphere/csi/release/driver
+  Tags:
+  - v2.1.0
+  - v2.2.0
+  - v2.2.1
+  - v2.2.4
+  - v2.3.0
+  - v2.3.2
+  - v2.4.1
+  - v2.4.2
+  - v2.4.3
+  - v2.5.0
+  - v2.5.1
+  - v2.5.2
+  - v2.5.3
+  - v2.5.4
+  - v2.6.0
+  - v2.6.1
+  - v2.6.2
+  - v2.6.3
+  - v2.7.0
+  - v2.7.1
+  - v2.7.2
+  - v3.0.1
+  - v3.0.2
+  - v3.1.0
+  - v3.1.1
+  - v3.1.2
+  - v3.2.0
+  - v3.3.0
+  - v3.3.1
+  TargetImageName: mirrored-cloud-provider-vsphere-csi-release-driver
+- SourceImage: gcr.io/cloud-provider-vsphere/csi/release/syncer
+  Tags:
+  - v2.1.0
+  - v2.2.0
+  - v2.2.1
+  - v2.2.4
+  - v2.3.0
+  - v2.3.2
+  - v2.4.1
+  - v2.4.2
+  - v2.4.3
+  - v2.5.0
+  - v2.5.1
+  - v2.5.2
+  - v2.5.3
+  - v2.5.4
+  - v2.6.0
+  - v2.6.1
+  - v2.6.2
+  - v2.6.3
+  - v2.7.0
+  - v2.7.1
+  - v2.7.2
+  - v3.0.1
+  - v3.0.2
+  - v3.1.0
+  - v3.1.1
+  - v3.1.2
+  - v3.2.0
+  - v3.3.0
+  - v3.3.1
+  TargetImageName: mirrored-cloud-provider-vsphere-csi-release-syncer
+- SourceImage: gcr.io/google-containers/k8s-dns-node-cache
+  Tags:
+  - 1.15.13
+  - 1.15.7
+  TargetImageName: mirrored-k8s-dns-node-cache
+- SourceImage: gcr.io/google_containers/k8s-dns-dnsmasq-nanny
+  Tags:
+  - 1.15.0
+  - 1.15.10
+  - 1.15.2
+  TargetImageName: mirrored-k8s-dns-dnsmasq-nanny
+- SourceImage: gcr.io/google_containers/k8s-dns-kube-dns
+  Tags:
+  - 1.15.0
+  - 1.15.10
+  - 1.15.2
+  TargetImageName: mirrored-k8s-dns-kube-dns
+- SourceImage: gcr.io/google_containers/k8s-dns-sidecar
+  Tags:
+  - 1.15.0
+  - 1.15.10
+  - 1.15.2
+  TargetImageName: mirrored-k8s-dns-sidecar
+- SourceImage: gcr.io/google_containers/pause
+  Tags:
+  - "3.1"
+  - "3.2"
+  TargetImageName: mirrored-pause
+- SourceImage: gcr.io/kubebuilder/kube-rbac-proxy
+  Tags:
+  - v0.5.0
+  TargetImageName: kube-rbac-proxy
+- SourceImage: gcr.io/kubebuilder/kube-rbac-proxy
+  Tags:
+  - v0.14.0
+  - v0.15.0
+  - v0.5.0
+  TargetImageName: mirrored-kube-rbac-proxy
 - SourceImage: ghcr.io/banzaicloud/fluentd
   Tags:
   - v1.12.4-alpine-1
@@ -176,6 +315,43 @@ Images:
   - 3.17.7
   - 3.17.8
   - 3.17.9
+- SourceImage: ghcr.io/dexidp/dex
+  Tags:
+  - v2.35.3
+  - v2.36.0
+  - v2.37.0
+- SourceImage: ghcr.io/epinio/epinio-server
+  Tags:
+  - v0.7.1
+  - v1.0.0
+  - v1.10.0
+  - v1.2.0
+  - v1.4.0
+  - v1.5.1
+  - v1.6.1
+  - v1.6.2
+  - v1.8.1
+  - v1.9.0
+- SourceImage: ghcr.io/epinio/epinio-ui
+  Tags:
+  - v0.6.2-0.0.1
+  - v1.0.0-0.0.4
+  - v1.10.0-0.0.1
+  - v1.2.0-0.0.1
+  - v1.5.1-0.0.3
+  - v1.8.1-0.0.1
+  - v1.9.0-0.0.3
+- SourceImage: ghcr.io/epinio/epinio-unpacker
+  Tags:
+  - "1.0"
+  - v1.10.0
+  - v1.6.1
+  - v1.6.2
+  - v1.8.1
+  - v1.9.0
+- SourceImage: ghcr.io/jimmidyson/configmap-reload
+  Tags:
+  - v0.13.1
 - SourceImage: ghcr.io/kube-logging/config-reloader
   Tags:
   - v0.0.5
@@ -196,6 +372,40 @@ Images:
   - 0.25.1
   - 0.30.5
   TargetImageName: mirrored-prometheus-windows-exporter
+- SourceImage: grafana/grafana
+  Tags:
+  - 7.1.5
+  - 7.2.1
+  TargetImageName: grafana-grafana
+- SourceImage: grafana/grafana
+  Tags:
+  - 10.3.3
+  - 10.4.9
+  - 11.1.0
+  - 11.3.0
+  - 11.5.2
+  - 6.7.4
+  - 7.1.5
+  - 7.4.5
+  - 7.5.11
+  - 7.5.8
+  - 8.5.3
+  - 9.1.5
+  - 9.5.14
+- SourceImage: grafana/grafana-image-renderer
+  Tags:
+  - 2.0.0
+  TargetImageName: grafana-grafana-image-renderer
+- SourceImage: grafana/grafana-image-renderer
+  Tags:
+  - 2.0.1
+  - 3.0.1
+  - 3.10.1
+  - 3.10.5
+  - 3.11.1
+  - 3.11.6
+  - 3.12.3
+  - 3.8.0
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
