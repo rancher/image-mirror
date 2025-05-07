@@ -1437,6 +1437,24 @@ sync:
 - source: ghcr.io/banzaicloud/logging-operator:3.17.9
   target: registry.suse.com/rancher/mirrored-banzaicloud-logging-operator:3.17.9
   type: image
+- source: ghcr.io/dexidp/dex:v2.35.3
+  target: docker.io/rancher/mirrored-dexidp-dex:v2.35.3
+  type: image
+- source: ghcr.io/dexidp/dex:v2.36.0
+  target: docker.io/rancher/mirrored-dexidp-dex:v2.36.0
+  type: image
+- source: ghcr.io/dexidp/dex:v2.37.0
+  target: docker.io/rancher/mirrored-dexidp-dex:v2.37.0
+  type: image
+- source: ghcr.io/dexidp/dex:v2.35.3
+  target: registry.suse.com/rancher/mirrored-dexidp-dex:v2.35.3
+  type: image
+- source: ghcr.io/dexidp/dex:v2.36.0
+  target: registry.suse.com/rancher/mirrored-dexidp-dex:v2.36.0
+  type: image
+- source: ghcr.io/dexidp/dex:v2.37.0
+  target: registry.suse.com/rancher/mirrored-dexidp-dex:v2.37.0
+  type: image
 - source: ghcr.io/kube-logging/config-reloader:v0.0.5
   target: docker.io/rancher/mirrored-kube-logging-config-reloader:v0.0.5
   type: image
