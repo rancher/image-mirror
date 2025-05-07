@@ -314,6 +314,11 @@ Images:
   - 3.17.7
   - 3.17.8
   - 3.17.9
+- SourceImage: ghcr.io/dexidp/dex
+  Tags:
+  - v2.35.3
+  - v2.36.0
+  - v2.37.0
 - SourceImage: ghcr.io/kube-logging/config-reloader
   Tags:
   - v0.0.5

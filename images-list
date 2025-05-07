@@ -27,9 +27,6 @@ flannel/flannel-cni-plugin rancher/mirrored-flannel-flannel-cni-plugin v1.2.0
 flannel/flannel-cni-plugin rancher/mirrored-flannel-flannel-cni-plugin v1.5.1-flannel1
 flannel/flannel-cni-plugin rancher/mirrored-flannel-flannel-cni-plugin v1.5.1-flannel2
 flannel/flannel-cni-plugin rancher/mirrored-flannel-flannel-cni-plugin v1.6.2-flannel1
-ghcr.io/dexidp/dex rancher/mirrored-dexidp-dex v2.35.3
-ghcr.io/dexidp/dex rancher/mirrored-dexidp-dex v2.36.0
-ghcr.io/dexidp/dex rancher/mirrored-dexidp-dex v2.37.0
 ghcr.io/epinio/epinio-server rancher/mirrored-epinio-epinio-server v0.7.1
 ghcr.io/epinio/epinio-server rancher/mirrored-epinio-epinio-server v1.0.0
 ghcr.io/epinio/epinio-server rancher/mirrored-epinio-epinio-server v1.2.0
