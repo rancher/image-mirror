@@ -3141,3 +3141,15 @@ sync:
 - source: jaegertracing/all-in-one:1.67.0
   target: registry.suse.com/rancher/mirrored-jaegertracing-all-in-one:1.67.0
   type: image
+- source: jenkins/jnlp-slave:3.35-4
+  target: docker.io/rancher/mirrored-jenkins-jnlp-slave:3.35-4
+  type: image
+- source: jenkins/jnlp-slave:4.7-1
+  target: docker.io/rancher/mirrored-jenkins-jnlp-slave:4.7-1
+  type: image
+- source: jenkins/jnlp-slave:3.35-4
+  target: registry.suse.com/rancher/mirrored-jenkins-jnlp-slave:3.35-4
+  type: image
+- source: jenkins/jnlp-slave:4.7-1
+  target: registry.suse.com/rancher/mirrored-jenkins-jnlp-slave:4.7-1
+  type: image
