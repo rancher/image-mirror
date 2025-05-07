@@ -195,6 +195,7 @@ Images:
   Tags:
   - 0.25.1
   - 0.30.5
+  TargetImageName: mirrored-prometheus-windows-exporter
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
