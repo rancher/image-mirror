@@ -408,6 +408,10 @@ Images:
 - SourceImage: istio/citadel
   Tags:
   - 1.5.9
+- SourceImage: istio/coredns-plugin
+  Tags:
+  - 0.2-istio-1.1
+  TargetImageName: istio-coredns-plugin
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'

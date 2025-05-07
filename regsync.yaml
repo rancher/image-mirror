@@ -1821,3 +1821,9 @@ sync:
 - source: istio/citadel:1.5.9
   target: registry.suse.com/rancher/mirrored-istio-citadel:1.5.9
   type: image
+- source: istio/coredns-plugin:0.2-istio-1.1
+  target: docker.io/rancher/istio-coredns-plugin:0.2-istio-1.1
+  type: image
+- source: istio/coredns-plugin:0.2-istio-1.1
+  target: registry.suse.com/rancher/istio-coredns-plugin:0.2-istio-1.1
+  type: image
