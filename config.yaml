@@ -732,6 +732,10 @@ Images:
   - 1.23.2-alpine
   - 1.24.0-alpine
   - 1.27.2-alpine
+- SourceImage: library/registry
+  Tags:
+  - 2.7.1
+  - 2.8.1
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'

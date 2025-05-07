@@ -40,8 +40,6 @@ idealista/prom2teams rancher/mirrored-idealista-prom2teams 3.2.2
 idealista/prom2teams rancher/mirrored-idealista-prom2teams 3.2.3
 idealista/prom2teams rancher/mirrored-idealista-prom2teams 4.2.0
 idealista/prom2teams rancher/mirrored-idealista-prom2teams 4.2.1
-library/registry rancher/mirrored-library-registry 2.7.1
-library/registry rancher/mirrored-library-registry 2.8.1
 library/traefik rancher/library-traefik 2.4.2
 library/traefik rancher/library-traefik 2.4.8
 library/traefik rancher/library-traefik 2.4.9
