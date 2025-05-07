@@ -785,6 +785,20 @@ Images:
   - v3.2.1
   - v3.4.0
   TargetImageName: longhornio-csi-attacher
+- SourceImage: longhornio/csi-attacher
+  Tags:
+  - v2.2.1-lh1
+  - v2.2.1-lh2
+  - v3.2.1
+  - v3.4.0
+  - v4.2.0
+  - v4.4.2
+  - v4.5.1
+  - v4.6.1
+  - v4.7.0
+  - v4.7.0-20241219
+  - v4.8.0
+  - v4.8.1
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
