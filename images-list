@@ -27,8 +27,6 @@ flannel/flannel-cni-plugin rancher/mirrored-flannel-flannel-cni-plugin v1.2.0
 flannel/flannel-cni-plugin rancher/mirrored-flannel-flannel-cni-plugin v1.5.1-flannel1
 flannel/flannel-cni-plugin rancher/mirrored-flannel-flannel-cni-plugin v1.5.1-flannel2
 flannel/flannel-cni-plugin rancher/mirrored-flannel-flannel-cni-plugin v1.6.2-flannel1
-gcr.io/google-containers/k8s-dns-node-cache rancher/mirrored-k8s-dns-node-cache 1.15.7
-gcr.io/google-containers/k8s-dns-node-cache rancher/mirrored-k8s-dns-node-cache 1.15.13
 gcr.io/google_containers/k8s-dns-dnsmasq-nanny rancher/mirrored-k8s-dns-dnsmasq-nanny 1.15.0
 gcr.io/google_containers/k8s-dns-dnsmasq-nanny rancher/mirrored-k8s-dns-dnsmasq-nanny 1.15.2
 gcr.io/google_containers/k8s-dns-dnsmasq-nanny rancher/mirrored-k8s-dns-dnsmasq-nanny 1.15.10
