@@ -879,6 +879,16 @@ Images:
   - v7.0.2-20241007
   - v7.0.2-20250204
   - v8.2.0
+- SourceImage: longhornio/livenessprobe
+  Tags:
+  - v2.11.0
+  - v2.12.0
+  - v2.13.1
+  - v2.14.0
+  - v2.14.0-20241219
+  - v2.15.0
+  - v2.8.0
+  - v2.9.0
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
