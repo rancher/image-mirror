@@ -14,6 +14,8 @@ creds:
   registry: registry.suse.com
   reqConcurrent: 2
   user: '{{ env "PRIME_USERNAME" }}'
+defaults:
+  userAgent: rancher-image-mirror
 sync:
 - source: amazon/aws-cli:2.0.52
   target: docker.io/rancher/mirrored-amazon-aws-cli:2.0.52
