@@ -1251,6 +1251,18 @@ sync:
 - source: gcr.io/cloud-provider-vsphere/csi/release/syncer:v3.3.1
   target: registry.suse.com/rancher/mirrored-cloud-provider-vsphere-csi-release-syncer:v3.3.1
   type: image
+- source: gcr.io/google-containers/k8s-dns-node-cache:1.15.13
+  target: docker.io/rancher/mirrored-k8s-dns-node-cache:1.15.13
+  type: image
+- source: gcr.io/google-containers/k8s-dns-node-cache:1.15.7
+  target: docker.io/rancher/mirrored-k8s-dns-node-cache:1.15.7
+  type: image
+- source: gcr.io/google-containers/k8s-dns-node-cache:1.15.13
+  target: registry.suse.com/rancher/mirrored-k8s-dns-node-cache:1.15.13
+  type: image
+- source: gcr.io/google-containers/k8s-dns-node-cache:1.15.7
+  target: registry.suse.com/rancher/mirrored-k8s-dns-node-cache:1.15.7
+  type: image
 - source: ghcr.io/banzaicloud/fluentd:v1.12.4-alpine-1
   target: docker.io/rancher/mirrored-banzaicloud-fluentd:v1.12.4-alpine-1
   type: image

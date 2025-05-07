@@ -257,6 +257,11 @@ Images:
   - v3.3.0
   - v3.3.1
   TargetImageName: mirrored-cloud-provider-vsphere-csi-release-syncer
+- SourceImage: gcr.io/google-containers/k8s-dns-node-cache
+  Tags:
+  - 1.15.13
+  - 1.15.7
+  TargetImageName: mirrored-k8s-dns-node-cache
 - SourceImage: ghcr.io/banzaicloud/fluentd
   Tags:
   - v1.12.4-alpine-1
