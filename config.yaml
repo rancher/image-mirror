@@ -889,6 +889,13 @@ Images:
   - v2.15.0
   - v2.8.0
   - v2.9.0
+- SourceImage: longhornio/longhorn-cli
+  Tags:
+  - v1.7.0
+  - v1.7.1
+  - v1.7.2
+  - v1.7.3
+  - v1.8.1
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
