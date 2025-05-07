@@ -1755,3 +1755,9 @@ sync:
 - source: grafana/grafana:9.5.14
   target: registry.suse.com/rancher/mirrored-grafana-grafana:9.5.14
   type: image
+- source: grafana/grafana-image-renderer:2.0.0
+  target: docker.io/rancher/grafana-grafana-image-renderer:2.0.0
+  type: image
+- source: grafana/grafana-image-renderer:2.0.0
+  target: registry.suse.com/rancher/grafana-grafana-image-renderer:2.0.0
+  type: image
