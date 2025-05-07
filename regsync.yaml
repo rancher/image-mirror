@@ -3153,3 +3153,15 @@ sync:
 - source: jenkins/jnlp-slave:4.7-1
   target: registry.suse.com/rancher/mirrored-jenkins-jnlp-slave:4.7-1
   type: image
+- source: jettech/kube-webhook-certgen:v1.2.1
+  target: docker.io/rancher/jettech-kube-webhook-certgen:v1.2.1
+  type: image
+- source: jettech/kube-webhook-certgen:v1.5.0
+  target: docker.io/rancher/jettech-kube-webhook-certgen:v1.5.0
+  type: image
+- source: jettech/kube-webhook-certgen:v1.2.1
+  target: registry.suse.com/rancher/jettech-kube-webhook-certgen:v1.2.1
+  type: image
+- source: jettech/kube-webhook-certgen:v1.5.0
+  target: registry.suse.com/rancher/jettech-kube-webhook-certgen:v1.5.0
+  type: image
