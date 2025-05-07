@@ -3231,3 +3231,15 @@ sync:
 - source: kiwigrid/k8s-sidecar:1.1.0
   target: registry.suse.com/rancher/kiwigrid-k8s-sidecar:1.1.0
   type: image
+- source: kiwigrid/k8s-sidecar:0.1.151
+  target: docker.io/rancher/mirrored-kiwigrid-k8s-sidecar:0.1.151
+  type: image
+- source: kiwigrid/k8s-sidecar:1.27.4
+  target: docker.io/rancher/mirrored-kiwigrid-k8s-sidecar:1.27.4
+  type: image
+- source: kiwigrid/k8s-sidecar:0.1.151
+  target: registry.suse.com/rancher/mirrored-kiwigrid-k8s-sidecar:0.1.151
+  type: image
+- source: kiwigrid/k8s-sidecar:1.27.4
+  target: registry.suse.com/rancher/mirrored-kiwigrid-k8s-sidecar:1.27.4
+  type: image
