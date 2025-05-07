@@ -27,13 +27,6 @@ flannel/flannel-cni-plugin rancher/mirrored-flannel-flannel-cni-plugin v1.2.0
 flannel/flannel-cni-plugin rancher/mirrored-flannel-flannel-cni-plugin v1.5.1-flannel1
 flannel/flannel-cni-plugin rancher/mirrored-flannel-flannel-cni-plugin v1.5.1-flannel2
 flannel/flannel-cni-plugin rancher/mirrored-flannel-flannel-cni-plugin v1.6.2-flannel1
-ghcr.io/epinio/epinio-ui rancher/mirrored-epinio-epinio-ui v0.6.2-0.0.1
-ghcr.io/epinio/epinio-ui rancher/mirrored-epinio-epinio-ui v1.0.0-0.0.4
-ghcr.io/epinio/epinio-ui rancher/mirrored-epinio-epinio-ui v1.2.0-0.0.1
-ghcr.io/epinio/epinio-ui rancher/mirrored-epinio-epinio-ui v1.5.1-0.0.3
-ghcr.io/epinio/epinio-ui rancher/mirrored-epinio-epinio-ui v1.8.1-0.0.1
-ghcr.io/epinio/epinio-ui rancher/mirrored-epinio-epinio-ui v1.9.0-0.0.3
-ghcr.io/epinio/epinio-ui rancher/mirrored-epinio-epinio-ui v1.10.0-0.0.1
 ghcr.io/epinio/epinio-unpacker rancher/mirrored-epinio-epinio-unpacker 1.0
 ghcr.io/epinio/epinio-unpacker rancher/mirrored-epinio-epinio-unpacker v1.6.1
 ghcr.io/epinio/epinio-unpacker rancher/mirrored-epinio-epinio-unpacker v1.6.2

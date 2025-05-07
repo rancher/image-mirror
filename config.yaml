@@ -331,6 +331,15 @@ Images:
   - v1.6.2
   - v1.8.1
   - v1.9.0
+- SourceImage: ghcr.io/epinio/epinio-ui
+  Tags:
+  - v0.6.2-0.0.1
+  - v1.0.0-0.0.4
+  - v1.10.0-0.0.1
+  - v1.2.0-0.0.1
+  - v1.5.1-0.0.3
+  - v1.8.1-0.0.1
+  - v1.9.0-0.0.3
 - SourceImage: ghcr.io/kube-logging/config-reloader
   Tags:
   - v0.0.5
