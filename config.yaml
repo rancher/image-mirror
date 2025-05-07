@@ -845,6 +845,20 @@ Images:
   - v0.5.1-lh2
   - v1.2.0
   TargetImageName: longhornio-csi-resizer
+- SourceImage: longhornio/csi-resizer
+  Tags:
+  - v0.5.1-lh1
+  - v0.5.1-lh2
+  - v1.10.1
+  - v1.11.1
+  - v1.12.0
+  - v1.12.0-20241219
+  - v1.13.1
+  - v1.13.2
+  - v1.2.0
+  - v1.3.0
+  - v1.7.0
+  - v1.9.2
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
