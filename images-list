@@ -68,8 +68,6 @@ library/traefik rancher/mirrored-library-traefik 3.3.2
 library/traefik rancher/mirrored-library-traefik 3.3.3
 library/traefik rancher/mirrored-library-traefik 3.3.5
 library/traefik rancher/mirrored-library-traefik 3.3.6
-longhornio/openshift-origin-oauth-proxy rancher/mirrored-longhornio-openshift-origin-oauth-proxy 4.14
-longhornio/openshift-origin-oauth-proxy rancher/mirrored-longhornio-openshift-origin-oauth-proxy 4.15
 longhornio/support-bundle-kit rancher/mirrored-longhornio-support-bundle-kit v0.0.17
 longhornio/support-bundle-kit rancher/mirrored-longhornio-support-bundle-kit v0.0.19
 longhornio/support-bundle-kit rancher/mirrored-longhornio-support-bundle-kit v0.0.24
