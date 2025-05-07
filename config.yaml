@@ -428,6 +428,63 @@ Images:
   - 1.8.1
   - 1.8.3
   TargetImageName: istio-install-cni
+- SourceImage: istio/install-cni
+  Tags:
+  - 1.10.0
+  - 1.10.1
+  - 1.10.2
+  - 1.10.4
+  - 1.11.2
+  - 1.11.4
+  - 1.11.7
+  - 1.11.8
+  - 1.12.6
+  - 1.13.3
+  - 1.14.1
+  - 1.14.1-distroless
+  - 1.14.3
+  - 1.14.3-distroless
+  - 1.15.2
+  - 1.15.2-distroless
+  - 1.15.3
+  - 1.15.3-distroless
+  - 1.16.3
+  - 1.16.3-distroless
+  - 1.17.2
+  - 1.17.2-distroless
+  - 1.18.2
+  - 1.18.2-distroless
+  - 1.19.0
+  - 1.19.0-distroless
+  - 1.19.5
+  - 1.19.5-distroless
+  - 1.19.6
+  - 1.19.6-distroless
+  - 1.20.3
+  - 1.20.3-distroless
+  - 1.21.1
+  - 1.21.1-distroless
+  - 1.22.1
+  - 1.22.1-distroless
+  - 1.23.2
+  - 1.23.2-distroless
+  - 1.24.0
+  - 1.24.0-distroless
+  - 1.24.1
+  - 1.24.1-distroless
+  - 1.25.0
+  - 1.25.0-distroless
+  - 1.7.8
+  - 1.8.3
+  - 1.8.4
+  - 1.8.5
+  - 1.8.6
+  - 1.9.1
+  - 1.9.2
+  - 1.9.3
+  - 1.9.5
+  - 1.9.6
+  - 1.9.8
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
