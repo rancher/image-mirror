@@ -40,7 +40,6 @@ idealista/prom2teams rancher/mirrored-idealista-prom2teams 3.2.2
 idealista/prom2teams rancher/mirrored-idealista-prom2teams 3.2.3
 idealista/prom2teams rancher/mirrored-idealista-prom2teams 4.2.0
 idealista/prom2teams rancher/mirrored-idealista-prom2teams 4.2.1
-library/nginx rancher/library-nginx 1.19.2-alpine
 library/nginx rancher/mirrored-library-nginx 1.19.2-alpine
 library/nginx rancher/mirrored-library-nginx 1.19.9-alpine
 library/nginx rancher/mirrored-library-nginx 1.21.0-alpine

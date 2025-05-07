@@ -3285,3 +3285,9 @@ sync:
 - source: library/busybox:1.37.0
   target: registry.suse.com/rancher/mirrored-library-busybox:1.37.0
   type: image
+- source: library/nginx:1.19.2-alpine
+  target: docker.io/rancher/library-nginx:1.19.2-alpine
+  type: image
+- source: library/nginx:1.19.2-alpine
+  target: registry.suse.com/rancher/library-nginx:1.19.2-alpine
+  type: image
