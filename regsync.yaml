@@ -1671,3 +1671,15 @@ sync:
 - source: ghcr.io/prometheus-community/windows-exporter:0.30.5
   target: registry.suse.com/rancher/mirrored-prometheus-windows-exporter:0.30.5
   type: image
+- source: grafana/grafana:7.1.5
+  target: docker.io/rancher/grafana-grafana:7.1.5
+  type: image
+- source: grafana/grafana:7.2.1
+  target: docker.io/rancher/grafana-grafana:7.2.1
+  type: image
+- source: grafana/grafana:7.1.5
+  target: registry.suse.com/rancher/grafana-grafana:7.1.5
+  type: image
+- source: grafana/grafana:7.2.1
+  target: registry.suse.com/rancher/grafana-grafana:7.2.1
+  type: image

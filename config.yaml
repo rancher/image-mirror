@@ -371,6 +371,11 @@ Images:
   - 0.25.1
   - 0.30.5
   TargetImageName: mirrored-prometheus-windows-exporter
+- SourceImage: grafana/grafana
+  Tags:
+  - 7.1.5
+  - 7.2.1
+  TargetImageName: grafana-grafana
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
