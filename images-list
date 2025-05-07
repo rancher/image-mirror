@@ -68,10 +68,6 @@ library/traefik rancher/mirrored-library-traefik 3.3.2
 library/traefik rancher/mirrored-library-traefik 3.3.3
 library/traefik rancher/mirrored-library-traefik 3.3.5
 library/traefik rancher/mirrored-library-traefik 3.3.6
-longhornio/csi-provisioner rancher/longhornio-csi-provisioner v1.4.0
-longhornio/csi-provisioner rancher/longhornio-csi-provisioner v1.6.0-lh1
-longhornio/csi-provisioner rancher/longhornio-csi-provisioner v1.6.0-lh2
-longhornio/csi-provisioner rancher/longhornio-csi-provisioner v2.1.2
 longhornio/csi-provisioner rancher/mirrored-longhornio-csi-provisioner v1.6.0-lh1
 longhornio/csi-provisioner rancher/mirrored-longhornio-csi-provisioner v1.6.0-lh2
 longhornio/csi-provisioner rancher/mirrored-longhornio-csi-provisioner v2.1.2

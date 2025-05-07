@@ -817,6 +817,13 @@ Images:
   - v2.5.0
   - v2.7.0
   - v2.9.2
+- SourceImage: longhornio/csi-provisioner
+  Tags:
+  - v1.4.0
+  - v1.6.0-lh1
+  - v1.6.0-lh2
+  - v2.1.2
+  TargetImageName: longhornio-csi-provisioner
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
