@@ -639,6 +639,9 @@ Images:
   - 1.9.5
   - 1.9.6
   - 1.9.8
+- SourceImage: istio/sidecar_injector
+  Tags:
+  - 1.5.9
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'

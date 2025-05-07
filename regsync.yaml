@@ -3003,3 +3003,9 @@ sync:
 - source: istio/proxyv2:1.9.8
   target: registry.suse.com/rancher/mirrored-istio-proxyv2:1.9.8
   type: image
+- source: istio/sidecar_injector:1.5.9
+  target: docker.io/rancher/mirrored-istio-sidecar_injector:1.5.9
+  type: image
+- source: istio/sidecar_injector:1.5.9
+  target: registry.suse.com/rancher/mirrored-istio-sidecar_injector:1.5.9
+  type: image
