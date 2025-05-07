@@ -2211,3 +2211,27 @@ sync:
 - source: istio/kubectl:1.5.9
   target: registry.suse.com/rancher/mirrored-istio-kubectl:1.5.9
   type: image
+- source: istio/mixer:1.7.0
+  target: docker.io/rancher/istio-mixer:1.7.0
+  type: image
+- source: istio/mixer:1.7.1
+  target: docker.io/rancher/istio-mixer:1.7.1
+  type: image
+- source: istio/mixer:1.7.3
+  target: docker.io/rancher/istio-mixer:1.7.3
+  type: image
+- source: istio/mixer:1.7.6
+  target: docker.io/rancher/istio-mixer:1.7.6
+  type: image
+- source: istio/mixer:1.7.0
+  target: registry.suse.com/rancher/istio-mixer:1.7.0
+  type: image
+- source: istio/mixer:1.7.1
+  target: registry.suse.com/rancher/istio-mixer:1.7.1
+  type: image
+- source: istio/mixer:1.7.3
+  target: registry.suse.com/rancher/istio-mixer:1.7.3
+  type: image
+- source: istio/mixer:1.7.6
+  target: registry.suse.com/rancher/istio-mixer:1.7.6
+  type: image

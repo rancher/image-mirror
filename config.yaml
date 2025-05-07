@@ -492,6 +492,13 @@ Images:
 - SourceImage: istio/kubectl
   Tags:
   - 1.5.9
+- SourceImage: istio/mixer
+  Tags:
+  - 1.7.0
+  - 1.7.1
+  - 1.7.3
+  - 1.7.6
+  TargetImageName: istio-mixer
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
