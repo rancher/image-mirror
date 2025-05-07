@@ -503,6 +503,9 @@ Images:
   Tags:
   - 1.5.9
   - 1.7.8
+- SourceImage: istio/node-agent-k8s
+  Tags:
+  - 1.5.9
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
