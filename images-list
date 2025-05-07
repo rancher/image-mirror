@@ -40,12 +40,6 @@ idealista/prom2teams rancher/mirrored-idealista-prom2teams 3.2.2
 idealista/prom2teams rancher/mirrored-idealista-prom2teams 3.2.3
 idealista/prom2teams rancher/mirrored-idealista-prom2teams 4.2.0
 idealista/prom2teams rancher/mirrored-idealista-prom2teams 4.2.1
-istio/pilot rancher/istio-pilot 1.7.0
-istio/pilot rancher/istio-pilot 1.7.1
-istio/pilot rancher/istio-pilot 1.7.3
-istio/pilot rancher/istio-pilot 1.7.6
-istio/pilot rancher/istio-pilot 1.8.1
-istio/pilot rancher/istio-pilot 1.8.3
 istio/pilot rancher/mirrored-istio-pilot 1.5.9
 istio/pilot rancher/mirrored-istio-pilot 1.7.8
 istio/pilot rancher/mirrored-istio-pilot 1.8.3
