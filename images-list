@@ -68,12 +68,6 @@ library/traefik rancher/mirrored-library-traefik 3.3.2
 library/traefik rancher/mirrored-library-traefik 3.3.3
 library/traefik rancher/mirrored-library-traefik 3.3.5
 library/traefik rancher/mirrored-library-traefik 3.3.6
-longhornio/backing-image-manager rancher/longhornio-backing-image-manager v1_20210422
-longhornio/backing-image-manager rancher/longhornio-backing-image-manager v1_20210422_patch1
-longhornio/backing-image-manager rancher/longhornio-backing-image-manager v2_20210820
-longhornio/backing-image-manager rancher/longhornio-backing-image-manager v2_20210820_patch1
-longhornio/backing-image-manager rancher/longhornio-backing-image-manager v3_20220609
-longhornio/backing-image-manager rancher/longhornio-backing-image-manager v3_20220808
 longhornio/backing-image-manager rancher/mirrored-longhornio-backing-image-manager v1.4.0
 longhornio/backing-image-manager rancher/mirrored-longhornio-backing-image-manager v1.4.1
 longhornio/backing-image-manager rancher/mirrored-longhornio-backing-image-manager v1.4.2
