@@ -3849,3 +3849,27 @@ sync:
 - source: longhornio/csi-provisioner:v5.2.0
   target: registry.suse.com/rancher/mirrored-longhornio-csi-provisioner:v5.2.0
   type: image
+- source: longhornio/csi-resizer:v0.3.0
+  target: docker.io/rancher/longhornio-csi-resizer:v0.3.0
+  type: image
+- source: longhornio/csi-resizer:v0.5.1-lh1
+  target: docker.io/rancher/longhornio-csi-resizer:v0.5.1-lh1
+  type: image
+- source: longhornio/csi-resizer:v0.5.1-lh2
+  target: docker.io/rancher/longhornio-csi-resizer:v0.5.1-lh2
+  type: image
+- source: longhornio/csi-resizer:v1.2.0
+  target: docker.io/rancher/longhornio-csi-resizer:v1.2.0
+  type: image
+- source: longhornio/csi-resizer:v0.3.0
+  target: registry.suse.com/rancher/longhornio-csi-resizer:v0.3.0
+  type: image
+- source: longhornio/csi-resizer:v0.5.1-lh1
+  target: registry.suse.com/rancher/longhornio-csi-resizer:v0.5.1-lh1
+  type: image
+- source: longhornio/csi-resizer:v0.5.1-lh2
+  target: registry.suse.com/rancher/longhornio-csi-resizer:v0.5.1-lh2
+  type: image
+- source: longhornio/csi-resizer:v1.2.0
+  target: registry.suse.com/rancher/longhornio-csi-resizer:v1.2.0
+  type: image
