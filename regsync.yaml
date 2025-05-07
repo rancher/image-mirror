@@ -3243,3 +3243,15 @@ sync:
 - source: kiwigrid/k8s-sidecar:1.27.4
   target: registry.suse.com/rancher/mirrored-kiwigrid-k8s-sidecar:1.27.4
   type: image
+- source: library/busybox:1.31.1
+  target: docker.io/rancher/library-busybox:1.31.1
+  type: image
+- source: library/busybox:1.32.1
+  target: docker.io/rancher/library-busybox:1.32.1
+  type: image
+- source: library/busybox:1.31.1
+  target: registry.suse.com/rancher/library-busybox:1.31.1
+  type: image
+- source: library/busybox:1.32.1
+  target: registry.suse.com/rancher/library-busybox:1.32.1
+  type: image
