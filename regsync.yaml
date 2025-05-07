@@ -1563,6 +1563,42 @@ sync:
 - source: ghcr.io/epinio/epinio-ui:v1.9.0-0.0.3
   target: registry.suse.com/rancher/mirrored-epinio-epinio-ui:v1.9.0-0.0.3
   type: image
+- source: ghcr.io/epinio/epinio-unpacker:1.0
+  target: docker.io/rancher/mirrored-epinio-epinio-unpacker:1.0
+  type: image
+- source: ghcr.io/epinio/epinio-unpacker:v1.10.0
+  target: docker.io/rancher/mirrored-epinio-epinio-unpacker:v1.10.0
+  type: image
+- source: ghcr.io/epinio/epinio-unpacker:v1.6.1
+  target: docker.io/rancher/mirrored-epinio-epinio-unpacker:v1.6.1
+  type: image
+- source: ghcr.io/epinio/epinio-unpacker:v1.6.2
+  target: docker.io/rancher/mirrored-epinio-epinio-unpacker:v1.6.2
+  type: image
+- source: ghcr.io/epinio/epinio-unpacker:v1.8.1
+  target: docker.io/rancher/mirrored-epinio-epinio-unpacker:v1.8.1
+  type: image
+- source: ghcr.io/epinio/epinio-unpacker:v1.9.0
+  target: docker.io/rancher/mirrored-epinio-epinio-unpacker:v1.9.0
+  type: image
+- source: ghcr.io/epinio/epinio-unpacker:1.0
+  target: registry.suse.com/rancher/mirrored-epinio-epinio-unpacker:1.0
+  type: image
+- source: ghcr.io/epinio/epinio-unpacker:v1.10.0
+  target: registry.suse.com/rancher/mirrored-epinio-epinio-unpacker:v1.10.0
+  type: image
+- source: ghcr.io/epinio/epinio-unpacker:v1.6.1
+  target: registry.suse.com/rancher/mirrored-epinio-epinio-unpacker:v1.6.1
+  type: image
+- source: ghcr.io/epinio/epinio-unpacker:v1.6.2
+  target: registry.suse.com/rancher/mirrored-epinio-epinio-unpacker:v1.6.2
+  type: image
+- source: ghcr.io/epinio/epinio-unpacker:v1.8.1
+  target: registry.suse.com/rancher/mirrored-epinio-epinio-unpacker:v1.8.1
+  type: image
+- source: ghcr.io/epinio/epinio-unpacker:v1.9.0
+  target: registry.suse.com/rancher/mirrored-epinio-epinio-unpacker:v1.9.0
+  type: image
 - source: ghcr.io/kube-logging/config-reloader:v0.0.5
   target: docker.io/rancher/mirrored-kube-logging-config-reloader:v0.0.5
   type: image

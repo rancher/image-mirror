@@ -27,12 +27,6 @@ flannel/flannel-cni-plugin rancher/mirrored-flannel-flannel-cni-plugin v1.2.0
 flannel/flannel-cni-plugin rancher/mirrored-flannel-flannel-cni-plugin v1.5.1-flannel1
 flannel/flannel-cni-plugin rancher/mirrored-flannel-flannel-cni-plugin v1.5.1-flannel2
 flannel/flannel-cni-plugin rancher/mirrored-flannel-flannel-cni-plugin v1.6.2-flannel1
-ghcr.io/epinio/epinio-unpacker rancher/mirrored-epinio-epinio-unpacker 1.0
-ghcr.io/epinio/epinio-unpacker rancher/mirrored-epinio-epinio-unpacker v1.6.1
-ghcr.io/epinio/epinio-unpacker rancher/mirrored-epinio-epinio-unpacker v1.6.2
-ghcr.io/epinio/epinio-unpacker rancher/mirrored-epinio-epinio-unpacker v1.8.1
-ghcr.io/epinio/epinio-unpacker rancher/mirrored-epinio-epinio-unpacker v1.9.0
-ghcr.io/epinio/epinio-unpacker rancher/mirrored-epinio-epinio-unpacker v1.10.0
 ghcr.io/jimmidyson/configmap-reload rancher/mirrored-jimmidyson-configmap-reload v0.13.1
 ghcr.io/kube-vip/kube-vip-iptables rancher/mirrored-kube-vip-kube-vip-iptables v0.6.0
 ghcr.io/kube-vip/kube-vip-iptables rancher/mirrored-kube-vip-kube-vip-iptables v0.8.4
