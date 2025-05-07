@@ -2253,3 +2253,9 @@ sync:
 - source: istio/mixer:1.7.8
   target: registry.suse.com/rancher/mirrored-istio-mixer:1.7.8
   type: image
+- source: istio/node-agent-k8s:1.5.9
+  target: docker.io/rancher/mirrored-istio-node-agent-k8s:1.5.9
+  type: image
+- source: istio/node-agent-k8s:1.5.9
+  target: registry.suse.com/rancher/mirrored-istio-node-agent-k8s:1.5.9
+  type: image
