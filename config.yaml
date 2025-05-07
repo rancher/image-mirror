@@ -269,6 +269,12 @@ Images:
   - 1.15.10
   - 1.15.2
   TargetImageName: mirrored-k8s-dns-dnsmasq-nanny
+- SourceImage: gcr.io/google_containers/k8s-dns-kube-dns
+  Tags:
+  - 1.15.0
+  - 1.15.10
+  - 1.15.2
+  TargetImageName: mirrored-k8s-dns-kube-dns
 - SourceImage: ghcr.io/banzaicloud/fluentd
   Tags:
   - v1.12.4-alpine-1
