@@ -2211,3 +2211,9 @@ sync:
 - source: istio/kubectl:1.5.10
   target: registry.suse.com/rancher/istio-kubectl:1.5.10
   type: image
+- source: istio/kubectl:1.5.9
+  target: docker.io/rancher/mirrored-istio-kubectl:1.5.9
+  type: image
+- source: istio/kubectl:1.5.9
+  target: registry.suse.com/rancher/mirrored-istio-kubectl:1.5.9
+  type: image
