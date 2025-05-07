@@ -3201,3 +3201,21 @@ sync:
 - source: jimmidyson/configmap-reload:v0.4.0
   target: registry.suse.com/rancher/jimmidyson-configmap-reload:v0.4.0
   type: image
+- source: jimmidyson/configmap-reload:v0.3.0
+  target: docker.io/rancher/mirrored-jimmidyson-configmap-reload:v0.3.0
+  type: image
+- source: jimmidyson/configmap-reload:v0.4.0
+  target: docker.io/rancher/mirrored-jimmidyson-configmap-reload:v0.4.0
+  type: image
+- source: jimmidyson/configmap-reload:v0.8.0
+  target: docker.io/rancher/mirrored-jimmidyson-configmap-reload:v0.8.0
+  type: image
+- source: jimmidyson/configmap-reload:v0.3.0
+  target: registry.suse.com/rancher/mirrored-jimmidyson-configmap-reload:v0.3.0
+  type: image
+- source: jimmidyson/configmap-reload:v0.4.0
+  target: registry.suse.com/rancher/mirrored-jimmidyson-configmap-reload:v0.4.0
+  type: image
+- source: jimmidyson/configmap-reload:v0.8.0
+  target: registry.suse.com/rancher/mirrored-jimmidyson-configmap-reload:v0.8.0
+  type: image
