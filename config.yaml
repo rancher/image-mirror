@@ -643,6 +643,10 @@ Images:
 - SourceImage: istio/sidecar_injector
   Tags:
   - 1.5.9
+- SourceImage: jaegertracing/all-in-one
+  Tags:
+  - 1.20.0
+  TargetImageName: jaegertracing-all-in-one
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'

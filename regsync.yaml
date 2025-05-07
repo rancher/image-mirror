@@ -3003,3 +3003,9 @@ sync:
 - source: istio/sidecar_injector:1.5.9
   target: registry.suse.com/rancher/mirrored-istio-sidecar_injector:1.5.9
   type: image
+- source: jaegertracing/all-in-one:1.20.0
+  target: docker.io/rancher/jaegertracing-all-in-one:1.20.0
+  type: image
+- source: jaegertracing/all-in-one:1.20.0
+  target: registry.suse.com/rancher/jaegertracing-all-in-one:1.20.0
+  type: image
