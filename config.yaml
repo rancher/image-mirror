@@ -415,6 +415,9 @@ Images:
 - SourceImage: istio/coredns-plugin
   Tags:
   - 0.2-istio-1.1
+- SourceImage: istio/galley
+  Tags:
+  - 1.5.9
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
