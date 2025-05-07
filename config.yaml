@@ -391,6 +391,10 @@ Images:
   - 8.5.3
   - 9.1.5
   - 9.5.14
+- SourceImage: grafana/grafana-image-renderer
+  Tags:
+  - 2.0.0
+  TargetImageName: grafana-grafana-image-renderer
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
