@@ -1323,6 +1323,12 @@ sync:
 - source: gcr.io/google_containers/pause:3.2
   target: registry.suse.com/rancher/mirrored-pause:3.2
   type: image
+- source: gcr.io/kubebuilder/kube-rbac-proxy:v0.5.0
+  target: docker.io/rancher/kube-rbac-proxy:v0.5.0
+  type: image
+- source: gcr.io/kubebuilder/kube-rbac-proxy:v0.5.0
+  target: registry.suse.com/rancher/kube-rbac-proxy:v0.5.0
+  type: image
 - source: ghcr.io/banzaicloud/fluentd:v1.12.4-alpine-1
   target: docker.io/rancher/mirrored-banzaicloud-fluentd:v1.12.4-alpine-1
   type: image
