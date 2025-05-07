@@ -485,6 +485,10 @@ Images:
   - 1.9.5
   - 1.9.6
   - 1.9.8
+- SourceImage: istio/kubectl
+  Tags:
+  - 1.5.10
+  TargetImageName: istio-kubectl
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
