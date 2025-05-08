@@ -2615,3 +2615,27 @@ sync:
 - source: jettech/kube-webhook-certgen:v1.5.0
   target: registry.suse.com/rancher/jettech-kube-webhook-certgen:v1.5.0
   type: image
+- source: jettech/kube-webhook-certgen:v1.2.1
+  target: docker.io/rancher/mirrored-jettech-kube-webhook-certgen:v1.2.1
+  type: image
+- source: jettech/kube-webhook-certgen:v1.5.0
+  target: docker.io/rancher/mirrored-jettech-kube-webhook-certgen:v1.5.0
+  type: image
+- source: jettech/kube-webhook-certgen:v1.5.1
+  target: docker.io/rancher/mirrored-jettech-kube-webhook-certgen:v1.5.1
+  type: image
+- source: jettech/kube-webhook-certgen:v1.5.2
+  target: docker.io/rancher/mirrored-jettech-kube-webhook-certgen:v1.5.2
+  type: image
+- source: jettech/kube-webhook-certgen:v1.2.1
+  target: registry.suse.com/rancher/mirrored-jettech-kube-webhook-certgen:v1.2.1
+  type: image
+- source: jettech/kube-webhook-certgen:v1.5.0
+  target: registry.suse.com/rancher/mirrored-jettech-kube-webhook-certgen:v1.5.0
+  type: image
+- source: jettech/kube-webhook-certgen:v1.5.1
+  target: registry.suse.com/rancher/mirrored-jettech-kube-webhook-certgen:v1.5.1
+  type: image
+- source: jettech/kube-webhook-certgen:v1.5.2
+  target: registry.suse.com/rancher/mirrored-jettech-kube-webhook-certgen:v1.5.2
+  type: image
