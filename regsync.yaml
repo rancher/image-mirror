@@ -1277,3 +1277,9 @@ sync:
 - source: istio/coredns-plugin:0.2-istio-1.1
   target: registry.suse.com/rancher/mirrored-istio-coredns-plugin:0.2-istio-1.1
   type: image
+- source: istio/galley:1.5.9
+  target: docker.io/rancher/mirrored-istio-galley:1.5.9
+  type: image
+- source: istio/galley:1.5.9
+  target: registry.suse.com/rancher/mirrored-istio-galley:1.5.9
+  type: image
