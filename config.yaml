@@ -409,6 +409,305 @@ Images:
   - 3.11.6
   - 3.12.3
   - 3.8.0
+- SourceImage: istio/citadel
+  Tags:
+  - 1.5.9
+- SourceImage: istio/coredns-plugin
+  Tags:
+  - 0.2-istio-1.1
+  TargetImageName: istio-coredns-plugin
+- SourceImage: istio/coredns-plugin
+  Tags:
+  - 0.2-istio-1.1
+- SourceImage: istio/galley
+  Tags:
+  - 1.5.9
+- SourceImage: istio/install-cni
+  Tags:
+  - 1.7.0
+  - 1.7.1
+  - 1.7.3
+  - 1.7.6
+  - 1.8.1
+  - 1.8.3
+  TargetImageName: istio-install-cni
+- SourceImage: istio/install-cni
+  Tags:
+  - 1.10.0
+  - 1.10.1
+  - 1.10.2
+  - 1.10.4
+  - 1.11.2
+  - 1.11.4
+  - 1.11.7
+  - 1.11.8
+  - 1.12.6
+  - 1.13.3
+  - 1.14.1
+  - 1.14.1-distroless
+  - 1.14.3
+  - 1.14.3-distroless
+  - 1.15.2
+  - 1.15.2-distroless
+  - 1.15.3
+  - 1.15.3-distroless
+  - 1.16.3
+  - 1.16.3-distroless
+  - 1.17.2
+  - 1.17.2-distroless
+  - 1.18.2
+  - 1.18.2-distroless
+  - 1.19.0
+  - 1.19.0-distroless
+  - 1.19.5
+  - 1.19.5-distroless
+  - 1.19.6
+  - 1.19.6-distroless
+  - 1.20.3
+  - 1.20.3-distroless
+  - 1.21.1
+  - 1.21.1-distroless
+  - 1.22.1
+  - 1.22.1-distroless
+  - 1.23.2
+  - 1.23.2-distroless
+  - 1.24.0
+  - 1.24.0-distroless
+  - 1.24.1
+  - 1.24.1-distroless
+  - 1.25.0
+  - 1.25.0-distroless
+  - 1.7.8
+  - 1.8.3
+  - 1.8.4
+  - 1.8.5
+  - 1.8.6
+  - 1.9.1
+  - 1.9.2
+  - 1.9.3
+  - 1.9.5
+  - 1.9.6
+  - 1.9.8
+- SourceImage: istio/kubectl
+  Tags:
+  - 1.5.10
+  TargetImageName: istio-kubectl
+- SourceImage: istio/kubectl
+  Tags:
+  - 1.5.9
+- SourceImage: istio/mixer
+  Tags:
+  - 1.7.0
+  - 1.7.1
+  - 1.7.3
+  - 1.7.6
+  TargetImageName: istio-mixer
+- SourceImage: istio/mixer
+  Tags:
+  - 1.5.9
+  - 1.7.8
+- SourceImage: istio/node-agent-k8s
+  Tags:
+  - 1.5.9
+- SourceImage: istio/pilot
+  Tags:
+  - 1.7.0
+  - 1.7.1
+  - 1.7.3
+  - 1.7.6
+  - 1.8.1
+  - 1.8.3
+  TargetImageName: istio-pilot
+- SourceImage: istio/pilot
+  Tags:
+  - 1.10.0
+  - 1.10.1
+  - 1.10.2
+  - 1.10.4
+  - 1.11.2
+  - 1.11.4
+  - 1.11.7
+  - 1.11.8
+  - 1.12.6
+  - 1.13.3
+  - 1.14.1
+  - 1.14.1-distroless
+  - 1.14.3
+  - 1.14.3-distroless
+  - 1.15.2
+  - 1.15.2-distroless
+  - 1.15.3
+  - 1.15.3-distroless
+  - 1.16.3
+  - 1.16.3-distroless
+  - 1.17.2
+  - 1.17.2-distroless
+  - 1.18.2
+  - 1.18.2-distroless
+  - 1.19.0
+  - 1.19.0-distroless
+  - 1.19.5
+  - 1.19.5-distroless
+  - 1.19.6
+  - 1.19.6-distroless
+  - 1.20.3
+  - 1.20.3-distroless
+  - 1.21.1
+  - 1.21.1-distroless
+  - 1.22.1
+  - 1.22.1-distroless
+  - 1.23.2
+  - 1.23.2-distroless
+  - 1.24.0
+  - 1.24.0-distroless
+  - 1.24.1
+  - 1.24.1-distroless
+  - 1.25.0
+  - 1.25.0-distroless
+  - 1.5.9
+  - 1.7.8
+  - 1.8.3
+  - 1.8.4
+  - 1.8.5
+  - 1.8.6
+  - 1.9.1
+  - 1.9.2
+  - 1.9.3
+  - 1.9.5
+  - 1.9.6
+  - 1.9.8
+- SourceImage: istio/proxyv2
+  Tags:
+  - 1.7.0
+  - 1.7.1
+  - 1.7.3
+  - 1.7.6
+  - 1.8.1
+  - 1.8.3
+  TargetImageName: istio-proxyv2
+- SourceImage: istio/proxyv2
+  Tags:
+  - 1.10.0
+  - 1.10.1
+  - 1.10.2
+  - 1.10.4
+  - 1.11.2
+  - 1.11.4
+  - 1.11.7
+  - 1.11.8
+  - 1.12.6
+  - 1.13.3
+  - 1.14.1
+  - 1.14.1-distroless
+  - 1.14.3
+  - 1.14.3-distroless
+  - 1.15.2
+  - 1.15.2-distroless
+  - 1.15.3
+  - 1.15.3-distroless
+  - 1.16.3
+  - 1.16.3-distroless
+  - 1.17.2
+  - 1.17.2-distroless
+  - 1.18.2
+  - 1.18.2-distroless
+  - 1.19.0
+  - 1.19.0-distroless
+  - 1.19.5
+  - 1.19.5-distroless
+  - 1.19.6
+  - 1.19.6-distroless
+  - 1.20.3
+  - 1.20.3-distroless
+  - 1.21.1
+  - 1.21.1-distroless
+  - 1.22.1
+  - 1.22.1-distroless
+  - 1.23.2
+  - 1.23.2-distroless
+  - 1.24.0
+  - 1.24.0-distroless
+  - 1.24.1
+  - 1.24.1-distroless
+  - 1.25.0
+  - 1.25.0-distroless
+  - 1.5.9
+  - 1.7.8
+  - 1.8.3
+  - 1.8.4
+  - 1.8.5
+  - 1.8.6
+  - 1.9.1
+  - 1.9.2
+  - 1.9.3
+  - 1.9.5
+  - 1.9.6
+  - 1.9.8
+- SourceImage: istio/sidecar_injector
+  Tags:
+  - 1.5.9
+- SourceImage: jaegertracing/all-in-one
+  Tags:
+  - 1.20.0
+  TargetImageName: jaegertracing-all-in-one
+- SourceImage: jaegertracing/all-in-one
+  Tags:
+  - "1.14"
+  - 1.20.0
+  - 1.26.0
+  - 1.27.0
+  - 1.31.0
+  - 1.32.0
+  - 1.33.0
+  - 1.35.1
+  - 1.37.0
+  - 1.38.1
+  - 1.39.0
+  - 1.42.0
+  - 1.43.0
+  - 1.47.0
+  - 1.49.0
+  - 1.52.0
+  - 1.53.0
+  - 1.56.0
+  - 1.57.0
+  - 1.60.0
+  - 1.63.0
+  - 1.67.0
+- SourceImage: jenkins/jnlp-slave
+  Tags:
+  - 3.35-4
+  - 4.7-1
+- SourceImage: jettech/kube-webhook-certgen
+  Tags:
+  - v1.2.1
+  - v1.5.0
+  TargetImageName: jettech-kube-webhook-certgen
+- SourceImage: jettech/kube-webhook-certgen
+  Tags:
+  - v1.2.1
+  - v1.5.0
+  - v1.5.1
+  - v1.5.2
+- SourceImage: jimmidyson/configmap-reload
+  Tags:
+  - v0.3.0
+  - v0.4.0
+  TargetImageName: jimmidyson-configmap-reload
+- SourceImage: jimmidyson/configmap-reload
+  Tags:
+  - v0.3.0
+  - v0.4.0
+  - v0.8.0
+- SourceImage: kiwigrid/k8s-sidecar
+  Tags:
+  - 0.1.151
+  - 1.1.0
+  TargetImageName: kiwigrid-k8s-sidecar
+- SourceImage: kiwigrid/k8s-sidecar
+  Tags:
+  - 0.1.151
+  - 1.27.4
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
