@@ -678,6 +678,11 @@ Images:
   Tags:
   - 3.35-4
   - 4.7-1
+- SourceImage: jettech/kube-webhook-certgen
+  Tags:
+  - v1.2.1
+  - v1.5.0
+  TargetImageName: jettech-kube-webhook-certgen
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
