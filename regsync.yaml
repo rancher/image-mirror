@@ -2639,3 +2639,15 @@ sync:
 - source: jettech/kube-webhook-certgen:v1.5.2
   target: registry.suse.com/rancher/mirrored-jettech-kube-webhook-certgen:v1.5.2
   type: image
+- source: jimmidyson/configmap-reload:v0.3.0
+  target: docker.io/rancher/jimmidyson-configmap-reload:v0.3.0
+  type: image
+- source: jimmidyson/configmap-reload:v0.4.0
+  target: docker.io/rancher/jimmidyson-configmap-reload:v0.4.0
+  type: image
+- source: jimmidyson/configmap-reload:v0.3.0
+  target: registry.suse.com/rancher/jimmidyson-configmap-reload:v0.3.0
+  type: image
+- source: jimmidyson/configmap-reload:v0.4.0
+  target: registry.suse.com/rancher/jimmidyson-configmap-reload:v0.4.0
+  type: image
