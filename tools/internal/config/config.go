@@ -100,7 +100,7 @@ func (config *Config) Sort() {
 	for _, image := range config.Images {
 		image.Sort()
 	}
-	slices.SortStableFunc(config.Images, compareImages)
+	slices.SortStableFunc(config.Images, CompareImages)
 	slices.SortStableFunc(config.Repositories, compareRepositories)
 }
 
@@ -162,7 +162,7 @@ func convertConfigImageToRegsyncImages(repo Repository, image *Image) ([]regsync
 	return entries, nil
 }
 
-func compareImages(a, b *Image) int {
+func CompareImages(a, b *Image) int {
 	if sourceImageValue := strings.Compare(a.SourceImage, b.SourceImage); sourceImageValue != 0 {
 		return sourceImageValue
 	}
@@ -221,4 +221,13 @@ func (image *Image) SetTargetImageName(value string) {
 	} else {
 		image.SpecifiedTargetImageName = value
 	}
+}
+
+func (image *Image) CombineSourceImageAndTags() []string {
+	fullImages := make([]string, 0, len(image.Tags))
+	for _, tag := range image.Tags {
+		fullImage := image.SourceImage + ":" + tag
+		fullImages = append(fullImages, fullImage)
+	}
+	return fullImages
 }
