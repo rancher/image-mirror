@@ -15,7 +15,7 @@ type GithubLatestRelease struct {
 	Images     []string
 }
 
-func (strat *GithubLatestRelease) GetLatestImages() ([]*config.Image, error) {
+func (strat *GithubLatestRelease) GetUpdateImages() ([]*config.Image, error) {
 	client := github.NewClient(nil)
 	release, _, err := client.Repositories.GetLatestRelease(context.Background(), strat.Owner, strat.Repository)
 	if err != nil {
