@@ -72,7 +72,10 @@ func generateRegsyncYaml(_ context.Context, _ *cli.Command) error {
 
 	regsyncYaml := regsync.Config{
 		Creds: make([]regsync.ConfigCred, 0, len(cfg.Repositories)),
-		Sync:  make([]regsync.ConfigSync, 0),
+		Defaults: regsync.ConfigDefaults{
+			UserAgent: "rancher-image-mirror",
+		},
+		Sync: make([]regsync.ConfigSync, 0),
 	}
 	for _, targetRepository := range cfg.Repositories {
 		credEntry := regsync.ConfigCred{

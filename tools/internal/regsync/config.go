@@ -19,9 +19,10 @@ import (
 
 // Config represents a regsync config file.
 type Config struct {
-	Version int          `json:"version,omitempty"`
-	Creds   []ConfigCred `json:"creds"`
-	Sync    []ConfigSync `json:"sync"`
+	Version  int            `json:"version,omitempty"`
+	Creds    []ConfigCred   `json:"creds"`
+	Defaults ConfigDefaults `json:"defaults"`
+	Sync     []ConfigSync   `json:"sync"`
 }
 
 // ConfigCred specifies the details for a registry that container images may
@@ -31,6 +32,10 @@ type ConfigCred struct {
 	User          string `json:"user"`
 	Pass          string `json:"pass"`
 	ReqConcurrent int    `json:"reqConcurrent,omitempty"`
+}
+
+type ConfigDefaults struct {
+	UserAgent string `json:"userAgent,omitempty"`
 }
 
 // ConfigSync defines a source/target repository to sync.
