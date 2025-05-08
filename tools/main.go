@@ -2,18 +2,23 @@ package main
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"os"
 	"strings"
 
 	"github.com/rancher/image-mirror/internal/autoupdate"
 	"github.com/rancher/image-mirror/internal/config"
+	"github.com/rancher/image-mirror/internal/git"
 	"github.com/rancher/image-mirror/internal/legacy"
 	"github.com/rancher/image-mirror/internal/paths"
 	"github.com/rancher/image-mirror/internal/regsync"
 
+	"github.com/google/go-github/v71/github"
 	"github.com/urfave/cli/v3"
 )
+
+var dryRun bool
 
 func main() {
 	cmd := &cli.Command{
@@ -28,9 +33,17 @@ func main() {
 		},
 		Commands: []*cli.Command{
 			{
-				Name:   "auto-update",
+				Name:   "autoupdate",
 				Usage:  "Update config.yaml according to autoupdate.yaml",
 				Action: autoUpdate,
+				Flags: []cli.Flag{
+					&cli.BoolFlag{
+						Name:        "dry-run",
+						Aliases:     []string{"n"},
+						Usage:       "Only print what would be done",
+						Destination: &dryRun,
+					},
+				},
 			},
 			{
 				Name:   "format",
@@ -176,31 +189,62 @@ func formatFiles(_ context.Context, _ *cli.Command) error {
 	return nil
 }
 
-func autoUpdate(_ context.Context, _ *cli.Command) error {
+func autoUpdate(ctx context.Context, _ *cli.Command) error {
+	if !dryRun {
+		if clean, err := git.IsWorkingTreeClean(); err != nil {
+			return fmt.Errorf("failed to get status of working tree: %w", err)
+		} else if !clean {
+			return errors.New("working tree or index has changes")
+		}
+	}
+
 	configYaml, err := config.Parse(paths.ConfigYaml)
 	if err != nil {
 		return fmt.Errorf("failed to parse %s: %w", paths.ConfigYaml, err)
 	}
-	accumulator := config.NewImageAccumulator()
-	accumulator.AddImages(configYaml.Images...)
 
-	autoUpdateConfig, err := autoupdate.Parse(paths.AutoUpdateYaml)
+	autoUpdateEntries, err := autoupdate.Parse(paths.AutoUpdateYaml)
 	if err != nil {
 		return fmt.Errorf("failed to parse %s: %w", paths.AutoUpdateYaml, err)
 	}
 
-	for _, entry := range autoUpdateConfig {
-		latestImages, err := entry.GetLatestImages()
-		if err != nil {
-			fmt.Printf("failed to get latest images for %s: %s\n", entry.Name, err)
-			continue
+	ghClient := github.NewClient(nil)
+	if !dryRun {
+		githubToken := os.Getenv("GITHUB_TOKEN")
+		if githubToken == "" {
+			return errors.New("must define GITHUB_TOKEN")
 		}
-		accumulator.AddImages(latestImages...)
+		ghClient = ghClient.WithAuthToken(githubToken)
 	}
 
-	configYaml.Images = accumulator.Images()
-	if err := config.Write(paths.ConfigYaml, configYaml); err != nil {
-		return fmt.Errorf("failed to write %s: %w", paths.ConfigYaml, err)
+	value := os.Getenv("GITHUB_REPOSITORY")
+	if value == "" {
+		return errors.New("must define GITHUB_REPOSITORY")
+	}
+	parts := strings.Split(value, "/")
+	if len(parts) != 2 {
+		return errors.New("must define GITHUB_REPOSITORY in form <owner>/<repo>")
+	}
+	githubOwner := parts[0]
+	githubRepo := parts[1]
+
+	autoUpdateOptions := autoupdate.AutoUpdateOptions{
+		ConfigYaml:   configYaml,
+		DryRun:       dryRun,
+		GithubOwner:  githubOwner,
+		GithubRepo:   githubRepo,
+		GithubClient: ghClient,
+	}
+	errorPresent := false
+	for _, autoUpdateEntry := range autoUpdateEntries {
+		if err := autoUpdateEntry.AutoUpdate(ctx, autoUpdateOptions); err != nil {
+			fmt.Printf("%s: error: %s\n", autoUpdateEntry.Name, err)
+			errorPresent = true
+			continue
+		}
+	}
+	if errorPresent {
+		return fmt.Errorf("one or more %s entries failed to update; please see above logs for details", paths.AutoUpdateYaml)
 	}
 
 	return nil

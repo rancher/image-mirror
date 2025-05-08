@@ -1,6 +1,7 @@
 package autoupdate
 
 import (
+	"context"
 	"crypto/sha256"
 	"encoding/base32"
 	"errors"
@@ -9,15 +10,28 @@ import (
 	"os"
 	"slices"
 	"strings"
+	"time"
 
 	"github.com/rancher/image-mirror/internal/config"
+	"github.com/rancher/image-mirror/internal/git"
+	"github.com/rancher/image-mirror/internal/paths"
+	"github.com/rancher/image-mirror/internal/regsync"
 
+	"github.com/google/go-github/v71/github"
 	"sigs.k8s.io/yaml"
 )
 
 type ConfigEntry struct {
 	Name                string
 	GithubLatestRelease *GithubLatestRelease
+}
+
+type AutoUpdateOptions struct {
+	ConfigYaml   config.Config
+	DryRun       bool
+	GithubOwner  string
+	GithubRepo   string
+	GithubClient *github.Client
 }
 
 func Parse(filePath string) ([]ConfigEntry, error) {
@@ -67,13 +81,139 @@ func (entry ConfigEntry) Validate() error {
 	return nil
 }
 
-func (entry ConfigEntry) GetLatestImages() ([]*config.Image, error) {
+func (entry ConfigEntry) GetUpdateImages() ([]*config.Image, error) {
 	switch {
 	case entry.GithubLatestRelease != nil:
-		return entry.GithubLatestRelease.GetLatestImages()
+		return entry.GithubLatestRelease.GetUpdateImages()
 	default:
 		return nil, errors.New("did not find update strategy")
 	}
+}
+
+func (entry ConfigEntry) AutoUpdate(ctx context.Context, opts AutoUpdateOptions) error {
+	newImages, err := entry.GetUpdateImages()
+	if err != nil {
+		return fmt.Errorf("failed to get latest images for %s: %w", entry.Name, err)
+	}
+
+	accumulator := config.NewImageAccumulator()
+	accumulator.AddImages(opts.ConfigYaml.Images...)
+
+	imagesToUpdate := make([]*config.Image, 0, len(newImages))
+	for _, latestImage := range newImages {
+		imageToUpdate, err := accumulator.TagDifference(latestImage)
+		if err != nil {
+			return fmt.Errorf("failed to get tag difference for image %s: %w", latestImage.SourceImage, err)
+		}
+		if imageToUpdate != nil {
+			imagesToUpdate = append(imagesToUpdate, imageToUpdate)
+		}
+	}
+	if len(imagesToUpdate) == 0 {
+		fmt.Printf("%s: no updates found\n", entry.Name)
+		return nil
+	}
+
+	imageSetHash, err := hashImageSet(imagesToUpdate)
+	if err != nil {
+		return fmt.Errorf("failed to hash set of images that need updates: %w", err)
+	}
+	branchName := fmt.Sprintf("autoupdate/%s/%s", entry.Name, imageSetHash)
+	baseBranch := "master"
+
+	// When filtering pull requests by head branch, the github API
+	// requires that the head branch is be in the format <owner>:<branch>.
+	// In the case of branches pushed using GITHUB_TOKEN in rancher/image-mirror,
+	// owner is "rancher". When running in a personal repo, setting GITHUB_TOKEN
+	// to a PAT makes owner the same as the user's github username.
+	headBranch := opts.GithubOwner + ":" + branchName
+	requestContext, cancel := context.WithTimeout(ctx, 10*time.Second)
+	defer cancel()
+	pullRequests, _, err := opts.GithubClient.PullRequests.List(requestContext, opts.GithubOwner, opts.GithubRepo, &github.PullRequestListOptions{
+		Head:  headBranch,
+		Base:  baseBranch,
+		State: "all",
+	})
+	if err != nil {
+		return fmt.Errorf("failed to list pull requests: %w", err)
+	}
+	if len(pullRequests) == 1 {
+		fmt.Printf("%s: found existing PR with head branch %s: %s\n", entry.Name, headBranch, pullRequests[0].GetHTMLURL())
+		return nil
+	} else if len(pullRequests) > 1 {
+		pullRequestString := ""
+		for _, pullRequest := range pullRequests {
+			pullRequestString = pullRequestString + "\n- " + pullRequest.GetHTMLURL()
+		}
+		fmt.Printf("%s: warning: found multiple existing PRs with head branch %s:%s\n", entry.Name, headBranch, pullRequestString)
+		return nil
+	}
+
+	if opts.DryRun {
+		fmt.Printf("%s: would make PR under branch %s\n", entry.Name, branchName)
+		return nil
+	}
+
+	if err := git.CreateAndCheckout(baseBranch, branchName); err != nil {
+		return fmt.Errorf("failed to create and checkout branch %s: %w", branchName, err)
+	}
+	for _, imageToUpdate := range imagesToUpdate {
+		// We can reuse the accumulator here because we are making a sequence
+		// of commits, each of which makes an addition from imagesToUpdate.
+		configYaml := opts.ConfigYaml
+		accumulator.AddImages(imageToUpdate)
+		configYaml.Images = accumulator.Images()
+		if err := config.Write(paths.ConfigYaml, configYaml); err != nil {
+			return fmt.Errorf("failed to write %s: %w", paths.ConfigYaml, err)
+		}
+
+		regsyncYaml, err := configYaml.ToRegsyncConfig()
+		if err != nil {
+			return fmt.Errorf("failed to generate regsync config for commit for image %s: %w", imageToUpdate.SourceImage, err)
+		}
+		if err := regsync.WriteConfig(paths.RegsyncYaml, regsyncYaml); err != nil {
+			return fmt.Errorf("failed to write regsync config for commit for image %s: %w", imageToUpdate.SourceImage, err)
+		}
+
+		tagString := strings.Join(imageToUpdate.Tags, ", ")
+		msg := fmt.Sprintf("Add tag(s) %s for image %s", tagString, imageToUpdate.SourceImage)
+		if err := git.Commit(msg); err != nil {
+			return fmt.Errorf("failed to commit changes for image %s: %w", imageToUpdate.SourceImage, err)
+		}
+	}
+	if err := git.PushBranch(branchName, "origin"); err != nil {
+		return fmt.Errorf("failed to push branch %s: %w", branchName, err)
+	}
+
+	tagCount := 0
+	for _, imageToUpdate := range imagesToUpdate {
+		tagCount = tagCount + len(imageToUpdate.Tags)
+	}
+	title := fmt.Sprintf("[autoupdate] Add %d tag(s) for `%s`", tagCount, entry.Name)
+	body := "This PR was created by the autoupdate workflow.\n\nIt adds the following image tags:"
+	for _, imageToUpdate := range imagesToUpdate {
+		for _, fullImage := range imageToUpdate.CombineSourceImageAndTags() {
+			body = body + "\n- `" + fullImage + "`"
+		}
+	}
+	maintainerCanModify := true
+	newPullRequest := &github.NewPullRequest{
+		Base:                &baseBranch,
+		Head:                &branchName,
+		Title:               &title,
+		Body:                &body,
+		MaintainerCanModify: &maintainerCanModify,
+	}
+
+	requestContext, cancel = context.WithTimeout(ctx, 10*time.Second)
+	defer cancel()
+	pullRequest, _, err := opts.GithubClient.PullRequests.Create(requestContext, opts.GithubOwner, opts.GithubRepo, newPullRequest)
+	if err != nil {
+		return fmt.Errorf("failed to create pull request: %w", err)
+	}
+	fmt.Printf("%s: created pull request: %s\n", entry.Name, pullRequest.GetHTMLURL())
+
+	return nil
 }
 
 // hashImageSet computes a human-readable hash from a passed
