@@ -40,7 +40,6 @@ idealista/prom2teams rancher/mirrored-idealista-prom2teams 3.2.2
 idealista/prom2teams rancher/mirrored-idealista-prom2teams 3.2.3
 idealista/prom2teams rancher/mirrored-idealista-prom2teams 4.2.0
 idealista/prom2teams rancher/mirrored-idealista-prom2teams 4.2.1
-istio/kubectl rancher/istio-kubectl 1.5.10
 istio/kubectl rancher/mirrored-istio-kubectl 1.5.9
 istio/mixer rancher/istio-mixer 1.7.0
 istio/mixer rancher/istio-mixer 1.7.1

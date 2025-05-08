@@ -1649,3 +1649,9 @@ sync:
 - source: istio/install-cni:1.9.8
   target: registry.suse.com/rancher/mirrored-istio-install-cni:1.9.8
   type: image
+- source: istio/kubectl:1.5.10
+  target: docker.io/rancher/istio-kubectl:1.5.10
+  type: image
+- source: istio/kubectl:1.5.10
+  target: registry.suse.com/rancher/istio-kubectl:1.5.10
+  type: image
