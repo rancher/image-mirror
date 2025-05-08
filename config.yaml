@@ -694,6 +694,11 @@ Images:
   - v0.3.0
   - v0.4.0
   TargetImageName: jimmidyson-configmap-reload
+- SourceImage: jimmidyson/configmap-reload
+  Tags:
+  - v0.3.0
+  - v0.4.0
+  - v0.8.0
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
