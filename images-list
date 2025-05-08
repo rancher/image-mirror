@@ -40,8 +40,6 @@ idealista/prom2teams rancher/mirrored-idealista-prom2teams 3.2.2
 idealista/prom2teams rancher/mirrored-idealista-prom2teams 3.2.3
 idealista/prom2teams rancher/mirrored-idealista-prom2teams 4.2.0
 idealista/prom2teams rancher/mirrored-idealista-prom2teams 4.2.1
-kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 0.1.151
-kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 1.27.4
 library/busybox rancher/library-busybox 1.31.1
 library/busybox rancher/library-busybox 1.32.1
 library/busybox rancher/mirrored-library-busybox 1.31.1

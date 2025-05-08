@@ -704,6 +704,10 @@ Images:
   - 0.1.151
   - 1.1.0
   TargetImageName: kiwigrid-k8s-sidecar
+- SourceImage: kiwigrid/k8s-sidecar
+  Tags:
+  - 0.1.151
+  - 1.27.4
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
