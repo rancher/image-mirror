@@ -40,7 +40,6 @@ idealista/prom2teams rancher/mirrored-idealista-prom2teams 3.2.2
 idealista/prom2teams rancher/mirrored-idealista-prom2teams 3.2.3
 idealista/prom2teams rancher/mirrored-idealista-prom2teams 4.2.0
 idealista/prom2teams rancher/mirrored-idealista-prom2teams 4.2.1
-jaegertracing/all-in-one rancher/jaegertracing-all-in-one 1.20.0
 jaegertracing/all-in-one rancher/mirrored-jaegertracing-all-in-one 1.14
 jaegertracing/all-in-one rancher/mirrored-jaegertracing-all-in-one 1.20.0
 jaegertracing/all-in-one rancher/mirrored-jaegertracing-all-in-one 1.26.0
