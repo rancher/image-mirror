@@ -674,6 +674,10 @@ Images:
   - 1.60.0
   - 1.63.0
   - 1.67.0
+- SourceImage: jenkins/jnlp-slave
+  Tags:
+  - 3.35-4
+  - 4.7-1
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'

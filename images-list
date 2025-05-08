@@ -40,8 +40,6 @@ idealista/prom2teams rancher/mirrored-idealista-prom2teams 3.2.2
 idealista/prom2teams rancher/mirrored-idealista-prom2teams 3.2.3
 idealista/prom2teams rancher/mirrored-idealista-prom2teams 4.2.0
 idealista/prom2teams rancher/mirrored-idealista-prom2teams 4.2.1
-jenkins/jnlp-slave rancher/mirrored-jenkins-jnlp-slave 3.35-4
-jenkins/jnlp-slave rancher/mirrored-jenkins-jnlp-slave 4.7-1
 jettech/kube-webhook-certgen rancher/jettech-kube-webhook-certgen v1.2.1
 jettech/kube-webhook-certgen rancher/jettech-kube-webhook-certgen v1.5.0
 jettech/kube-webhook-certgen rancher/mirrored-jettech-kube-webhook-certgen v1.2.1
