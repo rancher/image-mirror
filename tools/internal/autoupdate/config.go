@@ -1,8 +1,11 @@
 package autoupdate
 
 import (
+	"crypto/sha256"
+	"encoding/base32"
 	"errors"
 	"fmt"
+	"io"
 	"os"
 	"slices"
 	"strings"
@@ -71,4 +74,28 @@ func (entry ConfigEntry) GetLatestImages() ([]*config.Image, error) {
 	default:
 		return nil, errors.New("did not find update strategy")
 	}
+}
+
+// hashImageSet computes a human-readable hash from a passed
+// set of Images. Immune to different order of Images, and
+// immune to the order of of the tags in those Images.
+func hashImageSet(images []*config.Image) (string, error) {
+	for _, image := range images {
+		image.Sort()
+	}
+	slices.SortStableFunc(images, config.CompareImages)
+
+	hasher := sha256.New()
+	for _, image := range images {
+		for _, fullImage := range image.CombineSourceImageAndTags() {
+			_, err := io.WriteString(hasher, fullImage)
+			if err != nil {
+				return "", fmt.Errorf("failed to write full image %q: %w", fullImage, err)
+			}
+		}
+	}
+	output := hasher.Sum(nil)
+	strHash := base32.StdEncoding.EncodeToString(output)
+	lowerStrHash := strings.ToLower(strHash)
+	return lowerStrHash[:8], nil
 }
