@@ -1685,3 +1685,15 @@ sync:
 - source: istio/mixer:1.7.6
   target: registry.suse.com/rancher/istio-mixer:1.7.6
   type: image
+- source: istio/mixer:1.5.9
+  target: docker.io/rancher/mirrored-istio-mixer:1.5.9
+  type: image
+- source: istio/mixer:1.7.8
+  target: docker.io/rancher/mirrored-istio-mixer:1.7.8
+  type: image
+- source: istio/mixer:1.5.9
+  target: registry.suse.com/rancher/mirrored-istio-mixer:1.5.9
+  type: image
+- source: istio/mixer:1.7.8
+  target: registry.suse.com/rancher/mirrored-istio-mixer:1.7.8
+  type: image
