@@ -2669,3 +2669,15 @@ sync:
 - source: jimmidyson/configmap-reload:v0.8.0
   target: registry.suse.com/rancher/mirrored-jimmidyson-configmap-reload:v0.8.0
   type: image
+- source: kiwigrid/k8s-sidecar:0.1.151
+  target: docker.io/rancher/kiwigrid-k8s-sidecar:0.1.151
+  type: image
+- source: kiwigrid/k8s-sidecar:1.1.0
+  target: docker.io/rancher/kiwigrid-k8s-sidecar:1.1.0
+  type: image
+- source: kiwigrid/k8s-sidecar:0.1.151
+  target: registry.suse.com/rancher/kiwigrid-k8s-sidecar:0.1.151
+  type: image
+- source: kiwigrid/k8s-sidecar:1.1.0
+  target: registry.suse.com/rancher/kiwigrid-k8s-sidecar:1.1.0
+  type: image
