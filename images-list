@@ -40,12 +40,6 @@ idealista/prom2teams rancher/mirrored-idealista-prom2teams 3.2.2
 idealista/prom2teams rancher/mirrored-idealista-prom2teams 3.2.3
 idealista/prom2teams rancher/mirrored-idealista-prom2teams 4.2.0
 idealista/prom2teams rancher/mirrored-idealista-prom2teams 4.2.1
-istio/proxyv2 rancher/istio-proxyv2 1.7.0
-istio/proxyv2 rancher/istio-proxyv2 1.7.1
-istio/proxyv2 rancher/istio-proxyv2 1.7.3
-istio/proxyv2 rancher/istio-proxyv2 1.7.6
-istio/proxyv2 rancher/istio-proxyv2 1.8.1
-istio/proxyv2 rancher/istio-proxyv2 1.8.3
 istio/proxyv2 rancher/mirrored-istio-proxyv2 1.5.9
 istio/proxyv2 rancher/mirrored-istio-proxyv2 1.7.8
 istio/proxyv2 rancher/mirrored-istio-proxyv2 1.8.3
