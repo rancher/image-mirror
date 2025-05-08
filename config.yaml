@@ -509,6 +509,15 @@ Images:
 - SourceImage: istio/node-agent-k8s
   Tags:
   - 1.5.9
+- SourceImage: istio/pilot
+  Tags:
+  - 1.7.0
+  - 1.7.1
+  - 1.7.3
+  - 1.7.6
+  - 1.8.1
+  - 1.8.3
+  TargetImageName: istio-pilot
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
