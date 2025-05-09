@@ -40,8 +40,6 @@ idealista/prom2teams rancher/mirrored-idealista-prom2teams 3.2.2
 idealista/prom2teams rancher/mirrored-idealista-prom2teams 3.2.3
 idealista/prom2teams rancher/mirrored-idealista-prom2teams 4.2.0
 idealista/prom2teams rancher/mirrored-idealista-prom2teams 4.2.1
-library/busybox rancher/library-busybox 1.31.1
-library/busybox rancher/library-busybox 1.32.1
 library/busybox rancher/mirrored-library-busybox 1.31.1
 library/busybox rancher/mirrored-library-busybox 1.32.1
 library/busybox rancher/mirrored-library-busybox 1.34.1
