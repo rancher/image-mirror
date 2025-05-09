@@ -68,9 +68,6 @@ library/traefik rancher/mirrored-library-traefik 3.3.2
 library/traefik rancher/mirrored-library-traefik 3.3.3
 library/traefik rancher/mirrored-library-traefik 3.3.5
 library/traefik rancher/mirrored-library-traefik 3.3.6
-longhornio/csi-snapshotter rancher/longhornio-csi-snapshotter v2.1.1-lh1
-longhornio/csi-snapshotter rancher/longhornio-csi-snapshotter v2.1.1-lh2
-longhornio/csi-snapshotter rancher/longhornio-csi-snapshotter v3.0.3
 longhornio/csi-snapshotter rancher/mirrored-longhornio-csi-snapshotter v2.1.1-lh1
 longhornio/csi-snapshotter rancher/mirrored-longhornio-csi-snapshotter v2.1.1-lh2
 longhornio/csi-snapshotter rancher/mirrored-longhornio-csi-snapshotter v3.0.3

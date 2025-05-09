@@ -3395,3 +3395,21 @@ sync:
 - source: longhornio/csi-resizer:v1.9.2
   target: registry.suse.com/rancher/mirrored-longhornio-csi-resizer:v1.9.2
   type: image
+- source: longhornio/csi-snapshotter:v2.1.1-lh1
+  target: docker.io/rancher/longhornio-csi-snapshotter:v2.1.1-lh1
+  type: image
+- source: longhornio/csi-snapshotter:v2.1.1-lh2
+  target: docker.io/rancher/longhornio-csi-snapshotter:v2.1.1-lh2
+  type: image
+- source: longhornio/csi-snapshotter:v3.0.3
+  target: docker.io/rancher/longhornio-csi-snapshotter:v3.0.3
+  type: image
+- source: longhornio/csi-snapshotter:v2.1.1-lh1
+  target: registry.suse.com/rancher/longhornio-csi-snapshotter:v2.1.1-lh1
+  type: image
+- source: longhornio/csi-snapshotter:v2.1.1-lh2
+  target: registry.suse.com/rancher/longhornio-csi-snapshotter:v2.1.1-lh2
+  type: image
+- source: longhornio/csi-snapshotter:v3.0.3
+  target: registry.suse.com/rancher/longhornio-csi-snapshotter:v3.0.3
+  type: image
