@@ -720,6 +720,10 @@ Images:
   - 1.34.1
   - 1.36.1
   - 1.37.0
+- SourceImage: library/nginx
+  Tags:
+  - 1.19.2-alpine
+  TargetImageName: library-nginx
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
