@@ -809,6 +809,17 @@ Images:
   - v2.3.0
   - v2.5.0
   TargetImageName: longhornio-csi-node-driver-registrar
+- SourceImage: longhornio/csi-node-driver-registrar
+  Tags:
+  - v1.2.0-lh1
+  - v2.11.1
+  - v2.12.0
+  - v2.12.0-20241219
+  - v2.13.0
+  - v2.3.0
+  - v2.5.0
+  - v2.7.0
+  - v2.9.2
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
