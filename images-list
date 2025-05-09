@@ -68,11 +68,6 @@ library/traefik rancher/mirrored-library-traefik 3.3.2
 library/traefik rancher/mirrored-library-traefik 3.3.3
 library/traefik rancher/mirrored-library-traefik 3.3.5
 library/traefik rancher/mirrored-library-traefik 3.3.6
-longhornio/longhorn-cli rancher/mirrored-longhornio-longhorn-cli v1.7.0
-longhornio/longhorn-cli rancher/mirrored-longhornio-longhorn-cli v1.7.1
-longhornio/longhorn-cli rancher/mirrored-longhornio-longhorn-cli v1.7.2
-longhornio/longhorn-cli rancher/mirrored-longhornio-longhorn-cli v1.7.3
-longhornio/longhorn-cli rancher/mirrored-longhornio-longhorn-cli v1.8.1
 longhornio/longhorn-engine rancher/longhornio-longhorn-engine v1.0.2
 longhornio/longhorn-engine rancher/longhornio-longhorn-engine v1.1.0
 longhornio/longhorn-engine rancher/longhornio-longhorn-engine v1.1.1
