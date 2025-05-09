@@ -739,6 +739,15 @@ Images:
   Tags:
   - 2.7.1
   - 2.8.1
+- SourceImage: longhornio/backing-image-manager
+  Tags:
+  - v1_20210422
+  - v1_20210422_patch1
+  - v2_20210820
+  - v2_20210820_patch1
+  - v3_20220609
+  - v3_20220808
+  TargetImageName: longhornio-backing-image-manager
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
