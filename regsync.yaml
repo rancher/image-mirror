@@ -4943,3 +4943,15 @@ sync:
 - source: longhornio/longhorn-ui:v1.8.1
   target: registry.suse.com/rancher/mirrored-longhornio-longhorn-ui:v1.8.1
   type: image
+- source: longhornio/openshift-origin-oauth-proxy:4.14
+  target: docker.io/rancher/mirrored-longhornio-openshift-origin-oauth-proxy:4.14
+  type: image
+- source: longhornio/openshift-origin-oauth-proxy:4.15
+  target: docker.io/rancher/mirrored-longhornio-openshift-origin-oauth-proxy:4.15
+  type: image
+- source: longhornio/openshift-origin-oauth-proxy:4.14
+  target: registry.suse.com/rancher/mirrored-longhornio-openshift-origin-oauth-proxy:4.14
+  type: image
+- source: longhornio/openshift-origin-oauth-proxy:4.15
+  target: registry.suse.com/rancher/mirrored-longhornio-openshift-origin-oauth-proxy:4.15
+  type: image
