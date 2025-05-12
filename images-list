@@ -68,10 +68,6 @@ library/traefik rancher/mirrored-library-traefik 3.3.2
 library/traefik rancher/mirrored-library-traefik 3.3.3
 library/traefik rancher/mirrored-library-traefik 3.3.5
 library/traefik rancher/mirrored-library-traefik 3.3.6
-openpolicyagent/gatekeeper rancher/openpolicyagent-gatekeeper v3.1.0
-openpolicyagent/gatekeeper rancher/openpolicyagent-gatekeeper v3.1.1
-openpolicyagent/gatekeeper rancher/openpolicyagent-gatekeeper v3.2.1
-openpolicyagent/gatekeeper rancher/openpolicyagent-gatekeeper v3.3.0
 openpolicyagent/gatekeeper-crds rancher/mirrored-openpolicyagent-gatekeeper-crds v3.6.0
 openpolicyagent/gatekeeper-crds rancher/mirrored-openpolicyagent-gatekeeper-crds v3.7.0
 openpolicyagent/gatekeeper-crds rancher/mirrored-openpolicyagent-gatekeeper-crds v3.7.1

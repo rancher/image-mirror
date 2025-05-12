@@ -1315,6 +1315,13 @@ Images:
   - v3.7.1
   - v3.8.1
   - v3.9.0
+- SourceImage: openpolicyagent/gatekeeper
+  Tags:
+  - v3.1.0
+  - v3.1.1
+  - v3.2.1
+  - v3.3.0
+  TargetImageName: openpolicyagent-gatekeeper
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'

@@ -5765,3 +5765,27 @@ sync:
 - source: openpolicyagent/gatekeeper:v3.9.0
   target: registry.suse.com/rancher/mirrored-openpolicyagent-gatekeeper:v3.9.0
   type: image
+- source: openpolicyagent/gatekeeper:v3.1.0
+  target: docker.io/rancher/openpolicyagent-gatekeeper:v3.1.0
+  type: image
+- source: openpolicyagent/gatekeeper:v3.1.1
+  target: docker.io/rancher/openpolicyagent-gatekeeper:v3.1.1
+  type: image
+- source: openpolicyagent/gatekeeper:v3.2.1
+  target: docker.io/rancher/openpolicyagent-gatekeeper:v3.2.1
+  type: image
+- source: openpolicyagent/gatekeeper:v3.3.0
+  target: docker.io/rancher/openpolicyagent-gatekeeper:v3.3.0
+  type: image
+- source: openpolicyagent/gatekeeper:v3.1.0
+  target: registry.suse.com/rancher/openpolicyagent-gatekeeper:v3.1.0
+  type: image
+- source: openpolicyagent/gatekeeper:v3.1.1
+  target: registry.suse.com/rancher/openpolicyagent-gatekeeper:v3.1.1
+  type: image
+- source: openpolicyagent/gatekeeper:v3.2.1
+  target: registry.suse.com/rancher/openpolicyagent-gatekeeper:v3.2.1
+  type: image
+- source: openpolicyagent/gatekeeper:v3.3.0
+  target: registry.suse.com/rancher/openpolicyagent-gatekeeper:v3.3.0
+  type: image
