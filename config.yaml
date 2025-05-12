@@ -1358,6 +1358,11 @@ Images:
 - SourceImage: prom/node-exporter
   Tags:
   - v1.0.1
+- SourceImage: prom/node-exporter
+  Tags:
+  - v1.0.1
+  - v1.3.1
+  TargetImageName: prom-node-exporter
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
