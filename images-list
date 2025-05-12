@@ -68,14 +68,6 @@ library/traefik rancher/mirrored-library-traefik 3.3.2
 library/traefik rancher/mirrored-library-traefik 3.3.3
 library/traefik rancher/mirrored-library-traefik 3.3.5
 library/traefik rancher/mirrored-library-traefik 3.3.6
-neuvector/prometheus-exporter rancher/mirrored-neuvector-prometheus-exporter 1-1.0.0
-neuvector/prometheus-exporter rancher/mirrored-neuvector-prometheus-exporter 5.2.0
-neuvector/prometheus-exporter rancher/mirrored-neuvector-prometheus-exporter 5.2.1
-neuvector/prometheus-exporter rancher/mirrored-neuvector-prometheus-exporter 5.2.2
-neuvector/prometheus-exporter rancher/mirrored-neuvector-prometheus-exporter 5.2.3
-neuvector/prometheus-exporter rancher/mirrored-neuvector-prometheus-exporter 5.2.4
-neuvector/prometheus-exporter rancher/mirrored-neuvector-prometheus-exporter 5.3.0
-neuvector/prometheus-exporter rancher/mirrored-neuvector-prometheus-exporter 5.3.2
 neuvector/registry-adapter rancher/mirrored-neuvector-registry-adapter 0.1.0
 neuvector/registry-adapter rancher/mirrored-neuvector-registry-adapter 0.1.1
 neuvector/registry-adapter rancher/mirrored-neuvector-registry-adapter 0.1.1-s1
