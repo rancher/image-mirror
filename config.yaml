@@ -1322,6 +1322,16 @@ Images:
   - v3.2.1
   - v3.3.0
   TargetImageName: openpolicyagent-gatekeeper
+- SourceImage: openpolicyagent/gatekeeper-crds
+  Tags:
+  - v3.10.0
+  - v3.12.0
+  - v3.13.0
+  - v3.6.0
+  - v3.7.0
+  - v3.7.1
+  - v3.8.1
+  - v3.9.0
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
