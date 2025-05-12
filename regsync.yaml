@@ -5147,3 +5147,15 @@ sync:
 - source: minio/minio:RELEASE.2023-07-07T07-13-57Z
   target: registry.suse.com/rancher/mirrored-minio-minio:RELEASE.2023-07-07T07-13-57Z
   type: image
+- source: neuvector/compliance-config:1.0.0
+  target: docker.io/rancher/mirrored-neuvector-compliance-config:1.0.0
+  type: image
+- source: neuvector/compliance-config:1.0.1
+  target: docker.io/rancher/mirrored-neuvector-compliance-config:1.0.1
+  type: image
+- source: neuvector/compliance-config:1.0.0
+  target: registry.suse.com/rancher/mirrored-neuvector-compliance-config:1.0.0
+  type: image
+- source: neuvector/compliance-config:1.0.1
+  target: registry.suse.com/rancher/mirrored-neuvector-compliance-config:1.0.1
+  type: image

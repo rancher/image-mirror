@@ -68,8 +68,6 @@ library/traefik rancher/mirrored-library-traefik 3.3.2
 library/traefik rancher/mirrored-library-traefik 3.3.3
 library/traefik rancher/mirrored-library-traefik 3.3.5
 library/traefik rancher/mirrored-library-traefik 3.3.6
-neuvector/compliance-config rancher/mirrored-neuvector-compliance-config 1.0.0
-neuvector/compliance-config rancher/mirrored-neuvector-compliance-config 1.0.1
 neuvector/controller rancher/mirrored-neuvector-controller 5.0.0
 neuvector/controller rancher/mirrored-neuvector-controller 5.0.0-b1
 neuvector/controller rancher/mirrored-neuvector-controller 5.0.0-b2

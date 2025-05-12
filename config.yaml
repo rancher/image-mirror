@@ -1198,6 +1198,10 @@ Images:
   - RELEASE.2022-12-12T19-27-27Z
   - RELEASE.2023-02-10T18-48-39Z
   - RELEASE.2023-07-07T07-13-57Z
+- SourceImage: neuvector/compliance-config
+  Tags:
+  - 1.0.0
+  - 1.0.1
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
