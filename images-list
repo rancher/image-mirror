@@ -68,13 +68,6 @@ library/traefik rancher/mirrored-library-traefik 3.3.2
 library/traefik rancher/mirrored-library-traefik 3.3.3
 library/traefik rancher/mirrored-library-traefik 3.3.5
 library/traefik rancher/mirrored-library-traefik 3.3.6
-paketobuildpacks/builder rancher/mirrored-paketobuildpacks-builder 0.2.95-full
-paketobuildpacks/builder rancher/mirrored-paketobuildpacks-builder 0.2.220-full
-paketobuildpacks/builder rancher/mirrored-paketobuildpacks-builder 0.2.234-full
-paketobuildpacks/builder rancher/mirrored-paketobuildpacks-builder 0.2.289-full
-paketobuildpacks/builder rancher/mirrored-paketobuildpacks-builder 0.2.407-full
-paketobuildpacks/builder rancher/mirrored-paketobuildpacks-builder 0.2.441-full
-paketobuildpacks/builder rancher/mirrored-paketobuildpacks-builder 0.2.443-full
 plugins/docker rancher/mirrored-plugins-docker 18.09
 plugins/docker rancher/mirrored-plugins-docker 19.03.8
 prom/alertmanager rancher/mirrored-prom-alertmanager v0.21.0

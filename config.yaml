@@ -1335,6 +1335,15 @@ Images:
 - SourceImage: openzipkin/zipkin
   Tags:
   - 2.14.2
+- SourceImage: paketobuildpacks/builder
+  Tags:
+  - 0.2.220-full
+  - 0.2.234-full
+  - 0.2.289-full
+  - 0.2.407-full
+  - 0.2.441-full
+  - 0.2.443-full
+  - 0.2.95-full
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
