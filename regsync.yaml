@@ -5903,3 +5903,9 @@ sync:
 - source: prom/alertmanager:v0.21.0
   target: registry.suse.com/rancher/mirrored-prom-alertmanager:v0.21.0
   type: image
+- source: prom/alertmanager:v0.21.0
+  target: docker.io/rancher/prom-alertmanager:v0.21.0
+  type: image
+- source: prom/alertmanager:v0.21.0
+  target: registry.suse.com/rancher/prom-alertmanager:v0.21.0
+  type: image
