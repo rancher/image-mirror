@@ -1344,6 +1344,10 @@ Images:
   - 0.2.441-full
   - 0.2.443-full
   - 0.2.95-full
+- SourceImage: plugins/docker
+  Tags:
+  - "18.09"
+  - 19.03.8
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'

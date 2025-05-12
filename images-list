@@ -68,8 +68,6 @@ library/traefik rancher/mirrored-library-traefik 3.3.2
 library/traefik rancher/mirrored-library-traefik 3.3.3
 library/traefik rancher/mirrored-library-traefik 3.3.5
 library/traefik rancher/mirrored-library-traefik 3.3.6
-plugins/docker rancher/mirrored-plugins-docker 18.09
-plugins/docker rancher/mirrored-plugins-docker 19.03.8
 prom/alertmanager rancher/mirrored-prom-alertmanager v0.21.0
 prom/alertmanager rancher/prom-alertmanager v0.21.0
 prom/node-exporter rancher/mirrored-prom-node-exporter v1.0.1

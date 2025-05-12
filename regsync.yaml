@@ -5885,3 +5885,15 @@ sync:
 - source: paketobuildpacks/builder:0.2.95-full
   target: registry.suse.com/rancher/mirrored-paketobuildpacks-builder:0.2.95-full
   type: image
+- source: plugins/docker:18.09
+  target: docker.io/rancher/mirrored-plugins-docker:18.09
+  type: image
+- source: plugins/docker:19.03.8
+  target: docker.io/rancher/mirrored-plugins-docker:19.03.8
+  type: image
+- source: plugins/docker:18.09
+  target: registry.suse.com/rancher/mirrored-plugins-docker:18.09
+  type: image
+- source: plugins/docker:19.03.8
+  target: registry.suse.com/rancher/mirrored-plugins-docker:19.03.8
+  type: image
