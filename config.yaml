@@ -1366,6 +1366,10 @@ Images:
 - SourceImage: prom/prometheus
   Tags:
   - v2.12.0
+- SourceImage: prom/prometheus
+  Tags:
+  - v2.18.2
+  TargetImageName: prom-prometheus
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
