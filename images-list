@@ -68,7 +68,6 @@ library/traefik rancher/mirrored-library-traefik 3.3.2
 library/traefik rancher/mirrored-library-traefik 3.3.3
 library/traefik rancher/mirrored-library-traefik 3.3.5
 library/traefik rancher/mirrored-library-traefik 3.3.6
-prom/node-exporter rancher/mirrored-prom-node-exporter v1.0.1
 prom/node-exporter rancher/prom-node-exporter v1.0.1
 prom/node-exporter rancher/prom-node-exporter v1.3.1
 prom/prometheus rancher/mirrored-prom-prometheus v2.12.0

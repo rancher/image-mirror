@@ -1355,6 +1355,9 @@ Images:
   Tags:
   - v0.21.0
   TargetImageName: prom-alertmanager
+- SourceImage: prom/node-exporter
+  Tags:
+  - v1.0.1
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
