@@ -68,7 +68,6 @@ library/traefik rancher/mirrored-library-traefik 3.3.2
 library/traefik rancher/mirrored-library-traefik 3.3.3
 library/traefik rancher/mirrored-library-traefik 3.3.5
 library/traefik rancher/mirrored-library-traefik 3.3.6
-prom/prometheus rancher/mirrored-prom-prometheus v2.12.0
 prom/prometheus rancher/prom-prometheus v2.18.2
 pstauffer/curl rancher/mirrored-pstauffer-curl v1.0.3
 quay.io/brancz/kube-rbac-proxy rancher/mirrored-brancz-kube-rbac-proxy v0.18.0

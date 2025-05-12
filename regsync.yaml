@@ -5927,3 +5927,9 @@ sync:
 - source: prom/node-exporter:v1.3.1
   target: registry.suse.com/rancher/prom-node-exporter:v1.3.1
   type: image
+- source: prom/prometheus:v2.12.0
+  target: docker.io/rancher/mirrored-prom-prometheus:v2.12.0
+  type: image
+- source: prom/prometheus:v2.12.0
+  target: registry.suse.com/rancher/mirrored-prom-prometheus:v2.12.0
+  type: image
