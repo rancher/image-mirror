@@ -5837,3 +5837,9 @@ sync:
 - source: openpolicyagent/gatekeeper-crds:v3.9.0
   target: registry.suse.com/rancher/mirrored-openpolicyagent-gatekeeper-crds:v3.9.0
   type: image
+- source: openzipkin/zipkin:2.14.2
+  target: docker.io/rancher/mirrored-openzipkin-zipkin:2.14.2
+  type: image
+- source: openzipkin/zipkin:2.14.2
+  target: registry.suse.com/rancher/mirrored-openzipkin-zipkin:2.14.2
+  type: image

@@ -1332,6 +1332,9 @@ Images:
   - v3.7.1
   - v3.8.1
   - v3.9.0
+- SourceImage: openzipkin/zipkin
+  Tags:
+  - 2.14.2
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
