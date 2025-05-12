@@ -5939,3 +5939,9 @@ sync:
 - source: prom/prometheus:v2.18.2
   target: registry.suse.com/rancher/prom-prometheus:v2.18.2
   type: image
+- source: pstauffer/curl:v1.0.3
+  target: docker.io/rancher/mirrored-pstauffer-curl:v1.0.3
+  type: image
+- source: pstauffer/curl:v1.0.3
+  target: registry.suse.com/rancher/mirrored-pstauffer-curl:v1.0.3
+  type: image

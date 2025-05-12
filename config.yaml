@@ -1370,6 +1370,9 @@ Images:
   Tags:
   - v2.18.2
   TargetImageName: prom-prometheus
+- SourceImage: pstauffer/curl
+  Tags:
+  - v1.0.3
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
