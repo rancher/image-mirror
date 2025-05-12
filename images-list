@@ -68,12 +68,6 @@ library/traefik rancher/mirrored-library-traefik 3.3.2
 library/traefik rancher/mirrored-library-traefik 3.3.3
 library/traefik rancher/mirrored-library-traefik 3.3.5
 library/traefik rancher/mirrored-library-traefik 3.3.6
-minio/mc rancher/mirrored-minio-mc RELEASE.2022-05-09T04-08-26Z
-minio/mc rancher/mirrored-minio-mc RELEASE.2022-09-16T09-16-47Z
-minio/mc rancher/mirrored-minio-mc RELEASE.2022-11-07T23-47-39Z
-minio/mc rancher/mirrored-minio-mc RELEASE.2022-12-13T00-23-28Z
-minio/mc rancher/mirrored-minio-mc RELEASE.2023-01-28T20-29-38Z
-minio/mc rancher/mirrored-minio-mc RELEASE.2023-06-28T21-54-17Z
 minio/minio rancher/mirrored-minio-minio RELEASE.2020-07-13T18-09-56Z
 minio/minio rancher/mirrored-minio-minio RELEASE.2022-05-08T23-50-31Z
 minio/minio rancher/mirrored-minio-minio RELEASE.2022-09-17T00-09-45Z
