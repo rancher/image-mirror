@@ -1176,6 +1176,11 @@ Images:
   - v0.0.49
   - v0.0.51
   - v0.0.52
+- SourceImage: messagebird/sachet
+  Tags:
+  - 0.2.3
+  - 0.2.6
+  - 0.3.1
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'

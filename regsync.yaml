@@ -5051,3 +5051,21 @@ sync:
 - source: longhornio/support-bundle-kit:v0.0.52
   target: registry.suse.com/rancher/mirrored-longhornio-support-bundle-kit:v0.0.52
   type: image
+- source: messagebird/sachet:0.2.3
+  target: docker.io/rancher/mirrored-messagebird-sachet:0.2.3
+  type: image
+- source: messagebird/sachet:0.2.6
+  target: docker.io/rancher/mirrored-messagebird-sachet:0.2.6
+  type: image
+- source: messagebird/sachet:0.3.1
+  target: docker.io/rancher/mirrored-messagebird-sachet:0.3.1
+  type: image
+- source: messagebird/sachet:0.2.3
+  target: registry.suse.com/rancher/mirrored-messagebird-sachet:0.2.3
+  type: image
+- source: messagebird/sachet:0.2.6
+  target: registry.suse.com/rancher/mirrored-messagebird-sachet:0.2.6
+  type: image
+- source: messagebird/sachet:0.3.1
+  target: registry.suse.com/rancher/mirrored-messagebird-sachet:0.3.1
+  type: image

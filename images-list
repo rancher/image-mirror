@@ -68,9 +68,6 @@ library/traefik rancher/mirrored-library-traefik 3.3.2
 library/traefik rancher/mirrored-library-traefik 3.3.3
 library/traefik rancher/mirrored-library-traefik 3.3.5
 library/traefik rancher/mirrored-library-traefik 3.3.6
-messagebird/sachet rancher/mirrored-messagebird-sachet 0.2.3
-messagebird/sachet rancher/mirrored-messagebird-sachet 0.2.6
-messagebird/sachet rancher/mirrored-messagebird-sachet 0.3.1
 minio/mc rancher/mirrored-minio-mc RELEASE.2022-05-09T04-08-26Z
 minio/mc rancher/mirrored-minio-mc RELEASE.2022-09-16T09-16-47Z
 minio/mc rancher/mirrored-minio-mc RELEASE.2022-11-07T23-47-39Z
