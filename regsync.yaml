@@ -5897,3 +5897,9 @@ sync:
 - source: plugins/docker:19.03.8
   target: registry.suse.com/rancher/mirrored-plugins-docker:19.03.8
   type: image
+- source: prom/alertmanager:v0.21.0
+  target: docker.io/rancher/mirrored-prom-alertmanager:v0.21.0
+  type: image
+- source: prom/alertmanager:v0.21.0
+  target: registry.suse.com/rancher/mirrored-prom-alertmanager:v0.21.0
+  type: image

@@ -1348,6 +1348,9 @@ Images:
   Tags:
   - "18.09"
   - 19.03.8
+- SourceImage: prom/alertmanager
+  Tags:
+  - v0.21.0
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
