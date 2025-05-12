@@ -68,13 +68,6 @@ library/traefik rancher/mirrored-library-traefik 3.3.2
 library/traefik rancher/mirrored-library-traefik 3.3.3
 library/traefik rancher/mirrored-library-traefik 3.3.5
 library/traefik rancher/mirrored-library-traefik 3.3.6
-minio/minio rancher/mirrored-minio-minio RELEASE.2020-07-13T18-09-56Z
-minio/minio rancher/mirrored-minio-minio RELEASE.2022-05-08T23-50-31Z
-minio/minio rancher/mirrored-minio-minio RELEASE.2022-09-17T00-09-45Z
-minio/minio rancher/mirrored-minio-minio RELEASE.2022-11-11T03-44-20Z
-minio/minio rancher/mirrored-minio-minio RELEASE.2022-12-12T19-27-27Z
-minio/minio rancher/mirrored-minio-minio RELEASE.2023-02-10T18-48-39Z
-minio/minio rancher/mirrored-minio-minio RELEASE.2023-07-07T07-13-57Z
 neuvector/compliance-config rancher/mirrored-neuvector-compliance-config 1.0.0
 neuvector/compliance-config rancher/mirrored-neuvector-compliance-config 1.0.1
 neuvector/controller rancher/mirrored-neuvector-controller 5.0.0
