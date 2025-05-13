@@ -1833,6 +1833,15 @@ Images:
   - v0.77.2
   - v0.79.0
   - v0.80.1
+- SourceImage: quay.io/prometheus/alertmanager
+  Tags:
+  - v0.22.0
+  - v0.22.2
+  - v0.24.0
+  - v0.25.0
+  - v0.26.0
+  - v0.27.0
+  - v0.28.1
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
