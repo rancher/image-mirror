@@ -406,7 +406,6 @@ quay.io/coreos/etcd rancher/mirrored-coreos-etcd v3.5.18
 quay.io/coreos/etcd rancher/mirrored-coreos-etcd v3.5.19
 quay.io/coreos/etcd rancher/mirrored-coreos-etcd v3.5.20
 quay.io/coreos/etcd rancher/mirrored-coreos-etcd v3.5.21
-quay.io/minio/minio rancher/mirrored-minio-minio RELEASE.2022-03-24T00-43-44Z
 quay.io/prometheus-operator/admission-webhook rancher/mirrored-prometheus-operator-admission-webhook v0.72.0
 quay.io/prometheus-operator/admission-webhook rancher/mirrored-prometheus-operator-admission-webhook v0.75.1
 quay.io/prometheus-operator/admission-webhook rancher/mirrored-prometheus-operator-admission-webhook v0.77.2
