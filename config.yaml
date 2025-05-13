@@ -1696,6 +1696,9 @@ Images:
   - v0.14.0
   - v0.15.0
   - v0.15.1
+- SourceImage: quay.io/coreos/kube-state-metrics
+  Tags:
+  - v1.9.7
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'

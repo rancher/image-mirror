@@ -406,7 +406,6 @@ quay.io/coreos/etcd rancher/mirrored-coreos-etcd v3.5.18
 quay.io/coreos/etcd rancher/mirrored-coreos-etcd v3.5.19
 quay.io/coreos/etcd rancher/mirrored-coreos-etcd v3.5.20
 quay.io/coreos/etcd rancher/mirrored-coreos-etcd v3.5.21
-quay.io/coreos/kube-state-metrics rancher/mirrored-coreos-kube-state-metrics v1.9.7
 quay.io/coreos/prometheus-config-reloader rancher/coreos-prometheus-config-reloader v0.39.0
 quay.io/coreos/prometheus-config-reloader rancher/mirrored-coreos-prometheus-config-reloader v0.38.1
 quay.io/coreos/prometheus-config-reloader rancher/mirrored-coreos-prometheus-config-reloader v0.39.0
