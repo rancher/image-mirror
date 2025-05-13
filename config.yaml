@@ -1699,6 +1699,10 @@ Images:
 - SourceImage: quay.io/coreos/kube-state-metrics
   Tags:
   - v1.9.7
+- SourceImage: quay.io/coreos/prometheus-config-reloader
+  Tags:
+  - v0.39.0
+  TargetImageName: coreos-prometheus-config-reloader
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
