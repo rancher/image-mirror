@@ -7799,3 +7799,15 @@ sync:
 - source: quay.io/k8scsi/csi-provisioner:v2.1.0
   target: registry.suse.com/rancher/mirrored-k8scsi-csi-provisioner:v2.1.0
   type: image
+- source: quay.io/k8scsi/csi-resizer:v1.0.0
+  target: docker.io/rancher/mirrored-k8scsi-csi-resizer:v1.0.0
+  type: image
+- source: quay.io/k8scsi/csi-resizer:v1.1.0
+  target: docker.io/rancher/mirrored-k8scsi-csi-resizer:v1.1.0
+  type: image
+- source: quay.io/k8scsi/csi-resizer:v1.0.0
+  target: registry.suse.com/rancher/mirrored-k8scsi-csi-resizer:v1.0.0
+  type: image
+- source: quay.io/k8scsi/csi-resizer:v1.1.0
+  target: registry.suse.com/rancher/mirrored-k8scsi-csi-resizer:v1.1.0
+  type: image
