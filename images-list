@@ -406,11 +406,6 @@ quay.io/coreos/etcd rancher/mirrored-coreos-etcd v3.5.18
 quay.io/coreos/etcd rancher/mirrored-coreos-etcd v3.5.19
 quay.io/coreos/etcd rancher/mirrored-coreos-etcd v3.5.20
 quay.io/coreos/etcd rancher/mirrored-coreos-etcd v3.5.21
-quay.io/prometheus-operator/admission-webhook rancher/mirrored-prometheus-operator-admission-webhook v0.72.0
-quay.io/prometheus-operator/admission-webhook rancher/mirrored-prometheus-operator-admission-webhook v0.75.1
-quay.io/prometheus-operator/admission-webhook rancher/mirrored-prometheus-operator-admission-webhook v0.77.2
-quay.io/prometheus-operator/admission-webhook rancher/mirrored-prometheus-operator-admission-webhook v0.79.0
-quay.io/prometheus-operator/admission-webhook rancher/mirrored-prometheus-operator-admission-webhook v0.80.1
 quay.io/prometheus-operator/prometheus-config-reloader rancher/coreos-prometheus-config-reloader v0.43.0
 quay.io/prometheus-operator/prometheus-config-reloader rancher/mirrored-prometheus-operator-prometheus-config-reloader v0.46.0
 quay.io/prometheus-operator/prometheus-config-reloader rancher/mirrored-prometheus-operator-prometheus-config-reloader v0.48.0
