@@ -8429,3 +8429,15 @@ sync:
 - source: quay.io/s3gw/s3gw:v0.14.0
   target: registry.suse.com/rancher/mirrored-s3gw-s3gw:v0.14.0
   type: image
+- source: quay.io/skopeo/stable:v1.10.0
+  target: docker.io/rancher/mirrored-skopeo-skopeo:v1.10.0
+  type: image
+- source: quay.io/skopeo/stable:v1.13.2
+  target: docker.io/rancher/mirrored-skopeo-skopeo:v1.13.2
+  type: image
+- source: quay.io/skopeo/stable:v1.10.0
+  target: registry.suse.com/rancher/mirrored-skopeo-skopeo:v1.10.0
+  type: image
+- source: quay.io/skopeo/stable:v1.13.2
+  target: registry.suse.com/rancher/mirrored-skopeo-skopeo:v1.13.2
+  type: image
