@@ -1890,6 +1890,47 @@ Images:
   - v0.35.1
   - v0.36.1
   - v0.37.2
+- SourceImage: quay.io/tigera/operator
+  Tags:
+  - v1.15.1
+  - v1.17.2
+  - v1.17.4
+  - v1.17.6
+  - v1.20.3
+  - v1.20.4
+  - v1.23.3
+  - v1.23.5
+  - v1.23.6
+  - v1.23.7
+  - v1.25.0
+  - v1.25.13
+  - v1.25.3
+  - v1.25.4
+  - v1.25.8
+  - v1.27.0
+  - v1.27.1
+  - v1.27.12
+  - v1.28.1
+  - v1.28.5
+  - v1.29.0
+  - v1.29.6
+  - v1.30.4
+  - v1.30.5
+  - v1.30.7
+  - v1.31.0
+  - v1.31.1
+  - v1.32.3
+  - v1.32.5
+  - v1.32.7
+  - v1.34.0
+  - v1.34.3
+  - v1.34.5
+  - v1.36.0
+  - v1.36.2
+  - v1.36.5
+  - v1.36.7
+  - v1.38.0
+  TargetImageName: mirrored-calico-operator
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
