@@ -1690,6 +1690,12 @@ Images:
   - 5e928f628f9fc644a1d2651d6cd6aecbde0e7acd
   - 62bfbe88c17778aad7bef9fa57ff9e2d4a9ba0d8
   - d69851597ea019af980891a4628fb36b7880ec26
+- SourceImage: quay.io/coreos/flannel
+  Tags:
+  - v0.13.0
+  - v0.14.0
+  - v0.15.0
+  - v0.15.1
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'

@@ -7679,3 +7679,27 @@ sync:
 - source: quay.io/cilium/startup-script:d69851597ea019af980891a4628fb36b7880ec26
   target: registry.suse.com/rancher/mirrored-cilium-startup-script:d69851597ea019af980891a4628fb36b7880ec26
   type: image
+- source: quay.io/coreos/flannel:v0.13.0
+  target: docker.io/rancher/mirrored-coreos-flannel:v0.13.0
+  type: image
+- source: quay.io/coreos/flannel:v0.14.0
+  target: docker.io/rancher/mirrored-coreos-flannel:v0.14.0
+  type: image
+- source: quay.io/coreos/flannel:v0.15.0
+  target: docker.io/rancher/mirrored-coreos-flannel:v0.15.0
+  type: image
+- source: quay.io/coreos/flannel:v0.15.1
+  target: docker.io/rancher/mirrored-coreos-flannel:v0.15.1
+  type: image
+- source: quay.io/coreos/flannel:v0.13.0
+  target: registry.suse.com/rancher/mirrored-coreos-flannel:v0.13.0
+  type: image
+- source: quay.io/coreos/flannel:v0.14.0
+  target: registry.suse.com/rancher/mirrored-coreos-flannel:v0.14.0
+  type: image
+- source: quay.io/coreos/flannel:v0.15.0
+  target: registry.suse.com/rancher/mirrored-coreos-flannel:v0.15.0
+  type: image
+- source: quay.io/coreos/flannel:v0.15.1
+  target: registry.suse.com/rancher/mirrored-coreos-flannel:v0.15.1
+  type: image
