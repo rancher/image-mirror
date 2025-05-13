@@ -1799,6 +1799,10 @@ Images:
   - v0.77.2
   - v0.79.0
   - v0.80.1
+- SourceImage: quay.io/prometheus-operator/prometheus-config-reloader
+  Tags:
+  - v0.43.0
+  TargetImageName: coreos-prometheus-config-reloader
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
