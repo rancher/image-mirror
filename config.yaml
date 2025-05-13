@@ -1842,6 +1842,14 @@ Images:
   - v0.26.0
   - v0.27.0
   - v0.28.1
+- SourceImage: quay.io/prometheus/node-exporter
+  Tags:
+  - v1.1.2
+  - v1.2.2
+  - v1.3.1
+  - v1.7.0
+  - v1.8.2
+  - v1.9.0
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
