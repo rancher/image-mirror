@@ -406,7 +406,6 @@ quay.io/coreos/etcd rancher/mirrored-coreos-etcd v3.5.18
 quay.io/coreos/etcd rancher/mirrored-coreos-etcd v3.5.19
 quay.io/coreos/etcd rancher/mirrored-coreos-etcd v3.5.20
 quay.io/coreos/etcd rancher/mirrored-coreos-etcd v3.5.21
-quay.io/s3gw/s3gw rancher/mirrored-s3gw-s3gw v0.14.0
 quay.io/skopeo/stable rancher/mirrored-skopeo-skopeo v1.10.0
 quay.io/skopeo/stable rancher/mirrored-skopeo-skopeo v1.13.2
 quay.io/thanos/thanos rancher/mirrored-thanos-thanos v0.17.2

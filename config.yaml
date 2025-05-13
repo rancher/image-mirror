@@ -1873,6 +1873,9 @@ Images:
   - v2.55.1
   - v3.2.1
   TargetImageName: prom-prometheus
+- SourceImage: quay.io/s3gw/s3gw
+  Tags:
+  - v0.14.0
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
