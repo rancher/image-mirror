@@ -406,7 +406,6 @@ quay.io/coreos/etcd rancher/mirrored-coreos-etcd v3.5.18
 quay.io/coreos/etcd rancher/mirrored-coreos-etcd v3.5.19
 quay.io/coreos/etcd rancher/mirrored-coreos-etcd v3.5.20
 quay.io/coreos/etcd rancher/mirrored-coreos-etcd v3.5.21
-quay.io/coreos/prometheus-operator rancher/coreos-prometheus-operator v0.39.0
 quay.io/coreos/prometheus-operator rancher/mirrored-coreos-prometheus-operator v0.38.1
 quay.io/coreos/prometheus-operator rancher/mirrored-coreos-prometheus-operator v0.39.0
 quay.io/coreos/prometheus-operator rancher/mirrored-coreos-prometheus-operator v0.40.0
