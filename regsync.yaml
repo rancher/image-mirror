@@ -7757,3 +7757,9 @@ sync:
 - source: quay.io/coreos/prometheus-operator:v0.40.0
   target: registry.suse.com/rancher/mirrored-coreos-prometheus-operator:v0.40.0
   type: image
+- source: quay.io/jetstack/cert-manager-controller:v0.8.1
+  target: docker.io/rancher/mirrored-jetstack-cert-manager-controller:v0.8.1
+  type: image
+- source: quay.io/jetstack/cert-manager-controller:v0.8.1
+  target: registry.suse.com/rancher/mirrored-jetstack-cert-manager-controller:v0.8.1
+  type: image
