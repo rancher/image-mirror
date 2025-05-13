@@ -8399,3 +8399,27 @@ sync:
 - source: quay.io/prometheus/prometheus:v2.55.0
   target: registry.suse.com/rancher/mirrored-prometheus-prometheus:v2.55.0
   type: image
+- source: quay.io/prometheus/prometheus:v2.19.2
+  target: docker.io/rancher/prom-prometheus:v2.19.2
+  type: image
+- source: quay.io/prometheus/prometheus:v2.22.0
+  target: docker.io/rancher/prom-prometheus:v2.22.0
+  type: image
+- source: quay.io/prometheus/prometheus:v2.55.1
+  target: docker.io/rancher/prom-prometheus:v2.55.1
+  type: image
+- source: quay.io/prometheus/prometheus:v3.2.1
+  target: docker.io/rancher/prom-prometheus:v3.2.1
+  type: image
+- source: quay.io/prometheus/prometheus:v2.19.2
+  target: registry.suse.com/rancher/prom-prometheus:v2.19.2
+  type: image
+- source: quay.io/prometheus/prometheus:v2.22.0
+  target: registry.suse.com/rancher/prom-prometheus:v2.22.0
+  type: image
+- source: quay.io/prometheus/prometheus:v2.55.1
+  target: registry.suse.com/rancher/prom-prometheus:v2.55.1
+  type: image
+- source: quay.io/prometheus/prometheus:v3.2.1
+  target: registry.suse.com/rancher/prom-prometheus:v3.2.1
+  type: image
