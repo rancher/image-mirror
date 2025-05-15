@@ -6401,6 +6401,12 @@ sync:
 - source: quay.io/cilium/cilium-envoy:v1.32.5-1744305768-f9ddca7dcd91f7ca25a505560e655c47d3dec2cf
   target: registry.suse.com/rancher/mirrored-cilium-cilium-envoy:v1.32.5-1744305768-f9ddca7dcd91f7ca25a505560e655c47d3dec2cf
   type: image
+- source: quay.io/cilium/cilium-etcd-operator:v2.0.7
+  target: docker.io/rancher/mirrored-cilium-cilium-etcd-operator:v2.0.7
+  type: image
+- source: quay.io/cilium/cilium-etcd-operator:v2.0.7
+  target: registry.suse.com/rancher/mirrored-cilium-cilium-etcd-operator:v2.0.7
+  type: image
 - source: quay.io/cilium/clustermesh-apiserver:v1.12.4
   target: docker.io/rancher/mirrored-cilium-clustermesh-apiserver:v1.12.4
   type: image
@@ -7762,6 +7768,12 @@ sync:
   type: image
 - source: quay.io/coreos/prometheus-operator:v0.40.0
   target: registry.suse.com/rancher/mirrored-coreos-prometheus-operator:v0.40.0
+  type: image
+- source: quay.io/jetstack/cert-manager-controller:v0.8.1
+  target: docker.io/rancher/mirrored-jetstack-cert-manager-controller:v0.8.1
+  type: image
+- source: quay.io/jetstack/cert-manager-controller:v0.8.1
+  target: registry.suse.com/rancher/mirrored-jetstack-cert-manager-controller:v0.8.1
   type: image
 - source: quay.io/k8scsi/csi-attacher:v3.0.0
   target: docker.io/rancher/mirrored-k8scsi-csi-attacher:v3.0.0
