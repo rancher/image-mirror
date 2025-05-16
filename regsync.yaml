@@ -7715,9 +7715,3 @@ sync:
 - source: quay.io/coreos/flannel:v0.15.1
   target: registry.suse.com/rancher/mirrored-coreos-flannel:v0.15.1
   type: image
-- source: quay.io/coreos/kube-state-metrics:v1.9.7
-  target: docker.io/rancher/mirrored-coreos-kube-state-metrics:v1.9.7
-  type: image
-- source: quay.io/coreos/kube-state-metrics:v1.9.7
-  target: registry.suse.com/rancher/mirrored-coreos-kube-state-metrics:v1.9.7
-  type: image
