@@ -1878,11 +1878,6 @@ Images:
 - SourceImage: quay.io/s3gw/s3gw
   Tags:
   - v0.14.0
-- SourceImage: quay.io/skopeo/stable
-  Tags:
-  - v1.10.0
-  - v1.13.2
-  TargetImageName: mirrored-skopeo-skopeo
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
