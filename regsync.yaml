@@ -8435,9 +8435,3 @@ sync:
 - source: quay.io/prometheus/prometheus:v3.2.1
   target: registry.suse.com/rancher/prom-prometheus:v3.2.1
   type: image
-- source: quay.io/s3gw/s3gw:v0.14.0
-  target: docker.io/rancher/mirrored-s3gw-s3gw:v0.14.0
-  type: image
-- source: quay.io/s3gw/s3gw:v0.14.0
-  target: registry.suse.com/rancher/mirrored-s3gw-s3gw:v0.14.0
-  type: image
