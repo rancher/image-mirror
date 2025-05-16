@@ -7721,9 +7721,3 @@ sync:
 - source: quay.io/coreos/kube-state-metrics:v1.9.7
   target: registry.suse.com/rancher/mirrored-coreos-kube-state-metrics:v1.9.7
   type: image
-- source: quay.io/coreos/prometheus-config-reloader:v0.39.0
-  target: docker.io/rancher/coreos-prometheus-config-reloader:v0.39.0
-  type: image
-- source: quay.io/coreos/prometheus-config-reloader:v0.39.0
-  target: registry.suse.com/rancher/coreos-prometheus-config-reloader:v0.39.0
-  type: image
