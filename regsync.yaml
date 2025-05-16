@@ -7727,21 +7727,3 @@ sync:
 - source: quay.io/coreos/prometheus-config-reloader:v0.39.0
   target: registry.suse.com/rancher/coreos-prometheus-config-reloader:v0.39.0
   type: image
-- source: quay.io/coreos/prometheus-config-reloader:v0.38.1
-  target: docker.io/rancher/mirrored-coreos-prometheus-config-reloader:v0.38.1
-  type: image
-- source: quay.io/coreos/prometheus-config-reloader:v0.39.0
-  target: docker.io/rancher/mirrored-coreos-prometheus-config-reloader:v0.39.0
-  type: image
-- source: quay.io/coreos/prometheus-config-reloader:v0.40.0
-  target: docker.io/rancher/mirrored-coreos-prometheus-config-reloader:v0.40.0
-  type: image
-- source: quay.io/coreos/prometheus-config-reloader:v0.38.1
-  target: registry.suse.com/rancher/mirrored-coreos-prometheus-config-reloader:v0.38.1
-  type: image
-- source: quay.io/coreos/prometheus-config-reloader:v0.39.0
-  target: registry.suse.com/rancher/mirrored-coreos-prometheus-config-reloader:v0.39.0
-  type: image
-- source: quay.io/coreos/prometheus-config-reloader:v0.40.0
-  target: registry.suse.com/rancher/mirrored-coreos-prometheus-config-reloader:v0.40.0
-  type: image
