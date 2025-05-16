@@ -8345,12 +8345,6 @@ sync:
 - source: quay.io/prometheus/node-exporter:v1.9.0
   target: registry.suse.com/rancher/mirrored-prometheus-node-exporter:v1.9.0
   type: image
-- source: quay.io/prometheus/prometheus:v2.18.2
-  target: docker.io/rancher/mirrored-prom-prometheus:v2.18.2
-  type: image
-- source: quay.io/prometheus/prometheus:v2.18.2
-  target: registry.suse.com/rancher/mirrored-prom-prometheus:v2.18.2
-  type: image
 - source: quay.io/prometheus/prometheus:v2.24.0
   target: docker.io/rancher/mirrored-prometheus-prometheus:v2.24.0
   type: image
