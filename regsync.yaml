@@ -7775,15 +7775,3 @@ sync:
 - source: quay.io/jetstack/cert-manager-controller:v0.8.1
   target: registry.suse.com/rancher/mirrored-jetstack-cert-manager-controller:v0.8.1
   type: image
-- source: quay.io/k8scsi/csi-attacher:v3.0.0
-  target: docker.io/rancher/mirrored-k8scsi-csi-attacher:v3.0.0
-  type: image
-- source: quay.io/k8scsi/csi-attacher:v3.1.0
-  target: docker.io/rancher/mirrored-k8scsi-csi-attacher:v3.1.0
-  type: image
-- source: quay.io/k8scsi/csi-attacher:v3.0.0
-  target: registry.suse.com/rancher/mirrored-k8scsi-csi-attacher:v3.0.0
-  type: image
-- source: quay.io/k8scsi/csi-attacher:v3.1.0
-  target: registry.suse.com/rancher/mirrored-k8scsi-csi-attacher:v3.1.0
-  type: image
