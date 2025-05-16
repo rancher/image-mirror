@@ -1457,9 +1457,6 @@ Images:
   - v1.31.5-1739264036-958bef243c6c66fcfd73ca319f2eb49fff1eb2ae
   - v1.31.5-1741765102-efed3defcc70ab5b263a0fc44c93d316b846a211
   - v1.32.5-1744305768-f9ddca7dcd91f7ca25a505560e655c47d3dec2cf
-- SourceImage: quay.io/cilium/cilium-etcd-operator
-  Tags:
-  - v2.0.7
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'

@@ -387,6 +387,7 @@ quay.io/calico/typha rancher/mirrored-calico-typha v3.29.1
 quay.io/calico/typha rancher/mirrored-calico-typha v3.29.2
 quay.io/calico/typha rancher/mirrored-calico-typha v3.29.3
 quay.io/calico/typha rancher/mirrored-calico-typha v3.30.0
+quay.io/cilium/cilium-etcd-operator rancher/mirrored-cilium-cilium-etcd-operator v2.0.7
 quay.io/cilium/clustermesh-apiserver rancher/mirrored-cilium-clustermesh-apiserver v1.12.4
 quay.io/cilium/clustermesh-apiserver rancher/mirrored-cilium-clustermesh-apiserver v1.12.5
 quay.io/cilium/clustermesh-apiserver rancher/mirrored-cilium-clustermesh-apiserver v1.13.0
