@@ -1791,9 +1791,6 @@ Images:
   - 1.26.1
   - 1.28.0
   - 1.30.0
-- SourceImage: quay.io/minio/minio
-  Tags:
-  - RELEASE.2022-03-24T00-43-44Z
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
