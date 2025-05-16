@@ -406,6 +406,17 @@ quay.io/coreos/etcd rancher/mirrored-coreos-etcd v3.5.18
 quay.io/coreos/etcd rancher/mirrored-coreos-etcd v3.5.19
 quay.io/coreos/etcd rancher/mirrored-coreos-etcd v3.5.20
 quay.io/coreos/etcd rancher/mirrored-coreos-etcd v3.5.21
+quay.io/prometheus-operator/prometheus-operator rancher/mirrored-prometheus-operator-prometheus-operator v0.46.0
+quay.io/prometheus-operator/prometheus-operator rancher/mirrored-prometheus-operator-prometheus-operator v0.48.0
+quay.io/prometheus-operator/prometheus-operator rancher/mirrored-prometheus-operator-prometheus-operator v0.50.0
+quay.io/prometheus-operator/prometheus-operator rancher/mirrored-prometheus-operator-prometheus-operator v0.59.1
+quay.io/prometheus-operator/prometheus-operator rancher/mirrored-prometheus-operator-prometheus-operator v0.65.1
+quay.io/prometheus-operator/prometheus-operator rancher/mirrored-prometheus-operator-prometheus-operator v0.70.0
+quay.io/prometheus-operator/prometheus-operator rancher/mirrored-prometheus-operator-prometheus-operator v0.72.0
+quay.io/prometheus-operator/prometheus-operator rancher/mirrored-prometheus-operator-prometheus-operator v0.75.1
+quay.io/prometheus-operator/prometheus-operator rancher/mirrored-prometheus-operator-prometheus-operator v0.77.2
+quay.io/prometheus-operator/prometheus-operator rancher/mirrored-prometheus-operator-prometheus-operator v0.79.0
+quay.io/prometheus-operator/prometheus-operator rancher/mirrored-prometheus-operator-prometheus-operator v0.80.1
 quay.io/prometheus/alertmanager rancher/mirrored-prometheus-alertmanager v0.22.0
 quay.io/prometheus/alertmanager rancher/mirrored-prometheus-alertmanager v0.22.2
 quay.io/prometheus/alertmanager rancher/mirrored-prometheus-alertmanager v0.24.0
