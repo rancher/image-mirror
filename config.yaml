@@ -1883,15 +1883,6 @@ Images:
   - v1.10.0
   - v1.13.2
   TargetImageName: mirrored-skopeo-skopeo
-- SourceImage: quay.io/thanos/thanos
-  Tags:
-  - v0.17.2
-  - v0.28.0
-  - v0.30.2
-  - v0.34.1
-  - v0.35.1
-  - v0.36.1
-  - v0.37.2
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
