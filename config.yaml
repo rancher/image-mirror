@@ -1719,9 +1719,6 @@ Images:
   - v0.38.1
   - v0.39.0
   - v0.40.0
-- SourceImage: quay.io/jetstack/cert-manager-controller
-  Tags:
-  - v0.8.1
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
