@@ -7673,21 +7673,3 @@ sync:
 - source: quay.io/cilium/operator-generic:v1.9.8
   target: registry.suse.com/rancher/mirrored-cilium-operator-generic:v1.9.8
   type: image
-- source: quay.io/cilium/startup-script:5e928f628f9fc644a1d2651d6cd6aecbde0e7acd
-  target: docker.io/rancher/mirrored-cilium-startup-script:5e928f628f9fc644a1d2651d6cd6aecbde0e7acd
-  type: image
-- source: quay.io/cilium/startup-script:62bfbe88c17778aad7bef9fa57ff9e2d4a9ba0d8
-  target: docker.io/rancher/mirrored-cilium-startup-script:62bfbe88c17778aad7bef9fa57ff9e2d4a9ba0d8
-  type: image
-- source: quay.io/cilium/startup-script:d69851597ea019af980891a4628fb36b7880ec26
-  target: docker.io/rancher/mirrored-cilium-startup-script:d69851597ea019af980891a4628fb36b7880ec26
-  type: image
-- source: quay.io/cilium/startup-script:5e928f628f9fc644a1d2651d6cd6aecbde0e7acd
-  target: registry.suse.com/rancher/mirrored-cilium-startup-script:5e928f628f9fc644a1d2651d6cd6aecbde0e7acd
-  type: image
-- source: quay.io/cilium/startup-script:62bfbe88c17778aad7bef9fa57ff9e2d4a9ba0d8
-  target: registry.suse.com/rancher/mirrored-cilium-startup-script:62bfbe88c17778aad7bef9fa57ff9e2d4a9ba0d8
-  type: image
-- source: quay.io/cilium/startup-script:d69851597ea019af980891a4628fb36b7880ec26
-  target: registry.suse.com/rancher/mirrored-cilium-startup-script:d69851597ea019af980891a4628fb36b7880ec26
-  type: image

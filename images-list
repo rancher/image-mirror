@@ -387,6 +387,9 @@ quay.io/calico/typha rancher/mirrored-calico-typha v3.29.1
 quay.io/calico/typha rancher/mirrored-calico-typha v3.29.2
 quay.io/calico/typha rancher/mirrored-calico-typha v3.29.3
 quay.io/calico/typha rancher/mirrored-calico-typha v3.30.0
+quay.io/cilium/startup-script rancher/mirrored-cilium-startup-script 5e928f628f9fc644a1d2651d6cd6aecbde0e7acd
+quay.io/cilium/startup-script rancher/mirrored-cilium-startup-script 62bfbe88c17778aad7bef9fa57ff9e2d4a9ba0d8
+quay.io/cilium/startup-script rancher/mirrored-cilium-startup-script d69851597ea019af980891a4628fb36b7880ec26
 quay.io/coreos/etcd rancher/mirrored-coreos-etcd v3.5.0
 quay.io/coreos/etcd rancher/mirrored-coreos-etcd v3.5.2
 quay.io/coreos/etcd rancher/mirrored-coreos-etcd v3.5.3
