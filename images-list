@@ -68,6 +68,8 @@ library/traefik rancher/mirrored-library-traefik 3.3.2
 library/traefik rancher/mirrored-library-traefik 3.3.3
 library/traefik rancher/mirrored-library-traefik 3.3.5
 library/traefik rancher/mirrored-library-traefik 3.3.6
+quay.io/brancz/kube-rbac-proxy rancher/mirrored-brancz-kube-rbac-proxy v0.18.0
+quay.io/brancz/kube-rbac-proxy rancher/mirrored-brancz-kube-rbac-proxy v0.18.2
 quay.io/calico/apiserver rancher/mirrored-calico-apiserver v3.20.1
 quay.io/calico/apiserver rancher/mirrored-calico-apiserver v3.20.2
 quay.io/calico/apiserver rancher/mirrored-calico-apiserver v3.21.2

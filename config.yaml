@@ -1375,10 +1375,6 @@ Images:
 - SourceImage: pstauffer/curl
   Tags:
   - v1.0.3
-- SourceImage: quay.io/brancz/kube-rbac-proxy
-  Tags:
-  - v0.18.0
-  - v0.18.2
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
