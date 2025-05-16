@@ -1738,10 +1738,6 @@ Images:
   Tags:
   - v1.0.0
   - v1.1.0
-- SourceImage: quay.io/k8scsi/livenessprobe
-  Tags:
-  - v2.1.0
-  - v2.2.0
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
