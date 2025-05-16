@@ -8195,9 +8195,3 @@ sync:
 - source: quay.io/prometheus-operator/prometheus-config-reloader:v0.80.1
   target: registry.suse.com/rancher/mirrored-prometheus-operator-prometheus-config-reloader:v0.80.1
   type: image
-- source: quay.io/prometheus-operator/prometheus-operator:v0.43.0
-  target: docker.io/rancher/coreos-prometheus-operator:v0.43.0
-  type: image
-- source: quay.io/prometheus-operator/prometheus-operator:v0.43.0
-  target: registry.suse.com/rancher/coreos-prometheus-operator:v0.43.0
-  type: image
