@@ -1030,6 +1030,10 @@ Images:
   Tags:
   - v3.5.0
   TargetImageName: mirrored-git-sync
+- SourceImage: registry.k8s.io/gmsa-webhook/k8s-gmsa-webhook
+  Tags:
+  - v0.13.0
+  - v0.7.0
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
