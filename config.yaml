@@ -1060,6 +1060,10 @@ Images:
   - v2.15.0
   - v2.2.0
   - v2.6.0
+- SourceImage: registry.k8s.io/metrics-server/metrics-server
+  Tags:
+  - v0.4.1
+  TargetImageName: metrics-server
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'

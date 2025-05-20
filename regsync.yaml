@@ -4193,3 +4193,9 @@ sync:
 - source: registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.6.0
   target: registry.suse.com/rancher/mirrored-kube-state-metrics-kube-state-metrics:v2.6.0
   type: image
+- source: registry.k8s.io/metrics-server/metrics-server:v0.4.1
+  target: docker.io/rancher/metrics-server:v0.4.1
+  type: image
+- source: registry.k8s.io/metrics-server/metrics-server:v0.4.1
+  target: registry.suse.com/rancher/metrics-server:v0.4.1
+  type: image
