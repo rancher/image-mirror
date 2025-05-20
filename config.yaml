@@ -1026,6 +1026,10 @@ Images:
   - 1.22.8
   - 1.23.0
   TargetImageName: mirrored-k8s-dns-sidecar
+- SourceImage: registry.k8s.io/git-sync/git-sync
+  Tags:
+  - v3.5.0
+  TargetImageName: mirrored-git-sync
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'

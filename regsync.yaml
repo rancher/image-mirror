@@ -4043,3 +4043,9 @@ sync:
 - source: registry.k8s.io/dns/k8s-dns-sidecar:1.23.0
   target: registry.suse.com/rancher/mirrored-k8s-dns-sidecar:1.23.0
   type: image
+- source: registry.k8s.io/git-sync/git-sync:v3.5.0
+  target: docker.io/rancher/mirrored-git-sync:v3.5.0
+  type: image
+- source: registry.k8s.io/git-sync/git-sync:v3.5.0
+  target: registry.suse.com/rancher/mirrored-git-sync:v3.5.0
+  type: image
