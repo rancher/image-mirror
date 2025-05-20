@@ -4361,3 +4361,21 @@ sync:
 - source: registry.k8s.io/sig-storage/snapshot-validation-webhook:v8.1.0
   target: registry.suse.com/rancher/mirrored-sig-storage-snapshot-validation-webhook:v8.1.0
   type: image
+- source: registry.suse.com/bci/bci-busybox:15.4.11.2
+  target: docker.io/rancher/mirrored-bci-busybox:15.4.11.2
+  type: image
+- source: registry.suse.com/bci/bci-busybox:15.6.19.1
+  target: docker.io/rancher/mirrored-bci-busybox:15.6.19.1
+  type: image
+- source: registry.suse.com/bci/bci-busybox:15.6.24.2
+  target: docker.io/rancher/mirrored-bci-busybox:15.6.24.2
+  type: image
+- source: registry.suse.com/bci/bci-busybox:15.4.11.2
+  target: registry.suse.com/rancher/mirrored-bci-busybox:15.4.11.2
+  type: image
+- source: registry.suse.com/bci/bci-busybox:15.6.19.1
+  target: registry.suse.com/rancher/mirrored-bci-busybox:15.6.19.1
+  type: image
+- source: registry.suse.com/bci/bci-busybox:15.6.24.2
+  target: registry.suse.com/rancher/mirrored-bci-busybox:15.6.24.2
+  type: image

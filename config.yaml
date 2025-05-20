@@ -1101,6 +1101,12 @@ Images:
   - v6.2.1
   - v6.2.2
   - v8.1.0
+- SourceImage: registry.suse.com/bci/bci-busybox
+  Tags:
+  - 15.4.11.2
+  - 15.6.19.1
+  - 15.6.24.2
+  TargetImageName: mirrored-bci-busybox
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
