@@ -966,6 +966,17 @@ Images:
   - 1.5-rancher1
   - 1.5-rancher2
   TargetImageName: mirrored-nginx-ingress-controller-defaultbackend
+- SourceImage: registry.k8s.io/cluster-api/cluster-api-controller
+  Tags:
+  - v1.4.4
+  - v1.5.5
+  - v1.6.4
+  - v1.7.2
+  - v1.7.3
+  - v1.8.3
+  - v1.9.4
+  - v1.9.5
+  TargetImageName: mirrored-cluster-api-controller
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
