@@ -956,6 +956,11 @@ Images:
   Tags:
   - v0.12.0
   TargetImageName: mirrored-coreos-flannel
+- SourceImage: rancher/metrics-server
+  Tags:
+  - v0.3.4
+  - v0.3.6
+  TargetImageName: mirrored-metrics-server
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
