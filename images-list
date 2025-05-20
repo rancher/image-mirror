@@ -1335,14 +1335,6 @@ registry.k8s.io/sig-storage/snapshot-controller rancher/mirrored-sig-storage-sna
 registry.k8s.io/sig-storage/snapshot-controller rancher/mirrored-sig-storage-snapshot-controller v6.2.1
 registry.k8s.io/sig-storage/snapshot-controller rancher/mirrored-sig-storage-snapshot-controller v8.1.0
 registry.k8s.io/sig-storage/snapshot-controller rancher/mirrored-sig-storage-snapshot-controller v8.2.0
-registry.suse.com/rancher/seedimage-builder rancher/mirrored-elemental-seedimage-builder 1.3.4
-registry.suse.com/rancher/seedimage-builder rancher/mirrored-elemental-seedimage-builder 1.4.2
-registry.suse.com/rancher/seedimage-builder rancher/mirrored-elemental-seedimage-builder 1.4.3
-registry.suse.com/rancher/seedimage-builder rancher/mirrored-elemental-seedimage-builder 1.5.3
-registry.suse.com/rancher/seedimage-builder rancher/mirrored-elemental-seedimage-builder 1.5.4
-registry.suse.com/rancher/seedimage-builder rancher/mirrored-elemental-seedimage-builder 1.6.4
-registry.suse.com/rancher/seedimage-builder rancher/mirrored-elemental-seedimage-builder 1.6.5
-registry.suse.com/rancher/seedimage-builder rancher/mirrored-elemental-seedimage-builder 1.6.8
 rpardini/docker-registry-proxy rancher/rpardini-docker-registry-proxy 0.6.1
 sigwindowstools/k8s-gmsa-webhook rancher/mirrored-sigwindowstools-k8s-gmsa-webhook v0.3.0
 sonobuoy/sonobuoy rancher/mirrored-sonobuoy-sonobuoy v0.16.3
