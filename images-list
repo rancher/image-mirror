@@ -1248,7 +1248,6 @@ quay.io/tigera/operator rancher/mirrored-calico-operator v1.36.2
 quay.io/tigera/operator rancher/mirrored-calico-operator v1.36.5
 quay.io/tigera/operator rancher/mirrored-calico-operator v1.36.7
 quay.io/tigera/operator rancher/mirrored-calico-operator v1.38.0
-rancher/coreos-flannel rancher/mirrored-coreos-flannel v0.12.0
 rancher/metrics-server rancher/mirrored-metrics-server v0.3.4
 rancher/metrics-server rancher/mirrored-metrics-server v0.3.6
 rancher/nginx-ingress-controller-defaultbackend rancher/mirrored-nginx-ingress-controller-defaultbackend 1.5-rancher1

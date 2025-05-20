@@ -3761,3 +3761,9 @@ sync:
 - source: rancher/coreos-etcd:v3.4.3-rancher1
   target: registry.suse.com/rancher/mirrored-coreos-etcd:v3.4.3-rancher1
   type: image
+- source: rancher/coreos-flannel:v0.12.0
+  target: docker.io/rancher/mirrored-coreos-flannel:v0.12.0
+  type: image
+- source: rancher/coreos-flannel:v0.12.0
+  target: registry.suse.com/rancher/mirrored-coreos-flannel:v0.12.0
+  type: image
