@@ -985,6 +985,16 @@ Images:
   - v1.8.9
   - v1.9.0
   TargetImageName: mirrored-cluster-proportional-autoscaler
+- SourceImage: registry.k8s.io/dns/k8s-dns-dnsmasq-nanny
+  Tags:
+  - 1.17.3
+  - 1.17.4
+  - 1.21.1
+  - 1.22.20
+  - 1.22.28
+  - 1.22.8
+  - 1.23.0
+  TargetImageName: mirrored-k8s-dns-dnsmasq-nanny
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
