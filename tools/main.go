@@ -94,6 +94,9 @@ func generateRegsyncYaml(_ context.Context, _ *cli.Command) error {
 			if !repo.Target {
 				continue
 			}
+			if strings.HasPrefix(image.SourceImage, repo.BaseUrl) {
+				continue
+			}
 			syncEntries, err := convertConfigImageToRegsyncImages(repo, image)
 			if err != nil {
 				return fmt.Errorf("failed to convert Image with SourceImage %q: %w", image.SourceImage, err)
