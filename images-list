@@ -1261,10 +1261,6 @@ registry.k8s.io/csi-vsphere/driver rancher/mirrored-cloud-provider-vsphere-csi-r
 registry.k8s.io/csi-vsphere/driver rancher/mirrored-cloud-provider-vsphere-csi-release-driver v3.4.0
 registry.k8s.io/csi-vsphere/syncer rancher/mirrored-cloud-provider-vsphere-csi-release-syncer v3.3.1
 registry.k8s.io/csi-vsphere/syncer rancher/mirrored-cloud-provider-vsphere-csi-release-syncer v3.4.0
-registry.k8s.io/prometheus-adapter/prometheus-adapter rancher/mirrored-prometheus-adapter-prometheus-adapter v0.9.0
-registry.k8s.io/prometheus-adapter/prometheus-adapter rancher/mirrored-prometheus-adapter-prometheus-adapter v0.10.0
-registry.k8s.io/prometheus-adapter/prometheus-adapter rancher/mirrored-prometheus-adapter-prometheus-adapter v0.11.2
-registry.k8s.io/prometheus-adapter/prometheus-adapter rancher/mirrored-prometheus-adapter-prometheus-adapter v0.12.0
 registry.k8s.io/sig-storage/csi-attacher rancher/mirrored-sig-storage-csi-attacher v3.2.0
 registry.k8s.io/sig-storage/csi-attacher rancher/mirrored-sig-storage-csi-attacher v3.3.0
 registry.k8s.io/sig-storage/csi-attacher rancher/mirrored-sig-storage-csi-attacher v3.4.0
