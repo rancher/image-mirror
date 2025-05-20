@@ -977,6 +977,14 @@ Images:
   - v1.9.4
   - v1.9.5
   TargetImageName: mirrored-cluster-api-controller
+- SourceImage: registry.k8s.io/cpa/cluster-proportional-autoscaler
+  Tags:
+  - 1.8.3
+  - 1.8.5
+  - 1.8.6
+  - v1.8.9
+  - v1.9.0
+  TargetImageName: mirrored-cluster-proportional-autoscaler
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
