@@ -4379,3 +4379,21 @@ sync:
 - source: registry.suse.com/bci/bci-busybox:15.6.24.2
   target: registry.suse.com/rancher/mirrored-bci-busybox:15.6.24.2
   type: image
+- source: registry.suse.com/bci/bci-micro:15.4.14.3
+  target: docker.io/rancher/mirrored-bci-micro:15.4.14.3
+  type: image
+- source: registry.suse.com/bci/bci-micro:15.6.19.1
+  target: docker.io/rancher/mirrored-bci-micro:15.6.19.1
+  type: image
+- source: registry.suse.com/bci/bci-micro:15.6.24.2
+  target: docker.io/rancher/mirrored-bci-micro:15.6.24.2
+  type: image
+- source: registry.suse.com/bci/bci-micro:15.4.14.3
+  target: registry.suse.com/rancher/mirrored-bci-micro:15.4.14.3
+  type: image
+- source: registry.suse.com/bci/bci-micro:15.6.19.1
+  target: registry.suse.com/rancher/mirrored-bci-micro:15.6.19.1
+  type: image
+- source: registry.suse.com/bci/bci-micro:15.6.24.2
+  target: registry.suse.com/rancher/mirrored-bci-micro:15.6.24.2
+  type: image

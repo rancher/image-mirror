@@ -1107,6 +1107,12 @@ Images:
   - 15.6.19.1
   - 15.6.24.2
   TargetImageName: mirrored-bci-busybox
+- SourceImage: registry.suse.com/bci/bci-micro
+  Tags:
+  - 15.4.14.3
+  - 15.6.19.1
+  - 15.6.24.2
+  TargetImageName: mirrored-bci-micro
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
