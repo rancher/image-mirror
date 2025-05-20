@@ -943,6 +943,15 @@ Images:
   - 1.7.1
   - 1.8.1
   TargetImageName: mirrored-cluster-proportional-autoscaler
+- SourceImage: rancher/coreos-etcd
+  Tags:
+  - v3.3.15-rancher1
+  - v3.4.13-rancher1
+  - v3.4.14-rancher1
+  - v3.4.15-rancher1
+  - v3.4.16-rancher1
+  - v3.4.3-rancher1
+  TargetImageName: mirrored-coreos-etcd
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
