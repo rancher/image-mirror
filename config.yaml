@@ -938,6 +938,11 @@ Images:
 - SourceImage: pstauffer/curl
   Tags:
   - v1.0.3
+- SourceImage: rancher/cluster-proportional-autoscaler
+  Tags:
+  - 1.7.1
+  - 1.8.1
+  TargetImageName: mirrored-cluster-proportional-autoscaler
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
