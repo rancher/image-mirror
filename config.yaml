@@ -961,6 +961,11 @@ Images:
   - v0.3.4
   - v0.3.6
   TargetImageName: mirrored-metrics-server
+- SourceImage: rancher/nginx-ingress-controller-defaultbackend
+  Tags:
+  - 1.5-rancher1
+  - 1.5-rancher2
+  TargetImageName: mirrored-nginx-ingress-controller-defaultbackend
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'

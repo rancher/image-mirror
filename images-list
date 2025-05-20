@@ -1248,8 +1248,6 @@ quay.io/tigera/operator rancher/mirrored-calico-operator v1.36.2
 quay.io/tigera/operator rancher/mirrored-calico-operator v1.36.5
 quay.io/tigera/operator rancher/mirrored-calico-operator v1.36.7
 quay.io/tigera/operator rancher/mirrored-calico-operator v1.38.0
-rancher/nginx-ingress-controller-defaultbackend rancher/mirrored-nginx-ingress-controller-defaultbackend 1.5-rancher1
-rancher/nginx-ingress-controller-defaultbackend rancher/mirrored-nginx-ingress-controller-defaultbackend 1.5-rancher2
 registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere rancher/mirrored-cloud-provider-vsphere v1.30.0
 registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere rancher/mirrored-cloud-provider-vsphere v1.30.1
 registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere rancher/mirrored-cloud-provider-vsphere v1.30.2
