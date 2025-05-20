@@ -4493,3 +4493,9 @@ sync:
 - source: registry.suse.com/rancher/seedimage-builder:1.6.8
   target: registry.suse.com/rancher/mirrored-elemental-seedimage-builder:1.6.8
   type: image
+- source: rpardini/docker-registry-proxy:0.6.1
+  target: docker.io/rancher/rpardini-docker-registry-proxy:0.6.1
+  type: image
+- source: rpardini/docker-registry-proxy:0.6.1
+  target: registry.suse.com/rancher/rpardini-docker-registry-proxy:0.6.1
+  type: image

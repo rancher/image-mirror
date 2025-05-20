@@ -1135,6 +1135,10 @@ Images:
   - 1.6.5
   - 1.6.8
   TargetImageName: mirrored-elemental-seedimage-builder
+- SourceImage: rpardini/docker-registry-proxy
+  Tags:
+  - 0.6.1
+  TargetImageName: rpardini-docker-registry-proxy
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
