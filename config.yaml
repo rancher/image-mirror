@@ -1143,6 +1143,9 @@ Images:
 - SourceImage: sigwindowstools/k8s-gmsa-webhook
   Tags:
   - v0.3.0
+- SourceImage: squareup/ghostunnel
+  Tags:
+  - v1.5.2
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
