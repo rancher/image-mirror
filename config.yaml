@@ -1162,6 +1162,10 @@ Images:
   Tags:
   - v0.7.3
   TargetImageName: kubernetes-external-dns
+- SourceImage: us.gcr.io/k8s-artifacts-prod/external-dns/external-dns
+  Tags:
+  - v0.7.3
+  TargetImageName: mirrored-kubernetes-external-dns
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
