@@ -1154,6 +1154,10 @@ Images:
   Tags:
   - v0.15.0
   - v0.21.1
+- SourceImage: thanosio/thanos
+  Tags:
+  - v0.15.0
+  TargetImageName: thanosio-thanos
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
