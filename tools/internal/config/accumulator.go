@@ -4,23 +4,25 @@ import (
 	"slices"
 )
 
-type sourceTargetPair struct {
+type imageIndex struct {
+	DoNotMirror     bool
 	SourceImage     string
 	TargetImageName string
 }
 
 type ImageAccumulator struct {
-	mapping map[sourceTargetPair]*Image
+	mapping map[imageIndex]*Image
 }
 
 func NewImageAccumulator() *ImageAccumulator {
 	return &ImageAccumulator{
-		mapping: map[sourceTargetPair]*Image{},
+		mapping: map[imageIndex]*Image{},
 	}
 }
 
 func (ia *ImageAccumulator) AddImage(newImage *Image) {
-	pair := sourceTargetPair{
+	pair := imageIndex{
+		DoNotMirror:     newImage.DoNotMirror,
 		SourceImage:     newImage.SourceImage,
 		TargetImageName: newImage.TargetImageName(),
 	}
