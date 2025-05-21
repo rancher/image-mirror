@@ -4397,27 +4397,6 @@ sync:
 - source: registry.suse.com/bci/bci-micro:15.6.24.2
   target: registry.suse.com/rancher/mirrored-bci-micro:15.6.24.2
   type: image
-- source: registry.suse.com/rancher/elemental-operator:1.4.2
-  target: docker.io/rancher/mirrored-elemental-operator:1.4.2
-  type: image
-- source: registry.suse.com/rancher/elemental-operator:1.4.3
-  target: docker.io/rancher/mirrored-elemental-operator:1.4.3
-  type: image
-- source: registry.suse.com/rancher/elemental-operator:1.5.3
-  target: docker.io/rancher/mirrored-elemental-operator:1.5.3
-  type: image
-- source: registry.suse.com/rancher/elemental-operator:1.5.4
-  target: docker.io/rancher/mirrored-elemental-operator:1.5.4
-  type: image
-- source: registry.suse.com/rancher/elemental-operator:1.6.4
-  target: docker.io/rancher/mirrored-elemental-operator:1.6.4
-  type: image
-- source: registry.suse.com/rancher/elemental-operator:1.6.5
-  target: docker.io/rancher/mirrored-elemental-operator:1.6.5
-  type: image
-- source: registry.suse.com/rancher/elemental-operator:1.6.8
-  target: docker.io/rancher/mirrored-elemental-operator:1.6.8
-  type: image
 - source: registry.suse.com/rancher/seedimage-builder:1.3.4
   target: docker.io/rancher/mirrored-elemental-seedimage-builder:1.3.4
   type: image
@@ -4447,4 +4426,10 @@ sync:
   type: image
 - source: rpardini/docker-registry-proxy:0.6.1
   target: registry.suse.com/rancher/rpardini-docker-registry-proxy:0.6.1
+  type: image
+- source: sigwindowstools/k8s-gmsa-webhook:v0.3.0
+  target: docker.io/rancher/mirrored-sigwindowstools-k8s-gmsa-webhook:v0.3.0
+  type: image
+- source: sigwindowstools/k8s-gmsa-webhook:v0.3.0
+  target: registry.suse.com/rancher/mirrored-sigwindowstools-k8s-gmsa-webhook:v0.3.0
   type: image
