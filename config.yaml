@@ -1117,9 +1117,6 @@ Images:
   SourceImage: registry.suse.com/rancher/elemental-operator
   Tags:
   - 1.3.4
-  TargetImageName: mirrored-elemental-operator
-- SourceImage: registry.suse.com/rancher/elemental-operator
-  Tags:
   - 1.4.2
   - 1.4.3
   - 1.5.3
@@ -1143,6 +1140,32 @@ Images:
   Tags:
   - 0.6.1
   TargetImageName: rpardini-docker-registry-proxy
+- SourceImage: sigwindowstools/k8s-gmsa-webhook
+  Tags:
+  - v0.3.0
+- SourceImage: squareup/ghostunnel
+  Tags:
+  - v1.5.2
+- SourceImage: squareup/ghostunnel
+  Tags:
+  - v1.5.2
+  TargetImageName: squareup-ghostunnel
+- SourceImage: thanosio/thanos
+  Tags:
+  - v0.15.0
+  - v0.21.1
+- SourceImage: thanosio/thanos
+  Tags:
+  - v0.15.0
+  TargetImageName: thanosio-thanos
+- SourceImage: us.gcr.io/k8s-artifacts-prod/external-dns/external-dns
+  Tags:
+  - v0.7.3
+  TargetImageName: kubernetes-external-dns
+- SourceImage: us.gcr.io/k8s-artifacts-prod/external-dns/external-dns
+  Tags:
+  - v0.7.3
+  TargetImageName: mirrored-kubernetes-external-dns
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
