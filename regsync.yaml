@@ -4439,3 +4439,9 @@ sync:
 - source: squareup/ghostunnel:v1.5.2
   target: registry.suse.com/rancher/mirrored-squareup-ghostunnel:v1.5.2
   type: image
+- source: squareup/ghostunnel:v1.5.2
+  target: docker.io/rancher/squareup-ghostunnel:v1.5.2
+  type: image
+- source: squareup/ghostunnel:v1.5.2
+  target: registry.suse.com/rancher/squareup-ghostunnel:v1.5.2
+  type: image

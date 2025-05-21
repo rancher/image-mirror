@@ -1146,6 +1146,10 @@ Images:
 - SourceImage: squareup/ghostunnel
   Tags:
   - v1.5.2
+- SourceImage: squareup/ghostunnel
+  Tags:
+  - v1.5.2
+  TargetImageName: squareup-ghostunnel
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
