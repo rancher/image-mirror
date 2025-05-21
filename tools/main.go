@@ -19,6 +19,7 @@ import (
 )
 
 var dryRun bool
+var entryName string
 
 func main() {
 	cmd := &cli.Command{
@@ -42,6 +43,12 @@ func main() {
 						Aliases:     []string{"n"},
 						Usage:       "Only print what would be done",
 						Destination: &dryRun,
+					},
+					&cli.StringFlag{
+						Name:        "entry",
+						Aliases:     []string{"e"},
+						Usage:       "Autoupdate specific entry instead of all",
+						Destination: &entryName,
 					},
 				},
 			},
@@ -237,6 +244,10 @@ func autoUpdate(ctx context.Context, _ *cli.Command) error {
 	}
 	errorPresent := false
 	for _, autoUpdateEntry := range autoUpdateEntries {
+		if entryName != "" && autoUpdateEntry.Name != entryName {
+			fmt.Printf("%s: skipped\n", autoUpdateEntry.Name)
+			continue
+		}
 		if err := autoUpdateEntry.AutoUpdate(ctx, autoUpdateOptions); err != nil {
 			fmt.Printf("%s: error: %s\n", autoUpdateEntry.Name, err)
 			errorPresent = true
