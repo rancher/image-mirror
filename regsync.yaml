@@ -4445,3 +4445,15 @@ sync:
 - source: squareup/ghostunnel:v1.5.2
   target: registry.suse.com/rancher/squareup-ghostunnel:v1.5.2
   type: image
+- source: thanosio/thanos:v0.15.0
+  target: docker.io/rancher/mirrored-thanosio-thanos:v0.15.0
+  type: image
+- source: thanosio/thanos:v0.21.1
+  target: docker.io/rancher/mirrored-thanosio-thanos:v0.21.1
+  type: image
+- source: thanosio/thanos:v0.15.0
+  target: registry.suse.com/rancher/mirrored-thanosio-thanos:v0.15.0
+  type: image
+- source: thanosio/thanos:v0.21.1
+  target: registry.suse.com/rancher/mirrored-thanosio-thanos:v0.21.1
+  type: image

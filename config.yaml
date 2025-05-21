@@ -1150,6 +1150,10 @@ Images:
   Tags:
   - v1.5.2
   TargetImageName: squareup-ghostunnel
+- SourceImage: thanosio/thanos
+  Tags:
+  - v0.15.0
+  - v0.21.1
 Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
