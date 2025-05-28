@@ -3,26 +3,6 @@
 # https://github.com/rancher/image-mirror/pull/27
 #
 # LIST FORMAT: <SOURCE> <DESTINATION> <TAG>
-flannel/flannel rancher/mirrored-flannel-flannel v0.21.2
-flannel/flannel rancher/mirrored-flannel-flannel v0.21.4
-flannel/flannel rancher/mirrored-flannel-flannel v0.21.5
-flannel/flannel rancher/mirrored-flannel-flannel v0.22.0
-flannel/flannel rancher/mirrored-flannel-flannel v0.22.1
-flannel/flannel rancher/mirrored-flannel-flannel v0.22.2
-flannel/flannel rancher/mirrored-flannel-flannel v0.22.3
-flannel/flannel rancher/mirrored-flannel-flannel v0.23.0
-flannel/flannel rancher/mirrored-flannel-flannel v0.24.2
-flannel/flannel rancher/mirrored-flannel-flannel v0.25.1
-flannel/flannel rancher/mirrored-flannel-flannel v0.25.2
-flannel/flannel rancher/mirrored-flannel-flannel v0.25.5
-flannel/flannel rancher/mirrored-flannel-flannel v0.25.7
-flannel/flannel rancher/mirrored-flannel-flannel v0.26.1
-flannel/flannel rancher/mirrored-flannel-flannel v0.26.2
-flannel/flannel rancher/mirrored-flannel-flannel v0.26.3
-flannel/flannel rancher/mirrored-flannel-flannel v0.26.4
-flannel/flannel rancher/mirrored-flannel-flannel v0.26.5
-flannel/flannel rancher/mirrored-flannel-flannel v0.26.6
-flannel/flannel rancher/mirrored-flannel-flannel v0.26.7
 flannel/flannel-cni-plugin rancher/mirrored-flannel-flannel-cni-plugin v1.2.0
 flannel/flannel-cni-plugin rancher/mirrored-flannel-flannel-cni-plugin v1.5.1-flannel1
 flannel/flannel-cni-plugin rancher/mirrored-flannel-flannel-cni-plugin v1.5.1-flannel2
