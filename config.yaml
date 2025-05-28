@@ -112,6 +112,12 @@ Images:
   - v0.26.5
   - v0.26.6
   - v0.26.7
+- SourceImage: flannel/flannel-cni-plugin
+  Tags:
+  - v1.2.0
+  - v1.5.1-flannel1
+  - v1.5.1-flannel2
+  - v1.6.2-flannel1
 - SourceImage: flannelcni/flannel
   Tags:
   - v0.16.0
