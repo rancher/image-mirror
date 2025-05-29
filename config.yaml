@@ -1176,18 +1176,15 @@ Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
   Registry: docker.io
-  ReqConcurrent: 2
   Target: true
   Username: '{{ env "DOCKER_USERNAME" }}'
 - BaseUrl: dp.apps.rancher.io/containers
   Password: '{{ env "APPCO_PASSWORD" }}'
   Registry: dp.apps.rancher.io
-  ReqConcurrent: 2
   Target: false
   Username: '{{ env "APPCO_USERNAME" }}'
 - BaseUrl: registry.suse.com/rancher
   Password: '{{ env "PRIME_PASSWORD" }}'
   Registry: registry.suse.com
-  ReqConcurrent: 2
   Target: true
   Username: '{{ env "PRIME_USERNAME" }}'
