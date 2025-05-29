@@ -52,7 +52,7 @@ type Repository struct {
 	// ReqConcurrent is what goes into the "reqConcurrent" field of
 	// regsync.yaml for this repository. For more information please see
 	// https://github.com/regclient/regclient/blob/main/docs/regsync.md
-	ReqConcurrent int
+	ReqConcurrent int `json:",omitempty"`
 	// Username is what goes into the "user" field of regsync.yaml
 	// for this repository. For more information please see
 	// https://github.com/regclient/regclient/blob/main/docs/regsync.md
