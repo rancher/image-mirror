@@ -27,6 +27,21 @@ func TestImageAccumulator(t *testing.T) {
 			assert.False(t, imageList[0].DoNotMirror)
 			assert.True(t, imageList[1].DoNotMirror)
 		})
+
+		t.Run("should correctly accumulate multiple images", func(t *testing.T) {
+			image1, err := NewImage("test-org/image1", []string{"test1"})
+			assert.NoError(t, err)
+			image2, err := NewImage("test-org/image2", []string{"test2"})
+			assert.NoError(t, err)
+
+			accumulator := NewImageAccumulator()
+			accumulator.AddImages(image1, image2)
+
+			images := accumulator.Images()
+			assert.Len(t, images, 2)
+			assert.Contains(t, images, image1)
+			assert.Contains(t, images, image2)
+		})
 	})
 
 	t.Run("TagDifference", func(t *testing.T) {
