@@ -2,6 +2,7 @@ package autoupdate
 
 import (
 	"context"
+	"errors"
 	"fmt"
 
 	"github.com/rancher/image-mirror/internal/config"
@@ -33,4 +34,19 @@ func (glr *GithubLatestRelease) GetUpdateImages() ([]*config.Image, error) {
 	}
 
 	return images, nil
+}
+
+func (glr *GithubLatestRelease) Validate() error {
+	if glr.Owner == "" {
+		return errors.New("must specify Owner")
+	}
+	if glr.Repository == "" {
+		return errors.New("must specify Repository")
+	}
+	if glr.Images == nil {
+		return errors.New("must specify Images")
+	} else if len(glr.Images) == 0 {
+		return errors.New("must specify at least one element for Images")
+	}
+	return nil
 }
