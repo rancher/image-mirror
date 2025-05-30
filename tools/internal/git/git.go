@@ -18,7 +18,7 @@ func IsWorkingTreeClean() (bool, error) {
 	return true, nil
 }
 
-func CreateAndCheckout(baseBranch, branchName string) error {
+func CreateAndCheckoutBranch(baseBranch, branchName string) error {
 	baseCheckoutCmd := exec.Command("git", "checkout", baseBranch)
 	if err := baseCheckoutCmd.Run(); err != nil {
 		return fmt.Errorf("failed to checkout %s: %w", baseBranch, err)
