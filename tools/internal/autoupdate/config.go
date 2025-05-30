@@ -126,7 +126,7 @@ func (entry ConfigEntry) AutoUpdate(ctx context.Context, opts AutoUpdateOptions)
 	baseBranch := "master"
 
 	// When filtering pull requests by head branch, the github API
-	// requires that the head branch is be in the format <owner>:<branch>.
+	// requires that the head branch is in the format <owner>:<branch>.
 	// In the case of branches pushed using GITHUB_TOKEN in rancher/image-mirror,
 	// owner is "rancher". When running in a personal repo, setting GITHUB_TOKEN
 	// to a PAT makes owner the same as the user's github username.
@@ -158,7 +158,7 @@ func (entry ConfigEntry) AutoUpdate(ctx context.Context, opts AutoUpdateOptions)
 		return nil
 	}
 
-	if err := git.CreateAndCheckout(baseBranch, branchName); err != nil {
+	if err := git.CreateAndCheckoutBranch(baseBranch, branchName); err != nil {
 		return fmt.Errorf("failed to create and checkout branch %s: %w", branchName, err)
 	}
 	for _, imageToUpdate := range imagesToUpdate {
