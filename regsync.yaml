@@ -4,15 +4,12 @@
 creds:
 - pass: '{{ env "DOCKER_PASSWORD" }}'
   registry: docker.io
-  reqConcurrent: 2
   user: '{{ env "DOCKER_USERNAME" }}'
 - pass: '{{ env "APPCO_PASSWORD" }}'
   registry: dp.apps.rancher.io
-  reqConcurrent: 2
   user: '{{ env "APPCO_USERNAME" }}'
 - pass: '{{ env "PRIME_PASSWORD" }}'
   registry: registry.suse.com
-  reqConcurrent: 2
   user: '{{ env "PRIME_USERNAME" }}'
 defaults:
   userAgent: rancher-image-mirror
