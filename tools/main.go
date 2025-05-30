@@ -35,7 +35,7 @@ func main() {
 		Commands: []*cli.Command{
 			{
 				Name:   "autoupdate",
-				Usage:  "Update config.yaml according to autoupdate.yaml",
+				Usage:  fmt.Sprintf("Use contents of %s to make pull requests that update %s", paths.AutoUpdateYaml, paths.ConfigYaml),
 				Action: autoUpdate,
 				Flags: []cli.Flag{
 					&cli.BoolFlag{
@@ -196,6 +196,8 @@ func formatFiles(_ context.Context, _ *cli.Command) error {
 	return nil
 }
 
+// autoUpdate uses the contents of autoupdate.yaml to make pull requests
+// that update config.yaml.
 func autoUpdate(ctx context.Context, _ *cli.Command) error {
 	if !dryRun {
 		if clean, err := git.IsWorkingTreeClean(); err != nil {
