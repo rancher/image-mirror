@@ -15,16 +15,16 @@ type GithubLatestRelease struct {
 	Images     []string
 }
 
-func (strat *GithubLatestRelease) GetUpdateImages() ([]*config.Image, error) {
+func (glr *GithubLatestRelease) GetUpdateImages() ([]*config.Image, error) {
 	client := github.NewClient(nil)
-	release, _, err := client.Repositories.GetLatestRelease(context.Background(), strat.Owner, strat.Repository)
+	release, _, err := client.Repositories.GetLatestRelease(context.Background(), glr.Owner, glr.Repository)
 	if err != nil {
 		return nil, fmt.Errorf("failed to get latest release: %w", err)
 	}
 	latestTag := *release.TagName
 
-	images := make([]*config.Image, 0, len(strat.Images))
-	for _, sourceImage := range strat.Images {
+	images := make([]*config.Image, 0, len(glr.Images))
+	for _, sourceImage := range glr.Images {
 		image, err := config.NewImage(sourceImage, []string{latestTag})
 		if err != nil {
 			return nil, fmt.Errorf("failed to construct image from source image %q and tag %q: %w", sourceImage, latestTag, err)
