@@ -10,6 +10,10 @@ import (
 	"github.com/google/go-github/v71/github"
 )
 
+// GithubLatestRelease retrieves the tag of the latest release
+// of the configured github repository, and returns the configured
+// Images with this tag. It assumes that the images have the same
+// tags as the github releases.
 type GithubLatestRelease struct {
 	Owner      string
 	Repository string

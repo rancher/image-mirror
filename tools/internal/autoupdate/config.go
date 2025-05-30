@@ -85,6 +85,11 @@ func (entry ConfigEntry) Validate() error {
 	return nil
 }
 
+// GetUpdateImages returns a slice of Images that depends on the
+// configured update strategy. The returned Images may be from
+// any source, and they may be gathered in any way. The intention
+// is that they are new Images (or new tags of existing Images) that
+// we want to mirror.
 func (entry ConfigEntry) GetUpdateImages() ([]*config.Image, error) {
 	switch {
 	case entry.GithubLatestRelease != nil:
