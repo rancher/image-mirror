@@ -75,9 +75,13 @@ func (entry ConfigEntry) Validate() error {
 	if entry.Name == "" {
 		return errors.New("must specify Name")
 	}
+
 	if entry.GithubLatestRelease == nil {
 		return errors.New("must specify an autoupdate strategy")
+	} else if err := entry.GithubLatestRelease.Validate(); err != nil {
+		return fmt.Errorf("GithubLatestRelease failed validation: %w", err)
 	}
+
 	return nil
 }
 
