@@ -27,6 +27,7 @@ type ConfigEntry struct {
 }
 
 type AutoUpdateOptions struct {
+	BaseBranch   string
 	ConfigYaml   config.Config
 	DryRun       bool
 	GithubOwner  string
@@ -99,7 +100,7 @@ func (entry ConfigEntry) GetUpdateImages() ([]*config.Image, error) {
 	}
 }
 
-func (entry ConfigEntry) AutoUpdate(ctx context.Context, opts AutoUpdateOptions) error {
+func (entry ConfigEntry) Run(ctx context.Context, opts AutoUpdateOptions) error {
 	newImages, err := entry.GetUpdateImages()
 	if err != nil {
 		return fmt.Errorf("failed to get latest images for %s: %w", entry.Name, err)
@@ -128,7 +129,6 @@ func (entry ConfigEntry) AutoUpdate(ctx context.Context, opts AutoUpdateOptions)
 		return fmt.Errorf("failed to hash set of images that need updates: %w", err)
 	}
 	branchName := fmt.Sprintf("autoupdate/%s/%s", entry.Name, imageSetHash)
-	baseBranch := "master"
 
 	// When filtering pull requests by head branch, the github API
 	// requires that the head branch is in the format <owner>:<branch>.
@@ -140,7 +140,7 @@ func (entry ConfigEntry) AutoUpdate(ctx context.Context, opts AutoUpdateOptions)
 	defer cancel()
 	pullRequests, _, err := opts.GithubClient.PullRequests.List(requestContext, opts.GithubOwner, opts.GithubRepo, &github.PullRequestListOptions{
 		Head:  headBranch,
-		Base:  baseBranch,
+		Base:  opts.BaseBranch,
 		State: "all",
 	})
 	if err != nil {
@@ -163,7 +163,14 @@ func (entry ConfigEntry) AutoUpdate(ctx context.Context, opts AutoUpdateOptions)
 		return nil
 	}
 
-	if err := git.CreateAndCheckoutBranch(baseBranch, branchName); err != nil {
+	return entry.CreateImageUpdatePullRequest(ctx, opts, branchName, imagesToUpdate)
+}
+
+func (entry ConfigEntry) CreateImageUpdatePullRequest(ctx context.Context, opts AutoUpdateOptions, branchName string, imagesToUpdate []*config.Image) error {
+	accumulator := config.NewImageAccumulator()
+	accumulator.AddImages(opts.ConfigYaml.Images...)
+
+	if err := git.CreateAndCheckoutBranch(opts.BaseBranch, branchName); err != nil {
 		return fmt.Errorf("failed to create and checkout branch %s: %w", branchName, err)
 	}
 	for _, imageToUpdate := range imagesToUpdate {
@@ -207,14 +214,14 @@ func (entry ConfigEntry) AutoUpdate(ctx context.Context, opts AutoUpdateOptions)
 	}
 	maintainerCanModify := true
 	newPullRequest := &github.NewPullRequest{
-		Base:                &baseBranch,
+		Base:                &opts.BaseBranch,
 		Head:                &branchName,
 		Title:               &title,
 		Body:                &body,
 		MaintainerCanModify: &maintainerCanModify,
 	}
 
-	requestContext, cancel = context.WithTimeout(ctx, 10*time.Second)
+	requestContext, cancel := context.WithTimeout(ctx, 10*time.Second)
 	defer cancel()
 	pullRequest, _, err := opts.GithubClient.PullRequests.Create(requestContext, opts.GithubOwner, opts.GithubRepo, newPullRequest)
 	if err != nil {
