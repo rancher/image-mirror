@@ -238,6 +238,7 @@ func autoUpdate(ctx context.Context, _ *cli.Command) error {
 	githubRepo := parts[1]
 
 	autoUpdateOptions := autoupdate.AutoUpdateOptions{
+		BaseBranch:   "master",
 		ConfigYaml:   configYaml,
 		DryRun:       dryRun,
 		GithubOwner:  githubOwner,
@@ -250,7 +251,7 @@ func autoUpdate(ctx context.Context, _ *cli.Command) error {
 			fmt.Printf("%s: skipped\n", autoUpdateEntry.Name)
 			continue
 		}
-		if err := autoUpdateEntry.AutoUpdate(ctx, autoUpdateOptions); err != nil {
+		if err := autoUpdateEntry.Run(ctx, autoUpdateOptions); err != nil {
 			fmt.Printf("%s: error: %s\n", autoUpdateEntry.Name, err)
 			errorPresent = true
 			continue
