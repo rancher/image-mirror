@@ -1,16 +1,4 @@
 {
-  "flannel": {
-    "images": [
-      "flannel/flannel"
-    ],
-    "versionSource": "github-latest-release:flannel-io/flannel"
-  },
-  "flannel-cni-plugin": {
-    "images": [
-      "flannel/flannel-cni-plugin"
-    ],
-    "versionSource": "github-latest-release:flannel-io/cni-plugin"
-  },
   "calico": {
     "images": [
       "quay.io/calico/apiserver",
@@ -142,7 +130,7 @@
               "eni.enabled=true"
             ]
           },
-          "azure":  {
+          "azure": {
             "values": [
               "azure.enabled=true"
             ]

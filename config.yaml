@@ -90,6 +90,34 @@ Images:
   Tags:
   - v0.7.0
   - v0.8.3
+- SourceImage: flannel/flannel
+  Tags:
+  - v0.21.2
+  - v0.21.4
+  - v0.21.5
+  - v0.22.0
+  - v0.22.1
+  - v0.22.2
+  - v0.22.3
+  - v0.23.0
+  - v0.24.2
+  - v0.25.1
+  - v0.25.2
+  - v0.25.5
+  - v0.25.7
+  - v0.26.1
+  - v0.26.2
+  - v0.26.3
+  - v0.26.4
+  - v0.26.5
+  - v0.26.6
+  - v0.26.7
+- SourceImage: flannel/flannel-cni-plugin
+  Tags:
+  - v1.2.0
+  - v1.5.1-flannel1
+  - v1.5.1-flannel2
+  - v1.6.2-flannel1
 - SourceImage: flannelcni/flannel
   Tags:
   - v0.16.0
