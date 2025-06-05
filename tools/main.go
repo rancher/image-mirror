@@ -94,7 +94,8 @@ func generateRegsyncYaml(_ context.Context, _ *cli.Command) error {
 			if !repo.Target {
 				continue
 			}
-			if strings.HasPrefix(image.SourceImage, repo.BaseUrl) {
+			// source and destination images are the same
+			if image.SourceImage == repo.BaseUrl+"/"+image.TargetImageName() {
 				continue
 			}
 			syncEntries, err := convertConfigImageToRegsyncImages(repo, image)
