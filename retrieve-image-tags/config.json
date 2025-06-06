@@ -171,7 +171,6 @@
     "images": [
       "tonistiigi/xx"
     ],
-    "versionSource": "registry",
-    "versionConstraint": ">1.6.0"
+    "versionSource": "github-latest-release:tonistiigi/xx"
   }
 }
