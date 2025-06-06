@@ -4418,6 +4418,9 @@ sync:
 - source: registry.suse.com/bci/bci-micro:15.6.24.2
   target: registry.suse.com/rancher/mirrored-bci-micro:15.6.24.2
   type: image
+- source: registry.suse.com/rancher/elemental-operator:1.6.9
+  target: docker.io/rancher/elemental-operator:1.6.9
+  type: image
 - source: registry.suse.com/rancher/elemental-operator:1.4.2
   target: docker.io/rancher/mirrored-elemental-operator:1.4.2
   type: image
@@ -4468,6 +4471,9 @@ sync:
   type: image
 - source: registry.suse.com/rancher/seedimage-builder:1.6.9
   target: docker.io/rancher/mirrored-elemental-seedimage-builder:1.6.9
+  type: image
+- source: registry.suse.com/rancher/seedimage-builder:1.6.9
+  target: docker.io/rancher/seedimage-builder:1.6.9
   type: image
 - source: rpardini/docker-registry-proxy:0.6.1
   target: docker.io/rancher/rpardini-docker-registry-proxy:0.6.1
