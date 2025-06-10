@@ -6,6 +6,8 @@ import (
 	"slices"
 	"strings"
 
+	"github.com/rancher/image-mirror/internal/regsync"
+
 	"sigs.k8s.io/yaml"
 )
 
@@ -98,11 +100,69 @@ func (config *Config) Sort() {
 	for _, image := range config.Images {
 		image.Sort()
 	}
-	slices.SortStableFunc(config.Images, compareImages)
+	slices.SortStableFunc(config.Images, CompareImages)
 	slices.SortStableFunc(config.Repositories, compareRepositories)
 }
 
-func compareImages(a, b *Image) int {
+func (config *Config) ToRegsyncConfig() (regsync.Config, error) {
+	regsyncYaml := regsync.Config{
+		Creds: make([]regsync.ConfigCred, 0, len(config.Repositories)),
+		Defaults: regsync.ConfigDefaults{
+			UserAgent: "rancher-image-mirror",
+		},
+		Sync: make([]regsync.ConfigSync, 0),
+	}
+	for _, targetRepository := range config.Repositories {
+		credEntry := regsync.ConfigCred{
+			Pass:          targetRepository.Password,
+			Registry:      targetRepository.Registry,
+			ReqConcurrent: targetRepository.ReqConcurrent,
+			User:          targetRepository.Username,
+		}
+		regsyncYaml.Creds = append(regsyncYaml.Creds, credEntry)
+	}
+	for _, image := range config.Images {
+		if image.DoNotMirror {
+			continue
+		}
+		for _, repo := range config.Repositories {
+			if !repo.Target {
+				continue
+			}
+			// source and destination images are the same
+			if image.SourceImage == repo.BaseUrl+"/"+image.TargetImageName() {
+				continue
+			}
+			syncEntries, err := convertConfigImageToRegsyncImages(repo, image)
+			if err != nil {
+				return regsync.Config{}, fmt.Errorf("failed to convert Image with SourceImage %q: %w", image.SourceImage, err)
+			}
+			regsyncYaml.Sync = append(regsyncYaml.Sync, syncEntries...)
+		}
+	}
+	return regsyncYaml, nil
+}
+
+// convertConfigImageToRegsyncImages converts image into one ConfigSync (i.e. an
+// image for regsync to sync) for each tag present in image. repo provides the
+// target repository for each ConfigSync.
+func convertConfigImageToRegsyncImages(repo Repository, image *Image) ([]regsync.ConfigSync, error) {
+	entries := make([]regsync.ConfigSync, 0, len(image.Tags))
+	for _, tag := range image.Tags {
+		sourceImage := image.SourceImage + ":" + tag
+		targetImage := repo.BaseUrl + "/" + image.TargetImageName() + ":" + tag
+		entry := regsync.ConfigSync{
+			Source: sourceImage,
+			Target: targetImage,
+			Type:   "image",
+		}
+		entries = append(entries, entry)
+	}
+
+	return entries, nil
+}
+
+func CompareImages(a, b *Image) int {
 	if sourceImageValue := strings.Compare(a.SourceImage, b.SourceImage); sourceImageValue != 0 {
 		return sourceImageValue
 	}
@@ -161,4 +221,13 @@ func (image *Image) SetTargetImageName(value string) {
 	} else {
 		image.SpecifiedTargetImageName = value
 	}
+}
+
+func (image *Image) CombineSourceImageAndTags() []string {
+	fullImages := make([]string, 0, len(image.Tags))
+	for _, tag := range image.Tags {
+		fullImage := image.SourceImage + ":" + tag
+		fullImages = append(fullImages, fullImage)
+	}
+	return fullImages
 }

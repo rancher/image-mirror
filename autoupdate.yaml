@@ -1,0 +1,12 @@
+- GithubLatestRelease:
+    Images:
+    - flannel/flannel
+    Owner: flannel-io
+    Repository: flannel
+  Name: flannel
+- GithubLatestRelease:
+    Images:
+    - flannel/flannel-cni-plugin
+    Owner: flannel-io
+    Repository: cni-plugin
+  Name: flannel-cni-plugin

@@ -2,21 +2,24 @@ package main
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"os"
 	"strings"
 
+	"github.com/rancher/image-mirror/internal/autoupdate"
 	"github.com/rancher/image-mirror/internal/config"
+	"github.com/rancher/image-mirror/internal/git"
 	"github.com/rancher/image-mirror/internal/legacy"
+	"github.com/rancher/image-mirror/internal/paths"
 	"github.com/rancher/image-mirror/internal/regsync"
+
+	"github.com/google/go-github/v71/github"
 	"github.com/urfave/cli/v3"
 )
 
-const regsyncYamlPath = "regsync.yaml"
-const configJsonPath = "retrieve-image-tags/config.json"
-
-var configYamlPath string
-var imagesListPath string
+var dryRun bool
+var entryName string
 
 func main() {
 	cmd := &cli.Command{
@@ -26,10 +29,29 @@ func main() {
 				Aliases:     []string{"c"},
 				Value:       "config.yaml",
 				Usage:       "Path to config.yaml file",
-				Destination: &configYamlPath,
+				Destination: &paths.ConfigYaml,
 			},
 		},
 		Commands: []*cli.Command{
+			{
+				Name:   "autoupdate",
+				Usage:  fmt.Sprintf("Use contents of %s to make pull requests that update %s", paths.AutoUpdateYaml, paths.ConfigYaml),
+				Action: autoUpdate,
+				Flags: []cli.Flag{
+					&cli.BoolFlag{
+						Name:        "dry-run",
+						Aliases:     []string{"n"},
+						Usage:       "Only print what would be done",
+						Destination: &dryRun,
+					},
+					&cli.StringFlag{
+						Name:        "entry",
+						Aliases:     []string{"e"},
+						Usage:       "Autoupdate specific entry instead of all",
+						Destination: &entryName,
+					},
+				},
+			},
 			{
 				Name:   "format",
 				Usage:  "Enforce formatting on certain files",
@@ -49,7 +71,7 @@ func main() {
 						Name:        "images-list-path",
 						Value:       "images-list",
 						Usage:       "Path to images list file",
-						Destination: &imagesListPath,
+						Destination: &paths.ImagesList,
 					},
 				},
 			},
@@ -65,71 +87,21 @@ func main() {
 // generateRegsyncYaml regenerates the regsync config file from the current state
 // of config.yaml.
 func generateRegsyncYaml(_ context.Context, _ *cli.Command) error {
-	cfg, err := config.Parse(configYamlPath)
+	configYaml, err := config.Parse(paths.ConfigYaml)
 	if err != nil {
-		return fmt.Errorf("failed to parse %s: %w", configYamlPath, err)
+		return fmt.Errorf("failed to parse %s: %w", paths.ConfigYaml, err)
 	}
 
-	regsyncYaml := regsync.Config{
-		Creds: make([]regsync.ConfigCred, 0, len(cfg.Repositories)),
-		Defaults: regsync.ConfigDefaults{
-			UserAgent: "rancher-image-mirror",
-		},
-		Sync: make([]regsync.ConfigSync, 0),
-	}
-	for _, targetRepository := range cfg.Repositories {
-		credEntry := regsync.ConfigCred{
-			Pass:          targetRepository.Password,
-			Registry:      targetRepository.Registry,
-			ReqConcurrent: targetRepository.ReqConcurrent,
-			User:          targetRepository.Username,
-		}
-		regsyncYaml.Creds = append(regsyncYaml.Creds, credEntry)
-	}
-	for _, image := range cfg.Images {
-		if image.DoNotMirror {
-			continue
-		}
-		for _, repo := range cfg.Repositories {
-			if !repo.Target {
-				continue
-			}
-			// source and destination images are the same
-			if image.SourceImage == repo.BaseUrl+"/"+image.TargetImageName() {
-				continue
-			}
-			syncEntries, err := convertConfigImageToRegsyncImages(repo, image)
-			if err != nil {
-				return fmt.Errorf("failed to convert Image with SourceImage %q: %w", image.SourceImage, err)
-			}
-			regsyncYaml.Sync = append(regsyncYaml.Sync, syncEntries...)
-		}
+	regsyncYaml, err := configYaml.ToRegsyncConfig()
+	if err != nil {
+		return err
 	}
 
-	if err := regsync.WriteConfig(regsyncYamlPath, regsyncYaml); err != nil {
-		return fmt.Errorf("failed to write %s: %w", regsyncYamlPath, err)
+	if err := regsync.WriteConfig(paths.RegsyncYaml, regsyncYaml); err != nil {
+		return fmt.Errorf("failed to write %s: %w", paths.RegsyncYaml, err)
 	}
 
 	return nil
-}
-
-// convertConfigImageToRegsyncImages converts image into one ConfigSync (i.e. an
-// image for regsync to sync) for each tag present in image. repo provides the
-// target repository for each ConfigSync.
-func convertConfigImageToRegsyncImages(repo config.Repository, image *config.Image) ([]regsync.ConfigSync, error) {
-	entries := make([]regsync.ConfigSync, 0, len(image.Tags))
-	for _, tag := range image.Tags {
-		sourceImage := image.SourceImage + ":" + tag
-		targetImage := repo.BaseUrl + "/" + image.TargetImageName() + ":" + tag
-		entry := regsync.ConfigSync{
-			Source: sourceImage,
-			Target: targetImage,
-			Type:   "image",
-		}
-		entries = append(entries, entry)
-	}
-
-	return entries, nil
 }
 
 func migrateImagesList(_ context.Context, cmd *cli.Command) error {
@@ -139,27 +111,25 @@ func migrateImagesList(_ context.Context, cmd *cli.Command) error {
 	sourceImage := cmd.Args().Get(0)
 	targetImage := cmd.Args().Get(1)
 
-	configYaml, err := config.Parse(configYamlPath)
+	configYaml, err := config.Parse(paths.ConfigYaml)
 	if err != nil {
 		return fmt.Errorf("failed to parse config: %w", err)
 	}
 	accumulator := config.NewImageAccumulator()
-	for _, existingImage := range configYaml.Images {
-		accumulator.AddImage(existingImage)
-	}
+	accumulator.AddImages(configYaml.Images...)
 
-	imagesListComment, legacyImages, err := legacy.ParseImagesList(imagesListPath)
+	imagesListComment, legacyImages, err := legacy.ParseImagesList(paths.ImagesList)
 	if err != nil {
 		return fmt.Errorf("failed to parse images list: %w", err)
 	}
 
-	configJson, err := legacy.ParseConfig(configJsonPath)
+	configJson, err := legacy.ParseConfig(paths.ConfigJson)
 	if err != nil {
-		return fmt.Errorf("failed to parse %q: %w", configJsonPath, err)
+		return fmt.Errorf("failed to parse %q: %w", paths.ConfigJson, err)
 	}
 
 	if configJson.Contains(sourceImage) {
-		fmt.Printf("warning: %s refers to image with source %q\n", configJsonPath, sourceImage)
+		fmt.Printf("warning: %s refers to image with source %q\n", paths.ConfigJson, sourceImage)
 	}
 
 	legacyImagesToKeep := make([]legacy.ImagesListEntry, 0, len(legacyImages))
@@ -169,7 +139,7 @@ func migrateImagesList(_ context.Context, cmd *cli.Command) error {
 			if err != nil {
 				return fmt.Errorf("failed to convert %q: %w", legacyImage, err)
 			}
-			accumulator.AddImage(newImage)
+			accumulator.AddImages(newImage)
 		} else {
 			legacyImagesToKeep = append(legacyImagesToKeep, legacyImage)
 			continue
@@ -178,13 +148,13 @@ func migrateImagesList(_ context.Context, cmd *cli.Command) error {
 
 	// set config.Images to accumulated images and write config
 	configYaml.Images = accumulator.Images()
-	if err := config.Write(configYamlPath, configYaml); err != nil {
-		return fmt.Errorf("failed to write %s: %w", configYamlPath, err)
+	if err := config.Write(paths.ConfigYaml, configYaml); err != nil {
+		return fmt.Errorf("failed to write %s: %w", paths.ConfigYaml, err)
 	}
 
 	// write kept legacy images
-	if err := legacy.WriteImagesList(imagesListPath, imagesListComment, legacyImagesToKeep); err != nil {
-		return fmt.Errorf("failed to write %s: %w", imagesListPath, err)
+	if err := legacy.WriteImagesList(paths.ImagesList, imagesListComment, legacyImagesToKeep); err != nil {
+		return fmt.Errorf("failed to write %s: %w", paths.ImagesList, err)
 	}
 
 	return nil
@@ -207,12 +177,89 @@ func convertImageListEntryToImage(imageListEntry legacy.ImagesListEntry) (*confi
 }
 
 func formatFiles(_ context.Context, _ *cli.Command) error {
-	configJson, err := config.Parse(configYamlPath)
+	configYaml, err := config.Parse(paths.ConfigYaml)
 	if err != nil {
-		return fmt.Errorf("failed to parse config: %w", err)
+		return fmt.Errorf("failed to parse %s: %w", paths.ConfigYaml, err)
 	}
-	if err := config.Write(configYamlPath, configJson); err != nil {
-		return fmt.Errorf("failed to write config: %w", err)
+	if err := config.Write(paths.ConfigYaml, configYaml); err != nil {
+		return fmt.Errorf("failed to write %s: %w", paths.ConfigYaml, err)
 	}
+
+	autoUpdateYaml, err := autoupdate.Parse(paths.AutoUpdateYaml)
+	if err != nil {
+		return fmt.Errorf("failed to parse %s: %w", paths.AutoUpdateYaml, err)
+	}
+	if err := autoupdate.Write(paths.AutoUpdateYaml, autoUpdateYaml); err != nil {
+		return fmt.Errorf("failed to write %s: %w", paths.AutoUpdateYaml, err)
+	}
+
+	return nil
+}
+
+// autoUpdate uses the contents of autoupdate.yaml to make pull requests
+// that update config.yaml.
+func autoUpdate(ctx context.Context, _ *cli.Command) error {
+	if !dryRun {
+		if clean, err := git.IsWorkingTreeClean(); err != nil {
+			return fmt.Errorf("failed to get status of working tree: %w", err)
+		} else if !clean {
+			return errors.New("working tree or index has changes")
+		}
+	}
+
+	configYaml, err := config.Parse(paths.ConfigYaml)
+	if err != nil {
+		return fmt.Errorf("failed to parse %s: %w", paths.ConfigYaml, err)
+	}
+
+	autoUpdateEntries, err := autoupdate.Parse(paths.AutoUpdateYaml)
+	if err != nil {
+		return fmt.Errorf("failed to parse %s: %w", paths.AutoUpdateYaml, err)
+	}
+
+	ghClient := github.NewClient(nil)
+	if !dryRun {
+		githubToken := os.Getenv("GITHUB_TOKEN")
+		if githubToken == "" {
+			return errors.New("must define GITHUB_TOKEN")
+		}
+		ghClient = ghClient.WithAuthToken(githubToken)
+	}
+
+	value := os.Getenv("GITHUB_REPOSITORY")
+	if value == "" {
+		return errors.New("must define GITHUB_REPOSITORY")
+	}
+	parts := strings.Split(value, "/")
+	if len(parts) != 2 {
+		return errors.New("must define GITHUB_REPOSITORY in form <owner>/<repo>")
+	}
+	githubOwner := parts[0]
+	githubRepo := parts[1]
+
+	autoUpdateOptions := autoupdate.AutoUpdateOptions{
+		BaseBranch:   "master",
+		ConfigYaml:   configYaml,
+		DryRun:       dryRun,
+		GithubOwner:  githubOwner,
+		GithubRepo:   githubRepo,
+		GithubClient: ghClient,
+	}
+	errorPresent := false
+	for _, autoUpdateEntry := range autoUpdateEntries {
+		if entryName != "" && autoUpdateEntry.Name != entryName {
+			fmt.Printf("%s: skipped\n", autoUpdateEntry.Name)
+			continue
+		}
+		if err := autoUpdateEntry.Run(ctx, autoUpdateOptions); err != nil {
+			fmt.Printf("%s: error: %s\n", autoUpdateEntry.Name, err)
+			errorPresent = true
+			continue
+		}
+	}
+	if errorPresent {
+		return fmt.Errorf("one or more %s entries failed to update; please see above logs for details", paths.AutoUpdateYaml)
+	}
+
 	return nil
 }

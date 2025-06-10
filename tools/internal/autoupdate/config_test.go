@@ -1,0 +1,130 @@
+package autoupdate
+
+import (
+	"testing"
+
+	"github.com/rancher/image-mirror/internal/config"
+
+	"github.com/stretchr/testify/assert"
+)
+
+func TestConfigEntry(t *testing.T) {
+	t.Run("Validate", func(t *testing.T) {
+		type testCase struct {
+			Message       string
+			ConfigEntry   ConfigEntry
+			ExpectedError string
+		}
+		testCases := []testCase{
+			{
+				Message: "should return nil for a valid ConfigEntry",
+				ConfigEntry: ConfigEntry{
+					Name: "test-entry",
+					GithubLatestRelease: &GithubLatestRelease{
+						Owner:      "test-owner",
+						Repository: "test-repo",
+						Images:     []string{"rancher/rancher"},
+					},
+				},
+				ExpectedError: "",
+			},
+			{
+				Message: "should return error when Name is not present",
+				ConfigEntry: ConfigEntry{
+					Name: "",
+					GithubLatestRelease: &GithubLatestRelease{
+						Owner:      "test-owner",
+						Repository: "test-repo",
+						Images:     []string{"rancher/rancher"},
+					},
+				},
+				ExpectedError: "must specify Name",
+			},
+			{
+				Message: "should return error when no autoupdate strategy is present",
+				ConfigEntry: ConfigEntry{
+					Name: "test-entry",
+				},
+				ExpectedError: "must specify an autoupdate strategy",
+			},
+		}
+		for _, testCase := range testCases {
+			t.Run(testCase.Message, func(t *testing.T) {
+				err := testCase.ConfigEntry.Validate()
+				if testCase.ExpectedError == "" {
+					assert.Nil(t, err)
+				} else {
+					assert.EqualError(t, err, testCase.ExpectedError)
+				}
+			})
+		}
+	})
+}
+
+func TestGetBranchHash(t *testing.T) {
+	t.Run("should produce the same hash with the same set of images, but with different image order", func(t *testing.T) {
+		image1, err := config.NewImage("test-org/image1", []string{"asdf", "qwer"})
+		assert.Nil(t, err)
+		image2, err := config.NewImage("test-org/image2", []string{"asdf", "qwer"})
+		assert.Nil(t, err)
+
+		imageSet1 := []*config.Image{image1, image2}
+		hash1, err := hashImageSet(imageSet1)
+		assert.Nil(t, err)
+
+		imageSet2 := []*config.Image{image2, image1}
+		hash2, err := hashImageSet(imageSet2)
+		assert.Nil(t, err)
+
+		assert.Equal(t, hash1, hash2)
+	})
+
+	t.Run("should produce the same hash with the same image, but a different order of tags", func(t *testing.T) {
+		image1, err := config.NewImage("test-org/image", []string{"asdf", "qwer"})
+		assert.Nil(t, err)
+		images1 := []*config.Image{image1}
+		hash1, err := hashImageSet(images1)
+		assert.Nil(t, err)
+
+		image2, err := config.NewImage("test-org/image", []string{"qwer", "asdf"})
+		assert.Nil(t, err)
+		images2 := []*config.Image{image2}
+		hash2, err := hashImageSet(images2)
+		assert.Nil(t, err)
+
+		assert.Equal(t, hash1, hash2)
+	})
+
+	t.Run("should produce the same hash with the same set of images", func(t *testing.T) {
+		image1, err := config.NewImage("test-org/image1", []string{"asdf", "qwer"})
+		assert.Nil(t, err)
+		image2, err := config.NewImage("test-org/image2", []string{"asdf", "qwer"})
+		assert.Nil(t, err)
+
+		imageSet1 := []*config.Image{image1, image2}
+		hash1, err := hashImageSet(imageSet1)
+		assert.Nil(t, err)
+
+		imageSet2 := []*config.Image{image1, image2}
+		hash2, err := hashImageSet(imageSet2)
+		assert.Nil(t, err)
+
+		assert.Equal(t, hash1, hash2)
+	})
+
+	t.Run("should produce a different hash with different set of tags", func(t *testing.T) {
+		image1, err := config.NewImage("test-org/image", []string{"asdf", "qwer"})
+		assert.Nil(t, err)
+		images1 := []*config.Image{image1}
+		hash1, err := hashImageSet(images1)
+		assert.Nil(t, err)
+
+		image2, err := config.NewImage("test-org/image", []string{"asdf", "qwer", "zxcv"})
+		assert.Nil(t, err)
+		images2 := []*config.Image{image2}
+		hash2, err := hashImageSet(images2)
+		assert.Nil(t, err)
+
+		assert.NotEqual(t, hash1, hash2)
+	})
+}
