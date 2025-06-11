@@ -119,6 +119,7 @@ Images:
   - v1.5.1-flannel1
   - v1.5.1-flannel2
   - v1.6.2-flannel1
+  - v1.7.1-flannel1
 - SourceImage: flannelcni/flannel
   Tags:
   - v0.16.0
