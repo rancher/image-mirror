@@ -4,7 +4,12 @@ on:
   push:
     branches:
       - master
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      debug:
+        description: "Enable debug logging"
+        required: false
+        type: boolean
 
 jobs:
   mirror-images:
@@ -35,4 +40,8 @@ jobs:
       - name: Sync Container Images
         run: |
           export PATH=$PATH:$(pwd)
-          time regsync once --logopt json --missing --config regsync.yaml
+          if [ "${{ inputs.debug }}" = "true" ]; then
+            time regsync once --logopt json --missing --config regsync.yaml --verbosity debug
+          else
+            time regsync once --logopt json --missing --config regsync.yaml
+          fi
