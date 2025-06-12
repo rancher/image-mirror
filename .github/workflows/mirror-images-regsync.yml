@@ -4,7 +4,12 @@ on:
   push:
     branches:
       - master
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      debug:
+        description: "Enable debug logging"
+        required: false
+        type: boolean
 
 jobs:
   mirror-images:
@@ -29,10 +34,14 @@ jobs:
 
       - name: Install regsync
         run: |
-          curl --silent --fail --location --output regsync https://github.com/regclient/regclient/releases/download/v0.5.1/regsync-linux-amd64
+          curl --silent --fail --location --output regsync https://github.com/regclient/regclient/releases/download/v0.8.3/regsync-linux-amd64
           chmod +x regsync
 
       - name: Sync Container Images
         run: |
           export PATH=$PATH:$(pwd)
-          time regsync once --logopt json --missing --config regsync.yaml
+          if [ "${{ inputs.debug }}" = "true" ]; then
+            time regsync once --logopt json --missing --config regsync.yaml --verbosity debug
+          else
+            time regsync once --logopt json --missing --config regsync.yaml
+          fi
