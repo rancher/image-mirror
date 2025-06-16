@@ -1,8 +1,9 @@
 package config
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestImageAccumulator(t *testing.T) {
@@ -24,8 +25,13 @@ func TestImageAccumulator(t *testing.T) {
 			if !assert.Len(t, imageList, 2) {
 				return
 			}
-			assert.False(t, imageList[0].DoNotMirror)
-			assert.True(t, imageList[1].DoNotMirror)
+			if imageList[0].Tags[0] == "test1" {
+				assert.False(t, imageList[0].DoNotMirror)
+				assert.True(t, imageList[1].DoNotMirror)
+			} else {
+				assert.True(t, imageList[0].DoNotMirror)
+				assert.False(t, imageList[1].DoNotMirror)
+			}
 		})
 
 		t.Run("should correctly accumulate multiple images", func(t *testing.T) {
