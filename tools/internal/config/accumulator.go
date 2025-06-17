@@ -6,7 +6,6 @@ import (
 )
 
 type imageIndex struct {
-	DoNotMirror     bool
 	SourceImage     string
 	TargetImageName string
 }
@@ -24,7 +23,6 @@ func NewImageAccumulator() *ImageAccumulator {
 func (ia *ImageAccumulator) AddImages(newImages ...*Image) {
 	for _, newImage := range newImages {
 		pair := imageIndex{
-			DoNotMirror:     newImage.DoNotMirror,
 			SourceImage:     newImage.SourceImage,
 			TargetImageName: newImage.TargetImageName(),
 		}
@@ -48,7 +46,6 @@ func (ia *ImageAccumulator) AddImages(newImages ...*Image) {
 // "difference" terminology comes from set theory.
 func (ia *ImageAccumulator) TagDifference(image *Image) (*Image, error) {
 	index := imageIndex{
-		DoNotMirror:     image.DoNotMirror,
 		SourceImage:     image.SourceImage,
 		TargetImageName: image.TargetImageName(),
 	}

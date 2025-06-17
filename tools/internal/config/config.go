@@ -20,7 +20,7 @@ type Config struct {
 type Image struct {
 	// If true, the Image is not mirrored i.e. it is not added to the
 	// regsync config when the regsync config is generated.
-	DoNotMirror bool `json:",omitempty"`
+	DoNotMirror any `json:",omitempty"`
 	// The source image without any tags.
 	SourceImage            string
 	defaultTargetImageName string
@@ -127,9 +127,6 @@ func (config *Config) ToRegsyncConfig() (regsync.Config, error) {
 		regsyncYaml.Creds = append(regsyncYaml.Creds, credEntry)
 	}
 	for _, image := range config.Images {
-		if image.DoNotMirror {
-			continue
-		}
 		for _, repo := range config.Repositories {
 			if !repo.Target {
 				continue
@@ -154,6 +151,13 @@ func (config *Config) ToRegsyncConfig() (regsync.Config, error) {
 func convertConfigImageToRegsyncImages(repo Repository, image *Image) ([]regsync.ConfigSync, error) {
 	entries := make([]regsync.ConfigSync, 0, len(image.Tags))
 	for _, tag := range image.Tags {
+		doNotMirror, err := image.DoNotMirrorTag(tag)
+		if err != nil {
+			return nil, fmt.Errorf("failed to determine whether tag %q should be mirrored: %w", tag, err)
+		}
+		if doNotMirror {
+			continue
+		}
 		sourceImage := image.SourceImage + ":" + tag
 		targetImage := repo.BaseUrl + "/" + image.TargetImageName() + ":" + tag
 		entry := regsync.ConfigSync{
@@ -235,4 +239,26 @@ func (image *Image) CombineSourceImageAndTags() []string {
 		fullImages = append(fullImages, fullImage)
 	}
 	return fullImages
+}
+
+func (image *Image) DoNotMirrorTag(tag string) (bool, error) {
+	switch val := image.DoNotMirror.(type) {
+	case nil:
+		return false, nil
+	case bool:
+		return val, nil
+	case []any:
+		for _, valPart := range val {
+			blacklistedTag, ok := valPart.(string)
+			if !ok {
+				return false, fmt.Errorf("failed to cast %v to string", valPart)
+			}
+			if blacklistedTag == tag {
+				return true, nil
+			}
+		}
+		return false, nil
+	default:
+		return false, nil
+	}
 }

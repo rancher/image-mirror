@@ -70,3 +70,51 @@ func TestGetRegsyncEntries(t *testing.T) {
 		})
 	}
 }
+
+func TestImage(t *testing.T) {
+	t.Run("DoNotMirrorTag", func(t *testing.T) {
+		t.Run("should always return true when DoNotMirror is nil", func(t *testing.T) {
+			image, err := NewImage("test/test", []string{"tag1"})
+			assert.NoError(t, err)
+			doNotMirror, err := image.DoNotMirrorTag("tag1")
+			assert.NoError(t, err)
+			assert.False(t, doNotMirror)
+		})
+
+		t.Run("should return true when DoNotMirror is true", func(t *testing.T) {
+			image, err := NewImage("test/test", []string{"tag1"})
+			assert.NoError(t, err)
+			image.DoNotMirror = true
+			doNotMirror, err := image.DoNotMirrorTag("tag1")
+			assert.NoError(t, err)
+			assert.True(t, doNotMirror)
+		})
+
+		t.Run("should return false when DoNotMirror is false", func(t *testing.T) {
+			image, err := NewImage("test/test", []string{"tag1"})
+			assert.NoError(t, err)
+			image.DoNotMirror = false
+			doNotMirror, err := image.DoNotMirrorTag("tag1")
+			assert.NoError(t, err)
+			assert.False(t, doNotMirror)
+		})
+
+		t.Run("should return true when DoNotMirror is string slice and contains tag", func(t *testing.T) {
+			image, err := NewImage("test/test", []string{"tag1"})
+			assert.NoError(t, err)
+			image.DoNotMirror = []any{"tag1"}
+			doNotMirror, err := image.DoNotMirrorTag("tag1")
+			assert.NoError(t, err)
+			assert.True(t, doNotMirror)
+		})
+
+		t.Run("should return false when DoNotMirror is string slice and does not contain tag", func(t *testing.T) {
+			image, err := NewImage("test/test", []string{"tag1", "tag2"})
+			assert.NoError(t, err)
+			image.DoNotMirror = []any{"tag1"}
+			doNotMirror, err := image.DoNotMirrorTag("tag2")
+			assert.NoError(t, err)
+			assert.False(t, doNotMirror)
+		})
+	})
+}

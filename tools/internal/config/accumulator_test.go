@@ -8,32 +8,6 @@ import (
 
 func TestImageAccumulator(t *testing.T) {
 	t.Run("AddImage", func(t *testing.T) {
-		t.Run("should not combine identical Images with different DoNotMirror fields", func(t *testing.T) {
-			accumulator := NewImageAccumulator()
-
-			image1, err := NewImage("test-org/test-image", []string{"test1"})
-			assert.NoError(t, err)
-			accumulator.AddImages(image1)
-
-			image2, err := NewImage("test-org/test-image", []string{"test2"})
-			assert.NoError(t, err)
-			image2.DoNotMirror = true
-			accumulator.AddImages(image2)
-
-			imageList := accumulator.Images()
-
-			if !assert.Len(t, imageList, 2) {
-				return
-			}
-			if imageList[0].Tags[0] == "test1" {
-				assert.False(t, imageList[0].DoNotMirror)
-				assert.True(t, imageList[1].DoNotMirror)
-			} else {
-				assert.True(t, imageList[0].DoNotMirror)
-				assert.False(t, imageList[1].DoNotMirror)
-			}
-		})
-
 		t.Run("should correctly accumulate multiple images", func(t *testing.T) {
 			image1, err := NewImage("test-org/image1", []string{"test1"})
 			assert.NoError(t, err)
