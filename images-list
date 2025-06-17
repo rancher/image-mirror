@@ -11,11 +11,6 @@ ghcr.io/kube-vip/kube-vip-iptables rancher/mirrored-kube-vip-kube-vip-iptables v
 ghcr.io/kube-vip/kube-vip-iptables rancher/mirrored-kube-vip-kube-vip-iptables v0.8.9
 ghcr.io/kube-vip/kube-vip-iptables rancher/mirrored-kube-vip-kube-vip-iptables v0.8.10
 ghcr.io/kube-vip/kube-vip-iptables rancher/mirrored-kube-vip-kube-vip-iptables v0.9.0
-idealista/prom2teams rancher/mirrored-idealista-prom2teams 3.2.1
-idealista/prom2teams rancher/mirrored-idealista-prom2teams 3.2.2
-idealista/prom2teams rancher/mirrored-idealista-prom2teams 3.2.3
-idealista/prom2teams rancher/mirrored-idealista-prom2teams 4.2.0
-idealista/prom2teams rancher/mirrored-idealista-prom2teams 4.2.1
 library/traefik rancher/library-traefik 2.4.2
 library/traefik rancher/library-traefik 2.4.8
 library/traefik rancher/library-traefik 2.4.9

@@ -444,6 +444,13 @@ Images:
   - 3.12.3
   - 3.12.6
   - 3.8.0
+- SourceImage: idealista/prom2teams
+  Tags:
+  - 3.2.1
+  - 3.2.2
+  - 3.2.3
+  - 4.2.0
+  - 4.2.1
 - SourceImage: istio/citadel
   Tags:
   - 1.5.9

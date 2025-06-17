@@ -12,6 +12,12 @@
   Name: flannel-cni-plugin
 - GithubLatestRelease:
     Images:
+    - idealista/prom2teams
+    Owner: idealista
+    Repository: prom2teams
+  Name: prom2teams
+- GithubLatestRelease:
+    Images:
     - sonobuoy/sonobuoy
     Owner: vmware-tanzu
     Repository: sonobuoy

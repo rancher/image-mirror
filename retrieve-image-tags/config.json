@@ -35,12 +35,6 @@
     "versionFilter": "^3\\.[0-9]+\\.[0-9]+$",
     "latest": true
   },
-  "prom2teams": {
-    "images": [
-      "idealista/prom2teams"
-    ],
-    "versionSource": "github-latest-release:idealista/prom2teams"
-  },
   "vsphere-csi": {
     "images": [
       "registry.k8s.io/csi-vsphere/driver",
