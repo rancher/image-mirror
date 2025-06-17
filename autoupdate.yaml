@@ -10,3 +10,9 @@
     Owner: flannel-io
     Repository: cni-plugin
   Name: flannel-cni-plugin
+- GithubLatestRelease:
+    Images:
+    - sonobuoy/sonobuoy
+    Owner: vmware-tanzu
+    Repository: sonobuoy
+  Name: sonobuoy
