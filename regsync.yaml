@@ -10,6 +10,7 @@ creds:
   user: '{{ env "APPCO_USERNAME" }}'
 - pass: '{{ env "PRIME_PASSWORD" }}'
   registry: registry.suse.com
+  repoAuth: true
   user: '{{ env "PRIME_USERNAME" }}'
 defaults:
   userAgent: rancher-image-mirror
