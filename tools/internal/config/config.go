@@ -135,7 +135,7 @@ func (config *Config) ToRegsyncConfig() (regsync.Config, error) {
 			if image.SourceImage == repo.BaseUrl+"/"+image.TargetImageName() {
 				continue
 			}
-			syncEntries, err := convertConfigImageToRegsyncImages(repo, image)
+			syncEntries, err := image.ToRegsyncImages(repo)
 			if err != nil {
 				return regsync.Config{}, fmt.Errorf("failed to convert Image with SourceImage %q: %w", image.SourceImage, err)
 			}
@@ -145,10 +145,10 @@ func (config *Config) ToRegsyncConfig() (regsync.Config, error) {
 	return regsyncYaml, nil
 }
 
-// convertConfigImageToRegsyncImages converts image into one ConfigSync (i.e. an
-// image for regsync to sync) for each tag present in image. repo provides the
-// target repository for each ConfigSync.
-func convertConfigImageToRegsyncImages(repo Repository, image *Image) ([]regsync.ConfigSync, error) {
+// ToRegsyncImages converts image into one ConfigSync (i.e. an image
+// for regsync to sync) for each tag present in image. repo provides
+// the target repository for each ConfigSync.
+func (image *Image) ToRegsyncImages(repo Repository) ([]regsync.ConfigSync, error) {
 	entries := make([]regsync.ConfigSync, 0, len(image.Tags))
 	for _, tag := range image.Tags {
 		doNotMirror, err := image.DoNotMirrorTag(tag)
