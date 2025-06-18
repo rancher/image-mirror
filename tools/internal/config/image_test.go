@@ -117,4 +117,25 @@ func TestImage(t *testing.T) {
 			assert.False(t, doNotMirror)
 		})
 	})
+
+	t.Run("Validate", func(t *testing.T) {
+		t.Run("should return error for invalid DoNotMirror type", func(t *testing.T) {
+			image, err := NewImage("test/test", []string{"tag1"})
+			assert.NoError(t, err)
+			image.DoNotMirror = 1234
+			err = image.Validate()
+			assert.ErrorContains(t, err, "DoNotMirror must be nil, bool, or []any")
+		})
+
+		t.Run("should return nil for valid DoNotMirror type", func(t *testing.T) {
+			image, err := NewImage("test/test", []string{"tag1"})
+			assert.NoError(t, err)
+			doNotMirrorValues := []any{nil, true, []any{"tag1", "tag2"}}
+			for _, doNotMirrorValue := range doNotMirrorValues {
+				image.DoNotMirror = doNotMirrorValue
+				err := image.Validate()
+				assert.NoError(t, err)
+			}
+		})
+	})
 }

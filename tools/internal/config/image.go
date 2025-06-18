@@ -1,6 +1,7 @@
 package config
 
 import (
+	"errors"
 	"fmt"
 	"slices"
 	"strings"
@@ -59,6 +60,17 @@ func (image *Image) setDefaults() error {
 		imageName := parts[len(parts)-1]
 		image.defaultTargetImageName = "mirrored-" + repoName + "-" + imageName
 	}
+	return nil
+}
+
+func (image *Image) Validate() error {
+	isNil := image.DoNotMirror == nil
+	_, isBool := image.DoNotMirror.(bool)
+	_, isAnySlice := image.DoNotMirror.([]any)
+	if !isNil && !isBool && !isAnySlice {
+		return errors.New("DoNotMirror must be nil, bool, or []any")
+	}
+
 	return nil
 }
 
