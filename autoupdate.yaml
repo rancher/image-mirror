@@ -10,3 +10,21 @@
     Owner: flannel-io
     Repository: cni-plugin
   Name: flannel-cni-plugin
+- GithubLatestRelease:
+    Images:
+    - ghcr.io/kube-vip/kube-vip-iptables
+    Owner: kube-vip
+    Repository: kube-vip
+  Name: kube-vip-iptables
+- GithubLatestRelease:
+    Images:
+    - idealista/prom2teams
+    Owner: idealista
+    Repository: prom2teams
+  Name: prom2teams
+- GithubLatestRelease:
+    Images:
+    - sonobuoy/sonobuoy
+    Owner: vmware-tanzu
+    Repository: sonobuoy
+  Name: sonobuoy
