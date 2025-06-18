@@ -35,12 +35,6 @@
     "versionFilter": "^3\\.[0-9]+\\.[0-9]+$",
     "latest": true
   },
-  "csi-snapshotter": {
-    "images": [
-      "registry.k8s.io/sig-storage/csi-snapshotter"
-    ],
-    "versionSource": "github-latest-release:kubernetes-csi/external-snapshotter"
-  },
   "longhorn": {
     "imagesFilePath": "deploy/longhorn-images.txt",
     "versionSource": "github-tagged-images-file:longhorn/longhorn",

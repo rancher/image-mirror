@@ -1244,11 +1244,3 @@ registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere rancher/mirrored-cloud-p
 registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere rancher/mirrored-cloud-provider-vsphere v1.32.1
 registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere rancher/mirrored-cloud-provider-vsphere v1.32.2
 registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere rancher/mirrored-cloud-provider-vsphere v1.33.0
-registry.k8s.io/sig-storage/csi-snapshotter rancher/mirrored-sig-storage-csi-snapshotter v5.0.1
-registry.k8s.io/sig-storage/csi-snapshotter rancher/mirrored-sig-storage-csi-snapshotter v6.0.1
-registry.k8s.io/sig-storage/csi-snapshotter rancher/mirrored-sig-storage-csi-snapshotter v6.2.1
-registry.k8s.io/sig-storage/csi-snapshotter rancher/mirrored-sig-storage-csi-snapshotter v6.2.2
-registry.k8s.io/sig-storage/csi-snapshotter rancher/mirrored-sig-storage-csi-snapshotter v7.0.1
-registry.k8s.io/sig-storage/csi-snapshotter rancher/mirrored-sig-storage-csi-snapshotter v7.0.2
-registry.k8s.io/sig-storage/csi-snapshotter rancher/mirrored-sig-storage-csi-snapshotter v8.1.0
-registry.k8s.io/sig-storage/csi-snapshotter rancher/mirrored-sig-storage-csi-snapshotter v8.2.0

@@ -24,6 +24,12 @@
   Name: csi-resizer
 - GithubLatestRelease:
     Images:
+    - registry.k8s.io/sig-storage/csi-snapshotter
+    Owner: kubernetes-csi
+    Repository: external-snapshotter
+  Name: csi-snapshotter
+- GithubLatestRelease:
+    Images:
     - flannel/flannel
     Owner: flannel-io
     Repository: flannel
