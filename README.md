@@ -56,6 +56,7 @@ repository.
 
 | Field | Required | Description |
 | ------------- | ------------- |------------- |
+| `DoNotMirror` | no | Set to `true` to exclude the entire image from regsync.yaml. Alternatively, set to an array of strings to specify tags to exclude from regsync.yaml.
 | `SourceImage` | yes | The source image. If there is no host, the image is assumed to be from Docker Hub.
 | `Tags` | yes | The tags to mirror.
 | `TargetImageName` | no | By default, the target image name is derived from the source image, and is of the format `mirrored-<org>-<name>`. For example, `banzaicloud/logging-operator` becomes `mirrored-banzaicloud-logging-operator`. However, there are some images that do not follow this convention - this field exists for these cases. New images should not set this field.
