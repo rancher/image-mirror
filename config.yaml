@@ -1219,5 +1219,6 @@ Repositories:
 - BaseUrl: registry.suse.com/rancher
   Password: '{{ env "PRIME_PASSWORD" }}'
   Registry: registry.suse.com
+  RepoAuth: true
   Target: true
   Username: '{{ env "PRIME_USERNAME" }}'

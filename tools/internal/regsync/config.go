@@ -28,10 +28,11 @@ type Config struct {
 // ConfigCred specifies the details for a registry that container images may
 // be pulled from or pushed to.
 type ConfigCred struct {
-	Registry      string `json:"registry"`
-	User          string `json:"user"`
 	Pass          string `json:"pass"`
+	Registry      string `json:"registry"`
+	RepoAuth      bool   `json:"repoAuth,omitempty"`
 	ReqConcurrent int    `json:"reqConcurrent,omitempty"`
+	User          string `json:"user"`
 }
 
 type ConfigDefaults struct {

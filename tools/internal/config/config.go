@@ -51,6 +51,10 @@ type Repository struct {
 	// for this repository. For more information please see
 	// https://github.com/regclient/regclient/blob/main/docs/regsync.md
 	Registry string
+	// RepoAuth goes into the "repoAuth" field of regsync.yaml in this
+	// repository. For more information please see
+	// https://github.com/regclient/regclient/blob/main/docs/regsync.md
+	RepoAuth bool `json:",omitempty"`
 	// ReqConcurrent is what goes into the "reqConcurrent" field of
 	// regsync.yaml for this repository. For more information please see
 	// https://github.com/regclient/regclient/blob/main/docs/regsync.md
@@ -116,6 +120,7 @@ func (config *Config) ToRegsyncConfig() (regsync.Config, error) {
 		credEntry := regsync.ConfigCred{
 			Pass:          targetRepository.Password,
 			Registry:      targetRepository.Registry,
+			RepoAuth:      targetRepository.RepoAuth,
 			ReqConcurrent: targetRepository.ReqConcurrent,
 			User:          targetRepository.Username,
 		}
