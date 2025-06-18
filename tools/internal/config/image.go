@@ -86,7 +86,7 @@ func (image *Image) CombineSourceImageAndTags() []string {
 	return fullImages
 }
 
-func (image *Image) DoNotMirrorTag(tag string) (bool, error) {
+func (image *Image) doNotMirrorTag(tag string) (bool, error) {
 	switch val := image.DoNotMirror.(type) {
 	case nil:
 		return false, nil
@@ -114,7 +114,7 @@ func (image *Image) DoNotMirrorTag(tag string) (bool, error) {
 func (image *Image) ToRegsyncImages(repo Repository) ([]regsync.ConfigSync, error) {
 	entries := make([]regsync.ConfigSync, 0, len(image.Tags))
 	for _, tag := range image.Tags {
-		doNotMirror, err := image.DoNotMirrorTag(tag)
+		doNotMirror, err := image.doNotMirrorTag(tag)
 		if err != nil {
 			return nil, fmt.Errorf("failed to determine whether tag %q should be mirrored: %w", tag, err)
 		}

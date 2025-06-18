@@ -76,7 +76,7 @@ func TestImage(t *testing.T) {
 		t.Run("should always return true when DoNotMirror is nil", func(t *testing.T) {
 			image, err := NewImage("test/test", []string{"tag1"})
 			assert.NoError(t, err)
-			doNotMirror, err := image.DoNotMirrorTag("tag1")
+			doNotMirror, err := image.doNotMirrorTag("tag1")
 			assert.NoError(t, err)
 			assert.False(t, doNotMirror)
 		})
@@ -85,7 +85,7 @@ func TestImage(t *testing.T) {
 			image, err := NewImage("test/test", []string{"tag1"})
 			assert.NoError(t, err)
 			image.DoNotMirror = true
-			doNotMirror, err := image.DoNotMirrorTag("tag1")
+			doNotMirror, err := image.doNotMirrorTag("tag1")
 			assert.NoError(t, err)
 			assert.True(t, doNotMirror)
 		})
@@ -94,7 +94,7 @@ func TestImage(t *testing.T) {
 			image, err := NewImage("test/test", []string{"tag1"})
 			assert.NoError(t, err)
 			image.DoNotMirror = false
-			doNotMirror, err := image.DoNotMirrorTag("tag1")
+			doNotMirror, err := image.doNotMirrorTag("tag1")
 			assert.NoError(t, err)
 			assert.False(t, doNotMirror)
 		})
@@ -103,7 +103,7 @@ func TestImage(t *testing.T) {
 			image, err := NewImage("test/test", []string{"tag1"})
 			assert.NoError(t, err)
 			image.DoNotMirror = []any{"tag1"}
-			doNotMirror, err := image.DoNotMirrorTag("tag1")
+			doNotMirror, err := image.doNotMirrorTag("tag1")
 			assert.NoError(t, err)
 			assert.True(t, doNotMirror)
 		})
@@ -112,7 +112,7 @@ func TestImage(t *testing.T) {
 			image, err := NewImage("test/test", []string{"tag1", "tag2"})
 			assert.NoError(t, err)
 			image.DoNotMirror = []any{"tag1"}
-			doNotMirror, err := image.DoNotMirrorTag("tag2")
+			doNotMirror, err := image.doNotMirrorTag("tag2")
 			assert.NoError(t, err)
 			assert.False(t, doNotMirror)
 		})
