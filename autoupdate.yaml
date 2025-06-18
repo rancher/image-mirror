@@ -48,6 +48,12 @@
   Name: sonobuoy
 - GithubLatestRelease:
     Images:
+    - registry.k8s.io/sig-storage/livenessprobe
+    Owner: kubernetes-csi
+    Repository: livenessprobe
+  Name: storage-livenessprobe
+- GithubLatestRelease:
+    Images:
     - registry.k8s.io/csi-vsphere/driver
     - registry.k8s.io/csi-vsphere/syncer
     Owner: kubernetes-sigs

@@ -1280,14 +1280,3 @@ registry.k8s.io/sig-storage/csi-snapshotter rancher/mirrored-sig-storage-csi-sna
 registry.k8s.io/sig-storage/csi-snapshotter rancher/mirrored-sig-storage-csi-snapshotter v7.0.2
 registry.k8s.io/sig-storage/csi-snapshotter rancher/mirrored-sig-storage-csi-snapshotter v8.1.0
 registry.k8s.io/sig-storage/csi-snapshotter rancher/mirrored-sig-storage-csi-snapshotter v8.2.0
-registry.k8s.io/sig-storage/livenessprobe rancher/mirrored-sig-storage-livenessprobe v2.4.0
-registry.k8s.io/sig-storage/livenessprobe rancher/mirrored-sig-storage-livenessprobe v2.6.0
-registry.k8s.io/sig-storage/livenessprobe rancher/mirrored-sig-storage-livenessprobe v2.7.0
-registry.k8s.io/sig-storage/livenessprobe rancher/mirrored-sig-storage-livenessprobe v2.8.0
-registry.k8s.io/sig-storage/livenessprobe rancher/mirrored-sig-storage-livenessprobe v2.9.0
-registry.k8s.io/sig-storage/livenessprobe rancher/mirrored-sig-storage-livenessprobe v2.10.0
-registry.k8s.io/sig-storage/livenessprobe rancher/mirrored-sig-storage-livenessprobe v2.11.0
-registry.k8s.io/sig-storage/livenessprobe rancher/mirrored-sig-storage-livenessprobe v2.12.0
-registry.k8s.io/sig-storage/livenessprobe rancher/mirrored-sig-storage-livenessprobe v2.14.0
-registry.k8s.io/sig-storage/livenessprobe rancher/mirrored-sig-storage-livenessprobe v2.15.0
-registry.k8s.io/sig-storage/livenessprobe rancher/mirrored-sig-storage-livenessprobe v2.16.0
