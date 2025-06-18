@@ -35,12 +35,6 @@
     "versionFilter": "^3\\.[0-9]+\\.[0-9]+$",
     "latest": true
   },
-  "snapshot-controller": {
-    "images": [
-      "registry.k8s.io/sig-storage/snapshot-controller"
-    ],
-    "versionSource": "github-latest-release:kubernetes-csi/external-snapshotter"
-  },
   "storage-livenessprobe": {
     "images": [
       "registry.k8s.io/sig-storage/livenessprobe"

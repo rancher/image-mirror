@@ -36,6 +36,12 @@
   Name: prom2teams
 - GithubLatestRelease:
     Images:
+    - registry.k8s.io/sig-storage/snapshot-controller
+    Owner: kubernetes-csi
+    Repository: external-snapshotter
+  Name: snapshot-controller
+- GithubLatestRelease:
+    Images:
     - sonobuoy/sonobuoy
     Owner: vmware-tanzu
     Repository: sonobuoy

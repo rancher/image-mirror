@@ -1187,6 +1187,12 @@ Images:
   - v1.9.0
   - v1.9.1
   - v1.9.2
+- SourceImage: registry.k8s.io/sig-storage/snapshot-controller
+  Tags:
+  - v6.1.0
+  - v6.2.1
+  - v8.1.0
+  - v8.2.0
 - SourceImage: registry.k8s.io/sig-storage/snapshot-validation-webhook
   Tags:
   - v6.1.0
