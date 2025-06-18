@@ -1089,6 +1089,16 @@ Images:
   - v3.29.3
   - v3.30.0
   - v3.30.1
+- SourceImage: quay.io/calico/ctl
+  Tags:
+  - v3.16.5
+  - v3.16.6
+  - v3.17.1
+  - v3.17.2
+  - v3.18.1
+  - v3.19.1
+  - v3.19.2
+  TargetImageName: calico-ctl
 - SourceImage: rancher/cluster-proportional-autoscaler
   Tags:
   - 1.7.1
@@ -1367,6 +1377,11 @@ Images:
   - 15.6.19.1
   - 15.6.24.2
   TargetImageName: mirrored-bci-micro
+- DoNotMirror: true
+  SourceImage: registry.suse.com/rancher/elemental-operator
+  Tags:
+  - 1.3.4
+  TargetImageName: mirrored-elemental-operator
 - SourceImage: registry.suse.com/rancher/elemental-operator
   Tags:
   - 1.4.2
@@ -1377,11 +1392,6 @@ Images:
   - 1.6.5
   - 1.6.8
   - 1.6.9
-  TargetImageName: mirrored-elemental-operator
-- DoNotMirror: true
-  SourceImage: registry.suse.com/rancher/elemental-operator
-  Tags:
-  - 1.3.4
   TargetImageName: mirrored-elemental-operator
 - SourceImage: registry.suse.com/rancher/seedimage-builder
   Tags:
