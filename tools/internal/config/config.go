@@ -64,10 +64,6 @@ func Parse(fileName string) (Config, error) {
 		}
 	}
 
-	if err := config.Validate(); err != nil {
-		return Config{}, fmt.Errorf("config invalid: %w", err)
-	}
-
 	return config, nil
 }
 
@@ -81,17 +77,6 @@ func Write(fileName string, config Config) error {
 
 	if err := os.WriteFile(fileName, contents, 0o644); err != nil {
 		return fmt.Errorf("failed to write: %w", err)
-	}
-
-	return nil
-}
-
-func (config *Config) Validate() error {
-	for _, image := range config.Images {
-		if err := image.Validate(); err != nil {
-			return fmt.Errorf("image with SourceImage %s and TargetImageName %s failed validation: %w",
-				image.SourceImage, image.TargetImageName(), err)
-		}
 	}
 
 	return nil

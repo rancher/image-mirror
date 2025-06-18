@@ -72,59 +72,29 @@ func TestImage(t *testing.T) {
 		}
 	})
 
-	t.Run("DoNotMirrorTag", func(t *testing.T) {
-		t.Run("should always return true when DoNotMirror is nil", func(t *testing.T) {
-			image, err := NewImage("test/test", []string{"tag1"})
-			assert.NoError(t, err)
-			doNotMirror, err := image.doNotMirrorTag("tag1")
-			assert.NoError(t, err)
-			assert.False(t, doNotMirror)
-		})
-
-		t.Run("should return true when DoNotMirror is true", func(t *testing.T) {
-			image, err := NewImage("test/test", []string{"tag1"})
-			assert.NoError(t, err)
-			image.DoNotMirror = true
-			doNotMirror, err := image.doNotMirrorTag("tag1")
-			assert.NoError(t, err)
-			assert.True(t, doNotMirror)
-		})
-
-		t.Run("should return false when DoNotMirror is false", func(t *testing.T) {
-			image, err := NewImage("test/test", []string{"tag1"})
-			assert.NoError(t, err)
-			image.DoNotMirror = false
-			doNotMirror, err := image.doNotMirrorTag("tag1")
-			assert.NoError(t, err)
-			assert.False(t, doNotMirror)
-		})
-
-		t.Run("should return true when DoNotMirror is string slice and contains tag", func(t *testing.T) {
-			image, err := NewImage("test/test", []string{"tag1"})
-			assert.NoError(t, err)
-			image.DoNotMirror = []any{"tag1"}
-			doNotMirror, err := image.doNotMirrorTag("tag1")
-			assert.NoError(t, err)
-			assert.True(t, doNotMirror)
-		})
-
-		t.Run("should return false when DoNotMirror is string slice and does not contain tag", func(t *testing.T) {
-			image, err := NewImage("test/test", []string{"tag1", "tag2"})
-			assert.NoError(t, err)
-			image.DoNotMirror = []any{"tag1"}
-			doNotMirror, err := image.doNotMirrorTag("tag2")
-			assert.NoError(t, err)
-			assert.False(t, doNotMirror)
-		})
-	})
-
-	t.Run("Validate", func(t *testing.T) {
+	t.Run("setDefaults", func(t *testing.T) {
 		t.Run("should return error for invalid DoNotMirror type", func(t *testing.T) {
 			image, err := NewImage("test/test", []string{"tag1"})
 			assert.NoError(t, err)
 			image.DoNotMirror = 1234
-			err = image.Validate()
+			err = image.setDefaults()
 			assert.ErrorContains(t, err, "DoNotMirror must be nil, bool, or []any")
+		})
+
+		t.Run("should return error when DoNotMirror has invalid element type", func(t *testing.T) {
+			image, err := NewImage("test/test", []string{"tag1"})
+			assert.NoError(t, err)
+			image.DoNotMirror = []any{"asdf", 1234, "qwer123"}
+			err = image.setDefaults()
+			assert.Errorf(t, err, "failed to cast %v to string", 1234)
+		})
+
+		t.Run("should return error when DoNotMirror has a duplicated element", func(t *testing.T) {
+			image, err := NewImage("test/test", []string{"tag1"})
+			assert.NoError(t, err)
+			image.DoNotMirror = []any{"asdf", "qwer", "asdf"}
+			err = image.setDefaults()
+			assert.Error(t, err, "DoNotMirror entry asdf is duplicated")
 		})
 
 		t.Run("should return nil for valid DoNotMirror type", func(t *testing.T) {
@@ -133,7 +103,7 @@ func TestImage(t *testing.T) {
 			doNotMirrorValues := []any{nil, true, []any{"tag1", "tag2"}}
 			for _, doNotMirrorValue := range doNotMirrorValues {
 				image.DoNotMirror = doNotMirrorValue
-				err := image.Validate()
+				err := image.setDefaults()
 				assert.NoError(t, err)
 			}
 		})
