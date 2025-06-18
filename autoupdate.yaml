@@ -1,5 +1,11 @@
 - GithubLatestRelease:
     Images:
+    - registry.k8s.io/sig-storage/csi-attacher
+    Owner: kubernetes-csi
+    Repository: external-attacher
+  Name: csi-attacher
+- GithubLatestRelease:
+    Images:
     - flannel/flannel
     Owner: flannel-io
     Repository: flannel
