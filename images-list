@@ -419,11 +419,6 @@ longhornio/support-bundle-kit rancher/mirrored-longhornio-support-bundle-kit v0.
 longhornio/support-bundle-kit rancher/mirrored-longhornio-support-bundle-kit v0.0.56
 quay.io/brancz/kube-rbac-proxy rancher/mirrored-brancz-kube-rbac-proxy v0.18.0
 quay.io/brancz/kube-rbac-proxy rancher/mirrored-brancz-kube-rbac-proxy v0.18.2
-quay.io/calico/cni rancher/calico-cni v3.16.5
-quay.io/calico/cni rancher/calico-cni v3.16.6
-quay.io/calico/cni rancher/calico-cni v3.17.1
-quay.io/calico/cni rancher/calico-cni v3.17.2
-quay.io/calico/cni rancher/calico-cni v3.18.1
 quay.io/calico/cni rancher/mirrored-calico-cni v3.13.4
 quay.io/calico/cni rancher/mirrored-calico-cni v3.16.5
 quay.io/calico/cni rancher/mirrored-calico-cni v3.17.2
