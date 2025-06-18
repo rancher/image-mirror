@@ -6,6 +6,12 @@
   Name: csi-attacher
 - GithubLatestRelease:
     Images:
+    - registry.k8s.io/sig-storage/csi-node-driver-registrar
+    Owner: kubernetes-csi
+    Repository: node-driver-registrar
+  Name: csi-driver-registrar
+- GithubLatestRelease:
+    Images:
     - registry.k8s.io/sig-storage/csi-provisioner
     Owner: kubernetes-csi
     Repository: external-provisioner

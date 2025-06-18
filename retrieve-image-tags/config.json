@@ -35,12 +35,6 @@
     "versionFilter": "^3\\.[0-9]+\\.[0-9]+$",
     "latest": true
   },
-  "csi-driver-registrar": {
-    "images": [
-      "registry.k8s.io/sig-storage/csi-node-driver-registrar"
-    ],
-    "versionSource": "github-latest-release:kubernetes-csi/node-driver-registrar"
-  },
   "csi-snapshotter": {
     "images": [
       "registry.k8s.io/sig-storage/csi-snapshotter"
