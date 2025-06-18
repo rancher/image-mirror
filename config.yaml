@@ -1173,6 +1173,20 @@ Images:
   - v4.8.0
   - v4.8.1
   - v4.9.0
+- SourceImage: registry.k8s.io/sig-storage/csi-resizer
+  Tags:
+  - v1.10.0
+  - v1.10.1
+  - v1.13.1
+  - v1.13.2
+  - v1.3.0
+  - v1.4.0
+  - v1.6.0
+  - v1.7.0
+  - v1.8.0
+  - v1.9.0
+  - v1.9.1
+  - v1.9.2
 - SourceImage: registry.k8s.io/sig-storage/snapshot-validation-webhook
   Tags:
   - v6.1.0
