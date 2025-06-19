@@ -1178,11 +1178,6 @@ Images:
   - 1.6.8
   - 1.6.9
   TargetImageName: mirrored-elemental-operator
-- DoNotMirror: true
-  SourceImage: registry.suse.com/rancher/elemental-operator
-  Tags:
-  - 1.3.4
-  TargetImageName: mirrored-elemental-operator
 - SourceImage: registry.suse.com/rancher/seedimage-builder
   Tags:
   - 1.3.4
