@@ -1326,3 +1326,4 @@ registry.k8s.io/sig-storage/snapshot-controller rancher/mirrored-sig-storage-sna
 registry.k8s.io/sig-storage/snapshot-controller rancher/mirrored-sig-storage-snapshot-controller v6.2.1
 registry.k8s.io/sig-storage/snapshot-controller rancher/mirrored-sig-storage-snapshot-controller v8.1.0
 registry.k8s.io/sig-storage/snapshot-controller rancher/mirrored-sig-storage-snapshot-controller v8.2.0
+registry.k8s.io/sig-storage/snapshot-controller rancher/mirrored-sig-storage-snapshot-controller v8.3.0
