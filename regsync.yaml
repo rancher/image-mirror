@@ -3962,6 +3962,9 @@ sync:
 - source: rancher/nginx-ingress-controller-defaultbackend:1.5-rancher2
   target: registry.suse.com/rancher/mirrored-nginx-ingress-controller-defaultbackend:1.5-rancher2
   type: image
+- source: registry.k8s.io/cluster-api/cluster-api-controller:v1.10.2
+  target: docker.io/rancher/mirrored-cluster-api-controller:v1.10.2
+  type: image
 - source: registry.k8s.io/cluster-api/cluster-api-controller:v1.4.4
   target: docker.io/rancher/mirrored-cluster-api-controller:v1.4.4
   type: image
@@ -3987,7 +3990,7 @@ sync:
   target: docker.io/rancher/mirrored-cluster-api-controller:v1.9.5
   type: image
 - source: registry.k8s.io/cluster-api/cluster-api-controller:v1.10.2
-  target: docker.io/rancher/mirrored-cluster-api-controller:v1.10.2
+  target: registry.suse.com/rancher/mirrored-cluster-api-controller:v1.10.2
   type: image
 - source: registry.k8s.io/cluster-api/cluster-api-controller:v1.4.4
   target: registry.suse.com/rancher/mirrored-cluster-api-controller:v1.4.4
@@ -4012,9 +4015,6 @@ sync:
   type: image
 - source: registry.k8s.io/cluster-api/cluster-api-controller:v1.9.5
   target: registry.suse.com/rancher/mirrored-cluster-api-controller:v1.9.5
-  type: image
-- source: registry.k8s.io/cluster-api/cluster-api-controller:v1.10.2
-  target: registry.suse.com/rancher/mirrored-cluster-api-controller:v1.10.2
   type: image
 - source: registry.k8s.io/cpa/cluster-proportional-autoscaler:1.8.3
   target: docker.io/rancher/mirrored-cluster-proportional-autoscaler:1.8.3

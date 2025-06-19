@@ -1001,6 +1001,7 @@ Images:
   TargetImageName: mirrored-nginx-ingress-controller-defaultbackend
 - SourceImage: registry.k8s.io/cluster-api/cluster-api-controller
   Tags:
+  - v1.10.2
   - v1.4.4
   - v1.5.5
   - v1.6.4
@@ -1009,7 +1010,6 @@ Images:
   - v1.8.3
   - v1.9.4
   - v1.9.5
-  - v1.10.2
   TargetImageName: mirrored-cluster-api-controller
 - SourceImage: registry.k8s.io/cpa/cluster-proportional-autoscaler
   Tags:
