@@ -2,6 +2,7 @@ package autoupdate
 
 import (
 	"bytes"
+	"errors"
 	"fmt"
 	"io"
 	"os/exec"
@@ -162,4 +163,22 @@ func (hl *HelmLatest) parseImageRef(rawString string) (string, string, error) {
 	repositoryWithoutDocker := strings.TrimPrefix(repository, "docker.io/")
 
 	return repositoryWithoutDocker, tag, nil
+}
+
+func (hl *HelmLatest) Validate() error {
+	if hl.HelmRepo == "" {
+		return errors.New("must specify HelmRepo")
+	}
+
+	if len(hl.Charts) == 0 {
+		return errors.New("must specify at least one chart in Charts")
+	}
+
+	for chartName, environments := range hl.Charts {
+		if len(environments) == 0 {
+			return fmt.Errorf("chart %q must have at least one environment", chartName)
+		}
+	}
+
+	return nil
 }
