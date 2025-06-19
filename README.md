@@ -60,6 +60,29 @@ repository.
 | `Tags` | yes | The tags to mirror.
 | `TargetImageName` | no | By default, the target image name is derived from the source image, and is of the format `mirrored-<org>-<name>`. For example, `banzaicloud/logging-operator` becomes `mirrored-banzaicloud-logging-operator`. However, there are some images that do not follow this convention - this field exists for these cases. New images should not set this field.
 
+### `autoupdate.yaml` Fields
+
+`autoupdate.yaml` defines configuration for automatically updating image tags
+based on various update strategies that monitor sources for new versions. Each
+entry specifies a strategy for finding tags of images to potentially add to
+`config.yaml`, which are then submitted as pull requests.
+
+| Field | Required | Description |
+| ------------- | ------------- |------------- |
+| `Name` | yes | A unique identifier for this autoupdate entry. Used for logging and generating branch names for pull requests.
+| `GithubLatestRelease` | no | See [GithubLatestRelease](#githublatestrelease).
+
+#### `GithubLatestRelease`
+
+The `GithubLatestRelease` strategy fetches the latest release tag from a GitHub
+repository and applies it to the specified images.
+
+| Field | Required | Description |
+| ------------- | ------------- |------------- |
+| `Owner` | yes | The GitHub repository owner/organization.
+| `Repository` | yes | The GitHub repository name.
+| `Images` | yes | A list of images to be updated with the latest release tag. Each image will get the same tag as the GitHub release.
+
 
 ## Old Documentation
 
