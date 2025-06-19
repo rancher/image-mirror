@@ -137,3 +137,10 @@ func (image *Image) ToRegsyncImages(repo Repository) ([]regsync.ConfigSync, erro
 
 	return entries, nil
 }
+
+func CompareImages(a, b *Image) int {
+	if sourceImageValue := strings.Compare(a.SourceImage, b.SourceImage); sourceImageValue != 0 {
+		return sourceImageValue
+	}
+	return strings.Compare(a.TargetImageName(), b.TargetImageName())
+}

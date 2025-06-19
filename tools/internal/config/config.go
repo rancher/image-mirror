@@ -127,13 +127,6 @@ func (config *Config) ToRegsyncConfig() (regsync.Config, error) {
 	return regsyncYaml, nil
 }
 
-func CompareImages(a, b *Image) int {
-	if sourceImageValue := strings.Compare(a.SourceImage, b.SourceImage); sourceImageValue != 0 {
-		return sourceImageValue
-	}
-	return strings.Compare(a.TargetImageName(), b.TargetImageName())
-}
-
 func compareRepositories(a, b Repository) int {
 	return strings.Compare(a.BaseUrl, b.BaseUrl)
 }
