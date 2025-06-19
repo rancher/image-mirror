@@ -1035,6 +1035,16 @@ Images:
   - v1.8.9
   - v1.9.0
   TargetImageName: mirrored-cluster-proportional-autoscaler
+- SourceImage: registry.k8s.io/csi-vsphere/driver
+  Tags:
+  - v3.3.1
+  - v3.4.0
+  TargetImageName: mirrored-cloud-provider-vsphere-csi-release-driver
+- SourceImage: registry.k8s.io/csi-vsphere/syncer
+  Tags:
+  - v3.3.1
+  - v3.4.0
+  TargetImageName: mirrored-cloud-provider-vsphere-csi-release-syncer
 - SourceImage: registry.k8s.io/dns/k8s-dns-dnsmasq-nanny
   Tags:
   - 1.17.3
@@ -1146,6 +1156,98 @@ Images:
   - v0.11.2
   - v0.12.0
   - v0.9.0
+- SourceImage: registry.k8s.io/sig-storage/csi-attacher
+  Tags:
+  - v3.2.0
+  - v3.3.0
+  - v3.4.0
+  - v3.5.0
+  - v4.2.0
+  - v4.3.0
+  - v4.4.0
+  - v4.4.1
+  - v4.4.2
+  - v4.5.0
+  - v4.5.1
+  - v4.7.0
+  - v4.8.0
+  - v4.8.1
+  - v4.9.0
+- SourceImage: registry.k8s.io/sig-storage/csi-node-driver-registrar
+  Tags:
+  - v2.10.0
+  - v2.10.1
+  - v2.12.0
+  - v2.13.0
+  - v2.14.0
+  - v2.3.0
+  - v2.5.0
+  - v2.5.1
+  - v2.6.2
+  - v2.7.0
+  - v2.8.0
+  - v2.9.0
+  - v2.9.1
+- SourceImage: registry.k8s.io/sig-storage/csi-provisioner
+  Tags:
+  - v2.2.0
+  - v3.0.0
+  - v3.1.0
+  - v3.2.1
+  - v3.3.0
+  - v3.4.0
+  - v3.5.0
+  - v3.6.0
+  - v3.6.1
+  - v3.6.2
+  - v4.0.0
+  - v4.0.1
+  - v5.1.0
+  - v5.2.0
+  - v5.3.0
+- SourceImage: registry.k8s.io/sig-storage/csi-resizer
+  Tags:
+  - v1.10.0
+  - v1.10.1
+  - v1.13.1
+  - v1.13.2
+  - v1.3.0
+  - v1.4.0
+  - v1.6.0
+  - v1.7.0
+  - v1.8.0
+  - v1.9.0
+  - v1.9.1
+  - v1.9.2
+- SourceImage: registry.k8s.io/sig-storage/csi-snapshotter
+  Tags:
+  - v5.0.1
+  - v6.0.1
+  - v6.2.1
+  - v6.2.2
+  - v7.0.1
+  - v7.0.2
+  - v8.1.0
+  - v8.2.0
+- SourceImage: registry.k8s.io/sig-storage/livenessprobe
+  Tags:
+  - v2.10.0
+  - v2.11.0
+  - v2.12.0
+  - v2.14.0
+  - v2.15.0
+  - v2.16.0
+  - v2.4.0
+  - v2.6.0
+  - v2.7.0
+  - v2.8.0
+  - v2.9.0
+- SourceImage: registry.k8s.io/sig-storage/snapshot-controller
+  Tags:
+  - v6.1.0
+  - v6.2.1
+  - v8.1.0
+  - v8.2.0
 - SourceImage: registry.k8s.io/sig-storage/snapshot-validation-webhook
   Tags:
   - v6.1.0

@@ -1,5 +1,35 @@
 - GithubLatestRelease:
     Images:
+    - registry.k8s.io/sig-storage/csi-attacher
+    Owner: kubernetes-csi
+    Repository: external-attacher
+  Name: csi-attacher
+- GithubLatestRelease:
+    Images:
+    - registry.k8s.io/sig-storage/csi-node-driver-registrar
+    Owner: kubernetes-csi
+    Repository: node-driver-registrar
+  Name: csi-driver-registrar
+- GithubLatestRelease:
+    Images:
+    - registry.k8s.io/sig-storage/csi-provisioner
+    Owner: kubernetes-csi
+    Repository: external-provisioner
+  Name: csi-provisioner
+- GithubLatestRelease:
+    Images:
+    - registry.k8s.io/sig-storage/csi-resizer
+    Owner: kubernetes-csi
+    Repository: external-resizer
+  Name: csi-resizer
+- GithubLatestRelease:
+    Images:
+    - registry.k8s.io/sig-storage/csi-snapshotter
+    Owner: kubernetes-csi
+    Repository: external-snapshotter
+  Name: csi-snapshotter
+- GithubLatestRelease:
+    Images:
     - flannel/flannel
     Owner: flannel-io
     Repository: flannel
@@ -24,7 +54,26 @@
   Name: prom2teams
 - GithubLatestRelease:
     Images:
+    - registry.k8s.io/sig-storage/snapshot-controller
+    Owner: kubernetes-csi
+    Repository: external-snapshotter
+  Name: snapshot-controller
+- GithubLatestRelease:
+    Images:
     - sonobuoy/sonobuoy
     Owner: vmware-tanzu
     Repository: sonobuoy
   Name: sonobuoy
+- GithubLatestRelease:
+    Images:
+    - registry.k8s.io/sig-storage/livenessprobe
+    Owner: kubernetes-csi
+    Repository: livenessprobe
+  Name: storage-livenessprobe
+- GithubLatestRelease:
+    Images:
+    - registry.k8s.io/csi-vsphere/driver
+    - registry.k8s.io/csi-vsphere/syncer
+    Owner: kubernetes-sigs
+    Repository: vsphere-csi-driver
+  Name: vsphere-csi
