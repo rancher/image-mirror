@@ -79,8 +79,7 @@ func (image *Image) setDefaults() error {
 			if !ok {
 				return fmt.Errorf("failed to cast %v to string", valPart)
 			}
-			_, present := image.excludedTags[excludedTag]
-			if present {
+			if _, present := image.excludedTags[excludedTag]; present {
 				return fmt.Errorf("DoNotMirror entry %q is duplicated", excludedTag)
 			}
 			image.excludedTags[excludedTag] = struct{}{}
@@ -121,8 +120,11 @@ func (image *Image) CombineSourceImageAndTags() []string {
 // the target repository for each ConfigSync.
 func (image *Image) ToRegsyncImages(repo Repository) ([]regsync.ConfigSync, error) {
 	entries := make([]regsync.ConfigSync, 0, len(image.Tags))
+	if image.excludeAllTags {
+		return entries, nil
+	}
 	for _, tag := range image.Tags {
-		if _, excluded := image.excludedTags[tag]; excluded || image.excludeAllTags {
+		if _, excluded := image.excludedTags[tag]; excluded {
 			continue
 		}
 		sourceImage := image.SourceImage + ":" + tag
