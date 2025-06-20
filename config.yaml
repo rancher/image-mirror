@@ -1048,6 +1048,9 @@ Images:
   - v3.3.1
   - v3.4.0
   TargetImageName: mirrored-cloud-provider-vsphere-csi-release-syncer
+- SourceImage: registry.k8s.io/csi-vsphere/syncer
+  Tags:
+  - v3.4.0
 - SourceImage: registry.k8s.io/dns/k8s-dns-dnsmasq-nanny
   Tags:
   - 1.17.3
