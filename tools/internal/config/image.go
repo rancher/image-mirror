@@ -119,10 +119,10 @@ func (image *Image) CombineSourceImageAndTags() []string {
 // for regsync to sync) for each tag present in image. repo provides
 // the target repository for each ConfigSync.
 func (image *Image) ToRegsyncImages(repo Repository) ([]regsync.ConfigSync, error) {
-	entries := make([]regsync.ConfigSync, 0, len(image.Tags))
 	if image.excludeAllTags {
-		return entries, nil
+		return nil, nil
 	}
+	entries := make([]regsync.ConfigSync, 0, len(image.Tags))
 	for _, tag := range image.Tags {
 		if _, excluded := image.excludedTags[tag]; excluded {
 			continue
