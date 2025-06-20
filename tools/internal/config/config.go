@@ -47,27 +47,27 @@ type Repository struct {
 	Username string
 }
 
-func Parse(fileName string) (Config, error) {
+func Parse(fileName string) (*Config, error) {
 	contents, err := os.ReadFile(fileName)
 	if err != nil {
-		return Config{}, fmt.Errorf("failed to read: %w", err)
+		return nil, fmt.Errorf("failed to read: %w", err)
 	}
 
-	config := Config{}
+	config := &Config{}
 	if err := yaml.Unmarshal(contents, &config); err != nil {
-		return Config{}, fmt.Errorf("failed to unmarshal as JSON: %w", err)
+		return nil, fmt.Errorf("failed to unmarshal as JSON: %w", err)
 	}
 
 	for _, image := range config.Images {
 		if err := image.setDefaults(); err != nil {
-			return Config{}, fmt.Errorf("failed to set defaults for image %q: %w", image.SourceImage, err)
+			return nil, fmt.Errorf("failed to set defaults for image %q: %w", image.SourceImage, err)
 		}
 	}
 
 	return config, nil
 }
 
-func Write(fileName string, config Config) error {
+func Write(fileName string, config *Config) error {
 	config.Sort()
 
 	contents, err := yaml.Marshal(config)

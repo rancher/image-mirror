@@ -28,7 +28,7 @@ type ConfigEntry struct {
 
 type AutoUpdateOptions struct {
 	BaseBranch   string
-	ConfigYaml   config.Config
+	ConfigYaml   *config.Config
 	DryRun       bool
 	GithubOwner  string
 	GithubRepo   string
