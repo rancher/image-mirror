@@ -127,6 +127,17 @@ func (config *Config) ToRegsyncConfig() (regsync.Config, error) {
 	return regsyncYaml, nil
 }
 
+func (config *Config) DeepCopy() *Config {
+	copiedConfig := &Config{
+		Images:       make([]*Image, 0, len(config.Images)),
+		Repositories: slices.Clone(config.Repositories),
+	}
+	for _, image := range config.Images {
+		copiedConfig.Images = append(copiedConfig.Images, image.DeepCopy())
+	}
+	return copiedConfig
+}
+
 func compareRepositories(a, b Repository) int {
 	return strings.Compare(a.BaseUrl, b.BaseUrl)
 }
