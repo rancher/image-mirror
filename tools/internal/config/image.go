@@ -3,6 +3,7 @@ package config
 import (
 	"errors"
 	"fmt"
+	"maps"
 	"slices"
 	"strings"
 
@@ -138,6 +139,18 @@ func (image *Image) ToRegsyncImages(repo Repository) ([]regsync.ConfigSync, erro
 	}
 
 	return entries, nil
+}
+
+func (image *Image) DeepCopy() *Image {
+	copiedImage := &Image{
+		DoNotMirror:    image.DoNotMirror,
+		SourceImage:    image.SourceImage,
+		excludeAllTags: image.excludeAllTags,
+		excludedTags:   maps.Clone(image.excludedTags),
+		Tags:           slices.Clone(image.Tags),
+	}
+	copiedImage.SetTargetImageName(image.TargetImageName())
+	return copiedImage
 }
 
 func CompareImages(a, b *Image) int {

@@ -237,19 +237,20 @@ func autoUpdate(ctx context.Context, _ *cli.Command) error {
 	githubOwner := parts[0]
 	githubRepo := parts[1]
 
-	autoUpdateOptions := autoupdate.AutoUpdateOptions{
-		BaseBranch:   "master",
-		ConfigYaml:   configYaml,
-		DryRun:       dryRun,
-		GithubOwner:  githubOwner,
-		GithubRepo:   githubRepo,
-		GithubClient: ghClient,
-	}
 	errorPresent := false
 	for _, autoUpdateEntry := range autoUpdateEntries {
 		if entryName != "" && autoUpdateEntry.Name != entryName {
 			fmt.Printf("%s: skipped\n", autoUpdateEntry.Name)
 			continue
+		}
+
+		autoUpdateOptions := autoupdate.AutoUpdateOptions{
+			BaseBranch:   "master",
+			ConfigYaml:   configYaml.DeepCopy(),
+			DryRun:       dryRun,
+			GithubOwner:  githubOwner,
+			GithubRepo:   githubRepo,
+			GithubClient: ghClient,
 		}
 		if err := autoUpdateEntry.Run(ctx, autoUpdateOptions); err != nil {
 			fmt.Printf("%s: error: %s\n", autoUpdateEntry.Name, err)
