@@ -19,7 +19,7 @@ func TestGithubLatestRelease(t *testing.T) {
 				GithubLatestRelease: &GithubLatestRelease{
 					Owner:      "test-owner",
 					Repository: "test-repo",
-					Images:     []string{"rancher/rancher"},
+					Images:     []GithubLatestReleaseImage{{SourceImage: "rancher/rancher"}},
 				},
 				ExpectedError: "",
 			},
@@ -27,7 +27,7 @@ func TestGithubLatestRelease(t *testing.T) {
 				Message: "should return error for empty Owner",
 				GithubLatestRelease: &GithubLatestRelease{
 					Repository: "test-repo",
-					Images:     []string{"rancher/rancher"},
+					Images:     []GithubLatestReleaseImage{{SourceImage: "rancher/rancher"}},
 				},
 				ExpectedError: "must specify Owner",
 			},
@@ -35,7 +35,7 @@ func TestGithubLatestRelease(t *testing.T) {
 				Message: "should return error for empty Repository",
 				GithubLatestRelease: &GithubLatestRelease{
 					Owner:  "test-owner",
-					Images: []string{"rancher/rancher"},
+					Images: []GithubLatestReleaseImage{{SourceImage: "rancher/rancher"}},
 				},
 				ExpectedError: "must specify Repository",
 			},
@@ -52,7 +52,7 @@ func TestGithubLatestRelease(t *testing.T) {
 				GithubLatestRelease: &GithubLatestRelease{
 					Owner:      "test-owner",
 					Repository: "test-repo",
-					Images:     []string{},
+					Images:     []GithubLatestReleaseImage{},
 				},
 				ExpectedError: "must specify at least one element for Images",
 			},
