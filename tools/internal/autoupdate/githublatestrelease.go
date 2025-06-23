@@ -17,7 +17,12 @@ import (
 type GithubLatestRelease struct {
 	Owner      string
 	Repository string
-	Images     []string
+	Images     []GithubLatestReleaseImage
+}
+
+type GithubLatestReleaseImage struct {
+	SourceImage     string
+	TargetImageName string `json:",omitempty"`
 }
 
 func (glr *GithubLatestRelease) GetUpdateImages() ([]*config.Image, error) {
@@ -30,10 +35,11 @@ func (glr *GithubLatestRelease) GetUpdateImages() ([]*config.Image, error) {
 
 	images := make([]*config.Image, 0, len(glr.Images))
 	for _, sourceImage := range glr.Images {
-		image, err := config.NewImage(sourceImage, []string{latestTag})
+		image, err := config.NewImage(sourceImage.SourceImage, []string{latestTag})
 		if err != nil {
 			return nil, fmt.Errorf("failed to construct image from source image %q and tag %q: %w", sourceImage, latestTag, err)
 		}
+		image.SetTargetImageName(sourceImage.TargetImageName)
 		images = append(images, image)
 	}
 
