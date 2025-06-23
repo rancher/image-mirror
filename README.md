@@ -82,8 +82,16 @@ repository and applies it to the specified images.
 | ------------- | ------------- |------------- |
 | `Owner` | yes | The GitHub repository owner/organization.
 | `Repository` | yes | The GitHub repository name.
-| `Images` | yes | A list of images to be updated with the latest release tag. Each image will get the same tag as the GitHub release.
+| `Images` | yes | See [GithubLatestReleaseImage](#githublatestreleaseimage).
 
+#### `GithubLatestReleaseImage`
+
+A list of images to be updated with the latest release tag. Each image will get the same tag as the GitHub release.
+
+| Field | Required | Description |
+| ------------- | ------------- |------------- |
+| `SourceImage` | yes | The GitHub repository name.
+| `TargetImageName` | no | The TargetImageName of the image in `config.yaml` that you want to update.
 
 ## Old Documentation
 
@@ -287,7 +295,7 @@ See example configuration for `helm-latest:helm-repo-fqdn`:
       "kubewarden-defaults": {}
     }
   },
-  "neuvector": {                                                                                                                                                                                                                                                                                                             
+  "neuvector": {
     "versionSource": "helm-latest:https://neuvector.github.io/neuvector-helm",
     "helmCharts": {
       "core": {}
@@ -353,7 +361,7 @@ See example configuration for `helm-directory`:
 
 If you want to manually test your configuration changes to check if the correct tags are found, you can use the following commands depending on your available runtime:
 
-##### Docker 
+##### Docker
 
 ```
 docker run -v $PWD:/code -w /code/retrieve-image-tags python:3.10-alpine sh -c "apk -qU add helm && pip install --disable-pip-version-check --root-user-action=ignore -qr requirements.txt && python retrieve-image-tags.py"
@@ -410,7 +418,7 @@ You can use the [Add tag to existing image](https://github.com/rancher/image-mir
 Example inputs:
 
 ```
-Images: quay.io/cilium/cilium,quay.io/cilium/operator-aws,quay.io/cilium/operator-azure,quay.io/cilium/operator-generic 
+Images: quay.io/cilium/cilium,quay.io/cilium/operator-aws,quay.io/cilium/operator-azure,quay.io/cilium/operator-generic
 Tags: v1.12.1
 ```
 
