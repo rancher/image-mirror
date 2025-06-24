@@ -143,13 +143,14 @@ func (image *Image) ToRegsyncImages(repo Repository) ([]regsync.ConfigSync, erro
 
 func (image *Image) DeepCopy() *Image {
 	copiedImage := &Image{
-		DoNotMirror:    image.DoNotMirror,
-		SourceImage:    image.SourceImage,
-		excludeAllTags: image.excludeAllTags,
-		excludedTags:   maps.Clone(image.excludedTags),
-		Tags:           slices.Clone(image.Tags),
+		DoNotMirror:              image.DoNotMirror,
+		SourceImage:              image.SourceImage,
+		defaultTargetImageName:   image.defaultTargetImageName,
+		SpecifiedTargetImageName: image.SpecifiedTargetImageName,
+		excludeAllTags:           image.excludeAllTags,
+		excludedTags:             maps.Clone(image.excludedTags),
+		Tags:                     slices.Clone(image.Tags),
 	}
-	copiedImage.SetTargetImageName(image.TargetImageName())
 	return copiedImage
 }
 
