@@ -6,12 +6,10 @@ Images:
   - 2.8.9
   - 2.9.0
   - 2.9.14
-  TargetImageName: mirrored-amazon-aws-cli
 - DoNotMirror: true
   SourceImage: appscode/kubed
   Tags:
   - v0.13.2
-  TargetImageName: mirrored-appscode-kubed
 - SourceImage: banzaicloud/logging-operator
   Tags:
   - 3.6.0
@@ -28,7 +26,6 @@ Images:
   - 3.9.0
   - 3.9.4
   - 3.9.5
-  TargetImageName: mirrored-banzaicloud-logging-operator
 - SourceImage: bats/bats
   Tags:
   - v1.1.0
@@ -37,7 +34,6 @@ Images:
   Tags:
   - v1.1.0
   - v1.4.1
-  TargetImageName: mirrored-bats-bats
 - SourceImage: coredns/coredns
   Tags:
   - 1.7.0
@@ -65,7 +61,6 @@ Images:
   - 1.9.1
   - 1.9.3
   - 1.9.4
-  TargetImageName: mirrored-coredns-coredns
 - SourceImage: curlimages/curl
   Tags:
   - 7.70.0
@@ -82,12 +77,10 @@ Images:
   - 8.12.1
   - 8.13.0
   - 8.9.1
-  TargetImageName: mirrored-curlimages-curl
 - SourceImage: directxman12/k8s-prometheus-adapter
   Tags:
   - v0.8.3
   - v0.8.4
-  TargetImageName: mirrored-directxman12-k8s-prometheus-adapter
 - SourceImage: directxman12/k8s-prometheus-adapter-amd64
   Tags:
   - v0.6.0
@@ -97,7 +90,6 @@ Images:
   Tags:
   - v0.7.0
   - v0.8.3
-  TargetImageName: mirrored-directxman12-k8s-prometheus-adapter-amd64
 - SourceImage: flannel/flannel
   Tags:
   - v0.21.2
@@ -121,7 +113,6 @@ Images:
   - v0.26.6
   - v0.26.7
   - v0.27.0
-  TargetImageName: mirrored-flannel-flannel
 - SourceImage: flannel/flannel-cni-plugin
   Tags:
   - v1.2.0
@@ -129,7 +120,6 @@ Images:
   - v1.5.1-flannel2
   - v1.6.2-flannel1
   - v1.7.1-flannel1
-  TargetImageName: mirrored-flannel-flannel-cni-plugin
 - SourceImage: flannelcni/flannel
   Tags:
   - v0.16.0
@@ -145,7 +135,6 @@ Images:
   - v0.20.0
   - v0.20.1
   - v0.20.2
-  TargetImageName: mirrored-flannelcni-flannel
 - SourceImage: flannelcni/flannel-cni-plugin
   Tags:
   - v1.0.0
@@ -153,7 +142,6 @@ Images:
   - v1.1.0
   - v1.1.2
   - v1.2.0
-  TargetImageName: mirrored-flannelcni-flannel-cni-plugin
 - SourceImage: fluent/fluent-bit
   Tags:
   - windows-2019-3.1.8
@@ -199,7 +187,6 @@ Images:
   - 3.0.4-debug
   - 3.1.8
   - 3.1.8-debug
-  TargetImageName: mirrored-fluent-fluent-bit
 - DoNotMirror: true
   SourceImage: gcr.io/cloud-provider-vsphere/cpi/release/manager
   Tags:
@@ -350,7 +337,6 @@ Images:
   - v1.14.4-alpine-2
   - v1.14.5-alpine-1
   - v1.14.6-alpine-5
-  TargetImageName: mirrored-banzaicloud-fluentd
 - SourceImage: ghcr.io/banzaicloud/logging-operator
   Tags:
   - 3.14.0
@@ -362,13 +348,11 @@ Images:
   - 3.17.7
   - 3.17.8
   - 3.17.9
-  TargetImageName: mirrored-banzaicloud-logging-operator
 - SourceImage: ghcr.io/dexidp/dex
   Tags:
   - v2.35.3
   - v2.36.0
   - v2.37.0
-  TargetImageName: mirrored-dexidp-dex
 - SourceImage: ghcr.io/epinio/epinio-server
   Tags:
   - v0.7.1
@@ -381,7 +365,6 @@ Images:
   - v1.6.2
   - v1.8.1
   - v1.9.0
-  TargetImageName: mirrored-epinio-epinio-server
 - SourceImage: ghcr.io/epinio/epinio-ui
   Tags:
   - v0.6.2-0.0.1
@@ -391,7 +374,6 @@ Images:
   - v1.5.1-0.0.3
   - v1.8.1-0.0.1
   - v1.9.0-0.0.3
-  TargetImageName: mirrored-epinio-epinio-ui
 - SourceImage: ghcr.io/epinio/epinio-unpacker
   Tags:
   - "1.0"
@@ -400,29 +382,24 @@ Images:
   - v1.6.2
   - v1.8.1
   - v1.9.0
-  TargetImageName: mirrored-epinio-epinio-unpacker
 - SourceImage: ghcr.io/jimmidyson/configmap-reload
   Tags:
   - v0.13.1
-  TargetImageName: mirrored-jimmidyson-configmap-reload
 - SourceImage: ghcr.io/kube-logging/config-reloader
   Tags:
   - v0.0.5
   - v0.0.6
-  TargetImageName: mirrored-kube-logging-config-reloader
 - SourceImage: ghcr.io/kube-logging/fluentd
   Tags:
   - v1.16-4.10-full
   - v1.16-4.8-full
   - v1.16-ruby3.3-full-build.140
-  TargetImageName: mirrored-kube-logging-fluentd
 - SourceImage: ghcr.io/kube-logging/logging-operator
   Tags:
   - 4.10.0
   - 4.4.0
   - 4.8.0
   - 4.9.1
-  TargetImageName: mirrored-kube-logging-logging-operator
 - SourceImage: ghcr.io/kube-vip/kube-vip-iptables
   Tags:
   - v0.6.0
@@ -434,7 +411,6 @@ Images:
   - v0.8.9
   - v0.9.0
   - v0.9.2
-  TargetImageName: mirrored-kube-vip-kube-vip-iptables
 - SourceImage: ghcr.io/prometheus-community/windows-exporter
   Tags:
   - 0.25.1
@@ -464,7 +440,6 @@ Images:
   - 8.5.3
   - 9.1.5
   - 9.5.14
-  TargetImageName: mirrored-grafana-grafana
 - SourceImage: grafana/grafana-image-renderer
   Tags:
   - 2.0.0
@@ -480,7 +455,6 @@ Images:
   - 3.12.3
   - 3.12.6
   - 3.8.0
-  TargetImageName: mirrored-grafana-grafana-image-renderer
 - SourceImage: idealista/prom2teams
   Tags:
   - 3.2.1
@@ -488,11 +462,9 @@ Images:
   - 3.2.3
   - 4.2.0
   - 4.2.1
-  TargetImageName: mirrored-idealista-prom2teams
 - SourceImage: istio/citadel
   Tags:
   - 1.5.9
-  TargetImageName: mirrored-istio-citadel
 - SourceImage: istio/coredns-plugin
   Tags:
   - 0.2-istio-1.1
@@ -500,11 +472,9 @@ Images:
 - SourceImage: istio/coredns-plugin
   Tags:
   - 0.2-istio-1.1
-  TargetImageName: mirrored-istio-coredns-plugin
 - SourceImage: istio/galley
   Tags:
   - 1.5.9
-  TargetImageName: mirrored-istio-galley
 - SourceImage: istio/install-cni
   Tags:
   - 1.7.0
@@ -571,7 +541,6 @@ Images:
   - 1.9.5
   - 1.9.6
   - 1.9.8
-  TargetImageName: mirrored-istio-install-cni
 - SourceImage: istio/kubectl
   Tags:
   - 1.5.10
@@ -579,7 +548,6 @@ Images:
 - SourceImage: istio/kubectl
   Tags:
   - 1.5.9
-  TargetImageName: mirrored-istio-kubectl
 - SourceImage: istio/mixer
   Tags:
   - 1.7.0
@@ -591,11 +559,9 @@ Images:
   Tags:
   - 1.5.9
   - 1.7.8
-  TargetImageName: mirrored-istio-mixer
 - SourceImage: istio/node-agent-k8s
   Tags:
   - 1.5.9
-  TargetImageName: mirrored-istio-node-agent-k8s
 - SourceImage: istio/pilot
   Tags:
   - 1.7.0
@@ -663,7 +629,6 @@ Images:
   - 1.9.5
   - 1.9.6
   - 1.9.8
-  TargetImageName: mirrored-istio-pilot
 - SourceImage: istio/proxyv2
   Tags:
   - 1.7.0
@@ -731,11 +696,9 @@ Images:
   - 1.9.5
   - 1.9.6
   - 1.9.8
-  TargetImageName: mirrored-istio-proxyv2
 - SourceImage: istio/sidecar_injector
   Tags:
   - 1.5.9
-  TargetImageName: mirrored-istio-sidecar_injector
 - SourceImage: jaegertracing/all-in-one
   Tags:
   - 1.20.0
@@ -764,12 +727,10 @@ Images:
   - 1.60.0
   - 1.63.0
   - 1.67.0
-  TargetImageName: mirrored-jaegertracing-all-in-one
 - SourceImage: jenkins/jnlp-slave
   Tags:
   - 3.35-4
   - 4.7-1
-  TargetImageName: mirrored-jenkins-jnlp-slave
 - SourceImage: jettech/kube-webhook-certgen
   Tags:
   - v1.2.1
@@ -781,7 +742,6 @@ Images:
   - v1.5.0
   - v1.5.1
   - v1.5.2
-  TargetImageName: mirrored-jettech-kube-webhook-certgen
 - SourceImage: jimmidyson/configmap-reload
   Tags:
   - v0.3.0
@@ -792,7 +752,6 @@ Images:
   - v0.3.0
   - v0.4.0
   - v0.8.0
-  TargetImageName: mirrored-jimmidyson-configmap-reload
 - SourceImage: kiwigrid/k8s-sidecar
   Tags:
   - 0.1.151
@@ -802,7 +761,6 @@ Images:
   Tags:
   - 0.1.151
   - 1.27.4
-  TargetImageName: mirrored-kiwigrid-k8s-sidecar
 - SourceImage: library/busybox
   Tags:
   - 1.31.1
@@ -815,7 +773,6 @@ Images:
   - 1.34.1
   - 1.36.1
   - 1.37.0
-  TargetImageName: mirrored-library-busybox
 - SourceImage: library/nginx
   Tags:
   - 1.19.2-alpine
@@ -831,18 +788,15 @@ Images:
   - 1.23.2-alpine
   - 1.24.0-alpine
   - 1.27.2-alpine
-  TargetImageName: mirrored-library-nginx
 - SourceImage: library/registry
   Tags:
   - 2.7.1
   - 2.8.1
-  TargetImageName: mirrored-library-registry
 - SourceImage: messagebird/sachet
   Tags:
   - 0.2.3
   - 0.2.6
   - 0.3.1
-  TargetImageName: mirrored-messagebird-sachet
 - SourceImage: minio/mc
   Tags:
   - RELEASE.2022-05-09T04-08-26Z
@@ -851,7 +805,6 @@ Images:
   - RELEASE.2022-12-13T00-23-28Z
   - RELEASE.2023-01-28T20-29-38Z
   - RELEASE.2023-06-28T21-54-17Z
-  TargetImageName: mirrored-minio-mc
 - SourceImage: minio/minio
   Tags:
   - RELEASE.2020-07-13T18-09-56Z
@@ -861,12 +814,10 @@ Images:
   - RELEASE.2022-12-12T19-27-27Z
   - RELEASE.2023-02-10T18-48-39Z
   - RELEASE.2023-07-07T07-13-57Z
-  TargetImageName: mirrored-minio-minio
 - SourceImage: neuvector/compliance-config
   Tags:
   - 1.0.0
   - 1.0.1
-  TargetImageName: mirrored-neuvector-compliance-config
 - SourceImage: neuvector/controller
   Tags:
   - 5.0.0
@@ -894,7 +845,6 @@ Images:
   - 5.3.4
   - 5.4.0
   - 5.4.1
-  TargetImageName: mirrored-neuvector-controller
 - SourceImage: neuvector/enforcer
   Tags:
   - 5.0.0
@@ -922,7 +872,6 @@ Images:
   - 5.3.4
   - 5.4.0
   - 5.4.1
-  TargetImageName: mirrored-neuvector-enforcer
 - SourceImage: neuvector/manager
   Tags:
   - 5.0.0
@@ -950,7 +899,6 @@ Images:
   - 5.3.4
   - 5.4.0
   - 5.4.1
-  TargetImageName: mirrored-neuvector-manager
 - SourceImage: neuvector/prometheus-exporter
   Tags:
   - 1-1.0.0
@@ -961,7 +909,6 @@ Images:
   - 5.2.4
   - 5.3.0
   - 5.3.2
-  TargetImageName: mirrored-neuvector-prometheus-exporter
 - SourceImage: neuvector/registry-adapter
   Tags:
   - 0.1.0
@@ -970,7 +917,6 @@ Images:
   - 0.1.1-s2
   - 0.1.2
   - 0.1.3
-  TargetImageName: mirrored-neuvector-registry-adapter
 - SourceImage: openpolicyagent/gatekeeper
   Tags:
   - v3.10.0
@@ -985,7 +931,6 @@ Images:
   - v3.7.1
   - v3.8.1
   - v3.9.0
-  TargetImageName: mirrored-openpolicyagent-gatekeeper
 - SourceImage: openpolicyagent/gatekeeper
   Tags:
   - v3.1.0
@@ -1003,11 +948,9 @@ Images:
   - v3.7.1
   - v3.8.1
   - v3.9.0
-  TargetImageName: mirrored-openpolicyagent-gatekeeper-crds
 - SourceImage: openzipkin/zipkin
   Tags:
   - 2.14.2
-  TargetImageName: mirrored-openzipkin-zipkin
 - SourceImage: paketobuildpacks/builder
   Tags:
   - 0.2.220-full
@@ -1017,16 +960,13 @@ Images:
   - 0.2.441-full
   - 0.2.443-full
   - 0.2.95-full
-  TargetImageName: mirrored-paketobuildpacks-builder
 - SourceImage: plugins/docker
   Tags:
   - "18.09"
   - 19.03.8
-  TargetImageName: mirrored-plugins-docker
 - SourceImage: prom/alertmanager
   Tags:
   - v0.21.0
-  TargetImageName: mirrored-prom-alertmanager
 - SourceImage: prom/alertmanager
   Tags:
   - v0.21.0
@@ -1034,7 +974,6 @@ Images:
 - SourceImage: prom/node-exporter
   Tags:
   - v1.0.1
-  TargetImageName: mirrored-prom-node-exporter
 - SourceImage: prom/node-exporter
   Tags:
   - v1.0.1
@@ -1043,7 +982,6 @@ Images:
 - SourceImage: prom/prometheus
   Tags:
   - v2.12.0
-  TargetImageName: mirrored-prom-prometheus
 - SourceImage: prom/prometheus
   Tags:
   - v2.18.2
@@ -1051,7 +989,6 @@ Images:
 - SourceImage: pstauffer/curl
   Tags:
   - v1.0.3
-  TargetImageName: mirrored-pstauffer-curl
 - SourceImage: rancher/cluster-proportional-autoscaler
   Tags:
   - 1.7.1
@@ -1159,7 +1096,6 @@ Images:
   Tags:
   - v0.13.0
   - v0.7.0
-  TargetImageName: mirrored-gmsa-webhook-k8s-gmsa-webhook
 - SourceImage: registry.k8s.io/ingress-nginx/kube-webhook-certgen
   Tags:
   - v1.0
@@ -1176,7 +1112,6 @@ Images:
   - v20230312-helm-chart-4.5.2-28-g66a760794
   - v20231011-8b53cabe0
   - v20231226-1a7112e06
-  TargetImageName: mirrored-ingress-nginx-kube-webhook-certgen
 - SourceImage: registry.k8s.io/kube-state-metrics/kube-state-metrics
   Tags:
   - v1.9.8
@@ -1188,7 +1123,6 @@ Images:
   - v2.15.0
   - v2.2.0
   - v2.6.0
-  TargetImageName: mirrored-kube-state-metrics-kube-state-metrics
 - SourceImage: registry.k8s.io/metrics-server/metrics-server
   Tags:
   - v0.4.1
@@ -1224,7 +1158,6 @@ Images:
   - v0.11.2
   - v0.12.0
   - v0.9.0
-  TargetImageName: mirrored-prometheus-adapter-prometheus-adapter
 - SourceImage: registry.k8s.io/sig-storage/csi-attacher
   Tags:
   - v3.2.0
@@ -1242,7 +1175,6 @@ Images:
   - v4.8.0
   - v4.8.1
   - v4.9.0
-  TargetImageName: mirrored-sig-storage-csi-attacher
 - SourceImage: registry.k8s.io/sig-storage/csi-node-driver-registrar
   Tags:
   - v2.10.0
@@ -1258,7 +1190,6 @@ Images:
   - v2.8.0
   - v2.9.0
   - v2.9.1
-  TargetImageName: mirrored-sig-storage-csi-node-driver-registrar
 - SourceImage: registry.k8s.io/sig-storage/csi-provisioner
   Tags:
   - v2.2.0
@@ -1276,7 +1207,6 @@ Images:
   - v5.1.0
   - v5.2.0
   - v5.3.0
-  TargetImageName: mirrored-sig-storage-csi-provisioner
 - SourceImage: registry.k8s.io/sig-storage/csi-resizer
   Tags:
   - v1.10.0
@@ -1291,7 +1221,6 @@ Images:
   - v1.9.0
   - v1.9.1
   - v1.9.2
-  TargetImageName: mirrored-sig-storage-csi-resizer
 - SourceImage: registry.k8s.io/sig-storage/csi-snapshotter
   Tags:
   - v5.0.1
@@ -1302,7 +1231,6 @@ Images:
   - v7.0.2
   - v8.1.0
   - v8.2.0
-  TargetImageName: mirrored-sig-storage-csi-snapshotter
 - SourceImage: registry.k8s.io/sig-storage/livenessprobe
   Tags:
   - v2.10.0
@@ -1316,21 +1244,18 @@ Images:
   - v2.7.0
   - v2.8.0
   - v2.9.0
-  TargetImageName: mirrored-sig-storage-livenessprobe
 - SourceImage: registry.k8s.io/sig-storage/snapshot-controller
   Tags:
   - v6.1.0
   - v6.2.1
   - v8.1.0
   - v8.2.0
-  TargetImageName: mirrored-sig-storage-snapshot-controller
 - SourceImage: registry.k8s.io/sig-storage/snapshot-validation-webhook
   Tags:
   - v6.1.0
   - v6.2.1
   - v6.2.2
   - v8.1.0
-  TargetImageName: mirrored-sig-storage-snapshot-validation-webhook
 - SourceImage: registry.suse.com/bci/bci-busybox
   Tags:
   - 15.4.11.2
@@ -1376,7 +1301,6 @@ Images:
 - SourceImage: sigwindowstools/k8s-gmsa-webhook
   Tags:
   - v0.3.0
-  TargetImageName: mirrored-sigwindowstools-k8s-gmsa-webhook
 - SourceImage: sonobuoy/sonobuoy
   Tags:
   - v0.16.3
@@ -1392,7 +1316,6 @@ Images:
   - v0.57.1
   - v0.57.2
   - v0.57.3
-  TargetImageName: mirrored-sonobuoy-sonobuoy
 - SourceImage: sonobuoy/sonobuoy
   Tags:
   - v0.19.0
@@ -1400,7 +1323,6 @@ Images:
 - SourceImage: squareup/ghostunnel
   Tags:
   - v1.5.2
-  TargetImageName: mirrored-squareup-ghostunnel
 - SourceImage: squareup/ghostunnel
   Tags:
   - v1.5.2
@@ -1409,7 +1331,6 @@ Images:
   Tags:
   - v0.15.0
   - v0.21.1
-  TargetImageName: mirrored-thanosio-thanos
 - SourceImage: thanosio/thanos
   Tags:
   - v0.15.0
@@ -1420,7 +1341,6 @@ Images:
   - 1.5.0
   - 1.6.0
   - 1.6.1
-  TargetImageName: mirrored-tonistiigi-xx
 - SourceImage: us.gcr.io/k8s-artifacts-prod/external-dns/external-dns
   Tags:
   - v0.7.3
