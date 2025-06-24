@@ -108,4 +108,26 @@ func TestImage(t *testing.T) {
 			}
 		})
 	})
+
+	t.Run("DeepCopy", func(t *testing.T) {
+		t.Run("should copy all fields", func(t *testing.T) {
+			original, err := NewImage("test-org/test-image", []string{"v1.0.0", "v2.0.0"})
+			assert.NoError(t, err)
+
+			original.DoNotMirror = []any{"v1.0.0"}
+			original.SetTargetImageName("custom-image-name")
+			err = original.setDefaults()
+			assert.NoError(t, err)
+
+			copy := original.DeepCopy()
+
+			assert.Equal(t, original.DoNotMirror, copy.DoNotMirror)
+			assert.Equal(t, original.SourceImage, copy.SourceImage)
+			assert.Equal(t, original.defaultTargetImageName, copy.defaultTargetImageName)
+			assert.Equal(t, original.SpecifiedTargetImageName, copy.SpecifiedTargetImageName)
+			assert.Equal(t, original.Tags, copy.Tags)
+			assert.Equal(t, original.excludeAllTags, copy.excludeAllTags)
+			assert.Equal(t, original.excludedTags, copy.excludedTags)
+		})
+	})
 }
