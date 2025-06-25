@@ -1,10 +1,4 @@
 {
-  "calico-operator": {
-    "versionSource": "helm-latest:https://docs.tigera.io/calico/charts",
-    "helmCharts": {
-      "tigera-operator": {}
-    }
-  },
   "traefik": {
     "images": [
       "library/traefik"
