@@ -178,7 +178,13 @@ func (entry ConfigEntry) Run(ctx context.Context, opts AutoUpdateOptions) error 
 	}
 
 	if opts.DryRun {
-		fmt.Printf("%s: would make PR under branch %s\n", entry.Name, branchName)
+		msg := fmt.Sprintf("%s: would make PR under branch %s that adds:\n", entry.Name, branchName)
+		for _, imageToUpdate := range imagesToUpdate {
+			for _, fullImage := range imageToUpdate.CombineSourceImageAndTags() {
+				msg = msg + "  - " + fullImage + "\n"
+			}
+		}
+		fmt.Print(msg)
 		return nil
 	}
 
