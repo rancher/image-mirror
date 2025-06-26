@@ -120,6 +120,28 @@
     Owner: kube-vip
     Repository: kube-vip
   Name: kube-vip-iptables
+- GithubTaggedImagesFile:
+    Images:
+    - SourceImage: longhornio/backing-image-manager
+    - SourceImage: longhornio/csi-attacher
+    - SourceImage: longhornio/csi-node-driver-registrar
+    - SourceImage: longhornio/csi-provisioner
+    - SourceImage: longhornio/csi-resizer
+    - SourceImage: longhornio/csi-snapshotter
+    - SourceImage: longhornio/livenessprobe
+    - SourceImage: longhornio/longhorn-cli
+    - SourceImage: longhornio/longhorn-engine
+    - SourceImage: longhornio/longhorn-instance-manager
+    - SourceImage: longhornio/longhorn-manager
+    - SourceImage: longhornio/longhorn-share-manager
+    - SourceImage: longhornio/longhorn-ui
+    - SourceImage: longhornio/openshift-origin-oauth-proxy
+    - SourceImage: longhornio/support-bundle-kit
+    ImagesFilePath: deploy/longhorn-images.txt
+    Owner: longhorn
+    Repository: longhorn
+    VersionConstraint: '>=1.4.0'
+  Name: longhorn
 - GithubRelease:
     Images:
     - SourceImage: idealista/prom2teams
