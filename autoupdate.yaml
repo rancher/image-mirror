@@ -1,4 +1,4 @@
-- GithubLatestRelease:
+- GithubRelease:
     Images:
     - SourceImage: quay.io/calico/apiserver
     - SourceImage: quay.io/calico/cni
@@ -9,8 +9,10 @@
     - SourceImage: quay.io/calico/node-driver-registrar
     - SourceImage: quay.io/calico/pod2daemon-flexvol
     - SourceImage: quay.io/calico/typha
+    LatestOnly: true
     Owner: projectcalico
     Repository: calico
+    VersionConstraint: ""
   Name: calico
 - HelmLatest:
     Charts:
@@ -51,84 +53,110 @@
     - SourceImage: quay.io/cilium/hubble-relay
     - SourceImage: quay.io/cilium/hubble-ui-backend
   Name: cilium
-- GithubLatestRelease:
+- GithubRelease:
     Images:
     - SourceImage: registry.k8s.io/sig-storage/csi-attacher
+    LatestOnly: true
     Owner: kubernetes-csi
     Repository: external-attacher
+    VersionConstraint: ""
   Name: csi-attacher
-- GithubLatestRelease:
+- GithubRelease:
     Images:
     - SourceImage: registry.k8s.io/sig-storage/csi-node-driver-registrar
+    LatestOnly: true
     Owner: kubernetes-csi
     Repository: node-driver-registrar
+    VersionConstraint: ""
   Name: csi-driver-registrar
-- GithubLatestRelease:
+- GithubRelease:
     Images:
     - SourceImage: registry.k8s.io/sig-storage/csi-provisioner
+    LatestOnly: true
     Owner: kubernetes-csi
     Repository: external-provisioner
+    VersionConstraint: ""
   Name: csi-provisioner
-- GithubLatestRelease:
+- GithubRelease:
     Images:
     - SourceImage: registry.k8s.io/sig-storage/csi-resizer
+    LatestOnly: true
     Owner: kubernetes-csi
     Repository: external-resizer
+    VersionConstraint: ""
   Name: csi-resizer
-- GithubLatestRelease:
+- GithubRelease:
     Images:
     - SourceImage: registry.k8s.io/sig-storage/csi-snapshotter
+    LatestOnly: true
     Owner: kubernetes-csi
     Repository: external-snapshotter
+    VersionConstraint: ""
   Name: csi-snapshotter
-- GithubLatestRelease:
+- GithubRelease:
     Images:
     - SourceImage: flannel/flannel
+    LatestOnly: true
     Owner: flannel-io
     Repository: flannel
+    VersionConstraint: ""
   Name: flannel
-- GithubLatestRelease:
+- GithubRelease:
     Images:
     - SourceImage: flannel/flannel-cni-plugin
+    LatestOnly: true
     Owner: flannel-io
     Repository: cni-plugin
+    VersionConstraint: ""
   Name: flannel-cni-plugin
-- GithubLatestRelease:
+- GithubRelease:
     Images:
     - SourceImage: ghcr.io/kube-vip/kube-vip-iptables
+    LatestOnly: true
     Owner: kube-vip
     Repository: kube-vip
+    VersionConstraint: ""
   Name: kube-vip-iptables
-- GithubLatestRelease:
+- GithubRelease:
     Images:
     - SourceImage: idealista/prom2teams
+    LatestOnly: true
     Owner: idealista
     Repository: prom2teams
+    VersionConstraint: ""
   Name: prom2teams
-- GithubLatestRelease:
+- GithubRelease:
     Images:
     - SourceImage: registry.k8s.io/sig-storage/snapshot-controller
+    LatestOnly: true
     Owner: kubernetes-csi
     Repository: external-snapshotter
+    VersionConstraint: ""
   Name: snapshot-controller
-- GithubLatestRelease:
+- GithubRelease:
     Images:
     - SourceImage: sonobuoy/sonobuoy
+    LatestOnly: true
     Owner: vmware-tanzu
     Repository: sonobuoy
+    VersionConstraint: ""
   Name: sonobuoy
-- GithubLatestRelease:
+- GithubRelease:
     Images:
     - SourceImage: registry.k8s.io/sig-storage/livenessprobe
+    LatestOnly: true
     Owner: kubernetes-csi
     Repository: livenessprobe
+    VersionConstraint: ""
   Name: storage-livenessprobe
-- GithubLatestRelease:
+- GithubRelease:
     Images:
     - SourceImage: registry.k8s.io/csi-vsphere/driver
       TargetImageName: mirrored-cloud-provider-vsphere-csi-release-driver
     - SourceImage: registry.k8s.io/csi-vsphere/syncer
       TargetImageName: mirrored-cloud-provider-vsphere-csi-release-syncer
+    LatestOnly: true
     Owner: kubernetes-sigs
     Repository: vsphere-csi-driver
+    VersionConstraint: ""
   Name: vsphere-csi
