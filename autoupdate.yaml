@@ -21,6 +21,36 @@
     - SourceImage: quay.io/tigera/operator
       TargetImageName: mirrored-calico-operator
   Name: calico-operator
+- HelmLatest:
+    Charts:
+      cilium:
+        aws:
+        - eni.enabled=true
+        azure:
+        - azure.enabled=true
+        generic:
+        - clustermesh.useAPIServer=true,
+        - envoy.enabled=true,
+        - hubble.ui.enabled=true,
+        - hubble.relay.enabled=true,
+        - hubble.enabled=true
+    HelmRepo: https://helm.cilium.io
+    ImageDenylist:
+    - quay.io/cilium/operator
+    - quay.io/cilium/startup-script
+    - ghcr.io/spiffe/spire-agent
+    - ghcr.io/spiffe/spire-server
+    Images:
+    - SourceImage: quay.io/cilium/cilium
+    - SourceImage: quay.io/cilium/cilium-envoy
+    - SourceImage: quay.io/cilium/operator-generic
+    - SourceImage: quay.io/cilium/clustermesh-apiserver
+    - SourceImage: quay.io/cilium/hubble-ui
+    - SourceImage: quay.io/cilium/operator-aws
+    - SourceImage: quay.io/cilium/operator-azure
+    - SourceImage: quay.io/cilium/hubble-relay
+    - SourceImage: quay.io/cilium/hubble-ui-backend
+  Name: cilium
 - GithubLatestRelease:
     Images:
     - SourceImage: registry.k8s.io/sig-storage/csi-attacher
