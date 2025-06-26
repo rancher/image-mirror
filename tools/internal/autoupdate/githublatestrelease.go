@@ -17,12 +17,7 @@ import (
 type GithubLatestRelease struct {
 	Owner      string
 	Repository string
-	Images     []GithubLatestReleaseImage
-}
-
-type GithubLatestReleaseImage struct {
-	SourceImage     string
-	TargetImageName string `json:",omitempty"`
+	Images     []AutoupdateImageRef
 }
 
 func (glr *GithubLatestRelease) GetUpdateImages() ([]*config.Image, error) {

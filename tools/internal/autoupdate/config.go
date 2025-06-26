@@ -36,6 +36,14 @@ type AutoUpdateOptions struct {
 	GithubClient *github.Client
 }
 
+// AutoupdateImageRef is used to map a given update image to an entry in config.yaml.
+// There may be multiple entries that have the same SourceImage, but different
+// TargetImageNames, so we need to choose which one receives the update image.
+type AutoupdateImageRef struct {
+	SourceImage     string
+	TargetImageName string `json:",omitempty"`
+}
+
 func Parse(filePath string) ([]ConfigEntry, error) {
 	contents, err := os.ReadFile(filePath)
 	if err != nil {

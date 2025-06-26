@@ -33,6 +33,9 @@ func (e Environment) ToHelmTemplateArgs() []string {
 // This is not a perfectly reliable way of finding images that a chart uses, and
 // does not attempt to be. However, it is probably good enough for simple charts.
 type HelmLatest struct {
+	// Images tells the autoupdate code which entry in config.yaml to add the
+	// update images to.
+	Images []AutoupdateImageRef `json:",omitempty"`
 	// HelmRepo is the URL of the Helm chart repository.
 	HelmRepo string
 	// Charts is a map of chart names to the environments under which we want to
@@ -98,6 +101,19 @@ func (hl *HelmLatest) GetUpdateImages() ([]*config.Image, error) {
 		if err != nil {
 			return nil, fmt.Errorf("failed to create image: %w", err)
 		}
+
+		found := false
+		for _, autoupdateImageRef := range hl.Images {
+			if sourceImage == autoupdateImageRef.SourceImage {
+				image.SetTargetImageName(autoupdateImageRef.TargetImageName)
+				found = true
+				break
+			}
+		}
+		if !found {
+			return nil, fmt.Errorf("found image %s but it is not present in Images", sourceImage)
+		}
+
 		images = append(images, image)
 	}
 

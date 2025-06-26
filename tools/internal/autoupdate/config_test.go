@@ -23,7 +23,7 @@ func TestConfigEntry(t *testing.T) {
 					GithubLatestRelease: &GithubLatestRelease{
 						Owner:      "test-owner",
 						Repository: "test-repo",
-						Images:     []GithubLatestReleaseImage{{SourceImage: "rancher/rancher"}},
+						Images:     []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
 					},
 				},
 				ExpectedError: "",
@@ -50,7 +50,7 @@ func TestConfigEntry(t *testing.T) {
 					GithubLatestRelease: &GithubLatestRelease{
 						Owner:      "test-owner",
 						Repository: "test-repo",
-						Images:     []GithubLatestReleaseImage{{SourceImage: "rancher/rancher"}},
+						Images:     []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
 					},
 				},
 				ExpectedError: "must specify Name",
@@ -69,7 +69,7 @@ func TestConfigEntry(t *testing.T) {
 					GithubLatestRelease: &GithubLatestRelease{
 						Owner:      "test-owner",
 						Repository: "test-repo",
-						Images: []GithubLatestReleaseImage{{
+						Images: []AutoupdateImageRef{{
 							SourceImage: "rancher/rancher",
 						}},
 					},
