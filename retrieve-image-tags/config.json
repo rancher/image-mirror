@@ -27,40 +27,6 @@
     "versionSource": "registry",
     "versionFilter": "^v1\\.([3-9][0-9])\\.[0-9]+$"
   },
-  "cilium": {
-    "versionSource": "helm-latest:https://helm.cilium.io",
-    "imageDenylist": [
-      "quay.io/cilium/operator",
-      "quay.io/cilium/startup-script",
-      "ghcr.io/spiffe/spire-agent",
-      "ghcr.io/spiffe/spire-server"
-    ],
-    "helmCharts": {
-      "cilium": {
-        "chartConfig": {
-          "aws": {
-            "values": [
-              "eni.enabled=true"
-            ]
-          },
-          "azure": {
-            "values": [
-              "azure.enabled=true"
-            ]
-          },
-          "generic": {
-            "values": [
-              "clustermesh.useAPIServer=true",
-              "envoy.enabled=true",
-              "hubble.ui.enabled=true",
-              "hubble.relay.enabled=true",
-              "hubble.enabled=true"
-            ]
-          }
-        }
-      }
-    }
-  },
   "etcd": {
     "images": [
       "quay.io/coreos/etcd"

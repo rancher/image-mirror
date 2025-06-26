@@ -164,20 +164,14 @@ func (hl *HelmLatest) extractImagesFromYaml(data any, imageMap map[string][]stri
 }
 
 func (hl *HelmLatest) parseImageRef(rawString string) (string, string, error) {
-	parts := strings.Split(rawString, "@")
-	if len(parts) > 1 {
-		return "", "", fmt.Errorf("%q has digest, which is not supported", rawString)
-	}
-	withoutDigest := parts[0]
-
-	parts = strings.Split(withoutDigest, ":")
+	withoutDigest := strings.Split(rawString, "@")[0]
+	parts := strings.Split(withoutDigest, ":")
 	if len(parts) != 2 {
 		return "", "", fmt.Errorf(`failed to split %q into two parts on ":"`, withoutDigest)
 	}
 	repository := parts[0]
 	tag := parts[1]
 	repositoryWithoutDocker := strings.TrimPrefix(repository, "docker.io/")
-
 	return repositoryWithoutDocker, tag, nil
 }
 
