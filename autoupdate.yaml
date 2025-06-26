@@ -95,6 +95,14 @@
   Name: csi-snapshotter
 - GithubRelease:
     Images:
+    - SourceImage: quay.io/coreos/etc
+    LatestOnly: false
+    Owner: etcd-io
+    Repository: etcd
+    VersionConstraint: '>3.5.10'
+  Name: etcd
+- GithubRelease:
+    Images:
     - SourceImage: flannel/flannel
     LatestOnly: true
     Owner: flannel-io
