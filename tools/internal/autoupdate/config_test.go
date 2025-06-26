@@ -44,6 +44,19 @@ func TestConfigEntry(t *testing.T) {
 				ExpectedError: "",
 			},
 			{
+				Message: "should return nil for a valid ConfigEntry with GithubTaggedImagesFile",
+				ConfigEntry: ConfigEntry{
+					Name: "test-entry",
+					GithubTaggedImagesFile: &GithubTaggedImagesFile{
+						Owner:             "longhorn",
+						Repository:        "longhorn",
+						ImagesFilePath:    "deploy/longhorn-images.txt",
+						VersionConstraint: ">=1.4.0",
+					},
+				},
+				ExpectedError: "",
+			},
+			{
 				Message: "should return nil for a valid ConfigEntry with Registry",
 				ConfigEntry: ConfigEntry{
 					Name: "test-entry",
