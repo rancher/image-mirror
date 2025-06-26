@@ -20,7 +20,7 @@ func TestConfigEntry(t *testing.T) {
 				Message: "should return nil for a valid ConfigEntry with GithubRelease",
 				ConfigEntry: ConfigEntry{
 					Name: "test-entry",
-					GithubLatestRelease: &GithubRelease{
+					GithubRelease: &GithubRelease{
 						Owner:      "test-owner",
 						Repository: "test-repo",
 						Images:     []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
@@ -47,7 +47,7 @@ func TestConfigEntry(t *testing.T) {
 				Message: "should return error when Name is not present",
 				ConfigEntry: ConfigEntry{
 					Name: "",
-					GithubLatestRelease: &GithubRelease{
+					GithubRelease: &GithubRelease{
 						Owner:      "test-owner",
 						Repository: "test-repo",
 						Images:     []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
@@ -66,7 +66,7 @@ func TestConfigEntry(t *testing.T) {
 				Message: "should return error when multiple autoupdate strategies are present",
 				ConfigEntry: ConfigEntry{
 					Name: "test-entry",
-					GithubLatestRelease: &GithubRelease{
+					GithubRelease: &GithubRelease{
 						Owner:      "test-owner",
 						Repository: "test-repo",
 						Images: []AutoupdateImageRef{{
