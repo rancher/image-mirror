@@ -4,4 +4,7 @@ linters:
     rules:
       - linters:
           - errcheck
-        source: "defer fd.Close()"
+        source: 'defer fd.Close\(\)'
+      - linters:
+          - errcheck
+        source: 'defer exec.Command\("helm", "repo", "remove", helmRepoName\).Run\(\)'

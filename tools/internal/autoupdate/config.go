@@ -23,7 +23,8 @@ import (
 
 type ConfigEntry struct {
 	Name                string
-	GithubLatestRelease *GithubLatestRelease
+	GithubLatestRelease *GithubLatestRelease `json:",omitempty"`
+	HelmLatest          *HelmLatest          `json:",omitempty"`
 }
 
 type AutoUpdateOptions struct {
@@ -33,6 +34,14 @@ type AutoUpdateOptions struct {
 	GithubOwner  string
 	GithubRepo   string
 	GithubClient *github.Client
+}
+
+// AutoupdateImageRef is used to map a given update image to an entry in config.yaml.
+// There may be multiple entries that have the same SourceImage, but different
+// TargetImageNames, so we need to choose which one receives the update image.
+type AutoupdateImageRef struct {
+	SourceImage     string
+	TargetImageName string `json:",omitempty"`
 }
 
 func Parse(filePath string) ([]ConfigEntry, error) {
@@ -77,10 +86,18 @@ func (entry ConfigEntry) Validate() error {
 		return errors.New("must specify Name")
 	}
 
-	if entry.GithubLatestRelease == nil {
+	if entry.GithubLatestRelease == nil && entry.HelmLatest == nil {
 		return errors.New("must specify an autoupdate strategy")
-	} else if err := entry.GithubLatestRelease.Validate(); err != nil {
-		return fmt.Errorf("GithubLatestRelease failed validation: %w", err)
+	} else if entry.GithubLatestRelease != nil && entry.HelmLatest != nil {
+		return errors.New("must specify only one autoupdate strategy")
+	} else if entry.GithubLatestRelease != nil {
+		if err := entry.GithubLatestRelease.Validate(); err != nil {
+			return fmt.Errorf("GithubLatestRelease failed validation: %w", err)
+		}
+	} else if entry.HelmLatest != nil {
+		if err := entry.HelmLatest.Validate(); err != nil {
+			return fmt.Errorf("HelmLatest failed validation: %w", err)
+		}
 	}
 
 	return nil
@@ -95,6 +112,8 @@ func (entry ConfigEntry) GetUpdateImages() ([]*config.Image, error) {
 	switch {
 	case entry.GithubLatestRelease != nil:
 		return entry.GithubLatestRelease.GetUpdateImages()
+	case entry.HelmLatest != nil:
+		return entry.HelmLatest.GetUpdateImages()
 	default:
 		return nil, errors.New("did not find update strategy")
 	}
@@ -159,7 +178,13 @@ func (entry ConfigEntry) Run(ctx context.Context, opts AutoUpdateOptions) error 
 	}
 
 	if opts.DryRun {
-		fmt.Printf("%s: would make PR under branch %s\n", entry.Name, branchName)
+		msg := fmt.Sprintf("%s: would make PR under branch %s that adds:\n", entry.Name, branchName)
+		for _, imageToUpdate := range imagesToUpdate {
+			for _, fullImage := range imageToUpdate.CombineSourceImageAndTags() {
+				msg = msg + "  - " + fullImage + "\n"
+			}
+		}
+		fmt.Print(msg)
 		return nil
 	}
 

@@ -17,13 +17,28 @@ func TestConfigEntry(t *testing.T) {
 		}
 		testCases := []testCase{
 			{
-				Message: "should return nil for a valid ConfigEntry",
+				Message: "should return nil for a valid ConfigEntry with GithubLatestRelease",
 				ConfigEntry: ConfigEntry{
 					Name: "test-entry",
 					GithubLatestRelease: &GithubLatestRelease{
 						Owner:      "test-owner",
 						Repository: "test-repo",
-						Images:     []GithubLatestReleaseImage{{SourceImage: "rancher/rancher"}},
+						Images:     []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
+					},
+				},
+				ExpectedError: "",
+			},
+			{
+				Message: "should return nil for a valid ConfigEntry with HelmLatest",
+				ConfigEntry: ConfigEntry{
+					Name: "test-entry",
+					HelmLatest: &HelmLatest{
+						HelmRepo: "https://helm.cilium.io",
+						Charts: map[string]map[string]Environment{
+							"cilium": {
+								"default": {"hubble.enabled=true"},
+							},
+						},
 					},
 				},
 				ExpectedError: "",
@@ -35,7 +50,7 @@ func TestConfigEntry(t *testing.T) {
 					GithubLatestRelease: &GithubLatestRelease{
 						Owner:      "test-owner",
 						Repository: "test-repo",
-						Images:     []GithubLatestReleaseImage{{SourceImage: "rancher/rancher"}},
+						Images:     []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
 					},
 				},
 				ExpectedError: "must specify Name",
@@ -47,12 +62,34 @@ func TestConfigEntry(t *testing.T) {
 				},
 				ExpectedError: "must specify an autoupdate strategy",
 			},
+			{
+				Message: "should return error when multiple autoupdate strategies are present",
+				ConfigEntry: ConfigEntry{
+					Name: "test-entry",
+					GithubLatestRelease: &GithubLatestRelease{
+						Owner:      "test-owner",
+						Repository: "test-repo",
+						Images: []AutoupdateImageRef{{
+							SourceImage: "rancher/rancher",
+						}},
+					},
+					HelmLatest: &HelmLatest{
+						HelmRepo: "https://helm.cilium.io",
+						Charts: map[string]map[string]Environment{
+							"cilium": {
+								"default": {"hubble.enabled=true"},
+							},
+						},
+					},
+				},
+				ExpectedError: "must specify only one autoupdate strategy",
+			},
 		}
 		for _, testCase := range testCases {
 			t.Run(testCase.Message, func(t *testing.T) {
 				err := testCase.ConfigEntry.Validate()
 				if testCase.ExpectedError == "" {
-					assert.Nil(t, err)
+					assert.NoError(t, err)
 				} else {
 					assert.EqualError(t, err, testCase.ExpectedError)
 				}

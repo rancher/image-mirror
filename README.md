@@ -32,7 +32,7 @@ Once `regsync.yaml` has been updated, you may run `regsync` via the command
 regsync once --verbosity error --config regsync.yaml --missing
 ```
 
-### `config.yaml` Fields
+### `config.yaml`
 
 #### `Repositories`
 
@@ -61,17 +61,18 @@ repository.
 | `Tags` | yes | The tags to mirror.
 | `TargetImageName` | no | By default, the target image name is derived from the source image, and is of the format `mirrored-<org>-<name>`. For example, `banzaicloud/logging-operator` becomes `mirrored-banzaicloud-logging-operator`. However, there are some images that do not follow this convention - this field exists for these cases. New images should not set this field.
 
-### `autoupdate.yaml` Fields
+### `autoupdate.yaml`
 
 `autoupdate.yaml` defines configuration for automatically updating image tags
-based on various update strategies that monitor sources for new versions. Each
+based on various update strategies that monitor sources for new tags. Each
 entry specifies a strategy for finding tags of images to potentially add to
 `config.yaml`, which are then submitted as pull requests.
 
 | Field | Required | Description |
 | ------------- | ------------- |------------- |
 | `Name` | yes | A unique identifier for this autoupdate entry. Used for logging and generating branch names for pull requests.
-| `GithubLatestRelease` | no | See [GithubLatestRelease](#githublatestrelease).
+| `GithubLatestRelease` | no | See [`GithubLatestRelease`](#githublatestrelease).
+| `HelmLatest` | no | See [`HelmLatest`](#helmlatest).
 
 #### `GithubLatestRelease`
 
@@ -82,9 +83,9 @@ repository and applies it to the specified images.
 | ------------- | ------------- |------------- |
 | `Owner` | yes | The GitHub repository owner/organization.
 | `Repository` | yes | The GitHub repository name.
-| `Images` | yes | See [GithubLatestReleaseImage](#githublatestreleaseimage).
+| `Images` | yes | See [`Images`](#images).
 
-#### `GithubLatestReleaseImage`
+##### `Images`
 
 A list of images to be updated with the latest release tag. Each image will get the same tag as the GitHub release.
 
@@ -92,6 +93,27 @@ A list of images to be updated with the latest release tag. Each image will get 
 | ------------- | ------------- |------------- |
 | `SourceImage` | yes | The GitHub repository name.
 | `TargetImageName` | no | The TargetImageName of the image in `config.yaml` that you want to update.
+
+#### `HelmLatest`
+
+The `HelmLatest` strategy templates out the latest version of configured
+Helm charts and extracts image references from the rendered manifests. It
+recursively searches for fields with an "image" key in the templated YAML
+output.
+
+| Field | Required | Description |
+| ------------- | ------------- |------------- |
+| `HelmRepo` | yes | The URL of the Helm chart repository.
+| `Charts` | yes | A map where keys are the charts to template, and values are another map from environment name to lists of helm values to `--set` in that environment. `helm template` is run once for each environment.
+| `Images` | no | Used to map a given update image to an entry in `config.yaml`. There may be multiple entries that have the same `SourceImage`, but different `TargetImageName`s, so we need to choose which one receives the update image.
+| `ImageDenylist` | no | A list of images to exclude from the results.
+
+### `regsync.yaml`
+
+`regsync.yaml` is mostly for use by `regsync`. It is generated from `config.yaml`,
+and is not very easy to read. It should never be modified directly. It can,
+however, be useful for checking that `config.yaml` changes will have the expected
+effect on mirroring.
 
 ## Old Documentation
 

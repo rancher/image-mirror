@@ -12,6 +12,15 @@
     Owner: projectcalico
     Repository: calico
   Name: calico
+- HelmLatest:
+    Charts:
+      tigera-operator:
+        default: []
+    HelmRepo: https://docs.tigera.io/calico/charts
+    Images:
+    - SourceImage: quay.io/tigera/operator
+      TargetImageName: mirrored-calico-operator
+  Name: calico-operator
 - GithubLatestRelease:
     Images:
     - SourceImage: registry.k8s.io/sig-storage/csi-attacher
