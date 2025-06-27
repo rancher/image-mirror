@@ -111,7 +111,7 @@ func (entry ConfigEntry) Validate() error {
 	switch {
 	case entry.GithubRelease != nil:
 		if err := entry.GithubRelease.Validate(); err != nil {
-			return fmt.Errorf("GithubLatestRelease failed validation: %w", err)
+			return fmt.Errorf("GithubRelease failed validation: %w", err)
 		}
 	case entry.HelmLatest != nil:
 		if err := entry.HelmLatest.Validate(); err != nil {
