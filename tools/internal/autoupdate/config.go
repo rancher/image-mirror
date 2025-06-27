@@ -22,9 +22,9 @@ import (
 )
 
 type ConfigEntry struct {
-	Name                string
-	GithubLatestRelease *GithubLatestRelease `json:",omitempty"`
-	HelmLatest          *HelmLatest          `json:",omitempty"`
+	Name          string
+	GithubRelease *GithubRelease `json:",omitempty"`
+	HelmLatest    *HelmLatest    `json:",omitempty"`
 }
 
 type AutoUpdateOptions struct {
@@ -86,13 +86,13 @@ func (entry ConfigEntry) Validate() error {
 		return errors.New("must specify Name")
 	}
 
-	if entry.GithubLatestRelease == nil && entry.HelmLatest == nil {
+	if entry.GithubRelease == nil && entry.HelmLatest == nil {
 		return errors.New("must specify an autoupdate strategy")
-	} else if entry.GithubLatestRelease != nil && entry.HelmLatest != nil {
+	} else if entry.GithubRelease != nil && entry.HelmLatest != nil {
 		return errors.New("must specify only one autoupdate strategy")
-	} else if entry.GithubLatestRelease != nil {
-		if err := entry.GithubLatestRelease.Validate(); err != nil {
-			return fmt.Errorf("GithubLatestRelease failed validation: %w", err)
+	} else if entry.GithubRelease != nil {
+		if err := entry.GithubRelease.Validate(); err != nil {
+			return fmt.Errorf("GithubRelease failed validation: %w", err)
 		}
 	} else if entry.HelmLatest != nil {
 		if err := entry.HelmLatest.Validate(); err != nil {
@@ -110,8 +110,8 @@ func (entry ConfigEntry) Validate() error {
 // we want to mirror.
 func (entry ConfigEntry) GetUpdateImages() ([]*config.Image, error) {
 	switch {
-	case entry.GithubLatestRelease != nil:
-		return entry.GithubLatestRelease.GetUpdateImages()
+	case entry.GithubRelease != nil:
+		return entry.GithubRelease.GetUpdateImages()
 	case entry.HelmLatest != nil:
 		return entry.HelmLatest.GetUpdateImages()
 	default:

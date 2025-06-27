@@ -26,12 +26,5 @@
     ],
     "versionSource": "registry",
     "versionFilter": "^v1\\.([3-9][0-9])\\.[0-9]+$"
-  },
-  "etcd": {
-    "images": [
-      "quay.io/coreos/etcd"
-    ],
-    "versionSource": "github-releases:etcd-io/etcd",
-    "versionConstraint": ">3.5.10"
   }
 }
