@@ -71,19 +71,22 @@ entry specifies a strategy for finding tags of images to potentially add to
 | Field | Required | Description |
 | ------------- | ------------- |------------- |
 | `Name` | yes | A unique identifier for this autoupdate entry. Used for logging and generating branch names for pull requests.
-| `GithubLatestRelease` | no | See [`GithubLatestRelease`](#githublatestrelease).
+| `GithubRelease` | no | See [`GithubRelease`](#githubrelease).
 | `HelmLatest` | no | See [`HelmLatest`](#helmlatest).
 
-#### `GithubLatestRelease`
+#### `GithubRelease`
 
-The `GithubLatestRelease` strategy fetches the latest release tag from a GitHub
-repository and applies it to the specified images.
+The `GithubRelease` strategy fetches all release tags that matches the VersionConstraint from a GitHub
+repository and applies it to the specified images. 
+If LatestOnly is true, it only fetches from the latest release and does not consider the VersionConstraint.
 
-| Field | Required | Description |
-| ------------- | ------------- |------------- |
-| `Owner` | yes | The GitHub repository owner/organization.
-| `Repository` | yes | The GitHub repository name.
-| `Images` | yes | See [`Images`](#images).
+| Field               | Required | Description |
+|---------------------|----------|------------- |
+| `Owner`             | yes      | The GitHub repository owner/organization.
+| `Repository`        | yes      | The GitHub repository name.
+| `Images`            | yes      | See [`Images`](#images).
+| `LatestOnly`        | no       | A flag to only fetch the latest github release.
+| `VersionConstraint` | no       | A SemVer constraint used to filter the github releases.
 
 ##### `Images`
 
