@@ -6,7 +6,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestGithubLatestRelease(t *testing.T) {
+func TestGithubRelease(t *testing.T) {
 	t.Run("Validate", func(t *testing.T) {
 		type testCase struct {
 			Message       string

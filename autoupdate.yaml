@@ -12,7 +12,6 @@
     LatestOnly: true
     Owner: projectcalico
     Repository: calico
-    VersionConstraint: ""
   Name: calico
 - HelmLatest:
     Charts:
@@ -59,7 +58,6 @@
     LatestOnly: true
     Owner: kubernetes-csi
     Repository: external-attacher
-    VersionConstraint: ""
   Name: csi-attacher
 - GithubRelease:
     Images:
@@ -67,7 +65,6 @@
     LatestOnly: true
     Owner: kubernetes-csi
     Repository: node-driver-registrar
-    VersionConstraint: ""
   Name: csi-driver-registrar
 - GithubRelease:
     Images:
@@ -75,7 +72,6 @@
     LatestOnly: true
     Owner: kubernetes-csi
     Repository: external-provisioner
-    VersionConstraint: ""
   Name: csi-provisioner
 - GithubRelease:
     Images:
@@ -83,7 +79,6 @@
     LatestOnly: true
     Owner: kubernetes-csi
     Repository: external-resizer
-    VersionConstraint: ""
   Name: csi-resizer
 - GithubRelease:
     Images:
@@ -91,12 +86,10 @@
     LatestOnly: true
     Owner: kubernetes-csi
     Repository: external-snapshotter
-    VersionConstraint: ""
   Name: csi-snapshotter
 - GithubRelease:
     Images:
-    - SourceImage: quay.io/coreos/etc
-    LatestOnly: false
+    - SourceImage: quay.io/coreos/etcd
     Owner: etcd-io
     Repository: etcd
     VersionConstraint: '>3.5.10'
@@ -107,7 +100,6 @@
     LatestOnly: true
     Owner: flannel-io
     Repository: flannel
-    VersionConstraint: ""
   Name: flannel
 - GithubRelease:
     Images:
@@ -115,7 +107,6 @@
     LatestOnly: true
     Owner: flannel-io
     Repository: cni-plugin
-    VersionConstraint: ""
   Name: flannel-cni-plugin
 - GithubRelease:
     Images:
@@ -123,7 +114,6 @@
     LatestOnly: true
     Owner: kube-vip
     Repository: kube-vip
-    VersionConstraint: ""
   Name: kube-vip-iptables
 - GithubRelease:
     Images:
@@ -131,7 +121,6 @@
     LatestOnly: true
     Owner: idealista
     Repository: prom2teams
-    VersionConstraint: ""
   Name: prom2teams
 - GithubRelease:
     Images:
@@ -139,7 +128,6 @@
     LatestOnly: true
     Owner: kubernetes-csi
     Repository: external-snapshotter
-    VersionConstraint: ""
   Name: snapshot-controller
 - GithubRelease:
     Images:
@@ -147,7 +135,6 @@
     LatestOnly: true
     Owner: vmware-tanzu
     Repository: sonobuoy
-    VersionConstraint: ""
   Name: sonobuoy
 - GithubRelease:
     Images:
@@ -155,7 +142,6 @@
     LatestOnly: true
     Owner: kubernetes-csi
     Repository: livenessprobe
-    VersionConstraint: ""
   Name: storage-livenessprobe
 - GithubRelease:
     Images:
@@ -166,5 +152,4 @@
     LatestOnly: true
     Owner: kubernetes-sigs
     Repository: vsphere-csi-driver
-    VersionConstraint: ""
   Name: vsphere-csi

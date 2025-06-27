@@ -18,23 +18,52 @@ type GithubRelease struct {
 	Owner             string
 	Repository        string
 	Images            []AutoupdateImageRef
-	LatestOnly        bool
-	VersionConstraint string
+	LatestOnly        bool   `json:",omitempty"`
+	VersionConstraint string `json:",omitempty"`
 }
 
 func (gr *GithubRelease) GetUpdateImages() ([]*config.Image, error) {
 	client := github.NewClient(nil)
-	if gr.LatestOnly {
-		return gr.getImagesFromLatestRelease(client)
-	} else {
-		return gr.getImagesFromAllReleases(client)
-	}
-}
 
-func (gr *GithubRelease) getImagesFromAllReleases(client *github.Client) ([]*config.Image, error) {
-	opt := &github.ListOptions{}
+	var tags []string
+	if gr.LatestOnly {
+		latestTag, err := gr.getTagFromLatestRelease(client)
+		if err != nil {
+			return nil, fmt.Errorf("failed to get tag from latest github release: %w", err)
+		}
+		tags = append(tags, latestTag)
+	} else {
+		ghTags, err := gr.getTagsFromAllReleases(client)
+		if err != nil {
+			return nil, fmt.Errorf("failed to get tags from github releases: %w", err)
+		}
+		tags = append(tags, ghTags...)
+	}
 
 	images := make([]*config.Image, 0, len(gr.Images))
+	for _, sourceImage := range gr.Images {
+		image, err := config.NewImage(sourceImage.SourceImage, tags)
+		if err != nil {
+			return nil, fmt.Errorf("failed to construct image from source image %q and tags %v: %w", sourceImage, tags, err)
+		}
+		image.SetTargetImageName(sourceImage.TargetImageName)
+		images = append(images, image)
+	}
+	return images, nil
+}
+
+func (gr *GithubRelease) getTagsFromAllReleases(client *github.Client) ([]string, error) {
+	var constraint *semver.Constraints
+	if gr.VersionConstraint != "" {
+		var err error
+		constraint, err = semver.NewConstraint(gr.VersionConstraint)
+		if err != nil {
+			return nil, fmt.Errorf("error parsing version constraint: %w", err)
+		}
+	}
+
+	opt := &github.ListOptions{}
+	var tags []string
 	for {
 		releases, resp, err := client.Repositories.ListReleases(context.Background(), gr.Owner, gr.Repository, opt)
 		if err != nil {
@@ -45,15 +74,10 @@ func (gr *GithubRelease) getImagesFromAllReleases(client *github.Client) ([]*con
 			if release.GetPrerelease() || release.GetDraft() {
 				continue
 			}
-			if gr.VersionConstraint != "" {
+			if constraint != nil {
 				version, err := semver.NewVersion(release.GetTagName())
 				if err != nil {
 					return nil, fmt.Errorf("error parsing release version: %w", err)
-				}
-
-				constraint, err := semver.NewConstraint(gr.VersionConstraint)
-				if err != nil {
-					return nil, fmt.Errorf("error parsing version constraint: %w", err)
 				}
 
 				//check if tag matches the constraint
@@ -61,14 +85,7 @@ func (gr *GithubRelease) getImagesFromAllReleases(client *github.Client) ([]*con
 					continue
 				}
 			}
-			for _, sourceImage := range gr.Images {
-				image, err := config.NewImage(sourceImage.SourceImage, []string{release.GetTagName()})
-				if err != nil {
-					return nil, fmt.Errorf("failed to construct image from source image %q and tag %q: %w", sourceImage, release.GetTagName(), err)
-				}
-				image.SetTargetImageName(sourceImage.TargetImageName)
-				images = append(images, image)
-			}
+			tags = append(tags, release.GetTagName())
 		}
 
 		if resp.NextPage == 0 {
@@ -77,27 +94,16 @@ func (gr *GithubRelease) getImagesFromAllReleases(client *github.Client) ([]*con
 		opt.Page = resp.NextPage
 	}
 
-	return images, nil
+	return tags, nil
 }
 
-func (gr *GithubRelease) getImagesFromLatestRelease(client *github.Client) ([]*config.Image, error) {
+func (gr *GithubRelease) getTagFromLatestRelease(client *github.Client) (string, error) {
 	release, _, err := client.Repositories.GetLatestRelease(context.Background(), gr.Owner, gr.Repository)
 	if err != nil {
-		return nil, fmt.Errorf("failed to get latest release: %w", err)
-	}
-	latestTag := *release.TagName
-
-	images := make([]*config.Image, 0, len(gr.Images))
-	for _, sourceImage := range gr.Images {
-		image, err := config.NewImage(sourceImage.SourceImage, []string{latestTag})
-		if err != nil {
-			return nil, fmt.Errorf("failed to construct image from source image %q and tag %q: %w", sourceImage, latestTag, err)
-		}
-		image.SetTargetImageName(sourceImage.TargetImageName)
-		images = append(images, image)
+		return "", fmt.Errorf("failed to get latest release: %w", err)
 	}
 
-	return images, nil
+	return release.GetTagName(), nil
 }
 
 func (gr *GithubRelease) Validate() error {
