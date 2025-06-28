@@ -22,9 +22,10 @@ import (
 )
 
 type ConfigEntry struct {
-	Name          string
-	GithubRelease *GithubRelease `json:",omitempty"`
-	HelmLatest    *HelmLatest    `json:",omitempty"`
+	Name                   string
+	GithubRelease          *GithubRelease          `json:",omitempty"`
+	HelmLatest             *HelmLatest             `json:",omitempty"`
+	GithubTaggedImagesFile *GithubTaggedImagesFile `json:",omitempty"`
 }
 
 type AutoUpdateOptions struct {
@@ -86,17 +87,37 @@ func (entry ConfigEntry) Validate() error {
 		return errors.New("must specify Name")
 	}
 
-	if entry.GithubRelease == nil && entry.HelmLatest == nil {
+	// Count how many strategies are specified
+	strategyCount := 0
+	if entry.GithubRelease != nil {
+		strategyCount++
+	}
+	if entry.HelmLatest != nil {
+		strategyCount++
+	}
+	if entry.GithubTaggedImagesFile != nil {
+		strategyCount++
+	}
+
+	if strategyCount < 1 {
 		return errors.New("must specify an autoupdate strategy")
-	} else if entry.GithubRelease != nil && entry.HelmLatest != nil {
+	} else if strategyCount > 1 {
 		return errors.New("must specify only one autoupdate strategy")
-	} else if entry.GithubRelease != nil {
+	}
+
+	// Validate the specified strategy
+	switch {
+	case entry.GithubRelease != nil:
 		if err := entry.GithubRelease.Validate(); err != nil {
 			return fmt.Errorf("GithubRelease failed validation: %w", err)
 		}
-	} else if entry.HelmLatest != nil {
+	case entry.HelmLatest != nil:
 		if err := entry.HelmLatest.Validate(); err != nil {
 			return fmt.Errorf("HelmLatest failed validation: %w", err)
+		}
+	case entry.GithubTaggedImagesFile != nil:
+		if err := entry.GithubTaggedImagesFile.Validate(); err != nil {
+			return fmt.Errorf("GithubTaggedImagesFile failed validation: %w", err)
 		}
 	}
 
@@ -114,6 +135,8 @@ func (entry ConfigEntry) GetUpdateImages() ([]*config.Image, error) {
 		return entry.GithubRelease.GetUpdateImages()
 	case entry.HelmLatest != nil:
 		return entry.HelmLatest.GetUpdateImages()
+	case entry.GithubTaggedImagesFile != nil:
+		return entry.GithubTaggedImagesFile.GetUpdateImages()
 	default:
 		return nil, errors.New("did not find update strategy")
 	}
