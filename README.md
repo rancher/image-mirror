@@ -111,6 +111,21 @@ output.
 | `Images` | no | Used to map a given update image to an entry in `config.yaml`. There may be multiple entries that have the same `SourceImage`, but different `TargetImageName`s, so we need to choose which one receives the update image.
 | `ImageDenylist` | no | A list of images to exclude from the results.
 
+#### `GithubTaggedImagesFile`
+
+The `GithubTaggedImagesFile` finds images by iterating over every github release
+that matches a version constraint, and reading a text file from the commit that
+the tag on the release points to. Each line of the file should contain the image
+in "repository:tag" format.
+
+| Field               | Required | Description |
+|---------------------|----------|------------- |
+| `Owner`             | yes      | The GitHub repository owner/organization.
+| `Repository`        | yes      | The GitHub repository name.
+| `ImagesFilePath`    | yes      | The path to the file to read images from relative to the repo root.
+| `Images` | no | Used to map a given update image to an entry in `config.yaml`. There may be multiple entries that have the same `SourceImage`, but different `TargetImageName`s, so we need to choose which one receives the update image.
+| `VersionConstraint` | no       | A SemVer constraint used to filter the github releases.
+
 ### `regsync.yaml`
 
 `regsync.yaml` is mostly for use by `regsync`. It is generated from `config.yaml`,
