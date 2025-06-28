@@ -78,7 +78,7 @@ entry specifies a strategy for finding tags of images to potentially add to
 #### `GithubRelease`
 
 The `GithubRelease` strategy fetches all release tags that matches the VersionConstraint from a GitHub
-repository and applies it to the specified images. 
+repository and applies it to the specified images.
 If LatestOnly is true, it only fetches from the latest release and does not consider the VersionConstraint.
 
 | Field               | Required | Description |
@@ -112,10 +112,25 @@ output.
 | `Images` | no | Used to map a given update image to an entry in `config.yaml`. There may be multiple entries that have the same `SourceImage`, but different `TargetImageName`s, so we need to choose which one receives the update image.
 | `ImageDenylist` | no | A list of images to exclude from the results.
 
+#### `GithubTaggedImagesFile`
+
+The `GithubTaggedImagesFile` finds images by iterating over every github release
+that matches a version constraint, and reading a text file from the commit that
+the tag on the release points to. Each line of the file should contain the image
+in "repository:tag" format.
+
+| Field               | Required | Description |
+|---------------------|----------|------------- |
+| `Owner`             | yes      | The GitHub repository owner/organization.
+| `Repository`        | yes      | The GitHub repository name.
+| `ImagesFilePath`    | yes      | The path to the file to read images from relative to the repo root.
+| `Images` | no | Used to map a given update image to an entry in `config.yaml`. There may be multiple entries that have the same `SourceImage`, but different `TargetImageName`s, so we need to choose which one receives the update image.
+| `VersionConstraint` | no       | A SemVer constraint used to filter the github releases.
+
 #### `Registry`
 
 The `Registry` strategy fetches all image tags that matches the `VersionFilter` from a registry defined in the Images provided.
-Supported registries are: 
+Supported registries are:
 * Suse Container Registry (registry.suse.com)
 * Docker Hub
 * Quay.io
