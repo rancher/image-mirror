@@ -285,7 +285,7 @@ func validate(_ context.Context, _ *cli.Command) error {
 	// Format results into one error, if any
 	if len(errs) > 0 {
 		outputErrs := make([]error, 0, len(errs)+1)
-		outputErrs = append(outputErrs, errors.New("validation failed:"))
+		outputErrs = append(outputErrs, errors.New("validation failed"))
 		outputErrs = append(outputErrs, errs...)
 		return errors.Join(outputErrs...)
 	}
