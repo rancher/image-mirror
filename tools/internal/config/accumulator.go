@@ -5,24 +5,24 @@ import (
 	"slices"
 )
 
-type imageIndex struct {
+type ImageIndex struct {
 	SourceImage     string
 	TargetImageName string
 }
 
 type ImageAccumulator struct {
-	mapping map[imageIndex]*Image
+	mapping map[ImageIndex]*Image
 }
 
 func NewImageAccumulator() *ImageAccumulator {
 	return &ImageAccumulator{
-		mapping: map[imageIndex]*Image{},
+		mapping: map[ImageIndex]*Image{},
 	}
 }
 
 func (ia *ImageAccumulator) AddImages(newImages ...*Image) {
 	for _, newImage := range newImages {
-		pair := imageIndex{
+		pair := ImageIndex{
 			SourceImage:     newImage.SourceImage,
 			TargetImageName: newImage.TargetImageName(),
 		}
@@ -45,7 +45,7 @@ func (ia *ImageAccumulator) AddImages(newImages ...*Image) {
 // the image are accounted for, nil is returned for the image. The
 // "difference" terminology comes from set theory.
 func (ia *ImageAccumulator) TagDifference(image *Image) (*Image, error) {
-	index := imageIndex{
+	index := ImageIndex{
 		SourceImage:     image.SourceImage,
 		TargetImageName: image.TargetImageName(),
 	}
