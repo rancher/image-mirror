@@ -113,8 +113,10 @@ func (config *Config) ToRegsyncConfig() (regsync.Config, error) {
 			if !repo.Target {
 				continue
 			}
-			// source and destination images are the same
-			if image.SourceImage == repo.BaseUrl+"/"+image.TargetImageName() {
+			// do not include if source and destination images are the same
+			trimmedSourceImage := strings.TrimPrefix(image.SourceImage, "docker.io/")
+			trimmedTargetImage := strings.TrimPrefix(repo.BaseUrl+"/"+image.TargetImageName(), "docker.io/")
+			if trimmedSourceImage == trimmedTargetImage {
 				continue
 			}
 			syncEntries, err := image.ToRegsyncImages(repo)
