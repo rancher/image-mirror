@@ -145,11 +145,16 @@
   Name: storage-livenessprobe
 - GithubRelease:
     Images:
-    - SourceImage: registry.k8s.io/csi-vsphere/driver
-      TargetImageName: mirrored-cloud-provider-vsphere-csi-release-driver
-    - SourceImage: registry.k8s.io/csi-vsphere/syncer
-      TargetImageName: mirrored-cloud-provider-vsphere-csi-release-syncer
+      - SourceImage: registry.k8s.io/csi-vsphere/driver
+        TargetImageName: mirrored-cloud-provider-vsphere-csi-release-driver
+      - SourceImage: registry.k8s.io/csi-vsphere/syncer
+        TargetImageName: mirrored-cloud-provider-vsphere-csi-release-syncer
     LatestOnly: true
     Owner: kubernetes-sigs
     Repository: vsphere-csi-driver
   Name: vsphere-csi
+- Registry:
+    Images:
+      - SourceImage: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere
+    VersionFilter: '^v1.([3-9][0-9]).[0-9]+$'
+  Name: cpi-release-manager

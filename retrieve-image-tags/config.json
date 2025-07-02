@@ -19,12 +19,5 @@
     "imagesFilePath": "deploy/longhorn-images.txt",
     "versionSource": "github-tagged-images-file:longhorn/longhorn",
     "versionConstraint": ">=1.4.0"
-  },
-  "cpi-release-manager": {
-    "images": [
-      "registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere"
-    ],
-    "versionSource": "registry",
-    "versionFilter": "^v1\\.([3-9][0-9])\\.[0-9]+$"
   }
 }

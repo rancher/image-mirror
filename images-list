@@ -570,12 +570,3 @@ quay.io/thanos/thanos rancher/mirrored-thanos-thanos v0.34.1
 quay.io/thanos/thanos rancher/mirrored-thanos-thanos v0.35.1
 quay.io/thanos/thanos rancher/mirrored-thanos-thanos v0.36.1
 quay.io/thanos/thanos rancher/mirrored-thanos-thanos v0.37.2
-registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere rancher/mirrored-cloud-provider-vsphere v1.30.0
-registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere rancher/mirrored-cloud-provider-vsphere v1.30.1
-registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere rancher/mirrored-cloud-provider-vsphere v1.30.2
-registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere rancher/mirrored-cloud-provider-vsphere v1.31.0
-registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere rancher/mirrored-cloud-provider-vsphere v1.31.1
-registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere rancher/mirrored-cloud-provider-vsphere v1.32.0
-registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere rancher/mirrored-cloud-provider-vsphere v1.32.1
-registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere rancher/mirrored-cloud-provider-vsphere v1.32.2
-registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere rancher/mirrored-cloud-provider-vsphere v1.33.0
