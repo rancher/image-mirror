@@ -791,6 +791,39 @@ Images:
   Tags:
   - 2.7.1
   - 2.8.1
+- SourceImage: library/traefik
+  Tags:
+  - 2.4.2
+  - 2.4.8
+  - 2.4.9
+  TargetImageName: library-traefik
+- SourceImage: library/traefik
+  Tags:
+  - 2.10.5
+  - 2.10.7
+  - 2.11.10
+  - 2.11.11
+  - 2.11.16
+  - 2.11.17
+  - 2.11.18
+  - 2.11.20
+  - 2.11.22
+  - 2.11.24
+  - 2.11.8
+  - 2.4.8
+  - 2.5.0
+  - 2.5.6
+  - 2.6.0
+  - 2.6.1
+  - 2.6.2
+  - 2.8.7
+  - 2.9.1
+  - 2.9.10
+  - 2.9.4
+  - 3.3.2
+  - 3.3.3
+  - 3.3.5
+  - 3.3.6
 - SourceImage: messagebird/sachet
   Tags:
   - 0.2.3

@@ -158,3 +158,9 @@
       - SourceImage: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere
     VersionFilter: '^v1.([3-9][0-9]).[0-9]+$'
   Name: cpi-release-manager
+- Registry:
+    Images:
+      - SourceImage: library/traefik
+    Latest: true
+    VersionFilter: '^3.[0-9]+.[0-9]+$'
+  Name: traefik3
