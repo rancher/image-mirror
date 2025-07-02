@@ -63,6 +63,11 @@ func main() {
 				Action: generateRegsyncYaml,
 			},
 			{
+				Name:   "validate",
+				Usage:  "Validate the state of various files",
+				Action: validate,
+			},
+			{
 				Name:   "migrate-images-list",
 				Usage:  "Migrate images from images-list to config.yaml",
 				Action: migrateImagesList,
@@ -263,4 +268,45 @@ func autoUpdate(ctx context.Context, _ *cli.Command) error {
 	}
 
 	return nil
+}
+
+// validate is used to run validations based in Go code against
+// the state of the image-mirror repo.
+func validate(_ context.Context, _ *cli.Command) error {
+	configYaml, err := config.Parse(paths.ConfigYaml)
+	if err != nil {
+		return fmt.Errorf("failed to parse %s: %w", paths.ConfigYaml, err)
+	}
+
+	// Run validations
+	errs := make([]error, 0)
+	validateSourceImageAndTargetImageName(&errs, *configYaml)
+
+	// Format results into one error, if any
+	if len(errs) > 0 {
+		outputErrs := make([]error, 0, len(errs)+1)
+		outputErrs = append(outputErrs, errors.New("validation failed:"))
+		outputErrs = append(outputErrs, errs...)
+		return errors.Join(outputErrs...)
+	}
+
+	return nil
+}
+
+func validateSourceImageAndTargetImageName(errs *[]error, configYaml config.Config) {
+	imageMap := map[config.ImageIndex]bool{}
+	for _, image := range configYaml.Images {
+		index := config.ImageIndex{
+			SourceImage:     image.SourceImage,
+			TargetImageName: image.TargetImageName(),
+		}
+		_, alreadyPresent := imageMap[index]
+		if alreadyPresent {
+			err := fmt.Errorf("found multiple images in %s with SourceImage %s and TargetImageName %s",
+				paths.ConfigYaml, image.SourceImage, image.TargetImageName())
+			*errs = append(*errs, err)
+		} else {
+			imageMap[index] = true
+		}
+	}
 }
