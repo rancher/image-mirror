@@ -12,12 +12,14 @@ func TestImage(t *testing.T) {
 		type TestCase struct {
 			Name                     string
 			SpecifiedTargetImageName string
+			DoNotMirror              any
 			ExpectedEntries          []regsync.ConfigSync
 		}
 		for _, testCase := range []TestCase{
 			{
 				Name:                     "should use default image name when TargetImageName is not set",
 				SpecifiedTargetImageName: "",
+				DoNotMirror:              nil,
 				ExpectedEntries: []regsync.ConfigSync{
 					{
 						Source: "test-org/test-image:v1.2.3",
@@ -34,6 +36,7 @@ func TestImage(t *testing.T) {
 			{
 				Name:                     "should use TargetImageName when it is set",
 				SpecifiedTargetImageName: "other-org-test-image",
+				DoNotMirror:              nil,
 				ExpectedEntries: []regsync.ConfigSync{
 					{
 						Source: "test-org/test-image:v1.2.3",
@@ -47,9 +50,27 @@ func TestImage(t *testing.T) {
 					},
 				},
 			},
+			{
+				Name:                     "should not return any entries if DoNotMirror is true",
+				SpecifiedTargetImageName: "",
+				DoNotMirror:              true,
+				ExpectedEntries:          []regsync.ConfigSync{},
+			},
+			{
+				Name:                     "should only return unspecified tags if DoNotMirror specifies tags",
+				SpecifiedTargetImageName: "",
+				DoNotMirror:              []any{"v2.3.4"},
+				ExpectedEntries: []regsync.ConfigSync{
+					{
+						Source: "test-org/test-image:v1.2.3",
+						Target: "docker.io/test1/mirrored-test-org-test-image:v1.2.3",
+						Type:   "image",
+					},
+				},
+			},
 		} {
 			t.Run(testCase.Name, func(t *testing.T) {
-				inputImage, err := NewImage("test-org/test-image", []string{"v1.2.3", "v2.3.4"}, testCase.SpecifiedTargetImageName, nil)
+				inputImage, err := NewImage("test-org/test-image", []string{"v1.2.3", "v2.3.4"}, testCase.SpecifiedTargetImageName, testCase.DoNotMirror)
 				if err != nil {
 					t.Fatalf("unexpected error: %s", err)
 				}
