@@ -44,6 +44,19 @@ func TestConfigEntry(t *testing.T) {
 				ExpectedError: "",
 			},
 			{
+				Message: "should return nil for a valid ConfigEntry with Registry",
+				ConfigEntry: ConfigEntry{
+					Name: "test-entry",
+					Registry: &Registry{
+						Images:        []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
+						Latest:        false,
+						LatestEntry:   true,
+						VersionFilter: "^v1\\.([3-9][0-9])\\.[0-9]+$",
+					},
+				},
+				ExpectedError: "",
+			},
+			{
 				Message: "should return error when Name is not present",
 				ConfigEntry: ConfigEntry{
 					Name: "",
