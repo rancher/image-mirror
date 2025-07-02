@@ -54,12 +54,10 @@ func (ia *ImageAccumulator) TagDifference(image *Image) (*Image, error) {
 		return image, nil
 	}
 
-	imageToReturn, err := NewImage(image.SourceImage, make([]string, 0, len(image.Tags)))
+	imageToReturn, err := NewImage(image.SourceImage, make([]string, 0, len(image.Tags)), image.TargetImageName(), image.DoNotMirror)
 	if err != nil {
 		return nil, fmt.Errorf("failed to construct new image from passed image: %w", err)
 	}
-	imageToReturn.DoNotMirror = image.DoNotMirror
-	imageToReturn.SetTargetImageName(image.TargetImageName())
 	for _, tag := range image.Tags {
 		if !slices.Contains(existingImage.Tags, tag) {
 			imageToReturn.Tags = append(imageToReturn.Tags, tag)

@@ -34,14 +34,16 @@ type Image struct {
 	Tags []string
 }
 
-func NewImage(sourceImage string, tags []string) (*Image, error) {
+func NewImage(sourceImage string, tags []string, targetImageName string, doNotMirror any) (*Image, error) {
 	image := &Image{
 		SourceImage: sourceImage,
 		Tags:        tags,
+		DoNotMirror: doNotMirror,
 	}
 	if err := image.setDefaults(); err != nil {
 		return nil, err
 	}
+	image.SetTargetImageName(targetImageName)
 	return image, nil
 }
 
@@ -54,7 +56,6 @@ func (image *Image) setDefaults() error {
 	if len(parts) < 2 {
 		return fmt.Errorf("source image split into %d parts (>=2 parts expected)", len(parts))
 	}
-
 	if parts[0] == "dp.apps.rancher.io" {
 		// AppCo images have only one significant part in their reference.
 		// For example, in dp.apps.rancher.io/containers/openjdk,

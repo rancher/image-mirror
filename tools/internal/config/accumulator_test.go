@@ -9,9 +9,9 @@ import (
 func TestImageAccumulator(t *testing.T) {
 	t.Run("AddImage", func(t *testing.T) {
 		t.Run("should correctly accumulate multiple images", func(t *testing.T) {
-			image1, err := NewImage("test-org/image1", []string{"test1"})
+			image1, err := NewImage("test-org/image1", []string{"test1"}, "", nil)
 			assert.NoError(t, err)
-			image2, err := NewImage("test-org/image2", []string{"test2"})
+			image2, err := NewImage("test-org/image2", []string{"test2"}, "", nil)
 			assert.NoError(t, err)
 
 			accumulator := NewImageAccumulator()
@@ -26,23 +26,23 @@ func TestImageAccumulator(t *testing.T) {
 
 	t.Run("TagDifference", func(t *testing.T) {
 		t.Run("should return the passed image if no image like it is present in accumulator", func(t *testing.T) {
-			image, err := NewImage("test-org/image", []string{"qwer"})
+			image, err := NewImage("test-org/image", []string{"qwer"}, "", nil)
 			assert.Nil(t, err)
 			accumulator := NewImageAccumulator()
 			diffImage, err := accumulator.TagDifference(image)
 			assert.Nil(t, err)
 			assert.Equal(t, image.DoNotMirror, diffImage.DoNotMirror)
 			assert.Equal(t, image.SourceImage, diffImage.SourceImage)
-			assert.Equal(t, image.SpecifiedTargetImageName, diffImage.SpecifiedTargetImageName)
+			assert.Equal(t, image.TargetImageName(), diffImage.TargetImageName())
 			assert.Equal(t, image.Tags, diffImage.Tags)
 		})
 
 		t.Run("should return the tags that are not already present in the accumulator", func(t *testing.T) {
-			image1, err := NewImage("test-org/image", []string{"qwer"})
+			image1, err := NewImage("test-org/image", []string{"qwer"}, "", nil)
 			assert.Nil(t, err)
 			accumulator := NewImageAccumulator()
 			accumulator.AddImages(image1)
-			image2, err := NewImage("test-org/image", []string{"asdf", "qwer"})
+			image2, err := NewImage("test-org/image", []string{"asdf", "qwer"}, "", nil)
 			assert.Nil(t, err)
 			diffImage, err := accumulator.TagDifference(image2)
 			assert.Nil(t, err)
@@ -50,9 +50,9 @@ func TestImageAccumulator(t *testing.T) {
 		})
 
 		t.Run("should return nil for image if all tags are accounted for", func(t *testing.T) {
-			image1, err := NewImage("test-org/image", []string{"qwer"})
+			image1, err := NewImage("test-org/image", []string{"qwer"}, "", nil)
 			assert.Nil(t, err)
-			image2, err := NewImage("test-org/image", []string{"qwer"})
+			image2, err := NewImage("test-org/image", []string{"qwer"}, "", nil)
 			assert.Nil(t, err)
 			accumulator := NewImageAccumulator()
 			accumulator.AddImages(image1)

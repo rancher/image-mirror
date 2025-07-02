@@ -167,11 +167,10 @@ func convertImageListEntryToImage(imageListEntry legacy.ImagesListEntry) (*confi
 	}
 	targetImageName := parts[len(parts)-1]
 
-	image, err := config.NewImage(imageListEntry.Source, []string{imageListEntry.Tag})
+	image, err := config.NewImage(imageListEntry.Source, []string{imageListEntry.Tag}, targetImageName, nil)
 	if err != nil {
 		return nil, fmt.Errorf("failed to create new Image: %w", err)
 	}
-	image.SetTargetImageName(targetImageName)
 
 	return image, nil
 }

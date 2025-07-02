@@ -10,9 +10,9 @@ import (
 func TestConfig(t *testing.T) {
 	t.Run("ToRegsyncConfig", func(t *testing.T) {
 		t.Run("should exclude repos with Target: false from sync entries", func(t *testing.T) {
-			image1, err := NewImage("test-org/image1", []string{"v1.0.0"})
+			image1, err := NewImage("test-org/image1", []string{"v1.0.0"}, "", nil)
 			assert.NoError(t, err)
-			image2, err := NewImage("test-org/image2", []string{"v2.0.0"})
+			image2, err := NewImage("test-org/image2", []string{"v2.0.0"}, "", nil)
 			assert.NoError(t, err)
 			config := &Config{
 				Images: []*Image{image1, image2},
@@ -94,9 +94,8 @@ func TestConfig(t *testing.T) {
 			for _, testCase := range testCases {
 				t.Run(testCase.Name, func(t *testing.T) {
 					tag := "v1.0.0"
-					image, err := NewImage(testCase.ImageRef, []string{tag})
+					image, err := NewImage(testCase.ImageRef, []string{tag}, "test-image", nil)
 					assert.NoError(t, err)
-					image.SetTargetImageName("test-image")
 					config := &Config{
 						Images: []*Image{image},
 						Repositories: []Repository{
