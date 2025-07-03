@@ -42,11 +42,10 @@ func (gr *GithubRelease) GetUpdateImages() ([]*config.Image, error) {
 
 	images := make([]*config.Image, 0, len(gr.Images))
 	for _, sourceImage := range gr.Images {
-		image, err := config.NewImage(sourceImage.SourceImage, tags)
+		image, err := config.NewImage(sourceImage.SourceImage, tags, sourceImage.TargetImageName, nil)
 		if err != nil {
 			return nil, fmt.Errorf("failed to construct image from source image %q and tags %v: %w", sourceImage, tags, err)
 		}
-		image.SetTargetImageName(sourceImage.TargetImageName)
 		images = append(images, image)
 	}
 	return images, nil

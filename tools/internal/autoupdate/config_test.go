@@ -100,9 +100,9 @@ func TestConfigEntry(t *testing.T) {
 
 func TestGetBranchHash(t *testing.T) {
 	t.Run("should produce the same hash with the same set of images, but with different image order", func(t *testing.T) {
-		image1, err := config.NewImage("test-org/image1", []string{"asdf", "qwer"})
+		image1, err := config.NewImage("test-org/image1", []string{"asdf", "qwer"}, "", nil)
 		assert.Nil(t, err)
-		image2, err := config.NewImage("test-org/image2", []string{"asdf", "qwer"})
+		image2, err := config.NewImage("test-org/image2", []string{"asdf", "qwer"}, "", nil)
 		assert.Nil(t, err)
 
 		imageSet1 := []*config.Image{image1, image2}
@@ -117,13 +117,13 @@ func TestGetBranchHash(t *testing.T) {
 	})
 
 	t.Run("should produce the same hash with the same image, but a different order of tags", func(t *testing.T) {
-		image1, err := config.NewImage("test-org/image", []string{"asdf", "qwer"})
+		image1, err := config.NewImage("test-org/image", []string{"asdf", "qwer"}, "", nil)
 		assert.Nil(t, err)
 		images1 := []*config.Image{image1}
 		hash1, err := hashImageSet(images1)
 		assert.Nil(t, err)
 
-		image2, err := config.NewImage("test-org/image", []string{"qwer", "asdf"})
+		image2, err := config.NewImage("test-org/image", []string{"qwer", "asdf"}, "", nil)
 		assert.Nil(t, err)
 		images2 := []*config.Image{image2}
 		hash2, err := hashImageSet(images2)
@@ -133,9 +133,9 @@ func TestGetBranchHash(t *testing.T) {
 	})
 
 	t.Run("should produce the same hash with the same set of images", func(t *testing.T) {
-		image1, err := config.NewImage("test-org/image1", []string{"asdf", "qwer"})
+		image1, err := config.NewImage("test-org/image1", []string{"asdf", "qwer"}, "", nil)
 		assert.Nil(t, err)
-		image2, err := config.NewImage("test-org/image2", []string{"asdf", "qwer"})
+		image2, err := config.NewImage("test-org/image2", []string{"asdf", "qwer"}, "", nil)
 		assert.Nil(t, err)
 
 		imageSet1 := []*config.Image{image1, image2}
@@ -150,13 +150,13 @@ func TestGetBranchHash(t *testing.T) {
 	})
 
 	t.Run("should produce a different hash with different set of tags", func(t *testing.T) {
-		image1, err := config.NewImage("test-org/image", []string{"asdf", "qwer"})
+		image1, err := config.NewImage("test-org/image", []string{"asdf", "qwer"}, "", nil)
 		assert.Nil(t, err)
 		images1 := []*config.Image{image1}
 		hash1, err := hashImageSet(images1)
 		assert.Nil(t, err)
 
-		image2, err := config.NewImage("test-org/image", []string{"asdf", "qwer", "zxcv"})
+		image2, err := config.NewImage("test-org/image", []string{"asdf", "qwer", "zxcv"}, "", nil)
 		assert.Nil(t, err)
 		images2 := []*config.Image{image2}
 		hash2, err := hashImageSet(images2)
