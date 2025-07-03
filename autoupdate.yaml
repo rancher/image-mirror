@@ -153,7 +153,13 @@
     Images:
     - SourceImage: library/traefik
     Latest: true
-    VersionFilter: ^[23].[0-9]+.[0-9]+$
+    VersionFilter: ^2.[0-9]+.[0-9]+$
+- Name: traefik3
+  Registry:
+    Images:
+    - SourceImage: library/traefik
+    Latest: true
+    VersionFilter: ^3.[0-9]+.[0-9]+$
 - GithubRelease:
     Images:
     - SourceImage: registry.k8s.io/csi-vsphere/driver

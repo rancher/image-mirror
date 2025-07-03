@@ -22,7 +22,6 @@ import (
 type Registry struct {
 	Images        []AutoupdateImageRef
 	Latest        bool   `json:",omitempty"`
-	LatestEntry   bool   `json:",omitempty"`
 	VersionFilter string `json:",omitempty"`
 }
 
@@ -58,22 +57,28 @@ func (r *Registry) GetUpdateImages() ([]*config.Image, error) {
 	if err != nil {
 		return nil, fmt.Errorf("failed to get image tags: %w", err)
 	}
-	versionFilter := regexp.MustCompile(r.VersionFilter)
+
+	if len(allTags) == 0 {
+		return nil, fmt.Errorf("no image tags found")
+	}
 
 	var filteredTags []string
-	for _, tag := range allTags {
-		if !versionFilter.MatchString(tag) {
-			continue
+	if r.VersionFilter != "" {
+		versionFilter := regexp.MustCompile(r.VersionFilter)
+
+		for _, tag := range allTags {
+			if !versionFilter.MatchString(tag) {
+				continue
+			}
+			filteredTags = append(filteredTags, tag)
 		}
-		filteredTags = append(filteredTags, tag)
-	}
 
-	if len(filteredTags) == 0 {
-		return nil, errors.New("no tags found matching version filter")
-	}
+		if len(filteredTags) == 0 {
+			return nil, errors.New("no tags found matching version filter")
+		}
 
-	if r.LatestEntry {
-		filteredTags = []string{filteredTags[0]} // Use only the first tag as the latest entry
+	} else {
+		filteredTags = allTags
 	}
 
 	if r.Latest {
@@ -91,7 +96,7 @@ func (r *Registry) GetUpdateImages() ([]*config.Image, error) {
 
 	images := make([]*config.Image, 0, len(r.Images))
 	for _, sourceImage := range r.Images {
-		image, err := config.NewImage(sourceImage.SourceImage, filteredTags)
+		image, err := config.NewImage(sourceImage.SourceImage, filteredTags, sourceImage.TargetImageName, nil)
 		if err != nil {
 			return nil, err
 		}
@@ -105,9 +110,6 @@ func (r *Registry) Validate() error {
 	if len(r.Images) == 0 {
 		return errors.New("must specify at least one image")
 	}
-	if r.Latest && r.LatestEntry {
-		return errors.New("cannot set both Latest and LatestEntry to true")
-	}
 	if r.VersionFilter != "" {
 		if _, err := regexp.Compile(r.VersionFilter); err != nil {
 			return errors.New("invalid version filter regex: " + err.Error())
@@ -117,7 +119,7 @@ func (r *Registry) Validate() error {
 }
 
 func (r *Registry) getImageTags(githubToken, nextURL string, page int) ([]string, error) {
-	registry, namespace, repository := r.getAllFromImage()
+	registry, namespace, repository := r.getRegistryInformationFromImage()
 
 	req, err := buildRequest(registry, namespace, repository, fmt.Sprintf("%d", page), nextURL, githubToken)
 	if err != nil {
@@ -186,7 +188,7 @@ func buildRequest(registry, namespace, repository, page, nextUrl, githubToken st
 	return req, nil
 }
 
-func (r *Registry) getAllFromImage() (registry string, namespace string, repository string) {
+func (r *Registry) getRegistryInformationFromImage() (registry string, namespace string, repository string) {
 	image := r.Images[0].SourceImage
 	splittedImage := strings.Split(image, "/")
 
@@ -232,7 +234,7 @@ func getSuseAuthToken(namespace, repository string) (string, error) {
 
 func doRequestWithRetries(req *http.Request) (*http.Response, error) {
 	maxRetries := 10
-	backoffFactor := 1 * time.Second
+	backoffFactor := time.Second
 	retryableStatuses := map[int]bool{
 		http.StatusInternalServerError: true, // 500
 		http.StatusBadGateway:          true, // 502
@@ -242,19 +244,28 @@ func doRequestWithRetries(req *http.Request) (*http.Response, error) {
 
 	var resp *http.Response
 	var err error
+	var tries int
 
-	for i := 0; i < maxRetries; i++ {
+	for {
 		resp, err = httpClient.Do(req)
 		if err != nil {
 			return nil, fmt.Errorf("request failed: %w", err)
 		}
 
+		tries++
 		if resp.StatusCode >= 200 && resp.StatusCode < 300 {
 			return resp, nil
 		}
 
 		if !retryableStatuses[resp.StatusCode] {
-			return nil, fmt.Errorf("request failed with status %s", resp.Status)
+			b, readErr := io.ReadAll(resp.Body)
+			if readErr != nil {
+				resp.Body.Close()
+				return nil, fmt.Errorf("request to %s failed with status %s", req.URL.String(), resp.Status)
+			}
+
+			resp.Body.Close()
+			return nil, fmt.Errorf("request to %s failed with status %s and body %s", req.URL.String(), resp.Status, string(b))
 		}
 
 		if resp.Body != nil {
@@ -265,11 +276,11 @@ func doRequestWithRetries(req *http.Request) (*http.Response, error) {
 			}
 		}
 
-		if i == maxRetries-1 {
+		if tries == maxRetries {
 			break
 		}
 
-		sleepDuration := backoffFactor * time.Duration(math.Pow(2, float64(i)))
+		sleepDuration := backoffFactor * time.Duration(math.Pow(2, float64(tries)))
 		time.Sleep(sleepDuration)
 	}
 

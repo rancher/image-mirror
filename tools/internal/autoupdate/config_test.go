@@ -50,7 +50,6 @@ func TestConfigEntry(t *testing.T) {
 					Registry: &Registry{
 						Images:        []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
 						Latest:        false,
-						LatestEntry:   true,
 						VersionFilter: "^v1\\.([3-9][0-9])\\.[0-9]+$",
 					},
 				},

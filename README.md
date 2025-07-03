@@ -114,7 +114,7 @@ output.
 
 #### `Registry`
 
-The `Registry` fetches all image tags that matches the VersionFilter from a registry defined in the Images provided.
+The `Registry` strategy fetches all image tags that matches the `VersionFilter` from a registry defined in the Images provided.
 Supported registries are: 
 * Suse Container Registry (registry.suse.com)
 * Docker Hub
@@ -126,9 +126,8 @@ Supported registries are:
 | Field           | Required | Description |
 |-----------------|----------|------------- |
 | `Images`        | yes      | Used to map a given update image to an entry in `config.yaml`. There may be multiple entries that have the same `SourceImage`, but different `TargetImageName`s, so we need to choose which one receives the update image.
-| `Latest`        | no       | A flag to only use the latest tag.
-| `LatestEntry`   | no       | A flag to only use the latest entry in the registry.
-| `VersionFilter` | yes      | A regex to match against the image tags fetched from the registry.
+| `Latest`        | no       | A flag to only use the latest tag. This only works if all tags are in semver format.
+| `VersionFilter` | no       | A regex to match against the image tags fetched from the registry.
 
 ### `regsync.yaml`
 

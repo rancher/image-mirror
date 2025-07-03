@@ -10,4 +10,7 @@ linters:
         source: 'defer resp.Body.Close\(\)'
       - linters:
           - errcheck
+        source: 'resp.Body.Close\(\)'
+      - linters:
+          - errcheck
         source: 'defer exec.Command\("helm", "repo", "remove", helmRepoName\).Run\(\)'

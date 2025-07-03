@@ -18,7 +18,6 @@ func TestRegistry(t *testing.T) {
 				Registry: &Registry{
 					Images:        []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
 					Latest:        true,
-					LatestEntry:   false,
 					VersionFilter: "^v1\\.([3-9][0-9])\\.[0-9]+$",
 				},
 				ExpectedError: "",
@@ -28,27 +27,15 @@ func TestRegistry(t *testing.T) {
 				Registry: &Registry{
 					Images:        nil,
 					Latest:        true,
-					LatestEntry:   false,
 					VersionFilter: "^v1\\.([3-9][0-9])\\.[0-9]+$",
 				},
 				ExpectedError: "must specify at least one image",
-			},
-			{
-				Message: "should return error if using both Latest and LatestEntry",
-				Registry: &Registry{
-					Images:        []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
-					Latest:        true,
-					LatestEntry:   true,
-					VersionFilter: "^v1\\.([3-9][0-9])\\.[0-9]+$",
-				},
-				ExpectedError: "cannot set both Latest and LatestEntry to true",
 			},
 			{
 				Message: "should return error the versionFilter provided is invalid",
 				Registry: &Registry{
 					Images:        []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
 					Latest:        false,
-					LatestEntry:   true,
 					VersionFilter: "[",
 				},
 				ExpectedError: "invalid version filter regex: error parsing regexp: missing closing ]: `[`",

@@ -114,7 +114,7 @@ func (entry ConfigEntry) Validate() error {
 		}
 	} else if entry.Registry != nil {
 		if err := entry.Registry.Validate(); err != nil {
-			return fmt.Errorf("registry failed validation: %w", err)
+			return fmt.Errorf("Registry failed validation: %w", err)
 		}
 	}
 
