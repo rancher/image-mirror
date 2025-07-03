@@ -5,8 +5,6 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/Masterminds/semver/v3"
-	"github.com/rancher/image-mirror/internal/config"
 	"io"
 	"math"
 	"net/http"
@@ -16,6 +14,9 @@ import (
 	"sort"
 	"strings"
 	"time"
+
+	"github.com/Masterminds/semver/v3"
+	"github.com/rancher/image-mirror/internal/config"
 )
 
 type Registry struct {
@@ -257,8 +258,11 @@ func doRequestWithRetries(req *http.Request) (*http.Response, error) {
 		}
 
 		if resp.Body != nil {
-			io.Copy(io.Discard, resp.Body)
-			resp.Body.Close()
+			_, _ = io.Copy(io.Discard, resp.Body)
+			err := resp.Body.Close()
+			if err != nil {
+				return nil, err
+			}
 		}
 
 		if i == maxRetries-1 {
