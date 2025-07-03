@@ -68,11 +68,12 @@ based on various update strategies that monitor sources for new tags. Each
 entry specifies a strategy for finding tags of images to potentially add to
 `config.yaml`, which are then submitted as pull requests.
 
-| Field | Required | Description |
-| ------------- | ------------- |------------- |
-| `Name` | yes | A unique identifier for this autoupdate entry. Used for logging and generating branch names for pull requests.
+| Field           | Required | Description |
+|-----------------| ------------- |------------- |
+| `Name`          | yes | A unique identifier for this autoupdate entry. Used for logging and generating branch names for pull requests.
 | `GithubRelease` | no | See [`GithubRelease`](#githubrelease).
-| `HelmLatest` | no | See [`HelmLatest`](#helmlatest).
+| `HelmLatest`    | no | See [`HelmLatest`](#helmlatest).
+| `Registry`      | no | See [`Registry`](#registry).
 
 #### `GithubRelease`
 
@@ -110,6 +111,24 @@ output.
 | `Charts` | yes | A map where keys are the charts to template, and values are another map from environment name to lists of helm values to `--set` in that environment. `helm template` is run once for each environment.
 | `Images` | no | Used to map a given update image to an entry in `config.yaml`. There may be multiple entries that have the same `SourceImage`, but different `TargetImageName`s, so we need to choose which one receives the update image.
 | `ImageDenylist` | no | A list of images to exclude from the results.
+
+#### `Registry`
+
+The `Registry` fetches all image tags that matches the VersionFilter from a registry defined in the Images provided.
+Supported registries are: 
+* Suse Container Registry (registry.suse.com)
+* Docker Hub
+* Quay.io
+* K8s registry (registry.k8s.io)
+* GitHub Container Registry (ghcr.io)
+* Google Container Registry (gcr.io)
+
+| Field           | Required | Description |
+|-----------------|----------|------------- |
+| `Images`        | yes      | Used to map a given update image to an entry in `config.yaml`. There may be multiple entries that have the same `SourceImage`, but different `TargetImageName`s, so we need to choose which one receives the update image.
+| `Latest`        | no       | A flag to only use the latest tag.
+| `LatestEntry`   | no       | A flag to only use the latest entry in the registry.
+| `VersionFilter` | yes      | A regex to match against the image tags fetched from the registry.
 
 ### `regsync.yaml`
 
