@@ -52,6 +52,11 @@
     - SourceImage: quay.io/cilium/hubble-relay
     - SourceImage: quay.io/cilium/hubble-ui-backend
   Name: cilium
+- Name: cpi-release-manager
+  Registry:
+    Images:
+    - SourceImage: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere
+    VersionFilter: ^v1.([3-9][0-9]).[0-9]+$
 - GithubRelease:
     Images:
     - SourceImage: registry.k8s.io/sig-storage/csi-attacher
@@ -143,6 +148,18 @@
     Owner: kubernetes-csi
     Repository: livenessprobe
   Name: storage-livenessprobe
+- Name: traefik
+  Registry:
+    Images:
+    - SourceImage: library/traefik
+    Latest: true
+    VersionFilter: ^2.[0-9]+.[0-9]+$
+- Name: traefik3
+  Registry:
+    Images:
+    - SourceImage: library/traefik
+    Latest: true
+    VersionFilter: ^3.[0-9]+.[0-9]+$
 - GithubRelease:
     Images:
     - SourceImage: registry.k8s.io/csi-vsphere/driver
