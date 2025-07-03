@@ -1,12 +1,4 @@
 {
-  "traefik": {
-    "images": [
-      "library/traefik"
-    ],
-    "versionSource": "registry",
-    "versionFilter": "^2\\.[0-9]+\\.[0-9]+$",
-    "latest": true
-  },
   "longhorn": {
     "imagesFilePath": "deploy/longhorn-images.txt",
     "versionSource": "github-tagged-images-file:longhorn/longhorn",
