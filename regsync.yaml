@@ -3573,6 +3573,30 @@ sync:
 - source: longhornio/csi-attacher:v4.9.0
   target: registry.suse.com/rancher/mirrored-longhornio-csi-attacher:v4.9.0
   type: image
+- source: longhornio/csi-node-driver-registrar:v1.2.0
+  target: docker.io/rancher/longhornio-csi-node-driver-registrar:v1.2.0
+  type: image
+- source: longhornio/csi-node-driver-registrar:v1.2.0-lh1
+  target: docker.io/rancher/longhornio-csi-node-driver-registrar:v1.2.0-lh1
+  type: image
+- source: longhornio/csi-node-driver-registrar:v2.3.0
+  target: docker.io/rancher/longhornio-csi-node-driver-registrar:v2.3.0
+  type: image
+- source: longhornio/csi-node-driver-registrar:v2.5.0
+  target: docker.io/rancher/longhornio-csi-node-driver-registrar:v2.5.0
+  type: image
+- source: longhornio/csi-node-driver-registrar:v1.2.0
+  target: registry.suse.com/rancher/longhornio-csi-node-driver-registrar:v1.2.0
+  type: image
+- source: longhornio/csi-node-driver-registrar:v1.2.0-lh1
+  target: registry.suse.com/rancher/longhornio-csi-node-driver-registrar:v1.2.0-lh1
+  type: image
+- source: longhornio/csi-node-driver-registrar:v2.3.0
+  target: registry.suse.com/rancher/longhornio-csi-node-driver-registrar:v2.3.0
+  type: image
+- source: longhornio/csi-node-driver-registrar:v2.5.0
+  target: registry.suse.com/rancher/longhornio-csi-node-driver-registrar:v2.5.0
+  type: image
 - source: messagebird/sachet:0.2.3
   target: docker.io/rancher/mirrored-messagebird-sachet:0.2.3
   type: image
