@@ -14,10 +14,6 @@ import (
 	"github.com/google/go-github/v71/github"
 )
 
-// GithubTaggedImagesFile finds images by iterating over every github release
-// that matches a version constraint, and reading a text file from the commit that
-// the tag on the release points to. Each line of the file should contain the image
-// in "repository:tag" format.
 type GithubTaggedImagesFile struct {
 	Owner             string
 	Repository        string
@@ -53,11 +49,10 @@ func (gtif *GithubTaggedImagesFile) GetUpdateImages() ([]*config.Image, error) {
 
 	imageMap := make(map[string][]string)
 	for _, release := range allReleases {
-		tagName := release.GetTagName()
-		if *release.Draft || *release.Prerelease || tagName == "" {
+		if *release.Draft || *release.Prerelease || release.TagName == nil {
 			continue
 		}
-		version, err := semver.NewVersion(tagName)
+		version, err := semver.NewVersion(*release.TagName)
 		if err != nil {
 			continue
 		}
@@ -69,19 +64,19 @@ func (gtif *GithubTaggedImagesFile) GetUpdateImages() ([]*config.Image, error) {
 
 		// Get file content for this release
 		fileContent, _, _, err := client.Repositories.GetContents(context.Background(), gtif.Owner, gtif.Repository, gtif.ImagesFilePath, &github.RepositoryContentGetOptions{
-			Ref: tagName,
+			Ref: *release.TagName,
 		})
 		if err != nil {
-			return nil, fmt.Errorf("failed to get contents of %s for release %s", gtif.ImagesFilePath, tagName)
+			return nil, fmt.Errorf("failed to get contents of %s for release %s", gtif.ImagesFilePath, *release.TagName)
 		}
 		content, err := fileContent.GetContent()
 		if err != nil {
-			return nil, fmt.Errorf("failed to decode file content for release %s: %w", tagName, err)
+			return nil, fmt.Errorf("failed to decode file content for release %s: %w", *release.TagName, err)
 		}
 
 		// Parse images from file content
 		if err := gtif.parseImagesFromContent(content, imageMap); err != nil {
-			return nil, fmt.Errorf("failed to parse images from file content for release %s: %w", tagName, err)
+			return nil, fmt.Errorf("failed to parse images from file content for release %s: %w", *release.TagName, err)
 		}
 	}
 
@@ -108,12 +103,6 @@ func (gtif *GithubTaggedImagesFile) GetUpdateImages() ([]*config.Image, error) {
 	return images, nil
 }
 
-// parseImagesFromContent expects each line of content to contain an
-// image in "repository:tag" format. For example:
-//
-// test-reg/test-repo1:v1.2.3
-// test-reg/test-repo2:v4.5.6
-// test-reg/test-repo3:v7.8.9
 func (gtif *GithubTaggedImagesFile) parseImagesFromContent(content string, imageMap map[string][]string) error {
 	scanner := bufio.NewScanner(strings.NewReader(content))
 	for scanner.Scan() {
