@@ -3057,6 +3057,12 @@ sync:
 - source: library/nginx:1.27.2-alpine
   target: registry.suse.com/rancher/mirrored-library-nginx:1.27.2-alpine
   type: image
+- source: library/redis:7.2.9
+  target: docker.io/rancher/mirrored-library-redis:7.2.9
+  type: image
+- source: library/redis:7.2.9
+  target: registry.suse.com/rancher/mirrored-library-redis:7.2.9
+  type: image
 - source: library/registry:2.7.1
   target: docker.io/rancher/mirrored-library-registry:2.7.1
   type: image
