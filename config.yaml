@@ -918,6 +918,21 @@ Images:
   - v1.6.0-lh2
   - v2.1.2
   TargetImageName: longhornio-csi-provisioner
+- SourceImage: longhornio/csi-provisioner
+  Tags:
+  - v1.6.0-lh1
+  - v1.6.0-lh2
+  - v2.1.2
+  - v3.4.1
+  - v3.6.2
+  - v3.6.4
+  - v3.6.4-20241219
+  - v4.0.1
+  - v4.0.1-20241007
+  - v4.0.1-20250204
+  - v5.1.0-20241220
+  - v5.2.0
+  - v5.3.0
 - SourceImage: messagebird/sachet
   Tags:
   - 0.2.3
