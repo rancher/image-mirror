@@ -22,11 +22,10 @@ import (
 )
 
 type ConfigEntry struct {
-	Name                   string
-	GithubRelease          *GithubRelease          `json:",omitempty"`
-	HelmLatest             *HelmLatest             `json:",omitempty"`
-	GithubTaggedImagesFile *GithubTaggedImagesFile `json:",omitempty"`
-	Registry               *Registry               `json:",omitempty"`
+	Name          string
+	GithubRelease *GithubRelease `json:",omitempty"`
+	HelmLatest    *HelmLatest    `json:",omitempty"`
+	Registry      *Registry      `json:",omitempty"`
 }
 
 type AutoUpdateOptions struct {
@@ -94,9 +93,6 @@ func (entry ConfigEntry) Validate() error {
 	if entry.HelmLatest != nil {
 		count++
 	}
-	if entry.GithubTaggedImagesFile != nil {
-		count++
-	}
 	if entry.Registry != nil {
 		count++
 	}
@@ -108,20 +104,15 @@ func (entry ConfigEntry) Validate() error {
 		return errors.New("must specify an autoupdate strategy")
 	}
 
-	switch {
-	case entry.GithubRelease != nil:
+	if entry.GithubRelease != nil {
 		if err := entry.GithubRelease.Validate(); err != nil {
-			return fmt.Errorf("GithubLatestRelease failed validation: %w", err)
+			return fmt.Errorf("GithubRelease failed validation: %w", err)
 		}
-	case entry.HelmLatest != nil:
+	} else if entry.HelmLatest != nil {
 		if err := entry.HelmLatest.Validate(); err != nil {
 			return fmt.Errorf("HelmLatest failed validation: %w", err)
 		}
-	case entry.GithubTaggedImagesFile != nil:
-		if err := entry.GithubTaggedImagesFile.Validate(); err != nil {
-			return fmt.Errorf("GithubTaggedImagesFile failed validation: %w", err)
-		}
-	case entry.Registry != nil:
+	} else if entry.Registry != nil {
 		if err := entry.Registry.Validate(); err != nil {
 			return fmt.Errorf("Registry failed validation: %w", err)
 		}
@@ -141,8 +132,6 @@ func (entry ConfigEntry) GetUpdateImages() ([]*config.Image, error) {
 		return entry.GithubRelease.GetUpdateImages()
 	case entry.HelmLatest != nil:
 		return entry.HelmLatest.GetUpdateImages()
-	case entry.GithubTaggedImagesFile != nil:
-		return entry.GithubTaggedImagesFile.GetUpdateImages()
 	case entry.Registry != nil:
 		return entry.Registry.GetUpdateImages()
 	default:
