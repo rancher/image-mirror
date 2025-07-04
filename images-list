@@ -3,15 +3,6 @@
 # https://github.com/rancher/image-mirror/pull/27
 #
 # LIST FORMAT: <SOURCE> <DESTINATION> <TAG>
-longhornio/longhorn-share-manager rancher/longhornio-longhorn-share-manager v1_20201204
-longhornio/longhorn-share-manager rancher/longhornio-longhorn-share-manager v1_20210416
-longhornio/longhorn-share-manager rancher/longhornio-longhorn-share-manager v1_20210416_patch1
-longhornio/longhorn-share-manager rancher/longhornio-longhorn-share-manager v1_20210820
-longhornio/longhorn-share-manager rancher/longhornio-longhorn-share-manager v1_20210914
-longhornio/longhorn-share-manager rancher/longhornio-longhorn-share-manager v1_20211020
-longhornio/longhorn-share-manager rancher/longhornio-longhorn-share-manager v1_20211020_patch1
-longhornio/longhorn-share-manager rancher/longhornio-longhorn-share-manager v1_20220531
-longhornio/longhorn-share-manager rancher/longhornio-longhorn-share-manager v1_20220808
 longhornio/longhorn-share-manager rancher/mirrored-longhornio-longhorn-share-manager v1.4.0
 longhornio/longhorn-share-manager rancher/mirrored-longhornio-longhorn-share-manager v1.4.1
 longhornio/longhorn-share-manager rancher/mirrored-longhornio-longhorn-share-manager v1.4.2
