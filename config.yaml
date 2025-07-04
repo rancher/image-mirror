@@ -787,6 +787,9 @@ Images:
   - 1.23.2-alpine
   - 1.24.0-alpine
   - 1.27.2-alpine
+- SourceImage: library/redis
+  Tags:
+  - 7.2.9
 - SourceImage: library/registry
   Tags:
   - 2.7.1
