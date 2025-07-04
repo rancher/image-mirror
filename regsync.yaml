@@ -3999,6 +3999,42 @@ sync:
 - source: longhornio/livenessprobe:v2.9.0
   target: registry.suse.com/rancher/mirrored-longhornio-livenessprobe:v2.9.0
   type: image
+- source: longhornio/longhorn-cli:v1.7.0
+  target: docker.io/rancher/mirrored-longhornio-longhorn-cli:v1.7.0
+  type: image
+- source: longhornio/longhorn-cli:v1.7.1
+  target: docker.io/rancher/mirrored-longhornio-longhorn-cli:v1.7.1
+  type: image
+- source: longhornio/longhorn-cli:v1.7.2
+  target: docker.io/rancher/mirrored-longhornio-longhorn-cli:v1.7.2
+  type: image
+- source: longhornio/longhorn-cli:v1.7.3
+  target: docker.io/rancher/mirrored-longhornio-longhorn-cli:v1.7.3
+  type: image
+- source: longhornio/longhorn-cli:v1.8.1
+  target: docker.io/rancher/mirrored-longhornio-longhorn-cli:v1.8.1
+  type: image
+- source: longhornio/longhorn-cli:v1.8.2
+  target: docker.io/rancher/mirrored-longhornio-longhorn-cli:v1.8.2
+  type: image
+- source: longhornio/longhorn-cli:v1.7.0
+  target: registry.suse.com/rancher/mirrored-longhornio-longhorn-cli:v1.7.0
+  type: image
+- source: longhornio/longhorn-cli:v1.7.1
+  target: registry.suse.com/rancher/mirrored-longhornio-longhorn-cli:v1.7.1
+  type: image
+- source: longhornio/longhorn-cli:v1.7.2
+  target: registry.suse.com/rancher/mirrored-longhornio-longhorn-cli:v1.7.2
+  type: image
+- source: longhornio/longhorn-cli:v1.7.3
+  target: registry.suse.com/rancher/mirrored-longhornio-longhorn-cli:v1.7.3
+  type: image
+- source: longhornio/longhorn-cli:v1.8.1
+  target: registry.suse.com/rancher/mirrored-longhornio-longhorn-cli:v1.8.1
+  type: image
+- source: longhornio/longhorn-cli:v1.8.2
+  target: registry.suse.com/rancher/mirrored-longhornio-longhorn-cli:v1.8.2
+  type: image
 - source: messagebird/sachet:0.2.3
   target: docker.io/rancher/mirrored-messagebird-sachet:0.2.3
   type: image
