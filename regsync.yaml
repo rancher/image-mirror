@@ -3162,6 +3162,9 @@ sync:
 - source: library/traefik:3.3.6
   target: docker.io/rancher/mirrored-library-traefik:3.3.6
   type: image
+- source: library/traefik:3.4.3
+  target: docker.io/rancher/mirrored-library-traefik:3.4.3
+  type: image
 - source: library/traefik:2.10.5
   target: registry.suse.com/rancher/mirrored-library-traefik:2.10.5
   type: image
@@ -3236,6 +3239,9 @@ sync:
   type: image
 - source: library/traefik:3.3.6
   target: registry.suse.com/rancher/mirrored-library-traefik:3.3.6
+  type: image
+- source: library/traefik:3.4.3
+  target: registry.suse.com/rancher/mirrored-library-traefik:3.4.3
   type: image
 - source: messagebird/sachet:0.2.3
   target: docker.io/rancher/mirrored-messagebird-sachet:0.2.3

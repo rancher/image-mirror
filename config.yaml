@@ -824,6 +824,7 @@ Images:
   - 3.3.3
   - 3.3.5
   - 3.3.6
+  - 3.4.3
 - SourceImage: messagebird/sachet
   Tags:
   - 0.2.3
