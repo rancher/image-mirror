@@ -3657,6 +3657,30 @@ sync:
 - source: longhornio/csi-node-driver-registrar:v2.9.2
   target: registry.suse.com/rancher/mirrored-longhornio-csi-node-driver-registrar:v2.9.2
   type: image
+- source: longhornio/csi-provisioner:v1.4.0
+  target: docker.io/rancher/longhornio-csi-provisioner:v1.4.0
+  type: image
+- source: longhornio/csi-provisioner:v1.6.0-lh1
+  target: docker.io/rancher/longhornio-csi-provisioner:v1.6.0-lh1
+  type: image
+- source: longhornio/csi-provisioner:v1.6.0-lh2
+  target: docker.io/rancher/longhornio-csi-provisioner:v1.6.0-lh2
+  type: image
+- source: longhornio/csi-provisioner:v2.1.2
+  target: docker.io/rancher/longhornio-csi-provisioner:v2.1.2
+  type: image
+- source: longhornio/csi-provisioner:v1.4.0
+  target: registry.suse.com/rancher/longhornio-csi-provisioner:v1.4.0
+  type: image
+- source: longhornio/csi-provisioner:v1.6.0-lh1
+  target: registry.suse.com/rancher/longhornio-csi-provisioner:v1.6.0-lh1
+  type: image
+- source: longhornio/csi-provisioner:v1.6.0-lh2
+  target: registry.suse.com/rancher/longhornio-csi-provisioner:v1.6.0-lh2
+  type: image
+- source: longhornio/csi-provisioner:v2.1.2
+  target: registry.suse.com/rancher/longhornio-csi-provisioner:v2.1.2
+  type: image
 - source: messagebird/sachet:0.2.3
   target: docker.io/rancher/mirrored-messagebird-sachet:0.2.3
   type: image

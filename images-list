@@ -3,10 +3,6 @@
 # https://github.com/rancher/image-mirror/pull/27
 #
 # LIST FORMAT: <SOURCE> <DESTINATION> <TAG>
-longhornio/csi-provisioner rancher/longhornio-csi-provisioner v1.4.0
-longhornio/csi-provisioner rancher/longhornio-csi-provisioner v1.6.0-lh1
-longhornio/csi-provisioner rancher/longhornio-csi-provisioner v1.6.0-lh2
-longhornio/csi-provisioner rancher/longhornio-csi-provisioner v2.1.2
 longhornio/csi-provisioner rancher/mirrored-longhornio-csi-provisioner v1.6.0-lh1
 longhornio/csi-provisioner rancher/mirrored-longhornio-csi-provisioner v1.6.0-lh2
 longhornio/csi-provisioner rancher/mirrored-longhornio-csi-provisioner v2.1.2
