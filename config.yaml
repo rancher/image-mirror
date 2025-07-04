@@ -933,6 +933,13 @@ Images:
   - v5.1.0-20241220
   - v5.2.0
   - v5.3.0
+- SourceImage: longhornio/csi-resizer
+  Tags:
+  - v0.3.0
+  - v0.5.1-lh1
+  - v0.5.1-lh2
+  - v1.2.0
+  TargetImageName: longhornio-csi-resizer
 - SourceImage: messagebird/sachet
   Tags:
   - 0.2.3

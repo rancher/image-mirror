@@ -3,10 +3,6 @@
 # https://github.com/rancher/image-mirror/pull/27
 #
 # LIST FORMAT: <SOURCE> <DESTINATION> <TAG>
-longhornio/csi-resizer rancher/longhornio-csi-resizer v0.3.0
-longhornio/csi-resizer rancher/longhornio-csi-resizer v0.5.1-lh1
-longhornio/csi-resizer rancher/longhornio-csi-resizer v0.5.1-lh2
-longhornio/csi-resizer rancher/longhornio-csi-resizer v1.2.0
 longhornio/csi-resizer rancher/mirrored-longhornio-csi-resizer v0.5.1-lh1
 longhornio/csi-resizer rancher/mirrored-longhornio-csi-resizer v0.5.1-lh2
 longhornio/csi-resizer rancher/mirrored-longhornio-csi-resizer v1.2.0
