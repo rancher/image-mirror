@@ -3,15 +3,6 @@
 # https://github.com/rancher/image-mirror/pull/27
 #
 # LIST FORMAT: <SOURCE> <DESTINATION> <TAG>
-longhornio/livenessprobe rancher/mirrored-longhornio-livenessprobe v2.8.0
-longhornio/livenessprobe rancher/mirrored-longhornio-livenessprobe v2.9.0
-longhornio/livenessprobe rancher/mirrored-longhornio-livenessprobe v2.11.0
-longhornio/livenessprobe rancher/mirrored-longhornio-livenessprobe v2.12.0
-longhornio/livenessprobe rancher/mirrored-longhornio-livenessprobe v2.13.1
-longhornio/livenessprobe rancher/mirrored-longhornio-livenessprobe v2.14.0
-longhornio/livenessprobe rancher/mirrored-longhornio-livenessprobe v2.14.0-20241219
-longhornio/livenessprobe rancher/mirrored-longhornio-livenessprobe v2.15.0
-longhornio/livenessprobe rancher/mirrored-longhornio-livenessprobe v2.16.0
 longhornio/longhorn-cli rancher/mirrored-longhornio-longhorn-cli v1.7.0
 longhornio/longhorn-cli rancher/mirrored-longhornio-longhorn-cli v1.7.1
 longhornio/longhorn-cli rancher/mirrored-longhornio-longhorn-cli v1.7.2
