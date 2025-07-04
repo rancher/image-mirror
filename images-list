@@ -3,18 +3,6 @@
 # https://github.com/rancher/image-mirror/pull/27
 #
 # LIST FORMAT: <SOURCE> <DESTINATION> <TAG>
-longhornio/csi-snapshotter rancher/mirrored-longhornio-csi-snapshotter v2.1.1-lh1
-longhornio/csi-snapshotter rancher/mirrored-longhornio-csi-snapshotter v2.1.1-lh2
-longhornio/csi-snapshotter rancher/mirrored-longhornio-csi-snapshotter v3.0.3
-longhornio/csi-snapshotter rancher/mirrored-longhornio-csi-snapshotter v5.0.1
-longhornio/csi-snapshotter rancher/mirrored-longhornio-csi-snapshotter v6.2.1
-longhornio/csi-snapshotter rancher/mirrored-longhornio-csi-snapshotter v6.3.2
-longhornio/csi-snapshotter rancher/mirrored-longhornio-csi-snapshotter v6.3.4
-longhornio/csi-snapshotter rancher/mirrored-longhornio-csi-snapshotter v6.3.4-20241219
-longhornio/csi-snapshotter rancher/mirrored-longhornio-csi-snapshotter v7.0.2
-longhornio/csi-snapshotter rancher/mirrored-longhornio-csi-snapshotter v7.0.2-20241007
-longhornio/csi-snapshotter rancher/mirrored-longhornio-csi-snapshotter v7.0.2-20250204
-longhornio/csi-snapshotter rancher/mirrored-longhornio-csi-snapshotter v8.2.0
 longhornio/livenessprobe rancher/mirrored-longhornio-livenessprobe v2.8.0
 longhornio/livenessprobe rancher/mirrored-longhornio-livenessprobe v2.9.0
 longhornio/livenessprobe rancher/mirrored-longhornio-livenessprobe v2.11.0
