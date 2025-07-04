@@ -1,7 +1,1 @@
-{
-  "longhorn": {
-    "imagesFilePath": "deploy/longhorn-images.txt",
-    "versionSource": "github-tagged-images-file:longhorn/longhorn",
-    "versionConstraint": ">=1.4.0"
-  }
-}
+{}
