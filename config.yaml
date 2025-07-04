@@ -869,6 +869,14 @@ Images:
   - v3_20220808
   - v3_20221003
   - v3_20230320
+- SourceImage: longhornio/csi-attacher
+  Tags:
+  - v2.0.0
+  - v2.2.1-lh1
+  - v2.2.1-lh2
+  - v3.2.1
+  - v3.4.0
+  TargetImageName: longhornio-csi-attacher
 - SourceImage: messagebird/sachet
   Tags:
   - 0.2.3

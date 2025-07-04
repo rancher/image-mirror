@@ -3465,6 +3465,36 @@ sync:
 - source: longhornio/backing-image-manager:v3_20230320
   target: registry.suse.com/rancher/mirrored-longhornio-backing-image-manager:v3_20230320
   type: image
+- source: longhornio/csi-attacher:v2.0.0
+  target: docker.io/rancher/longhornio-csi-attacher:v2.0.0
+  type: image
+- source: longhornio/csi-attacher:v2.2.1-lh1
+  target: docker.io/rancher/longhornio-csi-attacher:v2.2.1-lh1
+  type: image
+- source: longhornio/csi-attacher:v2.2.1-lh2
+  target: docker.io/rancher/longhornio-csi-attacher:v2.2.1-lh2
+  type: image
+- source: longhornio/csi-attacher:v3.2.1
+  target: docker.io/rancher/longhornio-csi-attacher:v3.2.1
+  type: image
+- source: longhornio/csi-attacher:v3.4.0
+  target: docker.io/rancher/longhornio-csi-attacher:v3.4.0
+  type: image
+- source: longhornio/csi-attacher:v2.0.0
+  target: registry.suse.com/rancher/longhornio-csi-attacher:v2.0.0
+  type: image
+- source: longhornio/csi-attacher:v2.2.1-lh1
+  target: registry.suse.com/rancher/longhornio-csi-attacher:v2.2.1-lh1
+  type: image
+- source: longhornio/csi-attacher:v2.2.1-lh2
+  target: registry.suse.com/rancher/longhornio-csi-attacher:v2.2.1-lh2
+  type: image
+- source: longhornio/csi-attacher:v3.2.1
+  target: registry.suse.com/rancher/longhornio-csi-attacher:v3.2.1
+  type: image
+- source: longhornio/csi-attacher:v3.4.0
+  target: registry.suse.com/rancher/longhornio-csi-attacher:v3.4.0
+  type: image
 - source: messagebird/sachet:0.2.3
   target: docker.io/rancher/mirrored-messagebird-sachet:0.2.3
   type: image
