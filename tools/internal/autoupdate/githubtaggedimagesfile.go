@@ -3,7 +3,6 @@ package autoupdate
 import (
 	"bufio"
 	"context"
-	"errors"
 	"fmt"
 	"slices"
 	"strings"
@@ -134,23 +133,4 @@ func (gtif *GithubTaggedImagesFile) parseImagesFromContent(content string, image
 	}
 
 	return scanner.Err()
-}
-
-func (gtif *GithubTaggedImagesFile) Validate() error {
-	if gtif.Owner == "" {
-		return errors.New("must specify Owner")
-	}
-	if gtif.Repository == "" {
-		return errors.New("must specify Repository")
-	}
-	if gtif.ImagesFilePath == "" {
-		return errors.New("must specify ImagesFilePath")
-	}
-	if gtif.VersionConstraint != "" {
-		if _, err := semver.NewConstraint(gtif.VersionConstraint); err != nil {
-			return fmt.Errorf("invalid VersionConstraint %q: %w", gtif.VersionConstraint, err)
-		}
-	}
-
-	return nil
 }
