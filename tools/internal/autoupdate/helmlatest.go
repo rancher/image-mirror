@@ -97,22 +97,20 @@ func (hl *HelmLatest) GetUpdateImages() ([]*config.Image, error) {
 	// Convert the map to a slice of config.Image objects
 	images := make([]*config.Image, 0, len(imageMap))
 	for sourceImage, tags := range imageMap {
-		foundTargetImageName := ""
+		var foundTargetImageName *string
 		for _, autoupdateImageRef := range hl.Images {
 			if sourceImage == autoupdateImageRef.SourceImage {
-				foundTargetImageName = autoupdateImageRef.TargetImageName
+				foundTargetImageName = &autoupdateImageRef.SourceImage
 				break
 			}
 		}
-		if foundTargetImageName == "" {
+		if foundTargetImageName == nil {
 			return nil, fmt.Errorf("found image %s but it is not present in Images", sourceImage)
 		}
-
-		image, err := config.NewImage(sourceImage, tags, foundTargetImageName, nil)
+		image, err := config.NewImage(sourceImage, tags, *foundTargetImageName, nil)
 		if err != nil {
 			return nil, fmt.Errorf("failed to create image: %w", err)
 		}
-
 		images = append(images, image)
 	}
 
