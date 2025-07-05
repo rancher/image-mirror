@@ -1920,6 +1920,10 @@ Images:
   - v1.32.5-1744305768-f9ddca7dcd91f7ca25a505560e655c47d3dec2cf
   - v1.32.6-1746661844-0f602c28cb2aa57b29078195049fb257d5b5246c
   - v1.32.6-1749271279-0864395884b263913eac200ee2048fd985f8e626
+- SourceImage: quay.io/cilium/cilium-envoy
+  Tags:
+  - v1.32.6-1749271279-0864395884b263913eac200ee2048fd985f8e626
+  TargetImageName: quay.io/cilium/cilium-envoy
 - SourceImage: quay.io/cilium/clustermesh-apiserver
   Tags:
   - v1.12.4
