@@ -1957,6 +1957,10 @@ Images:
   - v1.17.3
   - v1.17.4
   - v1.17.5
+- SourceImage: quay.io/cilium/clustermesh-apiserver
+  Tags:
+  - v1.17.5
+  TargetImageName: quay.io/cilium/clustermesh-apiserver
 - SourceImage: quay.io/cilium/hubble-relay
   Tags:
   - v1.12.4
