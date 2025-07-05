@@ -2177,6 +2177,10 @@ Images:
   - v1.9.4
   - v1.9.6
   - v1.9.8
+- SourceImage: quay.io/cilium/operator-generic
+  Tags:
+  - v1.17.5
+  TargetImageName: quay.io/cilium/operator-generic
 - SourceImage: quay.io/coreos/etcd
   Tags:
   - v3.5.0
