@@ -2075,6 +2075,10 @@ Images:
   - v1.9.4
   - v1.9.6
   - v1.9.8
+- SourceImage: quay.io/cilium/operator-aws
+  Tags:
+  - v1.17.5
+  TargetImageName: quay.io/cilium/operator-aws
 - SourceImage: quay.io/cilium/operator-azure
   Tags:
   - v1.10.4
