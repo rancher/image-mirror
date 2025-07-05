@@ -1890,6 +1890,10 @@ Images:
   - v1.9.4
   - v1.9.6
   - v1.9.8
+- SourceImage: quay.io/cilium/cilium
+  Tags:
+  - v1.17.5
+  TargetImageName: quay.io/cilium/cilium
 - SourceImage: quay.io/cilium/cilium-envoy
   Tags:
   - v1.25.10-f71a313bd0daee41470af31ce6ea20c750fe35dd
