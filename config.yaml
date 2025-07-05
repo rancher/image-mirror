@@ -2211,6 +2211,10 @@ Images:
   - v1.38.1
   - v1.38.3
   TargetImageName: mirrored-calico-operator
+- SourceImage: quay.io/tigera/operator
+  Tags:
+  - v1.38.3
+  TargetImageName: quay.io/tigera/operator
 - SourceImage: rancher/cluster-proportional-autoscaler
   Tags:
   - 1.7.1
