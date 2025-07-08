@@ -1,15 +1,11 @@
 package autoupdate
 
 import (
-	"encoding/base64"
-	"encoding/json"
 	"errors"
 	"fmt"
 	"io"
 	"math"
 	"net/http"
-	"net/url"
-	"os"
 	"regexp"
 	"sort"
 	"strings"
@@ -27,33 +23,12 @@ type Registry struct {
 
 var httpClient = &http.Client{Timeout: 10 * time.Second}
 
-// DockerHubResponse matches the structure of the Docker Hub API response
-type DockerHubResponse struct {
-	Next    string `json:"next"`
-	Results []struct {
-		Name string `json:"name"`
-	} `json:"results"`
-}
-
-// QuayResponse matches the structure of the Quay.io API response
-type QuayResponse struct {
-	HasAdditional bool `json:"has_additional"`
-	Tags          []struct {
-		Name string `json:"name"`
-	} `json:"tags"`
-}
-
-type SuseTokenResponse struct {
-	AccessToken string `json:"access_token"`
-}
-
-type GenericTagsResponse struct {
-	Tags []string `json:"tags"`
+type ImageRegistry interface {
+	getImageTags() ([]string, error)
 }
 
 func (r *Registry) GetUpdateImages() ([]*config.Image, error) {
-	githubToken := os.Getenv("GITHUB_TOKEN")
-	allTags, err := r.getImageTags(githubToken, "", 1)
+	allTags, err := r.getImageTags()
 	if err != nil {
 		return nil, fmt.Errorf("failed to get image tags: %w", err)
 	}
@@ -118,118 +93,72 @@ func (r *Registry) Validate() error {
 	return nil
 }
 
-func (r *Registry) getImageTags(githubToken, nextURL string, page int) ([]string, error) {
-	registry, namespace, repository := r.getRegistryInformationFromImage()
-
-	req, err := buildRequest(registry, namespace, repository, fmt.Sprintf("%d", page), nextURL, githubToken)
+func (r *Registry) getImageTags() ([]string, error) {
+	registry, err := r.getRegistryInformationFromImage()
 	if err != nil {
-		return nil, fmt.Errorf("failed to create request: %w", err)
+		return nil, fmt.Errorf("failed to get registry information from image: %w", err)
 	}
-
-	resp, err := doRequestWithRetries(req)
-	if err != nil {
-		return nil, err
-	}
-	defer resp.Body.Close()
-
-	body, err := io.ReadAll(resp.Body)
-	if err != nil {
-		return nil, fmt.Errorf("failed to read response body: %w", err)
-	}
-
-	return r.processRegistryResponse(body, resp.Header.Get("Link"), githubToken, registry, namespace, repository, page)
+	return registry.getImageTags()
 }
 
-func buildRequest(registry, namespace, repository, page, nextUrl, githubToken string) (*http.Request, error) {
-	params := url.Values{}
-	var registryUrl, token string
+func (r *Registry) getRegistryInformationFromImage() (ImageRegistry, error) {
+	image := r.Images[0].SourceImage
+	splittedImage := strings.Split(image, "/")
+	if len(splittedImage) < 2 {
+		return nil, fmt.Errorf("invalid image format: %s", image)
+	}
+	var registry, namespace, repository string
+	// Case 1: Handle default Docker Hub images like "flannel/flannel"
+	if len(splittedImage) == 2 && !strings.Contains(splittedImage[0], ".") {
+		registry = "dockerhub"
+		namespace = splittedImage[0]
+		repository = splittedImage[1]
+	} else if len(splittedImage) == 2 && strings.Contains(splittedImage[0], ".") {
+		// Case 2: Handle images with a registry but no namespace like "k8s.gcr.io/pause"
+		registry = splittedImage[0]
+		namespace = ""
+		repository = splittedImage[1]
+	} else {
+		// Default Case: Handle standard 3-part images like "quay.io/skopeo/stable"
+		// and handle images with long paths like "gcr.io/cloud-provider-vsphere/csi/release/syncer"
+		registry = splittedImage[0]
+		namespace = splittedImage[1]
+		repository = strings.Join(splittedImage[2:], "/")
+	}
 	switch registry {
 	case "dockerhub":
-		params.Add("page", page)
-		params.Add("page_size", "100")
-		registryUrl = fmt.Sprintf("https://registry.hub.docker.com/v2/namespaces/%s/repositories/%s/tags", namespace, repository)
+		return &DockerHub{
+			Namespace:  namespace,
+			Repository: repository,
+		}, nil
 	case "quay.io":
-		params.Add("page", page)
-		params.Add("page_size", "100")
-		registryUrl = fmt.Sprintf("https://quay.io/api/v1/repository/%s/%s/tag/", namespace, repository)
+		return &QuayIO{
+			Namespace:  namespace,
+			Repository: repository,
+		}, nil
 	case "registry.k8s.io":
-		if namespace != "" {
-			registryUrl = fmt.Sprintf("https://registry.k8s.io/v2/%s/%s/tags/list", namespace, repository)
-		} else {
-			registryUrl = fmt.Sprintf("https://registry.k8s.io/v2/%s/tags/list", repository)
-		}
+		return &K8sRegistry{
+			Namespace:  namespace,
+			Repository: repository,
+		}, nil
 	case "registry.suse.com":
-		var err error
-		token, err = getSuseAuthToken(namespace, repository)
-		if err != nil {
-			return nil, err
-		}
-		registryUrl = fmt.Sprintf("https://registry.suse.com/v2/%s/%s/tags/list", namespace, repository)
+		return &SUSERegistry{
+			Namespace:  namespace,
+			Repository: repository,
+		}, nil
 	case "ghcr.io":
-		token = base64.StdEncoding.EncodeToString([]byte(githubToken))
-		if nextUrl != "" {
-			registryUrl = nextUrl
-		} else {
-			registryUrl = fmt.Sprintf("https://ghcr.io/v2/%s/%s/tags/list", namespace, repository)
-		}
+		return &GitHubRegistry{
+			Namespace:  namespace,
+			Repository: repository,
+		}, nil
 	case "gcr.io":
-		registryUrl = fmt.Sprintf("https://gcr.io/v2/%s/%s/tags/list", namespace, repository)
+		return &GoogleRegistry{
+			Namespace:  namespace,
+			Repository: repository,
+		}, nil
 	default:
 		return nil, fmt.Errorf("unrecognized registry: %s", registry)
 	}
-	req, err := http.NewRequest(http.MethodGet, registryUrl, nil)
-	if err != nil {
-		return nil, fmt.Errorf("failed to create request: %w", err)
-	}
-	if token != "" {
-		req.Header.Set("Authorization", "Bearer "+token)
-	}
-	req.URL.RawQuery = params.Encode()
-	return req, nil
-}
-
-func (r *Registry) getRegistryInformationFromImage() (registry string, namespace string, repository string) {
-	image := r.Images[0].SourceImage
-	splittedImage := strings.Split(image, "/")
-
-	// Case 1: Handle default Docker Hub images like "flannel/flannel"
-	if len(splittedImage) == 2 && !strings.Contains(splittedImage[0], ".") {
-		return "dockerhub", splittedImage[0], splittedImage[1]
-	}
-
-	// Case 2: Handle images with a registry but no namespace like "k8s.gcr.io/pause"
-	if len(splittedImage) == 2 && strings.Contains(splittedImage[0], ".") {
-		return splittedImage[0], "", splittedImage[1]
-	}
-
-	// Case 3: Handle images with long paths like "gcr.io/cloud-provider-vsphere/csi/release/syncer"
-	if len(splittedImage) > 3 && strings.Contains(splittedImage[0], ".") {
-		return splittedImage[0], splittedImage[1], strings.Join(splittedImage[2:], "/")
-	}
-
-	// Default Case: Handle standard 3-part images like "quay.io/skopeo/stable"
-	return splittedImage[0], splittedImage[1], splittedImage[2]
-}
-
-func getSuseAuthToken(namespace, repository string) (string, error) {
-	tokenURL := "https://registry.suse.com/auth?service=SUSE+Linux+Docker+Registry"
-	req, _ := http.NewRequest("GET", tokenURL, nil)
-	params := req.URL.Query()
-	params.Add("scope", fmt.Sprintf("repository:%s/%s:pull", namespace, repository))
-	req.URL.RawQuery = params.Encode()
-
-	resp, err := doRequestWithRetries(req)
-	if err != nil {
-		return "", fmt.Errorf("suse token request failed: %w", err)
-	}
-	defer resp.Body.Close()
-
-	body, _ := io.ReadAll(resp.Body)
-	var tokenData SuseTokenResponse
-	if err := json.Unmarshal(body, &tokenData); err != nil {
-		return "", fmt.Errorf("failed to unmarshal suse token: %w", err)
-	}
-	return tokenData.AccessToken, nil
 }
 
 func doRequestWithRetries(req *http.Request) (*http.Response, error) {
@@ -296,68 +225,4 @@ func parseLinkHeader(linkHeader string) string {
 	link := strings.TrimPrefix(linkHeader, "<")
 	link = strings.TrimSuffix(link, `>; rel="next"`)
 	return link
-}
-
-func (r *Registry) processRegistryResponse(body []byte, linkHeader, githubToken, registry, namespace, pkg string, page int) ([]string, error) {
-	switch registry {
-	case "dockerhub":
-		var data DockerHubResponse
-		if err := json.Unmarshal(body, &data); err != nil {
-			return nil, err
-		}
-		tags := make([]string, len(data.Results))
-		for i, tag := range data.Results {
-			tags[i] = tag.Name
-		}
-		if data.Next == "" {
-			return tags, nil
-		}
-		nextTags, err := r.getImageTags(githubToken, "", page+1)
-		if err != nil {
-			return nil, err
-		}
-		return append(tags, nextTags...), nil
-
-	case "quay.io":
-		var data QuayResponse
-		if err := json.Unmarshal(body, &data); err != nil {
-			return nil, err
-		}
-		tags := make([]string, len(data.Tags))
-		for i, tag := range data.Tags {
-			tags[i] = tag.Name
-		}
-		if !data.HasAdditional {
-			return tags, nil
-		}
-		nextTags, err := r.getImageTags(githubToken, "", page+1)
-		if err != nil {
-			return nil, err
-		}
-		return append(tags, nextTags...), nil
-
-	case "registry.k8s.io", "registry.suse.com", "gcr.io":
-		var data GenericTagsResponse
-		if err := json.Unmarshal(body, &data); err != nil {
-			return nil, err
-		}
-		return data.Tags, nil
-
-	case "ghcr.io":
-		var data GenericTagsResponse
-		if err := json.Unmarshal(body, &data); err != nil {
-			return nil, err
-		}
-		nextLink := parseLinkHeader(linkHeader)
-		if nextLink == "" {
-			return data.Tags, nil
-		}
-		nextURL := "https://ghcr.io" + nextLink
-		nextTags, err := r.getImageTags(githubToken, nextURL, page)
-		if err != nil {
-			return nil, err
-		}
-		return append(data.Tags, nextTags...), nil
-	}
-	return nil, fmt.Errorf("unrecognized registry for processing: %s", registry)
 }
