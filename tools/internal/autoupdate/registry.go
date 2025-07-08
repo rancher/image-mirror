@@ -104,6 +104,9 @@ func (r *Registry) getImageTags() ([]string, error) {
 func (r *Registry) getRegistryInformationFromImage() (ImageRegistry, error) {
 	image := r.Images[0].SourceImage
 	splittedImage := strings.Split(image, "/")
+	if len(splittedImage) < 2 {
+		return nil, fmt.Errorf("invalid image format: %s", image)
+	}
 	var registry, namespace, repository string
 	// Case 1: Handle default Docker Hub images like "flannel/flannel"
 	if len(splittedImage) == 2 && !strings.Contains(splittedImage[0], ".") {
@@ -115,16 +118,12 @@ func (r *Registry) getRegistryInformationFromImage() (ImageRegistry, error) {
 		registry = splittedImage[0]
 		namespace = ""
 		repository = splittedImage[1]
-	} else if len(splittedImage) > 3 && strings.Contains(splittedImage[0], ".") {
-		// Case 3: Handle images with long paths like "gcr.io/cloud-provider-vsphere/csi/release/syncer"
+	} else {
+		// Default Case: Handle standard 3-part images like "quay.io/skopeo/stable"
+		// and handle images with long paths like "gcr.io/cloud-provider-vsphere/csi/release/syncer"
 		registry = splittedImage[0]
 		namespace = splittedImage[1]
 		repository = strings.Join(splittedImage[2:], "/")
-	} else {
-		// Default Case: Handle standard 3-part images like "quay.io/skopeo/stable"
-		registry = splittedImage[0]
-		namespace = splittedImage[1]
-		repository = splittedImage[2]
 	}
 	switch registry {
 	case "dockerhub":
