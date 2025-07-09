@@ -3,16 +3,6 @@
 # https://github.com/rancher/image-mirror/pull/27
 #
 # LIST FORMAT: <SOURCE> <DESTINATION> <TAG>
-quay.io/kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 1.10.7
-quay.io/kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 1.12.2
-quay.io/kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 1.12.3
-quay.io/kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 1.15.6
-quay.io/kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 1.15.9
-quay.io/kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 1.19.2
-quay.io/kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 1.24.6
-quay.io/kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 1.26.1
-quay.io/kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 1.28.0
-quay.io/kiwigrid/k8s-sidecar rancher/mirrored-kiwigrid-k8s-sidecar 1.30.0
 quay.io/minio/minio rancher/mirrored-minio-minio RELEASE.2022-03-24T00-43-44Z
 quay.io/prometheus-operator/admission-webhook rancher/mirrored-prometheus-operator-admission-webhook v0.72.0
 quay.io/prometheus-operator/admission-webhook rancher/mirrored-prometheus-operator-admission-webhook v0.75.1
