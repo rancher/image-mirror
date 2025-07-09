@@ -3,9 +3,6 @@
 # https://github.com/rancher/image-mirror/pull/27
 #
 # LIST FORMAT: <SOURCE> <DESTINATION> <TAG>
-quay.io/coreos/prometheus-operator rancher/mirrored-coreos-prometheus-operator v0.38.1
-quay.io/coreos/prometheus-operator rancher/mirrored-coreos-prometheus-operator v0.39.0
-quay.io/coreos/prometheus-operator rancher/mirrored-coreos-prometheus-operator v0.40.0
 quay.io/jetstack/cert-manager-controller rancher/mirrored-jetstack-cert-manager-controller v0.8.1
 quay.io/k8scsi/csi-attacher rancher/mirrored-k8scsi-csi-attacher v3.0.0
 quay.io/k8scsi/csi-attacher rancher/mirrored-k8scsi-csi-attacher v3.1.0
