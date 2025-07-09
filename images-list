@@ -3,8 +3,6 @@
 # https://github.com/rancher/image-mirror/pull/27
 #
 # LIST FORMAT: <SOURCE> <DESTINATION> <TAG>
-quay.io/brancz/kube-rbac-proxy rancher/mirrored-brancz-kube-rbac-proxy v0.18.0
-quay.io/brancz/kube-rbac-proxy rancher/mirrored-brancz-kube-rbac-proxy v0.18.2
 quay.io/cilium/certgen rancher/mirrored-cilium-certgen v0.1.8
 quay.io/cilium/certgen rancher/mirrored-cilium-certgen v0.1.9
 quay.io/cilium/certgen rancher/mirrored-cilium-certgen v0.1.11
