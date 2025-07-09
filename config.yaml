@@ -2215,6 +2215,10 @@ Images:
   - v0.38.1
   - v0.39.0
   - v0.40.0
+- SourceImage: quay.io/coreos/prometheus-operator
+  Tags:
+  - v0.39.0
+  TargetImageName: coreos-prometheus-operator
 - SourceImage: quay.io/tigera/operator
   Tags:
   - v1.15.1
