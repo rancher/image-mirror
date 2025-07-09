@@ -2310,6 +2310,19 @@ Images:
   Tags:
   - v0.43.0
   TargetImageName: coreos-prometheus-config-reloader
+- SourceImage: quay.io/prometheus-operator/prometheus-config-reloader
+  Tags:
+  - v0.46.0
+  - v0.48.0
+  - v0.50.0
+  - v0.59.1
+  - v0.65.1
+  - v0.70.0
+  - v0.72.0
+  - v0.75.1
+  - v0.77.2
+  - v0.79.0
+  - v0.80.1
 - SourceImage: quay.io/tigera/operator
   Tags:
   - v1.15.1
