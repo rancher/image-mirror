@@ -97,6 +97,58 @@ func TestConfigEntry(t *testing.T) {
 				},
 				ExpectedError: "must specify only one autoupdate strategy",
 			},
+			{
+				Message: "should return nil for valid reviewers",
+				ConfigEntry: ConfigEntry{
+					Name: "test-entry",
+					GithubRelease: &GithubRelease{
+						Owner:      "test-owner",
+						Repository: "test-repo",
+						Images:     []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
+					},
+					Reviewers: []string{"user", "org/team"},
+				},
+				ExpectedError: "",
+			},
+			{
+				Message: "should return error for invalid reviewer with too many slashes",
+				ConfigEntry: ConfigEntry{
+					Name: "test-entry",
+					GithubRelease: &GithubRelease{
+						Owner:      "test-owner",
+						Repository: "test-repo",
+						Images:     []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
+					},
+					Reviewers: []string{"org/team/foo"},
+				},
+				ExpectedError: "invalid reviewer format for \"org/team/foo\": must be a username or in 'org/team' format",
+			},
+			{
+				Message: "should return error for invalid reviewer with empty team",
+				ConfigEntry: ConfigEntry{
+					Name: "test-entry",
+					GithubRelease: &GithubRelease{
+						Owner:      "test-owner",
+						Repository: "test-repo",
+						Images:     []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
+					},
+					Reviewers: []string{"org/"},
+				},
+				ExpectedError: "invalid reviewer format for \"org/\": org and team must not be empty",
+			},
+			{
+				Message: "should return error for invalid reviewer with empty org",
+				ConfigEntry: ConfigEntry{
+					Name: "test-entry",
+					GithubRelease: &GithubRelease{
+						Owner:      "test-owner",
+						Repository: "test-repo",
+						Images:     []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
+					},
+					Reviewers: []string{"/team"},
+				},
+				ExpectedError: "invalid reviewer format for \"/team\": org and team must not be empty",
+			},
 		}
 		for _, testCase := range testCases {
 			t.Run(testCase.Message, func(t *testing.T) {
@@ -212,21 +264,6 @@ func TestNewReviewersRequest(t *testing.T) {
 			Name:      "should handle empty list",
 			Reviewers: []string{},
 			Expected:  github.ReviewersRequest{},
-		},
-		{
-			Name:      "should handle malformed team strings",
-			Reviewers: []string{"user1", "org/"},
-			Expected: github.ReviewersRequest{
-				Reviewers:     []string{"user1"},
-				TeamReviewers: []string{},
-			},
-		},
-		{
-			Name:      "should handle team strings with multiple slashes",
-			Reviewers: []string{"org/team/foo"},
-			Expected: github.ReviewersRequest{
-				TeamReviewers: []string{"team/foo"},
-			},
 		},
 	}
 	for _, tc := range testCases {

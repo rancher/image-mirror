@@ -119,6 +119,16 @@ func (entry ConfigEntry) Validate() error {
 		}
 	}
 
+	for _, reviewer := range entry.Reviewers {
+		parts := strings.Split(reviewer, "/")
+		if len(parts) > 2 {
+			return fmt.Errorf("invalid reviewer format for %q: must be a username or in 'org/team' format", reviewer)
+		}
+		if len(parts) == 2 && (parts[0] == "" || parts[1] == "") {
+			return fmt.Errorf("invalid reviewer format for %q: org and team must not be empty", reviewer)
+		}
+	}
+
 	return nil
 }
 
