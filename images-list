@@ -3,8 +3,6 @@
 # https://github.com/rancher/image-mirror/pull/27
 #
 # LIST FORMAT: <SOURCE> <DESTINATION> <TAG>
-quay.io/k8scsi/csi-node-driver-registrar rancher/mirrored-k8scsi-csi-node-driver-registrar v2.0.1
-quay.io/k8scsi/csi-node-driver-registrar rancher/mirrored-k8scsi-csi-node-driver-registrar v2.1.0
 quay.io/k8scsi/csi-provisioner rancher/mirrored-k8scsi-csi-provisioner v2.0.0
 quay.io/k8scsi/csi-provisioner rancher/mirrored-k8scsi-csi-provisioner v2.1.0
 quay.io/k8scsi/csi-resizer rancher/mirrored-k8scsi-csi-resizer v1.0.0
