@@ -26,6 +26,7 @@ type ConfigEntry struct {
 	GithubRelease *GithubRelease `json:",omitempty"`
 	HelmLatest    *HelmLatest    `json:",omitempty"`
 	Registry      *Registry      `json:",omitempty"`
+	Reviewers     []string       `json:",omitempty"`
 }
 
 type AutoUpdateOptions struct {
@@ -272,9 +273,37 @@ func (entry ConfigEntry) CreateImageUpdatePullRequest(ctx context.Context, opts 
 	if err != nil {
 		return fmt.Errorf("failed to create pull request: %w", err)
 	}
+
 	fmt.Printf("%s: created pull request: %s\n", entry.Name, pullRequest.GetHTMLURL())
 
+	if len(entry.Reviewers) > 0 {
+		reviewersRequest := newReviewersRequest(entry.Reviewers)
+		_, _, err := opts.GithubClient.PullRequests.RequestReviewers(requestContext, opts.GithubOwner, opts.GithubRepo, pullRequest.GetNumber(), reviewersRequest)
+		if err != nil {
+			fmt.Printf("warning: failed to request reviewers for PR %s: %v\n", pullRequest.GetHTMLURL(), err)
+		}
+	}
+
 	return nil
+}
+
+func newReviewersRequest(entryReviewers []string) github.ReviewersRequest {
+	reviewers := github.ReviewersRequest{
+		Reviewers: make([]string, 0),
+		TeamReviewers: make([]string, 0),
+	}
+
+	for _, entryReviewer := range entryReviewers {
+		// We have already validated that each reviewer has either one or two parts
+		parts := strings.Split(entryReviewer, "/")
+		if len(parts) == 1 {
+			reviewers.Reviewers = append(reviewers.Reviewers, parts[0])
+		} else if len(parts) == 2 {
+			reviewers.TeamReviewers = append(reviewers.TeamReviewers, parts[1])
+		}
+	}
+
+	return reviewers
 }
 
 // hashImageSet computes a human-readable hash from a passed
