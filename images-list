@@ -3,7 +3,6 @@
 # https://github.com/rancher/image-mirror/pull/27
 #
 # LIST FORMAT: <SOURCE> <DESTINATION> <TAG>
-quay.io/cilium/cilium-etcd-operator rancher/mirrored-cilium-cilium-etcd-operator v2.0.7
 quay.io/cilium/kvstoremesh rancher/mirrored-cilium-kvstoremesh v1.14.0
 quay.io/cilium/kvstoremesh rancher/mirrored-cilium-kvstoremesh v1.14.1
 quay.io/cilium/kvstoremesh rancher/mirrored-cilium-kvstoremesh v1.14.2

@@ -8943,6 +8943,12 @@ sync:
 - source: quay.io/cilium/cilium-envoy:v1.32.6-1749271279-0864395884b263913eac200ee2048fd985f8e626
   target: registry.suse.com/rancher/mirrored-cilium-cilium-envoy:v1.32.6-1749271279-0864395884b263913eac200ee2048fd985f8e626
   type: image
+- source: quay.io/cilium/cilium-etcd-operator:v2.0.7
+  target: docker.io/rancher/mirrored-cilium-cilium-etcd-operator:v2.0.7
+  type: image
+- source: quay.io/cilium/cilium-etcd-operator:v2.0.7
+  target: registry.suse.com/rancher/mirrored-cilium-cilium-etcd-operator:v2.0.7
+  type: image
 - source: quay.io/cilium/clustermesh-apiserver:v1.12.4
   target: docker.io/rancher/mirrored-cilium-clustermesh-apiserver:v1.12.4
   type: image
