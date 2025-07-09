@@ -128,15 +128,6 @@ func migrateImagesList(_ context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("failed to parse images list: %w", err)
 	}
 
-	configJson, err := legacy.ParseConfig(paths.ConfigJson)
-	if err != nil {
-		return fmt.Errorf("failed to parse %q: %w", paths.ConfigJson, err)
-	}
-
-	if configJson.Contains(sourceImage) {
-		fmt.Printf("warning: %s refers to image with source %q\n", paths.ConfigJson, sourceImage)
-	}
-
 	legacyImagesToKeep := make([]legacy.ImagesListEntry, 0, len(legacyImages))
 	for _, legacyImage := range legacyImages {
 		if legacyImage.Source == sourceImage && legacyImage.Target == targetImage {
