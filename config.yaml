@@ -2197,6 +2197,12 @@ Images:
   - v3.5.9
   - v3.6.0
   - v3.6.1
+- SourceImage: quay.io/coreos/flannel
+  Tags:
+  - v0.13.0
+  - v0.14.0
+  - v0.15.0
+  - v0.15.1
 - SourceImage: quay.io/tigera/operator
   Tags:
   - v1.15.1
