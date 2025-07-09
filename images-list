@@ -3,11 +3,6 @@
 # https://github.com/rancher/image-mirror/pull/27
 #
 # LIST FORMAT: <SOURCE> <DESTINATION> <TAG>
-quay.io/kiali/kiali rancher/kiali-kiali v1.22.1
-quay.io/kiali/kiali rancher/kiali-kiali v1.23.0
-quay.io/kiali/kiali rancher/kiali-kiali v1.24.0
-quay.io/kiali/kiali rancher/kiali-kiali v1.28.0
-quay.io/kiali/kiali rancher/kiali-kiali v1.29.0
 quay.io/kiali/kiali rancher/mirrored-kiali-kiali v1.17
 quay.io/kiali/kiali rancher/mirrored-kiali-kiali v1.29.0
 quay.io/kiali/kiali rancher/mirrored-kiali-kiali v1.32.0
