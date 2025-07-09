@@ -2227,6 +2227,10 @@ Images:
 - SourceImage: quay.io/jetstack/cert-manager-controller
   Tags:
   - v0.8.1
+- SourceImage: quay.io/k8scsi/csi-attacher
+  Tags:
+  - v3.0.0
+  - v3.1.0
 - SourceImage: quay.io/tigera/operator
   Tags:
   - v1.15.1
