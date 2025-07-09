@@ -3,7 +3,6 @@
 # https://github.com/rancher/image-mirror/pull/27
 #
 # LIST FORMAT: <SOURCE> <DESTINATION> <TAG>
-quay.io/coreos/kube-state-metrics rancher/mirrored-coreos-kube-state-metrics v1.9.7
 quay.io/coreos/prometheus-config-reloader rancher/coreos-prometheus-config-reloader v0.39.0
 quay.io/coreos/prometheus-config-reloader rancher/mirrored-coreos-prometheus-config-reloader v0.38.1
 quay.io/coreos/prometheus-config-reloader rancher/mirrored-coreos-prometheus-config-reloader v0.39.0
