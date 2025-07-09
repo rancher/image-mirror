@@ -3,12 +3,6 @@
 # https://github.com/rancher/image-mirror/pull/27
 #
 # LIST FORMAT: <SOURCE> <DESTINATION> <TAG>
-quay.io/prometheus/node-exporter rancher/mirrored-prometheus-node-exporter v1.1.2
-quay.io/prometheus/node-exporter rancher/mirrored-prometheus-node-exporter v1.2.2
-quay.io/prometheus/node-exporter rancher/mirrored-prometheus-node-exporter v1.3.1
-quay.io/prometheus/node-exporter rancher/mirrored-prometheus-node-exporter v1.7.0
-quay.io/prometheus/node-exporter rancher/mirrored-prometheus-node-exporter v1.8.2
-quay.io/prometheus/node-exporter rancher/mirrored-prometheus-node-exporter v1.9.0
 quay.io/prometheus/prometheus rancher/mirrored-prometheus-prometheus v2.24.0
 quay.io/prometheus/prometheus rancher/mirrored-prometheus-prometheus v2.27.1
 quay.io/prometheus/prometheus rancher/mirrored-prometheus-prometheus v2.28.1
