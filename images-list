@@ -3,10 +3,3 @@
 # https://github.com/rancher/image-mirror/pull/27
 #
 # LIST FORMAT: <SOURCE> <DESTINATION> <TAG>
-quay.io/thanos/thanos rancher/mirrored-thanos-thanos v0.17.2
-quay.io/thanos/thanos rancher/mirrored-thanos-thanos v0.28.0
-quay.io/thanos/thanos rancher/mirrored-thanos-thanos v0.30.2
-quay.io/thanos/thanos rancher/mirrored-thanos-thanos v0.34.1
-quay.io/thanos/thanos rancher/mirrored-thanos-thanos v0.35.1
-quay.io/thanos/thanos rancher/mirrored-thanos-thanos v0.36.1
-quay.io/thanos/thanos rancher/mirrored-thanos-thanos v0.37.2
