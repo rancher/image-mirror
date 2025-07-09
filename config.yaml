@@ -2383,6 +2383,11 @@ Images:
 - SourceImage: quay.io/s3gw/s3gw
   Tags:
   - v0.14.0
+- SourceImage: quay.io/skopeo/stable
+  Tags:
+  - v1.10.0
+  - v1.13.2
+  TargetImageName: mirrored-skopeo-skopeo
 - SourceImage: quay.io/tigera/operator
   Tags:
   - v1.15.1
