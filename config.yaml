@@ -2299,6 +2299,13 @@ Images:
 - SourceImage: quay.io/minio/minio
   Tags:
   - RELEASE.2022-03-24T00-43-44Z
+- SourceImage: quay.io/prometheus-operator/admission-webhook
+  Tags:
+  - v0.72.0
+  - v0.75.1
+  - v0.77.2
+  - v0.79.0
+  - v0.80.1
 - SourceImage: quay.io/tigera/operator
   Tags:
   - v1.15.1
