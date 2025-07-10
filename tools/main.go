@@ -14,7 +14,7 @@ import (
 	"github.com/rancher/image-mirror/internal/paths"
 	"github.com/rancher/image-mirror/internal/regsync"
 
-	"github.com/google/go-github/v71/github"
+	"github.com/google/go-github/v73/github"
 	"github.com/urfave/cli/v3"
 )
 
