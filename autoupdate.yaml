@@ -4,11 +4,15 @@
     - SourceImage: quay.io/calico/cni
     - SourceImage: quay.io/calico/csi
     - SourceImage: quay.io/calico/ctl
+    - SourceImage: quay.io/calico/envoy-gateway
+    - SourceImage: quay.io/calico/goldmane
     - SourceImage: quay.io/calico/kube-controllers
     - SourceImage: quay.io/calico/node
     - SourceImage: quay.io/calico/node-driver-registrar
     - SourceImage: quay.io/calico/pod2daemon-flexvol
     - SourceImage: quay.io/calico/typha
+    - SourceImage: quay.io/calico/whisker
+    - SourceImage: quay.io/calico/whisker-backend
     LatestOnly: true
     Owner: projectcalico
     Repository: calico
