@@ -3,7 +3,8 @@ module github.com/rancher/image-mirror
 go 1.24
 
 require (
-	github.com/Masterminds/semver/v3 v3.3.1
+	github.com/Masterminds/semver/v3 v3.4.0
+	github.com/google/go-github/v71 v71.0.0
 	github.com/google/go-github/v73 v73.0.0
 	github.com/stretchr/testify v1.10.0
 	github.com/urfave/cli/v3 v3.3.8
