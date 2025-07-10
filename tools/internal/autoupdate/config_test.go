@@ -3,6 +3,7 @@ package autoupdate
 import (
 	"testing"
 
+	"github.com/google/go-github/v71/github"
 	"github.com/rancher/image-mirror/internal/config"
 
 	"github.com/stretchr/testify/assert"
@@ -96,6 +97,58 @@ func TestConfigEntry(t *testing.T) {
 				},
 				ExpectedError: "must specify only one autoupdate strategy",
 			},
+			{
+				Message: "should return nil for valid reviewers",
+				ConfigEntry: ConfigEntry{
+					Name: "test-entry",
+					GithubRelease: &GithubRelease{
+						Owner:      "test-owner",
+						Repository: "test-repo",
+						Images:     []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
+					},
+					Reviewers: []string{"user", "org/team"},
+				},
+				ExpectedError: "",
+			},
+			{
+				Message: "should return error for invalid reviewer with too many slashes",
+				ConfigEntry: ConfigEntry{
+					Name: "test-entry",
+					GithubRelease: &GithubRelease{
+						Owner:      "test-owner",
+						Repository: "test-repo",
+						Images:     []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
+					},
+					Reviewers: []string{"org/team/foo"},
+				},
+				ExpectedError: "invalid reviewer format for \"org/team/foo\": must be a username or in 'org/team' format",
+			},
+			{
+				Message: "should return error for invalid reviewer with empty team",
+				ConfigEntry: ConfigEntry{
+					Name: "test-entry",
+					GithubRelease: &GithubRelease{
+						Owner:      "test-owner",
+						Repository: "test-repo",
+						Images:     []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
+					},
+					Reviewers: []string{"org/"},
+				},
+				ExpectedError: "invalid reviewer format for \"org/\": org and team must not be empty",
+			},
+			{
+				Message: "should return error for invalid reviewer with empty org",
+				ConfigEntry: ConfigEntry{
+					Name: "test-entry",
+					GithubRelease: &GithubRelease{
+						Owner:      "test-owner",
+						Repository: "test-repo",
+						Images:     []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
+					},
+					Reviewers: []string{"/team"},
+				},
+				ExpectedError: "invalid reviewer format for \"/team\": org and team must not be empty",
+			},
 		}
 		for _, testCase := range testCases {
 			t.Run(testCase.Message, func(t *testing.T) {
@@ -176,4 +229,48 @@ func TestGetBranchHash(t *testing.T) {
 
 		assert.NotEqual(t, hash1, hash2)
 	})
+}
+
+func TestNewReviewersRequest(t *testing.T) {
+	type testCase struct {
+		Name      string
+		Reviewers []string
+		Expected  github.ReviewersRequest
+	}
+	testCases := []testCase{
+		{
+			Name:      "should correctly parse users and teams",
+			Reviewers: []string{"user1", "my-org/team-one", "user2", "another-org/team-two"},
+			Expected: github.ReviewersRequest{
+				Reviewers:     []string{"user1", "user2"},
+				TeamReviewers: []string{"team-one", "team-two"},
+			},
+		},
+		{
+			Name:      "should handle only users",
+			Reviewers: []string{"user1", "user2"},
+			Expected: github.ReviewersRequest{
+				Reviewers: []string{"user1", "user2"},
+			},
+		},
+		{
+			Name:      "should handle only teams",
+			Reviewers: []string{"my-org/team-one", "another-org/team-two"},
+			Expected: github.ReviewersRequest{
+				TeamReviewers: []string{"team-one", "team-two"},
+			},
+		},
+		{
+			Name:      "should handle empty list",
+			Reviewers: []string{},
+			Expected:  github.ReviewersRequest{},
+		},
+	}
+	for _, tc := range testCases {
+		t.Run(tc.Name, func(t *testing.T) {
+			req := newReviewersRequest(tc.Reviewers)
+			assert.ElementsMatch(t, tc.Expected.Reviewers, req.Reviewers)
+			assert.ElementsMatch(t, tc.Expected.TeamReviewers, req.TeamReviewers)
+		})
+	}
 }
