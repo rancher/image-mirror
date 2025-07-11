@@ -120,6 +120,11 @@
     Owner: kube-vip
     Repository: kube-vip
   Name: kube-vip-iptables
+- Name: kube-webhook-certgen
+  Registry:
+    Images:
+    - SourceImage: registry.k8s.io/ingress-nginx/kube-webhook-certgen
+    VersionFilter: ^v1.[0-9]+.[0-9]+$
 - GithubRelease:
     Images:
     - SourceImage: idealista/prom2teams
