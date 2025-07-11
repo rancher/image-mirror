@@ -52,7 +52,10 @@ func Parse(fileName string) (*Config, error) {
 	if err != nil {
 		return nil, fmt.Errorf("failed to read: %w", err)
 	}
+	return ParseFromBytes(contents)
+}
 
+func ParseFromBytes(contents []byte) (*Config, error) {
 	config := &Config{}
 	if err := yaml.Unmarshal(contents, &config); err != nil {
 		return nil, fmt.Errorf("failed to unmarshal as JSON: %w", err)

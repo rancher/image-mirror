@@ -271,6 +271,7 @@ func validate(_ context.Context, _ *cli.Command) error {
 	// Run validations
 	errs := make([]error, 0)
 	validateSourceImageAndTargetImageName(&errs, *configYaml)
+	validateNoTagsRemoved(&errs, configYaml)
 
 	// Format results into one error, if any
 	if len(errs) > 0 {
@@ -297,6 +298,45 @@ func validateSourceImageAndTargetImageName(errs *[]error, configYaml config.Conf
 			*errs = append(*errs, err)
 		} else {
 			imageMap[index] = true
+		}
+	}
+}
+
+func validateNoTagsRemoved(errs *[]error, newConfigYaml *config.Config) {
+	mergeBase, err := git.GetMergeBase("master")
+	if err != nil {
+		*errs = append(*errs, fmt.Errorf("failed to get merge base: %w", err))
+		return
+	}
+	oldContent, err := git.GetFileContentAtCommit(mergeBase, paths.ConfigYaml)
+	if err != nil {
+		*errs = append(*errs, fmt.Errorf("failed to get file content at %s: %w", mergeBase, err))
+		return
+	}
+	oldConfigYaml, err := config.ParseFromBytes(oldContent)
+	if err != nil {
+		*errs = append(*errs, fmt.Errorf("failed to parse old %s: %w", paths.ConfigYaml, err))
+		return
+	}
+	checkNoTagsRemoved(errs, oldConfigYaml.Images, newConfigYaml.Images)
+}
+
+func checkNoTagsRemoved(errs *[]error, oldImages, newImages []*config.Image) {
+	accumulator := config.NewImageAccumulator()
+	accumulator.AddImages(newImages...)
+	for _, oldImage := range oldImages {
+		diffImage, err := accumulator.TagDifference(oldImage)
+		if err != nil {
+			wrappedErr := fmt.Errorf("failed to diff image %s (TargetImageName %q): %w", oldImage.SourceImage, oldImage.TargetImageName(), err)
+			*errs = append(*errs, wrappedErr)
+			continue
+		}
+		if diffImage == nil {
+			continue
+		}
+		for _, missedTag := range diffImage.Tags {
+			err := fmt.Errorf("%s:%s removed (TargetImageName %q)", diffImage.SourceImage, missedTag, diffImage.TargetImageName())
+			*errs = append(*errs, err)
 		}
 	}
 }
