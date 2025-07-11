@@ -32,6 +32,27 @@ Once `regsync.yaml` has been updated, you may run `regsync` via the command
 regsync once --verbosity error --config regsync.yaml --missing
 ```
 
+### Adding New Images
+
+When adding new images to the repo, please indicate so in the pull request.
+You will need to submit a request to EIO, who will create the repo in
+DockerHub. If this is not done, mirroring the image will fail. Nothing
+special needs to be done for mirroring a new image to the Rancher Prime
+registry.
+
+### Image Prefixes
+
+Every image that is mirrored by this repository should have a prefix that
+communicates some information about it. The only exception is legacy images:
+in the past the Rancher project did not add prefixes to mirrored images.
+All new images must have a prefix.
+
+| Prefix | Meaning |
+| ------------- | ------------- |
+| `mirrored-` | The image was mirrored from somewhere else. This is the default choice, and is used when the below prefixes do not apply.
+| `appco-` | The image originated in the [SUSE Application Collection](https://apps.rancher.io/). We use images from the application collection because they have a better security posture.
+| `hardened-` | The image has been hardened. This repository does not concern itself with hardened images.
+
 ### `config.yaml`
 
 #### `Repositories`
