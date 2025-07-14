@@ -1719,6 +1719,12 @@ sync:
 - source: istio/install-cni:1.25.0-distroless
   target: docker.io/rancher/mirrored-istio-install-cni:1.25.0-distroless
   type: image
+- source: istio/install-cni:1.26.2
+  target: docker.io/rancher/mirrored-istio-install-cni:1.26.2
+  type: image
+- source: istio/install-cni:1.26.2-distroless
+  target: docker.io/rancher/mirrored-istio-install-cni:1.26.2-distroless
+  type: image
 - source: istio/install-cni:1.7.8
   target: docker.io/rancher/mirrored-istio-install-cni:1.7.8
   type: image
@@ -1883,6 +1889,12 @@ sync:
   type: image
 - source: istio/install-cni:1.25.0-distroless
   target: registry.suse.com/rancher/mirrored-istio-install-cni:1.25.0-distroless
+  type: image
+- source: istio/install-cni:1.26.2
+  target: registry.suse.com/rancher/mirrored-istio-install-cni:1.26.2
+  type: image
+- source: istio/install-cni:1.26.2-distroless
+  target: registry.suse.com/rancher/mirrored-istio-install-cni:1.26.2-distroless
   type: image
 - source: istio/install-cni:1.7.8
   target: registry.suse.com/rancher/mirrored-istio-install-cni:1.7.8
@@ -2139,6 +2151,12 @@ sync:
 - source: istio/pilot:1.25.0-distroless
   target: docker.io/rancher/mirrored-istio-pilot:1.25.0-distroless
   type: image
+- source: istio/pilot:1.26.2
+  target: docker.io/rancher/mirrored-istio-pilot:1.26.2
+  type: image
+- source: istio/pilot:1.26.2-distroless
+  target: docker.io/rancher/mirrored-istio-pilot:1.26.2-distroless
+  type: image
 - source: istio/pilot:1.5.9
   target: docker.io/rancher/mirrored-istio-pilot:1.5.9
   type: image
@@ -2306,6 +2324,12 @@ sync:
   type: image
 - source: istio/pilot:1.25.0-distroless
   target: registry.suse.com/rancher/mirrored-istio-pilot:1.25.0-distroless
+  type: image
+- source: istio/pilot:1.26.2
+  target: registry.suse.com/rancher/mirrored-istio-pilot:1.26.2
+  type: image
+- source: istio/pilot:1.26.2-distroless
+  target: registry.suse.com/rancher/mirrored-istio-pilot:1.26.2-distroless
   type: image
 - source: istio/pilot:1.5.9
   target: registry.suse.com/rancher/mirrored-istio-pilot:1.5.9
@@ -2511,6 +2535,12 @@ sync:
 - source: istio/proxyv2:1.25.0-distroless
   target: docker.io/rancher/mirrored-istio-proxyv2:1.25.0-distroless
   type: image
+- source: istio/proxyv2:1.26.2
+  target: docker.io/rancher/mirrored-istio-proxyv2:1.26.2
+  type: image
+- source: istio/proxyv2:1.26.2-distroless
+  target: docker.io/rancher/mirrored-istio-proxyv2:1.26.2-distroless
+  type: image
 - source: istio/proxyv2:1.5.9
   target: docker.io/rancher/mirrored-istio-proxyv2:1.5.9
   type: image
@@ -2679,6 +2709,12 @@ sync:
 - source: istio/proxyv2:1.25.0-distroless
   target: registry.suse.com/rancher/mirrored-istio-proxyv2:1.25.0-distroless
   type: image
+- source: istio/proxyv2:1.26.2
+  target: registry.suse.com/rancher/mirrored-istio-proxyv2:1.26.2
+  type: image
+- source: istio/proxyv2:1.26.2-distroless
+  target: registry.suse.com/rancher/mirrored-istio-proxyv2:1.26.2-distroless
+  type: image
 - source: istio/proxyv2:1.5.9
   target: registry.suse.com/rancher/mirrored-istio-proxyv2:1.5.9
   type: image
@@ -2793,6 +2829,9 @@ sync:
 - source: jaegertracing/all-in-one:1.67.0
   target: docker.io/rancher/mirrored-jaegertracing-all-in-one:1.67.0
   type: image
+- source: jaegertracing/all-in-one:1.71.0
+  target: docker.io/rancher/mirrored-jaegertracing-all-in-one:1.71.0
+  type: image
 - source: jaegertracing/all-in-one:1.14
   target: registry.suse.com/rancher/mirrored-jaegertracing-all-in-one:1.14
   type: image
@@ -2858,6 +2897,9 @@ sync:
   type: image
 - source: jaegertracing/all-in-one:1.67.0
   target: registry.suse.com/rancher/mirrored-jaegertracing-all-in-one:1.67.0
+  type: image
+- source: jaegertracing/all-in-one:1.71.0
+  target: registry.suse.com/rancher/mirrored-jaegertracing-all-in-one:1.71.0
   type: image
 - source: jenkins/jnlp-slave:3.35-4
   target: docker.io/rancher/mirrored-jenkins-jnlp-slave:3.35-4
@@ -10677,6 +10719,9 @@ sync:
 - source: quay.io/kiali/kiali:v2.1.0
   target: docker.io/rancher/mirrored-kiali-kiali:v2.1.0
   type: image
+- source: quay.io/kiali/kiali:v2.12.0
+  target: docker.io/rancher/mirrored-kiali-kiali:v2.12.0
+  type: image
 - source: quay.io/kiali/kiali:v2.7.1
   target: docker.io/rancher/mirrored-kiali-kiali:v2.7.1
   type: image
@@ -10757,6 +10802,9 @@ sync:
   type: image
 - source: quay.io/kiali/kiali:v2.1.0
   target: registry.suse.com/rancher/mirrored-kiali-kiali:v2.1.0
+  type: image
+- source: quay.io/kiali/kiali:v2.12.0
+  target: registry.suse.com/rancher/mirrored-kiali-kiali:v2.12.0
   type: image
 - source: quay.io/kiali/kiali:v2.7.1
   target: registry.suse.com/rancher/mirrored-kiali-kiali:v2.7.1

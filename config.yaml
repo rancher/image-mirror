@@ -530,6 +530,8 @@ Images:
   - 1.24.1-distroless
   - 1.25.0
   - 1.25.0-distroless
+  - 1.26.2
+  - 1.26.2-distroless
   - 1.7.8
   - 1.8.3
   - 1.8.4
@@ -617,6 +619,8 @@ Images:
   - 1.24.1-distroless
   - 1.25.0
   - 1.25.0-distroless
+  - 1.26.2
+  - 1.26.2-distroless
   - 1.5.9
   - 1.7.8
   - 1.8.3
@@ -684,6 +688,8 @@ Images:
   - 1.24.1-distroless
   - 1.25.0
   - 1.25.0-distroless
+  - 1.26.2
+  - 1.26.2-distroless
   - 1.5.9
   - 1.7.8
   - 1.8.3
@@ -727,6 +733,7 @@ Images:
   - 1.60.0
   - 1.63.0
   - 1.67.0
+  - 1.71.0
 - SourceImage: jenkins/jnlp-slave
   Tags:
   - 3.35-4
@@ -2284,6 +2291,7 @@ Images:
   - v1.86.0
   - v1.89.3
   - v2.1.0
+  - v2.12.0
   - v2.7.1
 - SourceImage: quay.io/kiwigrid/k8s-sidecar
   Tags:
