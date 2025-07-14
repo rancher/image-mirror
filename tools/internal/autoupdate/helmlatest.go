@@ -100,7 +100,7 @@ func (hl *HelmLatest) GetUpdateImages() ([]*config.Image, error) {
 		var foundTargetImageName *string
 		for _, autoupdateImageRef := range hl.Images {
 			if sourceImage == autoupdateImageRef.SourceImage {
-				foundTargetImageName = &autoupdateImageRef.SourceImage
+				foundTargetImageName = &autoupdateImageRef.TargetImageName
 				break
 			}
 		}
