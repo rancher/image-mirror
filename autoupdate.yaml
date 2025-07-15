@@ -178,6 +178,8 @@
     Owner: vmware-tanzu
     Repository: sonobuoy
   Name: sonobuoy
+  Reviewers:
+  - rancher/infracloud-team
 - GithubRelease:
     Images:
     - SourceImage: registry.k8s.io/sig-storage/livenessprobe
