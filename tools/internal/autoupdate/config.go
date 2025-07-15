@@ -119,6 +119,9 @@ func (entry ConfigEntry) Validate() error {
 		}
 	}
 
+	if len(entry.Reviewers) == 0 {
+		return errors.New("must specify at least one reviewer")
+	}
 	for _, reviewer := range entry.Reviewers {
 		parts := strings.Split(reviewer, "/")
 		if len(parts) > 2 {
