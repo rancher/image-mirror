@@ -26,6 +26,7 @@ func TestConfigEntry(t *testing.T) {
 						Repository: "test-repo",
 						Images:     []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
 					},
+					Reviewers: []string{"user", "org/team"},
 				},
 				ExpectedError: "",
 			},
@@ -41,6 +42,7 @@ func TestConfigEntry(t *testing.T) {
 							},
 						},
 					},
+					Reviewers: []string{"user", "org/team"},
 				},
 				ExpectedError: "",
 			},
@@ -53,6 +55,7 @@ func TestConfigEntry(t *testing.T) {
 						Latest:        false,
 						VersionFilter: "^v1\\.([3-9][0-9])\\.[0-9]+$",
 					},
+					Reviewers: []string{"user", "org/team"},
 				},
 				ExpectedError: "",
 			},
@@ -148,6 +151,32 @@ func TestConfigEntry(t *testing.T) {
 					Reviewers: []string{"/team"},
 				},
 				ExpectedError: "invalid reviewer format for \"/team\": org and team must not be empty",
+			},
+			{
+				Message: "should return error for entry with no reviewers",
+				ConfigEntry: ConfigEntry{
+					Name: "test-entry",
+					GithubRelease: &GithubRelease{
+						Owner:      "test-owner",
+						Repository: "test-repo",
+						Images:     []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
+					},
+					Reviewers: []string{},
+				},
+				ExpectedError: "must specify at least one reviewer",
+			},
+			{
+				Message: "should return error for entry with nil reviewers",
+				ConfigEntry: ConfigEntry{
+					Name: "test-entry",
+					GithubRelease: &GithubRelease{
+						Owner:      "test-owner",
+						Repository: "test-repo",
+						Images:     []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
+					},
+					Reviewers: nil,
+				},
+				ExpectedError: "must specify at least one reviewer",
 			},
 		}
 		for _, testCase := range testCases {
