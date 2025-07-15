@@ -2211,23 +2211,28 @@ Images:
   - v0.14.0
   - v0.15.0
   - v0.15.1
-- SourceImage: quay.io/coreos/kube-state-metrics
+- DoNotMirror: true
+  SourceImage: quay.io/coreos/kube-state-metrics
   Tags:
   - v1.9.7
-- SourceImage: quay.io/coreos/prometheus-config-reloader
+- DoNotMirror: true
+  SourceImage: quay.io/coreos/prometheus-config-reloader
   Tags:
   - v0.39.0
   TargetImageName: coreos-prometheus-config-reloader
-- SourceImage: quay.io/coreos/prometheus-config-reloader
+- DoNotMirror: true
+  SourceImage: quay.io/coreos/prometheus-config-reloader
   Tags:
   - v0.38.1
   - v0.39.0
   - v0.40.0
-- SourceImage: quay.io/coreos/prometheus-operator
+- DoNotMirror: true
+  SourceImage: quay.io/coreos/prometheus-operator
   Tags:
   - v0.39.0
   TargetImageName: coreos-prometheus-operator
-- SourceImage: quay.io/coreos/prometheus-operator
+- DoNotMirror: true
+  SourceImage: quay.io/coreos/prometheus-operator
   Tags:
   - v0.38.1
   - v0.39.0
