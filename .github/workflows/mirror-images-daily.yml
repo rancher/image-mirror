@@ -1,4 +1,4 @@
-name: Publish Mirrored Images Daily
+name: Mirror Daily Images
 
 on:
   push:
@@ -6,43 +6,40 @@ on:
       - master
   schedule:
     - cron:  '0 2 * * *'
-
-permissions:
-  contents: read
-  id-token: write # this is important, it's how we authenticate with Vault
-
-env:
-  IMAGES_FILE: images-list-daily
+  workflow_dispatch:
+    inputs:
+      debug:
+        description: "Enable debug logging"
+        required: false
+        type: boolean
 
 jobs:
   mirror-images:
     runs-on: ubuntu-latest
-    if: github.repository == 'rancher/image-mirror'
+    permissions:
+      contents: read
+      id-token: write
     steps:
-      - name: Check out repository code
+      - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
 
-      - name: Validate that the list is sorted correctly
-        run: grep -vE '^\s*(#|//)' ${IMAGES_FILE} | sort -Vc
-
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@29109295f81e9208d7d86ff1c6c12d2833863392 # v3
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@b5ca514318bd6ebac0fb2aedd5d36ec1b5c232a2 # v3
-
-      - name: "Read some Secrets"
+      - name: Read secrets into environment
         uses: rancher-eio/read-vault-secrets@main
         with:
           secrets: |
             secret/data/github/repo/${{ github.repository }}/dockerhub/rancher/credentials username | DOCKER_USERNAME ;
             secret/data/github/repo/${{ github.repository }}/dockerhub/rancher/credentials password | DOCKER_PASSWORD
 
-      - name: Log in to the Container registry
-        uses: docker/login-action@74a5d142397b4f367a81961eba4e8cd7edddf772 # v3
-        with:
-          username: ${{ env.DOCKER_USERNAME }}
-          password: ${{ env.DOCKER_PASSWORD }}
+      - name: Install regsync
+        run: |
+          curl --silent --fail --location --output regsync https://github.com/regclient/regclient/releases/download/v0.8.3/regsync-linux-amd64
+          chmod +x regsync
 
-      - name: Run image-mirror.sh
-        run: ./scripts/image-mirror.sh
+      - name: Sync Container Images
+        run: |
+          export PATH=$PATH:$(pwd)
+          if [ "${{ inputs.debug }}" = "true" ]; then
+            time regsync once --logopt json --config regsync.yaml --verbosity debug
+          else
+            time regsync once --logopt json --config regsync.yaml
+          fi
