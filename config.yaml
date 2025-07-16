@@ -462,6 +462,7 @@ Images:
   - 3.2.3
   - 4.2.0
   - 4.2.1
+  - 5.0.0
 - SourceImage: istio/citadel
   Tags:
   - 1.5.9
