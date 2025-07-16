@@ -8925,6 +8925,9 @@ sync:
 - source: quay.io/cilium/cilium-envoy:v1.32.6-1749271279-0864395884b263913eac200ee2048fd985f8e626
   target: docker.io/rancher/mirrored-cilium-cilium-envoy:v1.32.6-1749271279-0864395884b263913eac200ee2048fd985f8e626
   type: image
+- source: quay.io/cilium/cilium-envoy:v1.33.4-1752151664-7c2edb0b44cf95f326d628b837fcdd845102ba68
+  target: docker.io/rancher/mirrored-cilium-cilium-envoy:v1.33.4-1752151664-7c2edb0b44cf95f326d628b837fcdd845102ba68
+  type: image
 - source: quay.io/cilium/cilium-envoy:v1.25.10-f71a313bd0daee41470af31ce6ea20c750fe35dd
   target: registry.suse.com/rancher/mirrored-cilium-cilium-envoy:v1.25.10-f71a313bd0daee41470af31ce6ea20c750fe35dd
   type: image
@@ -8996,6 +8999,9 @@ sync:
   type: image
 - source: quay.io/cilium/cilium-envoy:v1.32.6-1749271279-0864395884b263913eac200ee2048fd985f8e626
   target: registry.suse.com/rancher/mirrored-cilium-cilium-envoy:v1.32.6-1749271279-0864395884b263913eac200ee2048fd985f8e626
+  type: image
+- source: quay.io/cilium/cilium-envoy:v1.33.4-1752151664-7c2edb0b44cf95f326d628b837fcdd845102ba68
+  target: registry.suse.com/rancher/mirrored-cilium-cilium-envoy:v1.33.4-1752151664-7c2edb0b44cf95f326d628b837fcdd845102ba68
   type: image
 - source: quay.io/cilium/cilium-etcd-operator:v2.0.7
   target: docker.io/rancher/mirrored-cilium-cilium-etcd-operator:v2.0.7
