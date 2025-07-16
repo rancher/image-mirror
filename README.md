@@ -58,7 +58,8 @@ All new images must have a prefix.
 `regsync-daily.yaml` is a special case for images that must be mirrored daily.
 Avoid using it if possible - it does not get you the benefits of using `config.yaml`
 and the rest of this repository. There should be a very good reason for using
-it, if you do.
+it, if you do. `regsync-daily.yaml` is managed manually, and not touched by
+any automation.
 
 As of the time of writing, `regsync-daily.yaml` is used only for Neuvector.
 The Neuvector images use it because the image builds incorporate new CVE
