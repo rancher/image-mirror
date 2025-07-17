@@ -1,0 +1,16 @@
+creds:
+- pass: '{{ env "DOCKER_PASSWORD" }}'
+  registry: docker.io
+  user: '{{ env "DOCKER_USERNAME" }}'
+defaults:
+  userAgent: rancher-image-mirror
+sync:
+- source: neuvector/compliance-config:latest
+  target: rancher/mirrored-neuvector-compliance-config:latest
+  type: image
+- source: neuvector/scanner:latest
+  target: rancher/mirrored-neuvector-scanner:latest
+  type:image
+- source: neuvector/updater:latest
+  target: rancher/mirrored-neuvector-updater:latest
+  type: image

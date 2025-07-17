@@ -53,6 +53,19 @@ All new images must have a prefix.
 | `appco-` | The image originated in the [SUSE Application Collection](https://apps.rancher.io/). We use images from the application collection because they have a better security posture.
 | `hardened-` | The image has been hardened. This repository does not concern itself with hardened images.
 
+### `regsync-daily.yaml`
+
+`regsync-daily.yaml` is a special case for images that must be mirrored daily.
+Avoid using it if possible - it does not get you the benefits of using `config.yaml`
+and the rest of this repository. There should be a very good reason for using
+it, if you do. `regsync-daily.yaml` is managed manually, and not touched by
+any automation.
+
+As of the time of writing, `regsync-daily.yaml` is used only for Neuvector.
+The Neuvector images use it because the image builds incorporate new CVE
+information each day: the `latest` images must be updated for this information
+to be available to users.
+
 ### `config.yaml`
 
 #### `Repositories`
