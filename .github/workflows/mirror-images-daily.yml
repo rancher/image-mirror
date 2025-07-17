@@ -39,7 +39,7 @@ jobs:
         run: |
           export PATH=$PATH:$(pwd)
           if [ "${{ inputs.debug }}" = "true" ]; then
-            time regsync once --logopt json --config regsync.yaml --verbosity debug
+            time regsync once --logopt json --config regsync-daily.yaml --verbosity debug
           else
-            time regsync once --logopt json --config regsync.yaml
+            time regsync once --logopt json --config regsync-daily.yaml
           fi
