@@ -14,3 +14,6 @@ linters:
       - linters:
           - errcheck
         source: 'defer exec.Command\("helm", "repo", "remove", helmRepoName\).Run\(\)'
+      - linters:
+          - errcheck
+        source: 'defer os.RemoveAll\(dirPath\)'

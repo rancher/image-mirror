@@ -23,6 +23,7 @@ import (
 
 var dryRun bool
 var entryName string
+var mergeBaseBranch string
 
 func main() {
 	cmd := &cli.Command{
@@ -69,6 +70,14 @@ func main() {
 				Name:   "validate",
 				Usage:  "Validate the state of various files",
 				Action: validate,
+				Flags: []cli.Flag{
+					&cli.StringFlag{
+						Name:        "merge-base-branch",
+						Value:       "master",
+						Usage:       "The branch to compare HEAD to to get the merge base",
+						Destination: &mergeBaseBranch,
+					},
+				},
 			},
 			{
 				Name:   "migrate-images-list",
@@ -307,7 +316,7 @@ func validateSourceImageAndTargetImageName(errs *[]error, configYaml *config.Con
 }
 
 func validateNoTagsRemoved(errs *[]error, newConfigYaml *config.Config) {
-	mergeBase, err := git.GetMergeBase("master")
+	mergeBase, err := git.GetMergeBase(mergeBaseBranch)
 	if err != nil {
 		*errs = append(*errs, fmt.Errorf("failed to get merge base: %w", err))
 		return
@@ -347,7 +356,7 @@ func checkNoTagsRemoved(errs *[]error, oldImages, newImages []*config.Image) {
 
 func validateNewTagsPullable(errs *[]error, newConfigYaml *config.Config) {
 	// Get the config.yaml from the merge base
-	mergeBase, err := git.GetMergeBase("master")
+	mergeBase, err := git.GetMergeBase(mergeBaseBranch)
 	if err != nil {
 		*errs = append(*errs, fmt.Errorf("failed to get merge base: %w", err))
 		return
