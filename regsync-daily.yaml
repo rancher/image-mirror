@@ -10,7 +10,7 @@ sync:
   type: image
 - source: neuvector/scanner:latest
   target: rancher/mirrored-neuvector-scanner:latest
-  type:image
+  type: image
 - source: neuvector/updater:latest
   target: rancher/mirrored-neuvector-updater:latest
   type: image
