@@ -108,7 +108,7 @@ entry specifies a strategy for finding tags of images to potentially add to
 | `GithubRelease` | no | See [`GithubRelease`](#githubrelease).
 | `HelmLatest`    | no | See [`HelmLatest`](#helmlatest).
 | `Registry`      | no | See [`Registry`](#registry).
-| `Reviewers`     | no | A list of GitHub users or teams to request review from on created pull requests. Teams should be in the format `org/team-slug`.
+| `Reviewers`     | yes | A list of GitHub users or teams that own the autoupdate entry. Teams should be in the format `org/team-slug`.
 
 #### `GithubRelease`
 
