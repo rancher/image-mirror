@@ -10,7 +10,6 @@ import (
 	"github.com/rancher/image-mirror/internal/autoupdate"
 	"github.com/rancher/image-mirror/internal/config"
 	"github.com/rancher/image-mirror/internal/git"
-	"github.com/rancher/image-mirror/internal/legacy"
 	"github.com/rancher/image-mirror/internal/paths"
 	"github.com/rancher/image-mirror/internal/regsync"
 
@@ -79,19 +78,6 @@ func main() {
 					},
 				},
 			},
-			{
-				Name:   "migrate-images-list",
-				Usage:  "Migrate images from images-list to config.yaml",
-				Action: migrateImagesList,
-				Flags: []cli.Flag{
-					&cli.StringFlag{
-						Name:        "images-list-path",
-						Value:       "images-list",
-						Usage:       "Path to images list file",
-						Destination: &paths.ImagesList,
-					},
-				},
-			},
 		},
 	}
 
@@ -119,68 +105,6 @@ func generateRegsyncYaml(_ context.Context, _ *cli.Command) error {
 	}
 
 	return nil
-}
-
-func migrateImagesList(_ context.Context, cmd *cli.Command) error {
-	if cmd.Args().Len() != 2 {
-		return fmt.Errorf("must pass source and target image")
-	}
-	sourceImage := cmd.Args().Get(0)
-	targetImage := cmd.Args().Get(1)
-
-	configYaml, err := config.Parse(paths.ConfigYaml)
-	if err != nil {
-		return fmt.Errorf("failed to parse config: %w", err)
-	}
-	accumulator := config.NewImageAccumulator()
-	accumulator.AddImages(configYaml.Images...)
-
-	imagesListComment, legacyImages, err := legacy.ParseImagesList(paths.ImagesList)
-	if err != nil {
-		return fmt.Errorf("failed to parse images list: %w", err)
-	}
-
-	legacyImagesToKeep := make([]legacy.ImagesListEntry, 0, len(legacyImages))
-	for _, legacyImage := range legacyImages {
-		if legacyImage.Source == sourceImage && legacyImage.Target == targetImage {
-			newImage, err := convertImageListEntryToImage(legacyImage)
-			if err != nil {
-				return fmt.Errorf("failed to convert %q: %w", legacyImage, err)
-			}
-			accumulator.AddImages(newImage)
-		} else {
-			legacyImagesToKeep = append(legacyImagesToKeep, legacyImage)
-			continue
-		}
-	}
-
-	// set config.Images to accumulated images and write config
-	configYaml.Images = accumulator.Images()
-	if err := config.Write(paths.ConfigYaml, configYaml); err != nil {
-		return fmt.Errorf("failed to write %s: %w", paths.ConfigYaml, err)
-	}
-
-	// write kept legacy images
-	if err := legacy.WriteImagesList(paths.ImagesList, imagesListComment, legacyImagesToKeep); err != nil {
-		return fmt.Errorf("failed to write %s: %w", paths.ImagesList, err)
-	}
-
-	return nil
-}
-
-func convertImageListEntryToImage(imageListEntry legacy.ImagesListEntry) (*config.Image, error) {
-	parts := strings.Split(imageListEntry.Target, "/")
-	if len(parts) != 2 {
-		return nil, fmt.Errorf("failed to split %q into 2 parts", imageListEntry.Target)
-	}
-	targetImageName := parts[len(parts)-1]
-
-	image, err := config.NewImage(imageListEntry.Source, []string{imageListEntry.Tag}, targetImageName, nil)
-	if err != nil {
-		return nil, fmt.Errorf("failed to create new Image: %w", err)
-	}
-
-	return image, nil
 }
 
 func formatFiles(_ context.Context, _ *cli.Command) error {
