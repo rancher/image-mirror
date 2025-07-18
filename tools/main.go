@@ -16,10 +16,14 @@ import (
 
 	"github.com/google/go-github/v73/github"
 	"github.com/urfave/cli/v3"
+	oras "oras.land/oras-go/v2"
+	"oras.land/oras-go/v2/content/oci"
+	"oras.land/oras-go/v2/registry/remote"
 )
 
 var dryRun bool
 var entryName string
+var mergeBaseBranch string
 
 func main() {
 	cmd := &cli.Command{
@@ -66,6 +70,14 @@ func main() {
 				Name:   "validate",
 				Usage:  "Validate the state of various files",
 				Action: validate,
+				Flags: []cli.Flag{
+					&cli.StringFlag{
+						Name:        "merge-base-branch",
+						Value:       "master",
+						Usage:       "The branch to compare HEAD to to get the merge base",
+						Destination: &mergeBaseBranch,
+					},
+				},
 			},
 			{
 				Name:   "migrate-images-list",
@@ -270,7 +282,9 @@ func validate(_ context.Context, _ *cli.Command) error {
 
 	// Run validations
 	errs := make([]error, 0)
-	validateSourceImageAndTargetImageName(&errs, *configYaml)
+	validateSourceImageAndTargetImageName(&errs, configYaml)
+	validateNoTagsRemoved(&errs, configYaml)
+	validateNewTagsPullable(&errs, configYaml)
 
 	// Format results into one error, if any
 	if len(errs) > 0 {
@@ -283,7 +297,7 @@ func validate(_ context.Context, _ *cli.Command) error {
 	return nil
 }
 
-func validateSourceImageAndTargetImageName(errs *[]error, configYaml config.Config) {
+func validateSourceImageAndTargetImageName(errs *[]error, configYaml *config.Config) {
 	imageMap := map[config.ImageIndex]bool{}
 	for _, image := range configYaml.Images {
 		index := config.ImageIndex{
@@ -299,4 +313,125 @@ func validateSourceImageAndTargetImageName(errs *[]error, configYaml config.Conf
 			imageMap[index] = true
 		}
 	}
+}
+
+func validateNoTagsRemoved(errs *[]error, newConfigYaml *config.Config) {
+	mergeBase, err := git.GetMergeBase(mergeBaseBranch)
+	if err != nil {
+		*errs = append(*errs, fmt.Errorf("failed to get merge base: %w", err))
+		return
+	}
+	oldContent, err := git.GetFileContentAtCommit(mergeBase, paths.ConfigYaml)
+	if err != nil {
+		*errs = append(*errs, fmt.Errorf("failed to get file content at %s: %w", mergeBase, err))
+		return
+	}
+	oldConfigYaml, err := config.ParseFromBytes(oldContent)
+	if err != nil {
+		*errs = append(*errs, fmt.Errorf("failed to parse old %s: %w", paths.ConfigYaml, err))
+		return
+	}
+	checkNoTagsRemoved(errs, oldConfigYaml.Images, newConfigYaml.Images)
+}
+
+func checkNoTagsRemoved(errs *[]error, oldImages, newImages []*config.Image) {
+	accumulator := config.NewImageAccumulator()
+	accumulator.AddImages(newImages...)
+	for _, oldImage := range oldImages {
+		diffImage, err := accumulator.TagDifference(oldImage)
+		if err != nil {
+			wrappedErr := fmt.Errorf("failed to diff image %s (TargetImageName %q): %w", oldImage.SourceImage, oldImage.TargetImageName(), err)
+			*errs = append(*errs, wrappedErr)
+			continue
+		}
+		if diffImage == nil {
+			continue
+		}
+		for _, missedTag := range diffImage.Tags {
+			err := fmt.Errorf("%s:%s removed (TargetImageName %q)", diffImage.SourceImage, missedTag, diffImage.TargetImageName())
+			*errs = append(*errs, err)
+		}
+	}
+}
+
+func validateNewTagsPullable(errs *[]error, newConfigYaml *config.Config) {
+	// Get the config.yaml from the merge base
+	mergeBase, err := git.GetMergeBase(mergeBaseBranch)
+	if err != nil {
+		*errs = append(*errs, fmt.Errorf("failed to get merge base: %w", err))
+		return
+	}
+	oldContent, err := git.GetFileContentAtCommit(mergeBase, paths.ConfigYaml)
+	if err != nil {
+		*errs = append(*errs, fmt.Errorf("failed to get file content at %s: %w", mergeBase, err))
+		return
+	}
+	oldConfigYaml, err := config.ParseFromBytes(oldContent)
+	if err != nil {
+		*errs = append(*errs, fmt.Errorf("failed to parse old %s: %w", paths.ConfigYaml, err))
+		return
+	}
+
+	// Find the new tags
+	imagesWithNewTags := make([]*config.Image, 0)
+	accumulator := config.NewImageAccumulator()
+	accumulator.AddImages(oldConfigYaml.Images...)
+	for _, newImage := range newConfigYaml.Images {
+		diffImage, err := accumulator.TagDifference(newImage)
+		if err != nil {
+			wrappedErr := fmt.Errorf("failed to diff image %s (TargetImageName %q): %w", newImage.SourceImage, newImage.TargetImageName(), err)
+			*errs = append(*errs, wrappedErr)
+			continue
+		}
+		if diffImage == nil {
+			continue
+		}
+		imagesWithNewTags = append(imagesWithNewTags, diffImage)
+	}
+
+	// Instantiate oras store
+	dirPath, err := os.MkdirTemp("", "image-mirror-validation-*")
+	if err != nil {
+		*errs = append(*errs, fmt.Errorf("failed to create temp dir: %w", err))
+		return
+	}
+	defer os.RemoveAll(dirPath)
+	store, err := oci.New(dirPath)
+	if err != nil {
+		*errs = append(*errs, fmt.Errorf("failed to instantiate oras store: %w", err))
+		return
+	}
+
+	// Try pulling each tag
+	for _, newTagImage := range imagesWithNewTags {
+		repo, err := parseRepository(newTagImage.SourceImage)
+		if err != nil {
+			wrappedErr := fmt.Errorf("failed to parse %s as repository: %w", newTagImage.SourceImage, err)
+			*errs = append(*errs, wrappedErr)
+			continue
+		}
+		for _, newTag := range newTagImage.Tags {
+			_, err := oras.Copy(context.Background(), repo, newTag, store, newTag, oras.DefaultCopyOptions)
+			if err != nil {
+				*errs = append(*errs, fmt.Errorf("failed to pull %s:%s: %w", newTagImage.SourceImage, newTag, err))
+				continue
+			}
+		}
+	}
+}
+
+func parseRepository(repository string) (*remote.Repository, error) {
+	preparedRepository := repository
+	parts := strings.SplitN(repository, "/", 2)
+	if len(parts) != 2 {
+		return nil, errors.New("invalid format")
+	}
+	if !strings.Contains(parts[0], ".") {
+		preparedRepository = "docker.io/" + preparedRepository
+	}
+	repo, err := remote.NewRepository(preparedRepository)
+	if err != nil {
+		return nil, fmt.Errorf("failed to instantiate repository: %w", err)
+	}
+	return repo, nil
 }

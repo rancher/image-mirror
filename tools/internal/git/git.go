@@ -3,6 +3,7 @@ package git
 import (
 	"fmt"
 	"os/exec"
+	"strings"
 )
 
 func IsWorkingTreeClean() (bool, error) {
@@ -46,4 +47,22 @@ func PushBranch(branchName, remote string) error {
 		return fmt.Errorf("failed to run git push: %w", err)
 	}
 	return nil
+}
+
+func GetMergeBase(branch string) (string, error) {
+	cmd := exec.Command("git", "merge-base", "HEAD", branch)
+	out, err := cmd.Output()
+	if err != nil {
+		return "", fmt.Errorf("failed to get merge base with %s: %w", branch, err)
+	}
+	return strings.TrimSpace(string(out)), nil
+}
+
+func GetFileContentAtCommit(commit, filePath string) ([]byte, error) {
+	cmd := exec.Command("git", "show", fmt.Sprintf("%s:%s", commit, filePath))
+	out, err := cmd.Output()
+	if err != nil {
+		return nil, fmt.Errorf("failed to get file content for %s at commit %s: %w", filePath, commit, err)
+	}
+	return out, nil
 }
