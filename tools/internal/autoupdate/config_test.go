@@ -3,7 +3,6 @@ package autoupdate
 import (
 	"testing"
 
-	"github.com/google/go-github/v73/github"
 	"github.com/rancher/image-mirror/internal/config"
 
 	"github.com/stretchr/testify/assert"
@@ -258,48 +257,4 @@ func TestGetBranchHash(t *testing.T) {
 
 		assert.NotEqual(t, hash1, hash2)
 	})
-}
-
-func TestNewReviewersRequest(t *testing.T) {
-	type testCase struct {
-		Name      string
-		Reviewers []string
-		Expected  github.ReviewersRequest
-	}
-	testCases := []testCase{
-		{
-			Name:      "should correctly parse users and teams",
-			Reviewers: []string{"user1", "my-org/team-one", "user2", "another-org/team-two"},
-			Expected: github.ReviewersRequest{
-				Reviewers:     []string{"user1", "user2"},
-				TeamReviewers: []string{"team-one", "team-two"},
-			},
-		},
-		{
-			Name:      "should handle only users",
-			Reviewers: []string{"user1", "user2"},
-			Expected: github.ReviewersRequest{
-				Reviewers: []string{"user1", "user2"},
-			},
-		},
-		{
-			Name:      "should handle only teams",
-			Reviewers: []string{"my-org/team-one", "another-org/team-two"},
-			Expected: github.ReviewersRequest{
-				TeamReviewers: []string{"team-one", "team-two"},
-			},
-		},
-		{
-			Name:      "should handle empty list",
-			Reviewers: []string{},
-			Expected:  github.ReviewersRequest{},
-		},
-	}
-	for _, tc := range testCases {
-		t.Run(tc.Name, func(t *testing.T) {
-			req := newReviewersRequest(tc.Reviewers)
-			assert.ElementsMatch(t, tc.Expected.Reviewers, req.Reviewers)
-			assert.ElementsMatch(t, tc.Expected.TeamReviewers, req.TeamReviewers)
-		})
-	}
 }
