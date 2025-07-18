@@ -1,4 +1,4 @@
-name: Mirror Images Using regsync
+name: Mirror Images
 
 on:
   push:
@@ -21,7 +21,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
 
-      - name: Read Secrets into environment
+      - name: Read secrets into environment
         uses: rancher-eio/read-vault-secrets@main
         with:
           secrets: |
@@ -37,7 +37,7 @@ jobs:
           curl --silent --fail --location --output regsync https://github.com/regclient/regclient/releases/download/v0.8.3/regsync-linux-amd64
           chmod +x regsync
 
-      - name: Sync Container Images
+      - name: Mirror images
         run: |
           export PATH=$PATH:$(pwd)
           if [ "${{ inputs.debug }}" = "true" ]; then
