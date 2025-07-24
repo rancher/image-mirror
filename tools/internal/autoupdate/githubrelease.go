@@ -6,7 +6,7 @@ import (
 	"fmt"
 
 	"github.com/Masterminds/semver/v3"
-	"github.com/google/go-github/v73/github"
+	"github.com/google/go-github/v74/github"
 	"github.com/rancher/image-mirror/internal/config"
 )
 
