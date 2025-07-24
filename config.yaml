@@ -456,6 +456,7 @@ Images:
   - 3.12.3
   - 3.12.6
   - 3.8.0
+  - v4.0.5
 - SourceImage: idealista/prom2teams
   Tags:
   - 3.2.1
