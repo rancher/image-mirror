@@ -66,10 +66,20 @@ jobs:
 
   run-validate-subcommand:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
         with:
           fetch-depth: 0
+
+      - name: Read secrets into environment
+        uses: rancher-eio/read-vault-secrets@main
+        with:
+          secrets: |
+            secret/data/github/repo/${{ github.repository }}/application-collection/credentials username | APPCO_USERNAME ;
+            secret/data/github/repo/${{ github.repository }}/application-collection/credentials password | APPCO_PASSWORD
 
       - uses: actions/setup-go@d35c59abb061a4a6fb18e82ac0862c26744d6ab5 # v5
         with:

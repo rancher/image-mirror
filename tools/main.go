@@ -18,6 +18,8 @@ import (
 	oras "oras.land/oras-go/v2"
 	"oras.land/oras-go/v2/content/oci"
 	"oras.land/oras-go/v2/registry/remote"
+	"oras.land/oras-go/v2/registry/remote/auth"
+	"oras.land/oras-go/v2/registry/remote/retry"
 )
 
 var dryRun bool
@@ -334,6 +336,13 @@ func validateNewTagsPullable(errs *[]error, newConfigYaml *config.Config) {
 			*errs = append(*errs, wrappedErr)
 			continue
 		}
+		if strings.HasPrefix(newTagImage.SourceImage, "dp.apps.rancher.io") {
+			if err := addAppcoAuthToRepo(repo); err != nil {
+				wrappedErr := fmt.Errorf("failed to add auth to %s: %w", newTagImage.SourceImage, err)
+				*errs = append(*errs, wrappedErr)
+				continue
+			}
+		}
 		for _, newTag := range newTagImage.Tags {
 			_, err := oras.Copy(context.Background(), repo, newTag, store, newTag, oras.DefaultCopyOptions)
 			if err != nil {
@@ -358,4 +367,21 @@ func parseRepository(repository string) (*remote.Repository, error) {
 		return nil, fmt.Errorf("failed to instantiate repository: %w", err)
 	}
 	return repo, nil
+}
+
+func addAppcoAuthToRepo(repo *remote.Repository) error {
+	username := os.Getenv("APPCO_USERNAME")
+	password := os.Getenv("APPCO_PASSWORD")
+	if username == "" || password == "" {
+		return errors.New("must set APPCO_USERNAME and APPCO_PASSWORD")
+	}
+	repo.Client = &auth.Client{
+		Client: retry.DefaultClient,
+		Cache:  auth.NewCache(),
+		Credential: auth.StaticCredential(repo.Reference.Registry, auth.Credential{
+			Username: username,
+			Password: password,
+		}),
+	}
+	return nil
 }
