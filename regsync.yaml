@@ -363,6 +363,12 @@ sync:
 - source: directxman12/k8s-prometheus-adapter-amd64:v0.8.3
   target: registry.suse.com/rancher/mirrored-directxman12-k8s-prometheus-adapter-amd64:v0.8.3
   type: image
+- source: dp.apps.rancher.io/containers/redis:8.0.3-2.1
+  target: docker.io/rancher/appco-redis:8.0.3-2.1
+  type: image
+- source: dp.apps.rancher.io/containers/redis:8.0.3-2.1
+  target: registry.suse.com/rancher/appco-redis:8.0.3-2.1
+  type: image
 - source: flannel/flannel:v0.21.2
   target: docker.io/rancher/mirrored-flannel-flannel:v0.21.2
   type: image
