@@ -413,6 +413,43 @@ Images:
   - v0.8.8
   - v0.8.9
   - v0.9.0
+- SourceImage: ghcr.io/open-telemetry/opentelemetry-operator/autoinstrumentation-dotnet
+  Tags:
+  - 1.11.0
+  - 1.12.0
+  TargetImageName: opentelemetry-operator-autoinstrumentation-dotnet
+- SourceImage: ghcr.io/open-telemetry/opentelemetry-operator/autoinstrumentation-java
+  Tags:
+  - 2.16.0
+  - 2.17.1
+  - 2.18.1
+  TargetImageName: opentelemetry-operator-autoinstrumentation-java
+- SourceImage: ghcr.io/open-telemetry/opentelemetry-operator/autoinstrumentation-nodejs
+  Tags:
+  - 0.58.0
+  - 0.58.1
+  - 0.60.1
+  - 0.61.0
+  - 0.62.0
+  TargetImageName: opentelemetry-operator-autoinstrumentation-nodejs
+- SourceImage: ghcr.io/open-telemetry/opentelemetry-operator/autoinstrumentation-python
+  Tags:
+  - 0.54b1
+  - 0.55b1
+  - 0.56b0
+  TargetImageName: opentelemetry-operator-autoinstrumentation-python
+- SourceImage: ghcr.io/open-telemetry/opentelemetry-operator/opentelemetry-operator
+  Tags:
+  - 0.129.1
+  TargetImageName: opentelemetry-operator
+- SourceImage: ghcr.io/open-telemetry/opentelemetry-operator/operator-opamp-bridge
+  Tags:
+  - 0.129.1
+  TargetImageName: opentelemetry-operator-opamp-bridge
+- SourceImage: ghcr.io/open-telemetry/opentelemetry-operator/target-allocator
+  Tags:
+  - 0.129.1
+  TargetImageName: opentelemetry-operator-target-allocator
 - SourceImage: ghcr.io/prometheus-community/windows-exporter
   Tags:
   - 0.25.1
