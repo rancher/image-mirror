@@ -1323,6 +1323,42 @@ sync:
 - source: ghcr.io/kube-vip/kube-vip-iptables:v0.9.0
   target: registry.suse.com/rancher/mirrored-kube-vip-kube-vip-iptables:v0.9.0
   type: image
+- source: ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector:0.129.1
+  target: docker.io/rancher/opentelemetry-collector:0.129.1
+  type: image
+- source: ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector:0.129.1
+  target: registry.suse.com/rancher/opentelemetry-collector:0.129.1
+  type: image
+- source: ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-contrib:0.129.1
+  target: docker.io/rancher/opentelemetry-collector-contrib:0.129.1
+  type: image
+- source: ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-contrib:0.129.1
+  target: registry.suse.com/rancher/opentelemetry-collector-contrib:0.129.1
+  type: image
+- source: ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-k8s:0.129.1
+  target: docker.io/rancher/opentelemetry-collector-k8s:0.129.1
+  type: image
+- source: ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-k8s:0.129.1
+  target: registry.suse.com/rancher/opentelemetry-collector-k8s:0.129.1
+  type: image
+- source: ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-opampsupervisor:0.128.0
+  target: docker.io/rancher/opentelemetry-collector-opampsupervisor:0.128.0
+  type: image
+- source: ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-opampsupervisor:0.130.0
+  target: docker.io/rancher/opentelemetry-collector-opampsupervisor:0.130.0
+  type: image
+- source: ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-opampsupervisor:0.128.0
+  target: registry.suse.com/rancher/opentelemetry-collector-opampsupervisor:0.128.0
+  type: image
+- source: ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-opampsupervisor:0.130.0
+  target: registry.suse.com/rancher/opentelemetry-collector-opampsupervisor:0.130.0
+  type: image
+- source: ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-otlp:0.129.1
+  target: docker.io/rancher/opentelemetry-collector-otlp:0.129.1
+  type: image
+- source: ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-otlp:0.129.1
+  target: registry.suse.com/rancher/opentelemetry-collector-otlp:0.129.1
+  type: image
 - source: ghcr.io/prometheus-community/windows-exporter:0.25.1
   target: docker.io/rancher/mirrored-prometheus-windows-exporter:0.25.1
   type: image

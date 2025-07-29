@@ -413,6 +413,27 @@ Images:
   - v0.8.8
   - v0.8.9
   - v0.9.0
+- SourceImage: ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector
+  Tags:
+  - 0.129.1
+  TargetImageName: opentelemetry-collector
+- SourceImage: ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-contrib
+  Tags:
+  - 0.129.1
+  TargetImageName: opentelemetry-collector-contrib
+- SourceImage: ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-k8s
+  Tags:
+  - 0.129.1
+  TargetImageName: opentelemetry-collector-k8s
+- SourceImage: ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-opampsupervisor
+  Tags:
+  - 0.128.0
+  - 0.130.0
+  TargetImageName: opentelemetry-collector-opampsupervisor
+- SourceImage: ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-otlp
+  Tags:
+  - 0.129.1
+  TargetImageName: opentelemetry-collector-otlp
 - SourceImage: ghcr.io/prometheus-community/windows-exporter
   Tags:
   - 0.25.1
