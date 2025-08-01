@@ -874,6 +874,7 @@ Images:
   - v1.7.3
   - v1.8.1
   - v1.8.2
+  - v1.9.1
   - v1_20210422
   - v1_20210422_patch1
   - v2_20210820
@@ -906,6 +907,7 @@ Images:
   - v4.8.0
   - v4.8.1
   - v4.9.0
+  - v4.9.0-20250709
 - SourceImage: longhornio/csi-node-driver-registrar
   Tags:
   - v1.2.0
@@ -921,6 +923,7 @@ Images:
   - v2.12.0-20241219
   - v2.13.0
   - v2.14.0
+  - v2.14.0-20250709
   - v2.3.0
   - v2.5.0
   - v2.7.0
@@ -947,6 +950,7 @@ Images:
   - v5.1.0-20241220
   - v5.2.0
   - v5.3.0
+  - v5.3.0-20250709
 - SourceImage: longhornio/csi-resizer
   Tags:
   - v0.3.0
@@ -964,6 +968,7 @@ Images:
   - v1.12.0-20241219
   - v1.13.1
   - v1.13.2
+  - v1.14.0-20250709
   - v1.2.0
   - v1.3.0
   - v1.7.0
@@ -988,6 +993,7 @@ Images:
   - v7.0.2-20241007
   - v7.0.2-20250204
   - v8.2.0
+  - v8.3.0-20250709
 - SourceImage: longhornio/livenessprobe
   Tags:
   - v2.11.0
@@ -997,6 +1003,7 @@ Images:
   - v2.14.0-20241219
   - v2.15.0
   - v2.16.0
+  - v2.16.0-20250709
   - v2.8.0
   - v2.9.0
 - SourceImage: longhornio/longhorn-cli
@@ -1007,6 +1014,7 @@ Images:
   - v1.7.3
   - v1.8.1
   - v1.8.2
+  - v1.9.1
 - SourceImage: longhornio/longhorn-engine
   Tags:
   - v1.0.2
@@ -1062,6 +1070,7 @@ Images:
   - v1.7.3
   - v1.8.1
   - v1.8.2
+  - v1.9.1
 - SourceImage: longhornio/longhorn-instance-manager
   Tags:
   - v1_20200514
@@ -1098,6 +1107,7 @@ Images:
   - v1.7.3
   - v1.8.1
   - v1.8.2
+  - v1.9.1
   - v1_20201216
   - v1_20210621
   - v1_20210731
@@ -1164,6 +1174,7 @@ Images:
   - v1.7.3
   - v1.8.1
   - v1.8.2
+  - v1.9.1
 - SourceImage: longhornio/longhorn-share-manager
   Tags:
   - v1_20201204
@@ -1200,6 +1211,7 @@ Images:
   - v1.7.3
   - v1.8.1
   - v1.8.2
+  - v1.9.1
   - v1_20201204
   - v1_20210416
   - v1_20210416_patch1
@@ -1267,6 +1279,7 @@ Images:
   - v1.7.3
   - v1.8.1
   - v1.8.2
+  - v1.9.1
 - SourceImage: longhornio/openshift-origin-oauth-proxy
   Tags:
   - "4.14"
@@ -1290,6 +1303,7 @@ Images:
   - v0.0.51
   - v0.0.52
   - v0.0.56
+  - v0.0.61
 - SourceImage: messagebird/sachet
   Tags:
   - 0.2.3
