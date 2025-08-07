@@ -58,6 +58,15 @@
   Name: cilium
   Reviewers:
   - rancher/k3s-networking
+- GithubRelease:
+    Images:
+    - SourceImage: coredns/coredns
+    LatestOnly: true
+    Owner: coredns
+    Repository: coredns
+  Name: coredns
+  Reviewers:
+  - rancher/k3s-networking
 - Name: cpi-release-manager
   Registry:
     Images:
