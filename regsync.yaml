@@ -12303,6 +12303,9 @@ sync:
 - source: registry.k8s.io/metrics-server/metrics-server:v0.7.2
   target: docker.io/rancher/mirrored-metrics-server:v0.7.2
   type: image
+- source: registry.k8s.io/metrics-server/metrics-server:v0.8.0
+  target: docker.io/rancher/mirrored-metrics-server:v0.8.0
+  type: image
 - source: registry.k8s.io/metrics-server/metrics-server:v0.4.1
   target: registry.suse.com/rancher/mirrored-metrics-server:v0.4.1
   type: image
@@ -12338,6 +12341,9 @@ sync:
   type: image
 - source: registry.k8s.io/metrics-server/metrics-server:v0.7.2
   target: registry.suse.com/rancher/mirrored-metrics-server:v0.7.2
+  type: image
+- source: registry.k8s.io/metrics-server/metrics-server:v0.8.0
+  target: registry.suse.com/rancher/mirrored-metrics-server:v0.8.0
   type: image
 - source: registry.k8s.io/pause:3.10
   target: docker.io/rancher/mirrored-pause:3.10
