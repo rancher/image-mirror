@@ -164,6 +164,15 @@
   - rancher/k3s-networking
 - GithubRelease:
     Images:
+    - SourceImage: registry.k8s.io/metrics-server/metrics-server
+    LatestOnly: true
+    Owner: kubernetes-sigs
+    Repository: metrics-server
+  Name: metrics-server
+  Reviewers:
+  - rancher/k3s
+- GithubRelease:
+    Images:
     - SourceImage: idealista/prom2teams
     LatestOnly: true
     Owner: idealista
