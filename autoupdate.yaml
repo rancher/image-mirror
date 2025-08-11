@@ -165,6 +165,7 @@
 - GithubRelease:
     Images:
     - SourceImage: registry.k8s.io/metrics-server/metrics-server
+      TargetImageName: mirrored-metrics-server
     LatestOnly: true
     Owner: kubernetes-sigs
     Repository: metrics-server
