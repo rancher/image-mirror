@@ -2873,6 +2873,7 @@ Repositories:
 - BaseUrl: docker.io/rancher
   Password: '{{ env "DOCKER_PASSWORD" }}'
   Registry: docker.io
+  RepoAuth: true
   Target: true
   Username: '{{ env "DOCKER_USERNAME" }}'
 - BaseUrl: dp.apps.rancher.io/containers

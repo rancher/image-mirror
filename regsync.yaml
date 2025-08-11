@@ -4,6 +4,7 @@
 creds:
 - pass: '{{ env "DOCKER_PASSWORD" }}'
   registry: docker.io
+  repoAuth: true
   user: '{{ env "DOCKER_USERNAME" }}'
 - pass: '{{ env "APPCO_PASSWORD" }}'
   registry: dp.apps.rancher.io
