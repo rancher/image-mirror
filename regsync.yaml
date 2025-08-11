@@ -370,6 +370,12 @@ sync:
 - source: directxman12/k8s-prometheus-adapter-amd64:v0.8.3
   target: registry.suse.com/rancher/mirrored-directxman12-k8s-prometheus-adapter-amd64:v0.8.3
   type: image
+- source: dp.apps.rancher.io/containers/k8s-sidecar:1.30.7-11.3
+  target: docker.io/rancher/appco-k8s-sidecar:1.30.7-11.3
+  type: image
+- source: dp.apps.rancher.io/containers/k8s-sidecar:1.30.7-11.3
+  target: registry.suse.com/rancher/appco-k8s-sidecar:1.30.7-11.3
+  type: image
 - source: dp.apps.rancher.io/containers/redis:8.0.3-2.1
   target: docker.io/rancher/appco-redis:8.0.3-2.1
   type: image
