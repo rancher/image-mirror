@@ -1549,6 +1549,9 @@ sync:
 - source: idealista/prom2teams:4.2.1
   target: docker.io/rancher/mirrored-idealista-prom2teams:4.2.1
   type: image
+- source: idealista/prom2teams:5.0.0
+  target: docker.io/rancher/mirrored-idealista-prom2teams:5.0.0
+  type: image
 - source: idealista/prom2teams:3.2.1
   target: registry.suse.com/rancher/mirrored-idealista-prom2teams:3.2.1
   type: image
@@ -1563,6 +1566,9 @@ sync:
   type: image
 - source: idealista/prom2teams:4.2.1
   target: registry.suse.com/rancher/mirrored-idealista-prom2teams:4.2.1
+  type: image
+- source: idealista/prom2teams:5.0.0
+  target: registry.suse.com/rancher/mirrored-idealista-prom2teams:5.0.0
   type: image
 - source: istio/citadel:1.5.9
   target: docker.io/rancher/mirrored-istio-citadel:1.5.9
