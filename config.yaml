@@ -2005,6 +2005,7 @@ Images:
   - v1.17.5
   - v1.17.6
   - v1.18.0
+  - v1.18.1
 - SourceImage: quay.io/cilium/hubble-relay
   Tags:
   - v1.12.4
