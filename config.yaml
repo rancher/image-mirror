@@ -1933,6 +1933,7 @@ Images:
   - v1.17.5
   - v1.17.6
   - v1.18.0
+  - v1.18.1
   - v1.9.12
   - v1.9.4
   - v1.9.6
@@ -1965,6 +1966,7 @@ Images:
   - v1.32.6-1749271279-0864395884b263913eac200ee2048fd985f8e626
   - v1.33.4-1752151664-7c2edb0b44cf95f326d628b837fcdd845102ba68
   - v1.34.4-1753677767-266d5a01d1d55bd1d60148f991b98dac0390d363
+  - v1.34.4-1754895458-68cffdfa568b6b226d70a7ef81fc65dda3b890bf
 - SourceImage: quay.io/cilium/cilium-etcd-operator
   Tags:
   - v2.0.7
@@ -2003,6 +2005,7 @@ Images:
   - v1.17.5
   - v1.17.6
   - v1.18.0
+  - v1.18.1
 - SourceImage: quay.io/cilium/hubble-relay
   Tags:
   - v1.12.4
@@ -2038,6 +2041,7 @@ Images:
   - v1.17.5
   - v1.17.6
   - v1.18.0
+  - v1.18.1
 - SourceImage: quay.io/cilium/hubble-ui
   Tags:
   - v0.10.0
@@ -2113,6 +2117,7 @@ Images:
   - v1.17.5
   - v1.17.6
   - v1.18.0
+  - v1.18.1
   - v1.9.12
   - v1.9.4
   - v1.9.6
@@ -2162,6 +2167,7 @@ Images:
   - v1.17.5
   - v1.17.6
   - v1.18.0
+  - v1.18.1
   - v1.9.12
   - v1.9.4
   - v1.9.6
@@ -2211,6 +2217,7 @@ Images:
   - v1.17.5
   - v1.17.6
   - v1.18.0
+  - v1.18.1
   - v1.9.12
   - v1.9.4
   - v1.9.6
