@@ -7531,6 +7531,9 @@ sync:
 - source: quay.io/calico/envoy-gateway:v3.30.2
   target: docker.io/rancher/mirrored-calico-envoy-gateway:v3.30.2
   type: image
+- source: quay.io/calico/envoy-gateway:v3.30.3
+  target: docker.io/rancher/mirrored-calico-envoy-gateway:v3.30.3
+  type: image
 - source: quay.io/calico/envoy-gateway:v3.30.0
   target: registry.suse.com/rancher/mirrored-calico-envoy-gateway:v3.30.0
   type: image
@@ -7539,6 +7542,9 @@ sync:
   type: image
 - source: quay.io/calico/envoy-gateway:v3.30.2
   target: registry.suse.com/rancher/mirrored-calico-envoy-gateway:v3.30.2
+  type: image
+- source: quay.io/calico/envoy-gateway:v3.30.3
+  target: registry.suse.com/rancher/mirrored-calico-envoy-gateway:v3.30.3
   type: image
 - source: quay.io/calico/goldmane:v3.30.0
   target: docker.io/rancher/mirrored-calico-goldmane:v3.30.0
