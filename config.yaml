@@ -2931,3 +2931,9 @@ Repositories:
   RepoAuth: true
   Target: true
   Username: '{{ env "PRIME_USERNAME" }}'
+- BaseUrl: stgregistry.suse.com/rancher
+  Password: '{{ env "PRIME_STAGING_PASSWORD" }}'
+  Registry: stgregistry.suse.com
+  RepoAuth: true
+  Target: true
+  Username: '{{ env "PRIME_STAGING_USERNAME" }}'
