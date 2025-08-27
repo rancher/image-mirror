@@ -30,7 +30,9 @@ jobs:
             secret/data/github/repo/${{ github.repository }}/application-collection/credentials username | APPCO_USERNAME ;
             secret/data/github/repo/${{ github.repository }}/application-collection/credentials password | APPCO_PASSWORD ;
             secret/data/github/repo/${{ github.repository }}/rancher-prime-registry/credentials username | PRIME_USERNAME ;
-            secret/data/github/repo/${{ github.repository }}/rancher-prime-registry/credentials password | PRIME_PASSWORD
+            secret/data/github/repo/${{ github.repository }}/rancher-prime-registry/credentials password | PRIME_PASSWORD ;
+            secret/data/github/repo/${{ github.repository }}/rancher-prime-stg-registry/credentials username | PRIME_STAGING_USERNAME ;
+            secret/data/github/repo/${{ github.repository }}/rancher-prime-stg-registry/credentials password | PRIME_STAGING_PASSWORD
 
       - name: Install regsync
         run: |
