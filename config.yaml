@@ -384,7 +384,9 @@ Images:
   - v1.5.1-0.0.3
   - v1.8.1-0.0.1
   - v1.9.0-0.0.3
-- SourceImage: ghcr.io/epinio/epinio-unpacker
+- DoNotMirror:
+  - "1.0"
+  SourceImage: ghcr.io/epinio/epinio-unpacker
   Tags:
   - "1.0"
   - v1.10.0
