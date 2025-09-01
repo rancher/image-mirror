@@ -2036,6 +2036,9 @@ sync:
 - source: ghcr.io/prometheus-community/windows-exporter:0.30.5
   target: docker.io/rancher/mirrored-prometheus-windows-exporter:0.30.5
   type: image
+- source: ghcr.io/prometheus-community/windows-exporter:0.31.2
+  target: docker.io/rancher/mirrored-prometheus-windows-exporter:0.31.2
+  type: image
 - source: ghcr.io/prometheus-community/windows-exporter:0.25.1
   target: registry.suse.com/rancher/mirrored-prometheus-windows-exporter:0.25.1
   type: image
@@ -2045,6 +2048,9 @@ sync:
 - source: ghcr.io/prometheus-community/windows-exporter:0.30.5
   target: registry.suse.com/rancher/mirrored-prometheus-windows-exporter:0.30.5
   type: image
+- source: ghcr.io/prometheus-community/windows-exporter:0.31.2
+  target: registry.suse.com/rancher/mirrored-prometheus-windows-exporter:0.31.2
+  type: image
 - source: ghcr.io/prometheus-community/windows-exporter:0.25.1
   target: stgregistry.suse.com/rancher/mirrored-prometheus-windows-exporter:0.25.1
   type: image
@@ -2053,6 +2059,9 @@ sync:
   type: image
 - source: ghcr.io/prometheus-community/windows-exporter:0.30.5
   target: stgregistry.suse.com/rancher/mirrored-prometheus-windows-exporter:0.30.5
+  type: image
+- source: ghcr.io/prometheus-community/windows-exporter:0.31.2
+  target: stgregistry.suse.com/rancher/mirrored-prometheus-windows-exporter:0.31.2
   type: image
 - source: grafana/grafana:7.1.5
   target: docker.io/rancher/grafana-grafana:7.1.5
