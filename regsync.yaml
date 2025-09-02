@@ -13271,6 +13271,9 @@ sync:
 - source: quay.io/cilium/certgen:v0.2.1
   target: docker.io/rancher/mirrored-cilium-certgen:v0.2.1
   type: image
+- source: quay.io/cilium/certgen:v0.2.4
+  target: docker.io/rancher/mirrored-cilium-certgen:v0.2.4
+  type: image
 - source: quay.io/cilium/certgen:v0.1.11
   target: registry.suse.com/rancher/mirrored-cilium-certgen:v0.1.11
   type: image
@@ -13292,6 +13295,9 @@ sync:
 - source: quay.io/cilium/certgen:v0.2.1
   target: registry.suse.com/rancher/mirrored-cilium-certgen:v0.2.1
   type: image
+- source: quay.io/cilium/certgen:v0.2.4
+  target: registry.suse.com/rancher/mirrored-cilium-certgen:v0.2.4
+  type: image
 - source: quay.io/cilium/certgen:v0.1.11
   target: stgregistry.suse.com/rancher/mirrored-cilium-certgen:v0.1.11
   type: image
@@ -13312,6 +13318,9 @@ sync:
   type: image
 - source: quay.io/cilium/certgen:v0.2.1
   target: stgregistry.suse.com/rancher/mirrored-cilium-certgen:v0.2.1
+  type: image
+- source: quay.io/cilium/certgen:v0.2.4
+  target: stgregistry.suse.com/rancher/mirrored-cilium-certgen:v0.2.4
   type: image
 - source: quay.io/cilium/cilium:v1.10.4
   target: docker.io/rancher/mirrored-cilium-cilium:v1.10.4

@@ -50,6 +50,7 @@
     - ghcr.io/spiffe/spire-agent
     - ghcr.io/spiffe/spire-server
     Images:
+    - SourceImage: quay.io/cilium/certgen
     - SourceImage: quay.io/cilium/cilium
     - SourceImage: quay.io/cilium/cilium-envoy
     - SourceImage: quay.io/cilium/operator-generic
