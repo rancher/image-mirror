@@ -638,6 +638,9 @@ sync:
 - source: flannel/flannel:v0.27.2
   target: docker.io/rancher/mirrored-flannel-flannel:v0.27.2
   type: image
+- source: flannel/flannel:v0.27.3
+  target: docker.io/rancher/mirrored-flannel-flannel:v0.27.3
+  type: image
 - source: flannel/flannel:v0.21.2
   target: registry.suse.com/rancher/mirrored-flannel-flannel:v0.21.2
   type: image
@@ -707,6 +710,9 @@ sync:
 - source: flannel/flannel:v0.27.2
   target: registry.suse.com/rancher/mirrored-flannel-flannel:v0.27.2
   type: image
+- source: flannel/flannel:v0.27.3
+  target: registry.suse.com/rancher/mirrored-flannel-flannel:v0.27.3
+  type: image
 - source: flannel/flannel:v0.21.2
   target: stgregistry.suse.com/rancher/mirrored-flannel-flannel:v0.21.2
   type: image
@@ -775,6 +781,9 @@ sync:
   type: image
 - source: flannel/flannel:v0.27.2
   target: stgregistry.suse.com/rancher/mirrored-flannel-flannel:v0.27.2
+  type: image
+- source: flannel/flannel:v0.27.3
+  target: stgregistry.suse.com/rancher/mirrored-flannel-flannel:v0.27.3
   type: image
 - source: flannel/flannel-cni-plugin:v1.2.0
   target: docker.io/rancher/mirrored-flannel-flannel-cni-plugin:v1.2.0
