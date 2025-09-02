@@ -1929,6 +1929,7 @@ Images:
   - v0.1.9
   - v0.2.0
   - v0.2.1
+  - v0.2.4
 - SourceImage: quay.io/cilium/cilium
   Tags:
   - v1.10.4
