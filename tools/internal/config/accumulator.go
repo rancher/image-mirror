@@ -76,3 +76,12 @@ func (ia *ImageAccumulator) Images() []*Image {
 	}
 	return images
 }
+
+func (ia *ImageAccumulator) Contains(image *Image) bool {
+	index := ImageIndex{
+		SourceImage:     image.SourceImage,
+		TargetImageName: image.TargetImageName(),
+	}
+	_, ok := ia.mapping[index]
+	return ok
+}
