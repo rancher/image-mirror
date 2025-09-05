@@ -2586,6 +2586,7 @@ Images:
   - v1.32.1
   - v1.32.2
   - v1.33.0
+  - v1.34.0
   TargetImageName: mirrored-cloud-provider-vsphere
 - SourceImage: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere
   Tags:
