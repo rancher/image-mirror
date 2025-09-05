@@ -18185,6 +18185,9 @@ sync:
 - source: registry.k8s.io/cluster-api/cluster-api-controller:v1.10.2
   target: docker.io/rancher/mirrored-cluster-api-controller:v1.10.2
   type: image
+- source: registry.k8s.io/cluster-api/cluster-api-controller:v1.11.1
+  target: docker.io/rancher/mirrored-cluster-api-controller:v1.11.1
+  type: image
 - source: registry.k8s.io/cluster-api/cluster-api-controller:v1.4.4
   target: docker.io/rancher/mirrored-cluster-api-controller:v1.4.4
   type: image
@@ -18212,6 +18215,9 @@ sync:
 - source: registry.k8s.io/cluster-api/cluster-api-controller:v1.10.2
   target: registry.suse.com/rancher/mirrored-cluster-api-controller:v1.10.2
   type: image
+- source: registry.k8s.io/cluster-api/cluster-api-controller:v1.11.1
+  target: registry.suse.com/rancher/mirrored-cluster-api-controller:v1.11.1
+  type: image
 - source: registry.k8s.io/cluster-api/cluster-api-controller:v1.4.4
   target: registry.suse.com/rancher/mirrored-cluster-api-controller:v1.4.4
   type: image
@@ -18238,6 +18244,9 @@ sync:
   type: image
 - source: registry.k8s.io/cluster-api/cluster-api-controller:v1.10.2
   target: stgregistry.suse.com/rancher/mirrored-cluster-api-controller:v1.10.2
+  type: image
+- source: registry.k8s.io/cluster-api/cluster-api-controller:v1.11.1
+  target: stgregistry.suse.com/rancher/mirrored-cluster-api-controller:v1.11.1
   type: image
 - source: registry.k8s.io/cluster-api/cluster-api-controller:v1.4.4
   target: stgregistry.suse.com/rancher/mirrored-cluster-api-controller:v1.4.4
