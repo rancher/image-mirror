@@ -240,22 +240,28 @@ func validateSourceImageAndTargetImageName(errs *[]error, configYaml *config.Con
 }
 
 func validateNoTagsRemoved(errs *[]error, newConfigYaml *config.Config) {
-	mergeBase, err := git.GetMergeBase(mergeBaseBranch)
+	oldConfigYaml, err := loadMergeBaseConfigYaml(mergeBaseBranch)
 	if err != nil {
-		*errs = append(*errs, fmt.Errorf("failed to get merge base: %w", err))
-		return
-	}
-	oldContent, err := git.GetFileContentAtCommit(mergeBase, paths.ConfigYaml)
-	if err != nil {
-		*errs = append(*errs, fmt.Errorf("failed to get file content at %s: %w", mergeBase, err))
-		return
-	}
-	oldConfigYaml, err := config.ParseFromBytes(oldContent)
-	if err != nil {
-		*errs = append(*errs, fmt.Errorf("failed to parse old %s: %w", paths.ConfigYaml, err))
+		*errs = append(*errs, fmt.Errorf("failed to load %s from merge base %q: %w", paths.ConfigYaml, mergeBaseBranch, err))
 		return
 	}
 	checkNoTagsRemoved(errs, oldConfigYaml.Images, newConfigYaml.Images)
+}
+
+func loadMergeBaseConfigYaml(branch string) (*config.Config, error) {
+	mergeBase, err := git.GetMergeBase(branch)
+	if err != nil {
+		return nil, fmt.Errorf("failed to get merge base: %w", err)
+	}
+	oldContent, err := git.GetFileContentAtCommit(mergeBase, paths.ConfigYaml)
+	if err != nil {
+		return nil, fmt.Errorf("failed to get file content at %s: %w", mergeBase, err)
+	}
+	oldConfigYaml, err := config.ParseFromBytes(oldContent)
+	if err != nil {
+		return nil, fmt.Errorf("failed to parse old %s: %w", paths.ConfigYaml, err)
+	}
+	return oldConfigYaml, nil
 }
 
 func checkNoTagsRemoved(errs *[]error, oldImages, newImages []*config.Image) {
@@ -279,20 +285,9 @@ func checkNoTagsRemoved(errs *[]error, oldImages, newImages []*config.Image) {
 }
 
 func validateNewTagsPullable(errs *[]error, newConfigYaml *config.Config) {
-	// Get the config.yaml from the merge base
-	mergeBase, err := git.GetMergeBase(mergeBaseBranch)
+	oldConfigYaml, err := loadMergeBaseConfigYaml(mergeBaseBranch)
 	if err != nil {
-		*errs = append(*errs, fmt.Errorf("failed to get merge base: %w", err))
-		return
-	}
-	oldContent, err := git.GetFileContentAtCommit(mergeBase, paths.ConfigYaml)
-	if err != nil {
-		*errs = append(*errs, fmt.Errorf("failed to get file content at %s: %w", mergeBase, err))
-		return
-	}
-	oldConfigYaml, err := config.ParseFromBytes(oldContent)
-	if err != nil {
-		*errs = append(*errs, fmt.Errorf("failed to parse old %s: %w", paths.ConfigYaml, err))
+		*errs = append(*errs, fmt.Errorf("failed to load %s from merge base %q: %w", paths.ConfigYaml, mergeBaseBranch, err))
 		return
 	}
 
