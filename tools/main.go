@@ -2,10 +2,13 @@ package main
 
 import (
 	"context"
+	"encoding/json"
 	"errors"
 	"fmt"
+	"net/http"
 	"os"
 	"strings"
+	"time"
 
 	"github.com/rancher/image-mirror/internal/autoupdate"
 	"github.com/rancher/image-mirror/internal/config"
@@ -209,6 +212,7 @@ func validate(_ context.Context, _ *cli.Command) error {
 	validateSourceImageAndTargetImageName(&errs, configYaml)
 	validateNoTagsRemoved(&errs, configYaml)
 	validateNewTagsPullable(&errs, configYaml)
+	validateDockerHubRepoExists(&errs, configYaml)
 
 	// Format results into one error, if any
 	if len(errs) > 0 {
@@ -240,22 +244,28 @@ func validateSourceImageAndTargetImageName(errs *[]error, configYaml *config.Con
 }
 
 func validateNoTagsRemoved(errs *[]error, newConfigYaml *config.Config) {
-	mergeBase, err := git.GetMergeBase(mergeBaseBranch)
+	oldConfigYaml, err := loadMergeBaseConfigYaml(mergeBaseBranch)
 	if err != nil {
-		*errs = append(*errs, fmt.Errorf("failed to get merge base: %w", err))
-		return
-	}
-	oldContent, err := git.GetFileContentAtCommit(mergeBase, paths.ConfigYaml)
-	if err != nil {
-		*errs = append(*errs, fmt.Errorf("failed to get file content at %s: %w", mergeBase, err))
-		return
-	}
-	oldConfigYaml, err := config.ParseFromBytes(oldContent)
-	if err != nil {
-		*errs = append(*errs, fmt.Errorf("failed to parse old %s: %w", paths.ConfigYaml, err))
+		*errs = append(*errs, fmt.Errorf("failed to load %s from merge base %q: %w", paths.ConfigYaml, mergeBaseBranch, err))
 		return
 	}
 	checkNoTagsRemoved(errs, oldConfigYaml.Images, newConfigYaml.Images)
+}
+
+func loadMergeBaseConfigYaml(branch string) (*config.Config, error) {
+	mergeBase, err := git.GetMergeBase(branch)
+	if err != nil {
+		return nil, fmt.Errorf("failed to get merge base: %w", err)
+	}
+	oldContent, err := git.GetFileContentAtCommit(mergeBase, paths.ConfigYaml)
+	if err != nil {
+		return nil, fmt.Errorf("failed to get file content at %s: %w", mergeBase, err)
+	}
+	oldConfigYaml, err := config.ParseFromBytes(oldContent)
+	if err != nil {
+		return nil, fmt.Errorf("failed to parse old %s: %w", paths.ConfigYaml, err)
+	}
+	return oldConfigYaml, nil
 }
 
 func checkNoTagsRemoved(errs *[]error, oldImages, newImages []*config.Image) {
@@ -279,20 +289,9 @@ func checkNoTagsRemoved(errs *[]error, oldImages, newImages []*config.Image) {
 }
 
 func validateNewTagsPullable(errs *[]error, newConfigYaml *config.Config) {
-	// Get the config.yaml from the merge base
-	mergeBase, err := git.GetMergeBase(mergeBaseBranch)
+	oldConfigYaml, err := loadMergeBaseConfigYaml(mergeBaseBranch)
 	if err != nil {
-		*errs = append(*errs, fmt.Errorf("failed to get merge base: %w", err))
-		return
-	}
-	oldContent, err := git.GetFileContentAtCommit(mergeBase, paths.ConfigYaml)
-	if err != nil {
-		*errs = append(*errs, fmt.Errorf("failed to get file content at %s: %w", mergeBase, err))
-		return
-	}
-	oldConfigYaml, err := config.ParseFromBytes(oldContent)
-	if err != nil {
-		*errs = append(*errs, fmt.Errorf("failed to parse old %s: %w", paths.ConfigYaml, err))
+		*errs = append(*errs, fmt.Errorf("failed to load %s from merge base %q: %w", paths.ConfigYaml, mergeBaseBranch, err))
 		return
 	}
 
@@ -366,4 +365,86 @@ func parseRepository(repository string) (*remote.Repository, error) {
 		return nil, fmt.Errorf("failed to instantiate repository: %w", err)
 	}
 	return repo, nil
+}
+
+func validateDockerHubRepoExists(errs *[]error, newConfigYaml *config.Config) {
+	oldConfigYaml, err := loadMergeBaseConfigYaml(mergeBaseBranch)
+	if err != nil {
+		*errs = append(*errs, fmt.Errorf("failed to load %s from merge base %q: %w", paths.ConfigYaml, mergeBaseBranch, err))
+		return
+	}
+
+	// get images that were added in this branch
+	newImages := make([]*config.Image, 0, len(newConfigYaml.Images))
+	accumulator := config.NewImageAccumulator()
+	accumulator.AddImages(oldConfigYaml.Images...)
+	for _, newImage := range newConfigYaml.Images {
+		if !accumulator.Contains(newImage) {
+			newImages = append(newImages, newImage)
+		}
+	}
+	if len(newImages) == 0 {
+		return
+	}
+
+	// fetch existing repositories from dockerhub
+	existingRepositories, err := fetchDockerHubRepositories()
+	if err != nil {
+		*errs = append(*errs, fmt.Errorf("failed to fetch existing repositories from dockerhub: %w", err))
+		return
+	}
+
+	for _, newImage := range newImages {
+		targetImageName := newImage.TargetImageName()
+		_, repoExists := existingRepositories[targetImageName]
+		if !repoExists {
+			*errs = append(*errs, fmt.Errorf("repository rancher/%s does not exist on dockerhub", targetImageName))
+		}
+	}
+}
+
+func fetchDockerHubRepositories() (map[string]struct{}, error) {
+	type DockerAPIResponseRepository struct {
+		Name string `json:"name"`
+	}
+	type DockerAPIResponse struct {
+		Next    string                        `json:"next"`
+		Results []DockerAPIResponseRepository `json:"results"`
+	}
+
+	client := &http.Client{
+		Timeout: 30 * time.Second,
+	}
+	repos := map[string]struct{}{}
+	nextURL := "https://hub.docker.com/v2/namespaces/rancher/repositories?page_size=100"
+	for nextURL != "" {
+		req, err := http.NewRequest("GET", nextURL, nil)
+		if err != nil {
+			return nil, fmt.Errorf("failed to create request: %w", err)
+		}
+		resp, err := client.Do(req)
+		if err != nil {
+			return nil, fmt.Errorf("request failed: %w", err)
+		}
+		defer resp.Body.Close()
+		if resp.StatusCode != http.StatusOK {
+			return nil, fmt.Errorf("received non-200 status code: %d", resp.StatusCode)
+		}
+
+		var apiResponse DockerAPIResponse
+		decoder := json.NewDecoder(resp.Body)
+		if err := decoder.Decode(&apiResponse); err != nil {
+			return nil, fmt.Errorf("failed to decode response: %w", err)
+		}
+
+		for _, repo := range apiResponse.Results {
+			repos[repo.Name] = struct{}{}
+		}
+
+		// The URL for the next iteration is the 'next' field from the current response.
+		// If 'next' is an empty string or null, the loop will terminate.
+		nextURL = apiResponse.Next
+	}
+
+	return repos, nil
 }
