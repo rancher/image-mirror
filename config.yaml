@@ -91,12 +91,39 @@ Images:
   Tags:
   - v0.7.0
   - v0.8.3
+- SourceImage: dp.apps.rancher.io/containers/alertmanager
+  Tags:
+  - 0.28.1-11.3
+- SourceImage: dp.apps.rancher.io/containers/grafana
+  Tags:
+  - 11.5.5-3.28
 - SourceImage: dp.apps.rancher.io/containers/k8s-sidecar
   Tags:
   - 1.30.7-11.3
+- SourceImage: dp.apps.rancher.io/containers/kube-rbac-proxy
+  Tags:
+  - 0.18.2-10.2
+- SourceImage: dp.apps.rancher.io/containers/kube-state-metrics
+  Tags:
+  - 2.15.0-6.18
+- SourceImage: dp.apps.rancher.io/containers/node-exporter
+  Tags:
+  - 1.9.0-7.7
+- SourceImage: dp.apps.rancher.io/containers/prometheus-admission-webhook
+  Tags:
+  - 0.80.1-4.3
+- SourceImage: dp.apps.rancher.io/containers/prometheus-config-reloader
+  Tags:
+  - 0.80.1-8.3
+- SourceImage: dp.apps.rancher.io/containers/prometheus-operator
+  Tags:
+  - 0.80.1-4.3
 - SourceImage: dp.apps.rancher.io/containers/redis
   Tags:
   - 8.0.3-2.1
+- SourceImage: dp.apps.rancher.io/containers/thanos
+  Tags:
+  - 0.37.2-4.4
 - SourceImage: flannel/flannel
   Tags:
   - v0.21.2
