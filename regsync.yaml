@@ -17006,6 +17006,9 @@ sync:
 - source: quay.io/prometheus-operator/prometheus-config-reloader:v0.79.0
   target: docker.io/rancher/mirrored-prometheus-operator-prometheus-config-reloader:v0.79.0
   type: image
+- source: quay.io/prometheus-operator/prometheus-config-reloader:v0.79.2
+  target: docker.io/rancher/mirrored-prometheus-operator-prometheus-config-reloader:v0.79.2
+  type: image
 - source: quay.io/prometheus-operator/prometheus-config-reloader:v0.80.1
   target: docker.io/rancher/mirrored-prometheus-operator-prometheus-config-reloader:v0.80.1
   type: image
@@ -17039,6 +17042,9 @@ sync:
 - source: quay.io/prometheus-operator/prometheus-config-reloader:v0.79.0
   target: registry.suse.com/rancher/mirrored-prometheus-operator-prometheus-config-reloader:v0.79.0
   type: image
+- source: quay.io/prometheus-operator/prometheus-config-reloader:v0.79.2
+  target: registry.suse.com/rancher/mirrored-prometheus-operator-prometheus-config-reloader:v0.79.2
+  type: image
 - source: quay.io/prometheus-operator/prometheus-config-reloader:v0.80.1
   target: registry.suse.com/rancher/mirrored-prometheus-operator-prometheus-config-reloader:v0.80.1
   type: image
@@ -17071,6 +17077,9 @@ sync:
   type: image
 - source: quay.io/prometheus-operator/prometheus-config-reloader:v0.79.0
   target: stgregistry.suse.com/rancher/mirrored-prometheus-operator-prometheus-config-reloader:v0.79.0
+  type: image
+- source: quay.io/prometheus-operator/prometheus-config-reloader:v0.79.2
+  target: stgregistry.suse.com/rancher/mirrored-prometheus-operator-prometheus-config-reloader:v0.79.2
   type: image
 - source: quay.io/prometheus-operator/prometheus-config-reloader:v0.80.1
   target: stgregistry.suse.com/rancher/mirrored-prometheus-operator-prometheus-config-reloader:v0.80.1
@@ -17114,6 +17123,9 @@ sync:
 - source: quay.io/prometheus-operator/prometheus-operator:v0.79.0
   target: docker.io/rancher/mirrored-prometheus-operator-prometheus-operator:v0.79.0
   type: image
+- source: quay.io/prometheus-operator/prometheus-operator:v0.79.2
+  target: docker.io/rancher/mirrored-prometheus-operator-prometheus-operator:v0.79.2
+  type: image
 - source: quay.io/prometheus-operator/prometheus-operator:v0.80.1
   target: docker.io/rancher/mirrored-prometheus-operator-prometheus-operator:v0.80.1
   type: image
@@ -17147,6 +17159,9 @@ sync:
 - source: quay.io/prometheus-operator/prometheus-operator:v0.79.0
   target: registry.suse.com/rancher/mirrored-prometheus-operator-prometheus-operator:v0.79.0
   type: image
+- source: quay.io/prometheus-operator/prometheus-operator:v0.79.2
+  target: registry.suse.com/rancher/mirrored-prometheus-operator-prometheus-operator:v0.79.2
+  type: image
 - source: quay.io/prometheus-operator/prometheus-operator:v0.80.1
   target: registry.suse.com/rancher/mirrored-prometheus-operator-prometheus-operator:v0.80.1
   type: image
@@ -17179,6 +17194,9 @@ sync:
   type: image
 - source: quay.io/prometheus-operator/prometheus-operator:v0.79.0
   target: stgregistry.suse.com/rancher/mirrored-prometheus-operator-prometheus-operator:v0.79.0
+  type: image
+- source: quay.io/prometheus-operator/prometheus-operator:v0.79.2
+  target: stgregistry.suse.com/rancher/mirrored-prometheus-operator-prometheus-operator:v0.79.2
   type: image
 - source: quay.io/prometheus-operator/prometheus-operator:v0.80.1
   target: stgregistry.suse.com/rancher/mirrored-prometheus-operator-prometheus-operator:v0.80.1

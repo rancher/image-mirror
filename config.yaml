@@ -2428,6 +2428,7 @@ Images:
   - v0.75.1
   - v0.77.2
   - v0.79.0
+  - v0.79.2
   - v0.80.1
 - SourceImage: quay.io/prometheus-operator/prometheus-operator
   Tags:
@@ -2445,6 +2446,7 @@ Images:
   - v0.75.1
   - v0.77.2
   - v0.79.0
+  - v0.79.2
   - v0.80.1
 - SourceImage: quay.io/prometheus/alertmanager
   Tags:
