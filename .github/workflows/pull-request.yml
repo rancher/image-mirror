@@ -10,7 +10,7 @@ jobs:
 
       - uses: actions/setup-go@44694675825211faa026b3c33043df3e48a5fa00 # v6
         with:
-          go-version: '1.24'
+          go-version: '1.25'
 
       - name: Run unit tests
         run: |
@@ -24,7 +24,7 @@ jobs:
 
       - uses: actions/setup-go@44694675825211faa026b3c33043df3e48a5fa00 # v6
         with:
-          go-version: '1.24'
+          go-version: '1.25'
 
       - name: Run linter
         uses: golangci/golangci-lint-action@4afd733a84b1f43292c63897423277bb7f4313a9 # v8
@@ -39,7 +39,7 @@ jobs:
 
       - uses: actions/setup-go@44694675825211faa026b3c33043df3e48a5fa00 # v6
         with:
-          go-version: '1.24'
+          go-version: '1.25'
 
       - name: Ensure that files are formatted correctly
         run: |
@@ -55,7 +55,7 @@ jobs:
 
       - uses: actions/setup-go@44694675825211faa026b3c33043df3e48a5fa00 # v6
         with:
-          go-version: '1.24'
+          go-version: '1.25'
 
       - name: Ensure that regsync.yaml is in sync with config.yaml
         run: |
@@ -73,7 +73,7 @@ jobs:
 
       - uses: actions/setup-go@44694675825211faa026b3c33043df3e48a5fa00 # v6
         with:
-          go-version: '1.24'
+          go-version: '1.25'
 
       - name: Run bin/image-mirror-tools validate
         run: |
