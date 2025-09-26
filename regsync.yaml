@@ -2057,6 +2057,9 @@ sync:
 - source: ghcr.io/prometheus-community/windows-exporter:0.31.2
   target: docker.io/rancher/mirrored-prometheus-windows-exporter:0.31.2
   type: image
+- source: ghcr.io/prometheus-community/windows-exporter:0.31.3
+  target: docker.io/rancher/mirrored-prometheus-windows-exporter:0.31.3
+  type: image
 - source: ghcr.io/prometheus-community/windows-exporter:0.25.1
   target: registry.suse.com/rancher/mirrored-prometheus-windows-exporter:0.25.1
   type: image
@@ -2069,6 +2072,9 @@ sync:
 - source: ghcr.io/prometheus-community/windows-exporter:0.31.2
   target: registry.suse.com/rancher/mirrored-prometheus-windows-exporter:0.31.2
   type: image
+- source: ghcr.io/prometheus-community/windows-exporter:0.31.3
+  target: registry.suse.com/rancher/mirrored-prometheus-windows-exporter:0.31.3
+  type: image
 - source: ghcr.io/prometheus-community/windows-exporter:0.25.1
   target: stgregistry.suse.com/rancher/mirrored-prometheus-windows-exporter:0.25.1
   type: image
@@ -2080,6 +2086,9 @@ sync:
   type: image
 - source: ghcr.io/prometheus-community/windows-exporter:0.31.2
   target: stgregistry.suse.com/rancher/mirrored-prometheus-windows-exporter:0.31.2
+  type: image
+- source: ghcr.io/prometheus-community/windows-exporter:0.31.3
+  target: stgregistry.suse.com/rancher/mirrored-prometheus-windows-exporter:0.31.3
   type: image
 - source: grafana/grafana:7.1.5
   target: docker.io/rancher/grafana-grafana:7.1.5
@@ -2122,6 +2131,9 @@ sync:
   type: image
 - source: grafana/grafana:11.5.5
   target: docker.io/rancher/mirrored-grafana-grafana:11.5.5
+  type: image
+- source: grafana/grafana:12.1.1
+  target: docker.io/rancher/mirrored-grafana-grafana:12.1.1
   type: image
 - source: grafana/grafana:6.7.4
   target: docker.io/rancher/mirrored-grafana-grafana:6.7.4
@@ -2171,6 +2183,9 @@ sync:
 - source: grafana/grafana:11.5.5
   target: registry.suse.com/rancher/mirrored-grafana-grafana:11.5.5
   type: image
+- source: grafana/grafana:12.1.1
+  target: registry.suse.com/rancher/mirrored-grafana-grafana:12.1.1
+  type: image
 - source: grafana/grafana:6.7.4
   target: registry.suse.com/rancher/mirrored-grafana-grafana:6.7.4
   type: image
@@ -2218,6 +2233,9 @@ sync:
   type: image
 - source: grafana/grafana:11.5.5
   target: stgregistry.suse.com/rancher/mirrored-grafana-grafana:11.5.5
+  type: image
+- source: grafana/grafana:12.1.1
+  target: stgregistry.suse.com/rancher/mirrored-grafana-grafana:12.1.1
   type: image
 - source: grafana/grafana:6.7.4
   target: stgregistry.suse.com/rancher/mirrored-grafana-grafana:6.7.4
@@ -2279,6 +2297,9 @@ sync:
 - source: grafana/grafana-image-renderer:3.8.0
   target: docker.io/rancher/mirrored-grafana-grafana-image-renderer:3.8.0
   type: image
+- source: grafana/grafana-image-renderer:v4.0.15
+  target: docker.io/rancher/mirrored-grafana-grafana-image-renderer:v4.0.15
+  type: image
 - source: grafana/grafana-image-renderer:v4.0.5
   target: docker.io/rancher/mirrored-grafana-grafana-image-renderer:v4.0.5
   type: image
@@ -2309,6 +2330,9 @@ sync:
 - source: grafana/grafana-image-renderer:3.8.0
   target: registry.suse.com/rancher/mirrored-grafana-grafana-image-renderer:3.8.0
   type: image
+- source: grafana/grafana-image-renderer:v4.0.15
+  target: registry.suse.com/rancher/mirrored-grafana-grafana-image-renderer:v4.0.15
+  type: image
 - source: grafana/grafana-image-renderer:v4.0.5
   target: registry.suse.com/rancher/mirrored-grafana-grafana-image-renderer:v4.0.5
   type: image
@@ -2338,6 +2362,9 @@ sync:
   type: image
 - source: grafana/grafana-image-renderer:3.8.0
   target: stgregistry.suse.com/rancher/mirrored-grafana-grafana-image-renderer:3.8.0
+  type: image
+- source: grafana/grafana-image-renderer:v4.0.15
+  target: stgregistry.suse.com/rancher/mirrored-grafana-grafana-image-renderer:v4.0.15
   type: image
 - source: grafana/grafana-image-renderer:v4.0.5
   target: stgregistry.suse.com/rancher/mirrored-grafana-grafana-image-renderer:v4.0.5
@@ -17027,6 +17054,9 @@ sync:
 - source: quay.io/prometheus-operator/admission-webhook:v0.80.1
   target: docker.io/rancher/mirrored-prometheus-operator-admission-webhook:v0.80.1
   type: image
+- source: quay.io/prometheus-operator/admission-webhook:v0.85.0
+  target: docker.io/rancher/mirrored-prometheus-operator-admission-webhook:v0.85.0
+  type: image
 - source: quay.io/prometheus-operator/admission-webhook:v0.72.0
   target: registry.suse.com/rancher/mirrored-prometheus-operator-admission-webhook:v0.72.0
   type: image
@@ -17042,6 +17072,9 @@ sync:
 - source: quay.io/prometheus-operator/admission-webhook:v0.80.1
   target: registry.suse.com/rancher/mirrored-prometheus-operator-admission-webhook:v0.80.1
   type: image
+- source: quay.io/prometheus-operator/admission-webhook:v0.85.0
+  target: registry.suse.com/rancher/mirrored-prometheus-operator-admission-webhook:v0.85.0
+  type: image
 - source: quay.io/prometheus-operator/admission-webhook:v0.72.0
   target: stgregistry.suse.com/rancher/mirrored-prometheus-operator-admission-webhook:v0.72.0
   type: image
@@ -17056,6 +17089,9 @@ sync:
   type: image
 - source: quay.io/prometheus-operator/admission-webhook:v0.80.1
   target: stgregistry.suse.com/rancher/mirrored-prometheus-operator-admission-webhook:v0.80.1
+  type: image
+- source: quay.io/prometheus-operator/admission-webhook:v0.85.0
+  target: stgregistry.suse.com/rancher/mirrored-prometheus-operator-admission-webhook:v0.85.0
   type: image
 - source: quay.io/prometheus-operator/prometheus-config-reloader:v0.43.0
   target: docker.io/rancher/coreos-prometheus-config-reloader:v0.43.0
@@ -17102,6 +17138,9 @@ sync:
 - source: quay.io/prometheus-operator/prometheus-config-reloader:v0.80.1
   target: docker.io/rancher/mirrored-prometheus-operator-prometheus-config-reloader:v0.80.1
   type: image
+- source: quay.io/prometheus-operator/prometheus-config-reloader:v0.85.0
+  target: docker.io/rancher/mirrored-prometheus-operator-prometheus-config-reloader:v0.85.0
+  type: image
 - source: quay.io/prometheus-operator/prometheus-config-reloader:v0.46.0
   target: registry.suse.com/rancher/mirrored-prometheus-operator-prometheus-config-reloader:v0.46.0
   type: image
@@ -17138,6 +17177,9 @@ sync:
 - source: quay.io/prometheus-operator/prometheus-config-reloader:v0.80.1
   target: registry.suse.com/rancher/mirrored-prometheus-operator-prometheus-config-reloader:v0.80.1
   type: image
+- source: quay.io/prometheus-operator/prometheus-config-reloader:v0.85.0
+  target: registry.suse.com/rancher/mirrored-prometheus-operator-prometheus-config-reloader:v0.85.0
+  type: image
 - source: quay.io/prometheus-operator/prometheus-config-reloader:v0.46.0
   target: stgregistry.suse.com/rancher/mirrored-prometheus-operator-prometheus-config-reloader:v0.46.0
   type: image
@@ -17173,6 +17215,9 @@ sync:
   type: image
 - source: quay.io/prometheus-operator/prometheus-config-reloader:v0.80.1
   target: stgregistry.suse.com/rancher/mirrored-prometheus-operator-prometheus-config-reloader:v0.80.1
+  type: image
+- source: quay.io/prometheus-operator/prometheus-config-reloader:v0.85.0
+  target: stgregistry.suse.com/rancher/mirrored-prometheus-operator-prometheus-config-reloader:v0.85.0
   type: image
 - source: quay.io/prometheus-operator/prometheus-operator:v0.43.0
   target: docker.io/rancher/coreos-prometheus-operator:v0.43.0
@@ -17219,6 +17264,9 @@ sync:
 - source: quay.io/prometheus-operator/prometheus-operator:v0.80.1
   target: docker.io/rancher/mirrored-prometheus-operator-prometheus-operator:v0.80.1
   type: image
+- source: quay.io/prometheus-operator/prometheus-operator:v0.85.0
+  target: docker.io/rancher/mirrored-prometheus-operator-prometheus-operator:v0.85.0
+  type: image
 - source: quay.io/prometheus-operator/prometheus-operator:v0.46.0
   target: registry.suse.com/rancher/mirrored-prometheus-operator-prometheus-operator:v0.46.0
   type: image
@@ -17255,6 +17303,9 @@ sync:
 - source: quay.io/prometheus-operator/prometheus-operator:v0.80.1
   target: registry.suse.com/rancher/mirrored-prometheus-operator-prometheus-operator:v0.80.1
   type: image
+- source: quay.io/prometheus-operator/prometheus-operator:v0.85.0
+  target: registry.suse.com/rancher/mirrored-prometheus-operator-prometheus-operator:v0.85.0
+  type: image
 - source: quay.io/prometheus-operator/prometheus-operator:v0.46.0
   target: stgregistry.suse.com/rancher/mirrored-prometheus-operator-prometheus-operator:v0.46.0
   type: image
@@ -17290,6 +17341,9 @@ sync:
   type: image
 - source: quay.io/prometheus-operator/prometheus-operator:v0.80.1
   target: stgregistry.suse.com/rancher/mirrored-prometheus-operator-prometheus-operator:v0.80.1
+  type: image
+- source: quay.io/prometheus-operator/prometheus-operator:v0.85.0
+  target: stgregistry.suse.com/rancher/mirrored-prometheus-operator-prometheus-operator:v0.85.0
   type: image
 - source: quay.io/prometheus/alertmanager:v0.22.0
   target: docker.io/rancher/mirrored-prometheus-alertmanager:v0.22.0
@@ -17372,6 +17426,9 @@ sync:
 - source: quay.io/prometheus/node-exporter:v1.9.0
   target: docker.io/rancher/mirrored-prometheus-node-exporter:v1.9.0
   type: image
+- source: quay.io/prometheus/node-exporter:v1.9.1
+  target: docker.io/rancher/mirrored-prometheus-node-exporter:v1.9.1
+  type: image
 - source: quay.io/prometheus/node-exporter:v1.1.2
   target: registry.suse.com/rancher/mirrored-prometheus-node-exporter:v1.1.2
   type: image
@@ -17390,6 +17447,9 @@ sync:
 - source: quay.io/prometheus/node-exporter:v1.9.0
   target: registry.suse.com/rancher/mirrored-prometheus-node-exporter:v1.9.0
   type: image
+- source: quay.io/prometheus/node-exporter:v1.9.1
+  target: registry.suse.com/rancher/mirrored-prometheus-node-exporter:v1.9.1
+  type: image
 - source: quay.io/prometheus/node-exporter:v1.1.2
   target: stgregistry.suse.com/rancher/mirrored-prometheus-node-exporter:v1.1.2
   type: image
@@ -17407,6 +17467,9 @@ sync:
   type: image
 - source: quay.io/prometheus/node-exporter:v1.9.0
   target: stgregistry.suse.com/rancher/mirrored-prometheus-node-exporter:v1.9.0
+  type: image
+- source: quay.io/prometheus/node-exporter:v1.9.1
+  target: stgregistry.suse.com/rancher/mirrored-prometheus-node-exporter:v1.9.1
   type: image
 - source: quay.io/prometheus/prometheus:v2.18.2
   target: docker.io/rancher/mirrored-prom-prometheus:v2.18.2
@@ -17519,6 +17582,9 @@ sync:
 - source: quay.io/prometheus/prometheus:v3.2.1
   target: docker.io/rancher/prom-prometheus:v3.2.1
   type: image
+- source: quay.io/prometheus/prometheus:v3.5.0
+  target: docker.io/rancher/prom-prometheus:v3.5.0
+  type: image
 - source: quay.io/prometheus/prometheus:v2.19.2
   target: registry.suse.com/rancher/prom-prometheus:v2.19.2
   type: image
@@ -17531,6 +17597,9 @@ sync:
 - source: quay.io/prometheus/prometheus:v3.2.1
   target: registry.suse.com/rancher/prom-prometheus:v3.2.1
   type: image
+- source: quay.io/prometheus/prometheus:v3.5.0
+  target: registry.suse.com/rancher/prom-prometheus:v3.5.0
+  type: image
 - source: quay.io/prometheus/prometheus:v2.19.2
   target: stgregistry.suse.com/rancher/prom-prometheus:v2.19.2
   type: image
@@ -17542,6 +17611,9 @@ sync:
   type: image
 - source: quay.io/prometheus/prometheus:v3.2.1
   target: stgregistry.suse.com/rancher/prom-prometheus:v3.2.1
+  type: image
+- source: quay.io/prometheus/prometheus:v3.5.0
+  target: stgregistry.suse.com/rancher/prom-prometheus:v3.5.0
   type: image
 - source: quay.io/s3gw/s3gw:v0.14.0
   target: docker.io/rancher/mirrored-s3gw-s3gw:v0.14.0
@@ -18977,6 +19049,9 @@ sync:
 - source: registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.15.0
   target: docker.io/rancher/mirrored-kube-state-metrics-kube-state-metrics:v2.15.0
   type: image
+- source: registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.17.0
+  target: docker.io/rancher/mirrored-kube-state-metrics-kube-state-metrics:v2.17.0
+  type: image
 - source: registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.2.0
   target: docker.io/rancher/mirrored-kube-state-metrics-kube-state-metrics:v2.2.0
   type: image
@@ -19004,6 +19079,9 @@ sync:
 - source: registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.15.0
   target: registry.suse.com/rancher/mirrored-kube-state-metrics-kube-state-metrics:v2.15.0
   type: image
+- source: registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.17.0
+  target: registry.suse.com/rancher/mirrored-kube-state-metrics-kube-state-metrics:v2.17.0
+  type: image
 - source: registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.2.0
   target: registry.suse.com/rancher/mirrored-kube-state-metrics-kube-state-metrics:v2.2.0
   type: image
@@ -19030,6 +19108,9 @@ sync:
   type: image
 - source: registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.15.0
   target: stgregistry.suse.com/rancher/mirrored-kube-state-metrics-kube-state-metrics:v2.15.0
+  type: image
+- source: registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.17.0
+  target: stgregistry.suse.com/rancher/mirrored-kube-state-metrics-kube-state-metrics:v2.17.0
   type: image
 - source: registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.2.0
   target: stgregistry.suse.com/rancher/mirrored-kube-state-metrics-kube-state-metrics:v2.2.0
