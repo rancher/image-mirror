@@ -6,6 +6,7 @@
     - SourceImage: quay.io/calico/ctl
     - SourceImage: quay.io/calico/envoy-gateway
     - SourceImage: quay.io/calico/envoy-proxy
+    - SourceImage: quay.io/calico/envoy-ratelimit
     - SourceImage: quay.io/calico/goldmane
     - SourceImage: quay.io/calico/kube-controllers
     - SourceImage: quay.io/calico/node
