@@ -893,6 +893,7 @@ Images:
   - v1.8.1
   - v1.8.2
   - v1.9.1
+  - v1.9.2
   - v1_20210422
   - v1_20210422_patch1
   - v2_20210820
@@ -1033,6 +1034,7 @@ Images:
   - v1.8.1
   - v1.8.2
   - v1.9.1
+  - v1.9.2
 - SourceImage: longhornio/longhorn-engine
   Tags:
   - v1.0.2
@@ -1089,6 +1091,7 @@ Images:
   - v1.8.1
   - v1.8.2
   - v1.9.1
+  - v1.9.2
 - SourceImage: longhornio/longhorn-instance-manager
   Tags:
   - v1_20200514
@@ -1126,6 +1129,7 @@ Images:
   - v1.8.1
   - v1.8.2
   - v1.9.1
+  - v1.9.2
   - v1_20201216
   - v1_20210621
   - v1_20210731
@@ -1193,6 +1197,7 @@ Images:
   - v1.8.1
   - v1.8.2
   - v1.9.1
+  - v1.9.2
 - SourceImage: longhornio/longhorn-share-manager
   Tags:
   - v1_20201204
@@ -1230,6 +1235,7 @@ Images:
   - v1.8.1
   - v1.8.2
   - v1.9.1
+  - v1.9.2
   - v1_20201204
   - v1_20210416
   - v1_20210416_patch1
@@ -1298,6 +1304,7 @@ Images:
   - v1.8.1
   - v1.8.2
   - v1.9.1
+  - v1.9.2
 - SourceImage: longhornio/openshift-origin-oauth-proxy
   Tags:
   - "4.14"
@@ -1322,6 +1329,7 @@ Images:
   - v0.0.52
   - v0.0.56
   - v0.0.61
+  - v0.0.69
 - SourceImage: messagebird/sachet
   Tags:
   - 0.2.3
