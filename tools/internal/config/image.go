@@ -32,6 +32,11 @@ type Image struct {
 	SpecifiedTargetImageName string `json:"TargetImageName,omitempty"`
 	// The tags that we want to mirror.
 	Tags []string
+	// The Repositories that you want to limit mirroring to. Repositories
+	// are specified via their BaseUrl field. If TargetRepositories is not
+	// specified, the Image is mirrored to all Repositories that have
+	// their Target field set to true.
+	TargetRepositories []string `json:",omitempty"`
 }
 
 func NewImage(sourceImage string, tags []string, targetImageName string, doNotMirror any) (*Image, error) {
@@ -90,6 +95,10 @@ func (image *Image) setDefaults() error {
 		return errors.New("DoNotMirror must be nil, bool, or []any")
 	}
 
+	if image.TargetRepositories == nil {
+		image.TargetRepositories = []string{}
+	}
+
 	return nil
 }
 
@@ -124,6 +133,9 @@ func (image *Image) ToRegsyncImages(repositories []Repository) ([]regsync.Config
 	entries := make([]regsync.ConfigSync, 0)
 	for _, repository := range repositories {
 		if !repository.Target {
+			continue
+		}
+		if len(image.TargetRepositories) > 0 && !slices.Contains(image.TargetRepositories, repository.BaseUrl) {
 			continue
 		}
 		// do not include if source and destination images are the same

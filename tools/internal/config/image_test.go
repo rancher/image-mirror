@@ -108,6 +108,58 @@ func TestImage(t *testing.T) {
 				})
 			}
 		})
+
+		t.Run("should target all repositories when TargetRepositories is empty", func(t *testing.T) {
+			tags := []string{"v1.0.0"}
+			image, err := NewImage("test-org/image", tags, "", nil)
+			assert.NoError(t, err)
+			repositories := []Repository{
+				{
+					BaseUrl: "some.site/registry",
+					Target:  true,
+				},
+				{
+					BaseUrl: "some.other.site/registry",
+					Target:  true,
+				},
+			}
+
+			configEntries, err := image.ToRegsyncImages(repositories)
+			assert.NoError(t, err)
+
+			assert.Len(t, configEntries, len(tags)*len(repositories))
+			for _, configEntry := range configEntries {
+				matchesIndex0 := strings.HasPrefix(configEntry.Target, repositories[0].BaseUrl)
+				matchesIndex1 := strings.HasPrefix(configEntry.Target, repositories[1].BaseUrl)
+				assert.True(t, matchesIndex0 || matchesIndex1)
+			}
+		})
+
+		t.Run("should target only specified repositories when TargetRepositories is specified", func(t *testing.T) {
+			tags := []string{"v1.0.0"}
+			image, err := NewImage("test-org/image", tags, "", nil)
+			assert.NoError(t, err)
+			targetedRepositories := []string{"some.site/registry"}
+			image.TargetRepositories = targetedRepositories
+			repositories := []Repository{
+				{
+					BaseUrl: targetedRepositories[0],
+					Target:  true,
+				},
+				{
+					BaseUrl: "some.other.site/registry",
+					Target:  true,
+				},
+			}
+
+			configEntries, err := image.ToRegsyncImages(repositories)
+			assert.NoError(t, err)
+
+			assert.Len(t, configEntries, len(tags)*len(targetedRepositories))
+			for _, configEntry := range configEntries {
+				assert.True(t, strings.HasPrefix(configEntry.Target, targetedRepositories[0]))
+			}
+		})
 	})
 
 	t.Run("ToRegsyncImagesForSingleRepository", func(t *testing.T) {

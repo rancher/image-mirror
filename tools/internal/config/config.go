@@ -17,11 +17,11 @@ type Config struct {
 }
 
 type Repository struct {
-	// BaseUrl is used exclusively for building the target image ref
-	// for a given image for a repository. For example, a target
-	// image name of "mirrored-rancher-cis-operator" and a BaseUrl
-	// of "docker.io/rancher" produce a target image ref of
-	// "docker.io/rancher/mirrored-rancher-cis-operator".
+	// BaseUrl is used exclusively for referring to the Repository
+	// in general, and for building the target image ref for a given
+	// image for a repository. For example, a target image name of
+	// "mirrored-rancher-cis-operator" and a BaseUrl of "docker.io/rancher"
+	// produce a target image ref of "docker.io/rancher/mirrored-rancher-cis-operator".
 	BaseUrl string
 	// Whether the repository should have images mirrored to it.
 	Target bool
