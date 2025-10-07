@@ -11,7 +11,7 @@ import (
 func TestImage(t *testing.T) {
 	t.Run("ToRegsyncConfig", func(t *testing.T) {
 		t.Run("should exclude repos with Target: false from sync entries", func(t *testing.T) {
-			image, err := NewImage("test-org/image1", []string{"v1.0.0"}, "", nil)
+			image, err := NewImage("test-org/image1", []string{"v1.0.0"}, "", nil, nil)
 			assert.NoError(t, err)
 			repositories := []Repository{
 				{
@@ -86,7 +86,7 @@ func TestImage(t *testing.T) {
 			for _, testCase := range testCases {
 				t.Run(testCase.Name, func(t *testing.T) {
 					tag := "v1.0.0"
-					image, err := NewImage(testCase.ImageRef, []string{tag}, "test-image", nil)
+					image, err := NewImage(testCase.ImageRef, []string{tag}, "test-image", nil, nil)
 					assert.NoError(t, err)
 					repositories := []Repository{
 						{
@@ -111,7 +111,7 @@ func TestImage(t *testing.T) {
 
 		t.Run("should target all repositories when TargetRepositories is empty", func(t *testing.T) {
 			tags := []string{"v1.0.0"}
-			image, err := NewImage("test-org/image", tags, "", nil)
+			image, err := NewImage("test-org/image", tags, "", nil, nil)
 			assert.NoError(t, err)
 			repositories := []Repository{
 				{
@@ -137,13 +137,12 @@ func TestImage(t *testing.T) {
 
 		t.Run("should target only specified repositories when TargetRepositories is specified", func(t *testing.T) {
 			tags := []string{"v1.0.0"}
-			image, err := NewImage("test-org/image", tags, "", nil)
+			targetRepositories := []string{"some.site/registry"}
+			image, err := NewImage("test-org/image", tags, "", nil, targetRepositories)
 			assert.NoError(t, err)
-			targetedRepositories := []string{"some.site/registry"}
-			image.TargetRepositories = targetedRepositories
 			repositories := []Repository{
 				{
-					BaseUrl: targetedRepositories[0],
+					BaseUrl: targetRepositories[0],
 					Target:  true,
 				},
 				{
@@ -155,9 +154,9 @@ func TestImage(t *testing.T) {
 			configEntries, err := image.ToRegsyncImages(repositories)
 			assert.NoError(t, err)
 
-			assert.Len(t, configEntries, len(tags)*len(targetedRepositories))
+			assert.Len(t, configEntries, len(tags)*len(targetRepositories))
 			for _, configEntry := range configEntries {
-				assert.True(t, strings.HasPrefix(configEntry.Target, targetedRepositories[0]))
+				assert.True(t, strings.HasPrefix(configEntry.Target, targetRepositories[0]))
 			}
 		})
 	})
@@ -224,7 +223,7 @@ func TestImage(t *testing.T) {
 			},
 		} {
 			t.Run(testCase.Name, func(t *testing.T) {
-				inputImage, err := NewImage("test-org/test-image", []string{"v1.2.3", "v2.3.4"}, testCase.SpecifiedTargetImageName, testCase.DoNotMirror)
+				inputImage, err := NewImage("test-org/test-image", []string{"v1.2.3", "v2.3.4"}, testCase.SpecifiedTargetImageName, testCase.DoNotMirror, nil)
 				if err != nil {
 					t.Fatalf("unexpected error: %s", err)
 				}
@@ -290,7 +289,7 @@ func TestImage(t *testing.T) {
 
 	t.Run("DeepCopy", func(t *testing.T) {
 		t.Run("should copy all fields", func(t *testing.T) {
-			original, err := NewImage("test-org/test-image", []string{"v1.0.0", "v2.0.0"}, "custom-image-name", []any{"v1.0.0"})
+			original, err := NewImage("test-org/test-image", []string{"v1.0.0", "v2.0.0"}, "custom-image-name", []any{"v1.0.0"}, nil)
 			assert.NoError(t, err)
 
 			copy := original.DeepCopy()

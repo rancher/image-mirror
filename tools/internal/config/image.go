@@ -39,11 +39,12 @@ type Image struct {
 	TargetRepositories []string `json:",omitempty"`
 }
 
-func NewImage(sourceImage string, tags []string, targetImageName string, doNotMirror any) (*Image, error) {
+func NewImage(sourceImage string, tags []string, targetImageName string, doNotMirror any, targetRepositories []string) (*Image, error) {
 	image := &Image{
-		SourceImage: sourceImage,
-		Tags:        tags,
-		DoNotMirror: doNotMirror,
+		SourceImage:        sourceImage,
+		Tags:               tags,
+		DoNotMirror:        doNotMirror,
+		TargetRepositories: targetRepositories,
 	}
 	if err := image.setDefaults(); err != nil {
 		return nil, err

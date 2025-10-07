@@ -71,7 +71,7 @@ func (r *Registry) GetUpdateImages() ([]*config.Image, error) {
 
 	images := make([]*config.Image, 0, len(r.Images))
 	for _, sourceImage := range r.Images {
-		image, err := config.NewImage(sourceImage.SourceImage, filteredTags, sourceImage.TargetImageName, nil)
+		image, err := config.NewImage(sourceImage.SourceImage, filteredTags, sourceImage.TargetImageName, nil, nil)
 		if err != nil {
 			return nil, err
 		}
