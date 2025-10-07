@@ -8,7 +8,7 @@ import (
 )
 
 func TestImage(t *testing.T) {
-	t.Run("ToRegsyncImages", func(t *testing.T) {
+	t.Run("ToRegsyncImagesForSingleRepository", func(t *testing.T) {
 		type TestCase struct {
 			Name                     string
 			SpecifiedTargetImageName string
@@ -77,7 +77,7 @@ func TestImage(t *testing.T) {
 				inputRepository := Repository{
 					BaseUrl: "docker.io/test1",
 				}
-				regsyncEntries, err := inputImage.ToRegsyncImages(inputRepository)
+				regsyncEntries, err := inputImage.ToRegsyncImagesForSingleRepository(inputRepository)
 				if err != nil {
 					t.Fatalf("unexpected error: %s", err)
 				}
