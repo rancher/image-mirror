@@ -1,6 +1,7 @@
 package config
 
 import (
+	"strings"
 	"testing"
 
 	"github.com/rancher/image-mirror/internal/regsync"
@@ -8,6 +9,107 @@ import (
 )
 
 func TestImage(t *testing.T) {
+	t.Run("ToRegsyncConfig", func(t *testing.T) {
+		t.Run("should exclude repos with Target: false from sync entries", func(t *testing.T) {
+			image, err := NewImage("test-org/image1", []string{"v1.0.0"}, "", nil)
+			assert.NoError(t, err)
+			repositories := []Repository{
+				{
+					BaseUrl:  "docker.io/target-repo",
+					Target:   true,
+					Username: "target-user",
+					Password: "target-pass",
+					Registry: "docker.io",
+				},
+				{
+					BaseUrl:  "docker.io/non-target-repo",
+					Target:   false,
+					Username: "non-target-user",
+					Password: "non-target-pass",
+					Registry: "docker.io",
+				},
+			}
+
+			configEntries, err := image.ToRegsyncImages(repositories)
+			assert.NoError(t, err)
+
+			for _, configEntry := range configEntries {
+				assert.True(t, strings.HasPrefix(configEntry.Target, repositories[0].BaseUrl))
+			}
+		})
+
+		t.Run("should exclude images with same source and target", func(t *testing.T) {
+			type TestCase struct {
+				Name            string
+				ImageRef        string
+				BaseUrl         string
+				ExpectedPresent bool
+			}
+			testCases := []TestCase{
+				{
+					Name:            "dockerhub image with docker.io prefix and dockerhub base URL",
+					ImageRef:        "docker.io/test-org/test-image",
+					BaseUrl:         "docker.io/test-org",
+					ExpectedPresent: false,
+				},
+				{
+					Name:            "dockerhub image with docker.io prefix and non-dockerhub base URL",
+					ImageRef:        "docker.io/test-org/test-image",
+					BaseUrl:         "some.other.registry/test-org",
+					ExpectedPresent: true,
+				},
+				{
+					Name:            "dockerhub image without docker.io prefix and with dockerhub base URL",
+					ImageRef:        "test-org/test-image",
+					BaseUrl:         "docker.io/test-org",
+					ExpectedPresent: false,
+				},
+				{
+					Name:            "dockerhub image without docker.io prefix and with non-dockerhub base URL",
+					ImageRef:        "test-org/test-image",
+					BaseUrl:         "some.other.registry/test-org",
+					ExpectedPresent: true,
+				},
+				{
+					Name:            "non-dockerhub image with dockerhub base URL",
+					ImageRef:        "some.other.registry/test-org/test-image",
+					BaseUrl:         "docker.io/test-org",
+					ExpectedPresent: true,
+				},
+				{
+					Name:            "non-dockerhub image with non-dockerhub base URL",
+					ImageRef:        "some.other.registry/test-org/test-image",
+					BaseUrl:         "some.other.registry/test-org",
+					ExpectedPresent: false,
+				},
+			}
+			for _, testCase := range testCases {
+				t.Run(testCase.Name, func(t *testing.T) {
+					tag := "v1.0.0"
+					image, err := NewImage(testCase.ImageRef, []string{tag}, "test-image", nil)
+					assert.NoError(t, err)
+					repositories := []Repository{
+						{
+							BaseUrl: testCase.BaseUrl,
+							Target:  true,
+						},
+					}
+
+					configEntries, err := image.ToRegsyncImages(repositories)
+					assert.NoError(t, err)
+
+					if testCase.ExpectedPresent {
+						assert.Len(t, configEntries, 1)
+						assert.Equal(t, image.SourceImage+":"+tag, configEntries[0].Source)
+						assert.Equal(t, testCase.BaseUrl+"/"+image.TargetImageName()+":"+tag, configEntries[0].Target)
+					} else {
+						assert.Len(t, configEntries, 0)
+					}
+				})
+			}
+		})
+	})
+
 	t.Run("ToRegsyncImagesForSingleRepository", func(t *testing.T) {
 		type TestCase struct {
 			Name                     string
