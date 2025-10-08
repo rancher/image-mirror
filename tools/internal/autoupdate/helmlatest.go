@@ -107,7 +107,7 @@ func (hl *HelmLatest) GetUpdateImages() ([]*config.Image, error) {
 		if foundTargetImageName == nil {
 			return nil, fmt.Errorf("found image %s but it is not present in Images", sourceImage)
 		}
-		image, err := config.NewImage(sourceImage, tags, *foundTargetImageName, nil)
+		image, err := config.NewImage(sourceImage, tags, *foundTargetImageName, nil, nil)
 		if err != nil {
 			return nil, fmt.Errorf("failed to create image: %w", err)
 		}

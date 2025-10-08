@@ -32,13 +32,19 @@ type Image struct {
 	SpecifiedTargetImageName string `json:"TargetImageName,omitempty"`
 	// The tags that we want to mirror.
 	Tags []string
+	// The Repositories that you want to limit mirroring to. Repositories
+	// are specified via their BaseUrl field. If TargetRepositories is not
+	// specified, the Image is mirrored to all Repositories that have
+	// their Target field set to true.
+	TargetRepositories []string `json:",omitempty"`
 }
 
-func NewImage(sourceImage string, tags []string, targetImageName string, doNotMirror any) (*Image, error) {
+func NewImage(sourceImage string, tags []string, targetImageName string, doNotMirror any, targetRepositories []string) (*Image, error) {
 	image := &Image{
-		SourceImage: sourceImage,
-		Tags:        tags,
-		DoNotMirror: doNotMirror,
+		SourceImage:        sourceImage,
+		Tags:               tags,
+		DoNotMirror:        doNotMirror,
+		TargetRepositories: targetRepositories,
 	}
 	if err := image.setDefaults(); err != nil {
 		return nil, err
@@ -90,6 +96,10 @@ func (image *Image) setDefaults() error {
 		return errors.New("DoNotMirror must be nil, bool, or []any")
 	}
 
+	if image.TargetRepositories == nil {
+		image.TargetRepositories = []string{}
+	}
+
 	return nil
 }
 
@@ -118,9 +128,36 @@ func (image *Image) CombineSourceImageAndTags() []string {
 }
 
 // ToRegsyncImages converts image into one ConfigSync (i.e. an image
-// for regsync to sync) for each tag present in image. repo provides
-// the target repository for each ConfigSync.
-func (image *Image) ToRegsyncImages(repo Repository) ([]regsync.ConfigSync, error) {
+// for regsync to sync) for each tag present in image, for each repository
+// passed in repositories.
+func (image *Image) ToRegsyncImages(repositories []Repository) ([]regsync.ConfigSync, error) {
+	entries := make([]regsync.ConfigSync, 0)
+	for _, repository := range repositories {
+		if !repository.Target {
+			continue
+		}
+		if len(image.TargetRepositories) > 0 && !slices.Contains(image.TargetRepositories, repository.BaseUrl) {
+			continue
+		}
+		// do not include if source and destination images are the same
+		trimmedSourceImage := strings.TrimPrefix(image.SourceImage, "docker.io/")
+		trimmedTargetImage := strings.TrimPrefix(repository.BaseUrl+"/"+image.TargetImageName(), "docker.io/")
+		if trimmedSourceImage == trimmedTargetImage {
+			continue
+		}
+		syncEntries, err := image.ToRegsyncImagesForSingleRepository(repository)
+		if err != nil {
+			return nil, fmt.Errorf("failed to convert Image with SourceImage %q: %w", image.SourceImage, err)
+		}
+		entries = append(entries, syncEntries...)
+	}
+	return entries, nil
+}
+
+// ToRegsyncImagesForSingleRepository converts image into one ConfigSync
+// (i.e. an image for regsync to sync) for each tag present in image.
+// repo provides the target repository for each ConfigSync.
+func (image *Image) ToRegsyncImagesForSingleRepository(repo Repository) ([]regsync.ConfigSync, error) {
 	if image.excludeAllTags {
 		return nil, nil
 	}

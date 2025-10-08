@@ -1,8 +1,8 @@
 package main
 
 import (
-	"testing"
 	"errors"
+	"testing"
 
 	"github.com/rancher/image-mirror/internal/config"
 
@@ -11,7 +11,7 @@ import (
 
 func createImage(t *testing.T, sourceImage string, tags []string, targetImageName string) *config.Image {
 	t.Helper()
-	img, err := config.NewImage(sourceImage, tags, targetImageName, nil)
+	img, err := config.NewImage(sourceImage, tags, targetImageName, nil, nil)
 	assert.NoError(t, err)
 	return img
 }

@@ -1,6 +1,7 @@
 package config
 
 import (
+	"strings"
 	"testing"
 
 	"github.com/rancher/image-mirror/internal/regsync"
@@ -8,7 +9,159 @@ import (
 )
 
 func TestImage(t *testing.T) {
-	t.Run("ToRegsyncImages", func(t *testing.T) {
+	t.Run("ToRegsyncConfig", func(t *testing.T) {
+		t.Run("should exclude repos with Target: false from sync entries", func(t *testing.T) {
+			image, err := NewImage("test-org/image1", []string{"v1.0.0"}, "", nil, nil)
+			assert.NoError(t, err)
+			repositories := []Repository{
+				{
+					BaseUrl:  "docker.io/target-repo",
+					Target:   true,
+					Username: "target-user",
+					Password: "target-pass",
+					Registry: "docker.io",
+				},
+				{
+					BaseUrl:  "docker.io/non-target-repo",
+					Target:   false,
+					Username: "non-target-user",
+					Password: "non-target-pass",
+					Registry: "docker.io",
+				},
+			}
+
+			configEntries, err := image.ToRegsyncImages(repositories)
+			assert.NoError(t, err)
+
+			for _, configEntry := range configEntries {
+				assert.True(t, strings.HasPrefix(configEntry.Target, repositories[0].BaseUrl))
+			}
+		})
+
+		t.Run("should exclude images with same source and target", func(t *testing.T) {
+			type TestCase struct {
+				Name            string
+				ImageRef        string
+				BaseUrl         string
+				ExpectedPresent bool
+			}
+			testCases := []TestCase{
+				{
+					Name:            "dockerhub image with docker.io prefix and dockerhub base URL",
+					ImageRef:        "docker.io/test-org/test-image",
+					BaseUrl:         "docker.io/test-org",
+					ExpectedPresent: false,
+				},
+				{
+					Name:            "dockerhub image with docker.io prefix and non-dockerhub base URL",
+					ImageRef:        "docker.io/test-org/test-image",
+					BaseUrl:         "some.other.registry/test-org",
+					ExpectedPresent: true,
+				},
+				{
+					Name:            "dockerhub image without docker.io prefix and with dockerhub base URL",
+					ImageRef:        "test-org/test-image",
+					BaseUrl:         "docker.io/test-org",
+					ExpectedPresent: false,
+				},
+				{
+					Name:            "dockerhub image without docker.io prefix and with non-dockerhub base URL",
+					ImageRef:        "test-org/test-image",
+					BaseUrl:         "some.other.registry/test-org",
+					ExpectedPresent: true,
+				},
+				{
+					Name:            "non-dockerhub image with dockerhub base URL",
+					ImageRef:        "some.other.registry/test-org/test-image",
+					BaseUrl:         "docker.io/test-org",
+					ExpectedPresent: true,
+				},
+				{
+					Name:            "non-dockerhub image with non-dockerhub base URL",
+					ImageRef:        "some.other.registry/test-org/test-image",
+					BaseUrl:         "some.other.registry/test-org",
+					ExpectedPresent: false,
+				},
+			}
+			for _, testCase := range testCases {
+				t.Run(testCase.Name, func(t *testing.T) {
+					tag := "v1.0.0"
+					image, err := NewImage(testCase.ImageRef, []string{tag}, "test-image", nil, nil)
+					assert.NoError(t, err)
+					repositories := []Repository{
+						{
+							BaseUrl: testCase.BaseUrl,
+							Target:  true,
+						},
+					}
+
+					configEntries, err := image.ToRegsyncImages(repositories)
+					assert.NoError(t, err)
+
+					if testCase.ExpectedPresent {
+						assert.Len(t, configEntries, 1)
+						assert.Equal(t, image.SourceImage+":"+tag, configEntries[0].Source)
+						assert.Equal(t, testCase.BaseUrl+"/"+image.TargetImageName()+":"+tag, configEntries[0].Target)
+					} else {
+						assert.Len(t, configEntries, 0)
+					}
+				})
+			}
+		})
+
+		t.Run("should target all repositories when TargetRepositories is empty", func(t *testing.T) {
+			tags := []string{"v1.0.0"}
+			image, err := NewImage("test-org/image", tags, "", nil, nil)
+			assert.NoError(t, err)
+			repositories := []Repository{
+				{
+					BaseUrl: "some.site/registry",
+					Target:  true,
+				},
+				{
+					BaseUrl: "some.other.site/registry",
+					Target:  true,
+				},
+			}
+
+			configEntries, err := image.ToRegsyncImages(repositories)
+			assert.NoError(t, err)
+
+			assert.Len(t, configEntries, len(tags)*len(repositories))
+			for _, configEntry := range configEntries {
+				matchesIndex0 := strings.HasPrefix(configEntry.Target, repositories[0].BaseUrl)
+				matchesIndex1 := strings.HasPrefix(configEntry.Target, repositories[1].BaseUrl)
+				assert.True(t, matchesIndex0 || matchesIndex1)
+			}
+		})
+
+		t.Run("should target only specified repositories when TargetRepositories is specified", func(t *testing.T) {
+			tags := []string{"v1.0.0"}
+			targetRepositories := []string{"some.site/registry"}
+			image, err := NewImage("test-org/image", tags, "", nil, targetRepositories)
+			assert.NoError(t, err)
+			repositories := []Repository{
+				{
+					BaseUrl: targetRepositories[0],
+					Target:  true,
+				},
+				{
+					BaseUrl: "some.other.site/registry",
+					Target:  true,
+				},
+			}
+
+			configEntries, err := image.ToRegsyncImages(repositories)
+			assert.NoError(t, err)
+
+			assert.Len(t, configEntries, len(tags)*len(targetRepositories))
+			for _, configEntry := range configEntries {
+				assert.True(t, strings.HasPrefix(configEntry.Target, targetRepositories[0]))
+			}
+		})
+	})
+
+	t.Run("ToRegsyncImagesForSingleRepository", func(t *testing.T) {
 		type TestCase struct {
 			Name                     string
 			SpecifiedTargetImageName string
@@ -70,14 +223,14 @@ func TestImage(t *testing.T) {
 			},
 		} {
 			t.Run(testCase.Name, func(t *testing.T) {
-				inputImage, err := NewImage("test-org/test-image", []string{"v1.2.3", "v2.3.4"}, testCase.SpecifiedTargetImageName, testCase.DoNotMirror)
+				inputImage, err := NewImage("test-org/test-image", []string{"v1.2.3", "v2.3.4"}, testCase.SpecifiedTargetImageName, testCase.DoNotMirror, nil)
 				if err != nil {
 					t.Fatalf("unexpected error: %s", err)
 				}
 				inputRepository := Repository{
 					BaseUrl: "docker.io/test1",
 				}
-				regsyncEntries, err := inputImage.ToRegsyncImages(inputRepository)
+				regsyncEntries, err := inputImage.ToRegsyncImagesForSingleRepository(inputRepository)
 				if err != nil {
 					t.Fatalf("unexpected error: %s", err)
 				}
@@ -136,7 +289,7 @@ func TestImage(t *testing.T) {
 
 	t.Run("DeepCopy", func(t *testing.T) {
 		t.Run("should copy all fields", func(t *testing.T) {
-			original, err := NewImage("test-org/test-image", []string{"v1.0.0", "v2.0.0"}, "custom-image-name", []any{"v1.0.0"})
+			original, err := NewImage("test-org/test-image", []string{"v1.0.0", "v2.0.0"}, "custom-image-name", []any{"v1.0.0"}, nil)
 			assert.NoError(t, err)
 
 			copy := original.DeepCopy()
