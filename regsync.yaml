@@ -9,6 +9,9 @@ creds:
 - pass: '{{ env "APPCO_PASSWORD" }}'
   registry: dp.apps.rancher.io
   user: '{{ env "APPCO_USERNAME" }}'
+- pass: '{{ env "APPCO_PASSWORD" }}'
+  registry: dp.apps.rancher.io
+  user: '{{ env "APPCO_USERNAME" }}'
 - pass: '{{ env "PRIME_PASSWORD" }}'
   registry: registry.suse.com
   repoAuth: true
@@ -569,6 +572,24 @@ sync:
 - source: directxman12/k8s-prometheus-adapter-amd64:v0.8.3
   target: stgregistry.suse.com/rancher/mirrored-directxman12-k8s-prometheus-adapter-amd64:v0.8.3
   type: image
+- source: dp.apps.rancher.io/charts/kubernetes-cluster-autoscaler:9.44.0
+  target: registry.suse.com/rancher/appco-kubernetes-cluster-autoscaler:9.44.0
+  type: image
+- source: dp.apps.rancher.io/charts/kubernetes-cluster-autoscaler:9.46.6
+  target: registry.suse.com/rancher/appco-kubernetes-cluster-autoscaler:9.46.6
+  type: image
+- source: dp.apps.rancher.io/charts/kubernetes-cluster-autoscaler:9.50.1
+  target: registry.suse.com/rancher/appco-kubernetes-cluster-autoscaler:9.50.1
+  type: image
+- source: dp.apps.rancher.io/charts/kubernetes-cluster-autoscaler:9.44.0
+  target: stgregistry.suse.com/rancher/appco-kubernetes-cluster-autoscaler:9.44.0
+  type: image
+- source: dp.apps.rancher.io/charts/kubernetes-cluster-autoscaler:9.46.6
+  target: stgregistry.suse.com/rancher/appco-kubernetes-cluster-autoscaler:9.46.6
+  type: image
+- source: dp.apps.rancher.io/charts/kubernetes-cluster-autoscaler:9.50.1
+  target: stgregistry.suse.com/rancher/appco-kubernetes-cluster-autoscaler:9.50.1
+  type: image
 - source: dp.apps.rancher.io/containers/k8s-sidecar:1.30.7-11.3
   target: docker.io/rancher/appco-k8s-sidecar:1.30.7-11.3
   type: image
@@ -577,6 +598,24 @@ sync:
   type: image
 - source: dp.apps.rancher.io/containers/k8s-sidecar:1.30.7-11.3
   target: stgregistry.suse.com/rancher/appco-k8s-sidecar:1.30.7-11.3
+  type: image
+- source: dp.apps.rancher.io/containers/kubernetes-cluster-autoscaler:1.32.3-1.5
+  target: registry.suse.com/rancher/appco-kubernetes-cluster-autoscaler:1.32.3-1.5
+  type: image
+- source: dp.apps.rancher.io/containers/kubernetes-cluster-autoscaler:1.33.0-3.3
+  target: registry.suse.com/rancher/appco-kubernetes-cluster-autoscaler:1.33.0-3.3
+  type: image
+- source: dp.apps.rancher.io/containers/kubernetes-cluster-autoscaler:1.34.0-3.4
+  target: registry.suse.com/rancher/appco-kubernetes-cluster-autoscaler:1.34.0-3.4
+  type: image
+- source: dp.apps.rancher.io/containers/kubernetes-cluster-autoscaler:1.32.3-1.5
+  target: stgregistry.suse.com/rancher/appco-kubernetes-cluster-autoscaler:1.32.3-1.5
+  type: image
+- source: dp.apps.rancher.io/containers/kubernetes-cluster-autoscaler:1.33.0-3.3
+  target: stgregistry.suse.com/rancher/appco-kubernetes-cluster-autoscaler:1.33.0-3.3
+  type: image
+- source: dp.apps.rancher.io/containers/kubernetes-cluster-autoscaler:1.34.0-3.4
+  target: stgregistry.suse.com/rancher/appco-kubernetes-cluster-autoscaler:1.34.0-3.4
   type: image
 - source: dp.apps.rancher.io/containers/redis:8.0.3-2.1
   target: docker.io/rancher/appco-redis:8.0.3-2.1
