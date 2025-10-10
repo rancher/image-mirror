@@ -4763,6 +4763,9 @@ sync:
 - source: library/nginx:1.27.2-alpine
   target: docker.io/rancher/mirrored-library-nginx:1.27.2-alpine
   type: image
+- source: library/nginx:1.29.1-alpine
+  target: docker.io/rancher/mirrored-library-nginx:1.29.1-alpine
+  type: image
 - source: library/nginx:1.19.2-alpine
   target: registry.suse.com/rancher/mirrored-library-nginx:1.19.2-alpine
   type: image
@@ -4790,6 +4793,9 @@ sync:
 - source: library/nginx:1.27.2-alpine
   target: registry.suse.com/rancher/mirrored-library-nginx:1.27.2-alpine
   type: image
+- source: library/nginx:1.29.1-alpine
+  target: registry.suse.com/rancher/mirrored-library-nginx:1.29.1-alpine
+  type: image
 - source: library/nginx:1.19.2-alpine
   target: stgregistry.suse.com/rancher/mirrored-library-nginx:1.19.2-alpine
   type: image
@@ -4816,6 +4822,9 @@ sync:
   type: image
 - source: library/nginx:1.27.2-alpine
   target: stgregistry.suse.com/rancher/mirrored-library-nginx:1.27.2-alpine
+  type: image
+- source: library/nginx:1.29.1-alpine
+  target: stgregistry.suse.com/rancher/mirrored-library-nginx:1.29.1-alpine
   type: image
 - source: library/redis:7.2.9
   target: docker.io/rancher/mirrored-library-redis:7.2.9

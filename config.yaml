@@ -820,6 +820,7 @@ Images:
   - 1.23.2-alpine
   - 1.24.0-alpine
   - 1.27.2-alpine
+  - 1.29.1-alpine
 - SourceImage: library/redis
   Tags:
   - 7.2.9
