@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+	"slices"
 	"strings"
 	"time"
 
@@ -379,9 +380,13 @@ func validateDockerHubRepoExists(errs *[]error, newConfigYaml *config.Config) {
 	accumulator := config.NewImageAccumulator()
 	accumulator.AddImages(oldConfigYaml.Images...)
 	for _, newImage := range newConfigYaml.Images {
-		if !accumulator.Contains(newImage) {
-			newImages = append(newImages, newImage)
+		if accumulator.Contains(newImage) {
+			continue
 		}
+		if len(newImage.TargetRepositories) > 0 && !slices.Contains(newImage.TargetRepositories, "docker.io/rancher") {
+			continue
+		}
+		newImages = append(newImages, newImage)
 	}
 	if len(newImages) == 0 {
 		return
