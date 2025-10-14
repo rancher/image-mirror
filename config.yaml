@@ -95,8 +95,6 @@ Images:
   - v0.8.3
 - SourceImage: dp.apps.rancher.io/charts/kubernetes-cluster-autoscaler
   Tags:
-  - 9.44.0
-  - 9.46.6
   - 9.50.1
   TargetRepositories:
   - registry.suse.com/rancher
