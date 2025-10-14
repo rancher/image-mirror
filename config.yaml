@@ -425,11 +425,13 @@ Images:
 - SourceImage: ghcr.io/kube-logging/fluentd
   Tags:
   - v1.16-4.10-full
+  - v1.16-4.11-full
   - v1.16-4.8-full
   - v1.16-ruby3.3-full-build.140
 - SourceImage: ghcr.io/kube-logging/logging-operator
   Tags:
   - 4.10.0
+  - 4.11.4
   - 4.4.0
   - 4.8.0
   - 4.9.1
