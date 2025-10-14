@@ -2387,23 +2387,28 @@ Images:
 - SourceImage: quay.io/jetstack/cert-manager-controller
   Tags:
   - v0.8.1
-- SourceImage: quay.io/k8scsi/csi-attacher
+- DoNotMirror: true
+  SourceImage: quay.io/k8scsi/csi-attacher
   Tags:
   - v3.0.0
   - v3.1.0
-- SourceImage: quay.io/k8scsi/csi-node-driver-registrar
+- DoNotMirror: true
+  SourceImage: quay.io/k8scsi/csi-node-driver-registrar
   Tags:
   - v2.0.1
   - v2.1.0
-- SourceImage: quay.io/k8scsi/csi-provisioner
+- DoNotMirror: true
+  SourceImage: quay.io/k8scsi/csi-provisioner
   Tags:
   - v2.0.0
   - v2.1.0
-- SourceImage: quay.io/k8scsi/csi-resizer
+- DoNotMirror: true
+  SourceImage: quay.io/k8scsi/csi-resizer
   Tags:
   - v1.0.0
   - v1.1.0
-- SourceImage: quay.io/k8scsi/livenessprobe
+- DoNotMirror: true
+  SourceImage: quay.io/k8scsi/livenessprobe
   Tags:
   - v2.1.0
   - v2.2.0
