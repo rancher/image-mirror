@@ -572,20 +572,8 @@ sync:
 - source: directxman12/k8s-prometheus-adapter-amd64:v0.8.3
   target: stgregistry.suse.com/rancher/mirrored-directxman12-k8s-prometheus-adapter-amd64:v0.8.3
   type: image
-- source: dp.apps.rancher.io/charts/kubernetes-cluster-autoscaler:9.44.0
-  target: registry.suse.com/rancher/appco-kubernetes-cluster-autoscaler:9.44.0
-  type: image
-- source: dp.apps.rancher.io/charts/kubernetes-cluster-autoscaler:9.46.6
-  target: registry.suse.com/rancher/appco-kubernetes-cluster-autoscaler:9.46.6
-  type: image
 - source: dp.apps.rancher.io/charts/kubernetes-cluster-autoscaler:9.50.1
   target: registry.suse.com/rancher/appco-kubernetes-cluster-autoscaler:9.50.1
-  type: image
-- source: dp.apps.rancher.io/charts/kubernetes-cluster-autoscaler:9.44.0
-  target: stgregistry.suse.com/rancher/appco-kubernetes-cluster-autoscaler:9.44.0
-  type: image
-- source: dp.apps.rancher.io/charts/kubernetes-cluster-autoscaler:9.46.6
-  target: stgregistry.suse.com/rancher/appco-kubernetes-cluster-autoscaler:9.46.6
   type: image
 - source: dp.apps.rancher.io/charts/kubernetes-cluster-autoscaler:9.50.1
   target: stgregistry.suse.com/rancher/appco-kubernetes-cluster-autoscaler:9.50.1
