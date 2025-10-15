@@ -23,8 +23,9 @@ type Repository struct {
 	// "mirrored-rancher-cis-operator" and a BaseUrl of "docker.io/rancher"
 	// produce a target image ref of "docker.io/rancher/mirrored-rancher-cis-operator".
 	BaseUrl string
-	// Whether the repository should have images mirrored to it.
-	Target bool
+	// Whether the Repository is used as a target repository for a given
+	// Image when the TargetRepositories field of the Image is not set.
+	DefaultTarget bool
 	// Password is what goes into the "pass" field of regsync.yaml
 	// for this repository. For more information please see
 	// https://github.com/regclient/regclient/blob/main/docs/regsync.md
