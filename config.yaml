@@ -3039,7 +3039,7 @@ Repositories:
   RepoAuth: true
   Username: '{{ env "PRIME_USERNAME" }}'
 - BaseUrl: registry.suse.com/rancher/charts
-  DefaultTarget: true
+  DefaultTarget: false
   Password: '{{ env "PRIME_PASSWORD" }}'
   Registry: registry.suse.com
   RepoAuth: true
@@ -3051,7 +3051,7 @@ Repositories:
   RepoAuth: true
   Username: '{{ env "PRIME_STAGING_USERNAME" }}'
 - BaseUrl: stgregistry.suse.com/rancher/charts
-  DefaultTarget: true
+  DefaultTarget: false
   Password: '{{ env "PRIME_STAGING_PASSWORD" }}'
   Registry: stgregistry.suse.com
   RepoAuth: true
