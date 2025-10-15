@@ -133,7 +133,7 @@ func (image *Image) CombineSourceImageAndTags() []string {
 func (image *Image) ToRegsyncImages(repositories []Repository) ([]regsync.ConfigSync, error) {
 	entries := make([]regsync.ConfigSync, 0)
 	for _, repository := range repositories {
-		if !repository.Target {
+		if !repository.Target && len(image.TargetRepositories) == 0 {
 			continue
 		}
 		if len(image.TargetRepositories) > 0 && !slices.Contains(image.TargetRepositories, repository.BaseUrl) {
