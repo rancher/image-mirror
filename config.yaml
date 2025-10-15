@@ -3055,4 +3055,4 @@ Repositories:
   Password: '{{ env "PRIME_STAGING_PASSWORD" }}'
   Registry: stgregistry.suse.com
   RepoAuth: true
-  Username: ""
+  Username: '{{ env "PRIME_STAGING_USERNAME" }}'
