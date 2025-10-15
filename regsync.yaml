@@ -27,7 +27,7 @@ creds:
 - pass: '{{ env "PRIME_STAGING_PASSWORD" }}'
   registry: stgregistry.suse.com
   repoAuth: true
-  user: ""
+  user: '{{ env "PRIME_STAGING_USERNAME" }}'
 defaults:
   userAgent: rancher-image-mirror
 sync:
