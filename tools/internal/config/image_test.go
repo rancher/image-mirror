@@ -10,34 +10,6 @@ import (
 
 func TestImage(t *testing.T) {
 	t.Run("ToRegsyncConfig", func(t *testing.T) {
-		t.Run("should exclude repos with Target: false from sync entries", func(t *testing.T) {
-			image, err := NewImage("test-org/image1", []string{"v1.0.0"}, "", nil, nil)
-			assert.NoError(t, err)
-			repositories := []Repository{
-				{
-					BaseUrl:  "docker.io/target-repo",
-					Target:   true,
-					Username: "target-user",
-					Password: "target-pass",
-					Registry: "docker.io",
-				},
-				{
-					BaseUrl:  "docker.io/non-target-repo",
-					Target:   false,
-					Username: "non-target-user",
-					Password: "non-target-pass",
-					Registry: "docker.io",
-				},
-			}
-
-			configEntries, err := image.ToRegsyncImages(repositories)
-			assert.NoError(t, err)
-
-			for _, configEntry := range configEntries {
-				assert.True(t, strings.HasPrefix(configEntry.Target, repositories[0].BaseUrl))
-			}
-		})
-
 		t.Run("should exclude images with same source and target", func(t *testing.T) {
 			type TestCase struct {
 				Name            string
@@ -90,8 +62,8 @@ func TestImage(t *testing.T) {
 					assert.NoError(t, err)
 					repositories := []Repository{
 						{
-							BaseUrl: testCase.BaseUrl,
-							Target:  true,
+							BaseUrl:       testCase.BaseUrl,
+							DefaultTarget: true,
 						},
 					}
 
@@ -109,54 +81,59 @@ func TestImage(t *testing.T) {
 			}
 		})
 
-		t.Run("should target all repositories when TargetRepositories is empty", func(t *testing.T) {
-			tags := []string{"v1.0.0"}
-			image, err := NewImage("test-org/image", tags, "", nil, nil)
+		t.Run("should only target repos with DefaultTarget set to true when TargetRepositories is not specified", func(t *testing.T) {
+			image, err := NewImage("test-org/image1", []string{"v1.0.0"}, "", nil, nil)
 			assert.NoError(t, err)
 			repositories := []Repository{
 				{
-					BaseUrl: "some.site/registry",
-					Target:  true,
+					BaseUrl:       "docker.io/target-repo",
+					DefaultTarget: true,
 				},
 				{
-					BaseUrl: "some.other.site/registry",
-					Target:  true,
+					BaseUrl:       "docker.io/non-target-repo",
+					DefaultTarget: false,
 				},
 			}
 
 			configEntries, err := image.ToRegsyncImages(repositories)
 			assert.NoError(t, err)
 
-			assert.Len(t, configEntries, len(tags)*len(repositories))
-			for _, configEntry := range configEntries {
-				matchesIndex0 := strings.HasPrefix(configEntry.Target, repositories[0].BaseUrl)
-				matchesIndex1 := strings.HasPrefix(configEntry.Target, repositories[1].BaseUrl)
-				assert.True(t, matchesIndex0 || matchesIndex1)
-			}
+			assert.Len(t, configEntries, 1)
+			assert.True(t, strings.HasPrefix(configEntries[0].Target, repositories[0].BaseUrl))
 		})
 
-		t.Run("should target only specified repositories when TargetRepositories is specified", func(t *testing.T) {
-			tags := []string{"v1.0.0"}
-			targetRepositories := []string{"some.site/registry"}
-			image, err := NewImage("test-org/image", tags, "", nil, targetRepositories)
-			assert.NoError(t, err)
+		t.Run("should target only repositories specified by TargetRepositories, including ones with DefaultTarget: false", func(t *testing.T) {
 			repositories := []Repository{
 				{
-					BaseUrl: targetRepositories[0],
-					Target:  true,
+					BaseUrl:       "site0.com/registry",
+					DefaultTarget: true,
 				},
 				{
-					BaseUrl: "some.other.site/registry",
-					Target:  true,
+					BaseUrl:       "site1.com/registry",
+					DefaultTarget: false,
+				},
+				{
+					BaseUrl:       "site2.com/registry",
+					DefaultTarget: true,
+				},
+				{
+					BaseUrl:       "site3.com/registry",
+					DefaultTarget: false,
 				},
 			}
+			tags := []string{"v1.0.0"}
+			targetRepositories := []string{"site0.com/registry", "site1.com/registry"}
+			image, err := NewImage("test-org/image", tags, "", nil, targetRepositories)
+			assert.NoError(t, err)
 
 			configEntries, err := image.ToRegsyncImages(repositories)
 			assert.NoError(t, err)
 
 			assert.Len(t, configEntries, len(tags)*len(targetRepositories))
 			for _, configEntry := range configEntries {
-				assert.True(t, strings.HasPrefix(configEntry.Target, targetRepositories[0]))
+				matches0 := strings.HasPrefix(configEntry.Target, targetRepositories[0])
+				matches1 := strings.HasPrefix(configEntry.Target, targetRepositories[1])
+				assert.True(t, matches0 || matches1)
 			}
 		})
 	})

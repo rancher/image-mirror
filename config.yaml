@@ -97,8 +97,8 @@ Images:
   Tags:
   - 9.50.1
   TargetRepositories:
-  - registry.suse.com/rancher
-  - stgregistry.suse.com/rancher
+  - registry.suse.com/rancher/charts
+  - stgregistry.suse.com/rancher/charts
 - SourceImage: dp.apps.rancher.io/containers/k8s-sidecar
   Tags:
   - 1.30.7-11.3
@@ -3017,30 +3017,42 @@ Images:
   TargetImageName: mirrored-kubernetes-external-dns
 Repositories:
 - BaseUrl: docker.io/rancher
+  DefaultTarget: true
   Password: '{{ env "DOCKER_PASSWORD" }}'
   Registry: docker.io
   RepoAuth: true
-  Target: true
   Username: '{{ env "DOCKER_USERNAME" }}'
 - BaseUrl: dp.apps.rancher.io/charts
+  DefaultTarget: false
   Password: '{{ env "APPCO_PASSWORD" }}'
   Registry: dp.apps.rancher.io
-  Target: false
   Username: '{{ env "APPCO_USERNAME" }}'
 - BaseUrl: dp.apps.rancher.io/containers
+  DefaultTarget: false
   Password: '{{ env "APPCO_PASSWORD" }}'
   Registry: dp.apps.rancher.io
-  Target: false
   Username: '{{ env "APPCO_USERNAME" }}'
 - BaseUrl: registry.suse.com/rancher
+  DefaultTarget: true
   Password: '{{ env "PRIME_PASSWORD" }}'
   Registry: registry.suse.com
   RepoAuth: true
-  Target: true
+  Username: '{{ env "PRIME_USERNAME" }}'
+- BaseUrl: registry.suse.com/rancher/charts
+  DefaultTarget: false
+  Password: '{{ env "PRIME_PASSWORD" }}'
+  Registry: registry.suse.com
+  RepoAuth: true
   Username: '{{ env "PRIME_USERNAME" }}'
 - BaseUrl: stgregistry.suse.com/rancher
+  DefaultTarget: true
   Password: '{{ env "PRIME_STAGING_PASSWORD" }}'
   Registry: stgregistry.suse.com
   RepoAuth: true
-  Target: true
+  Username: '{{ env "PRIME_STAGING_USERNAME" }}'
+- BaseUrl: stgregistry.suse.com/rancher/charts
+  DefaultTarget: false
+  Password: '{{ env "PRIME_STAGING_PASSWORD" }}'
+  Registry: stgregistry.suse.com
+  RepoAuth: true
   Username: '{{ env "PRIME_STAGING_USERNAME" }}'

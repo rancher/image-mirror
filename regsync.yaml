@@ -16,6 +16,14 @@ creds:
   registry: registry.suse.com
   repoAuth: true
   user: '{{ env "PRIME_USERNAME" }}'
+- pass: '{{ env "PRIME_PASSWORD" }}'
+  registry: registry.suse.com
+  repoAuth: true
+  user: '{{ env "PRIME_USERNAME" }}'
+- pass: '{{ env "PRIME_STAGING_PASSWORD" }}'
+  registry: stgregistry.suse.com
+  repoAuth: true
+  user: '{{ env "PRIME_STAGING_USERNAME" }}'
 - pass: '{{ env "PRIME_STAGING_PASSWORD" }}'
   registry: stgregistry.suse.com
   repoAuth: true
@@ -573,10 +581,10 @@ sync:
   target: stgregistry.suse.com/rancher/mirrored-directxman12-k8s-prometheus-adapter-amd64:v0.8.3
   type: image
 - source: dp.apps.rancher.io/charts/kubernetes-cluster-autoscaler:9.50.1
-  target: registry.suse.com/rancher/appco-kubernetes-cluster-autoscaler:9.50.1
+  target: registry.suse.com/rancher/charts/appco-kubernetes-cluster-autoscaler:9.50.1
   type: image
 - source: dp.apps.rancher.io/charts/kubernetes-cluster-autoscaler:9.50.1
-  target: stgregistry.suse.com/rancher/appco-kubernetes-cluster-autoscaler:9.50.1
+  target: stgregistry.suse.com/rancher/charts/appco-kubernetes-cluster-autoscaler:9.50.1
   type: image
 - source: dp.apps.rancher.io/containers/k8s-sidecar:1.30.7-11.3
   target: docker.io/rancher/appco-k8s-sidecar:1.30.7-11.3

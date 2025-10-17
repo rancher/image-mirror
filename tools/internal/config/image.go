@@ -32,10 +32,10 @@ type Image struct {
 	SpecifiedTargetImageName string `json:"TargetImageName,omitempty"`
 	// The tags that we want to mirror.
 	Tags []string
-	// The Repositories that you want to limit mirroring to. Repositories
+	// The Repositories that you want to mirror the Image to. Repositories
 	// are specified via their BaseUrl field. If TargetRepositories is not
 	// specified, the Image is mirrored to all Repositories that have
-	// their Target field set to true.
+	// DefaultTarget set to true.
 	TargetRepositories []string `json:",omitempty"`
 }
 
@@ -133,7 +133,7 @@ func (image *Image) CombineSourceImageAndTags() []string {
 func (image *Image) ToRegsyncImages(repositories []Repository) ([]regsync.ConfigSync, error) {
 	entries := make([]regsync.ConfigSync, 0)
 	for _, repository := range repositories {
-		if !repository.Target {
+		if !repository.DefaultTarget && len(image.TargetRepositories) == 0 {
 			continue
 		}
 		if len(image.TargetRepositories) > 0 && !slices.Contains(image.TargetRepositories, repository.BaseUrl) {

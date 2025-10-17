@@ -78,7 +78,7 @@ This section roughly correlates to the `creds` section of `regsync.yaml`.
 | `Password` | yes | The password to use when authenticating against the registry. See [the regsync documentation](https://regclient.org/usage/regsync/) for more details.
 | `Registry` | yes | The registry URL. See [the regsync documentation](https://regclient.org/usage/regsync/) for more details.
 | `ReqConcurrent` | no | The number of concurrent requests that are made to this registry. See [the regsync documentation](https://regclient.org/usage/regsync/) for more details.
-| `Target` | no | When `true`, denotes a target repository. This means that all images will be mirrored to this repository.
+| `DefaultTarget` | no | Whether the Repository is used as a target repository for a given Image when the `TargetRepositories` field of the Image is not set.
 | `Username` | yes | The username to use when authenticating against the registry. See [the regsync documentation](https://regclient.org/usage/regsync/) for more details.
 
 #### `Images`
@@ -92,7 +92,7 @@ repository.
 | `SourceImage` | yes | The source image. If there is no host, the image is assumed to be from Docker Hub.
 | `Tags` | yes | The tags to mirror.
 | `TargetImageName` | no | By default, the target image name is derived from the source image, and is of the format `mirrored-<org>-<name>`. For example, `banzaicloud/logging-operator` becomes `mirrored-banzaicloud-logging-operator`. However, there are some images that do not follow this convention - this field exists for these cases. New images should not set this field.
-| `TargetRepositories` | no | Repositories to mirror the image to. Repositories are specified via their BaseUrl field. If not specified, the Image is mirrored to all Repositories that have their Target field set to true.
+| `TargetRepositories` | no | Repositories to mirror the image to. Repositories are specified via their `BaseUrl` field. If not specified, the Image is mirrored to all Repositories that have `DefaultTarget` set to true.
 
 ### `autoupdate.yaml`
 
