@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"regexp"
 
 	"github.com/Masterminds/semver/v3"
 	"github.com/google/go-github/v76/github"
@@ -15,11 +16,17 @@ import (
 // It returns the configured Images with this tag.
 // It assumes that the images have the same tags as the github releases.
 type GithubRelease struct {
-	Owner             string
-	Repository        string
-	Images            []AutoupdateImageRef
-	LatestOnly        bool   `json:",omitempty"`
-	VersionConstraint string `json:",omitempty"`
+	Owner                     string
+	Repository                string
+	Images                    []AutoupdateImageRef
+	LatestOnly                bool                `json:",omitempty"`
+	VersionConstraint         string              `json:",omitempty"`
+	compiledVersionConstraint *semver.Constraints `json:"-"`
+	// Only tags matching VersionRegex will be considered. If VersionRegex
+	// contains a match group, the contents of the match group will be
+	// used as the version.
+	VersionRegex         string         `json:",omitempty"`
+	compiledVersionRegex *regexp.Regexp `json:"-"`
 }
 
 func (gr *GithubRelease) GetUpdateImages() ([]*config.Image, error) {
@@ -27,13 +34,13 @@ func (gr *GithubRelease) GetUpdateImages() ([]*config.Image, error) {
 
 	var tags []string
 	if gr.LatestOnly {
-		latestTag, err := gr.getTagFromLatestRelease(client)
+		latestTag, err := gr.getVersionFromLatestRelease(client)
 		if err != nil {
 			return nil, fmt.Errorf("failed to get tag from latest github release: %w", err)
 		}
 		tags = append(tags, latestTag)
 	} else {
-		ghTags, err := gr.getTagsFromAllReleases(client)
+		ghTags, err := gr.getVersionsFromAllReleases(client)
 		if err != nil {
 			return nil, fmt.Errorf("failed to get tags from github releases: %w", err)
 		}
@@ -51,18 +58,9 @@ func (gr *GithubRelease) GetUpdateImages() ([]*config.Image, error) {
 	return images, nil
 }
 
-func (gr *GithubRelease) getTagsFromAllReleases(client *github.Client) ([]string, error) {
-	var constraint *semver.Constraints
-	if gr.VersionConstraint != "" {
-		var err error
-		constraint, err = semver.NewConstraint(gr.VersionConstraint)
-		if err != nil {
-			return nil, fmt.Errorf("error parsing version constraint: %w", err)
-		}
-	}
-
+func (gr *GithubRelease) getVersionsFromAllReleases(client *github.Client) ([]string, error) {
 	opt := &github.ListOptions{}
-	var tags []string
+	var versions []string
 	for {
 		releases, resp, err := client.Repositories.ListReleases(context.Background(), gr.Owner, gr.Repository, opt)
 		if err != nil {
@@ -73,18 +71,15 @@ func (gr *GithubRelease) getTagsFromAllReleases(client *github.Client) ([]string
 			if release.GetPrerelease() || release.GetDraft() {
 				continue
 			}
-			if constraint != nil {
-				version, err := semver.NewVersion(release.GetTagName())
-				if err != nil {
-					return nil, fmt.Errorf("error parsing release version: %w", err)
-				}
-
-				//check if tag matches the constraint
-				if !constraint.Check(version) {
-					continue
-				}
+			tag := release.GetTagName()
+			version, err := gr.processTagToVersion(tag)
+			if err != nil {
+				return nil, fmt.Errorf("failed to process tag into version: %w", err)
 			}
-			tags = append(tags, release.GetTagName())
+			if version == "" {
+				continue
+			}
+			versions = append(versions, version)
 		}
 
 		if resp.NextPage == 0 {
@@ -93,16 +88,45 @@ func (gr *GithubRelease) getTagsFromAllReleases(client *github.Client) ([]string
 		opt.Page = resp.NextPage
 	}
 
-	return tags, nil
+	return versions, nil
 }
 
-func (gr *GithubRelease) getTagFromLatestRelease(client *github.Client) (string, error) {
+func (gr *GithubRelease) getVersionFromLatestRelease(client *github.Client) (string, error) {
 	release, _, err := client.Repositories.GetLatestRelease(context.Background(), gr.Owner, gr.Repository)
 	if err != nil {
 		return "", fmt.Errorf("failed to get latest release: %w", err)
 	}
+	tag := release.GetTagName()
+	version, err := gr.processTagToVersion(tag)
+	if err != nil {
+		return "", fmt.Errorf("failed to process tag into version: %w", err)
+	}
+	return version, nil
+}
 
-	return release.GetTagName(), nil
+func (gr *GithubRelease) processTagToVersion(tag string) (string, error) {
+	version := tag
+	if gr.VersionRegex != "" {
+		matches := gr.compiledVersionRegex.FindStringSubmatch(tag)
+		switch len(matches) {
+		case 0:
+			return "", nil
+		case 1:
+			version = matches[0]
+		default:
+			version = matches[1]
+		}
+	}
+	if gr.VersionConstraint != "" {
+		version, err := semver.NewVersion(version)
+		if err != nil {
+			return "", fmt.Errorf("error parsing release version: %w", err)
+		}
+		if !gr.compiledVersionConstraint.Check(version) {
+			return "", nil
+		}
+	}
+	return version, nil
 }
 
 func (gr *GithubRelease) Validate() error {
@@ -121,10 +145,18 @@ func (gr *GithubRelease) Validate() error {
 		return errors.New("must not specify VersionConstraint when LatestOnly=true")
 	}
 	if gr.VersionConstraint != "" {
-		_, err := semver.NewConstraint(gr.VersionConstraint)
+		compiledVersionConstraint, err := semver.NewConstraint(gr.VersionConstraint)
 		if err != nil {
 			return fmt.Errorf("invalid VersionConstraint: %w", err)
 		}
+		gr.compiledVersionConstraint = compiledVersionConstraint
+	}
+	if gr.VersionRegex != "" {
+		compiledVersionRegex, err := regexp.Compile(gr.VersionRegex)
+		if err != nil {
+			return fmt.Errorf("invalid VersionRegex: %w", err)
+		}
+		gr.compiledVersionRegex = compiledVersionRegex
 	}
 	return nil
 }
