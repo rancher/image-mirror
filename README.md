@@ -120,8 +120,9 @@ If LatestOnly is true, it only fetches from the latest release and does not cons
 | `Owner`             | yes      | The GitHub repository owner/organization.
 | `Repository`        | yes      | The GitHub repository name.
 | `Images`            | yes      | See [`Images`](#images).
-| `LatestOnly`        | no       | A flag to only fetch the latest github release.
+| `LatestOnly`        | no       | If true, get only the tag from the latest github release.
 | `VersionConstraint` | no       | A SemVer constraint used to filter the github releases.
+| `VersionRegex`      | no       | If specified, only matching release tags will be considered. If a capture group is present, only its contents will be passed on.
 
 ##### `Images`
 

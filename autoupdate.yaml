@@ -71,6 +71,7 @@
     LatestOnly: true
     Owner: coredns
     Repository: coredns
+    VersionRegex: ^v(.*)
   Name: coredns
   Reviewers:
   - rancher/k3s-networking
