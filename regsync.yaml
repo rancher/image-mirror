@@ -9,21 +9,10 @@ creds:
 - pass: '{{ env "APPCO_PASSWORD" }}'
   registry: dp.apps.rancher.io
   user: '{{ env "APPCO_USERNAME" }}'
-- pass: '{{ env "APPCO_PASSWORD" }}'
-  registry: dp.apps.rancher.io
-  user: '{{ env "APPCO_USERNAME" }}'
 - pass: '{{ env "PRIME_PASSWORD" }}'
   registry: registry.suse.com
   repoAuth: true
   user: '{{ env "PRIME_USERNAME" }}'
-- pass: '{{ env "PRIME_PASSWORD" }}'
-  registry: registry.suse.com
-  repoAuth: true
-  user: '{{ env "PRIME_USERNAME" }}'
-- pass: '{{ env "PRIME_STAGING_PASSWORD" }}'
-  registry: stgregistry.suse.com
-  repoAuth: true
-  user: '{{ env "PRIME_STAGING_USERNAME" }}'
 - pass: '{{ env "PRIME_STAGING_PASSWORD" }}'
   registry: stgregistry.suse.com
   repoAuth: true
