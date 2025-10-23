@@ -1808,6 +1808,7 @@ Images:
   - v3.30.2
   - v3.30.3
   - v3.30.4
+  - v3.31.0
 - SourceImage: quay.io/calico/node
   Tags:
   - v3.16.5
