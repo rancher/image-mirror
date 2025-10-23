@@ -188,6 +188,7 @@ func (image *Image) DeepCopy() *Image {
 		excludeAllTags:           image.excludeAllTags,
 		excludedTags:             maps.Clone(image.excludedTags),
 		Tags:                     slices.Clone(image.Tags),
+		TargetRepositories:       slices.Clone(image.TargetRepositories),
 	}
 	return copiedImage
 }

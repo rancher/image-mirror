@@ -278,6 +278,7 @@ func TestImage(t *testing.T) {
 			assert.Equal(t, original.Tags, copy.Tags)
 			assert.Equal(t, original.excludeAllTags, copy.excludeAllTags)
 			assert.Equal(t, original.excludedTags, copy.excludedTags)
+			assert.Equal(t, original.TargetRepositories, copy.TargetRepositories)
 		})
 	})
 }
