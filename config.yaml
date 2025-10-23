@@ -1937,6 +1937,7 @@ Images:
   - v3.30.2
   - v3.30.3
   - v3.30.4
+  - v3.31.0
 - SourceImage: quay.io/calico/typha
   Tags:
   - v3.18.1
