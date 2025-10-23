@@ -1590,6 +1590,7 @@ Images:
   - v3.30.2
   - v3.30.3
   - v3.30.4
+  - v3.31.0
 - SourceImage: quay.io/calico/cni
   Tags:
   - v3.16.5
@@ -1644,6 +1645,7 @@ Images:
   - v3.30.2
   - v3.30.3
   - v3.30.4
+  - v3.31.0
 - SourceImage: quay.io/calico/csi
   Tags:
   - v3.27.0
@@ -1662,6 +1664,7 @@ Images:
   - v3.30.2
   - v3.30.3
   - v3.30.4
+  - v3.31.0
 - SourceImage: quay.io/calico/ctl
   Tags:
   - v3.16.5
@@ -1718,6 +1721,7 @@ Images:
   - v3.30.2
   - v3.30.3
   - v3.30.4
+  - v3.31.0
 - SourceImage: quay.io/calico/envoy-gateway
   Tags:
   - v3.30.0
@@ -1725,6 +1729,7 @@ Images:
   - v3.30.2
   - v3.30.3
   - v3.30.4
+  - v3.31.0
 - SourceImage: quay.io/calico/envoy-proxy
   Tags:
   - v3.30.0
@@ -1732,6 +1737,7 @@ Images:
   - v3.30.2
   - v3.30.3
   - v3.30.4
+  - v3.31.0
 - SourceImage: quay.io/calico/envoy-ratelimit
   Tags:
   - v3.30.0
@@ -1739,6 +1745,7 @@ Images:
   - v3.30.2
   - v3.30.3
   - v3.30.4
+  - v3.31.0
 - SourceImage: quay.io/calico/goldmane
   Tags:
   - v3.30.0
@@ -1746,6 +1753,7 @@ Images:
   - v3.30.2
   - v3.30.3
   - v3.30.4
+  - v3.31.0
 - SourceImage: quay.io/calico/kube-controllers
   Tags:
   - v3.16.5
@@ -1800,6 +1808,7 @@ Images:
   - v3.30.2
   - v3.30.3
   - v3.30.4
+  - v3.31.0
 - SourceImage: quay.io/calico/node
   Tags:
   - v3.16.5
@@ -1854,6 +1863,7 @@ Images:
   - v3.30.2
   - v3.30.3
   - v3.30.4
+  - v3.31.0
 - SourceImage: quay.io/calico/node-driver-registrar
   Tags:
   - v3.27.0
@@ -1872,6 +1882,7 @@ Images:
   - v3.30.2
   - v3.30.3
   - v3.30.4
+  - v3.31.0
 - SourceImage: quay.io/calico/pod2daemon-flexvol
   Tags:
   - v3.16.5
@@ -1926,6 +1937,7 @@ Images:
   - v3.30.2
   - v3.30.3
   - v3.30.4
+  - v3.31.0
 - SourceImage: quay.io/calico/typha
   Tags:
   - v3.18.1
@@ -1968,6 +1980,7 @@ Images:
   - v3.30.2
   - v3.30.3
   - v3.30.4
+  - v3.31.0
 - SourceImage: quay.io/calico/whisker
   Tags:
   - v3.30.0
@@ -1975,6 +1988,7 @@ Images:
   - v3.30.2
   - v3.30.3
   - v3.30.4
+  - v3.31.0
 - SourceImage: quay.io/calico/whisker-backend
   Tags:
   - v3.30.0
@@ -1982,6 +1996,7 @@ Images:
   - v3.30.2
   - v3.30.3
   - v3.30.4
+  - v3.31.0
 - SourceImage: quay.io/cilium/certgen
   Tags:
   - v0.1.11
