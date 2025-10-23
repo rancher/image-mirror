@@ -1,7 +1,9 @@
 package config
 
 import (
+	"cmp"
 	"fmt"
+	"maps"
 	"os"
 	"slices"
 	"strings"
@@ -103,6 +105,7 @@ func (config *Config) ToRegsyncConfig() (regsync.Config, error) {
 		Sync: make([]regsync.ConfigSync, 0),
 	}
 
+	credsMap := map[regsync.ConfigCred]struct{}{}
 	for _, targetRepository := range config.Repositories {
 		credEntry := regsync.ConfigCred{
 			Pass:          targetRepository.Password,
@@ -111,8 +114,14 @@ func (config *Config) ToRegsyncConfig() (regsync.Config, error) {
 			ReqConcurrent: targetRepository.ReqConcurrent,
 			User:          targetRepository.Username,
 		}
-		regsyncYaml.Creds = append(regsyncYaml.Creds, credEntry)
+		if _, ok := credsMap[credEntry]; ok {
+			continue
+		}
+		credsMap[credEntry] = struct{}{}
 	}
+	regsyncYaml.Creds = slices.SortedStableFunc(maps.Keys(credsMap), func(a, b regsync.ConfigCred) int {
+		return cmp.Compare(a.Registry, b.Registry)
+	})
 
 	for _, image := range config.Images {
 		syncEntries, err := image.ToRegsyncImages(config.Repositories)
