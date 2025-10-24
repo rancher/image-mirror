@@ -2168,6 +2168,7 @@ Images:
   - v1.18.0
   - v1.18.1
   - v1.18.2
+  - v1.18.3
 - SourceImage: quay.io/cilium/hubble-ui
   Tags:
   - v0.10.0
