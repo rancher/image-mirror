@@ -2917,6 +2917,7 @@ Images:
   - v1.9.0
   - v1.9.1
   - v1.9.2
+  - v2.0.0
 - SourceImage: registry.k8s.io/sig-storage/csi-snapshotter
   Tags:
   - v5.0.1
