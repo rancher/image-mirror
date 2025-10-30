@@ -20558,6 +20558,9 @@ sync:
 - source: registry.k8s.io/sig-storage/snapshot-controller:v8.2.0
   target: docker.io/rancher/mirrored-sig-storage-snapshot-controller:v8.2.0
   type: image
+- source: registry.k8s.io/sig-storage/snapshot-controller:v8.4.0
+  target: docker.io/rancher/mirrored-sig-storage-snapshot-controller:v8.4.0
+  type: image
 - source: registry.k8s.io/sig-storage/snapshot-controller:v6.1.0
   target: registry.suse.com/rancher/mirrored-sig-storage-snapshot-controller:v6.1.0
   type: image
@@ -20570,6 +20573,9 @@ sync:
 - source: registry.k8s.io/sig-storage/snapshot-controller:v8.2.0
   target: registry.suse.com/rancher/mirrored-sig-storage-snapshot-controller:v8.2.0
   type: image
+- source: registry.k8s.io/sig-storage/snapshot-controller:v8.4.0
+  target: registry.suse.com/rancher/mirrored-sig-storage-snapshot-controller:v8.4.0
+  type: image
 - source: registry.k8s.io/sig-storage/snapshot-controller:v6.1.0
   target: stgregistry.suse.com/rancher/mirrored-sig-storage-snapshot-controller:v6.1.0
   type: image
@@ -20581,6 +20587,9 @@ sync:
   type: image
 - source: registry.k8s.io/sig-storage/snapshot-controller:v8.2.0
   target: stgregistry.suse.com/rancher/mirrored-sig-storage-snapshot-controller:v8.2.0
+  type: image
+- source: registry.k8s.io/sig-storage/snapshot-controller:v8.4.0
+  target: stgregistry.suse.com/rancher/mirrored-sig-storage-snapshot-controller:v8.4.0
   type: image
 - source: registry.k8s.io/sig-storage/snapshot-validation-webhook:v6.1.0
   target: docker.io/rancher/mirrored-sig-storage-snapshot-validation-webhook:v6.1.0
