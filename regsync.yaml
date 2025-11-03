@@ -18815,8 +18815,14 @@ sync:
 - source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.32.2
   target: docker.io/rancher/mirrored-cloud-pv-vsphere-cloud-provider-vsphere:v1.32.2
   type: image
+- source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.32.3
+  target: docker.io/rancher/mirrored-cloud-pv-vsphere-cloud-provider-vsphere:v1.32.3
+  type: image
 - source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.33.0
   target: docker.io/rancher/mirrored-cloud-pv-vsphere-cloud-provider-vsphere:v1.33.0
+  type: image
+- source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.33.1
+  target: docker.io/rancher/mirrored-cloud-pv-vsphere-cloud-provider-vsphere:v1.33.1
   type: image
 - source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.34.0
   target: docker.io/rancher/mirrored-cloud-pv-vsphere-cloud-provider-vsphere:v1.34.0
@@ -18845,8 +18851,14 @@ sync:
 - source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.32.2
   target: registry.suse.com/rancher/mirrored-cloud-pv-vsphere-cloud-provider-vsphere:v1.32.2
   type: image
+- source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.32.3
+  target: registry.suse.com/rancher/mirrored-cloud-pv-vsphere-cloud-provider-vsphere:v1.32.3
+  type: image
 - source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.33.0
   target: registry.suse.com/rancher/mirrored-cloud-pv-vsphere-cloud-provider-vsphere:v1.33.0
+  type: image
+- source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.33.1
+  target: registry.suse.com/rancher/mirrored-cloud-pv-vsphere-cloud-provider-vsphere:v1.33.1
   type: image
 - source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.34.0
   target: registry.suse.com/rancher/mirrored-cloud-pv-vsphere-cloud-provider-vsphere:v1.34.0
@@ -18875,8 +18887,14 @@ sync:
 - source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.32.2
   target: stgregistry.suse.com/rancher/mirrored-cloud-pv-vsphere-cloud-provider-vsphere:v1.32.2
   type: image
+- source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.32.3
+  target: stgregistry.suse.com/rancher/mirrored-cloud-pv-vsphere-cloud-provider-vsphere:v1.32.3
+  type: image
 - source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.33.0
   target: stgregistry.suse.com/rancher/mirrored-cloud-pv-vsphere-cloud-provider-vsphere:v1.33.0
+  type: image
+- source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.33.1
+  target: stgregistry.suse.com/rancher/mirrored-cloud-pv-vsphere-cloud-provider-vsphere:v1.33.1
   type: image
 - source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.34.0
   target: stgregistry.suse.com/rancher/mirrored-cloud-pv-vsphere-cloud-provider-vsphere:v1.34.0

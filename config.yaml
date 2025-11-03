@@ -2705,7 +2705,9 @@ Images:
   - v1.32.0
   - v1.32.1
   - v1.32.2
+  - v1.32.3
   - v1.33.0
+  - v1.33.1
   - v1.34.0
 - SourceImage: registry.k8s.io/cluster-api/cluster-api-controller
   Tags:
