@@ -10202,17 +10202,26 @@ sync:
 - source: quay.io/brancz/kube-rbac-proxy:v0.18.2
   target: docker.io/rancher/mirrored-brancz-kube-rbac-proxy:v0.18.2
   type: image
+- source: quay.io/brancz/kube-rbac-proxy:v0.19.1
+  target: docker.io/rancher/mirrored-brancz-kube-rbac-proxy:v0.19.1
+  type: image
 - source: quay.io/brancz/kube-rbac-proxy:v0.18.0
   target: registry.suse.com/rancher/mirrored-brancz-kube-rbac-proxy:v0.18.0
   type: image
 - source: quay.io/brancz/kube-rbac-proxy:v0.18.2
   target: registry.suse.com/rancher/mirrored-brancz-kube-rbac-proxy:v0.18.2
   type: image
+- source: quay.io/brancz/kube-rbac-proxy:v0.19.1
+  target: registry.suse.com/rancher/mirrored-brancz-kube-rbac-proxy:v0.19.1
+  type: image
 - source: quay.io/brancz/kube-rbac-proxy:v0.18.0
   target: stgregistry.suse.com/rancher/mirrored-brancz-kube-rbac-proxy:v0.18.0
   type: image
 - source: quay.io/brancz/kube-rbac-proxy:v0.18.2
   target: stgregistry.suse.com/rancher/mirrored-brancz-kube-rbac-proxy:v0.18.2
+  type: image
+- source: quay.io/brancz/kube-rbac-proxy:v0.19.1
+  target: stgregistry.suse.com/rancher/mirrored-brancz-kube-rbac-proxy:v0.19.1
   type: image
 - source: quay.io/calico/apiserver:v3.20.1
   target: docker.io/rancher/mirrored-calico-apiserver:v3.20.1
