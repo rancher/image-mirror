@@ -17,7 +17,7 @@ import (
 	"github.com/rancher/image-mirror/internal/paths"
 	"github.com/rancher/image-mirror/internal/regsync"
 
-	"github.com/google/go-github/v76/github"
+	"github.com/google/go-github/v77/github"
 	"sigs.k8s.io/yaml"
 )
 

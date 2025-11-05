@@ -17,7 +17,7 @@ import (
 	"github.com/rancher/image-mirror/internal/paths"
 	"github.com/rancher/image-mirror/internal/regsync"
 
-	"github.com/google/go-github/v76/github"
+	"github.com/google/go-github/v77/github"
 	"github.com/urfave/cli/v3"
 	oras "oras.land/oras-go/v2"
 	"oras.land/oras-go/v2/content/oci"
