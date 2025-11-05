@@ -1553,6 +1553,7 @@ Images:
   Tags:
   - v0.18.0
   - v0.18.2
+  - v0.19.1
 - SourceImage: quay.io/calico/apiserver
   Tags:
   - v3.20.1
