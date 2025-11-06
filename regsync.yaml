@@ -581,6 +581,18 @@ sync:
 - source: dp.apps.rancher.io/charts/suse-virtual-cluster-engine:1.0.0
   target: stgregistry.suse.com/rancher/charts/appco-suse-virtual-cluster-engine:1.0.0
   type: image
+- source: dp.apps.rancher.io/containers/k3k:1.0.0-1.1
+  target: registry.suse.com/rancher/appco-k3k:1.0.0-1.1
+  type: image
+- source: dp.apps.rancher.io/containers/k3k:1.0.0-1.1
+  target: stgregistry.suse.com/rancher/appco-k3k:1.0.0-1.1
+  type: image
+- source: dp.apps.rancher.io/containers/k3k-kubelet:1.0.0-1.1
+  target: registry.suse.com/rancher/appco-k3k-kubelet:1.0.0-1.1
+  type: image
+- source: dp.apps.rancher.io/containers/k3k-kubelet:1.0.0-1.1
+  target: stgregistry.suse.com/rancher/appco-k3k-kubelet:1.0.0-1.1
+  type: image
 - source: dp.apps.rancher.io/containers/k8s-sidecar:1.30.7-11.3
   target: docker.io/rancher/appco-k8s-sidecar:1.30.7-11.3
   type: image
@@ -616,18 +628,6 @@ sync:
   type: image
 - source: dp.apps.rancher.io/containers/redis:8.0.3-2.1
   target: stgregistry.suse.com/rancher/appco-redis:8.0.3-2.1
-  type: image
-- source: dp.apps.rancher.io/containers/k3k:1.0.0-1.1
-  target: registry.suse.com/rancher/appco-k3k:1.0.0-1.1
-  type: image
-- source: dp.apps.rancher.io/containers/k3k:1.0.0-1.1
-  target: stgregistry.suse.com/rancher/appco-k3k:1.0.0-1.1
-  type: image
-- source: dp.apps.rancher.io/containers/k3k-kubelet:1.0.0-1.1
-  target: registry.suse.com/rancher/appco-k3k-kubelet:1.0.0-1.1
-  type: image
-- source: dp.apps.rancher.io/containers/k3k-kubelet:1.0.0-1.1
-  target: stgregistry.suse.com/rancher/appco-k3k-kubelet:1.0.0-1.1
   type: image
 - source: flannel/flannel:v0.21.2
   target: docker.io/rancher/mirrored-flannel-flannel:v0.21.2
