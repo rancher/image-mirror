@@ -99,6 +99,12 @@ Images:
   TargetRepositories:
   - registry.suse.com/rancher/charts
   - stgregistry.suse.com/rancher/charts
+- SourceImage: dp.apps.rancher.io/charts/suse-virtual-cluster-engine
+  Tags:
+  - 1.0.0
+  TargetRepositories:
+  - registry.suse.com/rancher/charts
+  - stgregistry.suse.com/rancher/charts
 - SourceImage: dp.apps.rancher.io/containers/k8s-sidecar
   Tags:
   - 1.30.7-11.3
@@ -113,12 +119,6 @@ Images:
 - SourceImage: dp.apps.rancher.io/containers/redis
   Tags:
   - 8.0.3-2.1
-- SourceImage: dp.apps.rancher.io/charts/suse-virtual-cluster-engine
-  Tags:
-  - 1.0.0
-  TargetRepositories:
-  - registry.suse.com/rancher/charts
-  - stgregistry.suse.com/rancher/charts
 - SourceImage: dp.apps.rancher.io/containers/suse-virtual-cluster-engine
   Tags:
   - 1.0.0-1.1
