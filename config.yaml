@@ -105,6 +105,9 @@ Images:
   TargetRepositories:
   - registry.suse.com/rancher/charts
   - stgregistry.suse.com/rancher/charts
+- SourceImage: dp.apps.rancher.io/containers/alertmanager
+  Tags:
+  - 0.28.1-12.7
 - SourceImage: dp.apps.rancher.io/containers/grafana
   Tags:
   - 12.1.1-2.2
