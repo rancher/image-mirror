@@ -105,6 +105,9 @@ Images:
   TargetRepositories:
   - registry.suse.com/rancher/charts
   - stgregistry.suse.com/rancher/charts
+- SourceImage: dp.apps.rancher.io/containers/grafana
+  Tags:
+  - 12.1.1-2.2
 - SourceImage: dp.apps.rancher.io/containers/k3k
   Tags:
   - 1.0.0-1.1
