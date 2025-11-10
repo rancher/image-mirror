@@ -126,6 +126,9 @@ Images:
 - SourceImage: dp.apps.rancher.io/containers/kube-rbac-proxy
   Tags:
   - 0.19.1-15.2
+- SourceImage: dp.apps.rancher.io/containers/kube-state-metrics
+  Tags:
+  - 2.17.0-10.7
 - SourceImage: dp.apps.rancher.io/containers/kubernetes-cluster-autoscaler
   Tags:
   - 1.32.3-1.5
