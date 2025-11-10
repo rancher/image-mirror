@@ -146,6 +146,9 @@ Images:
 - SourceImage: dp.apps.rancher.io/containers/redis
   Tags:
   - 8.0.3-2.1
+- SourceImage: dp.apps.rancher.io/containers/thanos
+  Tags:
+  - 0.39.2-7.3
 - SourceImage: flannel/flannel
   Tags:
   - v0.21.2
