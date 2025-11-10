@@ -128,6 +128,9 @@ Images:
   TargetRepositories:
   - registry.suse.com/rancher
   - stgregistry.suse.com/rancher
+- SourceImage: dp.apps.rancher.io/containers/node-exporter
+  Tags:
+  - 1.9.1-11.3
 - SourceImage: dp.apps.rancher.io/containers/redis
   Tags:
   - 8.0.3-2.1
