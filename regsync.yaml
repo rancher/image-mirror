@@ -602,6 +602,15 @@ sync:
 - source: dp.apps.rancher.io/containers/k8s-sidecar:1.30.7-11.3
   target: stgregistry.suse.com/rancher/appco-k8s-sidecar:1.30.7-11.3
   type: image
+- source: dp.apps.rancher.io/containers/kube-rbac-proxy:0.19.1-15.2
+  target: docker.io/rancher/appco-kube-rbac-proxy:0.19.1-15.2
+  type: image
+- source: dp.apps.rancher.io/containers/kube-rbac-proxy:0.19.1-15.2
+  target: registry.suse.com/rancher/appco-kube-rbac-proxy:0.19.1-15.2
+  type: image
+- source: dp.apps.rancher.io/containers/kube-rbac-proxy:0.19.1-15.2
+  target: stgregistry.suse.com/rancher/appco-kube-rbac-proxy:0.19.1-15.2
+  type: image
 - source: dp.apps.rancher.io/containers/kubernetes-cluster-autoscaler:1.32.3-1.5
   target: registry.suse.com/rancher/appco-kubernetes-cluster-autoscaler:1.32.3-1.5
   type: image
