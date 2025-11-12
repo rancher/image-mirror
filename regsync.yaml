@@ -581,6 +581,24 @@ sync:
 - source: dp.apps.rancher.io/charts/suse-virtual-cluster-engine:1.0.0
   target: stgregistry.suse.com/rancher/charts/appco-suse-virtual-cluster-engine:1.0.0
   type: image
+- source: dp.apps.rancher.io/containers/alertmanager:0.28.1-12.7
+  target: docker.io/rancher/appco-alertmanager:0.28.1-12.7
+  type: image
+- source: dp.apps.rancher.io/containers/alertmanager:0.28.1-12.7
+  target: registry.suse.com/rancher/appco-alertmanager:0.28.1-12.7
+  type: image
+- source: dp.apps.rancher.io/containers/alertmanager:0.28.1-12.7
+  target: stgregistry.suse.com/rancher/appco-alertmanager:0.28.1-12.7
+  type: image
+- source: dp.apps.rancher.io/containers/grafana:12.1.1-2.2
+  target: docker.io/rancher/appco-grafana:12.1.1-2.2
+  type: image
+- source: dp.apps.rancher.io/containers/grafana:12.1.1-2.2
+  target: registry.suse.com/rancher/appco-grafana:12.1.1-2.2
+  type: image
+- source: dp.apps.rancher.io/containers/grafana:12.1.1-2.2
+  target: stgregistry.suse.com/rancher/appco-grafana:12.1.1-2.2
+  type: image
 - source: dp.apps.rancher.io/containers/k3k:1.0.0-1.1
   target: registry.suse.com/rancher/appco-k3k:1.0.0-1.1
   type: image
@@ -602,6 +620,24 @@ sync:
 - source: dp.apps.rancher.io/containers/k8s-sidecar:1.30.7-11.3
   target: stgregistry.suse.com/rancher/appco-k8s-sidecar:1.30.7-11.3
   type: image
+- source: dp.apps.rancher.io/containers/kube-rbac-proxy:0.19.1-15.2
+  target: docker.io/rancher/appco-kube-rbac-proxy:0.19.1-15.2
+  type: image
+- source: dp.apps.rancher.io/containers/kube-rbac-proxy:0.19.1-15.2
+  target: registry.suse.com/rancher/appco-kube-rbac-proxy:0.19.1-15.2
+  type: image
+- source: dp.apps.rancher.io/containers/kube-rbac-proxy:0.19.1-15.2
+  target: stgregistry.suse.com/rancher/appco-kube-rbac-proxy:0.19.1-15.2
+  type: image
+- source: dp.apps.rancher.io/containers/kube-state-metrics:2.17.0-10.7
+  target: docker.io/rancher/appco-kube-state-metrics:2.17.0-10.7
+  type: image
+- source: dp.apps.rancher.io/containers/kube-state-metrics:2.17.0-10.7
+  target: registry.suse.com/rancher/appco-kube-state-metrics:2.17.0-10.7
+  type: image
+- source: dp.apps.rancher.io/containers/kube-state-metrics:2.17.0-10.7
+  target: stgregistry.suse.com/rancher/appco-kube-state-metrics:2.17.0-10.7
+  type: image
 - source: dp.apps.rancher.io/containers/kubernetes-cluster-autoscaler:1.32.3-1.5
   target: registry.suse.com/rancher/appco-kubernetes-cluster-autoscaler:1.32.3-1.5
   type: image
@@ -620,6 +656,15 @@ sync:
 - source: dp.apps.rancher.io/containers/kubernetes-cluster-autoscaler:1.34.0-3.4
   target: stgregistry.suse.com/rancher/appco-kubernetes-cluster-autoscaler:1.34.0-3.4
   type: image
+- source: dp.apps.rancher.io/containers/node-exporter:1.9.1-11.3
+  target: docker.io/rancher/appco-node-exporter:1.9.1-11.3
+  type: image
+- source: dp.apps.rancher.io/containers/node-exporter:1.9.1-11.3
+  target: registry.suse.com/rancher/appco-node-exporter:1.9.1-11.3
+  type: image
+- source: dp.apps.rancher.io/containers/node-exporter:1.9.1-11.3
+  target: stgregistry.suse.com/rancher/appco-node-exporter:1.9.1-11.3
+  type: image
 - source: dp.apps.rancher.io/containers/redis:8.0.3-2.1
   target: docker.io/rancher/appco-redis:8.0.3-2.1
   type: image
@@ -628,6 +673,15 @@ sync:
   type: image
 - source: dp.apps.rancher.io/containers/redis:8.0.3-2.1
   target: stgregistry.suse.com/rancher/appco-redis:8.0.3-2.1
+  type: image
+- source: dp.apps.rancher.io/containers/thanos:0.39.2-7.3
+  target: docker.io/rancher/appco-thanos:0.39.2-7.3
+  type: image
+- source: dp.apps.rancher.io/containers/thanos:0.39.2-7.3
+  target: registry.suse.com/rancher/appco-thanos:0.39.2-7.3
+  type: image
+- source: dp.apps.rancher.io/containers/thanos:0.39.2-7.3
+  target: stgregistry.suse.com/rancher/appco-thanos:0.39.2-7.3
   type: image
 - source: flannel/flannel:v0.21.2
   target: docker.io/rancher/mirrored-flannel-flannel:v0.21.2
