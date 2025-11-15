@@ -1685,6 +1685,7 @@ Images:
   - v3.30.3
   - v3.30.4
   - v3.31.0
+  - v3.31.1
 - SourceImage: quay.io/calico/csi
   Tags:
   - v3.27.0
