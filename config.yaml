@@ -1931,6 +1931,7 @@ Images:
   - v3.30.3
   - v3.30.4
   - v3.31.0
+  - v3.31.1
 - SourceImage: quay.io/calico/pod2daemon-flexvol
   Tags:
   - v3.16.5
