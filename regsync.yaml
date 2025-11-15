@@ -13247,6 +13247,9 @@ sync:
 - source: quay.io/calico/pod2daemon-flexvol:v3.31.0
   target: docker.io/rancher/mirrored-calico-pod2daemon-flexvol:v3.31.0
   type: image
+- source: quay.io/calico/pod2daemon-flexvol:v3.31.1
+  target: docker.io/rancher/mirrored-calico-pod2daemon-flexvol:v3.31.1
+  type: image
 - source: quay.io/calico/pod2daemon-flexvol:v3.13.4
   target: registry.suse.com/rancher/mirrored-calico-pod2daemon-flexvol:v3.13.4
   type: image
@@ -13382,6 +13385,9 @@ sync:
 - source: quay.io/calico/pod2daemon-flexvol:v3.31.0
   target: registry.suse.com/rancher/mirrored-calico-pod2daemon-flexvol:v3.31.0
   type: image
+- source: quay.io/calico/pod2daemon-flexvol:v3.31.1
+  target: registry.suse.com/rancher/mirrored-calico-pod2daemon-flexvol:v3.31.1
+  type: image
 - source: quay.io/calico/pod2daemon-flexvol:v3.13.4
   target: stgregistry.suse.com/rancher/mirrored-calico-pod2daemon-flexvol:v3.13.4
   type: image
@@ -13516,6 +13522,9 @@ sync:
   type: image
 - source: quay.io/calico/pod2daemon-flexvol:v3.31.0
   target: stgregistry.suse.com/rancher/mirrored-calico-pod2daemon-flexvol:v3.31.0
+  type: image
+- source: quay.io/calico/pod2daemon-flexvol:v3.31.1
+  target: stgregistry.suse.com/rancher/mirrored-calico-pod2daemon-flexvol:v3.31.1
   type: image
 - source: quay.io/calico/typha:v3.18.1
   target: docker.io/rancher/mirrored-calico-typha:v3.18.1
