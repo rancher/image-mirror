@@ -2044,6 +2044,7 @@ Images:
   - v3.30.4
   - v3.31.0
   - v3.31.1
+  - v3.31.2
 - SourceImage: quay.io/calico/whisker
   Tags:
   - v3.30.0
