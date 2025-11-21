@@ -7,7 +7,7 @@ import (
 	"regexp"
 
 	"github.com/Masterminds/semver/v3"
-	"github.com/google/go-github/v78/github"
+	"github.com/google/go-github/v79/github"
 	"github.com/rancher/image-mirror/internal/config"
 )
 
