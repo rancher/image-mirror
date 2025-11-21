@@ -9167,6 +9167,9 @@ sync:
 - source: neuvector/controller:5.3.4
   target: docker.io/rancher/mirrored-neuvector-controller:5.3.4
   type: image
+- source: neuvector/controller:5.3.5
+  target: docker.io/rancher/mirrored-neuvector-controller:5.3.5
+  type: image
 - source: neuvector/controller:5.4.0
   target: docker.io/rancher/mirrored-neuvector-controller:5.4.0
   type: image
@@ -9241,6 +9244,9 @@ sync:
   type: image
 - source: neuvector/controller:5.3.4
   target: registry.suse.com/rancher/mirrored-neuvector-controller:5.3.4
+  type: image
+- source: neuvector/controller:5.3.5
+  target: registry.suse.com/rancher/mirrored-neuvector-controller:5.3.5
   type: image
 - source: neuvector/controller:5.4.0
   target: registry.suse.com/rancher/mirrored-neuvector-controller:5.4.0
@@ -9317,6 +9323,9 @@ sync:
 - source: neuvector/controller:5.3.4
   target: stgregistry.suse.com/rancher/mirrored-neuvector-controller:5.3.4
   type: image
+- source: neuvector/controller:5.3.5
+  target: stgregistry.suse.com/rancher/mirrored-neuvector-controller:5.3.5
+  type: image
 - source: neuvector/controller:5.4.0
   target: stgregistry.suse.com/rancher/mirrored-neuvector-controller:5.4.0
   type: image
@@ -9391,6 +9400,9 @@ sync:
   type: image
 - source: neuvector/enforcer:5.3.4
   target: docker.io/rancher/mirrored-neuvector-enforcer:5.3.4
+  type: image
+- source: neuvector/enforcer:5.3.5
+  target: docker.io/rancher/mirrored-neuvector-enforcer:5.3.5
   type: image
 - source: neuvector/enforcer:5.4.0
   target: docker.io/rancher/mirrored-neuvector-enforcer:5.4.0
@@ -9467,6 +9479,9 @@ sync:
 - source: neuvector/enforcer:5.3.4
   target: registry.suse.com/rancher/mirrored-neuvector-enforcer:5.3.4
   type: image
+- source: neuvector/enforcer:5.3.5
+  target: registry.suse.com/rancher/mirrored-neuvector-enforcer:5.3.5
+  type: image
 - source: neuvector/enforcer:5.4.0
   target: registry.suse.com/rancher/mirrored-neuvector-enforcer:5.4.0
   type: image
@@ -9541,6 +9556,9 @@ sync:
   type: image
 - source: neuvector/enforcer:5.3.4
   target: stgregistry.suse.com/rancher/mirrored-neuvector-enforcer:5.3.4
+  type: image
+- source: neuvector/enforcer:5.3.5
+  target: stgregistry.suse.com/rancher/mirrored-neuvector-enforcer:5.3.5
   type: image
 - source: neuvector/enforcer:5.4.0
   target: stgregistry.suse.com/rancher/mirrored-neuvector-enforcer:5.4.0
@@ -9617,6 +9635,9 @@ sync:
 - source: neuvector/manager:5.3.4
   target: docker.io/rancher/mirrored-neuvector-manager:5.3.4
   type: image
+- source: neuvector/manager:5.3.5
+  target: docker.io/rancher/mirrored-neuvector-manager:5.3.5
+  type: image
 - source: neuvector/manager:5.4.0
   target: docker.io/rancher/mirrored-neuvector-manager:5.4.0
   type: image
@@ -9692,6 +9713,9 @@ sync:
 - source: neuvector/manager:5.3.4
   target: registry.suse.com/rancher/mirrored-neuvector-manager:5.3.4
   type: image
+- source: neuvector/manager:5.3.5
+  target: registry.suse.com/rancher/mirrored-neuvector-manager:5.3.5
+  type: image
 - source: neuvector/manager:5.4.0
   target: registry.suse.com/rancher/mirrored-neuvector-manager:5.4.0
   type: image
@@ -9766,6 +9790,9 @@ sync:
   type: image
 - source: neuvector/manager:5.3.4
   target: stgregistry.suse.com/rancher/mirrored-neuvector-manager:5.3.4
+  type: image
+- source: neuvector/manager:5.3.5
+  target: stgregistry.suse.com/rancher/mirrored-neuvector-manager:5.3.5
   type: image
 - source: neuvector/manager:5.4.0
   target: stgregistry.suse.com/rancher/mirrored-neuvector-manager:5.4.0

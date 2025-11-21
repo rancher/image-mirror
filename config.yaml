@@ -1440,6 +1440,7 @@ Images:
   - 5.3.2
   - 5.3.3
   - 5.3.4
+  - 5.3.5
   - 5.4.0
   - 5.4.1
 - SourceImage: neuvector/enforcer
@@ -1467,6 +1468,7 @@ Images:
   - 5.3.2
   - 5.3.3
   - 5.3.4
+  - 5.3.5
   - 5.4.0
   - 5.4.1
 - SourceImage: neuvector/manager
@@ -1494,6 +1496,7 @@ Images:
   - 5.3.2
   - 5.3.3
   - 5.3.4
+  - 5.3.5
   - 5.4.0
   - 5.4.1
 - SourceImage: neuvector/prometheus-exporter
