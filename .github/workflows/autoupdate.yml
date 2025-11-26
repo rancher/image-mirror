@@ -19,6 +19,20 @@ jobs:
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
         git config --global user.name "github-actions[bot]"
 
+    - name: Get secrets out of vault
+      uses: rancher-eio/read-vault-secrets@main
+      with:
+        secrets: |
+          github/repo/${{ github.repository }}/github/pr-actions-write-app/credentials appId | APP_ID;
+          github/repo/${{ github.repository }}/github/pr-actions-write-app/credentials privateKey | PRIVATE_KEY
+
+    - name: Generate short-lived installation access token from app
+      uses: actions/create-github-app-token@v1
+      id: app-token
+      with:
+        app-id: ${{ env.APP_ID }}
+        private-key: ${{ env.PRIVATE_KEY }}
+
     - uses: actions/setup-go@44694675825211faa026b3c33043df3e48a5fa00 # v6
       with:
         go-version: '1.24'
@@ -30,4 +44,4 @@ jobs:
     - name: Run autoupdate
       run: bin/image-mirror-tools autoupdate
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
