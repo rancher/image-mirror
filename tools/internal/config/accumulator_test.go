@@ -35,7 +35,7 @@ func TestImageAccumulator(t *testing.T) {
 			assert.Equal(t, image.SourceImage, diffImage.SourceImage)
 			assert.Equal(t, image.TargetImageName(), diffImage.TargetImageName())
 			assert.Equal(t, image.Tags, diffImage.Tags)
-			assert.Equal(t, image.TargetRepositories, diffImage.TargetRepositories)
+			assert.Equal(t, image.TargetRegistries, diffImage.TargetRegistries)
 		})
 
 		t.Run("should return the tags that are not already present in the accumulator", func(t *testing.T) {

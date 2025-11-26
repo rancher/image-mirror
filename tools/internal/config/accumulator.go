@@ -54,7 +54,7 @@ func (ia *ImageAccumulator) TagDifference(image *Image) (*Image, error) {
 		return image, nil
 	}
 
-	imageToReturn, err := NewImage(image.SourceImage, make([]string, 0, len(image.Tags)), image.TargetImageName(), image.DoNotMirror, image.TargetRepositories)
+	imageToReturn, err := NewImage(image.SourceImage, make([]string, 0, len(image.Tags)), image.TargetImageName(), image.DoNotMirror, image.TargetRegistries)
 	if err != nil {
 		return nil, fmt.Errorf("failed to construct new image from passed image: %w", err)
 	}

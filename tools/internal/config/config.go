@@ -14,38 +14,38 @@ import (
 )
 
 type Config struct {
-	Images       []*Image
-	Repositories []Repository
+	Images     []*Image
+	Registries []Registry
 }
 
-type Repository struct {
-	// BaseUrl is used exclusively for referring to the Repository
+type Registry struct {
+	// BaseUrl is used exclusively for referring to the Registry
 	// in general, and for building the target image ref for a given
-	// image for a repository. For example, a target image name of
+	// image for a registry. For example, a target image name of
 	// "mirrored-rancher-cis-operator" and a BaseUrl of "docker.io/rancher"
 	// produce a target image ref of "docker.io/rancher/mirrored-rancher-cis-operator".
 	BaseUrl string
-	// Whether the Repository is used as a target repository for a given
-	// Image when the TargetRepositories field of the Image is not set.
+	// Whether the Registry is used as a target registry for a given
+	// Image when the TargetRegistries field of the Image is not set.
 	DefaultTarget bool
 	// Password is what goes into the "pass" field of regsync.yaml
-	// for this repository. For more information please see
+	// for this registry. For more information please see
 	// https://github.com/regclient/regclient/blob/main/docs/regsync.md
 	Password string
 	// Registry is what goes into the "registry" field of regsync.yaml
-	// for this repository. For more information please see
+	// for this registry. For more information please see
 	// https://github.com/regclient/regclient/blob/main/docs/regsync.md
 	Registry string
 	// RepoAuth goes into the "repoAuth" field of regsync.yaml in this
-	// repository. For more information please see
+	// registry. For more information please see
 	// https://github.com/regclient/regclient/blob/main/docs/regsync.md
 	RepoAuth bool `json:",omitempty"`
 	// ReqConcurrent is what goes into the "reqConcurrent" field of
-	// regsync.yaml for this repository. For more information please see
+	// regsync.yaml for this registry. For more information please see
 	// https://github.com/regclient/regclient/blob/main/docs/regsync.md
 	ReqConcurrent int `json:",omitempty"`
 	// Username is what goes into the "user" field of regsync.yaml
-	// for this repository. For more information please see
+	// for this registry. For more information please see
 	// https://github.com/regclient/regclient/blob/main/docs/regsync.md
 	Username string
 }
@@ -93,12 +93,12 @@ func (config *Config) Sort() {
 		image.Sort()
 	}
 	slices.SortStableFunc(config.Images, CompareImages)
-	slices.SortStableFunc(config.Repositories, compareRepositories)
+	slices.SortStableFunc(config.Registries, compareRegistries)
 }
 
 func (config *Config) ToRegsyncConfig() (regsync.Config, error) {
 	regsyncYaml := regsync.Config{
-		Creds: make([]regsync.ConfigCred, 0, len(config.Repositories)),
+		Creds: make([]regsync.ConfigCred, 0, len(config.Registries)),
 		Defaults: regsync.ConfigDefaults{
 			UserAgent: "rancher-image-mirror",
 		},
@@ -106,13 +106,13 @@ func (config *Config) ToRegsyncConfig() (regsync.Config, error) {
 	}
 
 	credsMap := map[regsync.ConfigCred]struct{}{}
-	for _, targetRepository := range config.Repositories {
+	for _, targetRegistry := range config.Registries {
 		credEntry := regsync.ConfigCred{
-			Pass:          targetRepository.Password,
-			Registry:      targetRepository.Registry,
-			RepoAuth:      targetRepository.RepoAuth,
-			ReqConcurrent: targetRepository.ReqConcurrent,
-			User:          targetRepository.Username,
+			Pass:          targetRegistry.Password,
+			Registry:      targetRegistry.Registry,
+			RepoAuth:      targetRegistry.RepoAuth,
+			ReqConcurrent: targetRegistry.ReqConcurrent,
+			User:          targetRegistry.Username,
 		}
 		if _, ok := credsMap[credEntry]; ok {
 			continue
@@ -124,7 +124,7 @@ func (config *Config) ToRegsyncConfig() (regsync.Config, error) {
 	})
 
 	for _, image := range config.Images {
-		syncEntries, err := image.ToRegsyncImages(config.Repositories)
+		syncEntries, err := image.ToRegsyncImages(config.Registries)
 		if err != nil {
 			return regsync.Config{}, fmt.Errorf("failed to convert Image with SourceImage %q: %w", image.SourceImage, err)
 		}
@@ -136,8 +136,8 @@ func (config *Config) ToRegsyncConfig() (regsync.Config, error) {
 
 func (config *Config) DeepCopy() *Config {
 	copiedConfig := &Config{
-		Images:       make([]*Image, 0, len(config.Images)),
-		Repositories: slices.Clone(config.Repositories),
+		Images:     make([]*Image, 0, len(config.Images)),
+		Registries: slices.Clone(config.Registries),
 	}
 	for _, image := range config.Images {
 		copiedConfig.Images = append(copiedConfig.Images, image.DeepCopy())
@@ -145,6 +145,6 @@ func (config *Config) DeepCopy() *Config {
 	return copiedConfig
 }
 
-func compareRepositories(a, b Repository) int {
+func compareRegistries(a, b Registry) int {
 	return strings.Compare(a.BaseUrl, b.BaseUrl)
 }

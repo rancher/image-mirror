@@ -32,19 +32,19 @@ type Image struct {
 	SpecifiedTargetImageName string `json:"TargetImageName,omitempty"`
 	// The tags that we want to mirror.
 	Tags []string
-	// The Repositories that you want to mirror the Image to. Repositories
-	// are specified via their BaseUrl field. If TargetRepositories is not
-	// specified, the Image is mirrored to all Repositories that have
+	// The Registries that you want to mirror the Image to. Registries
+	// are specified via their BaseUrl field. If TargetRegistries is not
+	// specified, the Image is mirrored to all Registries that have
 	// DefaultTarget set to true.
-	TargetRepositories []string `json:",omitempty"`
+	TargetRegistries []string `json:",omitempty"`
 }
 
-func NewImage(sourceImage string, tags []string, targetImageName string, doNotMirror any, targetRepositories []string) (*Image, error) {
+func NewImage(sourceImage string, tags []string, targetImageName string, doNotMirror any, targetRegistries []string) (*Image, error) {
 	image := &Image{
-		SourceImage:        sourceImage,
-		Tags:               tags,
-		DoNotMirror:        doNotMirror,
-		TargetRepositories: targetRepositories,
+		SourceImage:      sourceImage,
+		Tags:             tags,
+		DoNotMirror:      doNotMirror,
+		TargetRegistries: targetRegistries,
 	}
 	if err := image.setDefaults(); err != nil {
 		return nil, err
@@ -65,7 +65,7 @@ func (image *Image) setDefaults() error {
 	if parts[0] == "dp.apps.rancher.io" {
 		// AppCo images have only one significant part in their reference.
 		// For example, in dp.apps.rancher.io/containers/openjdk,
-		// dp.apps.rancher.io/containers is the repository and openjdk is
+		// dp.apps.rancher.io/containers is the registry and openjdk is
 		// the significant part.
 		imageName := parts[len(parts)-1]
 		image.defaultTargetImageName = "appco-" + imageName
@@ -96,8 +96,8 @@ func (image *Image) setDefaults() error {
 		return errors.New("DoNotMirror must be nil, bool, or []any")
 	}
 
-	if image.TargetRepositories == nil {
-		image.TargetRepositories = []string{}
+	if image.TargetRegistries == nil {
+		image.TargetRegistries = []string{}
 	}
 
 	return nil
@@ -128,24 +128,24 @@ func (image *Image) CombineSourceImageAndTags() []string {
 }
 
 // ToRegsyncImages converts image into one ConfigSync (i.e. an image
-// for regsync to sync) for each tag present in image, for each repository
-// passed in repositories.
-func (image *Image) ToRegsyncImages(repositories []Repository) ([]regsync.ConfigSync, error) {
+// for regsync to sync) for each tag present in image, for each registry
+// passed in registries.
+func (image *Image) ToRegsyncImages(registries []Registry) ([]regsync.ConfigSync, error) {
 	entries := make([]regsync.ConfigSync, 0)
-	for _, repository := range repositories {
-		if !repository.DefaultTarget && len(image.TargetRepositories) == 0 {
+	for _, registry := range registries {
+		if !registry.DefaultTarget && len(image.TargetRegistries) == 0 {
 			continue
 		}
-		if len(image.TargetRepositories) > 0 && !slices.Contains(image.TargetRepositories, repository.BaseUrl) {
+		if len(image.TargetRegistries) > 0 && !slices.Contains(image.TargetRegistries, registry.BaseUrl) {
 			continue
 		}
 		// do not include if source and destination images are the same
 		trimmedSourceImage := strings.TrimPrefix(image.SourceImage, "docker.io/")
-		trimmedTargetImage := strings.TrimPrefix(repository.BaseUrl+"/"+image.TargetImageName(), "docker.io/")
+		trimmedTargetImage := strings.TrimPrefix(registry.BaseUrl+"/"+image.TargetImageName(), "docker.io/")
 		if trimmedSourceImage == trimmedTargetImage {
 			continue
 		}
-		syncEntries, err := image.ToRegsyncImagesForSingleRepository(repository)
+		syncEntries, err := image.ToRegsyncImagesForSingleRegistry(registry)
 		if err != nil {
 			return nil, fmt.Errorf("failed to convert Image with SourceImage %q: %w", image.SourceImage, err)
 		}
@@ -154,10 +154,10 @@ func (image *Image) ToRegsyncImages(repositories []Repository) ([]regsync.Config
 	return entries, nil
 }
 
-// ToRegsyncImagesForSingleRepository converts image into one ConfigSync
+// ToRegsyncImagesForSingleRegistry converts image into one ConfigSync
 // (i.e. an image for regsync to sync) for each tag present in image.
-// repo provides the target repository for each ConfigSync.
-func (image *Image) ToRegsyncImagesForSingleRepository(repo Repository) ([]regsync.ConfigSync, error) {
+// registry provides the target registry for each ConfigSync.
+func (image *Image) ToRegsyncImagesForSingleRegistry(registry Registry) ([]regsync.ConfigSync, error) {
 	if image.excludeAllTags {
 		return nil, nil
 	}
@@ -167,7 +167,7 @@ func (image *Image) ToRegsyncImagesForSingleRepository(repo Repository) ([]regsy
 			continue
 		}
 		sourceImage := image.SourceImage + ":" + tag
-		targetImage := repo.BaseUrl + "/" + image.TargetImageName() + ":" + tag
+		targetImage := registry.BaseUrl + "/" + image.TargetImageName() + ":" + tag
 		entry := regsync.ConfigSync{
 			Source: sourceImage,
 			Target: targetImage,
@@ -188,7 +188,7 @@ func (image *Image) DeepCopy() *Image {
 		excludeAllTags:           image.excludeAllTags,
 		excludedTags:             maps.Clone(image.excludedTags),
 		Tags:                     slices.Clone(image.Tags),
-		TargetRepositories:       slices.Clone(image.TargetRepositories),
+		TargetRegistries:         slices.Clone(image.TargetRegistries),
 	}
 	return copiedImage
 }

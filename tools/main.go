@@ -383,7 +383,7 @@ func validateDockerHubRepoExists(errs *[]error, newConfigYaml *config.Config) {
 		if accumulator.Contains(newImage) {
 			continue
 		}
-		if len(newImage.TargetRepositories) > 0 && !slices.Contains(newImage.TargetRepositories, "docker.io/rancher") {
+		if len(newImage.TargetRegistries) > 0 && !slices.Contains(newImage.TargetRegistries, "docker.io/rancher") {
 			continue
 		}
 		newImages = append(newImages, newImage)

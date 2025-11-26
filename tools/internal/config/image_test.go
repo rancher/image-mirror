@@ -60,14 +60,14 @@ func TestImage(t *testing.T) {
 					tag := "v1.0.0"
 					image, err := NewImage(testCase.ImageRef, []string{tag}, "test-image", nil, nil)
 					assert.NoError(t, err)
-					repositories := []Repository{
+					registries := []Registry{
 						{
 							BaseUrl:       testCase.BaseUrl,
 							DefaultTarget: true,
 						},
 					}
 
-					configEntries, err := image.ToRegsyncImages(repositories)
+					configEntries, err := image.ToRegsyncImages(registries)
 					assert.NoError(t, err)
 
 					if testCase.ExpectedPresent {
@@ -81,29 +81,29 @@ func TestImage(t *testing.T) {
 			}
 		})
 
-		t.Run("should only target repos with DefaultTarget set to true when TargetRepositories is not specified", func(t *testing.T) {
+		t.Run("should only target registries with DefaultTarget set to true when TargetRegistries is not specified", func(t *testing.T) {
 			image, err := NewImage("test-org/image1", []string{"v1.0.0"}, "", nil, nil)
 			assert.NoError(t, err)
-			repositories := []Repository{
+			registries := []Registry{
 				{
-					BaseUrl:       "docker.io/target-repo",
+					BaseUrl:       "docker.io/target-registry",
 					DefaultTarget: true,
 				},
 				{
-					BaseUrl:       "docker.io/non-target-repo",
+					BaseUrl:       "docker.io/non-target-registry",
 					DefaultTarget: false,
 				},
 			}
 
-			configEntries, err := image.ToRegsyncImages(repositories)
+			configEntries, err := image.ToRegsyncImages(registries)
 			assert.NoError(t, err)
 
 			assert.Len(t, configEntries, 1)
-			assert.True(t, strings.HasPrefix(configEntries[0].Target, repositories[0].BaseUrl))
+			assert.True(t, strings.HasPrefix(configEntries[0].Target, registries[0].BaseUrl))
 		})
 
-		t.Run("should target only repositories specified by TargetRepositories, including ones with DefaultTarget: false", func(t *testing.T) {
-			repositories := []Repository{
+		t.Run("should target only registries specified by TargetRegistries, including ones with DefaultTarget: false", func(t *testing.T) {
+			registries := []Registry{
 				{
 					BaseUrl:       "site0.com/registry",
 					DefaultTarget: true,
@@ -122,23 +122,23 @@ func TestImage(t *testing.T) {
 				},
 			}
 			tags := []string{"v1.0.0"}
-			targetRepositories := []string{"site0.com/registry", "site1.com/registry"}
-			image, err := NewImage("test-org/image", tags, "", nil, targetRepositories)
+			targetRegistries := []string{"site0.com/registry", "site1.com/registry"}
+			image, err := NewImage("test-org/image", tags, "", nil, targetRegistries)
 			assert.NoError(t, err)
 
-			configEntries, err := image.ToRegsyncImages(repositories)
+			configEntries, err := image.ToRegsyncImages(registries)
 			assert.NoError(t, err)
 
-			assert.Len(t, configEntries, len(tags)*len(targetRepositories))
+			assert.Len(t, configEntries, len(tags)*len(targetRegistries))
 			for _, configEntry := range configEntries {
-				matches0 := strings.HasPrefix(configEntry.Target, targetRepositories[0])
-				matches1 := strings.HasPrefix(configEntry.Target, targetRepositories[1])
+				matches0 := strings.HasPrefix(configEntry.Target, targetRegistries[0])
+				matches1 := strings.HasPrefix(configEntry.Target, targetRegistries[1])
 				assert.True(t, matches0 || matches1)
 			}
 		})
 	})
 
-	t.Run("ToRegsyncImagesForSingleRepository", func(t *testing.T) {
+	t.Run("ToRegsyncImagesForSingleRegistry", func(t *testing.T) {
 		type TestCase struct {
 			Name                     string
 			SpecifiedTargetImageName string
@@ -204,10 +204,10 @@ func TestImage(t *testing.T) {
 				if err != nil {
 					t.Fatalf("unexpected error: %s", err)
 				}
-				inputRepository := Repository{
+				inputRegistry := Registry{
 					BaseUrl: "docker.io/test1",
 				}
-				regsyncEntries, err := inputImage.ToRegsyncImagesForSingleRepository(inputRepository)
+				regsyncEntries, err := inputImage.ToRegsyncImagesForSingleRegistry(inputRegistry)
 				if err != nil {
 					t.Fatalf("unexpected error: %s", err)
 				}
@@ -278,7 +278,7 @@ func TestImage(t *testing.T) {
 			assert.Equal(t, original.Tags, copy.Tags)
 			assert.Equal(t, original.excludeAllTags, copy.excludeAllTags)
 			assert.Equal(t, original.excludedTags, copy.excludedTags)
-			assert.Equal(t, original.TargetRepositories, copy.TargetRepositories)
+			assert.Equal(t, original.TargetRegistries, copy.TargetRegistries)
 		})
 	})
 }

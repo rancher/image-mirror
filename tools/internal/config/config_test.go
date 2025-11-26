@@ -8,21 +8,21 @@ import (
 
 func TestConfig(t *testing.T) {
 	t.Run("ToRegsyncConfig", func(t *testing.T) {
-		t.Run("should always include Repositories in regsync config even if DefaultTarget field is false", func(t *testing.T) {
-			// Non-target repos should still be included in regsync.yaml, since
+		t.Run("should always include Registries in regsync config even if DefaultTarget field is false", func(t *testing.T) {
+			// Non-target registries should still be included in regsync.yaml, since
 			// they may be the source of some images.
 			config := &Config{
 				Images: []*Image{},
-				Repositories: []Repository{
+				Registries: []Registry{
 					{
-						BaseUrl:       "docker.io/target-repo",
+						BaseUrl:       "docker.io/target-registry",
 						DefaultTarget: true,
 						Username:      "target-user",
 						Password:      "target-pass",
 						Registry:      "docker.io",
 					},
 					{
-						BaseUrl:       "docker.io/non-target-repo",
+						BaseUrl:       "docker.io/non-target-registry",
 						DefaultTarget: false,
 						Username:      "non-target-user",
 						Password:      "non-target-pass",
