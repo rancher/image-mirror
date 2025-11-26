@@ -13,7 +13,7 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
-const helmRepoName = "image-mirror-tools-temp"
+const helmRepoName = "artifact-mirror-tools-temp"
 
 // An Environment is a set of configuration we would like to apply to a
 // chart when templating it out and searching the result for images.
