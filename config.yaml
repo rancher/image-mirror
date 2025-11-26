@@ -96,13 +96,13 @@ Images:
 - SourceImage: dp.apps.rancher.io/charts/kubernetes-cluster-autoscaler
   Tags:
   - 9.50.1
-  TargetRepositories:
+  TargetRegistries:
   - registry.suse.com/rancher/charts
   - stgregistry.suse.com/rancher/charts
 - SourceImage: dp.apps.rancher.io/charts/suse-virtual-cluster-engine
   Tags:
   - 1.0.0
-  TargetRepositories:
+  TargetRegistries:
   - registry.suse.com/rancher/charts
   - stgregistry.suse.com/rancher/charts
 - SourceImage: dp.apps.rancher.io/containers/alertmanager
@@ -114,13 +114,13 @@ Images:
 - SourceImage: dp.apps.rancher.io/containers/k3k
   Tags:
   - 1.0.0-1.1
-  TargetRepositories:
+  TargetRegistries:
   - registry.suse.com/rancher
   - stgregistry.suse.com/rancher
 - SourceImage: dp.apps.rancher.io/containers/k3k-kubelet
   Tags:
   - 1.0.0-1.1
-  TargetRepositories:
+  TargetRegistries:
   - registry.suse.com/rancher
   - stgregistry.suse.com/rancher
 - SourceImage: dp.apps.rancher.io/containers/k8s-sidecar
@@ -137,7 +137,7 @@ Images:
   - 1.32.3-1.5
   - 1.33.0-3.3
   - 1.34.0-3.4
-  TargetRepositories:
+  TargetRegistries:
   - registry.suse.com/rancher
   - stgregistry.suse.com/rancher
 - SourceImage: dp.apps.rancher.io/containers/node-exporter
@@ -3150,7 +3150,7 @@ Images:
   Tags:
   - v0.7.3
   TargetImageName: mirrored-kubernetes-external-dns
-Repositories:
+Registries:
 - BaseUrl: docker.io/rancher
   DefaultTarget: true
   Password: '{{ env "DOCKER_PASSWORD" }}'
