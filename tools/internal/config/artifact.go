@@ -10,16 +10,16 @@ import (
 	"github.com/rancher/image-mirror/internal/regsync"
 )
 
-// Image should not be instantiated directly. Instead, use NewImage().
-type Image struct {
-	// If DoNotMirror is a bool and true, the Image is not mirrored i.e.
+// Artifact should not be instantiated directly. Instead, use NewImage().
+type Artifact struct {
+	// If DoNotMirror is a bool and true, the Artifact is not mirrored i.e.
 	// it is not added to the regsync config when the regsync config is
 	// generated. If DoNotMirror is a slice of strings, it specifies tags
 	// that are not to be mirrored. Other types are invalid.
 	DoNotMirror any `json:",omitempty"`
-	// The source image without any tags.
-	SourceImage            string
-	defaultTargetImageName string
+	// The source artifact without any tags.
+	SourceArtifact            string
+	defaultTargetArtifactName string
 	// Set via DoNotMirror.
 	excludeAllTags bool
 	// Set via DoNotMirror.
@@ -27,21 +27,21 @@ type Image struct {
 	// Used to specify the desired name of the target image if it differs
 	// from default. This field would be private if it was convenient for
 	// marshalling to JSON/YAML, but it is not. This field should not be
-	// accessed directly - instead, use the TargetImageName() and
-	// SetTargetImageName() methods.
-	SpecifiedTargetImageName string `json:"TargetImageName,omitempty"`
+	// accessed directly - instead, use the TargetArtifactName() and
+	// SetTargetArtifactName() methods.
+	SpecifiedTargetArtifactName string `json:"TargetArtifactName,omitempty"`
 	// The tags that we want to mirror.
 	Tags []string
-	// The Repositories that you want to mirror the Image to. Repositories
+	// The Repositories that you want to mirror the Artifact to. Repositories
 	// are specified via their BaseUrl field. If TargetRepositories is not
-	// specified, the Image is mirrored to all Repositories that have
+	// specified, the Artifact is mirrored to all Repositories that have
 	// DefaultTarget set to true.
 	TargetRepositories []string `json:",omitempty"`
 }
 
-func NewImage(sourceImage string, tags []string, targetImageName string, doNotMirror any, targetRepositories []string) (*Image, error) {
-	image := &Image{
-		SourceImage:        sourceImage,
+func NewImage(sourceImage string, tags []string, targetImageName string, doNotMirror any, targetRepositories []string) (*Artifact, error) {
+	image := &Artifact{
+		SourceArtifact:     sourceImage,
 		Tags:               tags,
 		DoNotMirror:        doNotMirror,
 		TargetRepositories: targetRepositories,
@@ -49,16 +49,16 @@ func NewImage(sourceImage string, tags []string, targetImageName string, doNotMi
 	if err := image.setDefaults(); err != nil {
 		return nil, err
 	}
-	image.SetTargetImageName(targetImageName)
+	image.SetTargetArtifactName(targetImageName)
 	return image, nil
 }
 
-func (image *Image) Sort() {
+func (image *Artifact) Sort() {
 	slices.Sort(image.Tags)
 }
 
-func (image *Image) setDefaults() error {
-	parts := strings.Split(image.SourceImage, "/")
+func (image *Artifact) setDefaults() error {
+	parts := strings.Split(image.SourceArtifact, "/")
 	if len(parts) < 2 {
 		return fmt.Errorf("source image split into %d parts (>=2 parts expected)", len(parts))
 	}
@@ -68,11 +68,11 @@ func (image *Image) setDefaults() error {
 		// dp.apps.rancher.io/containers is the repository and openjdk is
 		// the significant part.
 		imageName := parts[len(parts)-1]
-		image.defaultTargetImageName = "appco-" + imageName
+		image.defaultTargetArtifactName = "appco-" + imageName
 	} else {
 		repoName := parts[len(parts)-2]
 		imageName := parts[len(parts)-1]
-		image.defaultTargetImageName = "mirrored-" + repoName + "-" + imageName
+		image.defaultTargetArtifactName = "mirrored-" + repoName + "-" + imageName
 	}
 
 	image.excludeAllTags = false
@@ -103,25 +103,25 @@ func (image *Image) setDefaults() error {
 	return nil
 }
 
-func (image *Image) TargetImageName() string {
-	if image.SpecifiedTargetImageName != "" {
-		return image.SpecifiedTargetImageName
+func (image *Artifact) TargetArtifactName() string {
+	if image.SpecifiedTargetArtifactName != "" {
+		return image.SpecifiedTargetArtifactName
 	}
-	return image.defaultTargetImageName
+	return image.defaultTargetArtifactName
 }
 
-func (image *Image) SetTargetImageName(value string) {
-	if value == image.defaultTargetImageName {
-		image.SpecifiedTargetImageName = ""
+func (image *Artifact) SetTargetArtifactName(value string) {
+	if value == image.defaultTargetArtifactName {
+		image.SpecifiedTargetArtifactName = ""
 	} else {
-		image.SpecifiedTargetImageName = value
+		image.SpecifiedTargetArtifactName = value
 	}
 }
 
-func (image *Image) CombineSourceImageAndTags() []string {
+func (image *Artifact) CombineSourceImageAndTags() []string {
 	fullImages := make([]string, 0, len(image.Tags))
 	for _, tag := range image.Tags {
-		fullImage := image.SourceImage + ":" + tag
+		fullImage := image.SourceArtifact + ":" + tag
 		fullImages = append(fullImages, fullImage)
 	}
 	return fullImages
@@ -130,7 +130,7 @@ func (image *Image) CombineSourceImageAndTags() []string {
 // ToRegsyncImages converts image into one ConfigSync (i.e. an image
 // for regsync to sync) for each tag present in image, for each repository
 // passed in repositories.
-func (image *Image) ToRegsyncImages(repositories []Repository) ([]regsync.ConfigSync, error) {
+func (image *Artifact) ToRegsyncImages(repositories []Repository) ([]regsync.ConfigSync, error) {
 	entries := make([]regsync.ConfigSync, 0)
 	for _, repository := range repositories {
 		if !repository.DefaultTarget && len(image.TargetRepositories) == 0 {
@@ -140,14 +140,14 @@ func (image *Image) ToRegsyncImages(repositories []Repository) ([]regsync.Config
 			continue
 		}
 		// do not include if source and destination images are the same
-		trimmedSourceImage := strings.TrimPrefix(image.SourceImage, "docker.io/")
-		trimmedTargetImage := strings.TrimPrefix(repository.BaseUrl+"/"+image.TargetImageName(), "docker.io/")
+		trimmedSourceImage := strings.TrimPrefix(image.SourceArtifact, "docker.io/")
+		trimmedTargetImage := strings.TrimPrefix(repository.BaseUrl+"/"+image.TargetArtifactName(), "docker.io/")
 		if trimmedSourceImage == trimmedTargetImage {
 			continue
 		}
 		syncEntries, err := image.ToRegsyncImagesForSingleRepository(repository)
 		if err != nil {
-			return nil, fmt.Errorf("failed to convert Image with SourceImage %q: %w", image.SourceImage, err)
+			return nil, fmt.Errorf("failed to convert Artifact with SourceArtifact %q: %w", image.SourceArtifact, err)
 		}
 		entries = append(entries, syncEntries...)
 	}
@@ -157,7 +157,7 @@ func (image *Image) ToRegsyncImages(repositories []Repository) ([]regsync.Config
 // ToRegsyncImagesForSingleRepository converts image into one ConfigSync
 // (i.e. an image for regsync to sync) for each tag present in image.
 // repo provides the target repository for each ConfigSync.
-func (image *Image) ToRegsyncImagesForSingleRepository(repo Repository) ([]regsync.ConfigSync, error) {
+func (image *Artifact) ToRegsyncImagesForSingleRepository(repo Repository) ([]regsync.ConfigSync, error) {
 	if image.excludeAllTags {
 		return nil, nil
 	}
@@ -166,8 +166,8 @@ func (image *Image) ToRegsyncImagesForSingleRepository(repo Repository) ([]regsy
 		if _, excluded := image.excludedTags[tag]; excluded {
 			continue
 		}
-		sourceImage := image.SourceImage + ":" + tag
-		targetImage := repo.BaseUrl + "/" + image.TargetImageName() + ":" + tag
+		sourceImage := image.SourceArtifact + ":" + tag
+		targetImage := repo.BaseUrl + "/" + image.TargetArtifactName() + ":" + tag
 		entry := regsync.ConfigSync{
 			Source: sourceImage,
 			Target: targetImage,
@@ -179,23 +179,23 @@ func (image *Image) ToRegsyncImagesForSingleRepository(repo Repository) ([]regsy
 	return entries, nil
 }
 
-func (image *Image) DeepCopy() *Image {
-	copiedImage := &Image{
-		DoNotMirror:              image.DoNotMirror,
-		SourceImage:              image.SourceImage,
-		defaultTargetImageName:   image.defaultTargetImageName,
-		SpecifiedTargetImageName: image.SpecifiedTargetImageName,
-		excludeAllTags:           image.excludeAllTags,
-		excludedTags:             maps.Clone(image.excludedTags),
-		Tags:                     slices.Clone(image.Tags),
-		TargetRepositories:       slices.Clone(image.TargetRepositories),
+func (image *Artifact) DeepCopy() *Artifact {
+	copiedImage := &Artifact{
+		DoNotMirror:                 image.DoNotMirror,
+		SourceArtifact:              image.SourceArtifact,
+		defaultTargetArtifactName:   image.defaultTargetArtifactName,
+		SpecifiedTargetArtifactName: image.SpecifiedTargetArtifactName,
+		excludeAllTags:              image.excludeAllTags,
+		excludedTags:                maps.Clone(image.excludedTags),
+		Tags:                        slices.Clone(image.Tags),
+		TargetRepositories:          slices.Clone(image.TargetRepositories),
 	}
 	return copiedImage
 }
 
-func CompareImages(a, b *Image) int {
-	if sourceImageValue := strings.Compare(a.SourceImage, b.SourceImage); sourceImageValue != 0 {
+func CompareImages(a, b *Artifact) int {
+	if sourceImageValue := strings.Compare(a.SourceArtifact, b.SourceArtifact); sourceImageValue != 0 {
 		return sourceImageValue
 	}
-	return strings.Compare(a.TargetImageName(), b.TargetImageName())
+	return strings.Compare(a.TargetArtifactName(), b.TargetArtifactName())
 }

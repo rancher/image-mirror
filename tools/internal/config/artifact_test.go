@@ -72,8 +72,8 @@ func TestImage(t *testing.T) {
 
 					if testCase.ExpectedPresent {
 						assert.Len(t, configEntries, 1)
-						assert.Equal(t, image.SourceImage+":"+tag, configEntries[0].Source)
-						assert.Equal(t, testCase.BaseUrl+"/"+image.TargetImageName()+":"+tag, configEntries[0].Target)
+						assert.Equal(t, image.SourceArtifact+":"+tag, configEntries[0].Source)
+						assert.Equal(t, testCase.BaseUrl+"/"+image.TargetArtifactName()+":"+tag, configEntries[0].Target)
 					} else {
 						assert.Len(t, configEntries, 0)
 					}
@@ -147,7 +147,7 @@ func TestImage(t *testing.T) {
 		}
 		for _, testCase := range []TestCase{
 			{
-				Name:                     "should use default image name when TargetImageName is not set",
+				Name:                     "should use default image name when TargetArtifactName is not set",
 				SpecifiedTargetImageName: "",
 				DoNotMirror:              nil,
 				ExpectedEntries: []regsync.ConfigSync{
@@ -164,7 +164,7 @@ func TestImage(t *testing.T) {
 				},
 			},
 			{
-				Name:                     "should use TargetImageName when it is set",
+				Name:                     "should use TargetArtifactName when it is set",
 				SpecifiedTargetImageName: "other-org-test-image",
 				DoNotMirror:              nil,
 				ExpectedEntries: []regsync.ConfigSync{
@@ -221,39 +221,39 @@ func TestImage(t *testing.T) {
 
 	t.Run("setDefaults", func(t *testing.T) {
 		t.Run("should return error for invalid DoNotMirror type", func(t *testing.T) {
-			image := Image{
-				SourceImage: "test/test",
-				Tags:        []string{"tag1"},
-				DoNotMirror: 1234,
+			image := Artifact{
+				SourceArtifact: "test/test",
+				Tags:           []string{"tag1"},
+				DoNotMirror:    1234,
 			}
 			err := image.setDefaults()
 			assert.ErrorContains(t, err, "DoNotMirror must be nil, bool, or []any")
 		})
 
 		t.Run("should return error when DoNotMirror has invalid element type", func(t *testing.T) {
-			image := Image{
-				SourceImage: "test/test",
-				Tags:        []string{"tag1"},
-				DoNotMirror: []any{"asdf", 1234, "qwer123"},
+			image := Artifact{
+				SourceArtifact: "test/test",
+				Tags:           []string{"tag1"},
+				DoNotMirror:    []any{"asdf", 1234, "qwer123"},
 			}
 			err := image.setDefaults()
 			assert.Errorf(t, err, "failed to cast %v to string", 1234)
 		})
 
 		t.Run("should return error when DoNotMirror has a duplicated element", func(t *testing.T) {
-			image := Image{
-				SourceImage: "test/test",
-				Tags:        []string{"tag1"},
-				DoNotMirror: []any{"asdf", "qwer", "asdf"},
+			image := Artifact{
+				SourceArtifact: "test/test",
+				Tags:           []string{"tag1"},
+				DoNotMirror:    []any{"asdf", "qwer", "asdf"},
 			}
 			err := image.setDefaults()
 			assert.Error(t, err, "DoNotMirror entry asdf is duplicated")
 		})
 
 		t.Run("should return nil for valid DoNotMirror type", func(t *testing.T) {
-			image := Image{
-				SourceImage: "test/test",
-				Tags:        []string{"tag1"},
+			image := Artifact{
+				SourceArtifact: "test/test",
+				Tags:           []string{"tag1"},
 			}
 			doNotMirrorValues := []any{nil, true, []any{"tag1", "tag2"}}
 			for _, doNotMirrorValue := range doNotMirrorValues {
@@ -272,9 +272,9 @@ func TestImage(t *testing.T) {
 			copy := original.DeepCopy()
 
 			assert.Equal(t, original.DoNotMirror, copy.DoNotMirror)
-			assert.Equal(t, original.SourceImage, copy.SourceImage)
-			assert.Equal(t, original.defaultTargetImageName, copy.defaultTargetImageName)
-			assert.Equal(t, original.SpecifiedTargetImageName, copy.SpecifiedTargetImageName)
+			assert.Equal(t, original.SourceArtifact, copy.SourceArtifact)
+			assert.Equal(t, original.defaultTargetArtifactName, copy.defaultTargetArtifactName)
+			assert.Equal(t, original.SpecifiedTargetArtifactName, copy.SpecifiedTargetArtifactName)
 			assert.Equal(t, original.Tags, copy.Tags)
 			assert.Equal(t, original.excludeAllTags, copy.excludeAllTags)
 			assert.Equal(t, original.excludedTags, copy.excludedTags)
