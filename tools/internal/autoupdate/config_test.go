@@ -193,16 +193,16 @@ func TestConfigEntry(t *testing.T) {
 
 func TestGetBranchHash(t *testing.T) {
 	t.Run("should produce the same hash with the same set of images, but with different image order", func(t *testing.T) {
-		image1, err := config.NewImage("test-org/image1", []string{"asdf", "qwer"}, "", nil, nil)
+		image1, err := config.NewArtifact("test-org/image1", []string{"asdf", "qwer"}, "", nil, nil)
 		assert.Nil(t, err)
-		image2, err := config.NewImage("test-org/image2", []string{"asdf", "qwer"}, "", nil, nil)
+		image2, err := config.NewArtifact("test-org/image2", []string{"asdf", "qwer"}, "", nil, nil)
 		assert.Nil(t, err)
 
-		imageSet1 := []*config.Image{image1, image2}
+		imageSet1 := []*config.Artifact{image1, image2}
 		hash1, err := hashImageSet(imageSet1)
 		assert.Nil(t, err)
 
-		imageSet2 := []*config.Image{image2, image1}
+		imageSet2 := []*config.Artifact{image2, image1}
 		hash2, err := hashImageSet(imageSet2)
 		assert.Nil(t, err)
 
@@ -210,15 +210,15 @@ func TestGetBranchHash(t *testing.T) {
 	})
 
 	t.Run("should produce the same hash with the same image, but a different order of tags", func(t *testing.T) {
-		image1, err := config.NewImage("test-org/image", []string{"asdf", "qwer"}, "", nil, nil)
+		image1, err := config.NewArtifact("test-org/image", []string{"asdf", "qwer"}, "", nil, nil)
 		assert.Nil(t, err)
-		images1 := []*config.Image{image1}
+		images1 := []*config.Artifact{image1}
 		hash1, err := hashImageSet(images1)
 		assert.Nil(t, err)
 
-		image2, err := config.NewImage("test-org/image", []string{"qwer", "asdf"}, "", nil, nil)
+		image2, err := config.NewArtifact("test-org/image", []string{"qwer", "asdf"}, "", nil, nil)
 		assert.Nil(t, err)
-		images2 := []*config.Image{image2}
+		images2 := []*config.Artifact{image2}
 		hash2, err := hashImageSet(images2)
 		assert.Nil(t, err)
 
@@ -226,16 +226,16 @@ func TestGetBranchHash(t *testing.T) {
 	})
 
 	t.Run("should produce the same hash with the same set of images", func(t *testing.T) {
-		image1, err := config.NewImage("test-org/image1", []string{"asdf", "qwer"}, "", nil, nil)
+		image1, err := config.NewArtifact("test-org/image1", []string{"asdf", "qwer"}, "", nil, nil)
 		assert.Nil(t, err)
-		image2, err := config.NewImage("test-org/image2", []string{"asdf", "qwer"}, "", nil, nil)
+		image2, err := config.NewArtifact("test-org/image2", []string{"asdf", "qwer"}, "", nil, nil)
 		assert.Nil(t, err)
 
-		imageSet1 := []*config.Image{image1, image2}
+		imageSet1 := []*config.Artifact{image1, image2}
 		hash1, err := hashImageSet(imageSet1)
 		assert.Nil(t, err)
 
-		imageSet2 := []*config.Image{image1, image2}
+		imageSet2 := []*config.Artifact{image1, image2}
 		hash2, err := hashImageSet(imageSet2)
 		assert.Nil(t, err)
 
@@ -243,15 +243,15 @@ func TestGetBranchHash(t *testing.T) {
 	})
 
 	t.Run("should produce a different hash with different set of tags", func(t *testing.T) {
-		image1, err := config.NewImage("test-org/image", []string{"asdf", "qwer"}, "", nil, nil)
+		image1, err := config.NewArtifact("test-org/image", []string{"asdf", "qwer"}, "", nil, nil)
 		assert.Nil(t, err)
-		images1 := []*config.Image{image1}
+		images1 := []*config.Artifact{image1}
 		hash1, err := hashImageSet(images1)
 		assert.Nil(t, err)
 
-		image2, err := config.NewImage("test-org/image", []string{"asdf", "qwer", "zxcv"}, "", nil, nil)
+		image2, err := config.NewArtifact("test-org/image", []string{"asdf", "qwer", "zxcv"}, "", nil, nil)
 		assert.Nil(t, err)
-		images2 := []*config.Image{image2}
+		images2 := []*config.Artifact{image2}
 		hash2, err := hashImageSet(images2)
 		assert.Nil(t, err)
 

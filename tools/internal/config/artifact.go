@@ -10,7 +10,7 @@ import (
 	"github.com/rancher/image-mirror/internal/regsync"
 )
 
-// Artifact should not be instantiated directly. Instead, use NewImage().
+// Artifact should not be instantiated directly. Instead, use NewArtifact().
 type Artifact struct {
 	// If DoNotMirror is a bool and true, the Artifact is not mirrored i.e.
 	// it is not added to the regsync config when the regsync config is
@@ -24,7 +24,7 @@ type Artifact struct {
 	excludeAllTags bool
 	// Set via DoNotMirror.
 	excludedTags map[string]struct{}
-	// Used to specify the desired name of the target image if it differs
+	// Used to specify the desired name of the target artifact if it differs
 	// from default. This field would be private if it was convenient for
 	// marshalling to JSON/YAML, but it is not. This field should not be
 	// accessed directly - instead, use the TargetArtifactName() and
@@ -39,139 +39,139 @@ type Artifact struct {
 	TargetRepositories []string `json:",omitempty"`
 }
 
-func NewImage(sourceImage string, tags []string, targetImageName string, doNotMirror any, targetRepositories []string) (*Artifact, error) {
-	image := &Artifact{
-		SourceArtifact:     sourceImage,
+func NewArtifact(sourceArtifact string, tags []string, targetArtifactName string, doNotMirror any, targetRepositories []string) (*Artifact, error) {
+	artifact := &Artifact{
+		SourceArtifact:     sourceArtifact,
 		Tags:               tags,
 		DoNotMirror:        doNotMirror,
 		TargetRepositories: targetRepositories,
 	}
-	if err := image.setDefaults(); err != nil {
+	if err := artifact.setDefaults(); err != nil {
 		return nil, err
 	}
-	image.SetTargetArtifactName(targetImageName)
-	return image, nil
+	artifact.SetTargetArtifactName(targetArtifactName)
+	return artifact, nil
 }
 
-func (image *Artifact) Sort() {
-	slices.Sort(image.Tags)
+func (artifact *Artifact) Sort() {
+	slices.Sort(artifact.Tags)
 }
 
-func (image *Artifact) setDefaults() error {
-	parts := strings.Split(image.SourceArtifact, "/")
+func (artifact *Artifact) setDefaults() error {
+	parts := strings.Split(artifact.SourceArtifact, "/")
 	if len(parts) < 2 {
-		return fmt.Errorf("source image split into %d parts (>=2 parts expected)", len(parts))
+		return fmt.Errorf("source artifact split into %d parts (>=2 parts expected)", len(parts))
 	}
 	if parts[0] == "dp.apps.rancher.io" {
-		// AppCo images have only one significant part in their reference.
+		// AppCo artifacts have only one significant part in their reference.
 		// For example, in dp.apps.rancher.io/containers/openjdk,
 		// dp.apps.rancher.io/containers is the repository and openjdk is
 		// the significant part.
-		imageName := parts[len(parts)-1]
-		image.defaultTargetArtifactName = "appco-" + imageName
+		artifactName := parts[len(parts)-1]
+		artifact.defaultTargetArtifactName = "appco-" + artifactName
 	} else {
 		repoName := parts[len(parts)-2]
-		imageName := parts[len(parts)-1]
-		image.defaultTargetArtifactName = "mirrored-" + repoName + "-" + imageName
+		artifactName := parts[len(parts)-1]
+		artifact.defaultTargetArtifactName = "mirrored-" + repoName + "-" + artifactName
 	}
 
-	image.excludeAllTags = false
-	image.excludedTags = map[string]struct{}{}
-	switch val := image.DoNotMirror.(type) {
+	artifact.excludeAllTags = false
+	artifact.excludedTags = map[string]struct{}{}
+	switch val := artifact.DoNotMirror.(type) {
 	case nil:
 	case bool:
-		image.excludeAllTags = val
+		artifact.excludeAllTags = val
 	case []any:
 		for _, valPart := range val {
 			excludedTag, ok := valPart.(string)
 			if !ok {
 				return fmt.Errorf("failed to cast %v to string", valPart)
 			}
-			if _, present := image.excludedTags[excludedTag]; present {
+			if _, present := artifact.excludedTags[excludedTag]; present {
 				return fmt.Errorf("DoNotMirror entry %q is duplicated", excludedTag)
 			}
-			image.excludedTags[excludedTag] = struct{}{}
+			artifact.excludedTags[excludedTag] = struct{}{}
 		}
 	default:
 		return errors.New("DoNotMirror must be nil, bool, or []any")
 	}
 
-	if image.TargetRepositories == nil {
-		image.TargetRepositories = []string{}
+	if artifact.TargetRepositories == nil {
+		artifact.TargetRepositories = []string{}
 	}
 
 	return nil
 }
 
-func (image *Artifact) TargetArtifactName() string {
-	if image.SpecifiedTargetArtifactName != "" {
-		return image.SpecifiedTargetArtifactName
+func (artifact *Artifact) TargetArtifactName() string {
+	if artifact.SpecifiedTargetArtifactName != "" {
+		return artifact.SpecifiedTargetArtifactName
 	}
-	return image.defaultTargetArtifactName
+	return artifact.defaultTargetArtifactName
 }
 
-func (image *Artifact) SetTargetArtifactName(value string) {
-	if value == image.defaultTargetArtifactName {
-		image.SpecifiedTargetArtifactName = ""
+func (artifact *Artifact) SetTargetArtifactName(value string) {
+	if value == artifact.defaultTargetArtifactName {
+		artifact.SpecifiedTargetArtifactName = ""
 	} else {
-		image.SpecifiedTargetArtifactName = value
+		artifact.SpecifiedTargetArtifactName = value
 	}
 }
 
-func (image *Artifact) CombineSourceImageAndTags() []string {
-	fullImages := make([]string, 0, len(image.Tags))
-	for _, tag := range image.Tags {
-		fullImage := image.SourceArtifact + ":" + tag
-		fullImages = append(fullImages, fullImage)
+func (artifact *Artifact) CombineSourceArtifactAndTags() []string {
+	fullArtifacts := make([]string, 0, len(artifact.Tags))
+	for _, tag := range artifact.Tags {
+		fullArtifact := artifact.SourceArtifact + ":" + tag
+		fullArtifacts = append(fullArtifacts, fullArtifact)
 	}
-	return fullImages
+	return fullArtifacts
 }
 
-// ToRegsyncImages converts image into one ConfigSync (i.e. an image
-// for regsync to sync) for each tag present in image, for each repository
+// ToRegsyncArtifacts converts artifact into one ConfigSync (i.e. an artifact
+// for regsync to sync) for each tag present in artifact, for each repository
 // passed in repositories.
-func (image *Artifact) ToRegsyncImages(repositories []Repository) ([]regsync.ConfigSync, error) {
+func (artifact *Artifact) ToRegsyncArtifacts(repositories []Repository) ([]regsync.ConfigSync, error) {
 	entries := make([]regsync.ConfigSync, 0)
 	for _, repository := range repositories {
-		if !repository.DefaultTarget && len(image.TargetRepositories) == 0 {
+		if !repository.DefaultTarget && len(artifact.TargetRepositories) == 0 {
 			continue
 		}
-		if len(image.TargetRepositories) > 0 && !slices.Contains(image.TargetRepositories, repository.BaseUrl) {
+		if len(artifact.TargetRepositories) > 0 && !slices.Contains(artifact.TargetRepositories, repository.BaseUrl) {
 			continue
 		}
-		// do not include if source and destination images are the same
-		trimmedSourceImage := strings.TrimPrefix(image.SourceArtifact, "docker.io/")
-		trimmedTargetImage := strings.TrimPrefix(repository.BaseUrl+"/"+image.TargetArtifactName(), "docker.io/")
-		if trimmedSourceImage == trimmedTargetImage {
+		// do not include if source and destination artifacts are the same
+		trimmedSourceArtifact := strings.TrimPrefix(artifact.SourceArtifact, "docker.io/")
+		trimmedTargetArtifact := strings.TrimPrefix(repository.BaseUrl+"/"+artifact.TargetArtifactName(), "docker.io/")
+		if trimmedSourceArtifact == trimmedTargetArtifact {
 			continue
 		}
-		syncEntries, err := image.ToRegsyncImagesForSingleRepository(repository)
+		syncEntries, err := artifact.ToRegsyncArtifactsForSingleRepository(repository)
 		if err != nil {
-			return nil, fmt.Errorf("failed to convert Artifact with SourceArtifact %q: %w", image.SourceArtifact, err)
+			return nil, fmt.Errorf("failed to convert Artifact with SourceArtifact %q: %w", artifact.SourceArtifact, err)
 		}
 		entries = append(entries, syncEntries...)
 	}
 	return entries, nil
 }
 
-// ToRegsyncImagesForSingleRepository converts image into one ConfigSync
-// (i.e. an image for regsync to sync) for each tag present in image.
+// ToRegsyncArtifactsForSingleRepository converts artifact into one ConfigSync
+// (i.e. an artifact for regsync to sync) for each tag present in artifact.
 // repo provides the target repository for each ConfigSync.
-func (image *Artifact) ToRegsyncImagesForSingleRepository(repo Repository) ([]regsync.ConfigSync, error) {
-	if image.excludeAllTags {
+func (artifact *Artifact) ToRegsyncArtifactsForSingleRepository(repo Repository) ([]regsync.ConfigSync, error) {
+	if artifact.excludeAllTags {
 		return nil, nil
 	}
-	entries := make([]regsync.ConfigSync, 0, len(image.Tags))
-	for _, tag := range image.Tags {
-		if _, excluded := image.excludedTags[tag]; excluded {
+	entries := make([]regsync.ConfigSync, 0, len(artifact.Tags))
+	for _, tag := range artifact.Tags {
+		if _, excluded := artifact.excludedTags[tag]; excluded {
 			continue
 		}
-		sourceImage := image.SourceArtifact + ":" + tag
-		targetImage := repo.BaseUrl + "/" + image.TargetArtifactName() + ":" + tag
+		sourceArtifact := artifact.SourceArtifact + ":" + tag
+		targetArtifact := repo.BaseUrl + "/" + artifact.TargetArtifactName() + ":" + tag
 		entry := regsync.ConfigSync{
-			Source: sourceImage,
-			Target: targetImage,
-			Type:   "image",
+			Source: sourceArtifact,
+			Target: targetArtifact,
+			Type:   "image", //This works for both images and helm charts. More info on https://regclient.org/usage/regsync/#sync
 		}
 		entries = append(entries, entry)
 	}
@@ -179,23 +179,23 @@ func (image *Artifact) ToRegsyncImagesForSingleRepository(repo Repository) ([]re
 	return entries, nil
 }
 
-func (image *Artifact) DeepCopy() *Artifact {
-	copiedImage := &Artifact{
-		DoNotMirror:                 image.DoNotMirror,
-		SourceArtifact:              image.SourceArtifact,
-		defaultTargetArtifactName:   image.defaultTargetArtifactName,
-		SpecifiedTargetArtifactName: image.SpecifiedTargetArtifactName,
-		excludeAllTags:              image.excludeAllTags,
-		excludedTags:                maps.Clone(image.excludedTags),
-		Tags:                        slices.Clone(image.Tags),
-		TargetRepositories:          slices.Clone(image.TargetRepositories),
+func (artifact *Artifact) DeepCopy() *Artifact {
+	copiedArtifact := &Artifact{
+		DoNotMirror:                 artifact.DoNotMirror,
+		SourceArtifact:              artifact.SourceArtifact,
+		defaultTargetArtifactName:   artifact.defaultTargetArtifactName,
+		SpecifiedTargetArtifactName: artifact.SpecifiedTargetArtifactName,
+		excludeAllTags:              artifact.excludeAllTags,
+		excludedTags:                maps.Clone(artifact.excludedTags),
+		Tags:                        slices.Clone(artifact.Tags),
+		TargetRepositories:          slices.Clone(artifact.TargetRepositories),
 	}
-	return copiedImage
+	return copiedArtifact
 }
 
-func CompareImages(a, b *Artifact) int {
-	if sourceImageValue := strings.Compare(a.SourceArtifact, b.SourceArtifact); sourceImageValue != 0 {
-		return sourceImageValue
+func CompareArtifacts(a, b *Artifact) int {
+	if sourceArtifactValue := strings.Compare(a.SourceArtifact, b.SourceArtifact); sourceArtifactValue != 0 {
+		return sourceArtifactValue
 	}
 	return strings.Compare(a.TargetArtifactName(), b.TargetArtifactName())
 }

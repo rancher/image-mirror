@@ -14,19 +14,19 @@ import (
 )
 
 type Config struct {
-	Images       []*Image
+	Artifacts    []*Artifact
 	Repositories []Repository
 }
 
 type Repository struct {
 	// BaseUrl is used exclusively for referring to the Repository
-	// in general, and for building the target image ref for a given
-	// image for a repository. For example, a target image name of
+	// in general, and for building the target artifact ref for a given
+	// artifact for a repository. For example, a target artifact name of
 	// "mirrored-rancher-cis-operator" and a BaseUrl of "docker.io/rancher"
-	// produce a target image ref of "docker.io/rancher/mirrored-rancher-cis-operator".
+	// produce a target artifact ref of "docker.io/rancher/mirrored-rancher-cis-operator".
 	BaseUrl string
 	// Whether the Repository is used as a target repository for a given
-	// Image when the TargetRepositories field of the Image is not set.
+	// Artifact when the TargetRepositories field of the Artifact is not set.
 	DefaultTarget bool
 	// Password is what goes into the "pass" field of regsync.yaml
 	// for this repository. For more information please see
@@ -64,9 +64,9 @@ func ParseFromBytes(contents []byte) (*Config, error) {
 		return nil, fmt.Errorf("failed to unmarshal as JSON: %w", err)
 	}
 
-	for _, image := range config.Images {
-		if err := image.setDefaults(); err != nil {
-			return nil, fmt.Errorf("failed to set defaults for image %q: %w", image.SourceImage, err)
+	for _, artifact := range config.Artifacts {
+		if err := artifact.setDefaults(); err != nil {
+			return nil, fmt.Errorf("failed to set defaults for artifact %q: %w", artifact.SourceArtifact, err)
 		}
 	}
 
@@ -89,10 +89,10 @@ func Write(fileName string, config *Config) error {
 }
 
 func (config *Config) Sort() {
-	for _, image := range config.Images {
-		image.Sort()
+	for _, artifact := range config.Artifacts {
+		artifact.Sort()
 	}
-	slices.SortStableFunc(config.Images, CompareImages)
+	slices.SortStableFunc(config.Artifacts, CompareArtifacts)
 	slices.SortStableFunc(config.Repositories, compareRepositories)
 }
 
@@ -100,7 +100,7 @@ func (config *Config) ToRegsyncConfig() (regsync.Config, error) {
 	regsyncYaml := regsync.Config{
 		Creds: make([]regsync.ConfigCred, 0, len(config.Repositories)),
 		Defaults: regsync.ConfigDefaults{
-			UserAgent: "rancher-image-mirror",
+			UserAgent: "rancher-artifact-mirror",
 		},
 		Sync: make([]regsync.ConfigSync, 0),
 	}
@@ -123,10 +123,10 @@ func (config *Config) ToRegsyncConfig() (regsync.Config, error) {
 		return cmp.Compare(a.Registry, b.Registry)
 	})
 
-	for _, image := range config.Images {
-		syncEntries, err := image.ToRegsyncImages(config.Repositories)
+	for _, artifact := range config.Artifacts {
+		syncEntries, err := artifact.ToRegsyncArtifacts(config.Repositories)
 		if err != nil {
-			return regsync.Config{}, fmt.Errorf("failed to convert Image with SourceImage %q: %w", image.SourceImage, err)
+			return regsync.Config{}, fmt.Errorf("failed to convert Artifact with SourceArtifact %q: %w", artifact.SourceArtifact, err)
 		}
 		regsyncYaml.Sync = append(regsyncYaml.Sync, syncEntries...)
 	}
@@ -136,11 +136,11 @@ func (config *Config) ToRegsyncConfig() (regsync.Config, error) {
 
 func (config *Config) DeepCopy() *Config {
 	copiedConfig := &Config{
-		Images:       make([]*Image, 0, len(config.Images)),
+		Artifacts:    make([]*Artifact, 0, len(config.Artifacts)),
 		Repositories: slices.Clone(config.Repositories),
 	}
-	for _, image := range config.Images {
-		copiedConfig.Images = append(copiedConfig.Images, image.DeepCopy())
+	for _, artifact := range config.Artifacts {
+		copiedConfig.Artifacts = append(copiedConfig.Artifacts, artifact.DeepCopy())
 	}
 	return copiedConfig
 }
