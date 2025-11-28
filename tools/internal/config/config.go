@@ -8,7 +8,7 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/rancher/image-mirror/internal/regsync"
+	"github.com/rancher/artifact-mirror/internal/regsync"
 
 	"sigs.k8s.io/yaml"
 )

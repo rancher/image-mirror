@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/rancher/image-mirror/internal/regsync"
+	"github.com/rancher/artifact-mirror/internal/regsync"
 	"github.com/stretchr/testify/assert"
 )
 

@@ -9,7 +9,7 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/rancher/image-mirror/internal/config"
+	"github.com/rancher/artifact-mirror/internal/config"
 	"gopkg.in/yaml.v3"
 )
 

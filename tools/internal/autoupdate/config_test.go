@@ -3,7 +3,7 @@ package autoupdate
 import (
 	"testing"
 
-	"github.com/rancher/image-mirror/internal/config"
+	"github.com/rancher/artifact-mirror/internal/config"
 
 	"github.com/stretchr/testify/assert"
 )

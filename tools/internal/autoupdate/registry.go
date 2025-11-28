@@ -12,7 +12,7 @@ import (
 	"time"
 
 	"github.com/Masterminds/semver/v3"
-	"github.com/rancher/image-mirror/internal/config"
+	"github.com/rancher/artifact-mirror/internal/config"
 )
 
 type Registry struct {

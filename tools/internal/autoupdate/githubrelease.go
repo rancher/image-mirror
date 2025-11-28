@@ -8,7 +8,7 @@ import (
 
 	"github.com/Masterminds/semver/v3"
 	"github.com/google/go-github/v79/github"
-	"github.com/rancher/image-mirror/internal/config"
+	"github.com/rancher/artifact-mirror/internal/config"
 )
 
 // GithubRelease retrieves the tags of all github releases that match the VersionConstraint if

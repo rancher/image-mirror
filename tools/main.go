@@ -11,11 +11,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/rancher/image-mirror/internal/autoupdate"
-	"github.com/rancher/image-mirror/internal/config"
-	"github.com/rancher/image-mirror/internal/git"
-	"github.com/rancher/image-mirror/internal/paths"
-	"github.com/rancher/image-mirror/internal/regsync"
+	"github.com/rancher/artifact-mirror/internal/autoupdate"
+	"github.com/rancher/artifact-mirror/internal/config"
+	"github.com/rancher/artifact-mirror/internal/git"
+	"github.com/rancher/artifact-mirror/internal/paths"
+	"github.com/rancher/artifact-mirror/internal/regsync"
 
 	"github.com/google/go-github/v79/github"
 	"github.com/urfave/cli/v3"
