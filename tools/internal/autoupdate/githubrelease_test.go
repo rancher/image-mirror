@@ -64,21 +64,21 @@ func TestGithubRelease(t *testing.T) {
 				ExpectedError: "must specify Repository",
 			},
 			{
-				Message: "should return error for nil Images",
+				Message: "should return error for nil Artifacts",
 				GithubRelease: &GithubRelease{
 					Owner:      "test-owner",
 					Repository: "test-repo",
 				},
-				ExpectedError: "must specify Images",
+				ExpectedError: "must specify Artifacts",
 			},
 			{
-				Message: "should return error for empty Images",
+				Message: "should return error for empty Artifacts",
 				GithubRelease: &GithubRelease{
 					Owner:      "test-owner",
 					Repository: "test-repo",
 					Images:     []AutoupdateImageRef{},
 				},
-				ExpectedError: "must specify at least one element for Images",
+				ExpectedError: "must specify at least one element for Artifacts",
 			},
 			{
 				Message: "should return error for invalid version constraint",

@@ -3,7 +3,7 @@ creds:
   registry: docker.io
   user: '{{ env "DOCKER_USERNAME" }}'
 defaults:
-  userAgent: rancher-image-mirror
+  userAgent: rancher-artifact-mirror
 sync:
 - source: neuvector/compliance-config:latest
   target: rancher/mirrored-neuvector-compliance-config:latest

@@ -18,7 +18,7 @@ creds:
   repoAuth: true
   user: '{{ env "PRIME_STAGING_USERNAME" }}'
 defaults:
-  userAgent: rancher-image-mirror
+  userAgent: rancher-artifact-mirror
 sync:
 - source: amazon/aws-cli:2.0.52
   target: docker.io/rancher/mirrored-amazon-aws-cli:2.0.52

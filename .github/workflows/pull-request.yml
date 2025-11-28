@@ -44,7 +44,7 @@ jobs:
       - name: Ensure that files are formatted correctly
         run: |
           scripts/build-tools.sh
-          bin/image-mirror-tools format
+          bin/artifact-mirror-tools format
           # fail if there are changes in the working tree
           git diff --exit-code
 
@@ -60,7 +60,7 @@ jobs:
       - name: Ensure that regsync.yaml is in sync with config.yaml
         run: |
           scripts/build-tools.sh
-          bin/image-mirror-tools generate-regsync
+          bin/artifact-mirror-tools generate-regsync
           # fail if there are changes in the working tree
           git diff --exit-code
 
@@ -75,7 +75,7 @@ jobs:
         with:
           go-version: '1.24'
 
-      - name: Run bin/image-mirror-tools validate
+      - name: Run bin/artifact-mirror-tools validate
         run: |
           scripts/build-tools.sh
-          bin/image-mirror-tools validate --merge-base-branch origin/master
+          bin/artifact-mirror-tools validate --merge-base-branch origin/master

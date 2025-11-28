@@ -11,11 +11,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/rancher/image-mirror/internal/autoupdate"
-	"github.com/rancher/image-mirror/internal/config"
-	"github.com/rancher/image-mirror/internal/git"
-	"github.com/rancher/image-mirror/internal/paths"
-	"github.com/rancher/image-mirror/internal/regsync"
+	"github.com/rancher/artifact-mirror/internal/autoupdate"
+	"github.com/rancher/artifact-mirror/internal/config"
+	"github.com/rancher/artifact-mirror/internal/git"
+	"github.com/rancher/artifact-mirror/internal/paths"
+	"github.com/rancher/artifact-mirror/internal/regsync"
 
 	"github.com/google/go-github/v79/github"
 	"github.com/urfave/cli/v3"
@@ -201,7 +201,7 @@ func autoUpdate(ctx context.Context, _ *cli.Command) error {
 }
 
 // validate is used to run validations based in Go code against
-// the state of the image-mirror repo.
+// the state of the artifact-mirror repo.
 func validate(_ context.Context, _ *cli.Command) error {
 	configYaml, err := config.Parse(paths.ConfigYaml)
 	if err != nil {
@@ -210,7 +210,7 @@ func validate(_ context.Context, _ *cli.Command) error {
 
 	// Run validations
 	errs := make([]error, 0)
-	validateSourceImageAndTargetImageName(&errs, configYaml)
+	validateSourceArtifactAndTargetArtifactName(&errs, configYaml)
 	validateNoTagsRemoved(&errs, configYaml)
 	validateNewTagsPullable(&errs, configYaml)
 	validateDockerHubRepoExists(&errs, configYaml)
@@ -226,20 +226,20 @@ func validate(_ context.Context, _ *cli.Command) error {
 	return nil
 }
 
-func validateSourceImageAndTargetImageName(errs *[]error, configYaml *config.Config) {
-	imageMap := map[config.ImageIndex]bool{}
-	for _, image := range configYaml.Images {
-		index := config.ImageIndex{
-			SourceImage:     image.SourceImage,
-			TargetImageName: image.TargetImageName(),
+func validateSourceArtifactAndTargetArtifactName(errs *[]error, configYaml *config.Config) {
+	artifactMap := map[config.ArtifactIndex]bool{}
+	for _, artifact := range configYaml.Artifacts {
+		index := config.ArtifactIndex{
+			SourceArtifact:     artifact.SourceArtifact,
+			TargetArtifactName: artifact.TargetArtifactName(),
 		}
-		_, alreadyPresent := imageMap[index]
+		_, alreadyPresent := artifactMap[index]
 		if alreadyPresent {
-			err := fmt.Errorf("found multiple images in %s with SourceImage %s and TargetImageName %s",
-				paths.ConfigYaml, image.SourceImage, image.TargetImageName())
+			err := fmt.Errorf("found multiple artifacts in %s with SourceArtifact %s and TargetArtifactName %s",
+				paths.ConfigYaml, artifact.SourceArtifact, artifact.TargetArtifactName())
 			*errs = append(*errs, err)
 		} else {
-			imageMap[index] = true
+			artifactMap[index] = true
 		}
 	}
 }
@@ -250,7 +250,7 @@ func validateNoTagsRemoved(errs *[]error, newConfigYaml *config.Config) {
 		*errs = append(*errs, fmt.Errorf("failed to load %s from merge base %q: %w", paths.ConfigYaml, mergeBaseBranch, err))
 		return
 	}
-	checkNoTagsRemoved(errs, oldConfigYaml.Images, newConfigYaml.Images)
+	checkNoTagsRemoved(errs, oldConfigYaml.Artifacts, newConfigYaml.Artifacts)
 }
 
 func loadMergeBaseConfigYaml(branch string) (*config.Config, error) {
@@ -269,21 +269,21 @@ func loadMergeBaseConfigYaml(branch string) (*config.Config, error) {
 	return oldConfigYaml, nil
 }
 
-func checkNoTagsRemoved(errs *[]error, oldImages, newImages []*config.Image) {
-	accumulator := config.NewImageAccumulator()
-	accumulator.AddImages(newImages...)
-	for _, oldImage := range oldImages {
-		diffImage, err := accumulator.TagDifference(oldImage)
+func checkNoTagsRemoved(errs *[]error, oldArtifacts, newArtifacts []*config.Artifact) {
+	accumulator := config.NewArtifactAccumulator()
+	accumulator.AddArtifacts(newArtifacts...)
+	for _, oldArtifact := range oldArtifacts {
+		diffArtifact, err := accumulator.TagDifference(oldArtifact)
 		if err != nil {
-			wrappedErr := fmt.Errorf("failed to diff image %s (TargetImageName %q): %w", oldImage.SourceImage, oldImage.TargetImageName(), err)
+			wrappedErr := fmt.Errorf("failed to diff artifact %s (TargetArtifactName %q): %w", oldArtifact.SourceArtifact, oldArtifact.TargetArtifactName(), err)
 			*errs = append(*errs, wrappedErr)
 			continue
 		}
-		if diffImage == nil {
+		if diffArtifact == nil {
 			continue
 		}
-		for _, missedTag := range diffImage.Tags {
-			err := fmt.Errorf("%s:%s removed (TargetImageName %q)", diffImage.SourceImage, missedTag, diffImage.TargetImageName())
+		for _, missedTag := range diffArtifact.Tags {
+			err := fmt.Errorf("%s:%s removed (TargetArtifactName %q)", diffArtifact.SourceArtifact, missedTag, diffArtifact.TargetArtifactName())
 			*errs = append(*errs, err)
 		}
 	}
@@ -297,24 +297,24 @@ func validateNewTagsPullable(errs *[]error, newConfigYaml *config.Config) {
 	}
 
 	// Find the new tags
-	imagesWithNewTags := make([]*config.Image, 0)
-	accumulator := config.NewImageAccumulator()
-	accumulator.AddImages(oldConfigYaml.Images...)
-	for _, newImage := range newConfigYaml.Images {
-		diffImage, err := accumulator.TagDifference(newImage)
+	artifactsWithNewTags := make([]*config.Artifact, 0)
+	accumulator := config.NewArtifactAccumulator()
+	accumulator.AddArtifacts(oldConfigYaml.Artifacts...)
+	for _, newArtifact := range newConfigYaml.Artifacts {
+		diffArtifact, err := accumulator.TagDifference(newArtifact)
 		if err != nil {
-			wrappedErr := fmt.Errorf("failed to diff image %s (TargetImageName %q): %w", newImage.SourceImage, newImage.TargetImageName(), err)
+			wrappedErr := fmt.Errorf("failed to diff artifact %s (TargetArtifactName %q): %w", newArtifact.SourceArtifact, newArtifact.TargetArtifactName(), err)
 			*errs = append(*errs, wrappedErr)
 			continue
 		}
-		if diffImage == nil {
+		if diffArtifact == nil {
 			continue
 		}
-		imagesWithNewTags = append(imagesWithNewTags, diffImage)
+		artifactsWithNewTags = append(artifactsWithNewTags, diffArtifact)
 	}
 
 	// Instantiate oras store
-	dirPath, err := os.MkdirTemp("", "image-mirror-validation-*")
+	dirPath, err := os.MkdirTemp("", "artifact-mirror-validation-*")
 	if err != nil {
 		*errs = append(*errs, fmt.Errorf("failed to create temp dir: %w", err))
 		return
@@ -327,25 +327,25 @@ func validateNewTagsPullable(errs *[]error, newConfigYaml *config.Config) {
 	}
 
 	// Try pulling each tag
-	for _, newTagImage := range imagesWithNewTags {
-		repo, err := parseRepository(newTagImage.SourceImage)
+	for _, newTagArtifact := range artifactsWithNewTags {
+		repo, err := parseRepository(newTagArtifact.SourceArtifact)
 		if err != nil {
-			wrappedErr := fmt.Errorf("failed to parse %s as repository: %w", newTagImage.SourceImage, err)
+			wrappedErr := fmt.Errorf("failed to parse %s as repository: %w", newTagArtifact.SourceArtifact, err)
 			*errs = append(*errs, wrappedErr)
 			continue
 		}
 		// Workflows that are triggered by pull requests from forks (i.e.
 		// every human-created PR in this repo) cannot get the ID token that
-		// is needed to get secrets from EIO's setup. Pulling images from
+		// is needed to get secrets from EIO's setup. Pulling artifacts from
 		// the application collection requires one of these secrets. So,
-		// we do not try pulling the image if it is from the appco.
-		if strings.HasPrefix(newTagImage.SourceImage, "dp.apps.rancher.io") {
+		// we do not try pulling the artifact if it is from the appco.
+		if strings.HasPrefix(newTagArtifact.SourceArtifact, "dp.apps.rancher.io") {
 			continue
 		}
-		for _, newTag := range newTagImage.Tags {
+		for _, newTag := range newTagArtifact.Tags {
 			_, err := oras.Copy(context.Background(), repo, newTag, store, newTag, oras.DefaultCopyOptions)
 			if err != nil {
-				*errs = append(*errs, fmt.Errorf("failed to pull %s:%s: %w", newTagImage.SourceImage, newTag, err))
+				*errs = append(*errs, fmt.Errorf("failed to pull %s:%s: %w", newTagArtifact.SourceArtifact, newTag, err))
 				continue
 			}
 		}
@@ -375,20 +375,20 @@ func validateDockerHubRepoExists(errs *[]error, newConfigYaml *config.Config) {
 		return
 	}
 
-	// get images that were added in this branch
-	newImages := make([]*config.Image, 0, len(newConfigYaml.Images))
-	accumulator := config.NewImageAccumulator()
-	accumulator.AddImages(oldConfigYaml.Images...)
-	for _, newImage := range newConfigYaml.Images {
-		if accumulator.Contains(newImage) {
+	// get artifacts that were added in this branch
+	newArtifacts := make([]*config.Artifact, 0, len(newConfigYaml.Artifacts))
+	accumulator := config.NewArtifactAccumulator()
+	accumulator.AddArtifacts(oldConfigYaml.Artifacts...)
+	for _, newArtifact := range newConfigYaml.Artifacts {
+		if accumulator.Contains(newArtifact) {
 			continue
 		}
-		if len(newImage.TargetRepositories) > 0 && !slices.Contains(newImage.TargetRepositories, "docker.io/rancher") {
+		if len(newArtifact.TargetRepositories) > 0 && !slices.Contains(newArtifact.TargetRepositories, "docker.io/rancher") {
 			continue
 		}
-		newImages = append(newImages, newImage)
+		newArtifacts = append(newArtifacts, newArtifact)
 	}
-	if len(newImages) == 0 {
+	if len(newArtifacts) == 0 {
 		return
 	}
 
@@ -399,11 +399,11 @@ func validateDockerHubRepoExists(errs *[]error, newConfigYaml *config.Config) {
 		return
 	}
 
-	for _, newImage := range newImages {
-		targetImageName := newImage.TargetImageName()
-		_, repoExists := existingRepositories[targetImageName]
+	for _, newArtifact := range newArtifacts {
+		targetArtifactName := newArtifact.TargetArtifactName()
+		_, repoExists := existingRepositories[targetArtifactName]
 		if !repoExists {
-			*errs = append(*errs, fmt.Errorf("repository rancher/%s does not exist on dockerhub", targetImageName))
+			*errs = append(*errs, fmt.Errorf("repository rancher/%s does not exist on dockerhub", targetArtifactName))
 		}
 	}
 }

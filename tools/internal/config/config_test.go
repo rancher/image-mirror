@@ -10,9 +10,9 @@ func TestConfig(t *testing.T) {
 	t.Run("ToRegsyncConfig", func(t *testing.T) {
 		t.Run("should always include Repositories in regsync config even if DefaultTarget field is false", func(t *testing.T) {
 			// Non-target repos should still be included in regsync.yaml, since
-			// they may be the source of some images.
+			// they may be the source of some artifacts.
 			config := &Config{
-				Images: []*Image{},
+				Artifacts: []*Artifact{},
 				Repositories: []Repository{
 					{
 						BaseUrl:       "docker.io/target-repo",
