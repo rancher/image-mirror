@@ -12,7 +12,7 @@ import (
 	"time"
 
 	"github.com/Masterminds/semver/v3"
-	"github.com/rancher/image-mirror/internal/config"
+	"github.com/rancher/artifact-mirror/internal/config"
 )
 
 type Registry struct {
@@ -27,7 +27,7 @@ type ImageRegistry interface {
 	getImageTags() ([]string, error)
 }
 
-func (r *Registry) GetUpdateImages() ([]*config.Image, error) {
+func (r *Registry) GetUpdateImages() ([]*config.Artifact, error) {
 	allTags, err := r.getImageTags()
 	if err != nil {
 		return nil, fmt.Errorf("failed to get image tags: %w", err)
@@ -69,13 +69,13 @@ func (r *Registry) GetUpdateImages() ([]*config.Image, error) {
 		filteredTags = []string{vs[len(vs)-1].String()} // Use the latest version
 	}
 
-	images := make([]*config.Image, 0, len(r.Images))
+	images := make([]*config.Artifact, 0, len(r.Images))
 	for _, sourceImage := range r.Images {
-		image, err := config.NewImage(sourceImage.SourceImage, filteredTags, sourceImage.TargetImageName, nil, nil)
+		image, err := config.NewArtifact(sourceImage.SourceImage, filteredTags, sourceImage.TargetImageName, nil, nil)
 		if err != nil {
 			return nil, err
 		}
-		image.SetTargetImageName(sourceImage.TargetImageName)
+		image.SetTargetArtifactName(sourceImage.TargetImageName)
 		images = append(images, image)
 	}
 	return images, nil

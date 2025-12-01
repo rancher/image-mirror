@@ -9,11 +9,11 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/rancher/image-mirror/internal/config"
+	"github.com/rancher/artifact-mirror/internal/config"
 	"gopkg.in/yaml.v3"
 )
 
-const helmRepoName = "image-mirror-tools-temp"
+const helmRepoName = "artifact-mirror-tools-temp"
 
 // An Environment is a set of configuration we would like to apply to a
 // chart when templating it out and searching the result for images.
@@ -46,7 +46,7 @@ type HelmLatest struct {
 }
 
 // GetUpdateImages templates the helm chart and extracts all image references
-func (hl *HelmLatest) GetUpdateImages() ([]*config.Image, error) {
+func (hl *HelmLatest) GetUpdateImages() ([]*config.Artifact, error) {
 	if _, err := exec.LookPath("helm"); err != nil {
 		return nil, fmt.Errorf("helm command not found: %w", err)
 	}
@@ -94,8 +94,8 @@ func (hl *HelmLatest) GetUpdateImages() ([]*config.Image, error) {
 		}
 	}
 
-	// Convert the map to a slice of config.Image objects
-	images := make([]*config.Image, 0, len(imageMap))
+	// Convert the map to a slice of config.Artifact objects
+	images := make([]*config.Artifact, 0, len(imageMap))
 	for sourceImage, tags := range imageMap {
 		var foundTargetImageName *string
 		for _, autoupdateImageRef := range hl.Images {
@@ -105,9 +105,9 @@ func (hl *HelmLatest) GetUpdateImages() ([]*config.Image, error) {
 			}
 		}
 		if foundTargetImageName == nil {
-			return nil, fmt.Errorf("found image %s but it is not present in Images", sourceImage)
+			return nil, fmt.Errorf("found image %s but it is not present in Artifacts", sourceImage)
 		}
-		image, err := config.NewImage(sourceImage, tags, *foundTargetImageName, nil, nil)
+		image, err := config.NewArtifact(sourceImage, tags, *foundTargetImageName, nil, nil)
 		if err != nil {
 			return nil, fmt.Errorf("failed to create image: %w", err)
 		}
@@ -115,9 +115,9 @@ func (hl *HelmLatest) GetUpdateImages() ([]*config.Image, error) {
 	}
 
 	// Filter out denied images
-	filteredImages := make([]*config.Image, 0, len(images))
+	filteredImages := make([]*config.Artifact, 0, len(images))
 	for _, image := range images {
-		if !slices.Contains(hl.ImageDenylist, image.SourceImage) {
+		if !slices.Contains(hl.ImageDenylist, image.SourceArtifact) {
 			filteredImages = append(filteredImages, image)
 		}
 	}

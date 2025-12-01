@@ -4,53 +4,53 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/rancher/image-mirror/internal/regsync"
+	"github.com/rancher/artifact-mirror/internal/regsync"
 	"github.com/stretchr/testify/assert"
 )
 
-func TestImage(t *testing.T) {
+func TestArtifact(t *testing.T) {
 	t.Run("ToRegsyncConfig", func(t *testing.T) {
-		t.Run("should exclude images with same source and target", func(t *testing.T) {
+		t.Run("should exclude artifacts with same source and target", func(t *testing.T) {
 			type TestCase struct {
 				Name            string
-				ImageRef        string
+				ArtifactRef     string
 				BaseUrl         string
 				ExpectedPresent bool
 			}
 			testCases := []TestCase{
 				{
-					Name:            "dockerhub image with docker.io prefix and dockerhub base URL",
-					ImageRef:        "docker.io/test-org/test-image",
+					Name:            "dockerhub artifact with docker.io prefix and dockerhub base URL",
+					ArtifactRef:     "docker.io/test-org/test-artifact",
 					BaseUrl:         "docker.io/test-org",
 					ExpectedPresent: false,
 				},
 				{
-					Name:            "dockerhub image with docker.io prefix and non-dockerhub base URL",
-					ImageRef:        "docker.io/test-org/test-image",
+					Name:            "dockerhub artifact with docker.io prefix and non-dockerhub base URL",
+					ArtifactRef:     "docker.io/test-org/test-artifact",
 					BaseUrl:         "some.other.registry/test-org",
 					ExpectedPresent: true,
 				},
 				{
-					Name:            "dockerhub image without docker.io prefix and with dockerhub base URL",
-					ImageRef:        "test-org/test-image",
+					Name:            "dockerhub artifact without docker.io prefix and with dockerhub base URL",
+					ArtifactRef:     "test-org/test-artifact",
 					BaseUrl:         "docker.io/test-org",
 					ExpectedPresent: false,
 				},
 				{
-					Name:            "dockerhub image without docker.io prefix and with non-dockerhub base URL",
-					ImageRef:        "test-org/test-image",
+					Name:            "dockerhub artifact without docker.io prefix and with non-dockerhub base URL",
+					ArtifactRef:     "test-org/test-artifact",
 					BaseUrl:         "some.other.registry/test-org",
 					ExpectedPresent: true,
 				},
 				{
-					Name:            "non-dockerhub image with dockerhub base URL",
-					ImageRef:        "some.other.registry/test-org/test-image",
+					Name:            "non-dockerhub artifact with dockerhub base URL",
+					ArtifactRef:     "some.other.registry/test-org/test-artifact",
 					BaseUrl:         "docker.io/test-org",
 					ExpectedPresent: true,
 				},
 				{
-					Name:            "non-dockerhub image with non-dockerhub base URL",
-					ImageRef:        "some.other.registry/test-org/test-image",
+					Name:            "non-dockerhub artifact with non-dockerhub base URL",
+					ArtifactRef:     "some.other.registry/test-org/test-artifact",
 					BaseUrl:         "some.other.registry/test-org",
 					ExpectedPresent: false,
 				},
@@ -58,7 +58,7 @@ func TestImage(t *testing.T) {
 			for _, testCase := range testCases {
 				t.Run(testCase.Name, func(t *testing.T) {
 					tag := "v1.0.0"
-					image, err := NewImage(testCase.ImageRef, []string{tag}, "test-image", nil, nil)
+					artifact, err := NewArtifact(testCase.ArtifactRef, []string{tag}, "test-artifact", nil, nil)
 					assert.NoError(t, err)
 					repositories := []Repository{
 						{
@@ -67,13 +67,13 @@ func TestImage(t *testing.T) {
 						},
 					}
 
-					configEntries, err := image.ToRegsyncImages(repositories)
+					configEntries, err := artifact.ToRegsyncArtifacts(repositories)
 					assert.NoError(t, err)
 
 					if testCase.ExpectedPresent {
 						assert.Len(t, configEntries, 1)
-						assert.Equal(t, image.SourceImage+":"+tag, configEntries[0].Source)
-						assert.Equal(t, testCase.BaseUrl+"/"+image.TargetImageName()+":"+tag, configEntries[0].Target)
+						assert.Equal(t, artifact.SourceArtifact+":"+tag, configEntries[0].Source)
+						assert.Equal(t, testCase.BaseUrl+"/"+artifact.TargetArtifactName()+":"+tag, configEntries[0].Target)
 					} else {
 						assert.Len(t, configEntries, 0)
 					}
@@ -82,7 +82,7 @@ func TestImage(t *testing.T) {
 		})
 
 		t.Run("should only target repos with DefaultTarget set to true when TargetRepositories is not specified", func(t *testing.T) {
-			image, err := NewImage("test-org/image1", []string{"v1.0.0"}, "", nil, nil)
+			artifact, err := NewArtifact("test-org/artifact", []string{"v1.0.0"}, "", nil, nil)
 			assert.NoError(t, err)
 			repositories := []Repository{
 				{
@@ -95,7 +95,7 @@ func TestImage(t *testing.T) {
 				},
 			}
 
-			configEntries, err := image.ToRegsyncImages(repositories)
+			configEntries, err := artifact.ToRegsyncArtifacts(repositories)
 			assert.NoError(t, err)
 
 			assert.Len(t, configEntries, 1)
@@ -123,10 +123,10 @@ func TestImage(t *testing.T) {
 			}
 			tags := []string{"v1.0.0"}
 			targetRepositories := []string{"site0.com/registry", "site1.com/registry"}
-			image, err := NewImage("test-org/image", tags, "", nil, targetRepositories)
+			artifact, err := NewArtifact("test-org/artifact", tags, "", nil, targetRepositories)
 			assert.NoError(t, err)
 
-			configEntries, err := image.ToRegsyncImages(repositories)
+			configEntries, err := artifact.ToRegsyncArtifacts(repositories)
 			assert.NoError(t, err)
 
 			assert.Len(t, configEntries, len(tags)*len(targetRepositories))
@@ -138,76 +138,76 @@ func TestImage(t *testing.T) {
 		})
 	})
 
-	t.Run("ToRegsyncImagesForSingleRepository", func(t *testing.T) {
+	t.Run("ToRegsyncArtifactsForSingleRepository", func(t *testing.T) {
 		type TestCase struct {
-			Name                     string
-			SpecifiedTargetImageName string
-			DoNotMirror              any
-			ExpectedEntries          []regsync.ConfigSync
+			Name                        string
+			SpecifiedTargetArtifactName string
+			DoNotMirror                 any
+			ExpectedEntries             []regsync.ConfigSync
 		}
 		for _, testCase := range []TestCase{
 			{
-				Name:                     "should use default image name when TargetImageName is not set",
-				SpecifiedTargetImageName: "",
-				DoNotMirror:              nil,
+				Name:                        "should use default artifact name when TargetArtifactName is not set",
+				SpecifiedTargetArtifactName: "",
+				DoNotMirror:                 nil,
 				ExpectedEntries: []regsync.ConfigSync{
 					{
-						Source: "test-org/test-image:v1.2.3",
-						Target: "docker.io/test1/mirrored-test-org-test-image:v1.2.3",
+						Source: "test-org/test-artifact:v1.2.3",
+						Target: "docker.io/test1/mirrored-test-org-test-artifact:v1.2.3",
 						Type:   "image",
 					},
 					{
-						Source: "test-org/test-image:v2.3.4",
-						Target: "docker.io/test1/mirrored-test-org-test-image:v2.3.4",
+						Source: "test-org/test-artifact:v2.3.4",
+						Target: "docker.io/test1/mirrored-test-org-test-artifact:v2.3.4",
 						Type:   "image",
 					},
 				},
 			},
 			{
-				Name:                     "should use TargetImageName when it is set",
-				SpecifiedTargetImageName: "other-org-test-image",
-				DoNotMirror:              nil,
+				Name:                        "should use TargetArtifactName when it is set",
+				SpecifiedTargetArtifactName: "other-org-test-artifact",
+				DoNotMirror:                 nil,
 				ExpectedEntries: []regsync.ConfigSync{
 					{
-						Source: "test-org/test-image:v1.2.3",
-						Target: "docker.io/test1/other-org-test-image:v1.2.3",
+						Source: "test-org/test-artifact:v1.2.3",
+						Target: "docker.io/test1/other-org-test-artifact:v1.2.3",
 						Type:   "image",
 					},
 					{
-						Source: "test-org/test-image:v2.3.4",
-						Target: "docker.io/test1/other-org-test-image:v2.3.4",
+						Source: "test-org/test-artifact:v2.3.4",
+						Target: "docker.io/test1/other-org-test-artifact:v2.3.4",
 						Type:   "image",
 					},
 				},
 			},
 			{
-				Name:                     "should not return any entries if DoNotMirror is true",
-				SpecifiedTargetImageName: "",
-				DoNotMirror:              true,
-				ExpectedEntries:          []regsync.ConfigSync{},
+				Name:                        "should not return any entries if DoNotMirror is true",
+				SpecifiedTargetArtifactName: "",
+				DoNotMirror:                 true,
+				ExpectedEntries:             []regsync.ConfigSync{},
 			},
 			{
-				Name:                     "should only return unspecified tags if DoNotMirror specifies tags",
-				SpecifiedTargetImageName: "",
-				DoNotMirror:              []any{"v2.3.4"},
+				Name:                        "should only return unspecified tags if DoNotMirror specifies tags",
+				SpecifiedTargetArtifactName: "",
+				DoNotMirror:                 []any{"v2.3.4"},
 				ExpectedEntries: []regsync.ConfigSync{
 					{
-						Source: "test-org/test-image:v1.2.3",
-						Target: "docker.io/test1/mirrored-test-org-test-image:v1.2.3",
+						Source: "test-org/test-artifact:v1.2.3",
+						Target: "docker.io/test1/mirrored-test-org-test-artifact:v1.2.3",
 						Type:   "image",
 					},
 				},
 			},
 		} {
 			t.Run(testCase.Name, func(t *testing.T) {
-				inputImage, err := NewImage("test-org/test-image", []string{"v1.2.3", "v2.3.4"}, testCase.SpecifiedTargetImageName, testCase.DoNotMirror, nil)
+				inputArtifact, err := NewArtifact("test-org/test-artifact", []string{"v1.2.3", "v2.3.4"}, testCase.SpecifiedTargetArtifactName, testCase.DoNotMirror, nil)
 				if err != nil {
 					t.Fatalf("unexpected error: %s", err)
 				}
 				inputRepository := Repository{
 					BaseUrl: "docker.io/test1",
 				}
-				regsyncEntries, err := inputImage.ToRegsyncImagesForSingleRepository(inputRepository)
+				regsyncEntries, err := inputArtifact.ToRegsyncArtifactsForSingleRepository(inputRepository)
 				if err != nil {
 					t.Fatalf("unexpected error: %s", err)
 				}
@@ -221,44 +221,44 @@ func TestImage(t *testing.T) {
 
 	t.Run("setDefaults", func(t *testing.T) {
 		t.Run("should return error for invalid DoNotMirror type", func(t *testing.T) {
-			image := Image{
-				SourceImage: "test/test",
-				Tags:        []string{"tag1"},
-				DoNotMirror: 1234,
+			artifact := Artifact{
+				SourceArtifact: "test/test",
+				Tags:           []string{"tag1"},
+				DoNotMirror:    1234,
 			}
-			err := image.setDefaults()
+			err := artifact.setDefaults()
 			assert.ErrorContains(t, err, "DoNotMirror must be nil, bool, or []any")
 		})
 
 		t.Run("should return error when DoNotMirror has invalid element type", func(t *testing.T) {
-			image := Image{
-				SourceImage: "test/test",
-				Tags:        []string{"tag1"},
-				DoNotMirror: []any{"asdf", 1234, "qwer123"},
+			artifact := Artifact{
+				SourceArtifact: "test/test",
+				Tags:           []string{"tag1"},
+				DoNotMirror:    []any{"asdf", 1234, "qwer123"},
 			}
-			err := image.setDefaults()
+			err := artifact.setDefaults()
 			assert.Errorf(t, err, "failed to cast %v to string", 1234)
 		})
 
 		t.Run("should return error when DoNotMirror has a duplicated element", func(t *testing.T) {
-			image := Image{
-				SourceImage: "test/test",
-				Tags:        []string{"tag1"},
-				DoNotMirror: []any{"asdf", "qwer", "asdf"},
+			artifact := Artifact{
+				SourceArtifact: "test/test",
+				Tags:           []string{"tag1"},
+				DoNotMirror:    []any{"asdf", "qwer", "asdf"},
 			}
-			err := image.setDefaults()
+			err := artifact.setDefaults()
 			assert.Error(t, err, "DoNotMirror entry asdf is duplicated")
 		})
 
 		t.Run("should return nil for valid DoNotMirror type", func(t *testing.T) {
-			image := Image{
-				SourceImage: "test/test",
-				Tags:        []string{"tag1"},
+			artifact := Artifact{
+				SourceArtifact: "test/test",
+				Tags:           []string{"tag1"},
 			}
 			doNotMirrorValues := []any{nil, true, []any{"tag1", "tag2"}}
 			for _, doNotMirrorValue := range doNotMirrorValues {
-				image.DoNotMirror = doNotMirrorValue
-				err := image.setDefaults()
+				artifact.DoNotMirror = doNotMirrorValue
+				err := artifact.setDefaults()
 				assert.NoError(t, err)
 			}
 		})
@@ -266,15 +266,15 @@ func TestImage(t *testing.T) {
 
 	t.Run("DeepCopy", func(t *testing.T) {
 		t.Run("should copy all fields", func(t *testing.T) {
-			original, err := NewImage("test-org/test-image", []string{"v1.0.0", "v2.0.0"}, "custom-image-name", []any{"v1.0.0"}, nil)
+			original, err := NewArtifact("test-org/test-artifact", []string{"v1.0.0", "v2.0.0"}, "custom-image-name", []any{"v1.0.0"}, nil)
 			assert.NoError(t, err)
 
 			copy := original.DeepCopy()
 
 			assert.Equal(t, original.DoNotMirror, copy.DoNotMirror)
-			assert.Equal(t, original.SourceImage, copy.SourceImage)
-			assert.Equal(t, original.defaultTargetImageName, copy.defaultTargetImageName)
-			assert.Equal(t, original.SpecifiedTargetImageName, copy.SpecifiedTargetImageName)
+			assert.Equal(t, original.SourceArtifact, copy.SourceArtifact)
+			assert.Equal(t, original.defaultTargetArtifactName, copy.defaultTargetArtifactName)
+			assert.Equal(t, original.SpecifiedTargetArtifactName, copy.SpecifiedTargetArtifactName)
 			assert.Equal(t, original.Tags, copy.Tags)
 			assert.Equal(t, original.excludeAllTags, copy.excludeAllTags)
 			assert.Equal(t, original.excludedTags, copy.excludedTags)

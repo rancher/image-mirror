@@ -8,7 +8,7 @@ import (
 
 	"github.com/Masterminds/semver/v3"
 	"github.com/google/go-github/v79/github"
-	"github.com/rancher/image-mirror/internal/config"
+	"github.com/rancher/artifact-mirror/internal/config"
 )
 
 // GithubRelease retrieves the tags of all github releases that match the VersionConstraint if
@@ -29,7 +29,7 @@ type GithubRelease struct {
 	compiledVersionRegex *regexp.Regexp `json:"-"`
 }
 
-func (gr *GithubRelease) GetUpdateImages() ([]*config.Image, error) {
+func (gr *GithubRelease) GetUpdateImages() ([]*config.Artifact, error) {
 	client := github.NewClient(nil)
 
 	var tags []string
@@ -47,9 +47,9 @@ func (gr *GithubRelease) GetUpdateImages() ([]*config.Image, error) {
 		tags = append(tags, ghTags...)
 	}
 
-	images := make([]*config.Image, 0, len(gr.Images))
+	images := make([]*config.Artifact, 0, len(gr.Images))
 	for _, sourceImage := range gr.Images {
-		image, err := config.NewImage(sourceImage.SourceImage, tags, sourceImage.TargetImageName, nil, nil)
+		image, err := config.NewArtifact(sourceImage.SourceImage, tags, sourceImage.TargetImageName, nil, nil)
 		if err != nil {
 			return nil, fmt.Errorf("failed to construct image from source image %q and tags %v: %w", sourceImage, tags, err)
 		}
@@ -137,9 +137,9 @@ func (gr *GithubRelease) Validate() error {
 		return errors.New("must specify Repository")
 	}
 	if gr.Images == nil {
-		return errors.New("must specify Images")
+		return errors.New("must specify Artifacts")
 	} else if len(gr.Images) == 0 {
-		return errors.New("must specify at least one element for Images")
+		return errors.New("must specify at least one element for Artifacts")
 	}
 	if gr.LatestOnly && gr.VersionConstraint != "" {
 		return errors.New("must not specify VersionConstraint when LatestOnly=true")

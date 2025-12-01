@@ -12,10 +12,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/rancher/image-mirror/internal/config"
-	"github.com/rancher/image-mirror/internal/git"
-	"github.com/rancher/image-mirror/internal/paths"
-	"github.com/rancher/image-mirror/internal/regsync"
+	"github.com/rancher/artifact-mirror/internal/config"
+	"github.com/rancher/artifact-mirror/internal/git"
+	"github.com/rancher/artifact-mirror/internal/paths"
+	"github.com/rancher/artifact-mirror/internal/regsync"
 
 	"github.com/google/go-github/v79/github"
 	"sigs.k8s.io/yaml"
@@ -135,12 +135,12 @@ func (entry ConfigEntry) Validate() error {
 	return nil
 }
 
-// GetUpdateImages returns a slice of Images that depends on the
-// configured update strategy. The returned Images may be from
+// GetUpdateImages returns a slice of Artifacts that depends on the
+// configured update strategy. The returned Artifacts may be from
 // any source, and they may be gathered in any way. The intention
-// is that they are new Images (or new tags of existing Images) that
+// is that they are new Artifacts (or new tags of existing Artifacts) that
 // we want to mirror.
-func (entry ConfigEntry) GetUpdateImages() ([]*config.Image, error) {
+func (entry ConfigEntry) GetUpdateImages() ([]*config.Artifact, error) {
 	switch {
 	case entry.GithubRelease != nil:
 		return entry.GithubRelease.GetUpdateImages()
@@ -159,14 +159,14 @@ func (entry ConfigEntry) Run(ctx context.Context, opts AutoUpdateOptions) error 
 		return fmt.Errorf("failed to get latest images for %s: %w", entry.Name, err)
 	}
 
-	accumulator := config.NewImageAccumulator()
-	accumulator.AddImages(opts.ConfigYaml.Images...)
+	accumulator := config.NewArtifactAccumulator()
+	accumulator.AddArtifacts(opts.ConfigYaml.Artifacts...)
 
-	imagesToUpdate := make([]*config.Image, 0, len(newImages))
+	imagesToUpdate := make([]*config.Artifact, 0, len(newImages))
 	for _, latestImage := range newImages {
 		imageToUpdate, err := accumulator.TagDifference(latestImage)
 		if err != nil {
-			return fmt.Errorf("failed to get tag difference for image %s: %w", latestImage.SourceImage, err)
+			return fmt.Errorf("failed to get tag difference for image %s: %w", latestImage.SourceArtifact, err)
 		}
 		if imageToUpdate != nil {
 			imagesToUpdate = append(imagesToUpdate, imageToUpdate)
@@ -185,7 +185,7 @@ func (entry ConfigEntry) Run(ctx context.Context, opts AutoUpdateOptions) error 
 
 	// When filtering pull requests by head branch, the github API
 	// requires that the head branch is in the format <owner>:<branch>.
-	// In the case of branches pushed using GITHUB_TOKEN in rancher/image-mirror,
+	// In the case of branches pushed using GITHUB_TOKEN in rancher/artifact-mirror,
 	// owner is "rancher". When running in a personal repo, setting GITHUB_TOKEN
 	// to a PAT makes owner the same as the user's github username.
 	headBranch := opts.GithubOwner + ":" + branchName
@@ -214,7 +214,7 @@ func (entry ConfigEntry) Run(ctx context.Context, opts AutoUpdateOptions) error 
 	if opts.DryRun {
 		msg := fmt.Sprintf("%s: would make PR under branch %s that adds:\n", entry.Name, branchName)
 		for _, imageToUpdate := range imagesToUpdate {
-			for _, fullImage := range imageToUpdate.CombineSourceImageAndTags() {
+			for _, fullImage := range imageToUpdate.CombineSourceArtifactAndTags() {
 				msg = msg + "  - " + fullImage + "\n"
 			}
 		}
@@ -225,9 +225,9 @@ func (entry ConfigEntry) Run(ctx context.Context, opts AutoUpdateOptions) error 
 	return entry.CreateImageUpdatePullRequest(ctx, opts, branchName, imagesToUpdate)
 }
 
-func (entry ConfigEntry) CreateImageUpdatePullRequest(ctx context.Context, opts AutoUpdateOptions, branchName string, imagesToUpdate []*config.Image) error {
-	accumulator := config.NewImageAccumulator()
-	accumulator.AddImages(opts.ConfigYaml.Images...)
+func (entry ConfigEntry) CreateImageUpdatePullRequest(ctx context.Context, opts AutoUpdateOptions, branchName string, imagesToUpdate []*config.Artifact) error {
+	accumulator := config.NewArtifactAccumulator()
+	accumulator.AddArtifacts(opts.ConfigYaml.Artifacts...)
 
 	if err := git.CreateAndCheckoutBranch(opts.BaseBranch, branchName); err != nil {
 		return fmt.Errorf("failed to create and checkout branch %s: %w", branchName, err)
@@ -236,24 +236,24 @@ func (entry ConfigEntry) CreateImageUpdatePullRequest(ctx context.Context, opts 
 		// We can reuse the accumulator here because we are making a sequence
 		// of commits, each of which makes an addition from imagesToUpdate.
 		configYaml := opts.ConfigYaml
-		accumulator.AddImages(imageToUpdate)
-		configYaml.Images = accumulator.Images()
+		accumulator.AddArtifacts(imageToUpdate)
+		configYaml.Artifacts = accumulator.Artifacts()
 		if err := config.Write(paths.ConfigYaml, configYaml); err != nil {
 			return fmt.Errorf("failed to write %s: %w", paths.ConfigYaml, err)
 		}
 
 		regsyncYaml, err := configYaml.ToRegsyncConfig()
 		if err != nil {
-			return fmt.Errorf("failed to generate regsync config for commit for image %s: %w", imageToUpdate.SourceImage, err)
+			return fmt.Errorf("failed to generate regsync config for commit for image %s: %w", imageToUpdate.SourceArtifact, err)
 		}
 		if err := regsync.WriteConfig(paths.RegsyncYaml, regsyncYaml); err != nil {
-			return fmt.Errorf("failed to write regsync config for commit for image %s: %w", imageToUpdate.SourceImage, err)
+			return fmt.Errorf("failed to write regsync config for commit for image %s: %w", imageToUpdate.SourceArtifact, err)
 		}
 
 		tagString := strings.Join(imageToUpdate.Tags, ", ")
-		msg := fmt.Sprintf("Add tag(s) %s for image %s", tagString, imageToUpdate.SourceImage)
+		msg := fmt.Sprintf("Add tag(s) %s for image %s", tagString, imageToUpdate.SourceArtifact)
 		if err := git.Commit(msg); err != nil {
-			return fmt.Errorf("failed to commit changes for image %s: %w", imageToUpdate.SourceImage, err)
+			return fmt.Errorf("failed to commit changes for image %s: %w", imageToUpdate.SourceArtifact, err)
 		}
 	}
 	if err := git.PushBranch(branchName, "origin"); err != nil {
@@ -267,7 +267,7 @@ func (entry ConfigEntry) CreateImageUpdatePullRequest(ctx context.Context, opts 
 	title := fmt.Sprintf("[autoupdate] Add %d tag(s) for `%s`", tagCount, entry.Name)
 	body := "This PR was created by the autoupdate workflow.\n\nIt adds the following image tags:"
 	for _, imageToUpdate := range imagesToUpdate {
-		for _, fullImage := range imageToUpdate.CombineSourceImageAndTags() {
+		for _, fullImage := range imageToUpdate.CombineSourceArtifactAndTags() {
 			body = body + "\n- `" + fullImage + "`"
 		}
 	}
@@ -293,17 +293,17 @@ func (entry ConfigEntry) CreateImageUpdatePullRequest(ctx context.Context, opts 
 }
 
 // hashImageSet computes a human-readable hash from a passed
-// set of Images. Immune to different order of Images, and
-// immune to the order of of the tags in those Images.
-func hashImageSet(images []*config.Image) (string, error) {
+// set of Artifacts. Immune to different order of Artifacts, and
+// immune to the order of of the tags in those Artifacts.
+func hashImageSet(images []*config.Artifact) (string, error) {
 	for _, image := range images {
 		image.Sort()
 	}
-	slices.SortStableFunc(images, config.CompareImages)
+	slices.SortStableFunc(images, config.CompareArtifacts)
 
 	hasher := sha256.New()
 	for _, image := range images {
-		for _, fullImage := range image.CombineSourceImageAndTags() {
+		for _, fullImage := range image.CombineSourceArtifactAndTags() {
 			_, err := io.WriteString(hasher, fullImage)
 			if err != nil {
 				return "", fmt.Errorf("failed to write full image %q: %w", fullImage, err)

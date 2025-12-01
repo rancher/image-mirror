@@ -25,14 +25,14 @@ jobs:
         uses: rancher-eio/read-vault-secrets@main
         with:
           secrets: |
-            secret/data/github/repo/${{ github.repository }}/dockerhub/rancher/credentials username | DOCKER_USERNAME ;
-            secret/data/github/repo/${{ github.repository }}/dockerhub/rancher/credentials password | DOCKER_PASSWORD ;
-            secret/data/github/repo/${{ github.repository }}/application-collection/credentials username | APPCO_USERNAME ;
-            secret/data/github/repo/${{ github.repository }}/application-collection/credentials password | APPCO_PASSWORD ;
-            secret/data/github/repo/${{ github.repository }}/rancher-prime-registry/credentials username | PRIME_USERNAME ;
-            secret/data/github/repo/${{ github.repository }}/rancher-prime-registry/credentials password | PRIME_PASSWORD ;
-            secret/data/github/repo/${{ github.repository }}/rancher-prime-stg-registry/credentials username | PRIME_STAGING_USERNAME ;
-            secret/data/github/repo/${{ github.repository }}/rancher-prime-stg-registry/credentials password | PRIME_STAGING_PASSWORD
+            secret/data/github/repo/image-mirror/dockerhub/rancher/credentials username | DOCKER_USERNAME ;
+            secret/data/github/repo/image-mirror/dockerhub/rancher/credentials password | DOCKER_PASSWORD ;
+            secret/data/github/repo/image-mirror/application-collection/credentials username | APPCO_USERNAME ;
+            secret/data/github/repo/image-mirror/application-collection/credentials password | APPCO_PASSWORD ;
+            secret/data/github/repo/image-mirror/rancher-prime-registry/credentials username | PRIME_USERNAME ;
+            secret/data/github/repo/image-mirror/rancher-prime-registry/credentials password | PRIME_PASSWORD ;
+            secret/data/github/repo/image-mirror/rancher-prime-stg-registry/credentials username | PRIME_STAGING_USERNAME ;
+            secret/data/github/repo/image-mirror/rancher-prime-stg-registry/credentials password | PRIME_STAGING_PASSWORD
 
       - name: Install regsync
         run: |

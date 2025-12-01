@@ -28,6 +28,6 @@ jobs:
       run: scripts/build-tools.sh
 
     - name: Run autoupdate
-      run: bin/image-mirror-tools autoupdate
+      run: bin/artifact-mirror-tools autoupdate
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
