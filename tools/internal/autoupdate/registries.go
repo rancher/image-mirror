@@ -16,7 +16,7 @@ type DockerHub struct {
 	Repository string
 }
 
-func (d DockerHub) getImageTags() ([]string, error) {
+func (d DockerHub) getArtifactTags() ([]string, error) {
 	var allTags []string
 	page := 1
 
@@ -72,7 +72,7 @@ type QuayIO struct {
 	Repository string
 }
 
-func (q QuayIO) getImageTags() ([]string, error) {
+func (q QuayIO) getArtifactTags() ([]string, error) {
 	var allTags []string
 	page := 1
 
@@ -128,7 +128,7 @@ type SUSERegistry struct {
 	Repository string
 }
 
-func (s SUSERegistry) getImageTags() ([]string, error) {
+func (s SUSERegistry) getArtifactTags() ([]string, error) {
 	token, err := s.getSuseAuthToken(s.Namespace, s.Repository)
 	if err != nil {
 		return nil, err
@@ -181,7 +181,7 @@ type GitHubRegistry struct {
 	Repository string
 }
 
-func (g GitHubRegistry) getImageTags() ([]string, error) {
+func (g GitHubRegistry) getArtifactTags() ([]string, error) {
 	githubToken := os.Getenv("GITHUB_TOKEN")
 	token := base64.StdEncoding.EncodeToString([]byte(githubToken))
 	var AllTags []string
@@ -238,7 +238,7 @@ type GoogleRegistry struct {
 	Repository string
 }
 
-func (g GoogleRegistry) getImageTags() ([]string, error) {
+func (g GoogleRegistry) getArtifactTags() ([]string, error) {
 	req, err := http.NewRequest(http.MethodGet, fmt.Sprintf("https://gcr.io/v2/%s/%s/tags/list", g.Namespace, g.Repository), nil)
 	if err != nil {
 		return nil, fmt.Errorf("failed to create request: %w", err)
@@ -265,7 +265,7 @@ type K8sRegistry struct {
 	Repository string
 }
 
-func (k K8sRegistry) getImageTags() ([]string, error) {
+func (k K8sRegistry) getArtifactTags() ([]string, error) {
 	var registryUrl string
 	if k.Namespace != "" {
 		registryUrl = fmt.Sprintf("https://registry.k8s.io/v2/%s/%s/tags/list", k.Namespace, k.Repository)

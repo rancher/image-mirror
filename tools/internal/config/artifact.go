@@ -11,6 +11,7 @@ import (
 )
 
 // Artifact should not be instantiated directly. Instead, use NewArtifact().
+// This represents an OCI artifact
 type Artifact struct {
 	// If DoNotMirror is a bool and true, the Artifact is not mirrored i.e.
 	// it is not added to the regsync config when the regsync config is

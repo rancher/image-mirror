@@ -23,7 +23,7 @@ func TestConfigEntry(t *testing.T) {
 					GithubRelease: &GithubRelease{
 						Owner:      "test-owner",
 						Repository: "test-repo",
-						Images:     []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
+						Artifacts:  []AutoupdateArtifactRef{{SourceArtifact: "rancher/rancher"}},
 					},
 					Reviewers: []string{"user", "org/team"},
 				},
@@ -50,7 +50,7 @@ func TestConfigEntry(t *testing.T) {
 				ConfigEntry: ConfigEntry{
 					Name: "test-entry",
 					Registry: &Registry{
-						Images:        []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
+						Artifacts:     []AutoupdateArtifactRef{{SourceArtifact: "rancher/rancher"}},
 						Latest:        false,
 						VersionFilter: "^v1\\.([3-9][0-9])\\.[0-9]+$",
 					},
@@ -65,7 +65,7 @@ func TestConfigEntry(t *testing.T) {
 					GithubRelease: &GithubRelease{
 						Owner:      "test-owner",
 						Repository: "test-repo",
-						Images:     []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
+						Artifacts:  []AutoupdateArtifactRef{{SourceArtifact: "rancher/rancher"}},
 					},
 				},
 				ExpectedError: "must specify Name",
@@ -84,8 +84,8 @@ func TestConfigEntry(t *testing.T) {
 					GithubRelease: &GithubRelease{
 						Owner:      "test-owner",
 						Repository: "test-repo",
-						Images: []AutoupdateImageRef{{
-							SourceImage: "rancher/rancher",
+						Artifacts: []AutoupdateArtifactRef{{
+							SourceArtifact: "rancher/rancher",
 						}},
 					},
 					HelmLatest: &HelmLatest{
@@ -106,7 +106,7 @@ func TestConfigEntry(t *testing.T) {
 					GithubRelease: &GithubRelease{
 						Owner:      "test-owner",
 						Repository: "test-repo",
-						Images:     []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
+						Artifacts:  []AutoupdateArtifactRef{{SourceArtifact: "rancher/rancher"}},
 					},
 					Reviewers: []string{"user", "org/team"},
 				},
@@ -119,7 +119,7 @@ func TestConfigEntry(t *testing.T) {
 					GithubRelease: &GithubRelease{
 						Owner:      "test-owner",
 						Repository: "test-repo",
-						Images:     []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
+						Artifacts:  []AutoupdateArtifactRef{{SourceArtifact: "rancher/rancher"}},
 					},
 					Reviewers: []string{"org/team/foo"},
 				},
@@ -132,7 +132,7 @@ func TestConfigEntry(t *testing.T) {
 					GithubRelease: &GithubRelease{
 						Owner:      "test-owner",
 						Repository: "test-repo",
-						Images:     []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
+						Artifacts:  []AutoupdateArtifactRef{{SourceArtifact: "rancher/rancher"}},
 					},
 					Reviewers: []string{"org/"},
 				},
@@ -145,7 +145,7 @@ func TestConfigEntry(t *testing.T) {
 					GithubRelease: &GithubRelease{
 						Owner:      "test-owner",
 						Repository: "test-repo",
-						Images:     []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
+						Artifacts:  []AutoupdateArtifactRef{{SourceArtifact: "rancher/rancher"}},
 					},
 					Reviewers: []string{"/team"},
 				},
@@ -158,7 +158,7 @@ func TestConfigEntry(t *testing.T) {
 					GithubRelease: &GithubRelease{
 						Owner:      "test-owner",
 						Repository: "test-repo",
-						Images:     []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
+						Artifacts:  []AutoupdateArtifactRef{{SourceArtifact: "rancher/rancher"}},
 					},
 					Reviewers: []string{},
 				},
@@ -171,7 +171,7 @@ func TestConfigEntry(t *testing.T) {
 					GithubRelease: &GithubRelease{
 						Owner:      "test-owner",
 						Repository: "test-repo",
-						Images:     []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
+						Artifacts:  []AutoupdateArtifactRef{{SourceArtifact: "rancher/rancher"}},
 					},
 					Reviewers: nil,
 				},
@@ -199,11 +199,11 @@ func TestGetBranchHash(t *testing.T) {
 		assert.Nil(t, err)
 
 		imageSet1 := []*config.Artifact{image1, image2}
-		hash1, err := hashImageSet(imageSet1)
+		hash1, err := hashArtifactSet(imageSet1)
 		assert.Nil(t, err)
 
 		imageSet2 := []*config.Artifact{image2, image1}
-		hash2, err := hashImageSet(imageSet2)
+		hash2, err := hashArtifactSet(imageSet2)
 		assert.Nil(t, err)
 
 		assert.Equal(t, hash1, hash2)
@@ -213,13 +213,13 @@ func TestGetBranchHash(t *testing.T) {
 		image1, err := config.NewArtifact("test-org/image", []string{"asdf", "qwer"}, "", nil, nil)
 		assert.Nil(t, err)
 		images1 := []*config.Artifact{image1}
-		hash1, err := hashImageSet(images1)
+		hash1, err := hashArtifactSet(images1)
 		assert.Nil(t, err)
 
 		image2, err := config.NewArtifact("test-org/image", []string{"qwer", "asdf"}, "", nil, nil)
 		assert.Nil(t, err)
 		images2 := []*config.Artifact{image2}
-		hash2, err := hashImageSet(images2)
+		hash2, err := hashArtifactSet(images2)
 		assert.Nil(t, err)
 
 		assert.Equal(t, hash1, hash2)
@@ -232,11 +232,11 @@ func TestGetBranchHash(t *testing.T) {
 		assert.Nil(t, err)
 
 		imageSet1 := []*config.Artifact{image1, image2}
-		hash1, err := hashImageSet(imageSet1)
+		hash1, err := hashArtifactSet(imageSet1)
 		assert.Nil(t, err)
 
 		imageSet2 := []*config.Artifact{image1, image2}
-		hash2, err := hashImageSet(imageSet2)
+		hash2, err := hashArtifactSet(imageSet2)
 		assert.Nil(t, err)
 
 		assert.Equal(t, hash1, hash2)
@@ -246,13 +246,13 @@ func TestGetBranchHash(t *testing.T) {
 		image1, err := config.NewArtifact("test-org/image", []string{"asdf", "qwer"}, "", nil, nil)
 		assert.Nil(t, err)
 		images1 := []*config.Artifact{image1}
-		hash1, err := hashImageSet(images1)
+		hash1, err := hashArtifactSet(images1)
 		assert.Nil(t, err)
 
 		image2, err := config.NewArtifact("test-org/image", []string{"asdf", "qwer", "zxcv"}, "", nil, nil)
 		assert.Nil(t, err)
 		images2 := []*config.Artifact{image2}
-		hash2, err := hashImageSet(images2)
+		hash2, err := hashArtifactSet(images2)
 		assert.Nil(t, err)
 
 		assert.NotEqual(t, hash1, hash2)
