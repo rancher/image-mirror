@@ -1,20 +1,20 @@
 - GithubRelease:
-    Images:
-    - SourceImage: quay.io/calico/apiserver
-    - SourceImage: quay.io/calico/cni
-    - SourceImage: quay.io/calico/csi
-    - SourceImage: quay.io/calico/ctl
-    - SourceImage: quay.io/calico/envoy-gateway
-    - SourceImage: quay.io/calico/envoy-proxy
-    - SourceImage: quay.io/calico/envoy-ratelimit
-    - SourceImage: quay.io/calico/goldmane
-    - SourceImage: quay.io/calico/kube-controllers
-    - SourceImage: quay.io/calico/node
-    - SourceImage: quay.io/calico/node-driver-registrar
-    - SourceImage: quay.io/calico/pod2daemon-flexvol
-    - SourceImage: quay.io/calico/typha
-    - SourceImage: quay.io/calico/whisker
-    - SourceImage: quay.io/calico/whisker-backend
+    Artifacts:
+    - SourceArtifact: quay.io/calico/apiserver
+    - SourceArtifact: quay.io/calico/cni
+    - SourceArtifact: quay.io/calico/csi
+    - SourceArtifact: quay.io/calico/ctl
+    - SourceArtifact: quay.io/calico/envoy-gateway
+    - SourceArtifact: quay.io/calico/envoy-proxy
+    - SourceArtifact: quay.io/calico/envoy-ratelimit
+    - SourceArtifact: quay.io/calico/goldmane
+    - SourceArtifact: quay.io/calico/kube-controllers
+    - SourceArtifact: quay.io/calico/node
+    - SourceArtifact: quay.io/calico/node-driver-registrar
+    - SourceArtifact: quay.io/calico/pod2daemon-flexvol
+    - SourceArtifact: quay.io/calico/typha
+    - SourceArtifact: quay.io/calico/whisker
+    - SourceArtifact: quay.io/calico/whisker-backend
     LatestOnly: true
     Owner: projectcalico
     Repository: calico
@@ -22,17 +22,28 @@
   Reviewers:
   - rancher/k3s-networking
 - HelmLatest:
+    Artifacts:
+    - SourceArtifact: quay.io/tigera/operator
+      TargetArtifactName: mirrored-calico-operator
     Charts:
       tigera-operator:
         default: []
     HelmRepo: https://docs.tigera.io/calico/charts
-    Images:
-    - SourceImage: quay.io/tigera/operator
-      TargetImageName: mirrored-calico-operator
   Name: calico-operator
   Reviewers:
   - rancher/k3s-networking
 - HelmLatest:
+    Artifacts:
+    - SourceArtifact: quay.io/cilium/certgen
+    - SourceArtifact: quay.io/cilium/cilium
+    - SourceArtifact: quay.io/cilium/cilium-envoy
+    - SourceArtifact: quay.io/cilium/operator-generic
+    - SourceArtifact: quay.io/cilium/clustermesh-apiserver
+    - SourceArtifact: quay.io/cilium/hubble-ui
+    - SourceArtifact: quay.io/cilium/operator-aws
+    - SourceArtifact: quay.io/cilium/operator-azure
+    - SourceArtifact: quay.io/cilium/hubble-relay
+    - SourceArtifact: quay.io/cilium/hubble-ui-backend
     Charts:
       cilium:
         aws:
@@ -51,23 +62,12 @@
     - quay.io/cilium/startup-script
     - ghcr.io/spiffe/spire-agent
     - ghcr.io/spiffe/spire-server
-    Images:
-    - SourceImage: quay.io/cilium/certgen
-    - SourceImage: quay.io/cilium/cilium
-    - SourceImage: quay.io/cilium/cilium-envoy
-    - SourceImage: quay.io/cilium/operator-generic
-    - SourceImage: quay.io/cilium/clustermesh-apiserver
-    - SourceImage: quay.io/cilium/hubble-ui
-    - SourceImage: quay.io/cilium/operator-aws
-    - SourceImage: quay.io/cilium/operator-azure
-    - SourceImage: quay.io/cilium/hubble-relay
-    - SourceImage: quay.io/cilium/hubble-ui-backend
   Name: cilium
   Reviewers:
   - rancher/k3s-networking
 - GithubRelease:
-    Images:
-    - SourceImage: coredns/coredns
+    Artifacts:
+    - SourceArtifact: coredns/coredns
     LatestOnly: true
     Owner: coredns
     Repository: coredns
@@ -77,14 +77,14 @@
   - rancher/k3s-networking
 - Name: cpi-release-manager
   Registry:
-    Images:
-    - SourceImage: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere
+    Artifacts:
+    - SourceArtifact: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere
     VersionFilter: ^v1.([3-9][0-9]).[0-9]+$
   Reviewers:
   - rancher/k3s
 - GithubRelease:
-    Images:
-    - SourceImage: registry.k8s.io/sig-storage/csi-attacher
+    Artifacts:
+    - SourceArtifact: registry.k8s.io/sig-storage/csi-attacher
     LatestOnly: true
     Owner: kubernetes-csi
     Repository: external-attacher
@@ -92,8 +92,8 @@
   Reviewers:
   - rancher/k3s
 - GithubRelease:
-    Images:
-    - SourceImage: registry.k8s.io/sig-storage/csi-node-driver-registrar
+    Artifacts:
+    - SourceArtifact: registry.k8s.io/sig-storage/csi-node-driver-registrar
     LatestOnly: true
     Owner: kubernetes-csi
     Repository: node-driver-registrar
@@ -101,8 +101,8 @@
   Reviewers:
   - rancher/k3s
 - GithubRelease:
-    Images:
-    - SourceImage: registry.k8s.io/sig-storage/csi-provisioner
+    Artifacts:
+    - SourceArtifact: registry.k8s.io/sig-storage/csi-provisioner
     LatestOnly: true
     Owner: kubernetes-csi
     Repository: external-provisioner
@@ -110,8 +110,8 @@
   Reviewers:
   - rancher/k3s
 - GithubRelease:
-    Images:
-    - SourceImage: registry.k8s.io/sig-storage/csi-resizer
+    Artifacts:
+    - SourceArtifact: registry.k8s.io/sig-storage/csi-resizer
     LatestOnly: true
     Owner: kubernetes-csi
     Repository: external-resizer
@@ -119,8 +119,8 @@
   Reviewers:
   - rancher/k3s
 - GithubRelease:
-    Images:
-    - SourceImage: registry.k8s.io/sig-storage/csi-snapshotter
+    Artifacts:
+    - SourceArtifact: registry.k8s.io/sig-storage/csi-snapshotter
     LatestOnly: true
     Owner: kubernetes-csi
     Repository: external-snapshotter
@@ -128,8 +128,8 @@
   Reviewers:
   - rancher/k3s
 - GithubRelease:
-    Images:
-    - SourceImage: quay.io/coreos/etcd
+    Artifacts:
+    - SourceArtifact: quay.io/coreos/etcd
     Owner: etcd-io
     Repository: etcd
     VersionConstraint: '>3.5.10'
@@ -137,8 +137,8 @@
   Reviewers:
   - rancher/k3s
 - GithubRelease:
-    Images:
-    - SourceImage: flannel/flannel
+    Artifacts:
+    - SourceArtifact: flannel/flannel
     LatestOnly: true
     Owner: flannel-io
     Repository: flannel
@@ -146,8 +146,8 @@
   Reviewers:
   - rancher/k3s-networking
 - GithubRelease:
-    Images:
-    - SourceImage: flannel/flannel-cni-plugin
+    Artifacts:
+    - SourceArtifact: flannel/flannel-cni-plugin
     LatestOnly: true
     Owner: flannel-io
     Repository: cni-plugin
@@ -155,8 +155,8 @@
   Reviewers:
   - rancher/k3s-networking
 - GithubRelease:
-    Images:
-    - SourceImage: ghcr.io/kube-vip/kube-vip-iptables
+    Artifacts:
+    - SourceArtifact: ghcr.io/kube-vip/kube-vip-iptables
     LatestOnly: true
     Owner: kube-vip
     Repository: kube-vip
@@ -165,15 +165,15 @@
   - rancher/k3s-networking
 - Name: kube-webhook-certgen
   Registry:
-    Images:
-    - SourceImage: registry.k8s.io/ingress-nginx/kube-webhook-certgen
+    Artifacts:
+    - SourceArtifact: registry.k8s.io/ingress-nginx/kube-webhook-certgen
     VersionFilter: ^v1.[0-9]+.[0-9]+$
   Reviewers:
   - rancher/k3s-networking
 - GithubRelease:
-    Images:
-    - SourceImage: registry.k8s.io/metrics-server/metrics-server
-      TargetImageName: mirrored-metrics-server
+    Artifacts:
+    - SourceArtifact: registry.k8s.io/metrics-server/metrics-server
+      TargetArtifactName: mirrored-metrics-server
     LatestOnly: true
     Owner: kubernetes-sigs
     Repository: metrics-server
@@ -181,8 +181,8 @@
   Reviewers:
   - rancher/k3s
 - GithubRelease:
-    Images:
-    - SourceImage: idealista/prom2teams
+    Artifacts:
+    - SourceArtifact: idealista/prom2teams
     LatestOnly: true
     Owner: idealista
     Repository: prom2teams
@@ -190,8 +190,8 @@
   Reviewers:
   - rancher/observation-backup
 - GithubRelease:
-    Images:
-    - SourceImage: registry.k8s.io/sig-storage/snapshot-controller
+    Artifacts:
+    - SourceArtifact: registry.k8s.io/sig-storage/snapshot-controller
     LatestOnly: true
     Owner: kubernetes-csi
     Repository: external-snapshotter
@@ -199,8 +199,8 @@
   Reviewers:
   - rancher/k3s
 - GithubRelease:
-    Images:
-    - SourceImage: sonobuoy/sonobuoy
+    Artifacts:
+    - SourceArtifact: sonobuoy/sonobuoy
     LatestOnly: true
     Owner: vmware-tanzu
     Repository: sonobuoy
@@ -208,8 +208,8 @@
   Reviewers:
   - rancher/infracloud-team
 - GithubRelease:
-    Images:
-    - SourceImage: registry.k8s.io/sig-storage/livenessprobe
+    Artifacts:
+    - SourceArtifact: registry.k8s.io/sig-storage/livenessprobe
     LatestOnly: true
     Owner: kubernetes-csi
     Repository: livenessprobe
@@ -218,26 +218,26 @@
   - rancher/k3s
 - Name: traefik
   Registry:
-    Images:
-    - SourceImage: library/traefik
+    Artifacts:
+    - SourceArtifact: library/traefik
     Latest: true
     VersionFilter: ^2.[0-9]+.[0-9]+$
   Reviewers:
   - rancher/k3s
 - Name: traefik3
   Registry:
-    Images:
-    - SourceImage: library/traefik
+    Artifacts:
+    - SourceArtifact: library/traefik
     Latest: true
     VersionFilter: ^3.[0-9]+.[0-9]+$
   Reviewers:
   - rancher/k3s
 - GithubRelease:
-    Images:
-    - SourceImage: registry.k8s.io/csi-vsphere/driver
-      TargetImageName: mirrored-cloud-provider-vsphere-csi-release-driver
-    - SourceImage: registry.k8s.io/csi-vsphere/syncer
-      TargetImageName: mirrored-cloud-provider-vsphere-csi-release-syncer
+    Artifacts:
+    - SourceArtifact: registry.k8s.io/csi-vsphere/driver
+      TargetArtifactName: mirrored-cloud-provider-vsphere-csi-release-driver
+    - SourceArtifact: registry.k8s.io/csi-vsphere/syncer
+      TargetArtifactName: mirrored-cloud-provider-vsphere-csi-release-syncer
     LatestOnly: true
     Owner: kubernetes-sigs
     Repository: vsphere-csi-driver
