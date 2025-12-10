@@ -21716,3 +21716,12 @@ sync:
 - source: us.gcr.io/k8s-artifacts-prod/external-dns/external-dns:v0.7.3
   target: stgregistry.suse.com/rancher/mirrored-kubernetes-external-dns:v0.7.3
   type: image
+- source: dp.apps.rancher.io/containers/nginx:1.29.4-1.8
+  target: docker.io/rancher/appco-nginx:1.29.4-1.8
+  type: image
+- source: dp.apps.rancher.io/containers/nginx:1.29.4-1.8
+  target: registry.suse.com/rancher/appco-nginx:1.29.4-1.8
+  type: image
+- source: dp.apps.rancher.io/containers/nginx:1.29.4-1.8
+  target: stgregistry.suse.com/rancher/appco-nginx:1.29.4-1.8
+  type: image

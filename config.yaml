@@ -3153,6 +3153,9 @@ Artifacts:
   Tags:
   - v0.7.3
   TargetArtifactName: mirrored-kubernetes-external-dns
+- SourceArtifact: dp.apps.rancher.io/containers/nginx
+  Tags:
+  - 1.29.4-1.8
 Repositories:
 - BaseUrl: docker.io/rancher
   DefaultTarget: true
