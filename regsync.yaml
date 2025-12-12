@@ -21248,6 +21248,33 @@ sync:
 - source: registry.k8s.io/sig-storage/snapshot-validation-webhook:v8.1.0
   target: stgregistry.suse.com/rancher/mirrored-sig-storage-snapshot-validation-webhook:v8.1.0
   type: image
+- source: registry.rancher.com/suse-observability/container-tools:1.8.1-bci
+  target: docker.io/rancher/mirrored-suse-observability-agent-container-tools:1.8.1-bci
+  type: image
+- source: registry.rancher.com/suse-observability/generic-sidecar-injector:d03e11f3-21
+  target: docker.io/rancher/mirrored-suse-observability-agent-generic-sidecar-injector:d03e11f3-21
+  type: image
+- source: registry.rancher.com/suse-observability/http-header-injector-proxy:cb2eb8ab-194
+  target: docker.io/rancher/mirrored-suse-observability-agent-http-header-injector-proxy:cb2eb8ab-194
+  type: image
+- source: registry.rancher.com/suse-observability/http-header-injector-proxy-init:cb2eb8ab-194
+  target: docker.io/rancher/mirrored-suse-observability-agent-http-header-injector-proxy-init:cb2eb8ab-194
+  type: image
+- source: registry.rancher.com/suse-observability/kubernetes-rbac-agent:35ec5206
+  target: docker.io/rancher/mirrored-suse-observability-agent-kubernetes-rbac-agent:35ec5206
+  type: image
+- source: registry.rancher.com/suse-observability/promtail:2.9.15-2a5cc100
+  target: docker.io/rancher/mirrored-suse-observability-agent-promtail:2.9.15-2a5cc100
+  type: image
+- source: registry.rancher.com/suse-observability/stackstate-k8s-agent:289d9a9e
+  target: docker.io/rancher/mirrored-suse-observability-agent-k8s-agent:289d9a9e
+  type: image
+- source: registry.rancher.com/suse-observability/stackstate-k8s-cluster-agent:289d9a9e
+  target: docker.io/rancher/mirrored-suse-observability-agent-k8s-cluster-agent:289d9a9e
+  type: image
+- source: registry.rancher.com/suse-observability/stackstate-k8s-process-agent:5d0ec298
+  target: docker.io/rancher/mirrored-suse-observability-agent-k8s-process-agent:5d0ec298
+  type: image
 - source: registry.suse.com/bci/bci-busybox:15.4.11.2
   target: docker.io/rancher/mirrored-bci-busybox:15.4.11.2
   type: image
