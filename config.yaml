@@ -3059,41 +3059,59 @@ Artifacts:
   - v6.2.2
   - v8.1.0
 - SourceArtifact: registry.rancher.com/suse-observability/container-tools
+  TargetArtifactName: mirrored-suse-observability-agent-container-tools
+  TargetRepositories:
+   - docker.io/rancher
   Tags:
   - 1.8.1-bci
-  TargetArtifactName: mirrored-suse-observability-agent-container-tools
 - SourceArtifact: registry.rancher.com/suse-observability/generic-sidecar-injector
+  TargetArtifactName: mirrored-suse-observability-agent-generic-sidecar-injector
+  TargetRepositories:
+   - docker.io/rancher
   Tags:
   - d03e11f3-21
-  TargetArtifactName: mirrored-suse-observability-agent-generic-sidecar-injector
 - SourceArtifact: registry.rancher.com/suse-observability/http-header-injector-proxy
-  Tags:
-  - cb2eb8ab-194
   TargetArtifactName: mirrored-suse-observability-agent-http-header-injector-proxy
-- SourceArtifact: registry.rancher.com/suse-observability/http-header-injector-proxy-init
+  TargetRepositories:
+   - docker.io/rancher
   Tags:
   - cb2eb8ab-194
+- SourceArtifact: registry.rancher.com/suse-observability/http-header-injector-proxy-init
   TargetArtifactName: mirrored-suse-observability-agent-http-header-injector-proxy-init
+  TargetRepositories:
+   - docker.io/rancher
+  Tags:
+  - cb2eb8ab-194
 - SourceArtifact: registry.rancher.com/suse-observability/kubernetes-rbac-agent
+  TargetArtifactName: mirrored-suse-observability-agent-kubernetes-rbac-agent
+  TargetRepositories:
+   - docker.io/rancher
   Tags:
   - 35ec5206
-  TargetArtifactName: mirrored-suse-observability-agent-kubernetes-rbac-agent
 - SourceArtifact: registry.rancher.com/suse-observability/promtail
+  TargetArtifactName: mirrored-suse-observability-agent-promtail
+  TargetRepositories:
+   - docker.io/rancher
   Tags:
   - 2.9.15-2a5cc100
-  TargetArtifactName: mirrored-suse-observability-agent-promtail
 - SourceArtifact: registry.rancher.com/suse-observability/stackstate-k8s-agent
-  Tags:
-  - 289d9a9e
   TargetArtifactName: mirrored-suse-observability-agent-k8s-agent
-- SourceArtifact: registry.rancher.com/suse-observability/stackstate-k8s-cluster-agent
+  TargetRepositories:
+   - docker.io/rancher
   Tags:
   - 289d9a9e
+- SourceArtifact: registry.rancher.com/suse-observability/stackstate-k8s-cluster-agent
   TargetArtifactName: mirrored-suse-observability-agent-k8s-cluster-agent
+  TargetRepositories:
+   - docker.io/rancher
+  Tags:
+  - 289d9a9e
 - SourceArtifact: registry.rancher.com/suse-observability/stackstate-k8s-process-agent
+  TargetArtifactName: mirrored-suse-observability-agent-k8s-process-agent
+  TargetRepositories:
+   - docker.io/rancher
   Tags:
   - 5d0ec298
-  TargetArtifactName: mirrored-suse-observability-agent-k8s-process-agent
 - SourceArtifact: registry.suse.com/bci/bci-busybox
   Tags:
   - 15.4.11.2
