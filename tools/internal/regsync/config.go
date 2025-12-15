@@ -25,7 +25,7 @@ type Config struct {
 	Sync     []ConfigSync   `json:"sync"`
 }
 
-// ConfigCred specifies the details for a registry that container images may
+// ConfigCred specifies the details for a registry that artifacts may
 // be pulled from or pushed to.
 type ConfigCred struct {
 	Pass          string `json:"pass"`

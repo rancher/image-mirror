@@ -108,19 +108,19 @@ func (r *Registry) getRegistryInformationFromArtifact() (ArtifactRegistry, error
 		return nil, fmt.Errorf("invalid artifact format: %s", artifact)
 	}
 	var registry, namespace, repository string
-	// Case 1: Handle default Docker Hub images like "flannel/flannel"
+	// Case 1: Handle default Docker Hub artifacts like "flannel/flannel"
 	if len(splittedArtifact) == 2 && !strings.Contains(splittedArtifact[0], ".") {
 		registry = "dockerhub"
 		namespace = splittedArtifact[0]
 		repository = splittedArtifact[1]
 	} else if len(splittedArtifact) == 2 && strings.Contains(splittedArtifact[0], ".") {
-		// Case 2: Handle images with a registry but no namespace like "k8s.gcr.io/pause"
+		// Case 2: Handle artifacts with a registry but no namespace like "k8s.gcr.io/pause"
 		registry = splittedArtifact[0]
 		namespace = ""
 		repository = splittedArtifact[1]
 	} else {
-		// Default Case: Handle standard 3-part images like "quay.io/skopeo/stable"
-		// and handle images with long paths like "gcr.io/cloud-provider-vsphere/csi/release/syncer"
+		// Default Case: Handle standard 3-part artifacts like "quay.io/skopeo/stable"
+		// and handle artifacts with long paths like "gcr.io/cloud-provider-vsphere/csi/release/syncer"
 		registry = splittedArtifact[0]
 		namespace = splittedArtifact[1]
 		repository = strings.Join(splittedArtifact[2:], "/")

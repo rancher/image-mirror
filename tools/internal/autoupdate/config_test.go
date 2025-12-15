@@ -192,67 +192,67 @@ func TestConfigEntry(t *testing.T) {
 }
 
 func TestGetBranchHash(t *testing.T) {
-	t.Run("should produce the same hash with the same set of images, but with different image order", func(t *testing.T) {
-		image1, err := config.NewArtifact("test-org/image1", []string{"asdf", "qwer"}, "", nil, nil)
+	t.Run("should produce the same hash with the same set of artifacts, but with different artifact order", func(t *testing.T) {
+		artifact1, err := config.NewArtifact("test-org/artifact1", []string{"asdf", "qwer"}, "", nil, nil)
 		assert.Nil(t, err)
-		image2, err := config.NewArtifact("test-org/image2", []string{"asdf", "qwer"}, "", nil, nil)
-		assert.Nil(t, err)
-
-		imageSet1 := []*config.Artifact{image1, image2}
-		hash1, err := hashArtifactSet(imageSet1)
+		artifact2, err := config.NewArtifact("test-org/artifact2", []string{"asdf", "qwer"}, "", nil, nil)
 		assert.Nil(t, err)
 
-		imageSet2 := []*config.Artifact{image2, image1}
-		hash2, err := hashArtifactSet(imageSet2)
+		artifactSet1 := []*config.Artifact{artifact1, artifact2}
+		hash1, err := hashArtifactSet(artifactSet1)
 		assert.Nil(t, err)
 
-		assert.Equal(t, hash1, hash2)
-	})
-
-	t.Run("should produce the same hash with the same image, but a different order of tags", func(t *testing.T) {
-		image1, err := config.NewArtifact("test-org/image", []string{"asdf", "qwer"}, "", nil, nil)
-		assert.Nil(t, err)
-		images1 := []*config.Artifact{image1}
-		hash1, err := hashArtifactSet(images1)
-		assert.Nil(t, err)
-
-		image2, err := config.NewArtifact("test-org/image", []string{"qwer", "asdf"}, "", nil, nil)
-		assert.Nil(t, err)
-		images2 := []*config.Artifact{image2}
-		hash2, err := hashArtifactSet(images2)
+		artifactSet2 := []*config.Artifact{artifact2, artifact1}
+		hash2, err := hashArtifactSet(artifactSet2)
 		assert.Nil(t, err)
 
 		assert.Equal(t, hash1, hash2)
 	})
 
-	t.Run("should produce the same hash with the same set of images", func(t *testing.T) {
-		image1, err := config.NewArtifact("test-org/image1", []string{"asdf", "qwer"}, "", nil, nil)
+	t.Run("should produce the same hash with the same artifact, but a different order of tags", func(t *testing.T) {
+		artifact1, err := config.NewArtifact("test-org/artifact", []string{"asdf", "qwer"}, "", nil, nil)
 		assert.Nil(t, err)
-		image2, err := config.NewArtifact("test-org/image2", []string{"asdf", "qwer"}, "", nil, nil)
-		assert.Nil(t, err)
-
-		imageSet1 := []*config.Artifact{image1, image2}
-		hash1, err := hashArtifactSet(imageSet1)
+		artifacts1 := []*config.Artifact{artifact1}
+		hash1, err := hashArtifactSet(artifacts1)
 		assert.Nil(t, err)
 
-		imageSet2 := []*config.Artifact{image1, image2}
-		hash2, err := hashArtifactSet(imageSet2)
+		artifact2, err := config.NewArtifact("test-org/artifact", []string{"qwer", "asdf"}, "", nil, nil)
+		assert.Nil(t, err)
+		artifacts2 := []*config.Artifact{artifact2}
+		hash2, err := hashArtifactSet(artifacts2)
+		assert.Nil(t, err)
+
+		assert.Equal(t, hash1, hash2)
+	})
+
+	t.Run("should produce the same hash with the same set of artifacts", func(t *testing.T) {
+		artifact1, err := config.NewArtifact("test-org/artifact1", []string{"asdf", "qwer"}, "", nil, nil)
+		assert.Nil(t, err)
+		artifact2, err := config.NewArtifact("test-org/artifact2", []string{"asdf", "qwer"}, "", nil, nil)
+		assert.Nil(t, err)
+
+		artifactSet1 := []*config.Artifact{artifact1, artifact2}
+		hash1, err := hashArtifactSet(artifactSet1)
+		assert.Nil(t, err)
+
+		artifactSet2 := []*config.Artifact{artifact1, artifact2}
+		hash2, err := hashArtifactSet(artifactSet2)
 		assert.Nil(t, err)
 
 		assert.Equal(t, hash1, hash2)
 	})
 
 	t.Run("should produce a different hash with different set of tags", func(t *testing.T) {
-		image1, err := config.NewArtifact("test-org/image", []string{"asdf", "qwer"}, "", nil, nil)
+		artifact1, err := config.NewArtifact("test-org/artifact", []string{"asdf", "qwer"}, "", nil, nil)
 		assert.Nil(t, err)
-		images1 := []*config.Artifact{image1}
-		hash1, err := hashArtifactSet(images1)
+		artifacts1 := []*config.Artifact{artifact1}
+		hash1, err := hashArtifactSet(artifacts1)
 		assert.Nil(t, err)
 
-		image2, err := config.NewArtifact("test-org/image", []string{"asdf", "qwer", "zxcv"}, "", nil, nil)
+		artifact2, err := config.NewArtifact("test-org/artifact", []string{"asdf", "qwer", "zxcv"}, "", nil, nil)
 		assert.Nil(t, err)
-		images2 := []*config.Artifact{image2}
-		hash2, err := hashArtifactSet(images2)
+		artifacts2 := []*config.Artifact{artifact2}
+		hash2, err := hashArtifactSet(artifacts2)
 		assert.Nil(t, err)
 
 		assert.NotEqual(t, hash1, hash2)

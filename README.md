@@ -4,7 +4,7 @@ This repo is dedicated to mirroring artifacts from other organizations to the
 places they need to be for Rancher and its associated projects to use them.
 
 > [!NOTE]
-> This repository used to be called `image-mirror`; It was renamed to better reflect its usecases, see [this](https://github.com/rancher/rancher/issues/52259) issue for more information
+> This repository used to be called `image-mirror`; it was renamed to better reflect its use cases, see [this](https://github.com/rancher/rancher/issues/52259) issue for more information.
 
 ## Overview
 
