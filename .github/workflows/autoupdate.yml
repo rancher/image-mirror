@@ -13,7 +13,7 @@ jobs:
   autoupdate:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+    - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
 
     - name: Set up git user
       run: |
@@ -28,13 +28,13 @@ jobs:
           github/repo/${{ github.repository }}/github/pr-actions-write-app/credentials privateKey | PRIVATE_KEY
 
     - name: Generate short-lived installation access token from app
-      uses: actions/create-github-app-token@v1
+      uses: actions/create-github-app-token@d72941d797fd3113feb6b93fd0dec494b13a2547 # v1
       id: app-token
       with:
         app-id: ${{ env.APP_ID }}
         private-key: ${{ env.PRIVATE_KEY }}
 
-    - uses: actions/setup-go@44694675825211faa026b3c33043df3e48a5fa00 # v6
+    - uses: actions/setup-go@4dc6199c7b1a012772edbd06daecab0f50c9053c # v6
       with:
         go-version: '1.24'
         cache-dependency-path: tools/go.sum
