@@ -21,7 +21,7 @@ func TestGithubRelease(t *testing.T) {
 				GithubRelease: &GithubRelease{
 					Owner:      "test-owner",
 					Repository: "test-repo",
-					Images:     []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
+					Artifacts:  []AutoupdateArtifactRef{{SourceArtifact: "rancher/rancher"}},
 					LatestOnly: true,
 				},
 				ExpectedError: "",
@@ -31,7 +31,7 @@ func TestGithubRelease(t *testing.T) {
 				GithubRelease: &GithubRelease{
 					Owner:             "test-owner",
 					Repository:        "test-repo",
-					Images:            []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
+					Artifacts:         []AutoupdateArtifactRef{{SourceArtifact: "rancher/rancher"}},
 					VersionConstraint: ">3.5.10",
 				},
 				ExpectedError: "",
@@ -41,7 +41,7 @@ func TestGithubRelease(t *testing.T) {
 				GithubRelease: &GithubRelease{
 					Owner:             "test-owner",
 					Repository:        "test-repo",
-					Images:            []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
+					Artifacts:         []AutoupdateArtifactRef{{SourceArtifact: "rancher/rancher"}},
 					LatestOnly:        true,
 					VersionConstraint: ">3.5.10",
 				},
@@ -51,15 +51,15 @@ func TestGithubRelease(t *testing.T) {
 				Message: "should return error for empty Owner",
 				GithubRelease: &GithubRelease{
 					Repository: "test-repo",
-					Images:     []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
+					Artifacts:  []AutoupdateArtifactRef{{SourceArtifact: "rancher/rancher"}},
 				},
 				ExpectedError: "must specify Owner",
 			},
 			{
 				Message: "should return error for empty Repository",
 				GithubRelease: &GithubRelease{
-					Owner:  "test-owner",
-					Images: []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
+					Owner:     "test-owner",
+					Artifacts: []AutoupdateArtifactRef{{SourceArtifact: "rancher/rancher"}},
 				},
 				ExpectedError: "must specify Repository",
 			},
@@ -76,7 +76,7 @@ func TestGithubRelease(t *testing.T) {
 				GithubRelease: &GithubRelease{
 					Owner:      "test-owner",
 					Repository: "test-repo",
-					Images:     []AutoupdateImageRef{},
+					Artifacts:  []AutoupdateArtifactRef{},
 				},
 				ExpectedError: "must specify at least one element for Artifacts",
 			},
@@ -85,7 +85,7 @@ func TestGithubRelease(t *testing.T) {
 				GithubRelease: &GithubRelease{
 					Owner:             "test-owner",
 					Repository:        "test-repo",
-					Images:            []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
+					Artifacts:         []AutoupdateArtifactRef{{SourceArtifact: "rancher/rancher"}},
 					VersionConstraint: "InvalidVersionConstraint",
 				},
 				ExpectedError: "invalid VersionConstraint: improper constraint: InvalidVersionConstraint",
@@ -95,7 +95,7 @@ func TestGithubRelease(t *testing.T) {
 				GithubRelease: &GithubRelease{
 					Owner:        "test-owner",
 					Repository:   "test-repo",
-					Images:       []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
+					Artifacts:    []AutoupdateArtifactRef{{SourceArtifact: "rancher/rancher"}},
 					VersionRegex: "v[asdf[",
 				},
 				ExpectedError: "invalid VersionRegex: error parsing regexp: missing closing ]: `[asdf[`",
@@ -117,7 +117,7 @@ func TestGithubRelease(t *testing.T) {
 			githubRelease := &GithubRelease{
 				Owner:             "test-owner",
 				Repository:        "test-repo",
-				Images:            []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
+				Artifacts:         []AutoupdateArtifactRef{{SourceArtifact: "rancher/rancher"}},
 				VersionConstraint: constraintString,
 			}
 			err := githubRelease.Validate()
@@ -132,7 +132,7 @@ func TestGithubRelease(t *testing.T) {
 			githubRelease := &GithubRelease{
 				Owner:        "test-owner",
 				Repository:   "test-repo",
-				Images:       []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
+				Artifacts:    []AutoupdateArtifactRef{{SourceArtifact: "rancher/rancher"}},
 				VersionRegex: regexString,
 			}
 			err := githubRelease.Validate()
@@ -155,7 +155,7 @@ func TestGithubRelease(t *testing.T) {
 				GithubRelease: &GithubRelease{
 					Owner:      "test-owner",
 					Repository: "test-repo",
-					Images:     []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
+					Artifacts:  []AutoupdateArtifactRef{{SourceArtifact: "rancher/rancher"}},
 				},
 				Tag:             "v1.2.3",
 				ExpectedVersion: "v1.2.3",
@@ -165,7 +165,7 @@ func TestGithubRelease(t *testing.T) {
 				GithubRelease: &GithubRelease{
 					Owner:        "test-owner",
 					Repository:   "test-repo",
-					Images:       []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
+					Artifacts:    []AutoupdateArtifactRef{{SourceArtifact: "rancher/rancher"}},
 					VersionRegex: "^v(.*)$",
 				},
 				Tag:             "v1.2.3",
@@ -176,7 +176,7 @@ func TestGithubRelease(t *testing.T) {
 				GithubRelease: &GithubRelease{
 					Owner:        "test-owner",
 					Repository:   "test-repo",
-					Images:       []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
+					Artifacts:    []AutoupdateArtifactRef{{SourceArtifact: "rancher/rancher"}},
 					VersionRegex: "v(asdf)",
 				},
 				Tag:             "v1.2.3",
@@ -187,7 +187,7 @@ func TestGithubRelease(t *testing.T) {
 				GithubRelease: &GithubRelease{
 					Owner:             "test-owner",
 					Repository:        "test-repo",
-					Images:            []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
+					Artifacts:         []AutoupdateArtifactRef{{SourceArtifact: "rancher/rancher"}},
 					VersionConstraint: ">=1.0.0",
 				},
 				Tag:             "v1.2.3",
@@ -198,7 +198,7 @@ func TestGithubRelease(t *testing.T) {
 				GithubRelease: &GithubRelease{
 					Owner:             "test-owner",
 					Repository:        "test-repo",
-					Images:            []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
+					Artifacts:         []AutoupdateArtifactRef{{SourceArtifact: "rancher/rancher"}},
 					VersionConstraint: "<1.0.0",
 				},
 				Tag:             "v1.2.3",
@@ -209,7 +209,7 @@ func TestGithubRelease(t *testing.T) {
 				GithubRelease: &GithubRelease{
 					Owner:             "test-owner",
 					Repository:        "test-repo",
-					Images:            []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
+					Artifacts:         []AutoupdateArtifactRef{{SourceArtifact: "rancher/rancher"}},
 					VersionConstraint: "<1.0.0",
 					VersionRegex:      "^v(.*)$",
 				},

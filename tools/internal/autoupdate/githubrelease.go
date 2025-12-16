@@ -13,12 +13,12 @@ import (
 
 // GithubRelease retrieves the tags of all github releases that match the VersionConstraint if
 // LatestOnly is false, or the tag of the latest release if LatestOnly is true.
-// It returns the configured Images with this tag.
-// It assumes that the images have the same tags as the github releases.
+// It returns the configured Artifacts with this tag.
+// It assumes that the artifacts have the same tags as the github releases.
 type GithubRelease struct {
 	Owner                     string
 	Repository                string
-	Images                    []AutoupdateImageRef
+	Artifacts                 []AutoupdateArtifactRef
 	LatestOnly                bool                `json:",omitempty"`
 	VersionConstraint         string              `json:",omitempty"`
 	compiledVersionConstraint *semver.Constraints `json:"-"`
@@ -29,7 +29,7 @@ type GithubRelease struct {
 	compiledVersionRegex *regexp.Regexp `json:"-"`
 }
 
-func (gr *GithubRelease) GetUpdateImages() ([]*config.Artifact, error) {
+func (gr *GithubRelease) GetUpdateArtifacts() ([]*config.Artifact, error) {
 	client := github.NewClient(nil)
 
 	var tags []string
@@ -47,15 +47,15 @@ func (gr *GithubRelease) GetUpdateImages() ([]*config.Artifact, error) {
 		tags = append(tags, ghTags...)
 	}
 
-	images := make([]*config.Artifact, 0, len(gr.Images))
-	for _, sourceImage := range gr.Images {
-		image, err := config.NewArtifact(sourceImage.SourceImage, tags, sourceImage.TargetImageName, nil, nil)
+	artifacts := make([]*config.Artifact, 0, len(gr.Artifacts))
+	for _, sourceArtifact := range gr.Artifacts {
+		artifact, err := config.NewArtifact(sourceArtifact.SourceArtifact, tags, sourceArtifact.TargetArtifactName, nil, nil)
 		if err != nil {
-			return nil, fmt.Errorf("failed to construct image from source image %q and tags %v: %w", sourceImage, tags, err)
+			return nil, fmt.Errorf("failed to construct artifact from source artifact %q and tags %v: %w", sourceArtifact, tags, err)
 		}
-		images = append(images, image)
+		artifacts = append(artifacts, artifact)
 	}
-	return images, nil
+	return artifacts, nil
 }
 
 func (gr *GithubRelease) getVersionsFromAllReleases(client *github.Client) ([]string, error) {
@@ -136,9 +136,9 @@ func (gr *GithubRelease) Validate() error {
 	if gr.Repository == "" {
 		return errors.New("must specify Repository")
 	}
-	if gr.Images == nil {
+	if gr.Artifacts == nil {
 		return errors.New("must specify Artifacts")
-	} else if len(gr.Images) == 0 {
+	} else if len(gr.Artifacts) == 0 {
 		return errors.New("must specify at least one element for Artifacts")
 	}
 	if gr.LatestOnly && gr.VersionConstraint != "" {

@@ -16,25 +16,25 @@ import (
 )
 
 type Registry struct {
-	Images        []AutoupdateImageRef
+	Artifacts     []AutoupdateArtifactRef
 	Latest        bool   `json:",omitempty"`
 	VersionFilter string `json:",omitempty"`
 }
 
 var httpClient = &http.Client{Timeout: 10 * time.Second}
 
-type ImageRegistry interface {
-	getImageTags() ([]string, error)
+type ArtifactRegistry interface {
+	getArtifactTags() ([]string, error)
 }
 
-func (r *Registry) GetUpdateImages() ([]*config.Artifact, error) {
-	allTags, err := r.getImageTags()
+func (r *Registry) GetUpdateArtifacts() ([]*config.Artifact, error) {
+	allTags, err := r.getArtifactTags()
 	if err != nil {
-		return nil, fmt.Errorf("failed to get image tags: %w", err)
+		return nil, fmt.Errorf("failed to get artifact tags: %w", err)
 	}
 
 	if len(allTags) == 0 {
-		return nil, fmt.Errorf("no image tags found")
+		return nil, fmt.Errorf("no artifact tags found")
 	}
 
 	var filteredTags []string
@@ -69,21 +69,21 @@ func (r *Registry) GetUpdateImages() ([]*config.Artifact, error) {
 		filteredTags = []string{vs[len(vs)-1].String()} // Use the latest version
 	}
 
-	images := make([]*config.Artifact, 0, len(r.Images))
-	for _, sourceImage := range r.Images {
-		image, err := config.NewArtifact(sourceImage.SourceImage, filteredTags, sourceImage.TargetImageName, nil, nil)
+	artifacts := make([]*config.Artifact, 0, len(r.Artifacts))
+	for _, sourceArtifact := range r.Artifacts {
+		artifact, err := config.NewArtifact(sourceArtifact.SourceArtifact, filteredTags, sourceArtifact.TargetArtifactName, nil, nil)
 		if err != nil {
 			return nil, err
 		}
-		image.SetTargetArtifactName(sourceImage.TargetImageName)
-		images = append(images, image)
+		artifact.SetTargetArtifactName(sourceArtifact.TargetArtifactName)
+		artifacts = append(artifacts, artifact)
 	}
-	return images, nil
+	return artifacts, nil
 }
 
 func (r *Registry) Validate() error {
-	if len(r.Images) == 0 {
-		return errors.New("must specify at least one image")
+	if len(r.Artifacts) == 0 {
+		return errors.New("must specify at least one artifact")
 	}
 	if r.VersionFilter != "" {
 		if _, err := regexp.Compile(r.VersionFilter); err != nil {
@@ -93,37 +93,37 @@ func (r *Registry) Validate() error {
 	return nil
 }
 
-func (r *Registry) getImageTags() ([]string, error) {
-	registry, err := r.getRegistryInformationFromImage()
+func (r *Registry) getArtifactTags() ([]string, error) {
+	registry, err := r.getRegistryInformationFromArtifact()
 	if err != nil {
-		return nil, fmt.Errorf("failed to get registry information from image: %w", err)
+		return nil, fmt.Errorf("failed to get registry information from artifact: %w", err)
 	}
-	return registry.getImageTags()
+	return registry.getArtifactTags()
 }
 
-func (r *Registry) getRegistryInformationFromImage() (ImageRegistry, error) {
-	image := r.Images[0].SourceImage
-	splittedImage := strings.Split(image, "/")
-	if len(splittedImage) < 2 {
-		return nil, fmt.Errorf("invalid image format: %s", image)
+func (r *Registry) getRegistryInformationFromArtifact() (ArtifactRegistry, error) {
+	artifact := r.Artifacts[0].SourceArtifact
+	splittedArtifact := strings.Split(artifact, "/")
+	if len(splittedArtifact) < 2 {
+		return nil, fmt.Errorf("invalid artifact format: %s", artifact)
 	}
 	var registry, namespace, repository string
-	// Case 1: Handle default Docker Hub images like "flannel/flannel"
-	if len(splittedImage) == 2 && !strings.Contains(splittedImage[0], ".") {
+	// Case 1: Handle default Docker Hub artifacts like "flannel/flannel"
+	if len(splittedArtifact) == 2 && !strings.Contains(splittedArtifact[0], ".") {
 		registry = "dockerhub"
-		namespace = splittedImage[0]
-		repository = splittedImage[1]
-	} else if len(splittedImage) == 2 && strings.Contains(splittedImage[0], ".") {
-		// Case 2: Handle images with a registry but no namespace like "k8s.gcr.io/pause"
-		registry = splittedImage[0]
+		namespace = splittedArtifact[0]
+		repository = splittedArtifact[1]
+	} else if len(splittedArtifact) == 2 && strings.Contains(splittedArtifact[0], ".") {
+		// Case 2: Handle artifacts with a registry but no namespace like "k8s.gcr.io/pause"
+		registry = splittedArtifact[0]
 		namespace = ""
-		repository = splittedImage[1]
+		repository = splittedArtifact[1]
 	} else {
-		// Default Case: Handle standard 3-part images like "quay.io/skopeo/stable"
-		// and handle images with long paths like "gcr.io/cloud-provider-vsphere/csi/release/syncer"
-		registry = splittedImage[0]
-		namespace = splittedImage[1]
-		repository = strings.Join(splittedImage[2:], "/")
+		// Default Case: Handle standard 3-part artifacts like "quay.io/skopeo/stable"
+		// and handle artifacts with long paths like "gcr.io/cloud-provider-vsphere/csi/release/syncer"
+		registry = splittedArtifact[0]
+		namespace = splittedArtifact[1]
+		repository = strings.Join(splittedArtifact[2:], "/")
 	}
 	switch registry {
 	case "dockerhub":

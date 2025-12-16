@@ -1,4 +1,4 @@
-name: Mirror Images
+name: Mirror Artifacts
 
 on:
   push:
@@ -12,7 +12,7 @@ on:
         type: boolean
 
 jobs:
-  mirror-images:
+  mirror-artifacts:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -39,7 +39,7 @@ jobs:
           curl --silent --fail --location --output regsync https://github.com/regclient/regclient/releases/download/v0.8.3/regsync-linux-amd64
           chmod +x regsync
 
-      - name: Mirror images
+      - name: Mirror artifacts
         run: |
           export PATH=$PATH:$(pwd)
           if [ "${{ inputs.debug }}" = "true" ]; then
