@@ -102,6 +102,7 @@ Artifacts:
 - SourceArtifact: dp.apps.rancher.io/charts/suse-virtual-cluster-engine
   Tags:
   - 1.0.0
+  - 1.0.1
   TargetRepositories:
   - registry.suse.com/rancher/charts
   - stgregistry.suse.com/rancher/charts
@@ -114,12 +115,14 @@ Artifacts:
 - SourceArtifact: dp.apps.rancher.io/containers/k3k
   Tags:
   - 1.0.0-1.1
+  - 1.0.1-1.9
   TargetRepositories:
   - registry.suse.com/rancher
   - stgregistry.suse.com/rancher
 - SourceArtifact: dp.apps.rancher.io/containers/k3k-kubelet
   Tags:
   - 1.0.0-1.1
+  - 1.0.1-1.9
   TargetRepositories:
   - registry.suse.com/rancher
   - stgregistry.suse.com/rancher
