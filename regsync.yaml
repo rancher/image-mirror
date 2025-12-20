@@ -14351,6 +14351,9 @@ sync:
 - source: quay.io/calico/whisker:v3.31.2
   target: docker.io/rancher/mirrored-calico-whisker:v3.31.2
   type: image
+- source: quay.io/calico/whisker:v3.31.3
+  target: docker.io/rancher/mirrored-calico-whisker:v3.31.3
+  type: image
 - source: quay.io/calico/whisker:v3.30.0
   target: registry.suse.com/rancher/mirrored-calico-whisker:v3.30.0
   type: image
@@ -14375,6 +14378,9 @@ sync:
 - source: quay.io/calico/whisker:v3.31.2
   target: registry.suse.com/rancher/mirrored-calico-whisker:v3.31.2
   type: image
+- source: quay.io/calico/whisker:v3.31.3
+  target: registry.suse.com/rancher/mirrored-calico-whisker:v3.31.3
+  type: image
 - source: quay.io/calico/whisker:v3.30.0
   target: stgregistry.suse.com/rancher/mirrored-calico-whisker:v3.30.0
   type: image
@@ -14398,6 +14404,9 @@ sync:
   type: image
 - source: quay.io/calico/whisker:v3.31.2
   target: stgregistry.suse.com/rancher/mirrored-calico-whisker:v3.31.2
+  type: image
+- source: quay.io/calico/whisker:v3.31.3
+  target: stgregistry.suse.com/rancher/mirrored-calico-whisker:v3.31.3
   type: image
 - source: quay.io/calico/whisker-backend:v3.30.0
   target: docker.io/rancher/mirrored-calico-whisker-backend:v3.30.0
