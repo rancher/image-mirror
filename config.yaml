@@ -1975,6 +1975,7 @@ Artifacts:
   - v3.31.0
   - v3.31.1
   - v3.31.2
+  - v3.31.3
 - SourceArtifact: quay.io/calico/pod2daemon-flexvol
   Tags:
   - v3.16.5
