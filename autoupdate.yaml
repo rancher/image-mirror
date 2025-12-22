@@ -79,6 +79,7 @@
   Registry:
     Artifacts:
     - SourceArtifact: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere
+      TargetArtifactName: mirrored-cloud-provider-vsphere
     VersionFilter: ^v1.([3-9][0-9]).[0-9]+$
   Reviewers:
   - rancher/k3s
