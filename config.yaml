@@ -2798,10 +2798,14 @@ Artifacts:
   - v1.32.0
   - v1.32.1
   - v1.32.2
+  - v1.32.3
   - v1.33.0
+  - v1.33.1
   - v1.34.0
+  - v1.35.0
   TargetArtifactName: mirrored-cloud-provider-vsphere
-- SourceArtifact: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere
+- DoNotMirror: true
+  SourceArtifact: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere
   Tags:
   - v1.30.0
   - v1.30.1
