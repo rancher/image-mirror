@@ -28,7 +28,7 @@ jobs:
           secret/data/github/repo/${{ github.repository }}/github/pr-actions-write-app/credentials privateKey | PRIVATE_KEY
 
     - name: Generate short-lived installation access token from app
-      uses: actions/create-github-app-token@v1
+      uses: actions/create-github-app-token@29824e69f54612133e76f7eaac726eef6c875baf # v2
       id: app-token
       with:
         app-id: ${{ env.APP_ID }}
