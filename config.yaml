@@ -2850,6 +2850,7 @@ Artifacts:
   - v1.35.0
 - SourceArtifact: registry.k8s.io/cluster-api/cluster-api-controller
   Tags:
+  - v1.12.1
   - v1.10.2
   - v1.10.6
   - v1.11.1
