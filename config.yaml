@@ -180,6 +180,7 @@ Artifacts:
   - v0.27.2
   - v0.27.3
   - v0.27.4
+  - v0.28.0
 - SourceArtifact: flannel/flannel-cni-plugin
   Tags:
   - v1.2.0
