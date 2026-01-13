@@ -14858,6 +14858,9 @@ sync:
 - source: quay.io/cilium/cilium:v1.18.5
   target: docker.io/rancher/mirrored-cilium-cilium:v1.18.5
   type: image
+- source: quay.io/cilium/cilium:v1.18.6
+  target: docker.io/rancher/mirrored-cilium-cilium:v1.18.6
+  type: image
 - source: quay.io/cilium/cilium:v1.9.12
   target: docker.io/rancher/mirrored-cilium-cilium:v1.9.12
   type: image
@@ -15014,6 +15017,9 @@ sync:
 - source: quay.io/cilium/cilium:v1.18.5
   target: registry.suse.com/rancher/mirrored-cilium-cilium:v1.18.5
   type: image
+- source: quay.io/cilium/cilium:v1.18.6
+  target: registry.suse.com/rancher/mirrored-cilium-cilium:v1.18.6
+  type: image
 - source: quay.io/cilium/cilium:v1.9.12
   target: registry.suse.com/rancher/mirrored-cilium-cilium:v1.9.12
   type: image
@@ -15169,6 +15175,9 @@ sync:
   type: image
 - source: quay.io/cilium/cilium:v1.18.5
   target: stgregistry.suse.com/rancher/mirrored-cilium-cilium:v1.18.5
+  type: image
+- source: quay.io/cilium/cilium:v1.18.6
+  target: stgregistry.suse.com/rancher/mirrored-cilium-cilium:v1.18.6
   type: image
 - source: quay.io/cilium/cilium:v1.9.12
   target: stgregistry.suse.com/rancher/mirrored-cilium-cilium:v1.9.12
