@@ -15602,6 +15602,9 @@ sync:
 - source: quay.io/cilium/clustermesh-apiserver:v1.18.5
   target: docker.io/rancher/mirrored-cilium-clustermesh-apiserver:v1.18.5
   type: image
+- source: quay.io/cilium/clustermesh-apiserver:v1.18.6
+  target: docker.io/rancher/mirrored-cilium-clustermesh-apiserver:v1.18.6
+  type: image
 - source: quay.io/cilium/clustermesh-apiserver:v1.12.4
   target: registry.suse.com/rancher/mirrored-cilium-clustermesh-apiserver:v1.12.4
   type: image
@@ -15716,6 +15719,9 @@ sync:
 - source: quay.io/cilium/clustermesh-apiserver:v1.18.5
   target: registry.suse.com/rancher/mirrored-cilium-clustermesh-apiserver:v1.18.5
   type: image
+- source: quay.io/cilium/clustermesh-apiserver:v1.18.6
+  target: registry.suse.com/rancher/mirrored-cilium-clustermesh-apiserver:v1.18.6
+  type: image
 - source: quay.io/cilium/clustermesh-apiserver:v1.12.4
   target: stgregistry.suse.com/rancher/mirrored-cilium-clustermesh-apiserver:v1.12.4
   type: image
@@ -15829,6 +15835,9 @@ sync:
   type: image
 - source: quay.io/cilium/clustermesh-apiserver:v1.18.5
   target: stgregistry.suse.com/rancher/mirrored-cilium-clustermesh-apiserver:v1.18.5
+  type: image
+- source: quay.io/cilium/clustermesh-apiserver:v1.18.6
+  target: stgregistry.suse.com/rancher/mirrored-cilium-clustermesh-apiserver:v1.18.6
   type: image
 - source: quay.io/cilium/hubble-relay:v1.12.4
   target: docker.io/rancher/mirrored-cilium-hubble-relay:v1.12.4
