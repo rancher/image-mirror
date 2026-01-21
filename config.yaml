@@ -1481,6 +1481,7 @@ Artifacts:
   - 5.3.2
   - 5.3.3
   - 5.3.4
+  - 5.3.5
   - 5.4.0
   - 5.4.1
 - SourceArtifact: neuvector/enforcer
@@ -1508,6 +1509,7 @@ Artifacts:
   - 5.3.2
   - 5.3.3
   - 5.3.4
+  - 5.3.5
   - 5.4.0
   - 5.4.1
 - SourceArtifact: neuvector/manager
@@ -1535,6 +1537,7 @@ Artifacts:
   - 5.3.2
   - 5.3.3
   - 5.3.4
+  - 5.3.5
   - 5.4.0
   - 5.4.1
 - SourceArtifact: neuvector/prometheus-exporter
