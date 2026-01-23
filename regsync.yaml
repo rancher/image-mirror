@@ -20549,6 +20549,9 @@ sync:
 - source: registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.6.5
   target: docker.io/rancher/mirrored-ingress-nginx-kube-webhook-certgen:v1.6.5
   type: image
+- source: registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.6.6
+  target: docker.io/rancher/mirrored-ingress-nginx-kube-webhook-certgen:v1.6.6
+  type: image
 - source: registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20221220-controller-v1.5.1-58-g787ea74b6
   target: docker.io/rancher/mirrored-ingress-nginx-kube-webhook-certgen:v20221220-controller-v1.5.1-58-g787ea74b6
   type: image
@@ -20618,6 +20621,9 @@ sync:
 - source: registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.6.5
   target: registry.suse.com/rancher/mirrored-ingress-nginx-kube-webhook-certgen:v1.6.5
   type: image
+- source: registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.6.6
+  target: registry.suse.com/rancher/mirrored-ingress-nginx-kube-webhook-certgen:v1.6.6
+  type: image
 - source: registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20221220-controller-v1.5.1-58-g787ea74b6
   target: registry.suse.com/rancher/mirrored-ingress-nginx-kube-webhook-certgen:v20221220-controller-v1.5.1-58-g787ea74b6
   type: image
@@ -20686,6 +20692,9 @@ sync:
   type: image
 - source: registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.6.5
   target: stgregistry.suse.com/rancher/mirrored-ingress-nginx-kube-webhook-certgen:v1.6.5
+  type: image
+- source: registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.6.6
+  target: stgregistry.suse.com/rancher/mirrored-ingress-nginx-kube-webhook-certgen:v1.6.6
   type: image
 - source: registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20221220-controller-v1.5.1-58-g787ea74b6
   target: stgregistry.suse.com/rancher/mirrored-ingress-nginx-kube-webhook-certgen:v20221220-controller-v1.5.1-58-g787ea74b6
