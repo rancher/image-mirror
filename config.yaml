@@ -501,6 +501,7 @@ Artifacts:
   - v0.9.2
   - v1.0.0
   - v1.0.1
+  - v1.0.4
 - SourceArtifact: ghcr.io/prometheus-community/windows-exporter
   Tags:
   - 0.25.1
