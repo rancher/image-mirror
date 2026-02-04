@@ -2223,6 +2223,7 @@ Artifacts:
   - v1.34.4-1754895458-68cffdfa568b6b226d70a7ef81fc65dda3b890bf
   - v1.34.7-1757592137-1a52bb680a956879722f48c591a2ca90f7791324
   - v1.35.9-1767794330-db497dd19e346b39d81d7b5c0dedf6c812bcc5c9
+  - v1.35.9-1768828720-c6e4827ebca9c47af2a3a6540c563c30947bae29
 - SourceArtifact: quay.io/cilium/cilium-etcd-operator
   Tags:
   - v2.0.7
