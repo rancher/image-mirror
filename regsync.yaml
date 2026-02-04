@@ -16001,6 +16001,9 @@ sync:
 - source: quay.io/cilium/hubble-relay:v1.18.6
   target: docker.io/rancher/mirrored-cilium-hubble-relay:v1.18.6
   type: image
+- source: quay.io/cilium/hubble-relay:v1.19.0
+  target: docker.io/rancher/mirrored-cilium-hubble-relay:v1.19.0
+  type: image
 - source: quay.io/cilium/hubble-relay:v1.12.4
   target: registry.suse.com/rancher/mirrored-cilium-hubble-relay:v1.12.4
   type: image
@@ -16118,6 +16121,9 @@ sync:
 - source: quay.io/cilium/hubble-relay:v1.18.6
   target: registry.suse.com/rancher/mirrored-cilium-hubble-relay:v1.18.6
   type: image
+- source: quay.io/cilium/hubble-relay:v1.19.0
+  target: registry.suse.com/rancher/mirrored-cilium-hubble-relay:v1.19.0
+  type: image
 - source: quay.io/cilium/hubble-relay:v1.12.4
   target: stgregistry.suse.com/rancher/mirrored-cilium-hubble-relay:v1.12.4
   type: image
@@ -16234,6 +16240,9 @@ sync:
   type: image
 - source: quay.io/cilium/hubble-relay:v1.18.6
   target: stgregistry.suse.com/rancher/mirrored-cilium-hubble-relay:v1.18.6
+  type: image
+- source: quay.io/cilium/hubble-relay:v1.19.0
+  target: stgregistry.suse.com/rancher/mirrored-cilium-hubble-relay:v1.19.0
   type: image
 - source: quay.io/cilium/hubble-ui:v0.10.0
   target: docker.io/rancher/mirrored-cilium-hubble-ui:v0.10.0
