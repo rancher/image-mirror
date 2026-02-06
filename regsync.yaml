@@ -7844,6 +7844,12 @@ sync:
 - source: longhornio/longhorn-manager:v1.10.1
   target: docker.io/rancher/mirrored-longhornio-longhorn-manager:v1.10.1
   type: image
+- source: longhornio/longhorn-manager:v1.10.1-hotfix-1
+  target: docker.io/rancher/mirrored-longhornio-longhorn-manager:v1.10.1-hotfix-1
+  type: image
+- source: longhornio/longhorn-manager:v1.10.1-hotfix-2
+  target: docker.io/rancher/mirrored-longhornio-longhorn-manager:v1.10.1-hotfix-2
+  type: image
 - source: longhornio/longhorn-manager:v1.2.0
   target: docker.io/rancher/mirrored-longhornio-longhorn-manager:v1.2.0
   type: image
@@ -7949,6 +7955,9 @@ sync:
 - source: longhornio/longhorn-manager:v1.9.2
   target: docker.io/rancher/mirrored-longhornio-longhorn-manager:v1.9.2
   type: image
+- source: longhornio/longhorn-manager:v1.9.2-hotfix-1
+  target: docker.io/rancher/mirrored-longhornio-longhorn-manager:v1.9.2-hotfix-1
+  type: image
 - source: longhornio/longhorn-manager:v1.1.0
   target: registry.suse.com/rancher/mirrored-longhornio-longhorn-manager:v1.1.0
   type: image
@@ -7963,6 +7972,12 @@ sync:
   type: image
 - source: longhornio/longhorn-manager:v1.10.1
   target: registry.suse.com/rancher/mirrored-longhornio-longhorn-manager:v1.10.1
+  type: image
+- source: longhornio/longhorn-manager:v1.10.1-hotfix-1
+  target: registry.suse.com/rancher/mirrored-longhornio-longhorn-manager:v1.10.1-hotfix-1
+  type: image
+- source: longhornio/longhorn-manager:v1.10.1-hotfix-2
+  target: registry.suse.com/rancher/mirrored-longhornio-longhorn-manager:v1.10.1-hotfix-2
   type: image
 - source: longhornio/longhorn-manager:v1.2.0
   target: registry.suse.com/rancher/mirrored-longhornio-longhorn-manager:v1.2.0
@@ -8069,6 +8084,9 @@ sync:
 - source: longhornio/longhorn-manager:v1.9.2
   target: registry.suse.com/rancher/mirrored-longhornio-longhorn-manager:v1.9.2
   type: image
+- source: longhornio/longhorn-manager:v1.9.2-hotfix-1
+  target: registry.suse.com/rancher/mirrored-longhornio-longhorn-manager:v1.9.2-hotfix-1
+  type: image
 - source: longhornio/longhorn-manager:v1.1.0
   target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-manager:v1.1.0
   type: image
@@ -8083,6 +8101,12 @@ sync:
   type: image
 - source: longhornio/longhorn-manager:v1.10.1
   target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-manager:v1.10.1
+  type: image
+- source: longhornio/longhorn-manager:v1.10.1-hotfix-1
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-manager:v1.10.1-hotfix-1
+  type: image
+- source: longhornio/longhorn-manager:v1.10.1-hotfix-2
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-manager:v1.10.1-hotfix-2
   type: image
 - source: longhornio/longhorn-manager:v1.2.0
   target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-manager:v1.2.0
@@ -8188,6 +8212,9 @@ sync:
   type: image
 - source: longhornio/longhorn-manager:v1.9.2
   target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-manager:v1.9.2
+  type: image
+- source: longhornio/longhorn-manager:v1.9.2-hotfix-1
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-manager:v1.9.2-hotfix-1
   type: image
 - source: longhornio/longhorn-share-manager:v1_20201204
   target: docker.io/rancher/longhornio-longhorn-share-manager:v1_20201204
