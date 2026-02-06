@@ -6,7 +6,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
 
       - uses: actions/setup-go@44694675825211faa026b3c33043df3e48a5fa00 # v6
         with:
@@ -20,14 +20,14 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
 
       - uses: actions/setup-go@44694675825211faa026b3c33043df3e48a5fa00 # v6
         with:
           go-version: '1.24'
 
       - name: Run linter
-        uses: golangci/golangci-lint-action@4afd733a84b1f43292c63897423277bb7f4313a9 # v8
+        uses: golangci/golangci-lint-action@0a35821d5c230e903fcfe077583637dea1b27b47 # v9
         with:
           working-directory: tools
           args: --timeout=5m
@@ -35,7 +35,7 @@ jobs:
   formatting-is-valid:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
 
       - uses: actions/setup-go@44694675825211faa026b3c33043df3e48a5fa00 # v6
         with:
@@ -44,14 +44,14 @@ jobs:
       - name: Ensure that files are formatted correctly
         run: |
           scripts/build-tools.sh
-          bin/image-mirror-tools format
+          bin/artifact-mirror-tools format
           # fail if there are changes in the working tree
           git diff --exit-code
 
   regsync-yaml-synced:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
 
       - uses: actions/setup-go@44694675825211faa026b3c33043df3e48a5fa00 # v6
         with:
@@ -60,14 +60,14 @@ jobs:
       - name: Ensure that regsync.yaml is in sync with config.yaml
         run: |
           scripts/build-tools.sh
-          bin/image-mirror-tools generate-regsync
+          bin/artifact-mirror-tools generate-regsync
           # fail if there are changes in the working tree
           git diff --exit-code
 
   run-validate-subcommand:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
         with:
           fetch-depth: 0
 
@@ -75,7 +75,7 @@ jobs:
         with:
           go-version: '1.24'
 
-      - name: Run bin/image-mirror-tools validate
+      - name: Run bin/artifact-mirror-tools validate
         run: |
           scripts/build-tools.sh
-          bin/image-mirror-tools validate --merge-base-branch origin/master
+          bin/artifact-mirror-tools validate --merge-base-branch origin/master

@@ -1,4 +1,4 @@
-name: Mirror Daily Images
+name: Mirror Daily Artifacts
 
 on:
   push:
@@ -14,14 +14,14 @@ on:
         type: boolean
 
 jobs:
-  mirror-images:
+  mirror-artifacts:
     runs-on: ubuntu-latest
     permissions:
       contents: read
       id-token: write
     steps:
       - name: Checkout
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
 
       - name: Read secrets into environment
         uses: rancher-eio/read-vault-secrets@main
@@ -35,7 +35,7 @@ jobs:
           curl --silent --fail --location --output regsync https://github.com/regclient/regclient/releases/download/v0.8.3/regsync-linux-amd64
           chmod +x regsync
 
-      - name: Mirror daily images
+      - name: Mirror daily artifacts
         run: |
           export PATH=$PATH:$(pwd)
           if [ "${{ inputs.debug }}" = "true" ]; then

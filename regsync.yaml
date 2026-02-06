@@ -18,7 +18,7 @@ creds:
   repoAuth: true
   user: '{{ env "PRIME_STAGING_USERNAME" }}'
 defaults:
-  userAgent: rancher-image-mirror
+  userAgent: rancher-artifact-mirror
 sync:
 - source: amazon/aws-cli:2.0.52
   target: docker.io/rancher/mirrored-amazon-aws-cli:2.0.52
@@ -254,6 +254,15 @@ sync:
 - source: coredns/coredns:1.13.1
   target: docker.io/rancher/mirrored-coredns-coredns:1.13.1
   type: image
+- source: coredns/coredns:1.13.2
+  target: docker.io/rancher/mirrored-coredns-coredns:1.13.2
+  type: image
+- source: coredns/coredns:1.14.0
+  target: docker.io/rancher/mirrored-coredns-coredns:1.14.0
+  type: image
+- source: coredns/coredns:1.14.1
+  target: docker.io/rancher/mirrored-coredns-coredns:1.14.1
+  type: image
 - source: coredns/coredns:1.6.2
   target: docker.io/rancher/mirrored-coredns-coredns:1.6.2
   type: image
@@ -317,6 +326,15 @@ sync:
 - source: coredns/coredns:1.13.1
   target: registry.suse.com/rancher/mirrored-coredns-coredns:1.13.1
   type: image
+- source: coredns/coredns:1.13.2
+  target: registry.suse.com/rancher/mirrored-coredns-coredns:1.13.2
+  type: image
+- source: coredns/coredns:1.14.0
+  target: registry.suse.com/rancher/mirrored-coredns-coredns:1.14.0
+  type: image
+- source: coredns/coredns:1.14.1
+  target: registry.suse.com/rancher/mirrored-coredns-coredns:1.14.1
+  type: image
 - source: coredns/coredns:1.6.2
   target: registry.suse.com/rancher/mirrored-coredns-coredns:1.6.2
   type: image
@@ -379,6 +397,15 @@ sync:
   type: image
 - source: coredns/coredns:1.13.1
   target: stgregistry.suse.com/rancher/mirrored-coredns-coredns:1.13.1
+  type: image
+- source: coredns/coredns:1.13.2
+  target: stgregistry.suse.com/rancher/mirrored-coredns-coredns:1.13.2
+  type: image
+- source: coredns/coredns:1.14.0
+  target: stgregistry.suse.com/rancher/mirrored-coredns-coredns:1.14.0
+  type: image
+- source: coredns/coredns:1.14.1
+  target: stgregistry.suse.com/rancher/mirrored-coredns-coredns:1.14.1
   type: image
 - source: coredns/coredns:1.6.2
   target: stgregistry.suse.com/rancher/mirrored-coredns-coredns:1.6.2
@@ -575,14 +602,131 @@ sync:
 - source: dp.apps.rancher.io/charts/kubernetes-cluster-autoscaler:9.50.1
   target: stgregistry.suse.com/rancher/charts/appco-kubernetes-cluster-autoscaler:9.50.1
   type: image
+- source: dp.apps.rancher.io/charts/suse-virtual-cluster-engine:1.0.0
+  target: registry.suse.com/rancher/charts/appco-suse-virtual-cluster-engine:1.0.0
+  type: image
+- source: dp.apps.rancher.io/charts/suse-virtual-cluster-engine:1.0.1
+  target: registry.suse.com/rancher/charts/appco-suse-virtual-cluster-engine:1.0.1
+  type: image
+- source: dp.apps.rancher.io/charts/suse-virtual-cluster-engine:1.0.0
+  target: stgregistry.suse.com/rancher/charts/appco-suse-virtual-cluster-engine:1.0.0
+  type: image
+- source: dp.apps.rancher.io/charts/suse-virtual-cluster-engine:1.0.1
+  target: stgregistry.suse.com/rancher/charts/appco-suse-virtual-cluster-engine:1.0.1
+  type: image
+- source: dp.apps.rancher.io/containers/alertmanager:0.28.1-12.7
+  target: docker.io/rancher/appco-alertmanager:0.28.1-12.7
+  type: image
+- source: dp.apps.rancher.io/containers/alertmanager:0.30.0-12.15
+  target: docker.io/rancher/appco-alertmanager:0.30.0-12.15
+  type: image
+- source: dp.apps.rancher.io/containers/alertmanager:0.28.1-12.7
+  target: registry.suse.com/rancher/appco-alertmanager:0.28.1-12.7
+  type: image
+- source: dp.apps.rancher.io/containers/alertmanager:0.30.0-12.15
+  target: registry.suse.com/rancher/appco-alertmanager:0.30.0-12.15
+  type: image
+- source: dp.apps.rancher.io/containers/alertmanager:0.28.1-12.7
+  target: stgregistry.suse.com/rancher/appco-alertmanager:0.28.1-12.7
+  type: image
+- source: dp.apps.rancher.io/containers/alertmanager:0.30.0-12.15
+  target: stgregistry.suse.com/rancher/appco-alertmanager:0.30.0-12.15
+  type: image
+- source: dp.apps.rancher.io/containers/grafana:12.1.1-2.2
+  target: docker.io/rancher/appco-grafana:12.1.1-2.2
+  type: image
+- source: dp.apps.rancher.io/containers/grafana:12.3.1-1.6
+  target: docker.io/rancher/appco-grafana:12.3.1-1.6
+  type: image
+- source: dp.apps.rancher.io/containers/grafana:12.1.1-2.2
+  target: registry.suse.com/rancher/appco-grafana:12.1.1-2.2
+  type: image
+- source: dp.apps.rancher.io/containers/grafana:12.3.1-1.6
+  target: registry.suse.com/rancher/appco-grafana:12.3.1-1.6
+  type: image
+- source: dp.apps.rancher.io/containers/grafana:12.1.1-2.2
+  target: stgregistry.suse.com/rancher/appco-grafana:12.1.1-2.2
+  type: image
+- source: dp.apps.rancher.io/containers/grafana:12.3.1-1.6
+  target: stgregistry.suse.com/rancher/appco-grafana:12.3.1-1.6
+  type: image
+- source: dp.apps.rancher.io/containers/k3k:1.0.0-1.1
+  target: registry.suse.com/rancher/appco-k3k:1.0.0-1.1
+  type: image
+- source: dp.apps.rancher.io/containers/k3k:1.0.1-1.9
+  target: registry.suse.com/rancher/appco-k3k:1.0.1-1.9
+  type: image
+- source: dp.apps.rancher.io/containers/k3k:1.0.0-1.1
+  target: stgregistry.suse.com/rancher/appco-k3k:1.0.0-1.1
+  type: image
+- source: dp.apps.rancher.io/containers/k3k:1.0.1-1.9
+  target: stgregistry.suse.com/rancher/appco-k3k:1.0.1-1.9
+  type: image
+- source: dp.apps.rancher.io/containers/k3k-kubelet:1.0.0-1.1
+  target: registry.suse.com/rancher/appco-k3k-kubelet:1.0.0-1.1
+  type: image
+- source: dp.apps.rancher.io/containers/k3k-kubelet:1.0.1-1.9
+  target: registry.suse.com/rancher/appco-k3k-kubelet:1.0.1-1.9
+  type: image
+- source: dp.apps.rancher.io/containers/k3k-kubelet:1.0.0-1.1
+  target: stgregistry.suse.com/rancher/appco-k3k-kubelet:1.0.0-1.1
+  type: image
+- source: dp.apps.rancher.io/containers/k3k-kubelet:1.0.1-1.9
+  target: stgregistry.suse.com/rancher/appco-k3k-kubelet:1.0.1-1.9
+  type: image
 - source: dp.apps.rancher.io/containers/k8s-sidecar:1.30.7-11.3
   target: docker.io/rancher/appco-k8s-sidecar:1.30.7-11.3
+  type: image
+- source: dp.apps.rancher.io/containers/k8s-sidecar:2.1.2-1.10
+  target: docker.io/rancher/appco-k8s-sidecar:2.1.2-1.10
   type: image
 - source: dp.apps.rancher.io/containers/k8s-sidecar:1.30.7-11.3
   target: registry.suse.com/rancher/appco-k8s-sidecar:1.30.7-11.3
   type: image
+- source: dp.apps.rancher.io/containers/k8s-sidecar:2.1.2-1.10
+  target: registry.suse.com/rancher/appco-k8s-sidecar:2.1.2-1.10
+  type: image
 - source: dp.apps.rancher.io/containers/k8s-sidecar:1.30.7-11.3
   target: stgregistry.suse.com/rancher/appco-k8s-sidecar:1.30.7-11.3
+  type: image
+- source: dp.apps.rancher.io/containers/k8s-sidecar:2.1.2-1.10
+  target: stgregistry.suse.com/rancher/appco-k8s-sidecar:2.1.2-1.10
+  type: image
+- source: dp.apps.rancher.io/containers/kube-rbac-proxy:0.19.1-15.2
+  target: docker.io/rancher/appco-kube-rbac-proxy:0.19.1-15.2
+  type: image
+- source: dp.apps.rancher.io/containers/kube-rbac-proxy:0.20.1-16.14
+  target: docker.io/rancher/appco-kube-rbac-proxy:0.20.1-16.14
+  type: image
+- source: dp.apps.rancher.io/containers/kube-rbac-proxy:0.19.1-15.2
+  target: registry.suse.com/rancher/appco-kube-rbac-proxy:0.19.1-15.2
+  type: image
+- source: dp.apps.rancher.io/containers/kube-rbac-proxy:0.20.1-16.14
+  target: registry.suse.com/rancher/appco-kube-rbac-proxy:0.20.1-16.14
+  type: image
+- source: dp.apps.rancher.io/containers/kube-rbac-proxy:0.19.1-15.2
+  target: stgregistry.suse.com/rancher/appco-kube-rbac-proxy:0.19.1-15.2
+  type: image
+- source: dp.apps.rancher.io/containers/kube-rbac-proxy:0.20.1-16.14
+  target: stgregistry.suse.com/rancher/appco-kube-rbac-proxy:0.20.1-16.14
+  type: image
+- source: dp.apps.rancher.io/containers/kube-state-metrics:2.17.0-10.11
+  target: docker.io/rancher/appco-kube-state-metrics:2.17.0-10.11
+  type: image
+- source: dp.apps.rancher.io/containers/kube-state-metrics:2.17.0-10.7
+  target: docker.io/rancher/appco-kube-state-metrics:2.17.0-10.7
+  type: image
+- source: dp.apps.rancher.io/containers/kube-state-metrics:2.17.0-10.11
+  target: registry.suse.com/rancher/appco-kube-state-metrics:2.17.0-10.11
+  type: image
+- source: dp.apps.rancher.io/containers/kube-state-metrics:2.17.0-10.7
+  target: registry.suse.com/rancher/appco-kube-state-metrics:2.17.0-10.7
+  type: image
+- source: dp.apps.rancher.io/containers/kube-state-metrics:2.17.0-10.11
+  target: stgregistry.suse.com/rancher/appco-kube-state-metrics:2.17.0-10.11
+  type: image
+- source: dp.apps.rancher.io/containers/kube-state-metrics:2.17.0-10.7
+  target: stgregistry.suse.com/rancher/appco-kube-state-metrics:2.17.0-10.7
   type: image
 - source: dp.apps.rancher.io/containers/kubernetes-cluster-autoscaler:1.32.3-1.5
   target: registry.suse.com/rancher/appco-kubernetes-cluster-autoscaler:1.32.3-1.5
@@ -602,6 +746,24 @@ sync:
 - source: dp.apps.rancher.io/containers/kubernetes-cluster-autoscaler:1.34.0-3.4
   target: stgregistry.suse.com/rancher/appco-kubernetes-cluster-autoscaler:1.34.0-3.4
   type: image
+- source: dp.apps.rancher.io/containers/node-exporter:1.10.2-11.21
+  target: docker.io/rancher/appco-node-exporter:1.10.2-11.21
+  type: image
+- source: dp.apps.rancher.io/containers/node-exporter:1.9.1-11.3
+  target: docker.io/rancher/appco-node-exporter:1.9.1-11.3
+  type: image
+- source: dp.apps.rancher.io/containers/node-exporter:1.10.2-11.21
+  target: registry.suse.com/rancher/appco-node-exporter:1.10.2-11.21
+  type: image
+- source: dp.apps.rancher.io/containers/node-exporter:1.9.1-11.3
+  target: registry.suse.com/rancher/appco-node-exporter:1.9.1-11.3
+  type: image
+- source: dp.apps.rancher.io/containers/node-exporter:1.10.2-11.21
+  target: stgregistry.suse.com/rancher/appco-node-exporter:1.10.2-11.21
+  type: image
+- source: dp.apps.rancher.io/containers/node-exporter:1.9.1-11.3
+  target: stgregistry.suse.com/rancher/appco-node-exporter:1.9.1-11.3
+  type: image
 - source: dp.apps.rancher.io/containers/redis:8.0.3-2.1
   target: docker.io/rancher/appco-redis:8.0.3-2.1
   type: image
@@ -610,6 +772,24 @@ sync:
   type: image
 - source: dp.apps.rancher.io/containers/redis:8.0.3-2.1
   target: stgregistry.suse.com/rancher/appco-redis:8.0.3-2.1
+  type: image
+- source: dp.apps.rancher.io/containers/thanos:0.39.2-7.3
+  target: docker.io/rancher/appco-thanos:0.39.2-7.3
+  type: image
+- source: dp.apps.rancher.io/containers/thanos:0.40.1-7.13
+  target: docker.io/rancher/appco-thanos:0.40.1-7.13
+  type: image
+- source: dp.apps.rancher.io/containers/thanos:0.39.2-7.3
+  target: registry.suse.com/rancher/appco-thanos:0.39.2-7.3
+  type: image
+- source: dp.apps.rancher.io/containers/thanos:0.40.1-7.13
+  target: registry.suse.com/rancher/appco-thanos:0.40.1-7.13
+  type: image
+- source: dp.apps.rancher.io/containers/thanos:0.39.2-7.3
+  target: stgregistry.suse.com/rancher/appco-thanos:0.39.2-7.3
+  type: image
+- source: dp.apps.rancher.io/containers/thanos:0.40.1-7.13
+  target: stgregistry.suse.com/rancher/appco-thanos:0.40.1-7.13
   type: image
 - source: flannel/flannel:v0.21.2
   target: docker.io/rancher/mirrored-flannel-flannel:v0.21.2
@@ -686,6 +866,9 @@ sync:
 - source: flannel/flannel:v0.27.4
   target: docker.io/rancher/mirrored-flannel-flannel:v0.27.4
   type: image
+- source: flannel/flannel:v0.28.0
+  target: docker.io/rancher/mirrored-flannel-flannel:v0.28.0
+  type: image
 - source: flannel/flannel:v0.21.2
   target: registry.suse.com/rancher/mirrored-flannel-flannel:v0.21.2
   type: image
@@ -760,6 +943,9 @@ sync:
   type: image
 - source: flannel/flannel:v0.27.4
   target: registry.suse.com/rancher/mirrored-flannel-flannel:v0.27.4
+  type: image
+- source: flannel/flannel:v0.28.0
+  target: registry.suse.com/rancher/mirrored-flannel-flannel:v0.28.0
   type: image
 - source: flannel/flannel:v0.21.2
   target: stgregistry.suse.com/rancher/mirrored-flannel-flannel:v0.21.2
@@ -836,6 +1022,9 @@ sync:
 - source: flannel/flannel:v0.27.4
   target: stgregistry.suse.com/rancher/mirrored-flannel-flannel:v0.27.4
   type: image
+- source: flannel/flannel:v0.28.0
+  target: stgregistry.suse.com/rancher/mirrored-flannel-flannel:v0.28.0
+  type: image
 - source: flannel/flannel-cni-plugin:v1.2.0
   target: docker.io/rancher/mirrored-flannel-flannel-cni-plugin:v1.2.0
   type: image
@@ -856,6 +1045,9 @@ sync:
   type: image
 - source: flannel/flannel-cni-plugin:v1.8.0-flannel1
   target: docker.io/rancher/mirrored-flannel-flannel-cni-plugin:v1.8.0-flannel1
+  type: image
+- source: flannel/flannel-cni-plugin:v1.9.0-flannel1
+  target: docker.io/rancher/mirrored-flannel-flannel-cni-plugin:v1.9.0-flannel1
   type: image
 - source: flannel/flannel-cni-plugin:v1.2.0
   target: registry.suse.com/rancher/mirrored-flannel-flannel-cni-plugin:v1.2.0
@@ -878,6 +1070,9 @@ sync:
 - source: flannel/flannel-cni-plugin:v1.8.0-flannel1
   target: registry.suse.com/rancher/mirrored-flannel-flannel-cni-plugin:v1.8.0-flannel1
   type: image
+- source: flannel/flannel-cni-plugin:v1.9.0-flannel1
+  target: registry.suse.com/rancher/mirrored-flannel-flannel-cni-plugin:v1.9.0-flannel1
+  type: image
 - source: flannel/flannel-cni-plugin:v1.2.0
   target: stgregistry.suse.com/rancher/mirrored-flannel-flannel-cni-plugin:v1.2.0
   type: image
@@ -898,6 +1093,9 @@ sync:
   type: image
 - source: flannel/flannel-cni-plugin:v1.8.0-flannel1
   target: stgregistry.suse.com/rancher/mirrored-flannel-flannel-cni-plugin:v1.8.0-flannel1
+  type: image
+- source: flannel/flannel-cni-plugin:v1.9.0-flannel1
+  target: stgregistry.suse.com/rancher/mirrored-flannel-flannel-cni-plugin:v1.9.0-flannel1
   type: image
 - source: flannelcni/flannel:v0.16.0
   target: docker.io/rancher/mirrored-flannelcni-flannel:v0.16.0
@@ -1916,6 +2114,15 @@ sync:
 - source: ghcr.io/jimmidyson/configmap-reload:v0.13.1
   target: stgregistry.suse.com/rancher/mirrored-jimmidyson-configmap-reload:v0.13.1
   type: image
+- source: ghcr.io/jkroepke/kube-webhook-certgen:1.7.4
+  target: docker.io/rancher/mirrored-jkroepke-kube-webhook-certgen:1.7.4
+  type: image
+- source: ghcr.io/jkroepke/kube-webhook-certgen:1.7.4
+  target: registry.suse.com/rancher/mirrored-jkroepke-kube-webhook-certgen:1.7.4
+  type: image
+- source: ghcr.io/jkroepke/kube-webhook-certgen:1.7.4
+  target: stgregistry.suse.com/rancher/mirrored-jkroepke-kube-webhook-certgen:1.7.4
+  type: image
 - source: ghcr.io/kube-logging/config-reloader:v0.0.5
   target: docker.io/rancher/mirrored-kube-logging-config-reloader:v0.0.5
   type: image
@@ -2381,6 +2588,9 @@ sync:
 - source: grafana/grafana-image-renderer:v4.0.5
   target: docker.io/rancher/mirrored-grafana-grafana-image-renderer:v4.0.5
   type: image
+- source: grafana/grafana-image-renderer:v5.1.0
+  target: docker.io/rancher/mirrored-grafana-grafana-image-renderer:v5.1.0
+  type: image
 - source: grafana/grafana-image-renderer:2.0.1
   target: registry.suse.com/rancher/mirrored-grafana-grafana-image-renderer:2.0.1
   type: image
@@ -2414,6 +2624,9 @@ sync:
 - source: grafana/grafana-image-renderer:v4.0.5
   target: registry.suse.com/rancher/mirrored-grafana-grafana-image-renderer:v4.0.5
   type: image
+- source: grafana/grafana-image-renderer:v5.1.0
+  target: registry.suse.com/rancher/mirrored-grafana-grafana-image-renderer:v5.1.0
+  type: image
 - source: grafana/grafana-image-renderer:2.0.1
   target: stgregistry.suse.com/rancher/mirrored-grafana-grafana-image-renderer:2.0.1
   type: image
@@ -2446,6 +2659,9 @@ sync:
   type: image
 - source: grafana/grafana-image-renderer:v4.0.5
   target: stgregistry.suse.com/rancher/mirrored-grafana-grafana-image-renderer:v4.0.5
+  type: image
+- source: grafana/grafana-image-renderer:v5.1.0
+  target: stgregistry.suse.com/rancher/mirrored-grafana-grafana-image-renderer:v5.1.0
   type: image
 - source: idealista/prom2teams:3.2.1
   target: docker.io/rancher/mirrored-idealista-prom2teams:3.2.1
@@ -4955,6 +5171,21 @@ sync:
 - source: library/traefik:2.11.29
   target: docker.io/rancher/mirrored-library-traefik:2.11.29
   type: image
+- source: library/traefik:2.11.30
+  target: docker.io/rancher/mirrored-library-traefik:2.11.30
+  type: image
+- source: library/traefik:2.11.31
+  target: docker.io/rancher/mirrored-library-traefik:2.11.31
+  type: image
+- source: library/traefik:2.11.32
+  target: docker.io/rancher/mirrored-library-traefik:2.11.32
+  type: image
+- source: library/traefik:2.11.33
+  target: docker.io/rancher/mirrored-library-traefik:2.11.33
+  type: image
+- source: library/traefik:2.11.34
+  target: docker.io/rancher/mirrored-library-traefik:2.11.34
+  type: image
 - source: library/traefik:2.11.8
   target: docker.io/rancher/mirrored-library-traefik:2.11.8
   type: image
@@ -5006,6 +5237,21 @@ sync:
 - source: library/traefik:3.5.3
   target: docker.io/rancher/mirrored-library-traefik:3.5.3
   type: image
+- source: library/traefik:3.6.1
+  target: docker.io/rancher/mirrored-library-traefik:3.6.1
+  type: image
+- source: library/traefik:3.6.2
+  target: docker.io/rancher/mirrored-library-traefik:3.6.2
+  type: image
+- source: library/traefik:3.6.4
+  target: docker.io/rancher/mirrored-library-traefik:3.6.4
+  type: image
+- source: library/traefik:3.6.6
+  target: docker.io/rancher/mirrored-library-traefik:3.6.6
+  type: image
+- source: library/traefik:3.6.7
+  target: docker.io/rancher/mirrored-library-traefik:3.6.7
+  type: image
 - source: library/traefik:2.10.5
   target: registry.suse.com/rancher/mirrored-library-traefik:2.10.5
   type: image
@@ -5038,6 +5284,21 @@ sync:
   type: image
 - source: library/traefik:2.11.29
   target: registry.suse.com/rancher/mirrored-library-traefik:2.11.29
+  type: image
+- source: library/traefik:2.11.30
+  target: registry.suse.com/rancher/mirrored-library-traefik:2.11.30
+  type: image
+- source: library/traefik:2.11.31
+  target: registry.suse.com/rancher/mirrored-library-traefik:2.11.31
+  type: image
+- source: library/traefik:2.11.32
+  target: registry.suse.com/rancher/mirrored-library-traefik:2.11.32
+  type: image
+- source: library/traefik:2.11.33
+  target: registry.suse.com/rancher/mirrored-library-traefik:2.11.33
+  type: image
+- source: library/traefik:2.11.34
+  target: registry.suse.com/rancher/mirrored-library-traefik:2.11.34
   type: image
 - source: library/traefik:2.11.8
   target: registry.suse.com/rancher/mirrored-library-traefik:2.11.8
@@ -5090,6 +5351,21 @@ sync:
 - source: library/traefik:3.5.3
   target: registry.suse.com/rancher/mirrored-library-traefik:3.5.3
   type: image
+- source: library/traefik:3.6.1
+  target: registry.suse.com/rancher/mirrored-library-traefik:3.6.1
+  type: image
+- source: library/traefik:3.6.2
+  target: registry.suse.com/rancher/mirrored-library-traefik:3.6.2
+  type: image
+- source: library/traefik:3.6.4
+  target: registry.suse.com/rancher/mirrored-library-traefik:3.6.4
+  type: image
+- source: library/traefik:3.6.6
+  target: registry.suse.com/rancher/mirrored-library-traefik:3.6.6
+  type: image
+- source: library/traefik:3.6.7
+  target: registry.suse.com/rancher/mirrored-library-traefik:3.6.7
+  type: image
 - source: library/traefik:2.10.5
   target: stgregistry.suse.com/rancher/mirrored-library-traefik:2.10.5
   type: image
@@ -5122,6 +5398,21 @@ sync:
   type: image
 - source: library/traefik:2.11.29
   target: stgregistry.suse.com/rancher/mirrored-library-traefik:2.11.29
+  type: image
+- source: library/traefik:2.11.30
+  target: stgregistry.suse.com/rancher/mirrored-library-traefik:2.11.30
+  type: image
+- source: library/traefik:2.11.31
+  target: stgregistry.suse.com/rancher/mirrored-library-traefik:2.11.31
+  type: image
+- source: library/traefik:2.11.32
+  target: stgregistry.suse.com/rancher/mirrored-library-traefik:2.11.32
+  type: image
+- source: library/traefik:2.11.33
+  target: stgregistry.suse.com/rancher/mirrored-library-traefik:2.11.33
+  type: image
+- source: library/traefik:2.11.34
+  target: stgregistry.suse.com/rancher/mirrored-library-traefik:2.11.34
   type: image
 - source: library/traefik:2.11.8
   target: stgregistry.suse.com/rancher/mirrored-library-traefik:2.11.8
@@ -5173,6 +5464,21 @@ sync:
   type: image
 - source: library/traefik:3.5.3
   target: stgregistry.suse.com/rancher/mirrored-library-traefik:3.5.3
+  type: image
+- source: library/traefik:3.6.1
+  target: stgregistry.suse.com/rancher/mirrored-library-traefik:3.6.1
+  type: image
+- source: library/traefik:3.6.2
+  target: stgregistry.suse.com/rancher/mirrored-library-traefik:3.6.2
+  type: image
+- source: library/traefik:3.6.4
+  target: stgregistry.suse.com/rancher/mirrored-library-traefik:3.6.4
+  type: image
+- source: library/traefik:3.6.6
+  target: stgregistry.suse.com/rancher/mirrored-library-traefik:3.6.6
+  type: image
+- source: library/traefik:3.6.7
+  target: stgregistry.suse.com/rancher/mirrored-library-traefik:3.6.7
   type: image
 - source: longhornio/backing-image-manager:v1_20210422
   target: docker.io/rancher/longhornio-backing-image-manager:v1_20210422
@@ -5227,6 +5533,12 @@ sync:
   type: image
 - source: longhornio/backing-image-manager:v3_20220808
   target: stgregistry.suse.com/rancher/longhornio-backing-image-manager:v3_20220808
+  type: image
+- source: longhornio/backing-image-manager:v1.10.1
+  target: docker.io/rancher/mirrored-longhornio-backing-image-manager:v1.10.1
+  type: image
+- source: longhornio/backing-image-manager:v1.10.2
+  target: docker.io/rancher/mirrored-longhornio-backing-image-manager:v1.10.2
   type: image
 - source: longhornio/backing-image-manager:v1.4.0
   target: docker.io/rancher/mirrored-longhornio-backing-image-manager:v1.4.0
@@ -5327,6 +5639,12 @@ sync:
 - source: longhornio/backing-image-manager:v3_20230320
   target: docker.io/rancher/mirrored-longhornio-backing-image-manager:v3_20230320
   type: image
+- source: longhornio/backing-image-manager:v1.10.1
+  target: registry.suse.com/rancher/mirrored-longhornio-backing-image-manager:v1.10.1
+  type: image
+- source: longhornio/backing-image-manager:v1.10.2
+  target: registry.suse.com/rancher/mirrored-longhornio-backing-image-manager:v1.10.2
+  type: image
 - source: longhornio/backing-image-manager:v1.4.0
   target: registry.suse.com/rancher/mirrored-longhornio-backing-image-manager:v1.4.0
   type: image
@@ -5425,6 +5743,12 @@ sync:
   type: image
 - source: longhornio/backing-image-manager:v3_20230320
   target: registry.suse.com/rancher/mirrored-longhornio-backing-image-manager:v3_20230320
+  type: image
+- source: longhornio/backing-image-manager:v1.10.1
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-backing-image-manager:v1.10.1
+  type: image
+- source: longhornio/backing-image-manager:v1.10.2
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-backing-image-manager:v1.10.2
   type: image
 - source: longhornio/backing-image-manager:v1.4.0
   target: stgregistry.suse.com/rancher/mirrored-longhornio-backing-image-manager:v1.4.0
@@ -5582,6 +5906,12 @@ sync:
 - source: longhornio/csi-attacher:v3.4.0
   target: docker.io/rancher/mirrored-longhornio-csi-attacher:v3.4.0
   type: image
+- source: longhornio/csi-attacher:v4.10.0-20251030
+  target: docker.io/rancher/mirrored-longhornio-csi-attacher:v4.10.0-20251030
+  type: image
+- source: longhornio/csi-attacher:v4.10.0-20251226
+  target: docker.io/rancher/mirrored-longhornio-csi-attacher:v4.10.0-20251226
+  type: image
 - source: longhornio/csi-attacher:v4.2.0
   target: docker.io/rancher/mirrored-longhornio-csi-attacher:v4.2.0
   type: image
@@ -5624,6 +5954,12 @@ sync:
 - source: longhornio/csi-attacher:v3.4.0
   target: registry.suse.com/rancher/mirrored-longhornio-csi-attacher:v3.4.0
   type: image
+- source: longhornio/csi-attacher:v4.10.0-20251030
+  target: registry.suse.com/rancher/mirrored-longhornio-csi-attacher:v4.10.0-20251030
+  type: image
+- source: longhornio/csi-attacher:v4.10.0-20251226
+  target: registry.suse.com/rancher/mirrored-longhornio-csi-attacher:v4.10.0-20251226
+  type: image
 - source: longhornio/csi-attacher:v4.2.0
   target: registry.suse.com/rancher/mirrored-longhornio-csi-attacher:v4.2.0
   type: image
@@ -5665,6 +6001,12 @@ sync:
   type: image
 - source: longhornio/csi-attacher:v3.4.0
   target: stgregistry.suse.com/rancher/mirrored-longhornio-csi-attacher:v3.4.0
+  type: image
+- source: longhornio/csi-attacher:v4.10.0-20251030
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-csi-attacher:v4.10.0-20251030
+  type: image
+- source: longhornio/csi-attacher:v4.10.0-20251226
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-csi-attacher:v4.10.0-20251226
   type: image
 - source: longhornio/csi-attacher:v4.2.0
   target: stgregistry.suse.com/rancher/mirrored-longhornio-csi-attacher:v4.2.0
@@ -5753,6 +6095,12 @@ sync:
 - source: longhornio/csi-node-driver-registrar:v2.14.0-20250709
   target: docker.io/rancher/mirrored-longhornio-csi-node-driver-registrar:v2.14.0-20250709
   type: image
+- source: longhornio/csi-node-driver-registrar:v2.15.0-20251030
+  target: docker.io/rancher/mirrored-longhornio-csi-node-driver-registrar:v2.15.0-20251030
+  type: image
+- source: longhornio/csi-node-driver-registrar:v2.15.0-20251226
+  target: docker.io/rancher/mirrored-longhornio-csi-node-driver-registrar:v2.15.0-20251226
+  type: image
 - source: longhornio/csi-node-driver-registrar:v2.3.0
   target: docker.io/rancher/mirrored-longhornio-csi-node-driver-registrar:v2.3.0
   type: image
@@ -5786,6 +6134,12 @@ sync:
 - source: longhornio/csi-node-driver-registrar:v2.14.0-20250709
   target: registry.suse.com/rancher/mirrored-longhornio-csi-node-driver-registrar:v2.14.0-20250709
   type: image
+- source: longhornio/csi-node-driver-registrar:v2.15.0-20251030
+  target: registry.suse.com/rancher/mirrored-longhornio-csi-node-driver-registrar:v2.15.0-20251030
+  type: image
+- source: longhornio/csi-node-driver-registrar:v2.15.0-20251226
+  target: registry.suse.com/rancher/mirrored-longhornio-csi-node-driver-registrar:v2.15.0-20251226
+  type: image
 - source: longhornio/csi-node-driver-registrar:v2.3.0
   target: registry.suse.com/rancher/mirrored-longhornio-csi-node-driver-registrar:v2.3.0
   type: image
@@ -5818,6 +6172,12 @@ sync:
   type: image
 - source: longhornio/csi-node-driver-registrar:v2.14.0-20250709
   target: stgregistry.suse.com/rancher/mirrored-longhornio-csi-node-driver-registrar:v2.14.0-20250709
+  type: image
+- source: longhornio/csi-node-driver-registrar:v2.15.0-20251030
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-csi-node-driver-registrar:v2.15.0-20251030
+  type: image
+- source: longhornio/csi-node-driver-registrar:v2.15.0-20251226
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-csi-node-driver-registrar:v2.15.0-20251226
   type: image
 - source: longhornio/csi-node-driver-registrar:v2.3.0
   target: stgregistry.suse.com/rancher/mirrored-longhornio-csi-node-driver-registrar:v2.3.0
@@ -5909,6 +6269,12 @@ sync:
 - source: longhornio/csi-provisioner:v5.3.0-20250709
   target: docker.io/rancher/mirrored-longhornio-csi-provisioner:v5.3.0-20250709
   type: image
+- source: longhornio/csi-provisioner:v5.3.0-20251030
+  target: docker.io/rancher/mirrored-longhornio-csi-provisioner:v5.3.0-20251030
+  type: image
+- source: longhornio/csi-provisioner:v5.3.0-20251226
+  target: docker.io/rancher/mirrored-longhornio-csi-provisioner:v5.3.0-20251226
+  type: image
 - source: longhornio/csi-provisioner:v1.6.0-lh1
   target: registry.suse.com/rancher/mirrored-longhornio-csi-provisioner:v1.6.0-lh1
   type: image
@@ -5951,6 +6317,12 @@ sync:
 - source: longhornio/csi-provisioner:v5.3.0-20250709
   target: registry.suse.com/rancher/mirrored-longhornio-csi-provisioner:v5.3.0-20250709
   type: image
+- source: longhornio/csi-provisioner:v5.3.0-20251030
+  target: registry.suse.com/rancher/mirrored-longhornio-csi-provisioner:v5.3.0-20251030
+  type: image
+- source: longhornio/csi-provisioner:v5.3.0-20251226
+  target: registry.suse.com/rancher/mirrored-longhornio-csi-provisioner:v5.3.0-20251226
+  type: image
 - source: longhornio/csi-provisioner:v1.6.0-lh1
   target: stgregistry.suse.com/rancher/mirrored-longhornio-csi-provisioner:v1.6.0-lh1
   type: image
@@ -5992,6 +6364,12 @@ sync:
   type: image
 - source: longhornio/csi-provisioner:v5.3.0-20250709
   target: stgregistry.suse.com/rancher/mirrored-longhornio-csi-provisioner:v5.3.0-20250709
+  type: image
+- source: longhornio/csi-provisioner:v5.3.0-20251030
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-csi-provisioner:v5.3.0-20251030
+  type: image
+- source: longhornio/csi-provisioner:v5.3.0-20251226
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-csi-provisioner:v5.3.0-20251226
   type: image
 - source: longhornio/csi-resizer:v0.3.0
   target: docker.io/rancher/longhornio-csi-resizer:v0.3.0
@@ -6056,6 +6434,12 @@ sync:
 - source: longhornio/csi-resizer:v1.14.0-20250709
   target: docker.io/rancher/mirrored-longhornio-csi-resizer:v1.14.0-20250709
   type: image
+- source: longhornio/csi-resizer:v1.14.0-20251030
+  target: docker.io/rancher/mirrored-longhornio-csi-resizer:v1.14.0-20251030
+  type: image
+- source: longhornio/csi-resizer:v1.14.0-20260119
+  target: docker.io/rancher/mirrored-longhornio-csi-resizer:v1.14.0-20260119
+  type: image
 - source: longhornio/csi-resizer:v1.2.0
   target: docker.io/rancher/mirrored-longhornio-csi-resizer:v1.2.0
   type: image
@@ -6095,6 +6479,12 @@ sync:
 - source: longhornio/csi-resizer:v1.14.0-20250709
   target: registry.suse.com/rancher/mirrored-longhornio-csi-resizer:v1.14.0-20250709
   type: image
+- source: longhornio/csi-resizer:v1.14.0-20251030
+  target: registry.suse.com/rancher/mirrored-longhornio-csi-resizer:v1.14.0-20251030
+  type: image
+- source: longhornio/csi-resizer:v1.14.0-20260119
+  target: registry.suse.com/rancher/mirrored-longhornio-csi-resizer:v1.14.0-20260119
+  type: image
 - source: longhornio/csi-resizer:v1.2.0
   target: registry.suse.com/rancher/mirrored-longhornio-csi-resizer:v1.2.0
   type: image
@@ -6133,6 +6523,12 @@ sync:
   type: image
 - source: longhornio/csi-resizer:v1.14.0-20250709
   target: stgregistry.suse.com/rancher/mirrored-longhornio-csi-resizer:v1.14.0-20250709
+  type: image
+- source: longhornio/csi-resizer:v1.14.0-20251030
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-csi-resizer:v1.14.0-20251030
+  type: image
+- source: longhornio/csi-resizer:v1.14.0-20260119
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-csi-resizer:v1.14.0-20260119
   type: image
 - source: longhornio/csi-resizer:v1.2.0
   target: stgregistry.suse.com/rancher/mirrored-longhornio-csi-resizer:v1.2.0
@@ -6212,6 +6608,12 @@ sync:
 - source: longhornio/csi-snapshotter:v8.3.0-20250709
   target: docker.io/rancher/mirrored-longhornio-csi-snapshotter:v8.3.0-20250709
   type: image
+- source: longhornio/csi-snapshotter:v8.4.0-20251030
+  target: docker.io/rancher/mirrored-longhornio-csi-snapshotter:v8.4.0-20251030
+  type: image
+- source: longhornio/csi-snapshotter:v8.4.0-20251226
+  target: docker.io/rancher/mirrored-longhornio-csi-snapshotter:v8.4.0-20251226
+  type: image
 - source: longhornio/csi-snapshotter:v2.1.1-lh1
   target: registry.suse.com/rancher/mirrored-longhornio-csi-snapshotter:v2.1.1-lh1
   type: image
@@ -6250,6 +6652,12 @@ sync:
   type: image
 - source: longhornio/csi-snapshotter:v8.3.0-20250709
   target: registry.suse.com/rancher/mirrored-longhornio-csi-snapshotter:v8.3.0-20250709
+  type: image
+- source: longhornio/csi-snapshotter:v8.4.0-20251030
+  target: registry.suse.com/rancher/mirrored-longhornio-csi-snapshotter:v8.4.0-20251030
+  type: image
+- source: longhornio/csi-snapshotter:v8.4.0-20251226
+  target: registry.suse.com/rancher/mirrored-longhornio-csi-snapshotter:v8.4.0-20251226
   type: image
 - source: longhornio/csi-snapshotter:v2.1.1-lh1
   target: stgregistry.suse.com/rancher/mirrored-longhornio-csi-snapshotter:v2.1.1-lh1
@@ -6290,6 +6698,12 @@ sync:
 - source: longhornio/csi-snapshotter:v8.3.0-20250709
   target: stgregistry.suse.com/rancher/mirrored-longhornio-csi-snapshotter:v8.3.0-20250709
   type: image
+- source: longhornio/csi-snapshotter:v8.4.0-20251030
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-csi-snapshotter:v8.4.0-20251030
+  type: image
+- source: longhornio/csi-snapshotter:v8.4.0-20251226
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-csi-snapshotter:v8.4.0-20251226
+  type: image
 - source: longhornio/livenessprobe:v2.11.0
   target: docker.io/rancher/mirrored-longhornio-livenessprobe:v2.11.0
   type: image
@@ -6313,6 +6727,12 @@ sync:
   type: image
 - source: longhornio/livenessprobe:v2.16.0-20250709
   target: docker.io/rancher/mirrored-longhornio-livenessprobe:v2.16.0-20250709
+  type: image
+- source: longhornio/livenessprobe:v2.17.0-20251030
+  target: docker.io/rancher/mirrored-longhornio-livenessprobe:v2.17.0-20251030
+  type: image
+- source: longhornio/livenessprobe:v2.17.0-20251226
+  target: docker.io/rancher/mirrored-longhornio-livenessprobe:v2.17.0-20251226
   type: image
 - source: longhornio/livenessprobe:v2.8.0
   target: docker.io/rancher/mirrored-longhornio-livenessprobe:v2.8.0
@@ -6344,6 +6764,12 @@ sync:
 - source: longhornio/livenessprobe:v2.16.0-20250709
   target: registry.suse.com/rancher/mirrored-longhornio-livenessprobe:v2.16.0-20250709
   type: image
+- source: longhornio/livenessprobe:v2.17.0-20251030
+  target: registry.suse.com/rancher/mirrored-longhornio-livenessprobe:v2.17.0-20251030
+  type: image
+- source: longhornio/livenessprobe:v2.17.0-20251226
+  target: registry.suse.com/rancher/mirrored-longhornio-livenessprobe:v2.17.0-20251226
+  type: image
 - source: longhornio/livenessprobe:v2.8.0
   target: registry.suse.com/rancher/mirrored-longhornio-livenessprobe:v2.8.0
   type: image
@@ -6374,11 +6800,23 @@ sync:
 - source: longhornio/livenessprobe:v2.16.0-20250709
   target: stgregistry.suse.com/rancher/mirrored-longhornio-livenessprobe:v2.16.0-20250709
   type: image
+- source: longhornio/livenessprobe:v2.17.0-20251030
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-livenessprobe:v2.17.0-20251030
+  type: image
+- source: longhornio/livenessprobe:v2.17.0-20251226
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-livenessprobe:v2.17.0-20251226
+  type: image
 - source: longhornio/livenessprobe:v2.8.0
   target: stgregistry.suse.com/rancher/mirrored-longhornio-livenessprobe:v2.8.0
   type: image
 - source: longhornio/livenessprobe:v2.9.0
   target: stgregistry.suse.com/rancher/mirrored-longhornio-livenessprobe:v2.9.0
+  type: image
+- source: longhornio/longhorn-cli:v1.10.1
+  target: docker.io/rancher/mirrored-longhornio-longhorn-cli:v1.10.1
+  type: image
+- source: longhornio/longhorn-cli:v1.10.2
+  target: docker.io/rancher/mirrored-longhornio-longhorn-cli:v1.10.2
   type: image
 - source: longhornio/longhorn-cli:v1.7.0
   target: docker.io/rancher/mirrored-longhornio-longhorn-cli:v1.7.0
@@ -6404,6 +6842,12 @@ sync:
 - source: longhornio/longhorn-cli:v1.9.2
   target: docker.io/rancher/mirrored-longhornio-longhorn-cli:v1.9.2
   type: image
+- source: longhornio/longhorn-cli:v1.10.1
+  target: registry.suse.com/rancher/mirrored-longhornio-longhorn-cli:v1.10.1
+  type: image
+- source: longhornio/longhorn-cli:v1.10.2
+  target: registry.suse.com/rancher/mirrored-longhornio-longhorn-cli:v1.10.2
+  type: image
 - source: longhornio/longhorn-cli:v1.7.0
   target: registry.suse.com/rancher/mirrored-longhornio-longhorn-cli:v1.7.0
   type: image
@@ -6427,6 +6871,12 @@ sync:
   type: image
 - source: longhornio/longhorn-cli:v1.9.2
   target: registry.suse.com/rancher/mirrored-longhornio-longhorn-cli:v1.9.2
+  type: image
+- source: longhornio/longhorn-cli:v1.10.1
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-cli:v1.10.1
+  type: image
+- source: longhornio/longhorn-cli:v1.10.2
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-cli:v1.10.2
   type: image
 - source: longhornio/longhorn-cli:v1.7.0
   target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-cli:v1.7.0
@@ -6581,6 +7031,12 @@ sync:
 - source: longhornio/longhorn-engine:v1.1.3
   target: docker.io/rancher/mirrored-longhornio-longhorn-engine:v1.1.3
   type: image
+- source: longhornio/longhorn-engine:v1.10.1
+  target: docker.io/rancher/mirrored-longhornio-longhorn-engine:v1.10.1
+  type: image
+- source: longhornio/longhorn-engine:v1.10.2
+  target: docker.io/rancher/mirrored-longhornio-longhorn-engine:v1.10.2
+  type: image
 - source: longhornio/longhorn-engine:v1.2.0
   target: docker.io/rancher/mirrored-longhornio-longhorn-engine:v1.2.0
   type: image
@@ -6698,6 +7154,12 @@ sync:
 - source: longhornio/longhorn-engine:v1.1.3
   target: registry.suse.com/rancher/mirrored-longhornio-longhorn-engine:v1.1.3
   type: image
+- source: longhornio/longhorn-engine:v1.10.1
+  target: registry.suse.com/rancher/mirrored-longhornio-longhorn-engine:v1.10.1
+  type: image
+- source: longhornio/longhorn-engine:v1.10.2
+  target: registry.suse.com/rancher/mirrored-longhornio-longhorn-engine:v1.10.2
+  type: image
 - source: longhornio/longhorn-engine:v1.2.0
   target: registry.suse.com/rancher/mirrored-longhornio-longhorn-engine:v1.2.0
   type: image
@@ -6814,6 +7276,12 @@ sync:
   type: image
 - source: longhornio/longhorn-engine:v1.1.3
   target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-engine:v1.1.3
+  type: image
+- source: longhornio/longhorn-engine:v1.10.1
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-engine:v1.10.1
+  type: image
+- source: longhornio/longhorn-engine:v1.10.2
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-engine:v1.10.2
   type: image
 - source: longhornio/longhorn-engine:v1.2.0
   target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-engine:v1.2.0
@@ -7001,6 +7469,12 @@ sync:
 - source: longhornio/longhorn-instance-manager:v1_20220808
   target: stgregistry.suse.com/rancher/longhornio-longhorn-instance-manager:v1_20220808
   type: image
+- source: longhornio/longhorn-instance-manager:v1.10.1
+  target: docker.io/rancher/mirrored-longhornio-longhorn-instance-manager:v1.10.1
+  type: image
+- source: longhornio/longhorn-instance-manager:v1.10.2
+  target: docker.io/rancher/mirrored-longhornio-longhorn-instance-manager:v1.10.2
+  type: image
 - source: longhornio/longhorn-instance-manager:v1.4.0
   target: docker.io/rancher/mirrored-longhornio-longhorn-instance-manager:v1.4.0
   type: image
@@ -7106,6 +7580,12 @@ sync:
 - source: longhornio/longhorn-instance-manager:v1_20230407
   target: docker.io/rancher/mirrored-longhornio-longhorn-instance-manager:v1_20230407
   type: image
+- source: longhornio/longhorn-instance-manager:v1.10.1
+  target: registry.suse.com/rancher/mirrored-longhornio-longhorn-instance-manager:v1.10.1
+  type: image
+- source: longhornio/longhorn-instance-manager:v1.10.2
+  target: registry.suse.com/rancher/mirrored-longhornio-longhorn-instance-manager:v1.10.2
+  type: image
 - source: longhornio/longhorn-instance-manager:v1.4.0
   target: registry.suse.com/rancher/mirrored-longhornio-longhorn-instance-manager:v1.4.0
   type: image
@@ -7210,6 +7690,12 @@ sync:
   type: image
 - source: longhornio/longhorn-instance-manager:v1_20230407
   target: registry.suse.com/rancher/mirrored-longhornio-longhorn-instance-manager:v1_20230407
+  type: image
+- source: longhornio/longhorn-instance-manager:v1.10.1
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-instance-manager:v1.10.1
+  type: image
+- source: longhornio/longhorn-instance-manager:v1.10.2
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-instance-manager:v1.10.2
   type: image
 - source: longhornio/longhorn-instance-manager:v1.4.0
   target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-instance-manager:v1.4.0
@@ -7445,6 +7931,18 @@ sync:
 - source: longhornio/longhorn-manager:v1.1.3
   target: docker.io/rancher/mirrored-longhornio-longhorn-manager:v1.1.3
   type: image
+- source: longhornio/longhorn-manager:v1.10.1
+  target: docker.io/rancher/mirrored-longhornio-longhorn-manager:v1.10.1
+  type: image
+- source: longhornio/longhorn-manager:v1.10.1-hotfix-1
+  target: docker.io/rancher/mirrored-longhornio-longhorn-manager:v1.10.1-hotfix-1
+  type: image
+- source: longhornio/longhorn-manager:v1.10.1-hotfix-2
+  target: docker.io/rancher/mirrored-longhornio-longhorn-manager:v1.10.1-hotfix-2
+  type: image
+- source: longhornio/longhorn-manager:v1.10.2
+  target: docker.io/rancher/mirrored-longhornio-longhorn-manager:v1.10.2
+  type: image
 - source: longhornio/longhorn-manager:v1.2.0
   target: docker.io/rancher/mirrored-longhornio-longhorn-manager:v1.2.0
   type: image
@@ -7550,6 +8048,9 @@ sync:
 - source: longhornio/longhorn-manager:v1.9.2
   target: docker.io/rancher/mirrored-longhornio-longhorn-manager:v1.9.2
   type: image
+- source: longhornio/longhorn-manager:v1.9.2-hotfix-1
+  target: docker.io/rancher/mirrored-longhornio-longhorn-manager:v1.9.2-hotfix-1
+  type: image
 - source: longhornio/longhorn-manager:v1.1.0
   target: registry.suse.com/rancher/mirrored-longhornio-longhorn-manager:v1.1.0
   type: image
@@ -7561,6 +8062,18 @@ sync:
   type: image
 - source: longhornio/longhorn-manager:v1.1.3
   target: registry.suse.com/rancher/mirrored-longhornio-longhorn-manager:v1.1.3
+  type: image
+- source: longhornio/longhorn-manager:v1.10.1
+  target: registry.suse.com/rancher/mirrored-longhornio-longhorn-manager:v1.10.1
+  type: image
+- source: longhornio/longhorn-manager:v1.10.1-hotfix-1
+  target: registry.suse.com/rancher/mirrored-longhornio-longhorn-manager:v1.10.1-hotfix-1
+  type: image
+- source: longhornio/longhorn-manager:v1.10.1-hotfix-2
+  target: registry.suse.com/rancher/mirrored-longhornio-longhorn-manager:v1.10.1-hotfix-2
+  type: image
+- source: longhornio/longhorn-manager:v1.10.2
+  target: registry.suse.com/rancher/mirrored-longhornio-longhorn-manager:v1.10.2
   type: image
 - source: longhornio/longhorn-manager:v1.2.0
   target: registry.suse.com/rancher/mirrored-longhornio-longhorn-manager:v1.2.0
@@ -7667,6 +8180,9 @@ sync:
 - source: longhornio/longhorn-manager:v1.9.2
   target: registry.suse.com/rancher/mirrored-longhornio-longhorn-manager:v1.9.2
   type: image
+- source: longhornio/longhorn-manager:v1.9.2-hotfix-1
+  target: registry.suse.com/rancher/mirrored-longhornio-longhorn-manager:v1.9.2-hotfix-1
+  type: image
 - source: longhornio/longhorn-manager:v1.1.0
   target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-manager:v1.1.0
   type: image
@@ -7678,6 +8194,18 @@ sync:
   type: image
 - source: longhornio/longhorn-manager:v1.1.3
   target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-manager:v1.1.3
+  type: image
+- source: longhornio/longhorn-manager:v1.10.1
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-manager:v1.10.1
+  type: image
+- source: longhornio/longhorn-manager:v1.10.1-hotfix-1
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-manager:v1.10.1-hotfix-1
+  type: image
+- source: longhornio/longhorn-manager:v1.10.1-hotfix-2
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-manager:v1.10.1-hotfix-2
+  type: image
+- source: longhornio/longhorn-manager:v1.10.2
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-manager:v1.10.2
   type: image
 - source: longhornio/longhorn-manager:v1.2.0
   target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-manager:v1.2.0
@@ -7784,6 +8312,9 @@ sync:
 - source: longhornio/longhorn-manager:v1.9.2
   target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-manager:v1.9.2
   type: image
+- source: longhornio/longhorn-manager:v1.9.2-hotfix-1
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-manager:v1.9.2-hotfix-1
+  type: image
 - source: longhornio/longhorn-share-manager:v1_20201204
   target: docker.io/rancher/longhornio-longhorn-share-manager:v1_20201204
   type: image
@@ -7864,6 +8395,12 @@ sync:
   type: image
 - source: longhornio/longhorn-share-manager:v1_20220808
   target: stgregistry.suse.com/rancher/longhornio-longhorn-share-manager:v1_20220808
+  type: image
+- source: longhornio/longhorn-share-manager:v1.10.1
+  target: docker.io/rancher/mirrored-longhornio-longhorn-share-manager:v1.10.1
+  type: image
+- source: longhornio/longhorn-share-manager:v1.10.2
+  target: docker.io/rancher/mirrored-longhornio-longhorn-share-manager:v1.10.2
   type: image
 - source: longhornio/longhorn-share-manager:v1.4.0
   target: docker.io/rancher/mirrored-longhornio-longhorn-share-manager:v1.4.0
@@ -7973,6 +8510,12 @@ sync:
 - source: longhornio/longhorn-share-manager:v1_20230320
   target: docker.io/rancher/mirrored-longhornio-longhorn-share-manager:v1_20230320
   type: image
+- source: longhornio/longhorn-share-manager:v1.10.1
+  target: registry.suse.com/rancher/mirrored-longhornio-longhorn-share-manager:v1.10.1
+  type: image
+- source: longhornio/longhorn-share-manager:v1.10.2
+  target: registry.suse.com/rancher/mirrored-longhornio-longhorn-share-manager:v1.10.2
+  type: image
 - source: longhornio/longhorn-share-manager:v1.4.0
   target: registry.suse.com/rancher/mirrored-longhornio-longhorn-share-manager:v1.4.0
   type: image
@@ -8080,6 +8623,12 @@ sync:
   type: image
 - source: longhornio/longhorn-share-manager:v1_20230320
   target: registry.suse.com/rancher/mirrored-longhornio-longhorn-share-manager:v1_20230320
+  type: image
+- source: longhornio/longhorn-share-manager:v1.10.1
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-share-manager:v1.10.1
+  type: image
+- source: longhornio/longhorn-share-manager:v1.10.2
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-share-manager:v1.10.2
   type: image
 - source: longhornio/longhorn-share-manager:v1.4.0
   target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-share-manager:v1.4.0
@@ -8318,6 +8867,12 @@ sync:
 - source: longhornio/longhorn-ui:v1.1.3
   target: docker.io/rancher/mirrored-longhornio-longhorn-ui:v1.1.3
   type: image
+- source: longhornio/longhorn-ui:v1.10.1
+  target: docker.io/rancher/mirrored-longhornio-longhorn-ui:v1.10.1
+  type: image
+- source: longhornio/longhorn-ui:v1.10.2
+  target: docker.io/rancher/mirrored-longhornio-longhorn-ui:v1.10.2
+  type: image
 - source: longhornio/longhorn-ui:v1.2.0
   target: docker.io/rancher/mirrored-longhornio-longhorn-ui:v1.2.0
   type: image
@@ -8435,6 +8990,12 @@ sync:
 - source: longhornio/longhorn-ui:v1.1.3
   target: registry.suse.com/rancher/mirrored-longhornio-longhorn-ui:v1.1.3
   type: image
+- source: longhornio/longhorn-ui:v1.10.1
+  target: registry.suse.com/rancher/mirrored-longhornio-longhorn-ui:v1.10.1
+  type: image
+- source: longhornio/longhorn-ui:v1.10.2
+  target: registry.suse.com/rancher/mirrored-longhornio-longhorn-ui:v1.10.2
+  type: image
 - source: longhornio/longhorn-ui:v1.2.0
   target: registry.suse.com/rancher/mirrored-longhornio-longhorn-ui:v1.2.0
   type: image
@@ -8551,6 +9112,12 @@ sync:
   type: image
 - source: longhornio/longhorn-ui:v1.1.3
   target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-ui:v1.1.3
+  type: image
+- source: longhornio/longhorn-ui:v1.10.1
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-ui:v1.10.1
+  type: image
+- source: longhornio/longhorn-ui:v1.10.2
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-ui:v1.10.2
   type: image
 - source: longhornio/longhorn-ui:v1.2.0
   target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-ui:v1.2.0
@@ -8732,6 +9299,12 @@ sync:
 - source: longhornio/support-bundle-kit:v0.0.69
   target: docker.io/rancher/mirrored-longhornio-support-bundle-kit:v0.0.69
   type: image
+- source: longhornio/support-bundle-kit:v0.0.71
+  target: docker.io/rancher/mirrored-longhornio-support-bundle-kit:v0.0.71
+  type: image
+- source: longhornio/support-bundle-kit:v0.0.79
+  target: docker.io/rancher/mirrored-longhornio-support-bundle-kit:v0.0.79
+  type: image
 - source: longhornio/support-bundle-kit:v0.0.17
   target: registry.suse.com/rancher/mirrored-longhornio-support-bundle-kit:v0.0.17
   type: image
@@ -8789,6 +9362,12 @@ sync:
 - source: longhornio/support-bundle-kit:v0.0.69
   target: registry.suse.com/rancher/mirrored-longhornio-support-bundle-kit:v0.0.69
   type: image
+- source: longhornio/support-bundle-kit:v0.0.71
+  target: registry.suse.com/rancher/mirrored-longhornio-support-bundle-kit:v0.0.71
+  type: image
+- source: longhornio/support-bundle-kit:v0.0.79
+  target: registry.suse.com/rancher/mirrored-longhornio-support-bundle-kit:v0.0.79
+  type: image
 - source: longhornio/support-bundle-kit:v0.0.17
   target: stgregistry.suse.com/rancher/mirrored-longhornio-support-bundle-kit:v0.0.17
   type: image
@@ -8845,6 +9424,12 @@ sync:
   type: image
 - source: longhornio/support-bundle-kit:v0.0.69
   target: stgregistry.suse.com/rancher/mirrored-longhornio-support-bundle-kit:v0.0.69
+  type: image
+- source: longhornio/support-bundle-kit:v0.0.71
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-support-bundle-kit:v0.0.71
+  type: image
+- source: longhornio/support-bundle-kit:v0.0.79
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-support-bundle-kit:v0.0.79
   type: image
 - source: messagebird/sachet:0.2.3
   target: docker.io/rancher/mirrored-messagebird-sachet:0.2.3
@@ -10193,17 +10778,26 @@ sync:
 - source: quay.io/brancz/kube-rbac-proxy:v0.18.2
   target: docker.io/rancher/mirrored-brancz-kube-rbac-proxy:v0.18.2
   type: image
+- source: quay.io/brancz/kube-rbac-proxy:v0.19.1
+  target: docker.io/rancher/mirrored-brancz-kube-rbac-proxy:v0.19.1
+  type: image
 - source: quay.io/brancz/kube-rbac-proxy:v0.18.0
   target: registry.suse.com/rancher/mirrored-brancz-kube-rbac-proxy:v0.18.0
   type: image
 - source: quay.io/brancz/kube-rbac-proxy:v0.18.2
   target: registry.suse.com/rancher/mirrored-brancz-kube-rbac-proxy:v0.18.2
   type: image
+- source: quay.io/brancz/kube-rbac-proxy:v0.19.1
+  target: registry.suse.com/rancher/mirrored-brancz-kube-rbac-proxy:v0.19.1
+  type: image
 - source: quay.io/brancz/kube-rbac-proxy:v0.18.0
   target: stgregistry.suse.com/rancher/mirrored-brancz-kube-rbac-proxy:v0.18.0
   type: image
 - source: quay.io/brancz/kube-rbac-proxy:v0.18.2
   target: stgregistry.suse.com/rancher/mirrored-brancz-kube-rbac-proxy:v0.18.2
+  type: image
+- source: quay.io/brancz/kube-rbac-proxy:v0.19.1
+  target: stgregistry.suse.com/rancher/mirrored-brancz-kube-rbac-proxy:v0.19.1
   type: image
 - source: quay.io/calico/apiserver:v3.20.1
   target: docker.io/rancher/mirrored-calico-apiserver:v3.20.1
@@ -10316,6 +10910,15 @@ sync:
 - source: quay.io/calico/apiserver:v3.31.0
   target: docker.io/rancher/mirrored-calico-apiserver:v3.31.0
   type: image
+- source: quay.io/calico/apiserver:v3.31.1
+  target: docker.io/rancher/mirrored-calico-apiserver:v3.31.1
+  type: image
+- source: quay.io/calico/apiserver:v3.31.2
+  target: docker.io/rancher/mirrored-calico-apiserver:v3.31.2
+  type: image
+- source: quay.io/calico/apiserver:v3.31.3
+  target: docker.io/rancher/mirrored-calico-apiserver:v3.31.3
+  type: image
 - source: quay.io/calico/apiserver:v3.20.1
   target: registry.suse.com/rancher/mirrored-calico-apiserver:v3.20.1
   type: image
@@ -10427,6 +11030,15 @@ sync:
 - source: quay.io/calico/apiserver:v3.31.0
   target: registry.suse.com/rancher/mirrored-calico-apiserver:v3.31.0
   type: image
+- source: quay.io/calico/apiserver:v3.31.1
+  target: registry.suse.com/rancher/mirrored-calico-apiserver:v3.31.1
+  type: image
+- source: quay.io/calico/apiserver:v3.31.2
+  target: registry.suse.com/rancher/mirrored-calico-apiserver:v3.31.2
+  type: image
+- source: quay.io/calico/apiserver:v3.31.3
+  target: registry.suse.com/rancher/mirrored-calico-apiserver:v3.31.3
+  type: image
 - source: quay.io/calico/apiserver:v3.20.1
   target: stgregistry.suse.com/rancher/mirrored-calico-apiserver:v3.20.1
   type: image
@@ -10537,6 +11149,15 @@ sync:
   type: image
 - source: quay.io/calico/apiserver:v3.31.0
   target: stgregistry.suse.com/rancher/mirrored-calico-apiserver:v3.31.0
+  type: image
+- source: quay.io/calico/apiserver:v3.31.1
+  target: stgregistry.suse.com/rancher/mirrored-calico-apiserver:v3.31.1
+  type: image
+- source: quay.io/calico/apiserver:v3.31.2
+  target: stgregistry.suse.com/rancher/mirrored-calico-apiserver:v3.31.2
+  type: image
+- source: quay.io/calico/apiserver:v3.31.3
+  target: stgregistry.suse.com/rancher/mirrored-calico-apiserver:v3.31.3
   type: image
 - source: quay.io/calico/cni:v3.16.5
   target: docker.io/rancher/calico-cni:v3.16.5
@@ -10718,6 +11339,15 @@ sync:
 - source: quay.io/calico/cni:v3.31.0
   target: docker.io/rancher/mirrored-calico-cni:v3.31.0
   type: image
+- source: quay.io/calico/cni:v3.31.1
+  target: docker.io/rancher/mirrored-calico-cni:v3.31.1
+  type: image
+- source: quay.io/calico/cni:v3.31.2
+  target: docker.io/rancher/mirrored-calico-cni:v3.31.2
+  type: image
+- source: quay.io/calico/cni:v3.31.3
+  target: docker.io/rancher/mirrored-calico-cni:v3.31.3
+  type: image
 - source: quay.io/calico/cni:v3.13.4
   target: registry.suse.com/rancher/mirrored-calico-cni:v3.13.4
   type: image
@@ -10852,6 +11482,15 @@ sync:
   type: image
 - source: quay.io/calico/cni:v3.31.0
   target: registry.suse.com/rancher/mirrored-calico-cni:v3.31.0
+  type: image
+- source: quay.io/calico/cni:v3.31.1
+  target: registry.suse.com/rancher/mirrored-calico-cni:v3.31.1
+  type: image
+- source: quay.io/calico/cni:v3.31.2
+  target: registry.suse.com/rancher/mirrored-calico-cni:v3.31.2
+  type: image
+- source: quay.io/calico/cni:v3.31.3
+  target: registry.suse.com/rancher/mirrored-calico-cni:v3.31.3
   type: image
 - source: quay.io/calico/cni:v3.13.4
   target: stgregistry.suse.com/rancher/mirrored-calico-cni:v3.13.4
@@ -10988,6 +11627,15 @@ sync:
 - source: quay.io/calico/cni:v3.31.0
   target: stgregistry.suse.com/rancher/mirrored-calico-cni:v3.31.0
   type: image
+- source: quay.io/calico/cni:v3.31.1
+  target: stgregistry.suse.com/rancher/mirrored-calico-cni:v3.31.1
+  type: image
+- source: quay.io/calico/cni:v3.31.2
+  target: stgregistry.suse.com/rancher/mirrored-calico-cni:v3.31.2
+  type: image
+- source: quay.io/calico/cni:v3.31.3
+  target: stgregistry.suse.com/rancher/mirrored-calico-cni:v3.31.3
+  type: image
 - source: quay.io/calico/csi:v3.27.0
   target: docker.io/rancher/mirrored-calico-csi:v3.27.0
   type: image
@@ -11038,6 +11686,15 @@ sync:
   type: image
 - source: quay.io/calico/csi:v3.31.0
   target: docker.io/rancher/mirrored-calico-csi:v3.31.0
+  type: image
+- source: quay.io/calico/csi:v3.31.1
+  target: docker.io/rancher/mirrored-calico-csi:v3.31.1
+  type: image
+- source: quay.io/calico/csi:v3.31.2
+  target: docker.io/rancher/mirrored-calico-csi:v3.31.2
+  type: image
+- source: quay.io/calico/csi:v3.31.3
+  target: docker.io/rancher/mirrored-calico-csi:v3.31.3
   type: image
 - source: quay.io/calico/csi:v3.27.0
   target: registry.suse.com/rancher/mirrored-calico-csi:v3.27.0
@@ -11090,6 +11747,15 @@ sync:
 - source: quay.io/calico/csi:v3.31.0
   target: registry.suse.com/rancher/mirrored-calico-csi:v3.31.0
   type: image
+- source: quay.io/calico/csi:v3.31.1
+  target: registry.suse.com/rancher/mirrored-calico-csi:v3.31.1
+  type: image
+- source: quay.io/calico/csi:v3.31.2
+  target: registry.suse.com/rancher/mirrored-calico-csi:v3.31.2
+  type: image
+- source: quay.io/calico/csi:v3.31.3
+  target: registry.suse.com/rancher/mirrored-calico-csi:v3.31.3
+  type: image
 - source: quay.io/calico/csi:v3.27.0
   target: stgregistry.suse.com/rancher/mirrored-calico-csi:v3.27.0
   type: image
@@ -11140,6 +11806,15 @@ sync:
   type: image
 - source: quay.io/calico/csi:v3.31.0
   target: stgregistry.suse.com/rancher/mirrored-calico-csi:v3.31.0
+  type: image
+- source: quay.io/calico/csi:v3.31.1
+  target: stgregistry.suse.com/rancher/mirrored-calico-csi:v3.31.1
+  type: image
+- source: quay.io/calico/csi:v3.31.2
+  target: stgregistry.suse.com/rancher/mirrored-calico-csi:v3.31.2
+  type: image
+- source: quay.io/calico/csi:v3.31.3
+  target: stgregistry.suse.com/rancher/mirrored-calico-csi:v3.31.3
   type: image
 - source: quay.io/calico/ctl:v3.16.5
   target: docker.io/rancher/calico-ctl:v3.16.5
@@ -11339,6 +12014,15 @@ sync:
 - source: quay.io/calico/ctl:v3.31.0
   target: docker.io/rancher/mirrored-calico-ctl:v3.31.0
   type: image
+- source: quay.io/calico/ctl:v3.31.1
+  target: docker.io/rancher/mirrored-calico-ctl:v3.31.1
+  type: image
+- source: quay.io/calico/ctl:v3.31.2
+  target: docker.io/rancher/mirrored-calico-ctl:v3.31.2
+  type: image
+- source: quay.io/calico/ctl:v3.31.3
+  target: docker.io/rancher/mirrored-calico-ctl:v3.31.3
+  type: image
 - source: quay.io/calico/ctl:v3.13.4
   target: registry.suse.com/rancher/mirrored-calico-ctl:v3.13.4
   type: image
@@ -11473,6 +12157,15 @@ sync:
   type: image
 - source: quay.io/calico/ctl:v3.31.0
   target: registry.suse.com/rancher/mirrored-calico-ctl:v3.31.0
+  type: image
+- source: quay.io/calico/ctl:v3.31.1
+  target: registry.suse.com/rancher/mirrored-calico-ctl:v3.31.1
+  type: image
+- source: quay.io/calico/ctl:v3.31.2
+  target: registry.suse.com/rancher/mirrored-calico-ctl:v3.31.2
+  type: image
+- source: quay.io/calico/ctl:v3.31.3
+  target: registry.suse.com/rancher/mirrored-calico-ctl:v3.31.3
   type: image
 - source: quay.io/calico/ctl:v3.13.4
   target: stgregistry.suse.com/rancher/mirrored-calico-ctl:v3.13.4
@@ -11609,6 +12302,15 @@ sync:
 - source: quay.io/calico/ctl:v3.31.0
   target: stgregistry.suse.com/rancher/mirrored-calico-ctl:v3.31.0
   type: image
+- source: quay.io/calico/ctl:v3.31.1
+  target: stgregistry.suse.com/rancher/mirrored-calico-ctl:v3.31.1
+  type: image
+- source: quay.io/calico/ctl:v3.31.2
+  target: stgregistry.suse.com/rancher/mirrored-calico-ctl:v3.31.2
+  type: image
+- source: quay.io/calico/ctl:v3.31.3
+  target: stgregistry.suse.com/rancher/mirrored-calico-ctl:v3.31.3
+  type: image
 - source: quay.io/calico/envoy-gateway:v3.30.0
   target: docker.io/rancher/mirrored-calico-envoy-gateway:v3.30.0
   type: image
@@ -11626,6 +12328,15 @@ sync:
   type: image
 - source: quay.io/calico/envoy-gateway:v3.31.0
   target: docker.io/rancher/mirrored-calico-envoy-gateway:v3.31.0
+  type: image
+- source: quay.io/calico/envoy-gateway:v3.31.1
+  target: docker.io/rancher/mirrored-calico-envoy-gateway:v3.31.1
+  type: image
+- source: quay.io/calico/envoy-gateway:v3.31.2
+  target: docker.io/rancher/mirrored-calico-envoy-gateway:v3.31.2
+  type: image
+- source: quay.io/calico/envoy-gateway:v3.31.3
+  target: docker.io/rancher/mirrored-calico-envoy-gateway:v3.31.3
   type: image
 - source: quay.io/calico/envoy-gateway:v3.30.0
   target: registry.suse.com/rancher/mirrored-calico-envoy-gateway:v3.30.0
@@ -11645,6 +12356,15 @@ sync:
 - source: quay.io/calico/envoy-gateway:v3.31.0
   target: registry.suse.com/rancher/mirrored-calico-envoy-gateway:v3.31.0
   type: image
+- source: quay.io/calico/envoy-gateway:v3.31.1
+  target: registry.suse.com/rancher/mirrored-calico-envoy-gateway:v3.31.1
+  type: image
+- source: quay.io/calico/envoy-gateway:v3.31.2
+  target: registry.suse.com/rancher/mirrored-calico-envoy-gateway:v3.31.2
+  type: image
+- source: quay.io/calico/envoy-gateway:v3.31.3
+  target: registry.suse.com/rancher/mirrored-calico-envoy-gateway:v3.31.3
+  type: image
 - source: quay.io/calico/envoy-gateway:v3.30.0
   target: stgregistry.suse.com/rancher/mirrored-calico-envoy-gateway:v3.30.0
   type: image
@@ -11662,6 +12382,15 @@ sync:
   type: image
 - source: quay.io/calico/envoy-gateway:v3.31.0
   target: stgregistry.suse.com/rancher/mirrored-calico-envoy-gateway:v3.31.0
+  type: image
+- source: quay.io/calico/envoy-gateway:v3.31.1
+  target: stgregistry.suse.com/rancher/mirrored-calico-envoy-gateway:v3.31.1
+  type: image
+- source: quay.io/calico/envoy-gateway:v3.31.2
+  target: stgregistry.suse.com/rancher/mirrored-calico-envoy-gateway:v3.31.2
+  type: image
+- source: quay.io/calico/envoy-gateway:v3.31.3
+  target: stgregistry.suse.com/rancher/mirrored-calico-envoy-gateway:v3.31.3
   type: image
 - source: quay.io/calico/envoy-proxy:v3.30.0
   target: docker.io/rancher/mirrored-calico-envoy-proxy:v3.30.0
@@ -11681,6 +12410,15 @@ sync:
 - source: quay.io/calico/envoy-proxy:v3.31.0
   target: docker.io/rancher/mirrored-calico-envoy-proxy:v3.31.0
   type: image
+- source: quay.io/calico/envoy-proxy:v3.31.1
+  target: docker.io/rancher/mirrored-calico-envoy-proxy:v3.31.1
+  type: image
+- source: quay.io/calico/envoy-proxy:v3.31.2
+  target: docker.io/rancher/mirrored-calico-envoy-proxy:v3.31.2
+  type: image
+- source: quay.io/calico/envoy-proxy:v3.31.3
+  target: docker.io/rancher/mirrored-calico-envoy-proxy:v3.31.3
+  type: image
 - source: quay.io/calico/envoy-proxy:v3.30.0
   target: registry.suse.com/rancher/mirrored-calico-envoy-proxy:v3.30.0
   type: image
@@ -11698,6 +12436,15 @@ sync:
   type: image
 - source: quay.io/calico/envoy-proxy:v3.31.0
   target: registry.suse.com/rancher/mirrored-calico-envoy-proxy:v3.31.0
+  type: image
+- source: quay.io/calico/envoy-proxy:v3.31.1
+  target: registry.suse.com/rancher/mirrored-calico-envoy-proxy:v3.31.1
+  type: image
+- source: quay.io/calico/envoy-proxy:v3.31.2
+  target: registry.suse.com/rancher/mirrored-calico-envoy-proxy:v3.31.2
+  type: image
+- source: quay.io/calico/envoy-proxy:v3.31.3
+  target: registry.suse.com/rancher/mirrored-calico-envoy-proxy:v3.31.3
   type: image
 - source: quay.io/calico/envoy-proxy:v3.30.0
   target: stgregistry.suse.com/rancher/mirrored-calico-envoy-proxy:v3.30.0
@@ -11717,6 +12464,15 @@ sync:
 - source: quay.io/calico/envoy-proxy:v3.31.0
   target: stgregistry.suse.com/rancher/mirrored-calico-envoy-proxy:v3.31.0
   type: image
+- source: quay.io/calico/envoy-proxy:v3.31.1
+  target: stgregistry.suse.com/rancher/mirrored-calico-envoy-proxy:v3.31.1
+  type: image
+- source: quay.io/calico/envoy-proxy:v3.31.2
+  target: stgregistry.suse.com/rancher/mirrored-calico-envoy-proxy:v3.31.2
+  type: image
+- source: quay.io/calico/envoy-proxy:v3.31.3
+  target: stgregistry.suse.com/rancher/mirrored-calico-envoy-proxy:v3.31.3
+  type: image
 - source: quay.io/calico/envoy-ratelimit:v3.30.0
   target: docker.io/rancher/mirrored-calico-envoy-ratelimit:v3.30.0
   type: image
@@ -11734,6 +12490,15 @@ sync:
   type: image
 - source: quay.io/calico/envoy-ratelimit:v3.31.0
   target: docker.io/rancher/mirrored-calico-envoy-ratelimit:v3.31.0
+  type: image
+- source: quay.io/calico/envoy-ratelimit:v3.31.1
+  target: docker.io/rancher/mirrored-calico-envoy-ratelimit:v3.31.1
+  type: image
+- source: quay.io/calico/envoy-ratelimit:v3.31.2
+  target: docker.io/rancher/mirrored-calico-envoy-ratelimit:v3.31.2
+  type: image
+- source: quay.io/calico/envoy-ratelimit:v3.31.3
+  target: docker.io/rancher/mirrored-calico-envoy-ratelimit:v3.31.3
   type: image
 - source: quay.io/calico/envoy-ratelimit:v3.30.0
   target: registry.suse.com/rancher/mirrored-calico-envoy-ratelimit:v3.30.0
@@ -11753,6 +12518,15 @@ sync:
 - source: quay.io/calico/envoy-ratelimit:v3.31.0
   target: registry.suse.com/rancher/mirrored-calico-envoy-ratelimit:v3.31.0
   type: image
+- source: quay.io/calico/envoy-ratelimit:v3.31.1
+  target: registry.suse.com/rancher/mirrored-calico-envoy-ratelimit:v3.31.1
+  type: image
+- source: quay.io/calico/envoy-ratelimit:v3.31.2
+  target: registry.suse.com/rancher/mirrored-calico-envoy-ratelimit:v3.31.2
+  type: image
+- source: quay.io/calico/envoy-ratelimit:v3.31.3
+  target: registry.suse.com/rancher/mirrored-calico-envoy-ratelimit:v3.31.3
+  type: image
 - source: quay.io/calico/envoy-ratelimit:v3.30.0
   target: stgregistry.suse.com/rancher/mirrored-calico-envoy-ratelimit:v3.30.0
   type: image
@@ -11770,6 +12544,15 @@ sync:
   type: image
 - source: quay.io/calico/envoy-ratelimit:v3.31.0
   target: stgregistry.suse.com/rancher/mirrored-calico-envoy-ratelimit:v3.31.0
+  type: image
+- source: quay.io/calico/envoy-ratelimit:v3.31.1
+  target: stgregistry.suse.com/rancher/mirrored-calico-envoy-ratelimit:v3.31.1
+  type: image
+- source: quay.io/calico/envoy-ratelimit:v3.31.2
+  target: stgregistry.suse.com/rancher/mirrored-calico-envoy-ratelimit:v3.31.2
+  type: image
+- source: quay.io/calico/envoy-ratelimit:v3.31.3
+  target: stgregistry.suse.com/rancher/mirrored-calico-envoy-ratelimit:v3.31.3
   type: image
 - source: quay.io/calico/goldmane:v3.30.0
   target: docker.io/rancher/mirrored-calico-goldmane:v3.30.0
@@ -11789,6 +12572,15 @@ sync:
 - source: quay.io/calico/goldmane:v3.31.0
   target: docker.io/rancher/mirrored-calico-goldmane:v3.31.0
   type: image
+- source: quay.io/calico/goldmane:v3.31.1
+  target: docker.io/rancher/mirrored-calico-goldmane:v3.31.1
+  type: image
+- source: quay.io/calico/goldmane:v3.31.2
+  target: docker.io/rancher/mirrored-calico-goldmane:v3.31.2
+  type: image
+- source: quay.io/calico/goldmane:v3.31.3
+  target: docker.io/rancher/mirrored-calico-goldmane:v3.31.3
+  type: image
 - source: quay.io/calico/goldmane:v3.30.0
   target: registry.suse.com/rancher/mirrored-calico-goldmane:v3.30.0
   type: image
@@ -11807,6 +12599,15 @@ sync:
 - source: quay.io/calico/goldmane:v3.31.0
   target: registry.suse.com/rancher/mirrored-calico-goldmane:v3.31.0
   type: image
+- source: quay.io/calico/goldmane:v3.31.1
+  target: registry.suse.com/rancher/mirrored-calico-goldmane:v3.31.1
+  type: image
+- source: quay.io/calico/goldmane:v3.31.2
+  target: registry.suse.com/rancher/mirrored-calico-goldmane:v3.31.2
+  type: image
+- source: quay.io/calico/goldmane:v3.31.3
+  target: registry.suse.com/rancher/mirrored-calico-goldmane:v3.31.3
+  type: image
 - source: quay.io/calico/goldmane:v3.30.0
   target: stgregistry.suse.com/rancher/mirrored-calico-goldmane:v3.30.0
   type: image
@@ -11824,6 +12625,15 @@ sync:
   type: image
 - source: quay.io/calico/goldmane:v3.31.0
   target: stgregistry.suse.com/rancher/mirrored-calico-goldmane:v3.31.0
+  type: image
+- source: quay.io/calico/goldmane:v3.31.1
+  target: stgregistry.suse.com/rancher/mirrored-calico-goldmane:v3.31.1
+  type: image
+- source: quay.io/calico/goldmane:v3.31.2
+  target: stgregistry.suse.com/rancher/mirrored-calico-goldmane:v3.31.2
+  type: image
+- source: quay.io/calico/goldmane:v3.31.3
+  target: stgregistry.suse.com/rancher/mirrored-calico-goldmane:v3.31.3
   type: image
 - source: quay.io/calico/kube-controllers:v3.16.5
   target: docker.io/rancher/calico-kube-controllers:v3.16.5
@@ -12005,6 +12815,15 @@ sync:
 - source: quay.io/calico/kube-controllers:v3.31.0
   target: docker.io/rancher/mirrored-calico-kube-controllers:v3.31.0
   type: image
+- source: quay.io/calico/kube-controllers:v3.31.1
+  target: docker.io/rancher/mirrored-calico-kube-controllers:v3.31.1
+  type: image
+- source: quay.io/calico/kube-controllers:v3.31.2
+  target: docker.io/rancher/mirrored-calico-kube-controllers:v3.31.2
+  type: image
+- source: quay.io/calico/kube-controllers:v3.31.3
+  target: docker.io/rancher/mirrored-calico-kube-controllers:v3.31.3
+  type: image
 - source: quay.io/calico/kube-controllers:v3.13.4
   target: registry.suse.com/rancher/mirrored-calico-kube-controllers:v3.13.4
   type: image
@@ -12140,6 +12959,15 @@ sync:
 - source: quay.io/calico/kube-controllers:v3.31.0
   target: registry.suse.com/rancher/mirrored-calico-kube-controllers:v3.31.0
   type: image
+- source: quay.io/calico/kube-controllers:v3.31.1
+  target: registry.suse.com/rancher/mirrored-calico-kube-controllers:v3.31.1
+  type: image
+- source: quay.io/calico/kube-controllers:v3.31.2
+  target: registry.suse.com/rancher/mirrored-calico-kube-controllers:v3.31.2
+  type: image
+- source: quay.io/calico/kube-controllers:v3.31.3
+  target: registry.suse.com/rancher/mirrored-calico-kube-controllers:v3.31.3
+  type: image
 - source: quay.io/calico/kube-controllers:v3.13.4
   target: stgregistry.suse.com/rancher/mirrored-calico-kube-controllers:v3.13.4
   type: image
@@ -12274,6 +13102,15 @@ sync:
   type: image
 - source: quay.io/calico/kube-controllers:v3.31.0
   target: stgregistry.suse.com/rancher/mirrored-calico-kube-controllers:v3.31.0
+  type: image
+- source: quay.io/calico/kube-controllers:v3.31.1
+  target: stgregistry.suse.com/rancher/mirrored-calico-kube-controllers:v3.31.1
+  type: image
+- source: quay.io/calico/kube-controllers:v3.31.2
+  target: stgregistry.suse.com/rancher/mirrored-calico-kube-controllers:v3.31.2
+  type: image
+- source: quay.io/calico/kube-controllers:v3.31.3
+  target: stgregistry.suse.com/rancher/mirrored-calico-kube-controllers:v3.31.3
   type: image
 - source: quay.io/calico/node:v3.16.5
   target: docker.io/rancher/calico-node:v3.16.5
@@ -12455,6 +13292,15 @@ sync:
 - source: quay.io/calico/node:v3.31.0
   target: docker.io/rancher/mirrored-calico-node:v3.31.0
   type: image
+- source: quay.io/calico/node:v3.31.1
+  target: docker.io/rancher/mirrored-calico-node:v3.31.1
+  type: image
+- source: quay.io/calico/node:v3.31.2
+  target: docker.io/rancher/mirrored-calico-node:v3.31.2
+  type: image
+- source: quay.io/calico/node:v3.31.3
+  target: docker.io/rancher/mirrored-calico-node:v3.31.3
+  type: image
 - source: quay.io/calico/node:v3.13.4
   target: registry.suse.com/rancher/mirrored-calico-node:v3.13.4
   type: image
@@ -12589,6 +13435,15 @@ sync:
   type: image
 - source: quay.io/calico/node:v3.31.0
   target: registry.suse.com/rancher/mirrored-calico-node:v3.31.0
+  type: image
+- source: quay.io/calico/node:v3.31.1
+  target: registry.suse.com/rancher/mirrored-calico-node:v3.31.1
+  type: image
+- source: quay.io/calico/node:v3.31.2
+  target: registry.suse.com/rancher/mirrored-calico-node:v3.31.2
+  type: image
+- source: quay.io/calico/node:v3.31.3
+  target: registry.suse.com/rancher/mirrored-calico-node:v3.31.3
   type: image
 - source: quay.io/calico/node:v3.13.4
   target: stgregistry.suse.com/rancher/mirrored-calico-node:v3.13.4
@@ -12725,6 +13580,15 @@ sync:
 - source: quay.io/calico/node:v3.31.0
   target: stgregistry.suse.com/rancher/mirrored-calico-node:v3.31.0
   type: image
+- source: quay.io/calico/node:v3.31.1
+  target: stgregistry.suse.com/rancher/mirrored-calico-node:v3.31.1
+  type: image
+- source: quay.io/calico/node:v3.31.2
+  target: stgregistry.suse.com/rancher/mirrored-calico-node:v3.31.2
+  type: image
+- source: quay.io/calico/node:v3.31.3
+  target: stgregistry.suse.com/rancher/mirrored-calico-node:v3.31.3
+  type: image
 - source: quay.io/calico/node-driver-registrar:v3.27.0
   target: docker.io/rancher/mirrored-calico-node-driver-registrar:v3.27.0
   type: image
@@ -12775,6 +13639,15 @@ sync:
   type: image
 - source: quay.io/calico/node-driver-registrar:v3.31.0
   target: docker.io/rancher/mirrored-calico-node-driver-registrar:v3.31.0
+  type: image
+- source: quay.io/calico/node-driver-registrar:v3.31.1
+  target: docker.io/rancher/mirrored-calico-node-driver-registrar:v3.31.1
+  type: image
+- source: quay.io/calico/node-driver-registrar:v3.31.2
+  target: docker.io/rancher/mirrored-calico-node-driver-registrar:v3.31.2
+  type: image
+- source: quay.io/calico/node-driver-registrar:v3.31.3
+  target: docker.io/rancher/mirrored-calico-node-driver-registrar:v3.31.3
   type: image
 - source: quay.io/calico/node-driver-registrar:v3.27.0
   target: registry.suse.com/rancher/mirrored-calico-node-driver-registrar:v3.27.0
@@ -12827,6 +13700,15 @@ sync:
 - source: quay.io/calico/node-driver-registrar:v3.31.0
   target: registry.suse.com/rancher/mirrored-calico-node-driver-registrar:v3.31.0
   type: image
+- source: quay.io/calico/node-driver-registrar:v3.31.1
+  target: registry.suse.com/rancher/mirrored-calico-node-driver-registrar:v3.31.1
+  type: image
+- source: quay.io/calico/node-driver-registrar:v3.31.2
+  target: registry.suse.com/rancher/mirrored-calico-node-driver-registrar:v3.31.2
+  type: image
+- source: quay.io/calico/node-driver-registrar:v3.31.3
+  target: registry.suse.com/rancher/mirrored-calico-node-driver-registrar:v3.31.3
+  type: image
 - source: quay.io/calico/node-driver-registrar:v3.27.0
   target: stgregistry.suse.com/rancher/mirrored-calico-node-driver-registrar:v3.27.0
   type: image
@@ -12877,6 +13759,15 @@ sync:
   type: image
 - source: quay.io/calico/node-driver-registrar:v3.31.0
   target: stgregistry.suse.com/rancher/mirrored-calico-node-driver-registrar:v3.31.0
+  type: image
+- source: quay.io/calico/node-driver-registrar:v3.31.1
+  target: stgregistry.suse.com/rancher/mirrored-calico-node-driver-registrar:v3.31.1
+  type: image
+- source: quay.io/calico/node-driver-registrar:v3.31.2
+  target: stgregistry.suse.com/rancher/mirrored-calico-node-driver-registrar:v3.31.2
+  type: image
+- source: quay.io/calico/node-driver-registrar:v3.31.3
+  target: stgregistry.suse.com/rancher/mirrored-calico-node-driver-registrar:v3.31.3
   type: image
 - source: quay.io/calico/pod2daemon-flexvol:v3.16.5
   target: docker.io/rancher/calico-pod2daemon-flexvol:v3.16.5
@@ -13058,6 +13949,15 @@ sync:
 - source: quay.io/calico/pod2daemon-flexvol:v3.31.0
   target: docker.io/rancher/mirrored-calico-pod2daemon-flexvol:v3.31.0
   type: image
+- source: quay.io/calico/pod2daemon-flexvol:v3.31.1
+  target: docker.io/rancher/mirrored-calico-pod2daemon-flexvol:v3.31.1
+  type: image
+- source: quay.io/calico/pod2daemon-flexvol:v3.31.2
+  target: docker.io/rancher/mirrored-calico-pod2daemon-flexvol:v3.31.2
+  type: image
+- source: quay.io/calico/pod2daemon-flexvol:v3.31.3
+  target: docker.io/rancher/mirrored-calico-pod2daemon-flexvol:v3.31.3
+  type: image
 - source: quay.io/calico/pod2daemon-flexvol:v3.13.4
   target: registry.suse.com/rancher/mirrored-calico-pod2daemon-flexvol:v3.13.4
   type: image
@@ -13192,6 +14092,15 @@ sync:
   type: image
 - source: quay.io/calico/pod2daemon-flexvol:v3.31.0
   target: registry.suse.com/rancher/mirrored-calico-pod2daemon-flexvol:v3.31.0
+  type: image
+- source: quay.io/calico/pod2daemon-flexvol:v3.31.1
+  target: registry.suse.com/rancher/mirrored-calico-pod2daemon-flexvol:v3.31.1
+  type: image
+- source: quay.io/calico/pod2daemon-flexvol:v3.31.2
+  target: registry.suse.com/rancher/mirrored-calico-pod2daemon-flexvol:v3.31.2
+  type: image
+- source: quay.io/calico/pod2daemon-flexvol:v3.31.3
+  target: registry.suse.com/rancher/mirrored-calico-pod2daemon-flexvol:v3.31.3
   type: image
 - source: quay.io/calico/pod2daemon-flexvol:v3.13.4
   target: stgregistry.suse.com/rancher/mirrored-calico-pod2daemon-flexvol:v3.13.4
@@ -13328,6 +14237,15 @@ sync:
 - source: quay.io/calico/pod2daemon-flexvol:v3.31.0
   target: stgregistry.suse.com/rancher/mirrored-calico-pod2daemon-flexvol:v3.31.0
   type: image
+- source: quay.io/calico/pod2daemon-flexvol:v3.31.1
+  target: stgregistry.suse.com/rancher/mirrored-calico-pod2daemon-flexvol:v3.31.1
+  type: image
+- source: quay.io/calico/pod2daemon-flexvol:v3.31.2
+  target: stgregistry.suse.com/rancher/mirrored-calico-pod2daemon-flexvol:v3.31.2
+  type: image
+- source: quay.io/calico/pod2daemon-flexvol:v3.31.3
+  target: stgregistry.suse.com/rancher/mirrored-calico-pod2daemon-flexvol:v3.31.3
+  type: image
 - source: quay.io/calico/typha:v3.18.1
   target: docker.io/rancher/mirrored-calico-typha:v3.18.1
   type: image
@@ -13450,6 +14368,15 @@ sync:
   type: image
 - source: quay.io/calico/typha:v3.31.0
   target: docker.io/rancher/mirrored-calico-typha:v3.31.0
+  type: image
+- source: quay.io/calico/typha:v3.31.1
+  target: docker.io/rancher/mirrored-calico-typha:v3.31.1
+  type: image
+- source: quay.io/calico/typha:v3.31.2
+  target: docker.io/rancher/mirrored-calico-typha:v3.31.2
+  type: image
+- source: quay.io/calico/typha:v3.31.3
+  target: docker.io/rancher/mirrored-calico-typha:v3.31.3
   type: image
 - source: quay.io/calico/typha:v3.18.1
   target: registry.suse.com/rancher/mirrored-calico-typha:v3.18.1
@@ -13574,6 +14501,15 @@ sync:
 - source: quay.io/calico/typha:v3.31.0
   target: registry.suse.com/rancher/mirrored-calico-typha:v3.31.0
   type: image
+- source: quay.io/calico/typha:v3.31.1
+  target: registry.suse.com/rancher/mirrored-calico-typha:v3.31.1
+  type: image
+- source: quay.io/calico/typha:v3.31.2
+  target: registry.suse.com/rancher/mirrored-calico-typha:v3.31.2
+  type: image
+- source: quay.io/calico/typha:v3.31.3
+  target: registry.suse.com/rancher/mirrored-calico-typha:v3.31.3
+  type: image
 - source: quay.io/calico/typha:v3.18.1
   target: stgregistry.suse.com/rancher/mirrored-calico-typha:v3.18.1
   type: image
@@ -13697,6 +14633,15 @@ sync:
 - source: quay.io/calico/typha:v3.31.0
   target: stgregistry.suse.com/rancher/mirrored-calico-typha:v3.31.0
   type: image
+- source: quay.io/calico/typha:v3.31.1
+  target: stgregistry.suse.com/rancher/mirrored-calico-typha:v3.31.1
+  type: image
+- source: quay.io/calico/typha:v3.31.2
+  target: stgregistry.suse.com/rancher/mirrored-calico-typha:v3.31.2
+  type: image
+- source: quay.io/calico/typha:v3.31.3
+  target: stgregistry.suse.com/rancher/mirrored-calico-typha:v3.31.3
+  type: image
 - source: quay.io/calico/whisker:v3.30.0
   target: docker.io/rancher/mirrored-calico-whisker:v3.30.0
   type: image
@@ -13714,6 +14659,15 @@ sync:
   type: image
 - source: quay.io/calico/whisker:v3.31.0
   target: docker.io/rancher/mirrored-calico-whisker:v3.31.0
+  type: image
+- source: quay.io/calico/whisker:v3.31.1
+  target: docker.io/rancher/mirrored-calico-whisker:v3.31.1
+  type: image
+- source: quay.io/calico/whisker:v3.31.2
+  target: docker.io/rancher/mirrored-calico-whisker:v3.31.2
+  type: image
+- source: quay.io/calico/whisker:v3.31.3
+  target: docker.io/rancher/mirrored-calico-whisker:v3.31.3
   type: image
 - source: quay.io/calico/whisker:v3.30.0
   target: registry.suse.com/rancher/mirrored-calico-whisker:v3.30.0
@@ -13733,6 +14687,15 @@ sync:
 - source: quay.io/calico/whisker:v3.31.0
   target: registry.suse.com/rancher/mirrored-calico-whisker:v3.31.0
   type: image
+- source: quay.io/calico/whisker:v3.31.1
+  target: registry.suse.com/rancher/mirrored-calico-whisker:v3.31.1
+  type: image
+- source: quay.io/calico/whisker:v3.31.2
+  target: registry.suse.com/rancher/mirrored-calico-whisker:v3.31.2
+  type: image
+- source: quay.io/calico/whisker:v3.31.3
+  target: registry.suse.com/rancher/mirrored-calico-whisker:v3.31.3
+  type: image
 - source: quay.io/calico/whisker:v3.30.0
   target: stgregistry.suse.com/rancher/mirrored-calico-whisker:v3.30.0
   type: image
@@ -13750,6 +14713,15 @@ sync:
   type: image
 - source: quay.io/calico/whisker:v3.31.0
   target: stgregistry.suse.com/rancher/mirrored-calico-whisker:v3.31.0
+  type: image
+- source: quay.io/calico/whisker:v3.31.1
+  target: stgregistry.suse.com/rancher/mirrored-calico-whisker:v3.31.1
+  type: image
+- source: quay.io/calico/whisker:v3.31.2
+  target: stgregistry.suse.com/rancher/mirrored-calico-whisker:v3.31.2
+  type: image
+- source: quay.io/calico/whisker:v3.31.3
+  target: stgregistry.suse.com/rancher/mirrored-calico-whisker:v3.31.3
   type: image
 - source: quay.io/calico/whisker-backend:v3.30.0
   target: docker.io/rancher/mirrored-calico-whisker-backend:v3.30.0
@@ -13769,6 +14741,15 @@ sync:
 - source: quay.io/calico/whisker-backend:v3.31.0
   target: docker.io/rancher/mirrored-calico-whisker-backend:v3.31.0
   type: image
+- source: quay.io/calico/whisker-backend:v3.31.1
+  target: docker.io/rancher/mirrored-calico-whisker-backend:v3.31.1
+  type: image
+- source: quay.io/calico/whisker-backend:v3.31.2
+  target: docker.io/rancher/mirrored-calico-whisker-backend:v3.31.2
+  type: image
+- source: quay.io/calico/whisker-backend:v3.31.3
+  target: docker.io/rancher/mirrored-calico-whisker-backend:v3.31.3
+  type: image
 - source: quay.io/calico/whisker-backend:v3.30.0
   target: registry.suse.com/rancher/mirrored-calico-whisker-backend:v3.30.0
   type: image
@@ -13787,6 +14768,15 @@ sync:
 - source: quay.io/calico/whisker-backend:v3.31.0
   target: registry.suse.com/rancher/mirrored-calico-whisker-backend:v3.31.0
   type: image
+- source: quay.io/calico/whisker-backend:v3.31.1
+  target: registry.suse.com/rancher/mirrored-calico-whisker-backend:v3.31.1
+  type: image
+- source: quay.io/calico/whisker-backend:v3.31.2
+  target: registry.suse.com/rancher/mirrored-calico-whisker-backend:v3.31.2
+  type: image
+- source: quay.io/calico/whisker-backend:v3.31.3
+  target: registry.suse.com/rancher/mirrored-calico-whisker-backend:v3.31.3
+  type: image
 - source: quay.io/calico/whisker-backend:v3.30.0
   target: stgregistry.suse.com/rancher/mirrored-calico-whisker-backend:v3.30.0
   type: image
@@ -13804,6 +14794,15 @@ sync:
   type: image
 - source: quay.io/calico/whisker-backend:v3.31.0
   target: stgregistry.suse.com/rancher/mirrored-calico-whisker-backend:v3.31.0
+  type: image
+- source: quay.io/calico/whisker-backend:v3.31.1
+  target: stgregistry.suse.com/rancher/mirrored-calico-whisker-backend:v3.31.1
+  type: image
+- source: quay.io/calico/whisker-backend:v3.31.2
+  target: stgregistry.suse.com/rancher/mirrored-calico-whisker-backend:v3.31.2
+  type: image
+- source: quay.io/calico/whisker-backend:v3.31.3
+  target: stgregistry.suse.com/rancher/mirrored-calico-whisker-backend:v3.31.3
   type: image
 - source: quay.io/cilium/certgen:v0.1.11
   target: docker.io/rancher/mirrored-cilium-certgen:v0.1.11
@@ -13829,6 +14828,9 @@ sync:
 - source: quay.io/cilium/certgen:v0.2.4
   target: docker.io/rancher/mirrored-cilium-certgen:v0.2.4
   type: image
+- source: quay.io/cilium/certgen:v0.3.1
+  target: docker.io/rancher/mirrored-cilium-certgen:v0.3.1
+  type: image
 - source: quay.io/cilium/certgen:v0.1.11
   target: registry.suse.com/rancher/mirrored-cilium-certgen:v0.1.11
   type: image
@@ -13853,6 +14855,9 @@ sync:
 - source: quay.io/cilium/certgen:v0.2.4
   target: registry.suse.com/rancher/mirrored-cilium-certgen:v0.2.4
   type: image
+- source: quay.io/cilium/certgen:v0.3.1
+  target: registry.suse.com/rancher/mirrored-cilium-certgen:v0.3.1
+  type: image
 - source: quay.io/cilium/certgen:v0.1.11
   target: stgregistry.suse.com/rancher/mirrored-cilium-certgen:v0.1.11
   type: image
@@ -13876,6 +14881,9 @@ sync:
   type: image
 - source: quay.io/cilium/certgen:v0.2.4
   target: stgregistry.suse.com/rancher/mirrored-cilium-certgen:v0.2.4
+  type: image
+- source: quay.io/cilium/certgen:v0.3.1
+  target: stgregistry.suse.com/rancher/mirrored-cilium-certgen:v0.3.1
   type: image
 - source: quay.io/cilium/cilium:v1.10.4
   target: docker.io/rancher/mirrored-cilium-cilium:v1.10.4
@@ -14011,6 +15019,21 @@ sync:
   type: image
 - source: quay.io/cilium/cilium:v1.18.2
   target: docker.io/rancher/mirrored-cilium-cilium:v1.18.2
+  type: image
+- source: quay.io/cilium/cilium:v1.18.3
+  target: docker.io/rancher/mirrored-cilium-cilium:v1.18.3
+  type: image
+- source: quay.io/cilium/cilium:v1.18.4
+  target: docker.io/rancher/mirrored-cilium-cilium:v1.18.4
+  type: image
+- source: quay.io/cilium/cilium:v1.18.5
+  target: docker.io/rancher/mirrored-cilium-cilium:v1.18.5
+  type: image
+- source: quay.io/cilium/cilium:v1.18.6
+  target: docker.io/rancher/mirrored-cilium-cilium:v1.18.6
+  type: image
+- source: quay.io/cilium/cilium:v1.19.0
+  target: docker.io/rancher/mirrored-cilium-cilium:v1.19.0
   type: image
 - source: quay.io/cilium/cilium:v1.9.12
   target: docker.io/rancher/mirrored-cilium-cilium:v1.9.12
@@ -14159,6 +15182,21 @@ sync:
 - source: quay.io/cilium/cilium:v1.18.2
   target: registry.suse.com/rancher/mirrored-cilium-cilium:v1.18.2
   type: image
+- source: quay.io/cilium/cilium:v1.18.3
+  target: registry.suse.com/rancher/mirrored-cilium-cilium:v1.18.3
+  type: image
+- source: quay.io/cilium/cilium:v1.18.4
+  target: registry.suse.com/rancher/mirrored-cilium-cilium:v1.18.4
+  type: image
+- source: quay.io/cilium/cilium:v1.18.5
+  target: registry.suse.com/rancher/mirrored-cilium-cilium:v1.18.5
+  type: image
+- source: quay.io/cilium/cilium:v1.18.6
+  target: registry.suse.com/rancher/mirrored-cilium-cilium:v1.18.6
+  type: image
+- source: quay.io/cilium/cilium:v1.19.0
+  target: registry.suse.com/rancher/mirrored-cilium-cilium:v1.19.0
+  type: image
 - source: quay.io/cilium/cilium:v1.9.12
   target: registry.suse.com/rancher/mirrored-cilium-cilium:v1.9.12
   type: image
@@ -14306,6 +15344,21 @@ sync:
 - source: quay.io/cilium/cilium:v1.18.2
   target: stgregistry.suse.com/rancher/mirrored-cilium-cilium:v1.18.2
   type: image
+- source: quay.io/cilium/cilium:v1.18.3
+  target: stgregistry.suse.com/rancher/mirrored-cilium-cilium:v1.18.3
+  type: image
+- source: quay.io/cilium/cilium:v1.18.4
+  target: stgregistry.suse.com/rancher/mirrored-cilium-cilium:v1.18.4
+  type: image
+- source: quay.io/cilium/cilium:v1.18.5
+  target: stgregistry.suse.com/rancher/mirrored-cilium-cilium:v1.18.5
+  type: image
+- source: quay.io/cilium/cilium:v1.18.6
+  target: stgregistry.suse.com/rancher/mirrored-cilium-cilium:v1.18.6
+  type: image
+- source: quay.io/cilium/cilium:v1.19.0
+  target: stgregistry.suse.com/rancher/mirrored-cilium-cilium:v1.19.0
+  type: image
 - source: quay.io/cilium/cilium:v1.9.12
   target: stgregistry.suse.com/rancher/mirrored-cilium-cilium:v1.9.12
   type: image
@@ -14393,6 +15446,15 @@ sync:
 - source: quay.io/cilium/cilium-envoy:v1.33.4-1752151664-7c2edb0b44cf95f326d628b837fcdd845102ba68
   target: docker.io/rancher/mirrored-cilium-cilium-envoy:v1.33.4-1752151664-7c2edb0b44cf95f326d628b837fcdd845102ba68
   type: image
+- source: quay.io/cilium/cilium-envoy:v1.34.10-1761014632-c360e8557eb41011dfb5210f8fb53fed6c0b3222
+  target: docker.io/rancher/mirrored-cilium-cilium-envoy:v1.34.10-1761014632-c360e8557eb41011dfb5210f8fb53fed6c0b3222
+  type: image
+- source: quay.io/cilium/cilium-envoy:v1.34.10-1762597008-ff7ae7d623be00078865cff1b0672cc5d9bfc6d5
+  target: docker.io/rancher/mirrored-cilium-cilium-envoy:v1.34.10-1762597008-ff7ae7d623be00078865cff1b0672cc5d9bfc6d5
+  type: image
+- source: quay.io/cilium/cilium-envoy:v1.34.12-1765374555-6a93b0bbba8d6dc75b651cbafeedb062b2997716
+  target: docker.io/rancher/mirrored-cilium-cilium-envoy:v1.34.12-1765374555-6a93b0bbba8d6dc75b651cbafeedb062b2997716
+  type: image
 - source: quay.io/cilium/cilium-envoy:v1.34.4-1753677767-266d5a01d1d55bd1d60148f991b98dac0390d363
   target: docker.io/rancher/mirrored-cilium-cilium-envoy:v1.34.4-1753677767-266d5a01d1d55bd1d60148f991b98dac0390d363
   type: image
@@ -14401,6 +15463,12 @@ sync:
   type: image
 - source: quay.io/cilium/cilium-envoy:v1.34.7-1757592137-1a52bb680a956879722f48c591a2ca90f7791324
   target: docker.io/rancher/mirrored-cilium-cilium-envoy:v1.34.7-1757592137-1a52bb680a956879722f48c591a2ca90f7791324
+  type: image
+- source: quay.io/cilium/cilium-envoy:v1.35.9-1767794330-db497dd19e346b39d81d7b5c0dedf6c812bcc5c9
+  target: docker.io/rancher/mirrored-cilium-cilium-envoy:v1.35.9-1767794330-db497dd19e346b39d81d7b5c0dedf6c812bcc5c9
+  type: image
+- source: quay.io/cilium/cilium-envoy:v1.35.9-1768828720-c6e4827ebca9c47af2a3a6540c563c30947bae29
+  target: docker.io/rancher/mirrored-cilium-cilium-envoy:v1.35.9-1768828720-c6e4827ebca9c47af2a3a6540c563c30947bae29
   type: image
 - source: quay.io/cilium/cilium-envoy:v1.25.10-f71a313bd0daee41470af31ce6ea20c750fe35dd
   target: registry.suse.com/rancher/mirrored-cilium-cilium-envoy:v1.25.10-f71a313bd0daee41470af31ce6ea20c750fe35dd
@@ -14477,6 +15545,15 @@ sync:
 - source: quay.io/cilium/cilium-envoy:v1.33.4-1752151664-7c2edb0b44cf95f326d628b837fcdd845102ba68
   target: registry.suse.com/rancher/mirrored-cilium-cilium-envoy:v1.33.4-1752151664-7c2edb0b44cf95f326d628b837fcdd845102ba68
   type: image
+- source: quay.io/cilium/cilium-envoy:v1.34.10-1761014632-c360e8557eb41011dfb5210f8fb53fed6c0b3222
+  target: registry.suse.com/rancher/mirrored-cilium-cilium-envoy:v1.34.10-1761014632-c360e8557eb41011dfb5210f8fb53fed6c0b3222
+  type: image
+- source: quay.io/cilium/cilium-envoy:v1.34.10-1762597008-ff7ae7d623be00078865cff1b0672cc5d9bfc6d5
+  target: registry.suse.com/rancher/mirrored-cilium-cilium-envoy:v1.34.10-1762597008-ff7ae7d623be00078865cff1b0672cc5d9bfc6d5
+  type: image
+- source: quay.io/cilium/cilium-envoy:v1.34.12-1765374555-6a93b0bbba8d6dc75b651cbafeedb062b2997716
+  target: registry.suse.com/rancher/mirrored-cilium-cilium-envoy:v1.34.12-1765374555-6a93b0bbba8d6dc75b651cbafeedb062b2997716
+  type: image
 - source: quay.io/cilium/cilium-envoy:v1.34.4-1753677767-266d5a01d1d55bd1d60148f991b98dac0390d363
   target: registry.suse.com/rancher/mirrored-cilium-cilium-envoy:v1.34.4-1753677767-266d5a01d1d55bd1d60148f991b98dac0390d363
   type: image
@@ -14485,6 +15562,12 @@ sync:
   type: image
 - source: quay.io/cilium/cilium-envoy:v1.34.7-1757592137-1a52bb680a956879722f48c591a2ca90f7791324
   target: registry.suse.com/rancher/mirrored-cilium-cilium-envoy:v1.34.7-1757592137-1a52bb680a956879722f48c591a2ca90f7791324
+  type: image
+- source: quay.io/cilium/cilium-envoy:v1.35.9-1767794330-db497dd19e346b39d81d7b5c0dedf6c812bcc5c9
+  target: registry.suse.com/rancher/mirrored-cilium-cilium-envoy:v1.35.9-1767794330-db497dd19e346b39d81d7b5c0dedf6c812bcc5c9
+  type: image
+- source: quay.io/cilium/cilium-envoy:v1.35.9-1768828720-c6e4827ebca9c47af2a3a6540c563c30947bae29
+  target: registry.suse.com/rancher/mirrored-cilium-cilium-envoy:v1.35.9-1768828720-c6e4827ebca9c47af2a3a6540c563c30947bae29
   type: image
 - source: quay.io/cilium/cilium-envoy:v1.25.10-f71a313bd0daee41470af31ce6ea20c750fe35dd
   target: stgregistry.suse.com/rancher/mirrored-cilium-cilium-envoy:v1.25.10-f71a313bd0daee41470af31ce6ea20c750fe35dd
@@ -14561,6 +15644,15 @@ sync:
 - source: quay.io/cilium/cilium-envoy:v1.33.4-1752151664-7c2edb0b44cf95f326d628b837fcdd845102ba68
   target: stgregistry.suse.com/rancher/mirrored-cilium-cilium-envoy:v1.33.4-1752151664-7c2edb0b44cf95f326d628b837fcdd845102ba68
   type: image
+- source: quay.io/cilium/cilium-envoy:v1.34.10-1761014632-c360e8557eb41011dfb5210f8fb53fed6c0b3222
+  target: stgregistry.suse.com/rancher/mirrored-cilium-cilium-envoy:v1.34.10-1761014632-c360e8557eb41011dfb5210f8fb53fed6c0b3222
+  type: image
+- source: quay.io/cilium/cilium-envoy:v1.34.10-1762597008-ff7ae7d623be00078865cff1b0672cc5d9bfc6d5
+  target: stgregistry.suse.com/rancher/mirrored-cilium-cilium-envoy:v1.34.10-1762597008-ff7ae7d623be00078865cff1b0672cc5d9bfc6d5
+  type: image
+- source: quay.io/cilium/cilium-envoy:v1.34.12-1765374555-6a93b0bbba8d6dc75b651cbafeedb062b2997716
+  target: stgregistry.suse.com/rancher/mirrored-cilium-cilium-envoy:v1.34.12-1765374555-6a93b0bbba8d6dc75b651cbafeedb062b2997716
+  type: image
 - source: quay.io/cilium/cilium-envoy:v1.34.4-1753677767-266d5a01d1d55bd1d60148f991b98dac0390d363
   target: stgregistry.suse.com/rancher/mirrored-cilium-cilium-envoy:v1.34.4-1753677767-266d5a01d1d55bd1d60148f991b98dac0390d363
   type: image
@@ -14569,6 +15661,12 @@ sync:
   type: image
 - source: quay.io/cilium/cilium-envoy:v1.34.7-1757592137-1a52bb680a956879722f48c591a2ca90f7791324
   target: stgregistry.suse.com/rancher/mirrored-cilium-cilium-envoy:v1.34.7-1757592137-1a52bb680a956879722f48c591a2ca90f7791324
+  type: image
+- source: quay.io/cilium/cilium-envoy:v1.35.9-1767794330-db497dd19e346b39d81d7b5c0dedf6c812bcc5c9
+  target: stgregistry.suse.com/rancher/mirrored-cilium-cilium-envoy:v1.35.9-1767794330-db497dd19e346b39d81d7b5c0dedf6c812bcc5c9
+  type: image
+- source: quay.io/cilium/cilium-envoy:v1.35.9-1768828720-c6e4827ebca9c47af2a3a6540c563c30947bae29
+  target: stgregistry.suse.com/rancher/mirrored-cilium-cilium-envoy:v1.35.9-1768828720-c6e4827ebca9c47af2a3a6540c563c30947bae29
   type: image
 - source: quay.io/cilium/cilium-etcd-operator:v2.0.7
   target: docker.io/rancher/mirrored-cilium-cilium-etcd-operator:v2.0.7
@@ -14684,6 +15782,21 @@ sync:
 - source: quay.io/cilium/clustermesh-apiserver:v1.18.2
   target: docker.io/rancher/mirrored-cilium-clustermesh-apiserver:v1.18.2
   type: image
+- source: quay.io/cilium/clustermesh-apiserver:v1.18.3
+  target: docker.io/rancher/mirrored-cilium-clustermesh-apiserver:v1.18.3
+  type: image
+- source: quay.io/cilium/clustermesh-apiserver:v1.18.4
+  target: docker.io/rancher/mirrored-cilium-clustermesh-apiserver:v1.18.4
+  type: image
+- source: quay.io/cilium/clustermesh-apiserver:v1.18.5
+  target: docker.io/rancher/mirrored-cilium-clustermesh-apiserver:v1.18.5
+  type: image
+- source: quay.io/cilium/clustermesh-apiserver:v1.18.6
+  target: docker.io/rancher/mirrored-cilium-clustermesh-apiserver:v1.18.6
+  type: image
+- source: quay.io/cilium/clustermesh-apiserver:v1.19.0
+  target: docker.io/rancher/mirrored-cilium-clustermesh-apiserver:v1.19.0
+  type: image
 - source: quay.io/cilium/clustermesh-apiserver:v1.12.4
   target: registry.suse.com/rancher/mirrored-cilium-clustermesh-apiserver:v1.12.4
   type: image
@@ -14788,6 +15901,21 @@ sync:
   type: image
 - source: quay.io/cilium/clustermesh-apiserver:v1.18.2
   target: registry.suse.com/rancher/mirrored-cilium-clustermesh-apiserver:v1.18.2
+  type: image
+- source: quay.io/cilium/clustermesh-apiserver:v1.18.3
+  target: registry.suse.com/rancher/mirrored-cilium-clustermesh-apiserver:v1.18.3
+  type: image
+- source: quay.io/cilium/clustermesh-apiserver:v1.18.4
+  target: registry.suse.com/rancher/mirrored-cilium-clustermesh-apiserver:v1.18.4
+  type: image
+- source: quay.io/cilium/clustermesh-apiserver:v1.18.5
+  target: registry.suse.com/rancher/mirrored-cilium-clustermesh-apiserver:v1.18.5
+  type: image
+- source: quay.io/cilium/clustermesh-apiserver:v1.18.6
+  target: registry.suse.com/rancher/mirrored-cilium-clustermesh-apiserver:v1.18.6
+  type: image
+- source: quay.io/cilium/clustermesh-apiserver:v1.19.0
+  target: registry.suse.com/rancher/mirrored-cilium-clustermesh-apiserver:v1.19.0
   type: image
 - source: quay.io/cilium/clustermesh-apiserver:v1.12.4
   target: stgregistry.suse.com/rancher/mirrored-cilium-clustermesh-apiserver:v1.12.4
@@ -14894,6 +16022,21 @@ sync:
 - source: quay.io/cilium/clustermesh-apiserver:v1.18.2
   target: stgregistry.suse.com/rancher/mirrored-cilium-clustermesh-apiserver:v1.18.2
   type: image
+- source: quay.io/cilium/clustermesh-apiserver:v1.18.3
+  target: stgregistry.suse.com/rancher/mirrored-cilium-clustermesh-apiserver:v1.18.3
+  type: image
+- source: quay.io/cilium/clustermesh-apiserver:v1.18.4
+  target: stgregistry.suse.com/rancher/mirrored-cilium-clustermesh-apiserver:v1.18.4
+  type: image
+- source: quay.io/cilium/clustermesh-apiserver:v1.18.5
+  target: stgregistry.suse.com/rancher/mirrored-cilium-clustermesh-apiserver:v1.18.5
+  type: image
+- source: quay.io/cilium/clustermesh-apiserver:v1.18.6
+  target: stgregistry.suse.com/rancher/mirrored-cilium-clustermesh-apiserver:v1.18.6
+  type: image
+- source: quay.io/cilium/clustermesh-apiserver:v1.19.0
+  target: stgregistry.suse.com/rancher/mirrored-cilium-clustermesh-apiserver:v1.19.0
+  type: image
 - source: quay.io/cilium/hubble-relay:v1.12.4
   target: docker.io/rancher/mirrored-cilium-hubble-relay:v1.12.4
   type: image
@@ -14998,6 +16141,21 @@ sync:
   type: image
 - source: quay.io/cilium/hubble-relay:v1.18.2
   target: docker.io/rancher/mirrored-cilium-hubble-relay:v1.18.2
+  type: image
+- source: quay.io/cilium/hubble-relay:v1.18.3
+  target: docker.io/rancher/mirrored-cilium-hubble-relay:v1.18.3
+  type: image
+- source: quay.io/cilium/hubble-relay:v1.18.4
+  target: docker.io/rancher/mirrored-cilium-hubble-relay:v1.18.4
+  type: image
+- source: quay.io/cilium/hubble-relay:v1.18.5
+  target: docker.io/rancher/mirrored-cilium-hubble-relay:v1.18.5
+  type: image
+- source: quay.io/cilium/hubble-relay:v1.18.6
+  target: docker.io/rancher/mirrored-cilium-hubble-relay:v1.18.6
+  type: image
+- source: quay.io/cilium/hubble-relay:v1.19.0
+  target: docker.io/rancher/mirrored-cilium-hubble-relay:v1.19.0
   type: image
 - source: quay.io/cilium/hubble-relay:v1.12.4
   target: registry.suse.com/rancher/mirrored-cilium-hubble-relay:v1.12.4
@@ -15104,6 +16262,21 @@ sync:
 - source: quay.io/cilium/hubble-relay:v1.18.2
   target: registry.suse.com/rancher/mirrored-cilium-hubble-relay:v1.18.2
   type: image
+- source: quay.io/cilium/hubble-relay:v1.18.3
+  target: registry.suse.com/rancher/mirrored-cilium-hubble-relay:v1.18.3
+  type: image
+- source: quay.io/cilium/hubble-relay:v1.18.4
+  target: registry.suse.com/rancher/mirrored-cilium-hubble-relay:v1.18.4
+  type: image
+- source: quay.io/cilium/hubble-relay:v1.18.5
+  target: registry.suse.com/rancher/mirrored-cilium-hubble-relay:v1.18.5
+  type: image
+- source: quay.io/cilium/hubble-relay:v1.18.6
+  target: registry.suse.com/rancher/mirrored-cilium-hubble-relay:v1.18.6
+  type: image
+- source: quay.io/cilium/hubble-relay:v1.19.0
+  target: registry.suse.com/rancher/mirrored-cilium-hubble-relay:v1.19.0
+  type: image
 - source: quay.io/cilium/hubble-relay:v1.12.4
   target: stgregistry.suse.com/rancher/mirrored-cilium-hubble-relay:v1.12.4
   type: image
@@ -15208,6 +16381,21 @@ sync:
   type: image
 - source: quay.io/cilium/hubble-relay:v1.18.2
   target: stgregistry.suse.com/rancher/mirrored-cilium-hubble-relay:v1.18.2
+  type: image
+- source: quay.io/cilium/hubble-relay:v1.18.3
+  target: stgregistry.suse.com/rancher/mirrored-cilium-hubble-relay:v1.18.3
+  type: image
+- source: quay.io/cilium/hubble-relay:v1.18.4
+  target: stgregistry.suse.com/rancher/mirrored-cilium-hubble-relay:v1.18.4
+  type: image
+- source: quay.io/cilium/hubble-relay:v1.18.5
+  target: stgregistry.suse.com/rancher/mirrored-cilium-hubble-relay:v1.18.5
+  type: image
+- source: quay.io/cilium/hubble-relay:v1.18.6
+  target: stgregistry.suse.com/rancher/mirrored-cilium-hubble-relay:v1.18.6
+  type: image
+- source: quay.io/cilium/hubble-relay:v1.19.0
+  target: stgregistry.suse.com/rancher/mirrored-cilium-hubble-relay:v1.19.0
   type: image
 - source: quay.io/cilium/hubble-ui:v0.10.0
   target: docker.io/rancher/mirrored-cilium-hubble-ui:v0.10.0
@@ -15578,6 +16766,21 @@ sync:
 - source: quay.io/cilium/operator-aws:v1.18.2
   target: docker.io/rancher/mirrored-cilium-operator-aws:v1.18.2
   type: image
+- source: quay.io/cilium/operator-aws:v1.18.3
+  target: docker.io/rancher/mirrored-cilium-operator-aws:v1.18.3
+  type: image
+- source: quay.io/cilium/operator-aws:v1.18.4
+  target: docker.io/rancher/mirrored-cilium-operator-aws:v1.18.4
+  type: image
+- source: quay.io/cilium/operator-aws:v1.18.5
+  target: docker.io/rancher/mirrored-cilium-operator-aws:v1.18.5
+  type: image
+- source: quay.io/cilium/operator-aws:v1.18.6
+  target: docker.io/rancher/mirrored-cilium-operator-aws:v1.18.6
+  type: image
+- source: quay.io/cilium/operator-aws:v1.19.0
+  target: docker.io/rancher/mirrored-cilium-operator-aws:v1.19.0
+  type: image
 - source: quay.io/cilium/operator-aws:v1.9.12
   target: docker.io/rancher/mirrored-cilium-operator-aws:v1.9.12
   type: image
@@ -15724,6 +16927,21 @@ sync:
   type: image
 - source: quay.io/cilium/operator-aws:v1.18.2
   target: registry.suse.com/rancher/mirrored-cilium-operator-aws:v1.18.2
+  type: image
+- source: quay.io/cilium/operator-aws:v1.18.3
+  target: registry.suse.com/rancher/mirrored-cilium-operator-aws:v1.18.3
+  type: image
+- source: quay.io/cilium/operator-aws:v1.18.4
+  target: registry.suse.com/rancher/mirrored-cilium-operator-aws:v1.18.4
+  type: image
+- source: quay.io/cilium/operator-aws:v1.18.5
+  target: registry.suse.com/rancher/mirrored-cilium-operator-aws:v1.18.5
+  type: image
+- source: quay.io/cilium/operator-aws:v1.18.6
+  target: registry.suse.com/rancher/mirrored-cilium-operator-aws:v1.18.6
+  type: image
+- source: quay.io/cilium/operator-aws:v1.19.0
+  target: registry.suse.com/rancher/mirrored-cilium-operator-aws:v1.19.0
   type: image
 - source: quay.io/cilium/operator-aws:v1.9.12
   target: registry.suse.com/rancher/mirrored-cilium-operator-aws:v1.9.12
@@ -15872,6 +17090,21 @@ sync:
 - source: quay.io/cilium/operator-aws:v1.18.2
   target: stgregistry.suse.com/rancher/mirrored-cilium-operator-aws:v1.18.2
   type: image
+- source: quay.io/cilium/operator-aws:v1.18.3
+  target: stgregistry.suse.com/rancher/mirrored-cilium-operator-aws:v1.18.3
+  type: image
+- source: quay.io/cilium/operator-aws:v1.18.4
+  target: stgregistry.suse.com/rancher/mirrored-cilium-operator-aws:v1.18.4
+  type: image
+- source: quay.io/cilium/operator-aws:v1.18.5
+  target: stgregistry.suse.com/rancher/mirrored-cilium-operator-aws:v1.18.5
+  type: image
+- source: quay.io/cilium/operator-aws:v1.18.6
+  target: stgregistry.suse.com/rancher/mirrored-cilium-operator-aws:v1.18.6
+  type: image
+- source: quay.io/cilium/operator-aws:v1.19.0
+  target: stgregistry.suse.com/rancher/mirrored-cilium-operator-aws:v1.19.0
+  type: image
 - source: quay.io/cilium/operator-aws:v1.9.12
   target: stgregistry.suse.com/rancher/mirrored-cilium-operator-aws:v1.9.12
   type: image
@@ -16018,6 +17251,21 @@ sync:
   type: image
 - source: quay.io/cilium/operator-azure:v1.18.2
   target: docker.io/rancher/mirrored-cilium-operator-azure:v1.18.2
+  type: image
+- source: quay.io/cilium/operator-azure:v1.18.3
+  target: docker.io/rancher/mirrored-cilium-operator-azure:v1.18.3
+  type: image
+- source: quay.io/cilium/operator-azure:v1.18.4
+  target: docker.io/rancher/mirrored-cilium-operator-azure:v1.18.4
+  type: image
+- source: quay.io/cilium/operator-azure:v1.18.5
+  target: docker.io/rancher/mirrored-cilium-operator-azure:v1.18.5
+  type: image
+- source: quay.io/cilium/operator-azure:v1.18.6
+  target: docker.io/rancher/mirrored-cilium-operator-azure:v1.18.6
+  type: image
+- source: quay.io/cilium/operator-azure:v1.19.0
+  target: docker.io/rancher/mirrored-cilium-operator-azure:v1.19.0
   type: image
 - source: quay.io/cilium/operator-azure:v1.9.12
   target: docker.io/rancher/mirrored-cilium-operator-azure:v1.9.12
@@ -16166,6 +17414,21 @@ sync:
 - source: quay.io/cilium/operator-azure:v1.18.2
   target: registry.suse.com/rancher/mirrored-cilium-operator-azure:v1.18.2
   type: image
+- source: quay.io/cilium/operator-azure:v1.18.3
+  target: registry.suse.com/rancher/mirrored-cilium-operator-azure:v1.18.3
+  type: image
+- source: quay.io/cilium/operator-azure:v1.18.4
+  target: registry.suse.com/rancher/mirrored-cilium-operator-azure:v1.18.4
+  type: image
+- source: quay.io/cilium/operator-azure:v1.18.5
+  target: registry.suse.com/rancher/mirrored-cilium-operator-azure:v1.18.5
+  type: image
+- source: quay.io/cilium/operator-azure:v1.18.6
+  target: registry.suse.com/rancher/mirrored-cilium-operator-azure:v1.18.6
+  type: image
+- source: quay.io/cilium/operator-azure:v1.19.0
+  target: registry.suse.com/rancher/mirrored-cilium-operator-azure:v1.19.0
+  type: image
 - source: quay.io/cilium/operator-azure:v1.9.12
   target: registry.suse.com/rancher/mirrored-cilium-operator-azure:v1.9.12
   type: image
@@ -16312,6 +17575,21 @@ sync:
   type: image
 - source: quay.io/cilium/operator-azure:v1.18.2
   target: stgregistry.suse.com/rancher/mirrored-cilium-operator-azure:v1.18.2
+  type: image
+- source: quay.io/cilium/operator-azure:v1.18.3
+  target: stgregistry.suse.com/rancher/mirrored-cilium-operator-azure:v1.18.3
+  type: image
+- source: quay.io/cilium/operator-azure:v1.18.4
+  target: stgregistry.suse.com/rancher/mirrored-cilium-operator-azure:v1.18.4
+  type: image
+- source: quay.io/cilium/operator-azure:v1.18.5
+  target: stgregistry.suse.com/rancher/mirrored-cilium-operator-azure:v1.18.5
+  type: image
+- source: quay.io/cilium/operator-azure:v1.18.6
+  target: stgregistry.suse.com/rancher/mirrored-cilium-operator-azure:v1.18.6
+  type: image
+- source: quay.io/cilium/operator-azure:v1.19.0
+  target: stgregistry.suse.com/rancher/mirrored-cilium-operator-azure:v1.19.0
   type: image
 - source: quay.io/cilium/operator-azure:v1.9.12
   target: stgregistry.suse.com/rancher/mirrored-cilium-operator-azure:v1.9.12
@@ -16460,6 +17738,21 @@ sync:
 - source: quay.io/cilium/operator-generic:v1.18.2
   target: docker.io/rancher/mirrored-cilium-operator-generic:v1.18.2
   type: image
+- source: quay.io/cilium/operator-generic:v1.18.3
+  target: docker.io/rancher/mirrored-cilium-operator-generic:v1.18.3
+  type: image
+- source: quay.io/cilium/operator-generic:v1.18.4
+  target: docker.io/rancher/mirrored-cilium-operator-generic:v1.18.4
+  type: image
+- source: quay.io/cilium/operator-generic:v1.18.5
+  target: docker.io/rancher/mirrored-cilium-operator-generic:v1.18.5
+  type: image
+- source: quay.io/cilium/operator-generic:v1.18.6
+  target: docker.io/rancher/mirrored-cilium-operator-generic:v1.18.6
+  type: image
+- source: quay.io/cilium/operator-generic:v1.19.0
+  target: docker.io/rancher/mirrored-cilium-operator-generic:v1.19.0
+  type: image
 - source: quay.io/cilium/operator-generic:v1.9.12
   target: docker.io/rancher/mirrored-cilium-operator-generic:v1.9.12
   type: image
@@ -16606,6 +17899,21 @@ sync:
   type: image
 - source: quay.io/cilium/operator-generic:v1.18.2
   target: registry.suse.com/rancher/mirrored-cilium-operator-generic:v1.18.2
+  type: image
+- source: quay.io/cilium/operator-generic:v1.18.3
+  target: registry.suse.com/rancher/mirrored-cilium-operator-generic:v1.18.3
+  type: image
+- source: quay.io/cilium/operator-generic:v1.18.4
+  target: registry.suse.com/rancher/mirrored-cilium-operator-generic:v1.18.4
+  type: image
+- source: quay.io/cilium/operator-generic:v1.18.5
+  target: registry.suse.com/rancher/mirrored-cilium-operator-generic:v1.18.5
+  type: image
+- source: quay.io/cilium/operator-generic:v1.18.6
+  target: registry.suse.com/rancher/mirrored-cilium-operator-generic:v1.18.6
+  type: image
+- source: quay.io/cilium/operator-generic:v1.19.0
+  target: registry.suse.com/rancher/mirrored-cilium-operator-generic:v1.19.0
   type: image
 - source: quay.io/cilium/operator-generic:v1.9.12
   target: registry.suse.com/rancher/mirrored-cilium-operator-generic:v1.9.12
@@ -16754,6 +18062,21 @@ sync:
 - source: quay.io/cilium/operator-generic:v1.18.2
   target: stgregistry.suse.com/rancher/mirrored-cilium-operator-generic:v1.18.2
   type: image
+- source: quay.io/cilium/operator-generic:v1.18.3
+  target: stgregistry.suse.com/rancher/mirrored-cilium-operator-generic:v1.18.3
+  type: image
+- source: quay.io/cilium/operator-generic:v1.18.4
+  target: stgregistry.suse.com/rancher/mirrored-cilium-operator-generic:v1.18.4
+  type: image
+- source: quay.io/cilium/operator-generic:v1.18.5
+  target: stgregistry.suse.com/rancher/mirrored-cilium-operator-generic:v1.18.5
+  type: image
+- source: quay.io/cilium/operator-generic:v1.18.6
+  target: stgregistry.suse.com/rancher/mirrored-cilium-operator-generic:v1.18.6
+  type: image
+- source: quay.io/cilium/operator-generic:v1.19.0
+  target: stgregistry.suse.com/rancher/mirrored-cilium-operator-generic:v1.19.0
+  type: image
 - source: quay.io/cilium/operator-generic:v1.9.12
   target: stgregistry.suse.com/rancher/mirrored-cilium-operator-generic:v1.9.12
   type: image
@@ -16838,6 +18161,18 @@ sync:
 - source: quay.io/coreos/etcd:v3.5.22
   target: docker.io/rancher/mirrored-coreos-etcd:v3.5.22
   type: image
+- source: quay.io/coreos/etcd:v3.5.23
+  target: docker.io/rancher/mirrored-coreos-etcd:v3.5.23
+  type: image
+- source: quay.io/coreos/etcd:v3.5.24
+  target: docker.io/rancher/mirrored-coreos-etcd:v3.5.24
+  type: image
+- source: quay.io/coreos/etcd:v3.5.25
+  target: docker.io/rancher/mirrored-coreos-etcd:v3.5.25
+  type: image
+- source: quay.io/coreos/etcd:v3.5.26
+  target: docker.io/rancher/mirrored-coreos-etcd:v3.5.26
+  type: image
 - source: quay.io/coreos/etcd:v3.5.3
   target: docker.io/rancher/mirrored-coreos-etcd:v3.5.3
   type: image
@@ -16867,6 +18202,15 @@ sync:
   type: image
 - source: quay.io/coreos/etcd:v3.6.4
   target: docker.io/rancher/mirrored-coreos-etcd:v3.6.4
+  type: image
+- source: quay.io/coreos/etcd:v3.6.5
+  target: docker.io/rancher/mirrored-coreos-etcd:v3.6.5
+  type: image
+- source: quay.io/coreos/etcd:v3.6.6
+  target: docker.io/rancher/mirrored-coreos-etcd:v3.6.6
+  type: image
+- source: quay.io/coreos/etcd:v3.6.7
+  target: docker.io/rancher/mirrored-coreos-etcd:v3.6.7
   type: image
 - source: quay.io/coreos/etcd:v3.5.0
   target: registry.suse.com/rancher/mirrored-coreos-etcd:v3.5.0
@@ -16913,6 +18257,18 @@ sync:
 - source: quay.io/coreos/etcd:v3.5.22
   target: registry.suse.com/rancher/mirrored-coreos-etcd:v3.5.22
   type: image
+- source: quay.io/coreos/etcd:v3.5.23
+  target: registry.suse.com/rancher/mirrored-coreos-etcd:v3.5.23
+  type: image
+- source: quay.io/coreos/etcd:v3.5.24
+  target: registry.suse.com/rancher/mirrored-coreos-etcd:v3.5.24
+  type: image
+- source: quay.io/coreos/etcd:v3.5.25
+  target: registry.suse.com/rancher/mirrored-coreos-etcd:v3.5.25
+  type: image
+- source: quay.io/coreos/etcd:v3.5.26
+  target: registry.suse.com/rancher/mirrored-coreos-etcd:v3.5.26
+  type: image
 - source: quay.io/coreos/etcd:v3.5.3
   target: registry.suse.com/rancher/mirrored-coreos-etcd:v3.5.3
   type: image
@@ -16942,6 +18298,15 @@ sync:
   type: image
 - source: quay.io/coreos/etcd:v3.6.4
   target: registry.suse.com/rancher/mirrored-coreos-etcd:v3.6.4
+  type: image
+- source: quay.io/coreos/etcd:v3.6.5
+  target: registry.suse.com/rancher/mirrored-coreos-etcd:v3.6.5
+  type: image
+- source: quay.io/coreos/etcd:v3.6.6
+  target: registry.suse.com/rancher/mirrored-coreos-etcd:v3.6.6
+  type: image
+- source: quay.io/coreos/etcd:v3.6.7
+  target: registry.suse.com/rancher/mirrored-coreos-etcd:v3.6.7
   type: image
 - source: quay.io/coreos/etcd:v3.5.0
   target: stgregistry.suse.com/rancher/mirrored-coreos-etcd:v3.5.0
@@ -16988,6 +18353,18 @@ sync:
 - source: quay.io/coreos/etcd:v3.5.22
   target: stgregistry.suse.com/rancher/mirrored-coreos-etcd:v3.5.22
   type: image
+- source: quay.io/coreos/etcd:v3.5.23
+  target: stgregistry.suse.com/rancher/mirrored-coreos-etcd:v3.5.23
+  type: image
+- source: quay.io/coreos/etcd:v3.5.24
+  target: stgregistry.suse.com/rancher/mirrored-coreos-etcd:v3.5.24
+  type: image
+- source: quay.io/coreos/etcd:v3.5.25
+  target: stgregistry.suse.com/rancher/mirrored-coreos-etcd:v3.5.25
+  type: image
+- source: quay.io/coreos/etcd:v3.5.26
+  target: stgregistry.suse.com/rancher/mirrored-coreos-etcd:v3.5.26
+  type: image
 - source: quay.io/coreos/etcd:v3.5.3
   target: stgregistry.suse.com/rancher/mirrored-coreos-etcd:v3.5.3
   type: image
@@ -17017,6 +18394,15 @@ sync:
   type: image
 - source: quay.io/coreos/etcd:v3.6.4
   target: stgregistry.suse.com/rancher/mirrored-coreos-etcd:v3.6.4
+  type: image
+- source: quay.io/coreos/etcd:v3.6.5
+  target: stgregistry.suse.com/rancher/mirrored-coreos-etcd:v3.6.5
+  type: image
+- source: quay.io/coreos/etcd:v3.6.6
+  target: stgregistry.suse.com/rancher/mirrored-coreos-etcd:v3.6.6
+  type: image
+- source: quay.io/coreos/etcd:v3.6.7
+  target: stgregistry.suse.com/rancher/mirrored-coreos-etcd:v3.6.7
   type: image
 - source: quay.io/coreos/flannel:v0.13.0
   target: docker.io/rancher/mirrored-coreos-flannel:v0.13.0
@@ -17477,6 +18863,9 @@ sync:
 - source: quay.io/prometheus-operator/admission-webhook:v0.85.0
   target: docker.io/rancher/mirrored-prometheus-operator-admission-webhook:v0.85.0
   type: image
+- source: quay.io/prometheus-operator/admission-webhook:v0.87.1
+  target: docker.io/rancher/mirrored-prometheus-operator-admission-webhook:v0.87.1
+  type: image
 - source: quay.io/prometheus-operator/admission-webhook:v0.72.0
   target: registry.suse.com/rancher/mirrored-prometheus-operator-admission-webhook:v0.72.0
   type: image
@@ -17495,6 +18884,9 @@ sync:
 - source: quay.io/prometheus-operator/admission-webhook:v0.85.0
   target: registry.suse.com/rancher/mirrored-prometheus-operator-admission-webhook:v0.85.0
   type: image
+- source: quay.io/prometheus-operator/admission-webhook:v0.87.1
+  target: registry.suse.com/rancher/mirrored-prometheus-operator-admission-webhook:v0.87.1
+  type: image
 - source: quay.io/prometheus-operator/admission-webhook:v0.72.0
   target: stgregistry.suse.com/rancher/mirrored-prometheus-operator-admission-webhook:v0.72.0
   type: image
@@ -17512,6 +18904,9 @@ sync:
   type: image
 - source: quay.io/prometheus-operator/admission-webhook:v0.85.0
   target: stgregistry.suse.com/rancher/mirrored-prometheus-operator-admission-webhook:v0.85.0
+  type: image
+- source: quay.io/prometheus-operator/admission-webhook:v0.87.1
+  target: stgregistry.suse.com/rancher/mirrored-prometheus-operator-admission-webhook:v0.87.1
   type: image
 - source: quay.io/prometheus-operator/prometheus-config-reloader:v0.43.0
   target: docker.io/rancher/coreos-prometheus-config-reloader:v0.43.0
@@ -17561,6 +18956,9 @@ sync:
 - source: quay.io/prometheus-operator/prometheus-config-reloader:v0.85.0
   target: docker.io/rancher/mirrored-prometheus-operator-prometheus-config-reloader:v0.85.0
   type: image
+- source: quay.io/prometheus-operator/prometheus-config-reloader:v0.87.1
+  target: docker.io/rancher/mirrored-prometheus-operator-prometheus-config-reloader:v0.87.1
+  type: image
 - source: quay.io/prometheus-operator/prometheus-config-reloader:v0.46.0
   target: registry.suse.com/rancher/mirrored-prometheus-operator-prometheus-config-reloader:v0.46.0
   type: image
@@ -17600,6 +18998,9 @@ sync:
 - source: quay.io/prometheus-operator/prometheus-config-reloader:v0.85.0
   target: registry.suse.com/rancher/mirrored-prometheus-operator-prometheus-config-reloader:v0.85.0
   type: image
+- source: quay.io/prometheus-operator/prometheus-config-reloader:v0.87.1
+  target: registry.suse.com/rancher/mirrored-prometheus-operator-prometheus-config-reloader:v0.87.1
+  type: image
 - source: quay.io/prometheus-operator/prometheus-config-reloader:v0.46.0
   target: stgregistry.suse.com/rancher/mirrored-prometheus-operator-prometheus-config-reloader:v0.46.0
   type: image
@@ -17638,6 +19039,9 @@ sync:
   type: image
 - source: quay.io/prometheus-operator/prometheus-config-reloader:v0.85.0
   target: stgregistry.suse.com/rancher/mirrored-prometheus-operator-prometheus-config-reloader:v0.85.0
+  type: image
+- source: quay.io/prometheus-operator/prometheus-config-reloader:v0.87.1
+  target: stgregistry.suse.com/rancher/mirrored-prometheus-operator-prometheus-config-reloader:v0.87.1
   type: image
 - source: quay.io/prometheus-operator/prometheus-operator:v0.43.0
   target: docker.io/rancher/coreos-prometheus-operator:v0.43.0
@@ -17687,6 +19091,9 @@ sync:
 - source: quay.io/prometheus-operator/prometheus-operator:v0.85.0
   target: docker.io/rancher/mirrored-prometheus-operator-prometheus-operator:v0.85.0
   type: image
+- source: quay.io/prometheus-operator/prometheus-operator:v0.87.1
+  target: docker.io/rancher/mirrored-prometheus-operator-prometheus-operator:v0.87.1
+  type: image
 - source: quay.io/prometheus-operator/prometheus-operator:v0.46.0
   target: registry.suse.com/rancher/mirrored-prometheus-operator-prometheus-operator:v0.46.0
   type: image
@@ -17726,6 +19133,9 @@ sync:
 - source: quay.io/prometheus-operator/prometheus-operator:v0.85.0
   target: registry.suse.com/rancher/mirrored-prometheus-operator-prometheus-operator:v0.85.0
   type: image
+- source: quay.io/prometheus-operator/prometheus-operator:v0.87.1
+  target: registry.suse.com/rancher/mirrored-prometheus-operator-prometheus-operator:v0.87.1
+  type: image
 - source: quay.io/prometheus-operator/prometheus-operator:v0.46.0
   target: stgregistry.suse.com/rancher/mirrored-prometheus-operator-prometheus-operator:v0.46.0
   type: image
@@ -17764,6 +19174,9 @@ sync:
   type: image
 - source: quay.io/prometheus-operator/prometheus-operator:v0.85.0
   target: stgregistry.suse.com/rancher/mirrored-prometheus-operator-prometheus-operator:v0.85.0
+  type: image
+- source: quay.io/prometheus-operator/prometheus-operator:v0.87.1
+  target: stgregistry.suse.com/rancher/mirrored-prometheus-operator-prometheus-operator:v0.87.1
   type: image
 - source: quay.io/prometheus/alertmanager:v0.22.0
   target: docker.io/rancher/mirrored-prometheus-alertmanager:v0.22.0
@@ -18005,6 +19418,9 @@ sync:
 - source: quay.io/prometheus/prometheus:v3.5.0
   target: docker.io/rancher/prom-prometheus:v3.5.0
   type: image
+- source: quay.io/prometheus/prometheus:v3.8.1
+  target: docker.io/rancher/prom-prometheus:v3.8.1
+  type: image
 - source: quay.io/prometheus/prometheus:v2.19.2
   target: registry.suse.com/rancher/prom-prometheus:v2.19.2
   type: image
@@ -18020,6 +19436,9 @@ sync:
 - source: quay.io/prometheus/prometheus:v3.5.0
   target: registry.suse.com/rancher/prom-prometheus:v3.5.0
   type: image
+- source: quay.io/prometheus/prometheus:v3.8.1
+  target: registry.suse.com/rancher/prom-prometheus:v3.8.1
+  type: image
 - source: quay.io/prometheus/prometheus:v2.19.2
   target: stgregistry.suse.com/rancher/prom-prometheus:v2.19.2
   type: image
@@ -18034,6 +19453,9 @@ sync:
   type: image
 - source: quay.io/prometheus/prometheus:v3.5.0
   target: stgregistry.suse.com/rancher/prom-prometheus:v3.5.0
+  type: image
+- source: quay.io/prometheus/prometheus:v3.8.1
+  target: stgregistry.suse.com/rancher/prom-prometheus:v3.8.1
   type: image
 - source: quay.io/s3gw/s3gw:v0.14.0
   target: docker.io/rancher/mirrored-s3gw-s3gw:v0.14.0
@@ -18083,6 +19505,9 @@ sync:
 - source: quay.io/thanos/thanos:v0.37.2
   target: docker.io/rancher/mirrored-thanos-thanos:v0.37.2
   type: image
+- source: quay.io/thanos/thanos:v0.39.2
+  target: docker.io/rancher/mirrored-thanos-thanos:v0.39.2
+  type: image
 - source: quay.io/thanos/thanos:v0.17.2
   target: registry.suse.com/rancher/mirrored-thanos-thanos:v0.17.2
   type: image
@@ -18104,6 +19529,9 @@ sync:
 - source: quay.io/thanos/thanos:v0.37.2
   target: registry.suse.com/rancher/mirrored-thanos-thanos:v0.37.2
   type: image
+- source: quay.io/thanos/thanos:v0.39.2
+  target: registry.suse.com/rancher/mirrored-thanos-thanos:v0.39.2
+  type: image
 - source: quay.io/thanos/thanos:v0.17.2
   target: stgregistry.suse.com/rancher/mirrored-thanos-thanos:v0.17.2
   type: image
@@ -18124,6 +19552,9 @@ sync:
   type: image
 - source: quay.io/thanos/thanos:v0.37.2
   target: stgregistry.suse.com/rancher/mirrored-thanos-thanos:v0.37.2
+  type: image
+- source: quay.io/thanos/thanos:v0.39.2
+  target: stgregistry.suse.com/rancher/mirrored-thanos-thanos:v0.39.2
   type: image
 - source: quay.io/tigera/operator:v1.15.1
   target: docker.io/rancher/mirrored-calico-operator:v1.15.1
@@ -18254,6 +19685,15 @@ sync:
 - source: quay.io/tigera/operator:v1.40.0
   target: docker.io/rancher/mirrored-calico-operator:v1.40.0
   type: image
+- source: quay.io/tigera/operator:v1.40.1
+  target: docker.io/rancher/mirrored-calico-operator:v1.40.1
+  type: image
+- source: quay.io/tigera/operator:v1.40.2
+  target: docker.io/rancher/mirrored-calico-operator:v1.40.2
+  type: image
+- source: quay.io/tigera/operator:v1.40.3
+  target: docker.io/rancher/mirrored-calico-operator:v1.40.3
+  type: image
 - source: quay.io/tigera/operator:v1.15.1
   target: registry.suse.com/rancher/mirrored-calico-operator:v1.15.1
   type: image
@@ -18383,6 +19823,15 @@ sync:
 - source: quay.io/tigera/operator:v1.40.0
   target: registry.suse.com/rancher/mirrored-calico-operator:v1.40.0
   type: image
+- source: quay.io/tigera/operator:v1.40.1
+  target: registry.suse.com/rancher/mirrored-calico-operator:v1.40.1
+  type: image
+- source: quay.io/tigera/operator:v1.40.2
+  target: registry.suse.com/rancher/mirrored-calico-operator:v1.40.2
+  type: image
+- source: quay.io/tigera/operator:v1.40.3
+  target: registry.suse.com/rancher/mirrored-calico-operator:v1.40.3
+  type: image
 - source: quay.io/tigera/operator:v1.15.1
   target: stgregistry.suse.com/rancher/mirrored-calico-operator:v1.15.1
   type: image
@@ -18511,6 +19960,15 @@ sync:
   type: image
 - source: quay.io/tigera/operator:v1.40.0
   target: stgregistry.suse.com/rancher/mirrored-calico-operator:v1.40.0
+  type: image
+- source: quay.io/tigera/operator:v1.40.1
+  target: stgregistry.suse.com/rancher/mirrored-calico-operator:v1.40.1
+  type: image
+- source: quay.io/tigera/operator:v1.40.2
+  target: stgregistry.suse.com/rancher/mirrored-calico-operator:v1.40.2
+  type: image
+- source: quay.io/tigera/operator:v1.40.3
+  target: stgregistry.suse.com/rancher/mirrored-calico-operator:v1.40.3
   type: image
 - source: rancher/cluster-proportional-autoscaler:1.7.1
   target: docker.io/rancher/mirrored-cluster-proportional-autoscaler:1.7.1
@@ -18653,11 +20111,20 @@ sync:
 - source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.32.2
   target: docker.io/rancher/mirrored-cloud-provider-vsphere:v1.32.2
   type: image
+- source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.32.3
+  target: docker.io/rancher/mirrored-cloud-provider-vsphere:v1.32.3
+  type: image
 - source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.33.0
   target: docker.io/rancher/mirrored-cloud-provider-vsphere:v1.33.0
   type: image
+- source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.33.1
+  target: docker.io/rancher/mirrored-cloud-provider-vsphere:v1.33.1
+  type: image
 - source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.34.0
   target: docker.io/rancher/mirrored-cloud-provider-vsphere:v1.34.0
+  type: image
+- source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.35.0
+  target: docker.io/rancher/mirrored-cloud-provider-vsphere:v1.35.0
   type: image
 - source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.30.0
   target: registry.suse.com/rancher/mirrored-cloud-provider-vsphere:v1.30.0
@@ -18683,11 +20150,20 @@ sync:
 - source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.32.2
   target: registry.suse.com/rancher/mirrored-cloud-provider-vsphere:v1.32.2
   type: image
+- source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.32.3
+  target: registry.suse.com/rancher/mirrored-cloud-provider-vsphere:v1.32.3
+  type: image
 - source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.33.0
   target: registry.suse.com/rancher/mirrored-cloud-provider-vsphere:v1.33.0
   type: image
+- source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.33.1
+  target: registry.suse.com/rancher/mirrored-cloud-provider-vsphere:v1.33.1
+  type: image
 - source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.34.0
   target: registry.suse.com/rancher/mirrored-cloud-provider-vsphere:v1.34.0
+  type: image
+- source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.35.0
+  target: registry.suse.com/rancher/mirrored-cloud-provider-vsphere:v1.35.0
   type: image
 - source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.30.0
   target: stgregistry.suse.com/rancher/mirrored-cloud-provider-vsphere:v1.30.0
@@ -18713,101 +20189,20 @@ sync:
 - source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.32.2
   target: stgregistry.suse.com/rancher/mirrored-cloud-provider-vsphere:v1.32.2
   type: image
+- source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.32.3
+  target: stgregistry.suse.com/rancher/mirrored-cloud-provider-vsphere:v1.32.3
+  type: image
 - source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.33.0
   target: stgregistry.suse.com/rancher/mirrored-cloud-provider-vsphere:v1.33.0
+  type: image
+- source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.33.1
+  target: stgregistry.suse.com/rancher/mirrored-cloud-provider-vsphere:v1.33.1
   type: image
 - source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.34.0
   target: stgregistry.suse.com/rancher/mirrored-cloud-provider-vsphere:v1.34.0
   type: image
-- source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.30.0
-  target: docker.io/rancher/mirrored-cloud-pv-vsphere-cloud-provider-vsphere:v1.30.0
-  type: image
-- source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.30.1
-  target: docker.io/rancher/mirrored-cloud-pv-vsphere-cloud-provider-vsphere:v1.30.1
-  type: image
-- source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.30.2
-  target: docker.io/rancher/mirrored-cloud-pv-vsphere-cloud-provider-vsphere:v1.30.2
-  type: image
-- source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.31.0
-  target: docker.io/rancher/mirrored-cloud-pv-vsphere-cloud-provider-vsphere:v1.31.0
-  type: image
-- source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.31.1
-  target: docker.io/rancher/mirrored-cloud-pv-vsphere-cloud-provider-vsphere:v1.31.1
-  type: image
-- source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.32.0
-  target: docker.io/rancher/mirrored-cloud-pv-vsphere-cloud-provider-vsphere:v1.32.0
-  type: image
-- source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.32.1
-  target: docker.io/rancher/mirrored-cloud-pv-vsphere-cloud-provider-vsphere:v1.32.1
-  type: image
-- source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.32.2
-  target: docker.io/rancher/mirrored-cloud-pv-vsphere-cloud-provider-vsphere:v1.32.2
-  type: image
-- source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.33.0
-  target: docker.io/rancher/mirrored-cloud-pv-vsphere-cloud-provider-vsphere:v1.33.0
-  type: image
-- source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.34.0
-  target: docker.io/rancher/mirrored-cloud-pv-vsphere-cloud-provider-vsphere:v1.34.0
-  type: image
-- source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.30.0
-  target: registry.suse.com/rancher/mirrored-cloud-pv-vsphere-cloud-provider-vsphere:v1.30.0
-  type: image
-- source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.30.1
-  target: registry.suse.com/rancher/mirrored-cloud-pv-vsphere-cloud-provider-vsphere:v1.30.1
-  type: image
-- source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.30.2
-  target: registry.suse.com/rancher/mirrored-cloud-pv-vsphere-cloud-provider-vsphere:v1.30.2
-  type: image
-- source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.31.0
-  target: registry.suse.com/rancher/mirrored-cloud-pv-vsphere-cloud-provider-vsphere:v1.31.0
-  type: image
-- source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.31.1
-  target: registry.suse.com/rancher/mirrored-cloud-pv-vsphere-cloud-provider-vsphere:v1.31.1
-  type: image
-- source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.32.0
-  target: registry.suse.com/rancher/mirrored-cloud-pv-vsphere-cloud-provider-vsphere:v1.32.0
-  type: image
-- source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.32.1
-  target: registry.suse.com/rancher/mirrored-cloud-pv-vsphere-cloud-provider-vsphere:v1.32.1
-  type: image
-- source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.32.2
-  target: registry.suse.com/rancher/mirrored-cloud-pv-vsphere-cloud-provider-vsphere:v1.32.2
-  type: image
-- source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.33.0
-  target: registry.suse.com/rancher/mirrored-cloud-pv-vsphere-cloud-provider-vsphere:v1.33.0
-  type: image
-- source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.34.0
-  target: registry.suse.com/rancher/mirrored-cloud-pv-vsphere-cloud-provider-vsphere:v1.34.0
-  type: image
-- source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.30.0
-  target: stgregistry.suse.com/rancher/mirrored-cloud-pv-vsphere-cloud-provider-vsphere:v1.30.0
-  type: image
-- source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.30.1
-  target: stgregistry.suse.com/rancher/mirrored-cloud-pv-vsphere-cloud-provider-vsphere:v1.30.1
-  type: image
-- source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.30.2
-  target: stgregistry.suse.com/rancher/mirrored-cloud-pv-vsphere-cloud-provider-vsphere:v1.30.2
-  type: image
-- source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.31.0
-  target: stgregistry.suse.com/rancher/mirrored-cloud-pv-vsphere-cloud-provider-vsphere:v1.31.0
-  type: image
-- source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.31.1
-  target: stgregistry.suse.com/rancher/mirrored-cloud-pv-vsphere-cloud-provider-vsphere:v1.31.1
-  type: image
-- source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.32.0
-  target: stgregistry.suse.com/rancher/mirrored-cloud-pv-vsphere-cloud-provider-vsphere:v1.32.0
-  type: image
-- source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.32.1
-  target: stgregistry.suse.com/rancher/mirrored-cloud-pv-vsphere-cloud-provider-vsphere:v1.32.1
-  type: image
-- source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.32.2
-  target: stgregistry.suse.com/rancher/mirrored-cloud-pv-vsphere-cloud-provider-vsphere:v1.32.2
-  type: image
-- source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.33.0
-  target: stgregistry.suse.com/rancher/mirrored-cloud-pv-vsphere-cloud-provider-vsphere:v1.33.0
-  type: image
-- source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.34.0
-  target: stgregistry.suse.com/rancher/mirrored-cloud-pv-vsphere-cloud-provider-vsphere:v1.34.0
+- source: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere:v1.35.0
+  target: stgregistry.suse.com/rancher/mirrored-cloud-provider-vsphere:v1.35.0
   type: image
 - source: registry.k8s.io/cluster-api/cluster-api-controller:v1.10.2
   target: docker.io/rancher/mirrored-cluster-api-controller:v1.10.2
@@ -18962,6 +20357,9 @@ sync:
 - source: registry.k8s.io/csi-vsphere/driver:v3.5.0
   target: docker.io/rancher/mirrored-cloud-provider-vsphere-csi-release-driver:v3.5.0
   type: image
+- source: registry.k8s.io/csi-vsphere/driver:v3.6.0
+  target: docker.io/rancher/mirrored-cloud-provider-vsphere-csi-release-driver:v3.6.0
+  type: image
 - source: registry.k8s.io/csi-vsphere/driver:v3.3.1
   target: registry.suse.com/rancher/mirrored-cloud-provider-vsphere-csi-release-driver:v3.3.1
   type: image
@@ -18970,6 +20368,9 @@ sync:
   type: image
 - source: registry.k8s.io/csi-vsphere/driver:v3.5.0
   target: registry.suse.com/rancher/mirrored-cloud-provider-vsphere-csi-release-driver:v3.5.0
+  type: image
+- source: registry.k8s.io/csi-vsphere/driver:v3.6.0
+  target: registry.suse.com/rancher/mirrored-cloud-provider-vsphere-csi-release-driver:v3.6.0
   type: image
 - source: registry.k8s.io/csi-vsphere/driver:v3.3.1
   target: stgregistry.suse.com/rancher/mirrored-cloud-provider-vsphere-csi-release-driver:v3.3.1
@@ -18980,6 +20381,9 @@ sync:
 - source: registry.k8s.io/csi-vsphere/driver:v3.5.0
   target: stgregistry.suse.com/rancher/mirrored-cloud-provider-vsphere-csi-release-driver:v3.5.0
   type: image
+- source: registry.k8s.io/csi-vsphere/driver:v3.6.0
+  target: stgregistry.suse.com/rancher/mirrored-cloud-provider-vsphere-csi-release-driver:v3.6.0
+  type: image
 - source: registry.k8s.io/csi-vsphere/syncer:v3.3.1
   target: docker.io/rancher/mirrored-cloud-provider-vsphere-csi-release-syncer:v3.3.1
   type: image
@@ -18988,6 +20392,9 @@ sync:
   type: image
 - source: registry.k8s.io/csi-vsphere/syncer:v3.5.0
   target: docker.io/rancher/mirrored-cloud-provider-vsphere-csi-release-syncer:v3.5.0
+  type: image
+- source: registry.k8s.io/csi-vsphere/syncer:v3.6.0
+  target: docker.io/rancher/mirrored-cloud-provider-vsphere-csi-release-syncer:v3.6.0
   type: image
 - source: registry.k8s.io/csi-vsphere/syncer:v3.3.1
   target: registry.suse.com/rancher/mirrored-cloud-provider-vsphere-csi-release-syncer:v3.3.1
@@ -18998,6 +20405,9 @@ sync:
 - source: registry.k8s.io/csi-vsphere/syncer:v3.5.0
   target: registry.suse.com/rancher/mirrored-cloud-provider-vsphere-csi-release-syncer:v3.5.0
   type: image
+- source: registry.k8s.io/csi-vsphere/syncer:v3.6.0
+  target: registry.suse.com/rancher/mirrored-cloud-provider-vsphere-csi-release-syncer:v3.6.0
+  type: image
 - source: registry.k8s.io/csi-vsphere/syncer:v3.3.1
   target: stgregistry.suse.com/rancher/mirrored-cloud-provider-vsphere-csi-release-syncer:v3.3.1
   type: image
@@ -19006,6 +20416,9 @@ sync:
   type: image
 - source: registry.k8s.io/csi-vsphere/syncer:v3.5.0
   target: stgregistry.suse.com/rancher/mirrored-cloud-provider-vsphere-csi-release-syncer:v3.5.0
+  type: image
+- source: registry.k8s.io/csi-vsphere/syncer:v3.6.0
+  target: stgregistry.suse.com/rancher/mirrored-cloud-provider-vsphere-csi-release-syncer:v3.6.0
   type: image
 - source: registry.k8s.io/dns/k8s-dns-dnsmasq-nanny:1.17.3
   target: docker.io/rancher/mirrored-k8s-dns-dnsmasq-nanny:1.17.3
@@ -19346,6 +20759,18 @@ sync:
 - source: registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.6.3
   target: docker.io/rancher/mirrored-ingress-nginx-kube-webhook-certgen:v1.6.3
   type: image
+- source: registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.6.4
+  target: docker.io/rancher/mirrored-ingress-nginx-kube-webhook-certgen:v1.6.4
+  type: image
+- source: registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.6.5
+  target: docker.io/rancher/mirrored-ingress-nginx-kube-webhook-certgen:v1.6.5
+  type: image
+- source: registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.6.6
+  target: docker.io/rancher/mirrored-ingress-nginx-kube-webhook-certgen:v1.6.6
+  type: image
+- source: registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.6.7
+  target: docker.io/rancher/mirrored-ingress-nginx-kube-webhook-certgen:v1.6.7
+  type: image
 - source: registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20221220-controller-v1.5.1-58-g787ea74b6
   target: docker.io/rancher/mirrored-ingress-nginx-kube-webhook-certgen:v20221220-controller-v1.5.1-58-g787ea74b6
   type: image
@@ -19409,6 +20834,18 @@ sync:
 - source: registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.6.3
   target: registry.suse.com/rancher/mirrored-ingress-nginx-kube-webhook-certgen:v1.6.3
   type: image
+- source: registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.6.4
+  target: registry.suse.com/rancher/mirrored-ingress-nginx-kube-webhook-certgen:v1.6.4
+  type: image
+- source: registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.6.5
+  target: registry.suse.com/rancher/mirrored-ingress-nginx-kube-webhook-certgen:v1.6.5
+  type: image
+- source: registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.6.6
+  target: registry.suse.com/rancher/mirrored-ingress-nginx-kube-webhook-certgen:v1.6.6
+  type: image
+- source: registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.6.7
+  target: registry.suse.com/rancher/mirrored-ingress-nginx-kube-webhook-certgen:v1.6.7
+  type: image
 - source: registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20221220-controller-v1.5.1-58-g787ea74b6
   target: registry.suse.com/rancher/mirrored-ingress-nginx-kube-webhook-certgen:v20221220-controller-v1.5.1-58-g787ea74b6
   type: image
@@ -19471,6 +20908,18 @@ sync:
   type: image
 - source: registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.6.3
   target: stgregistry.suse.com/rancher/mirrored-ingress-nginx-kube-webhook-certgen:v1.6.3
+  type: image
+- source: registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.6.4
+  target: stgregistry.suse.com/rancher/mirrored-ingress-nginx-kube-webhook-certgen:v1.6.4
+  type: image
+- source: registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.6.5
+  target: stgregistry.suse.com/rancher/mirrored-ingress-nginx-kube-webhook-certgen:v1.6.5
+  type: image
+- source: registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.6.6
+  target: stgregistry.suse.com/rancher/mirrored-ingress-nginx-kube-webhook-certgen:v1.6.6
+  type: image
+- source: registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.6.7
+  target: stgregistry.suse.com/rancher/mirrored-ingress-nginx-kube-webhook-certgen:v1.6.7
   type: image
 - source: registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20221220-controller-v1.5.1-58-g787ea74b6
   target: stgregistry.suse.com/rancher/mirrored-ingress-nginx-kube-webhook-certgen:v20221220-controller-v1.5.1-58-g787ea74b6
@@ -20554,6 +22003,33 @@ sync:
   type: image
 - source: registry.k8s.io/sig-storage/snapshot-validation-webhook:v8.1.0
   target: stgregistry.suse.com/rancher/mirrored-sig-storage-snapshot-validation-webhook:v8.1.0
+  type: image
+- source: registry.rancher.com/suse-observability/container-tools:1.8.1-bci
+  target: docker.io/rancher/mirrored-suse-observability-agent-container-tools:1.8.1-bci
+  type: image
+- source: registry.rancher.com/suse-observability/generic-sidecar-injector:d03e11f3-21
+  target: docker.io/rancher/mirrored-suse-observability-agent-generic-sidecar-injector:d03e11f3-21
+  type: image
+- source: registry.rancher.com/suse-observability/http-header-injector-proxy:cb2eb8ab-194
+  target: docker.io/rancher/mirrored-suse-observability-agent-http-header-injector-proxy:cb2eb8ab-194
+  type: image
+- source: registry.rancher.com/suse-observability/http-header-injector-proxy-init:cb2eb8ab-194
+  target: docker.io/rancher/mirrored-suse-observability-agent-http-header-injector-proxy-init:cb2eb8ab-194
+  type: image
+- source: registry.rancher.com/suse-observability/kubernetes-rbac-agent:35ec5206
+  target: docker.io/rancher/mirrored-suse-observability-agent-kubernetes-rbac-agent:35ec5206
+  type: image
+- source: registry.rancher.com/suse-observability/promtail:2.9.15-2a5cc100
+  target: docker.io/rancher/mirrored-suse-observability-agent-promtail:2.9.15-2a5cc100
+  type: image
+- source: registry.rancher.com/suse-observability/stackstate-k8s-agent:289d9a9e
+  target: docker.io/rancher/mirrored-suse-observability-agent-k8s-agent:289d9a9e
+  type: image
+- source: registry.rancher.com/suse-observability/stackstate-k8s-cluster-agent:289d9a9e
+  target: docker.io/rancher/mirrored-suse-observability-agent-k8s-cluster-agent:289d9a9e
+  type: image
+- source: registry.rancher.com/suse-observability/stackstate-k8s-process-agent:5d0ec298
+  target: docker.io/rancher/mirrored-suse-observability-agent-k8s-process-agent:5d0ec298
   type: image
 - source: registry.suse.com/bci/bci-busybox:15.4.11.2
   target: docker.io/rancher/mirrored-bci-busybox:15.4.11.2

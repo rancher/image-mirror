@@ -16,25 +16,25 @@ func TestRegistry(t *testing.T) {
 			{
 				Message: "should return nil for a valid Registry strategy",
 				Registry: &Registry{
-					Images:        []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
+					Artifacts:     []AutoupdateArtifactRef{{SourceArtifact: "rancher/rancher"}},
 					Latest:        true,
 					VersionFilter: "^v1\\.([3-9][0-9])\\.[0-9]+$",
 				},
 				ExpectedError: "",
 			},
 			{
-				Message: "should return error if no images provided",
+				Message: "should return error if no artifacts provided",
 				Registry: &Registry{
-					Images:        nil,
+					Artifacts:     nil,
 					Latest:        true,
 					VersionFilter: "^v1\\.([3-9][0-9])\\.[0-9]+$",
 				},
-				ExpectedError: "must specify at least one image",
+				ExpectedError: "must specify at least one artifact",
 			},
 			{
 				Message: "should return error the versionFilter provided is invalid",
 				Registry: &Registry{
-					Images:        []AutoupdateImageRef{{SourceImage: "rancher/rancher"}},
+					Artifacts:     []AutoupdateArtifactRef{{SourceArtifact: "rancher/rancher"}},
 					Latest:        false,
 					VersionFilter: "[",
 				},

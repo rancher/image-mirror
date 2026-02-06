@@ -5,82 +5,82 @@ import (
 	"slices"
 )
 
-type ImageIndex struct {
-	SourceImage     string
-	TargetImageName string
+type ArtifactIndex struct {
+	SourceArtifact     string
+	TargetArtifactName string
 }
 
-type ImageAccumulator struct {
-	mapping map[ImageIndex]*Image
+type ArtifactAccumulator struct {
+	mapping map[ArtifactIndex]*Artifact
 }
 
-func NewImageAccumulator() *ImageAccumulator {
-	return &ImageAccumulator{
-		mapping: map[ImageIndex]*Image{},
+func NewArtifactAccumulator() *ArtifactAccumulator {
+	return &ArtifactAccumulator{
+		mapping: map[ArtifactIndex]*Artifact{},
 	}
 }
 
-func (ia *ImageAccumulator) AddImages(newImages ...*Image) {
-	for _, newImage := range newImages {
-		pair := ImageIndex{
-			SourceImage:     newImage.SourceImage,
-			TargetImageName: newImage.TargetImageName(),
+func (ia *ArtifactAccumulator) AddArtifacts(newArtifacts ...*Artifact) {
+	for _, newArtifact := range newArtifacts {
+		pair := ArtifactIndex{
+			SourceArtifact:     newArtifact.SourceArtifact,
+			TargetArtifactName: newArtifact.TargetArtifactName(),
 		}
-		existingImage, ok := ia.mapping[pair]
+		existingArtifact, ok := ia.mapping[pair]
 		if !ok {
-			ia.mapping[pair] = newImage
+			ia.mapping[pair] = newArtifact
 		} else {
-			for _, newTag := range newImage.Tags {
-				if !slices.Contains(existingImage.Tags, newTag) {
-					existingImage.Tags = append(existingImage.Tags, newTag)
+			for _, newTag := range newArtifact.Tags {
+				if !slices.Contains(existingArtifact.Tags, newTag) {
+					existingArtifact.Tags = append(existingArtifact.Tags, newTag)
 				}
 			}
-			ia.mapping[pair] = existingImage
+			ia.mapping[pair] = existingArtifact
 		}
 	}
 }
 
-// TagDifference returns an Image containing the tags of image that are
-// not already accounted for in the image accumulator. If all tags of
-// the image are accounted for, nil is returned for the image. The
+// TagDifference returns an Artifact containing the tags of artifact that are
+// not already accounted for in the artifact accumulator. If all tags of
+// the artifact are accounted for, nil is returned for the artifact. The
 // "difference" terminology comes from set theory.
-func (ia *ImageAccumulator) TagDifference(image *Image) (*Image, error) {
-	index := ImageIndex{
-		SourceImage:     image.SourceImage,
-		TargetImageName: image.TargetImageName(),
+func (ia *ArtifactAccumulator) TagDifference(artifact *Artifact) (*Artifact, error) {
+	index := ArtifactIndex{
+		SourceArtifact:     artifact.SourceArtifact,
+		TargetArtifactName: artifact.TargetArtifactName(),
 	}
-	existingImage, ok := ia.mapping[index]
+	existingArtifact, ok := ia.mapping[index]
 	if !ok {
-		return image, nil
+		return artifact, nil
 	}
 
-	imageToReturn, err := NewImage(image.SourceImage, make([]string, 0, len(image.Tags)), image.TargetImageName(), image.DoNotMirror, image.TargetRepositories)
+	artifactToReturn, err := NewArtifact(artifact.SourceArtifact, make([]string, 0, len(artifact.Tags)), artifact.TargetArtifactName(), artifact.DoNotMirror, artifact.TargetRepositories)
 	if err != nil {
-		return nil, fmt.Errorf("failed to construct new image from passed image: %w", err)
+		return nil, fmt.Errorf("failed to construct new artifact from passed artifact: %w", err)
 	}
-	for _, tag := range image.Tags {
-		if !slices.Contains(existingImage.Tags, tag) {
-			imageToReturn.Tags = append(imageToReturn.Tags, tag)
+	for _, tag := range artifact.Tags {
+		if !slices.Contains(existingArtifact.Tags, tag) {
+			artifactToReturn.Tags = append(artifactToReturn.Tags, tag)
 		}
 	}
-	if len(imageToReturn.Tags) == 0 {
+	if len(artifactToReturn.Tags) == 0 {
 		return nil, nil
 	}
-	return imageToReturn, nil
+	return artifactToReturn, nil
 }
 
-func (ia *ImageAccumulator) Images() []*Image {
-	images := make([]*Image, 0, len(ia.mapping))
-	for _, image := range ia.mapping {
-		images = append(images, image)
+func (ia *ArtifactAccumulator) Artifacts() []*Artifact {
+	artifacts := make([]*Artifact, 0, len(ia.mapping))
+	for _, artifact := range ia.mapping {
+		artifacts = append(artifacts, artifact)
 	}
-	return images
+	return artifacts
 }
 
-func (ia *ImageAccumulator) Contains(image *Image) bool {
-	index := ImageIndex{
-		SourceImage:     image.SourceImage,
-		TargetImageName: image.TargetImageName(),
+func (ia *ArtifactAccumulator) Contains(artifact *Artifact) bool {
+	index := ArtifactIndex{
+		SourceArtifact:     artifact.SourceArtifact,
+		TargetArtifactName: artifact.TargetArtifactName(),
 	}
 	_, ok := ia.mapping[index]
 	return ok

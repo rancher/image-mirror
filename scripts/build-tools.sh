@@ -3,7 +3,7 @@
 REPO_ROOT=$(git rev-parse --show-toplevel)
 TOOLS_DIR="$REPO_ROOT/tools"
 BIN_DIR="$REPO_ROOT/bin"
-TOOLS_PATH="$BIN_DIR/image-mirror-tools"
+TOOLS_PATH="$BIN_DIR/artifact-mirror-tools"
 
 rm -f "$TOOLS_PATH"
 mkdir -p "$BIN_DIR"

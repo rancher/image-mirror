@@ -9,11 +9,11 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/rancher/image-mirror/internal/config"
+	"github.com/rancher/artifact-mirror/internal/config"
 	"gopkg.in/yaml.v3"
 )
 
-const helmRepoName = "image-mirror-tools-temp"
+const helmRepoName = "artifact-mirror-tools-temp"
 
 // An Environment is a set of configuration we would like to apply to a
 // chart when templating it out and searching the result for images.
@@ -33,9 +33,9 @@ func (e Environment) ToHelmTemplateArgs() []string {
 // This is not a perfectly reliable way of finding images that a chart uses, and
 // does not attempt to be. However, it is probably good enough for simple charts.
 type HelmLatest struct {
-	// Images tells the autoupdate code which entry in config.yaml to add the
+	// Artifacts tells the autoupdate code which entry in config.yaml to add the
 	// update images to.
-	Images []AutoupdateImageRef `json:",omitempty"`
+	Artifacts []AutoupdateArtifactRef `json:",omitempty"`
 	// HelmRepo is the URL of the Helm chart repository.
 	HelmRepo string
 	// Charts is a map of chart names to the environments under which we want to
@@ -45,13 +45,13 @@ type HelmLatest struct {
 	ImageDenylist []string `json:",omitempty"`
 }
 
-// GetUpdateImages templates the helm chart and extracts all image references
-func (hl *HelmLatest) GetUpdateImages() ([]*config.Image, error) {
+// GetUpdateArtifacts templates the helm chart and extracts all image references
+func (hl *HelmLatest) GetUpdateArtifacts() ([]*config.Artifact, error) {
 	if _, err := exec.LookPath("helm"); err != nil {
 		return nil, fmt.Errorf("helm command not found: %w", err)
 	}
 
-	imageMap := make(map[string][]string)
+	artifactMap := make(map[string][]string)
 
 	addRepoCmd := exec.Command("helm", "repo", "add", helmRepoName, hl.HelmRepo)
 	if err := addRepoCmd.Run(); err != nil {
@@ -87,27 +87,27 @@ func (hl *HelmLatest) GetUpdateImages() ([]*config.Image, error) {
 				} else if err != nil {
 					return nil, fmt.Errorf("failed to parse template command output as yaml: %w", err)
 				}
-				if err := hl.extractImagesFromYaml(templateData, imageMap); err != nil {
+				if err := hl.extractImagesFromYaml(templateData, artifactMap); err != nil {
 					return nil, fmt.Errorf("failed to extract images from chart %s env %s: %w", chartName, environmentName, err)
 				}
 			}
 		}
 	}
 
-	// Convert the map to a slice of config.Image objects
-	images := make([]*config.Image, 0, len(imageMap))
-	for sourceImage, tags := range imageMap {
+	// Convert the map to a slice of config.Artifact objects
+	images := make([]*config.Artifact, 0, len(artifactMap))
+	for sourceImage, tags := range artifactMap {
 		var foundTargetImageName *string
-		for _, autoupdateImageRef := range hl.Images {
-			if sourceImage == autoupdateImageRef.SourceImage {
-				foundTargetImageName = &autoupdateImageRef.TargetImageName
+		for _, autoupdateImageRef := range hl.Artifacts {
+			if sourceImage == autoupdateImageRef.SourceArtifact {
+				foundTargetImageName = &autoupdateImageRef.TargetArtifactName
 				break
 			}
 		}
 		if foundTargetImageName == nil {
-			return nil, fmt.Errorf("found image %s but it is not present in Images", sourceImage)
+			return nil, fmt.Errorf("found image %s but it is not present in Artifacts", sourceImage)
 		}
-		image, err := config.NewImage(sourceImage, tags, *foundTargetImageName, nil, nil)
+		image, err := config.NewArtifact(sourceImage, tags, *foundTargetImageName, nil, nil)
 		if err != nil {
 			return nil, fmt.Errorf("failed to create image: %w", err)
 		}
@@ -115,9 +115,9 @@ func (hl *HelmLatest) GetUpdateImages() ([]*config.Image, error) {
 	}
 
 	// Filter out denied images
-	filteredImages := make([]*config.Image, 0, len(images))
+	filteredImages := make([]*config.Artifact, 0, len(images))
 	for _, image := range images {
-		if !slices.Contains(hl.ImageDenylist, image.SourceImage) {
+		if !slices.Contains(hl.ImageDenylist, image.SourceArtifact) {
 			filteredImages = append(filteredImages, image)
 		}
 	}

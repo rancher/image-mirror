@@ -1,5 +1,5 @@
-Images:
-- SourceImage: amazon/aws-cli
+Artifacts:
+- SourceArtifact: amazon/aws-cli
   Tags:
   - 2.0.52
   - 2.8.5
@@ -7,10 +7,10 @@ Images:
   - 2.9.0
   - 2.9.14
 - DoNotMirror: true
-  SourceImage: appscode/kubed
+  SourceArtifact: appscode/kubed
   Tags:
   - v0.13.2
-- SourceImage: banzaicloud/logging-operator
+- SourceArtifact: banzaicloud/logging-operator
   Tags:
   - 3.6.0
   - 3.7.0
@@ -18,30 +18,30 @@ Images:
   - 3.8.0
   - 3.8.2
   - 3.9.0
-  TargetImageName: banzaicloud-logging-operator
-- SourceImage: banzaicloud/logging-operator
+  TargetArtifactName: banzaicloud-logging-operator
+- SourceArtifact: banzaicloud/logging-operator
   Tags:
   - 3.10.0
   - 3.12.0
   - 3.9.0
   - 3.9.4
   - 3.9.5
-- SourceImage: bats/bats
+- SourceArtifact: bats/bats
   Tags:
   - v1.1.0
-  TargetImageName: bats-bats
-- SourceImage: bats/bats
+  TargetArtifactName: bats-bats
+- SourceArtifact: bats/bats
   Tags:
   - v1.1.0
   - v1.4.1
-- SourceImage: coredns/coredns
+- SourceArtifact: coredns/coredns
   Tags:
   - 1.7.0
   - 1.7.1
   - 1.8.0
   - 1.8.3
-  TargetImageName: coredns-coredns
-- SourceImage: coredns/coredns
+  TargetArtifactName: coredns-coredns
+- SourceArtifact: coredns/coredns
   Tags:
   - 1.10.1
   - 1.11.1
@@ -52,6 +52,9 @@ Images:
   - 1.12.3
   - 1.12.4
   - 1.13.1
+  - 1.13.2
+  - 1.14.0
+  - 1.14.1
   - 1.6.2
   - 1.6.5
   - 1.6.9
@@ -64,12 +67,12 @@ Images:
   - 1.9.1
   - 1.9.3
   - 1.9.4
-- SourceImage: curlimages/curl
+- SourceArtifact: curlimages/curl
   Tags:
   - 7.70.0
   - 7.73.0
-  TargetImageName: curlimages-curl
-- SourceImage: curlimages/curl
+  TargetArtifactName: curlimages-curl
+- SourceArtifact: curlimages/curl
   Tags:
   - 7.70.0
   - 7.73.0
@@ -80,29 +83,67 @@ Images:
   - 8.12.1
   - 8.13.0
   - 8.9.1
-- SourceImage: directxman12/k8s-prometheus-adapter
+- SourceArtifact: directxman12/k8s-prometheus-adapter
   Tags:
   - v0.8.3
   - v0.8.4
-- SourceImage: directxman12/k8s-prometheus-adapter-amd64
+- SourceArtifact: directxman12/k8s-prometheus-adapter-amd64
   Tags:
   - v0.6.0
   - v0.7.0
-  TargetImageName: directxman12-k8s-prometheus-adapter-amd64
-- SourceImage: directxman12/k8s-prometheus-adapter-amd64
+  TargetArtifactName: directxman12-k8s-prometheus-adapter-amd64
+- SourceArtifact: directxman12/k8s-prometheus-adapter-amd64
   Tags:
   - v0.7.0
   - v0.8.3
-- SourceImage: dp.apps.rancher.io/charts/kubernetes-cluster-autoscaler
+- SourceArtifact: dp.apps.rancher.io/charts/kubernetes-cluster-autoscaler
   Tags:
   - 9.50.1
   TargetRepositories:
   - registry.suse.com/rancher/charts
   - stgregistry.suse.com/rancher/charts
-- SourceImage: dp.apps.rancher.io/containers/k8s-sidecar
+- SourceArtifact: dp.apps.rancher.io/charts/suse-virtual-cluster-engine
+  Tags:
+  - 1.0.0
+  - 1.0.1
+  TargetRepositories:
+  - registry.suse.com/rancher/charts
+  - stgregistry.suse.com/rancher/charts
+- SourceArtifact: dp.apps.rancher.io/containers/alertmanager
+  Tags:
+  - 0.28.1-12.7
+  - 0.30.0-12.15
+- SourceArtifact: dp.apps.rancher.io/containers/grafana
+  Tags:
+  - 12.1.1-2.2
+  - 12.3.1-1.6
+- SourceArtifact: dp.apps.rancher.io/containers/k3k
+  Tags:
+  - 1.0.0-1.1
+  - 1.0.1-1.9
+  TargetRepositories:
+  - registry.suse.com/rancher
+  - stgregistry.suse.com/rancher
+- SourceArtifact: dp.apps.rancher.io/containers/k3k-kubelet
+  Tags:
+  - 1.0.0-1.1
+  - 1.0.1-1.9
+  TargetRepositories:
+  - registry.suse.com/rancher
+  - stgregistry.suse.com/rancher
+- SourceArtifact: dp.apps.rancher.io/containers/k8s-sidecar
   Tags:
   - 1.30.7-11.3
-- SourceImage: dp.apps.rancher.io/containers/kubernetes-cluster-autoscaler
+  - 2.1.2-1.10
+- SourceArtifact: dp.apps.rancher.io/containers/kube-rbac-proxy
+  Tags:
+  - 0.19.1-15.2
+  - 0.20.1-16.14
+- SourceArtifact: dp.apps.rancher.io/containers/kube-state-metrics
+  Tags:
+  - 2.17.0-10.11
+  - 2.17.0-10.7
+- SourceArtifact: dp.apps.rancher.io/containers/kubernetes-cluster-autoscaler
   Tags:
   - 1.32.3-1.5
   - 1.33.0-3.3
@@ -110,10 +151,18 @@ Images:
   TargetRepositories:
   - registry.suse.com/rancher
   - stgregistry.suse.com/rancher
-- SourceImage: dp.apps.rancher.io/containers/redis
+- SourceArtifact: dp.apps.rancher.io/containers/node-exporter
+  Tags:
+  - 1.10.2-11.21
+  - 1.9.1-11.3
+- SourceArtifact: dp.apps.rancher.io/containers/redis
   Tags:
   - 8.0.3-2.1
-- SourceImage: flannel/flannel
+- SourceArtifact: dp.apps.rancher.io/containers/thanos
+  Tags:
+  - 0.39.2-7.3
+  - 0.40.1-7.13
+- SourceArtifact: flannel/flannel
   Tags:
   - v0.21.2
   - v0.21.4
@@ -140,7 +189,8 @@ Images:
   - v0.27.2
   - v0.27.3
   - v0.27.4
-- SourceImage: flannel/flannel-cni-plugin
+  - v0.28.0
+- SourceArtifact: flannel/flannel-cni-plugin
   Tags:
   - v1.2.0
   - v1.5.1-flannel1
@@ -149,7 +199,8 @@ Images:
   - v1.7.1-flannel1
   - v1.7.1-flannel2
   - v1.8.0-flannel1
-- SourceImage: flannelcni/flannel
+  - v1.9.0-flannel1
+- SourceArtifact: flannelcni/flannel
   Tags:
   - v0.16.0
   - v0.16.1
@@ -164,19 +215,19 @@ Images:
   - v0.20.0
   - v0.20.1
   - v0.20.2
-- SourceImage: flannelcni/flannel-cni-plugin
+- SourceArtifact: flannelcni/flannel-cni-plugin
   Tags:
   - v1.0.0
   - v1.0.1
   - v1.1.0
   - v1.1.2
   - v1.2.0
-- SourceImage: fluent/fluent-bit
+- SourceArtifact: fluent/fluent-bit
   Tags:
   - windows-2019-3.1.8
   - windows-2022-3.1.8
-  TargetImageName: fluent-bit
-- SourceImage: fluent/fluent-bit
+  TargetArtifactName: fluent-bit
+- SourceArtifact: fluent/fluent-bit
   Tags:
   - 1.5.4
   - 1.5.4-debug
@@ -187,8 +238,8 @@ Images:
   - 1.6.4
   - 1.6.4-debug
   - 1.8.5-debug
-  TargetImageName: fluent-fluent-bit
-- SourceImage: fluent/fluent-bit
+  TargetArtifactName: fluent-fluent-bit
+- SourceArtifact: fluent/fluent-bit
   Tags:
   - 1.6.10
   - 1.6.10-debug
@@ -217,7 +268,7 @@ Images:
   - 3.1.8
   - 3.1.8-debug
 - DoNotMirror: true
-  SourceImage: gcr.io/cloud-provider-vsphere/cpi/release/manager
+  SourceArtifact: gcr.io/cloud-provider-vsphere/cpi/release/manager
   Tags:
   - v1.18.0
   - v1.19.0
@@ -253,9 +304,9 @@ Images:
   - v1.28.0
   - v1.29.0
   - v1.30.1
-  TargetImageName: mirrored-cloud-provider-vsphere-cpi-release-manager
+  TargetArtifactName: mirrored-cloud-provider-vsphere-cpi-release-manager
 - DoNotMirror: true
-  SourceImage: gcr.io/cloud-provider-vsphere/csi/release/driver
+  SourceArtifact: gcr.io/cloud-provider-vsphere/csi/release/driver
   Tags:
   - v2.1.0
   - v2.2.0
@@ -286,9 +337,9 @@ Images:
   - v3.2.0
   - v3.3.0
   - v3.3.1
-  TargetImageName: mirrored-cloud-provider-vsphere-csi-release-driver
+  TargetArtifactName: mirrored-cloud-provider-vsphere-csi-release-driver
 - DoNotMirror: true
-  SourceImage: gcr.io/cloud-provider-vsphere/csi/release/syncer
+  SourceArtifact: gcr.io/cloud-provider-vsphere/csi/release/syncer
   Tags:
   - v2.1.0
   - v2.2.0
@@ -319,46 +370,46 @@ Images:
   - v3.2.0
   - v3.3.0
   - v3.3.1
-  TargetImageName: mirrored-cloud-provider-vsphere-csi-release-syncer
-- SourceImage: gcr.io/google-containers/k8s-dns-node-cache
+  TargetArtifactName: mirrored-cloud-provider-vsphere-csi-release-syncer
+- SourceArtifact: gcr.io/google-containers/k8s-dns-node-cache
   Tags:
   - 1.15.13
   - 1.15.7
-  TargetImageName: mirrored-k8s-dns-node-cache
-- SourceImage: gcr.io/google_containers/k8s-dns-dnsmasq-nanny
+  TargetArtifactName: mirrored-k8s-dns-node-cache
+- SourceArtifact: gcr.io/google_containers/k8s-dns-dnsmasq-nanny
   Tags:
   - 1.15.0
   - 1.15.10
   - 1.15.2
-  TargetImageName: mirrored-k8s-dns-dnsmasq-nanny
-- SourceImage: gcr.io/google_containers/k8s-dns-kube-dns
+  TargetArtifactName: mirrored-k8s-dns-dnsmasq-nanny
+- SourceArtifact: gcr.io/google_containers/k8s-dns-kube-dns
   Tags:
   - 1.15.0
   - 1.15.10
   - 1.15.2
-  TargetImageName: mirrored-k8s-dns-kube-dns
-- SourceImage: gcr.io/google_containers/k8s-dns-sidecar
+  TargetArtifactName: mirrored-k8s-dns-kube-dns
+- SourceArtifact: gcr.io/google_containers/k8s-dns-sidecar
   Tags:
   - 1.15.0
   - 1.15.10
   - 1.15.2
-  TargetImageName: mirrored-k8s-dns-sidecar
-- SourceImage: gcr.io/google_containers/pause
+  TargetArtifactName: mirrored-k8s-dns-sidecar
+- SourceArtifact: gcr.io/google_containers/pause
   Tags:
   - "3.1"
   - "3.2"
-  TargetImageName: mirrored-pause
-- SourceImage: gcr.io/kubebuilder/kube-rbac-proxy
+  TargetArtifactName: mirrored-pause
+- SourceArtifact: gcr.io/kubebuilder/kube-rbac-proxy
   Tags:
   - v0.5.0
-  TargetImageName: kube-rbac-proxy
-- SourceImage: gcr.io/kubebuilder/kube-rbac-proxy
+  TargetArtifactName: kube-rbac-proxy
+- SourceArtifact: gcr.io/kubebuilder/kube-rbac-proxy
   Tags:
   - v0.14.0
   - v0.15.0
   - v0.5.0
-  TargetImageName: mirrored-kube-rbac-proxy
-- SourceImage: ghcr.io/banzaicloud/fluentd
+  TargetArtifactName: mirrored-kube-rbac-proxy
+- SourceArtifact: ghcr.io/banzaicloud/fluentd
   Tags:
   - v1.12.4-alpine-1
   - v1.13.3-alpine-1
@@ -366,7 +417,7 @@ Images:
   - v1.14.4-alpine-2
   - v1.14.5-alpine-1
   - v1.14.6-alpine-5
-- SourceImage: ghcr.io/banzaicloud/logging-operator
+- SourceArtifact: ghcr.io/banzaicloud/logging-operator
   Tags:
   - 3.14.0
   - 3.15.0
@@ -377,12 +428,12 @@ Images:
   - 3.17.7
   - 3.17.8
   - 3.17.9
-- SourceImage: ghcr.io/dexidp/dex
+- SourceArtifact: ghcr.io/dexidp/dex
   Tags:
   - v2.35.3
   - v2.36.0
   - v2.37.0
-- SourceImage: ghcr.io/epinio/epinio-server
+- SourceArtifact: ghcr.io/epinio/epinio-server
   Tags:
   - v0.7.1
   - v1.0.0
@@ -394,7 +445,7 @@ Images:
   - v1.6.2
   - v1.8.1
   - v1.9.0
-- SourceImage: ghcr.io/epinio/epinio-ui
+- SourceArtifact: ghcr.io/epinio/epinio-ui
   Tags:
   - v0.6.2-0.0.1
   - v1.0.0-0.0.4
@@ -405,7 +456,7 @@ Images:
   - v1.9.0-0.0.3
 - DoNotMirror:
   - "1.0"
-  SourceImage: ghcr.io/epinio/epinio-unpacker
+  SourceArtifact: ghcr.io/epinio/epinio-unpacker
   Tags:
   - "1.0"
   - v1.10.0
@@ -413,27 +464,30 @@ Images:
   - v1.6.2
   - v1.8.1
   - v1.9.0
-- SourceImage: ghcr.io/jimmidyson/configmap-reload
+- SourceArtifact: ghcr.io/jimmidyson/configmap-reload
   Tags:
   - v0.13.1
-- SourceImage: ghcr.io/kube-logging/config-reloader
+- SourceArtifact: ghcr.io/jkroepke/kube-webhook-certgen
+  Tags:
+  - 1.7.4
+- SourceArtifact: ghcr.io/kube-logging/config-reloader
   Tags:
   - v0.0.5
   - v0.0.6
-- SourceImage: ghcr.io/kube-logging/fluentd
+- SourceArtifact: ghcr.io/kube-logging/fluentd
   Tags:
   - v1.16-4.10-full
   - v1.16-4.11-full
   - v1.16-4.8-full
   - v1.16-ruby3.3-full-build.140
-- SourceImage: ghcr.io/kube-logging/logging-operator
+- SourceArtifact: ghcr.io/kube-logging/logging-operator
   Tags:
   - 4.10.0
   - 4.11.4
   - 4.4.0
   - 4.8.0
   - 4.9.1
-- SourceImage: ghcr.io/kube-vip/kube-vip-iptables
+- SourceArtifact: ghcr.io/kube-vip/kube-vip-iptables
   Tags:
   - v0.6.0
   - v0.8.10
@@ -447,20 +501,20 @@ Images:
   - v0.9.2
   - v1.0.0
   - v1.0.1
-- SourceImage: ghcr.io/prometheus-community/windows-exporter
+- SourceArtifact: ghcr.io/prometheus-community/windows-exporter
   Tags:
   - 0.25.1
   - 0.29.2
   - 0.30.5
   - 0.31.2
   - 0.31.3
-  TargetImageName: mirrored-prometheus-windows-exporter
-- SourceImage: grafana/grafana
+  TargetArtifactName: mirrored-prometheus-windows-exporter
+- SourceArtifact: grafana/grafana
   Tags:
   - 7.1.5
   - 7.2.1
-  TargetImageName: grafana-grafana
-- SourceImage: grafana/grafana
+  TargetArtifactName: grafana-grafana
+- SourceArtifact: grafana/grafana
   Tags:
   - 10.3.3
   - 10.4.9
@@ -479,11 +533,11 @@ Images:
   - 8.5.3
   - 9.1.5
   - 9.5.14
-- SourceImage: grafana/grafana-image-renderer
+- SourceArtifact: grafana/grafana-image-renderer
   Tags:
   - 2.0.0
-  TargetImageName: grafana-grafana-image-renderer
-- SourceImage: grafana/grafana-image-renderer
+  TargetArtifactName: grafana-grafana-image-renderer
+- SourceArtifact: grafana/grafana-image-renderer
   Tags:
   - 2.0.1
   - 3.0.1
@@ -496,27 +550,28 @@ Images:
   - 3.8.0
   - v4.0.15
   - v4.0.5
-- SourceImage: idealista/prom2teams
+  - v5.1.0
+- SourceArtifact: idealista/prom2teams
   Tags:
   - 3.2.1
   - 3.2.2
   - 3.2.3
   - 4.2.0
   - 4.2.1
-- SourceImage: istio/citadel
+- SourceArtifact: istio/citadel
   Tags:
   - 1.5.9
-- SourceImage: istio/coredns-plugin
+- SourceArtifact: istio/coredns-plugin
   Tags:
   - 0.2-istio-1.1
-  TargetImageName: istio-coredns-plugin
-- SourceImage: istio/coredns-plugin
+  TargetArtifactName: istio-coredns-plugin
+- SourceArtifact: istio/coredns-plugin
   Tags:
   - 0.2-istio-1.1
-- SourceImage: istio/galley
+- SourceArtifact: istio/galley
   Tags:
   - 1.5.9
-- SourceImage: istio/install-cni
+- SourceArtifact: istio/install-cni
   Tags:
   - 1.7.0
   - 1.7.1
@@ -524,8 +579,8 @@ Images:
   - 1.7.6
   - 1.8.1
   - 1.8.3
-  TargetImageName: istio-install-cni
-- SourceImage: istio/install-cni
+  TargetArtifactName: istio-install-cni
+- SourceArtifact: istio/install-cni
   Tags:
   - 1.10.0
   - 1.10.1
@@ -584,28 +639,28 @@ Images:
   - 1.9.5
   - 1.9.6
   - 1.9.8
-- SourceImage: istio/kubectl
+- SourceArtifact: istio/kubectl
   Tags:
   - 1.5.10
-  TargetImageName: istio-kubectl
-- SourceImage: istio/kubectl
+  TargetArtifactName: istio-kubectl
+- SourceArtifact: istio/kubectl
   Tags:
   - 1.5.9
-- SourceImage: istio/mixer
+- SourceArtifact: istio/mixer
   Tags:
   - 1.7.0
   - 1.7.1
   - 1.7.3
   - 1.7.6
-  TargetImageName: istio-mixer
-- SourceImage: istio/mixer
+  TargetArtifactName: istio-mixer
+- SourceArtifact: istio/mixer
   Tags:
   - 1.5.9
   - 1.7.8
-- SourceImage: istio/node-agent-k8s
+- SourceArtifact: istio/node-agent-k8s
   Tags:
   - 1.5.9
-- SourceImage: istio/pilot
+- SourceArtifact: istio/pilot
   Tags:
   - 1.7.0
   - 1.7.1
@@ -613,8 +668,8 @@ Images:
   - 1.7.6
   - 1.8.1
   - 1.8.3
-  TargetImageName: istio-pilot
-- SourceImage: istio/pilot
+  TargetArtifactName: istio-pilot
+- SourceArtifact: istio/pilot
   Tags:
   - 1.10.0
   - 1.10.1
@@ -674,7 +729,7 @@ Images:
   - 1.9.5
   - 1.9.6
   - 1.9.8
-- SourceImage: istio/proxyv2
+- SourceArtifact: istio/proxyv2
   Tags:
   - 1.7.0
   - 1.7.1
@@ -682,8 +737,8 @@ Images:
   - 1.7.6
   - 1.8.1
   - 1.8.3
-  TargetImageName: istio-proxyv2
-- SourceImage: istio/proxyv2
+  TargetArtifactName: istio-proxyv2
+- SourceArtifact: istio/proxyv2
   Tags:
   - 1.10.0
   - 1.10.1
@@ -743,14 +798,14 @@ Images:
   - 1.9.5
   - 1.9.6
   - 1.9.8
-- SourceImage: istio/sidecar_injector
+- SourceArtifact: istio/sidecar_injector
   Tags:
   - 1.5.9
-- SourceImage: jaegertracing/all-in-one
+- SourceArtifact: jaegertracing/all-in-one
   Tags:
   - 1.20.0
-  TargetImageName: jaegertracing-all-in-one
-- SourceImage: jaegertracing/all-in-one
+  TargetArtifactName: jaegertracing-all-in-one
+- SourceArtifact: jaegertracing/all-in-one
   Tags:
   - "1.14"
   - 1.20.0
@@ -775,57 +830,57 @@ Images:
   - 1.63.0
   - 1.67.0
   - 1.71.0
-- SourceImage: jenkins/jnlp-slave
+- SourceArtifact: jenkins/jnlp-slave
   Tags:
   - 3.35-4
   - 4.7-1
-- SourceImage: jettech/kube-webhook-certgen
+- SourceArtifact: jettech/kube-webhook-certgen
   Tags:
   - v1.2.1
   - v1.5.0
-  TargetImageName: jettech-kube-webhook-certgen
-- SourceImage: jettech/kube-webhook-certgen
+  TargetArtifactName: jettech-kube-webhook-certgen
+- SourceArtifact: jettech/kube-webhook-certgen
   Tags:
   - v1.2.1
   - v1.5.0
   - v1.5.1
   - v1.5.2
-- SourceImage: jimmidyson/configmap-reload
+- SourceArtifact: jimmidyson/configmap-reload
   Tags:
   - v0.3.0
   - v0.4.0
-  TargetImageName: jimmidyson-configmap-reload
-- SourceImage: jimmidyson/configmap-reload
+  TargetArtifactName: jimmidyson-configmap-reload
+- SourceArtifact: jimmidyson/configmap-reload
   Tags:
   - v0.3.0
   - v0.4.0
   - v0.8.0
-- SourceImage: kiwigrid/k8s-sidecar
+- SourceArtifact: kiwigrid/k8s-sidecar
   Tags:
   - 0.1.151
   - 1.1.0
-  TargetImageName: kiwigrid-k8s-sidecar
-- SourceImage: kiwigrid/k8s-sidecar
+  TargetArtifactName: kiwigrid-k8s-sidecar
+- SourceArtifact: kiwigrid/k8s-sidecar
   Tags:
   - 0.1.151
   - 1.27.4
-- SourceImage: library/busybox
+- SourceArtifact: library/busybox
   Tags:
   - 1.31.1
   - 1.32.1
-  TargetImageName: library-busybox
-- SourceImage: library/busybox
+  TargetArtifactName: library-busybox
+- SourceArtifact: library/busybox
   Tags:
   - 1.31.1
   - 1.32.1
   - 1.34.1
   - 1.36.1
   - 1.37.0
-- SourceImage: library/nginx
+- SourceArtifact: library/nginx
   Tags:
   - 1.19.2-alpine
-  TargetImageName: library-nginx
-- SourceImage: library/nginx
+  TargetArtifactName: library-nginx
+- SourceArtifact: library/nginx
   Tags:
   - 1.19.2-alpine
   - 1.19.9-alpine
@@ -837,20 +892,20 @@ Images:
   - 1.24.0-alpine
   - 1.27.2-alpine
   - 1.29.1-alpine
-- SourceImage: library/redis
+- SourceArtifact: library/redis
   Tags:
   - 7.2.9
-- SourceImage: library/registry
+- SourceArtifact: library/registry
   Tags:
   - 2.7.1
   - 2.8.1
-- SourceImage: library/traefik
+- SourceArtifact: library/traefik
   Tags:
   - 2.4.2
   - 2.4.8
   - 2.4.9
-  TargetImageName: library-traefik
-- SourceImage: library/traefik
+  TargetArtifactName: library-traefik
+- SourceArtifact: library/traefik
   Tags:
   - 2.10.5
   - 2.10.7
@@ -863,6 +918,11 @@ Images:
   - 2.11.22
   - 2.11.24
   - 2.11.29
+  - 2.11.30
+  - 2.11.31
+  - 2.11.32
+  - 2.11.33
+  - 2.11.34
   - 2.11.8
   - 2.4.8
   - 2.5.0
@@ -880,7 +940,12 @@ Images:
   - 3.3.6
   - 3.5.1
   - 3.5.3
-- SourceImage: longhornio/backing-image-manager
+  - 3.6.1
+  - 3.6.2
+  - 3.6.4
+  - 3.6.6
+  - 3.6.7
+- SourceArtifact: longhornio/backing-image-manager
   Tags:
   - v1_20210422
   - v1_20210422_patch1
@@ -888,9 +953,11 @@ Images:
   - v2_20210820_patch1
   - v3_20220609
   - v3_20220808
-  TargetImageName: longhornio-backing-image-manager
-- SourceImage: longhornio/backing-image-manager
+  TargetArtifactName: longhornio-backing-image-manager
+- SourceArtifact: longhornio/backing-image-manager
   Tags:
+  - v1.10.1
+  - v1.10.2
   - v1.4.0
   - v1.4.1
   - v1.4.2
@@ -924,20 +991,22 @@ Images:
   - v3_20220808
   - v3_20221003
   - v3_20230320
-- SourceImage: longhornio/csi-attacher
+- SourceArtifact: longhornio/csi-attacher
   Tags:
   - v2.0.0
   - v2.2.1-lh1
   - v2.2.1-lh2
   - v3.2.1
   - v3.4.0
-  TargetImageName: longhornio-csi-attacher
-- SourceImage: longhornio/csi-attacher
+  TargetArtifactName: longhornio-csi-attacher
+- SourceArtifact: longhornio/csi-attacher
   Tags:
   - v2.2.1-lh1
   - v2.2.1-lh2
   - v3.2.1
   - v3.4.0
+  - v4.10.0-20251030
+  - v4.10.0-20251226
   - v4.2.0
   - v4.4.2
   - v4.5.1
@@ -948,14 +1017,14 @@ Images:
   - v4.8.1
   - v4.9.0
   - v4.9.0-20250709
-- SourceImage: longhornio/csi-node-driver-registrar
+- SourceArtifact: longhornio/csi-node-driver-registrar
   Tags:
   - v1.2.0
   - v1.2.0-lh1
   - v2.3.0
   - v2.5.0
-  TargetImageName: longhornio-csi-node-driver-registrar
-- SourceImage: longhornio/csi-node-driver-registrar
+  TargetArtifactName: longhornio-csi-node-driver-registrar
+- SourceArtifact: longhornio/csi-node-driver-registrar
   Tags:
   - v1.2.0-lh1
   - v2.11.1
@@ -964,18 +1033,20 @@ Images:
   - v2.13.0
   - v2.14.0
   - v2.14.0-20250709
+  - v2.15.0-20251030
+  - v2.15.0-20251226
   - v2.3.0
   - v2.5.0
   - v2.7.0
   - v2.9.2
-- SourceImage: longhornio/csi-provisioner
+- SourceArtifact: longhornio/csi-provisioner
   Tags:
   - v1.4.0
   - v1.6.0-lh1
   - v1.6.0-lh2
   - v2.1.2
-  TargetImageName: longhornio-csi-provisioner
-- SourceImage: longhornio/csi-provisioner
+  TargetArtifactName: longhornio-csi-provisioner
+- SourceArtifact: longhornio/csi-provisioner
   Tags:
   - v1.6.0-lh1
   - v1.6.0-lh2
@@ -991,14 +1062,16 @@ Images:
   - v5.2.0
   - v5.3.0
   - v5.3.0-20250709
-- SourceImage: longhornio/csi-resizer
+  - v5.3.0-20251030
+  - v5.3.0-20251226
+- SourceArtifact: longhornio/csi-resizer
   Tags:
   - v0.3.0
   - v0.5.1-lh1
   - v0.5.1-lh2
   - v1.2.0
-  TargetImageName: longhornio-csi-resizer
-- SourceImage: longhornio/csi-resizer
+  TargetArtifactName: longhornio-csi-resizer
+- SourceArtifact: longhornio/csi-resizer
   Tags:
   - v0.5.1-lh1
   - v0.5.1-lh2
@@ -1009,17 +1082,19 @@ Images:
   - v1.13.1
   - v1.13.2
   - v1.14.0-20250709
+  - v1.14.0-20251030
+  - v1.14.0-20260119
   - v1.2.0
   - v1.3.0
   - v1.7.0
   - v1.9.2
-- SourceImage: longhornio/csi-snapshotter
+- SourceArtifact: longhornio/csi-snapshotter
   Tags:
   - v2.1.1-lh1
   - v2.1.1-lh2
   - v3.0.3
-  TargetImageName: longhornio-csi-snapshotter
-- SourceImage: longhornio/csi-snapshotter
+  TargetArtifactName: longhornio-csi-snapshotter
+- SourceArtifact: longhornio/csi-snapshotter
   Tags:
   - v2.1.1-lh1
   - v2.1.1-lh2
@@ -1034,7 +1109,9 @@ Images:
   - v7.0.2-20250204
   - v8.2.0
   - v8.3.0-20250709
-- SourceImage: longhornio/livenessprobe
+  - v8.4.0-20251030
+  - v8.4.0-20251226
+- SourceArtifact: longhornio/livenessprobe
   Tags:
   - v2.11.0
   - v2.12.0
@@ -1044,10 +1121,14 @@ Images:
   - v2.15.0
   - v2.16.0
   - v2.16.0-20250709
+  - v2.17.0-20251030
+  - v2.17.0-20251226
   - v2.8.0
   - v2.9.0
-- SourceImage: longhornio/longhorn-cli
+- SourceArtifact: longhornio/longhorn-cli
   Tags:
+  - v1.10.1
+  - v1.10.2
   - v1.7.0
   - v1.7.1
   - v1.7.2
@@ -1056,7 +1137,7 @@ Images:
   - v1.8.2
   - v1.9.1
   - v1.9.2
-- SourceImage: longhornio/longhorn-engine
+- SourceArtifact: longhornio/longhorn-engine
   Tags:
   - v1.0.2
   - v1.1.0
@@ -1071,13 +1152,15 @@ Images:
   - v1.2.5
   - v1.3.0
   - v1.3.1
-  TargetImageName: longhornio-longhorn-engine
-- SourceImage: longhornio/longhorn-engine
+  TargetArtifactName: longhornio-longhorn-engine
+- SourceArtifact: longhornio/longhorn-engine
   Tags:
   - v1.1.0
   - v1.1.1
   - v1.1.2
   - v1.1.3
+  - v1.10.1
+  - v1.10.2
   - v1.2.0
   - v1.2.1
   - v1.2.2
@@ -1113,7 +1196,7 @@ Images:
   - v1.8.2
   - v1.9.1
   - v1.9.2
-- SourceImage: longhornio/longhorn-instance-manager
+- SourceArtifact: longhornio/longhorn-instance-manager
   Tags:
   - v1_20200514
   - v1_20201216
@@ -1124,9 +1207,11 @@ Images:
   - v1_20220303_patch1
   - v1_20220611
   - v1_20220808
-  TargetImageName: longhornio-longhorn-instance-manager
-- SourceImage: longhornio/longhorn-instance-manager
+  TargetArtifactName: longhornio-longhorn-instance-manager
+- SourceArtifact: longhornio/longhorn-instance-manager
   Tags:
+  - v1.10.1
+  - v1.10.2
   - v1.4.0
   - v1.4.1
   - v1.4.2
@@ -1162,7 +1247,7 @@ Images:
   - v1_20220808
   - v1_20221003
   - v1_20230407
-- SourceImage: longhornio/longhorn-manager
+- SourceArtifact: longhornio/longhorn-manager
   Tags:
   - v1.0.2
   - v1.1.0
@@ -1177,13 +1262,17 @@ Images:
   - v1.2.5
   - v1.3.0
   - v1.3.1
-  TargetImageName: longhornio-longhorn-manager
-- SourceImage: longhornio/longhorn-manager
+  TargetArtifactName: longhornio-longhorn-manager
+- SourceArtifact: longhornio/longhorn-manager
   Tags:
   - v1.1.0
   - v1.1.1
   - v1.1.2
   - v1.1.3
+  - v1.10.1
+  - v1.10.1-hotfix-1
+  - v1.10.1-hotfix-2
+  - v1.10.2
   - v1.2.0
   - v1.2.1
   - v1.2.2
@@ -1219,7 +1308,8 @@ Images:
   - v1.8.2
   - v1.9.1
   - v1.9.2
-- SourceImage: longhornio/longhorn-share-manager
+  - v1.9.2-hotfix-1
+- SourceArtifact: longhornio/longhorn-share-manager
   Tags:
   - v1_20201204
   - v1_20210416
@@ -1230,9 +1320,11 @@ Images:
   - v1_20211020_patch1
   - v1_20220531
   - v1_20220808
-  TargetImageName: longhornio-longhorn-share-manager
-- SourceImage: longhornio/longhorn-share-manager
+  TargetArtifactName: longhornio-longhorn-share-manager
+- SourceArtifact: longhornio/longhorn-share-manager
   Tags:
+  - v1.10.1
+  - v1.10.2
   - v1.4.0
   - v1.4.1
   - v1.4.2
@@ -1269,7 +1361,7 @@ Images:
   - v1_20220808
   - v1_20221003
   - v1_20230320
-- SourceImage: longhornio/longhorn-ui
+- SourceArtifact: longhornio/longhorn-ui
   Tags:
   - v1.0.2
   - v1.1.0
@@ -1284,13 +1376,15 @@ Images:
   - v1.2.5
   - v1.3.0
   - v1.3.1
-  TargetImageName: longhornio-longhorn-ui
-- SourceImage: longhornio/longhorn-ui
+  TargetArtifactName: longhornio-longhorn-ui
+- SourceArtifact: longhornio/longhorn-ui
   Tags:
   - v1.1.0
   - v1.1.1
   - v1.1.2
   - v1.1.3
+  - v1.10.1
+  - v1.10.2
   - v1.2.0
   - v1.2.1
   - v1.2.2
@@ -1326,11 +1420,11 @@ Images:
   - v1.8.2
   - v1.9.1
   - v1.9.2
-- SourceImage: longhornio/openshift-origin-oauth-proxy
+- SourceArtifact: longhornio/openshift-origin-oauth-proxy
   Tags:
   - "4.14"
   - "4.15"
-- SourceImage: longhornio/support-bundle-kit
+- SourceArtifact: longhornio/support-bundle-kit
   Tags:
   - v0.0.17
   - v0.0.19
@@ -1351,12 +1445,14 @@ Images:
   - v0.0.56
   - v0.0.61
   - v0.0.69
-- SourceImage: messagebird/sachet
+  - v0.0.71
+  - v0.0.79
+- SourceArtifact: messagebird/sachet
   Tags:
   - 0.2.3
   - 0.2.6
   - 0.3.1
-- SourceImage: minio/mc
+- SourceArtifact: minio/mc
   Tags:
   - RELEASE.2022-05-09T04-08-26Z
   - RELEASE.2022-09-16T09-16-47Z
@@ -1364,7 +1460,7 @@ Images:
   - RELEASE.2022-12-13T00-23-28Z
   - RELEASE.2023-01-28T20-29-38Z
   - RELEASE.2023-06-28T21-54-17Z
-- SourceImage: minio/minio
+- SourceArtifact: minio/minio
   Tags:
   - RELEASE.2020-07-13T18-09-56Z
   - RELEASE.2022-05-08T23-50-31Z
@@ -1373,11 +1469,11 @@ Images:
   - RELEASE.2022-12-12T19-27-27Z
   - RELEASE.2023-02-10T18-48-39Z
   - RELEASE.2023-07-07T07-13-57Z
-- SourceImage: neuvector/compliance-config
+- SourceArtifact: neuvector/compliance-config
   Tags:
   - 1.0.0
   - 1.0.1
-- SourceImage: neuvector/controller
+- SourceArtifact: neuvector/controller
   Tags:
   - 5.0.0
   - 5.0.0-b1
@@ -1404,7 +1500,7 @@ Images:
   - 5.3.4
   - 5.4.0
   - 5.4.1
-- SourceImage: neuvector/enforcer
+- SourceArtifact: neuvector/enforcer
   Tags:
   - 5.0.0
   - 5.0.0-b1
@@ -1431,7 +1527,7 @@ Images:
   - 5.3.4
   - 5.4.0
   - 5.4.1
-- SourceImage: neuvector/manager
+- SourceArtifact: neuvector/manager
   Tags:
   - 5.0.0
   - 5.0.0-b1
@@ -1458,7 +1554,7 @@ Images:
   - 5.3.4
   - 5.4.0
   - 5.4.1
-- SourceImage: neuvector/prometheus-exporter
+- SourceArtifact: neuvector/prometheus-exporter
   Tags:
   - 1-1.0.0
   - 5.2.0
@@ -1468,7 +1564,7 @@ Images:
   - 5.2.4
   - 5.3.0
   - 5.3.2
-- SourceImage: neuvector/registry-adapter
+- SourceArtifact: neuvector/registry-adapter
   Tags:
   - 0.1.0
   - 0.1.1
@@ -1476,7 +1572,7 @@ Images:
   - 0.1.1-s2
   - 0.1.2
   - 0.1.3
-- SourceImage: openpolicyagent/gatekeeper
+- SourceArtifact: openpolicyagent/gatekeeper
   Tags:
   - v3.10.0
   - v3.12.0
@@ -1490,14 +1586,14 @@ Images:
   - v3.7.1
   - v3.8.1
   - v3.9.0
-- SourceImage: openpolicyagent/gatekeeper
+- SourceArtifact: openpolicyagent/gatekeeper
   Tags:
   - v3.1.0
   - v3.1.1
   - v3.2.1
   - v3.3.0
-  TargetImageName: openpolicyagent-gatekeeper
-- SourceImage: openpolicyagent/gatekeeper-crds
+  TargetArtifactName: openpolicyagent-gatekeeper
+- SourceArtifact: openpolicyagent/gatekeeper-crds
   Tags:
   - v3.10.0
   - v3.12.0
@@ -1507,10 +1603,10 @@ Images:
   - v3.7.1
   - v3.8.1
   - v3.9.0
-- SourceImage: openzipkin/zipkin
+- SourceArtifact: openzipkin/zipkin
   Tags:
   - 2.14.2
-- SourceImage: paketobuildpacks/builder
+- SourceArtifact: paketobuildpacks/builder
   Tags:
   - 0.2.220-full
   - 0.2.234-full
@@ -1519,40 +1615,41 @@ Images:
   - 0.2.441-full
   - 0.2.443-full
   - 0.2.95-full
-- SourceImage: plugins/docker
+- SourceArtifact: plugins/docker
   Tags:
   - "18.09"
   - 19.03.8
-- SourceImage: prom/alertmanager
+- SourceArtifact: prom/alertmanager
   Tags:
   - v0.21.0
-- SourceImage: prom/alertmanager
+- SourceArtifact: prom/alertmanager
   Tags:
   - v0.21.0
-  TargetImageName: prom-alertmanager
-- SourceImage: prom/node-exporter
+  TargetArtifactName: prom-alertmanager
+- SourceArtifact: prom/node-exporter
   Tags:
   - v1.0.1
-- SourceImage: prom/node-exporter
+- SourceArtifact: prom/node-exporter
   Tags:
   - v1.0.1
   - v1.3.1
-  TargetImageName: prom-node-exporter
-- SourceImage: prom/prometheus
+  TargetArtifactName: prom-node-exporter
+- SourceArtifact: prom/prometheus
   Tags:
   - v2.12.0
-- SourceImage: prom/prometheus
+- SourceArtifact: prom/prometheus
   Tags:
   - v2.18.2
-  TargetImageName: prom-prometheus
-- SourceImage: pstauffer/curl
+  TargetArtifactName: prom-prometheus
+- SourceArtifact: pstauffer/curl
   Tags:
   - v1.0.3
-- SourceImage: quay.io/brancz/kube-rbac-proxy
+- SourceArtifact: quay.io/brancz/kube-rbac-proxy
   Tags:
   - v0.18.0
   - v0.18.2
-- SourceImage: quay.io/calico/apiserver
+  - v0.19.1
+- SourceArtifact: quay.io/calico/apiserver
   Tags:
   - v3.20.1
   - v3.20.2
@@ -1591,15 +1688,18 @@ Images:
   - v3.30.3
   - v3.30.4
   - v3.31.0
-- SourceImage: quay.io/calico/cni
+  - v3.31.1
+  - v3.31.2
+  - v3.31.3
+- SourceArtifact: quay.io/calico/cni
   Tags:
   - v3.16.5
   - v3.16.6
   - v3.17.1
   - v3.17.2
   - v3.18.1
-  TargetImageName: calico-cni
-- SourceImage: quay.io/calico/cni
+  TargetArtifactName: calico-cni
+- SourceArtifact: quay.io/calico/cni
   Tags:
   - v3.13.4
   - v3.16.5
@@ -1646,7 +1746,10 @@ Images:
   - v3.30.3
   - v3.30.4
   - v3.31.0
-- SourceImage: quay.io/calico/csi
+  - v3.31.1
+  - v3.31.2
+  - v3.31.3
+- SourceArtifact: quay.io/calico/csi
   Tags:
   - v3.27.0
   - v3.27.2
@@ -1665,7 +1768,10 @@ Images:
   - v3.30.3
   - v3.30.4
   - v3.31.0
-- SourceImage: quay.io/calico/ctl
+  - v3.31.1
+  - v3.31.2
+  - v3.31.3
+- SourceArtifact: quay.io/calico/ctl
   Tags:
   - v3.16.5
   - v3.16.6
@@ -1674,8 +1780,8 @@ Images:
   - v3.18.1
   - v3.19.1
   - v3.19.2
-  TargetImageName: calico-ctl
-- SourceImage: quay.io/calico/ctl
+  TargetArtifactName: calico-ctl
+- SourceArtifact: quay.io/calico/ctl
   Tags:
   - v3.13.4
   - v3.16.5
@@ -1722,7 +1828,10 @@ Images:
   - v3.30.3
   - v3.30.4
   - v3.31.0
-- SourceImage: quay.io/calico/envoy-gateway
+  - v3.31.1
+  - v3.31.2
+  - v3.31.3
+- SourceArtifact: quay.io/calico/envoy-gateway
   Tags:
   - v3.30.0
   - v3.30.1
@@ -1730,7 +1839,10 @@ Images:
   - v3.30.3
   - v3.30.4
   - v3.31.0
-- SourceImage: quay.io/calico/envoy-proxy
+  - v3.31.1
+  - v3.31.2
+  - v3.31.3
+- SourceArtifact: quay.io/calico/envoy-proxy
   Tags:
   - v3.30.0
   - v3.30.1
@@ -1738,7 +1850,10 @@ Images:
   - v3.30.3
   - v3.30.4
   - v3.31.0
-- SourceImage: quay.io/calico/envoy-ratelimit
+  - v3.31.1
+  - v3.31.2
+  - v3.31.3
+- SourceArtifact: quay.io/calico/envoy-ratelimit
   Tags:
   - v3.30.0
   - v3.30.1
@@ -1746,7 +1861,10 @@ Images:
   - v3.30.3
   - v3.30.4
   - v3.31.0
-- SourceImage: quay.io/calico/goldmane
+  - v3.31.1
+  - v3.31.2
+  - v3.31.3
+- SourceArtifact: quay.io/calico/goldmane
   Tags:
   - v3.30.0
   - v3.30.1
@@ -1754,15 +1872,18 @@ Images:
   - v3.30.3
   - v3.30.4
   - v3.31.0
-- SourceImage: quay.io/calico/kube-controllers
+  - v3.31.1
+  - v3.31.2
+  - v3.31.3
+- SourceArtifact: quay.io/calico/kube-controllers
   Tags:
   - v3.16.5
   - v3.16.6
   - v3.17.1
   - v3.17.2
   - v3.18.1
-  TargetImageName: calico-kube-controllers
-- SourceImage: quay.io/calico/kube-controllers
+  TargetArtifactName: calico-kube-controllers
+- SourceArtifact: quay.io/calico/kube-controllers
   Tags:
   - v3.13.4
   - v3.16.5
@@ -1809,15 +1930,18 @@ Images:
   - v3.30.3
   - v3.30.4
   - v3.31.0
-- SourceImage: quay.io/calico/node
+  - v3.31.1
+  - v3.31.2
+  - v3.31.3
+- SourceArtifact: quay.io/calico/node
   Tags:
   - v3.16.5
   - v3.16.6
   - v3.17.1
   - v3.17.2
   - v3.18.1
-  TargetImageName: calico-node
-- SourceImage: quay.io/calico/node
+  TargetArtifactName: calico-node
+- SourceArtifact: quay.io/calico/node
   Tags:
   - v3.13.4
   - v3.16.5
@@ -1864,7 +1988,10 @@ Images:
   - v3.30.3
   - v3.30.4
   - v3.31.0
-- SourceImage: quay.io/calico/node-driver-registrar
+  - v3.31.1
+  - v3.31.2
+  - v3.31.3
+- SourceArtifact: quay.io/calico/node-driver-registrar
   Tags:
   - v3.27.0
   - v3.27.2
@@ -1883,15 +2010,18 @@ Images:
   - v3.30.3
   - v3.30.4
   - v3.31.0
-- SourceImage: quay.io/calico/pod2daemon-flexvol
+  - v3.31.1
+  - v3.31.2
+  - v3.31.3
+- SourceArtifact: quay.io/calico/pod2daemon-flexvol
   Tags:
   - v3.16.5
   - v3.16.6
   - v3.17.1
   - v3.17.2
   - v3.18.1
-  TargetImageName: calico-pod2daemon-flexvol
-- SourceImage: quay.io/calico/pod2daemon-flexvol
+  TargetArtifactName: calico-pod2daemon-flexvol
+- SourceArtifact: quay.io/calico/pod2daemon-flexvol
   Tags:
   - v3.13.4
   - v3.16.5
@@ -1938,7 +2068,10 @@ Images:
   - v3.30.3
   - v3.30.4
   - v3.31.0
-- SourceImage: quay.io/calico/typha
+  - v3.31.1
+  - v3.31.2
+  - v3.31.3
+- SourceArtifact: quay.io/calico/typha
   Tags:
   - v3.18.1
   - v3.19.1
@@ -1981,7 +2114,10 @@ Images:
   - v3.30.3
   - v3.30.4
   - v3.31.0
-- SourceImage: quay.io/calico/whisker
+  - v3.31.1
+  - v3.31.2
+  - v3.31.3
+- SourceArtifact: quay.io/calico/whisker
   Tags:
   - v3.30.0
   - v3.30.1
@@ -1989,7 +2125,10 @@ Images:
   - v3.30.3
   - v3.30.4
   - v3.31.0
-- SourceImage: quay.io/calico/whisker-backend
+  - v3.31.1
+  - v3.31.2
+  - v3.31.3
+- SourceArtifact: quay.io/calico/whisker-backend
   Tags:
   - v3.30.0
   - v3.30.1
@@ -1997,7 +2136,10 @@ Images:
   - v3.30.3
   - v3.30.4
   - v3.31.0
-- SourceImage: quay.io/cilium/certgen
+  - v3.31.1
+  - v3.31.2
+  - v3.31.3
+- SourceArtifact: quay.io/cilium/certgen
   Tags:
   - v0.1.11
   - v0.1.12
@@ -2007,7 +2149,8 @@ Images:
   - v0.2.0
   - v0.2.1
   - v0.2.4
-- SourceImage: quay.io/cilium/cilium
+  - v0.3.1
+- SourceArtifact: quay.io/cilium/cilium
   Tags:
   - v1.10.4
   - v1.10.7
@@ -2054,11 +2197,16 @@ Images:
   - v1.18.0
   - v1.18.1
   - v1.18.2
+  - v1.18.3
+  - v1.18.4
+  - v1.18.5
+  - v1.18.6
+  - v1.19.0
   - v1.9.12
   - v1.9.4
   - v1.9.6
   - v1.9.8
-- SourceImage: quay.io/cilium/cilium-envoy
+- SourceArtifact: quay.io/cilium/cilium-envoy
   Tags:
   - v1.25.10-f71a313bd0daee41470af31ce6ea20c750fe35dd
   - v1.25.9-e198a2824d309024cb91fb6a984445e73033291d
@@ -2085,13 +2233,18 @@ Images:
   - v1.32.6-1746661844-0f602c28cb2aa57b29078195049fb257d5b5246c
   - v1.32.6-1749271279-0864395884b263913eac200ee2048fd985f8e626
   - v1.33.4-1752151664-7c2edb0b44cf95f326d628b837fcdd845102ba68
+  - v1.34.10-1761014632-c360e8557eb41011dfb5210f8fb53fed6c0b3222
+  - v1.34.10-1762597008-ff7ae7d623be00078865cff1b0672cc5d9bfc6d5
+  - v1.34.12-1765374555-6a93b0bbba8d6dc75b651cbafeedb062b2997716
   - v1.34.4-1753677767-266d5a01d1d55bd1d60148f991b98dac0390d363
   - v1.34.4-1754895458-68cffdfa568b6b226d70a7ef81fc65dda3b890bf
   - v1.34.7-1757592137-1a52bb680a956879722f48c591a2ca90f7791324
-- SourceImage: quay.io/cilium/cilium-etcd-operator
+  - v1.35.9-1767794330-db497dd19e346b39d81d7b5c0dedf6c812bcc5c9
+  - v1.35.9-1768828720-c6e4827ebca9c47af2a3a6540c563c30947bae29
+- SourceArtifact: quay.io/cilium/cilium-etcd-operator
   Tags:
   - v2.0.7
-- SourceImage: quay.io/cilium/clustermesh-apiserver
+- SourceArtifact: quay.io/cilium/clustermesh-apiserver
   Tags:
   - v1.12.4
   - v1.12.5
@@ -2128,7 +2281,12 @@ Images:
   - v1.18.0
   - v1.18.1
   - v1.18.2
-- SourceImage: quay.io/cilium/hubble-relay
+  - v1.18.3
+  - v1.18.4
+  - v1.18.5
+  - v1.18.6
+  - v1.19.0
+- SourceArtifact: quay.io/cilium/hubble-relay
   Tags:
   - v1.12.4
   - v1.12.5
@@ -2165,7 +2323,12 @@ Images:
   - v1.18.0
   - v1.18.1
   - v1.18.2
-- SourceImage: quay.io/cilium/hubble-ui
+  - v1.18.3
+  - v1.18.4
+  - v1.18.5
+  - v1.18.6
+  - v1.19.0
+- SourceArtifact: quay.io/cilium/hubble-ui
   Tags:
   - v0.10.0
   - v0.11.0
@@ -2177,7 +2340,7 @@ Images:
   - v0.13.2
   - v0.13.3
   - v0.9.2
-- SourceImage: quay.io/cilium/hubble-ui-backend
+- SourceArtifact: quay.io/cilium/hubble-ui-backend
   Tags:
   - v0.10.0
   - v0.11.0
@@ -2189,7 +2352,7 @@ Images:
   - v0.13.2
   - v0.13.3
   - v0.9.2
-- SourceImage: quay.io/cilium/kvstoremesh
+- SourceArtifact: quay.io/cilium/kvstoremesh
   Tags:
   - v1.14.0
   - v1.14.1
@@ -2197,58 +2360,7 @@ Images:
   - v1.14.3
   - v1.14.4
   - v1.14.5
-- SourceImage: quay.io/cilium/operator-aws
-  Tags:
-  - v1.10.4
-  - v1.10.7
-  - v1.11.0
-  - v1.11.1
-  - v1.11.2
-  - v1.11.4
-  - v1.11.5
-  - v1.12.0
-  - v1.12.1
-  - v1.12.3
-  - v1.12.4
-  - v1.12.5
-  - v1.13.0
-  - v1.13.2
-  - v1.13.4
-  - v1.14.0
-  - v1.14.1
-  - v1.14.2
-  - v1.14.3
-  - v1.14.4
-  - v1.14.5
-  - v1.15.0
-  - v1.15.1
-  - v1.15.3
-  - v1.15.4
-  - v1.15.5
-  - v1.15.6
-  - v1.15.7
-  - v1.16.0
-  - v1.16.1
-  - v1.16.2
-  - v1.16.3
-  - v1.16.4
-  - v1.16.5
-  - v1.16.6
-  - v1.17.0
-  - v1.17.1
-  - v1.17.2
-  - v1.17.3
-  - v1.17.4
-  - v1.17.5
-  - v1.17.6
-  - v1.18.0
-  - v1.18.1
-  - v1.18.2
-  - v1.9.12
-  - v1.9.4
-  - v1.9.6
-  - v1.9.8
-- SourceImage: quay.io/cilium/operator-azure
+- SourceArtifact: quay.io/cilium/operator-aws
   Tags:
   - v1.10.4
   - v1.10.7
@@ -2295,11 +2407,16 @@ Images:
   - v1.18.0
   - v1.18.1
   - v1.18.2
+  - v1.18.3
+  - v1.18.4
+  - v1.18.5
+  - v1.18.6
+  - v1.19.0
   - v1.9.12
   - v1.9.4
   - v1.9.6
   - v1.9.8
-- SourceImage: quay.io/cilium/operator-generic
+- SourceArtifact: quay.io/cilium/operator-azure
   Tags:
   - v1.10.4
   - v1.10.7
@@ -2346,16 +2463,77 @@ Images:
   - v1.18.0
   - v1.18.1
   - v1.18.2
+  - v1.18.3
+  - v1.18.4
+  - v1.18.5
+  - v1.18.6
+  - v1.19.0
   - v1.9.12
   - v1.9.4
   - v1.9.6
   - v1.9.8
-- SourceImage: quay.io/cilium/startup-script
+- SourceArtifact: quay.io/cilium/operator-generic
+  Tags:
+  - v1.10.4
+  - v1.10.7
+  - v1.11.0
+  - v1.11.1
+  - v1.11.2
+  - v1.11.4
+  - v1.11.5
+  - v1.12.0
+  - v1.12.1
+  - v1.12.3
+  - v1.12.4
+  - v1.12.5
+  - v1.13.0
+  - v1.13.2
+  - v1.13.4
+  - v1.14.0
+  - v1.14.1
+  - v1.14.2
+  - v1.14.3
+  - v1.14.4
+  - v1.14.5
+  - v1.15.0
+  - v1.15.1
+  - v1.15.3
+  - v1.15.4
+  - v1.15.5
+  - v1.15.6
+  - v1.15.7
+  - v1.16.0
+  - v1.16.1
+  - v1.16.2
+  - v1.16.3
+  - v1.16.4
+  - v1.16.5
+  - v1.16.6
+  - v1.17.0
+  - v1.17.1
+  - v1.17.2
+  - v1.17.3
+  - v1.17.4
+  - v1.17.5
+  - v1.17.6
+  - v1.18.0
+  - v1.18.1
+  - v1.18.2
+  - v1.18.3
+  - v1.18.4
+  - v1.18.5
+  - v1.18.6
+  - v1.19.0
+  - v1.9.12
+  - v1.9.4
+  - v1.9.6
+  - v1.9.8
+- SourceArtifact: quay.io/cilium/startup-script
   Tags:
   - 5e928f628f9fc644a1d2651d6cd6aecbde0e7acd
   - 62bfbe88c17778aad7bef9fa57ff9e2d4a9ba0d8
   - d69851597ea019af980891a4628fb36b7880ec26
-- SourceImage: quay.io/coreos/etcd
+- SourceArtifact: quay.io/coreos/etcd
   Tags:
   - v3.5.0
   - v3.5.10
@@ -2372,6 +2550,10 @@ Images:
   - v3.5.20
   - v3.5.21
   - v3.5.22
+  - v3.5.23
+  - v3.5.24
+  - v3.5.25
+  - v3.5.26
   - v3.5.3
   - v3.5.4
   - v3.5.6
@@ -2382,75 +2564,78 @@ Images:
   - v3.6.2
   - v3.6.3
   - v3.6.4
-- SourceImage: quay.io/coreos/flannel
+  - v3.6.5
+  - v3.6.6
+  - v3.6.7
+- SourceArtifact: quay.io/coreos/flannel
   Tags:
   - v0.13.0
   - v0.14.0
   - v0.15.0
   - v0.15.1
 - DoNotMirror: true
-  SourceImage: quay.io/coreos/kube-state-metrics
+  SourceArtifact: quay.io/coreos/kube-state-metrics
   Tags:
   - v1.9.7
 - DoNotMirror: true
-  SourceImage: quay.io/coreos/prometheus-config-reloader
+  SourceArtifact: quay.io/coreos/prometheus-config-reloader
   Tags:
   - v0.39.0
-  TargetImageName: coreos-prometheus-config-reloader
+  TargetArtifactName: coreos-prometheus-config-reloader
 - DoNotMirror: true
-  SourceImage: quay.io/coreos/prometheus-config-reloader
+  SourceArtifact: quay.io/coreos/prometheus-config-reloader
   Tags:
   - v0.38.1
   - v0.39.0
   - v0.40.0
 - DoNotMirror: true
-  SourceImage: quay.io/coreos/prometheus-operator
+  SourceArtifact: quay.io/coreos/prometheus-operator
   Tags:
   - v0.39.0
-  TargetImageName: coreos-prometheus-operator
+  TargetArtifactName: coreos-prometheus-operator
 - DoNotMirror: true
-  SourceImage: quay.io/coreos/prometheus-operator
+  SourceArtifact: quay.io/coreos/prometheus-operator
   Tags:
   - v0.38.1
   - v0.39.0
   - v0.40.0
-- SourceImage: quay.io/jetstack/cert-manager-controller
+- SourceArtifact: quay.io/jetstack/cert-manager-controller
   Tags:
   - v0.8.1
 - DoNotMirror: true
-  SourceImage: quay.io/k8scsi/csi-attacher
+  SourceArtifact: quay.io/k8scsi/csi-attacher
   Tags:
   - v3.0.0
   - v3.1.0
 - DoNotMirror: true
-  SourceImage: quay.io/k8scsi/csi-node-driver-registrar
+  SourceArtifact: quay.io/k8scsi/csi-node-driver-registrar
   Tags:
   - v2.0.1
   - v2.1.0
 - DoNotMirror: true
-  SourceImage: quay.io/k8scsi/csi-provisioner
+  SourceArtifact: quay.io/k8scsi/csi-provisioner
   Tags:
   - v2.0.0
   - v2.1.0
 - DoNotMirror: true
-  SourceImage: quay.io/k8scsi/csi-resizer
+  SourceArtifact: quay.io/k8scsi/csi-resizer
   Tags:
   - v1.0.0
   - v1.1.0
 - DoNotMirror: true
-  SourceImage: quay.io/k8scsi/livenessprobe
+  SourceArtifact: quay.io/k8scsi/livenessprobe
   Tags:
   - v2.1.0
   - v2.2.0
-- SourceImage: quay.io/kiali/kiali
+- SourceArtifact: quay.io/kiali/kiali
   Tags:
   - v1.22.1
   - v1.23.0
   - v1.24.0
   - v1.28.0
   - v1.29.0
-  TargetImageName: kiali-kiali
-- SourceImage: quay.io/kiali/kiali
+  TargetArtifactName: kiali-kiali
+- SourceArtifact: quay.io/kiali/kiali
   Tags:
   - v1.17
   - v1.29.0
@@ -2480,7 +2665,7 @@ Images:
   - v2.1.0
   - v2.12.0
   - v2.7.1
-- SourceImage: quay.io/kiwigrid/k8s-sidecar
+- SourceArtifact: quay.io/kiwigrid/k8s-sidecar
   Tags:
   - 1.10.7
   - 1.12.2
@@ -2492,10 +2677,10 @@ Images:
   - 1.26.1
   - 1.28.0
   - 1.30.0
-- SourceImage: quay.io/minio/minio
+- SourceArtifact: quay.io/minio/minio
   Tags:
   - RELEASE.2022-03-24T00-43-44Z
-- SourceImage: quay.io/prometheus-operator/admission-webhook
+- SourceArtifact: quay.io/prometheus-operator/admission-webhook
   Tags:
   - v0.72.0
   - v0.75.1
@@ -2503,11 +2688,12 @@ Images:
   - v0.79.0
   - v0.80.1
   - v0.85.0
-- SourceImage: quay.io/prometheus-operator/prometheus-config-reloader
+  - v0.87.1
+- SourceArtifact: quay.io/prometheus-operator/prometheus-config-reloader
   Tags:
   - v0.43.0
-  TargetImageName: coreos-prometheus-config-reloader
-- SourceImage: quay.io/prometheus-operator/prometheus-config-reloader
+  TargetArtifactName: coreos-prometheus-config-reloader
+- SourceArtifact: quay.io/prometheus-operator/prometheus-config-reloader
   Tags:
   - v0.46.0
   - v0.48.0
@@ -2522,11 +2708,12 @@ Images:
   - v0.79.2
   - v0.80.1
   - v0.85.0
-- SourceImage: quay.io/prometheus-operator/prometheus-operator
+  - v0.87.1
+- SourceArtifact: quay.io/prometheus-operator/prometheus-operator
   Tags:
   - v0.43.0
-  TargetImageName: coreos-prometheus-operator
-- SourceImage: quay.io/prometheus-operator/prometheus-operator
+  TargetArtifactName: coreos-prometheus-operator
+- SourceArtifact: quay.io/prometheus-operator/prometheus-operator
   Tags:
   - v0.46.0
   - v0.48.0
@@ -2541,7 +2728,8 @@ Images:
   - v0.79.2
   - v0.80.1
   - v0.85.0
-- SourceImage: quay.io/prometheus/alertmanager
+  - v0.87.1
+- SourceArtifact: quay.io/prometheus/alertmanager
   Tags:
   - v0.22.0
   - v0.22.2
@@ -2550,7 +2738,7 @@ Images:
   - v0.26.0
   - v0.27.0
   - v0.28.1
-- SourceImage: quay.io/prometheus/node-exporter
+- SourceArtifact: quay.io/prometheus/node-exporter
   Tags:
   - v1.1.2
   - v1.2.2
@@ -2559,11 +2747,11 @@ Images:
   - v1.8.2
   - v1.9.0
   - v1.9.1
-- SourceImage: quay.io/prometheus/prometheus
+- SourceArtifact: quay.io/prometheus/prometheus
   Tags:
   - v2.18.2
-  TargetImageName: mirrored-prom-prometheus
-- SourceImage: quay.io/prometheus/prometheus
+  TargetArtifactName: mirrored-prom-prometheus
+- SourceArtifact: quay.io/prometheus/prometheus
   Tags:
   - v2.24.0
   - v2.27.1
@@ -2575,23 +2763,24 @@ Images:
   - v2.50.1
   - v2.53.1
   - v2.55.0
-- SourceImage: quay.io/prometheus/prometheus
+- SourceArtifact: quay.io/prometheus/prometheus
   Tags:
   - v2.19.2
   - v2.22.0
   - v2.55.1
   - v3.2.1
   - v3.5.0
-  TargetImageName: prom-prometheus
-- SourceImage: quay.io/s3gw/s3gw
+  - v3.8.1
+  TargetArtifactName: prom-prometheus
+- SourceArtifact: quay.io/s3gw/s3gw
   Tags:
   - v0.14.0
-- SourceImage: quay.io/skopeo/stable
+- SourceArtifact: quay.io/skopeo/stable
   Tags:
   - v1.10.0
   - v1.13.2
-  TargetImageName: mirrored-skopeo-skopeo
-- SourceImage: quay.io/thanos/thanos
+  TargetArtifactName: mirrored-skopeo-skopeo
+- SourceArtifact: quay.io/thanos/thanos
   Tags:
   - v0.17.2
   - v0.28.0
@@ -2600,7 +2789,8 @@ Images:
   - v0.35.1
   - v0.36.1
   - v0.37.2
-- SourceImage: quay.io/tigera/operator
+  - v0.39.2
+- SourceArtifact: quay.io/tigera/operator
   Tags:
   - v1.15.1
   - v1.17.2
@@ -2645,13 +2835,16 @@ Images:
   - v1.38.6
   - v1.38.7
   - v1.40.0
-  TargetImageName: mirrored-calico-operator
-- SourceImage: rancher/cluster-proportional-autoscaler
+  - v1.40.1
+  - v1.40.2
+  - v1.40.3
+  TargetArtifactName: mirrored-calico-operator
+- SourceArtifact: rancher/cluster-proportional-autoscaler
   Tags:
   - 1.7.1
   - 1.8.1
-  TargetImageName: mirrored-cluster-proportional-autoscaler
-- SourceImage: rancher/coreos-etcd
+  TargetArtifactName: mirrored-cluster-proportional-autoscaler
+- SourceArtifact: rancher/coreos-etcd
   Tags:
   - v3.3.15-rancher1
   - v3.4.13-rancher1
@@ -2659,22 +2852,22 @@ Images:
   - v3.4.15-rancher1
   - v3.4.16-rancher1
   - v3.4.3-rancher1
-  TargetImageName: mirrored-coreos-etcd
-- SourceImage: rancher/coreos-flannel
+  TargetArtifactName: mirrored-coreos-etcd
+- SourceArtifact: rancher/coreos-flannel
   Tags:
   - v0.12.0
-  TargetImageName: mirrored-coreos-flannel
-- SourceImage: rancher/metrics-server
+  TargetArtifactName: mirrored-coreos-flannel
+- SourceArtifact: rancher/metrics-server
   Tags:
   - v0.3.4
   - v0.3.6
-  TargetImageName: mirrored-metrics-server
-- SourceImage: rancher/nginx-ingress-controller-defaultbackend
+  TargetArtifactName: mirrored-metrics-server
+- SourceArtifact: rancher/nginx-ingress-controller-defaultbackend
   Tags:
   - 1.5-rancher1
   - 1.5-rancher2
-  TargetImageName: mirrored-nginx-ingress-controller-defaultbackend
-- SourceImage: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere
+  TargetArtifactName: mirrored-nginx-ingress-controller-defaultbackend
+- SourceArtifact: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere
   Tags:
   - v1.30.0
   - v1.30.1
@@ -2684,10 +2877,14 @@ Images:
   - v1.32.0
   - v1.32.1
   - v1.32.2
+  - v1.32.3
   - v1.33.0
+  - v1.33.1
   - v1.34.0
-  TargetImageName: mirrored-cloud-provider-vsphere
-- SourceImage: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere
+  - v1.35.0
+  TargetArtifactName: mirrored-cloud-provider-vsphere
+- DoNotMirror: true
+  SourceArtifact: registry.k8s.io/cloud-pv-vsphere/cloud-provider-vsphere
   Tags:
   - v1.30.0
   - v1.30.1
@@ -2697,9 +2894,12 @@ Images:
   - v1.32.0
   - v1.32.1
   - v1.32.2
+  - v1.32.3
   - v1.33.0
+  - v1.33.1
   - v1.34.0
-- SourceImage: registry.k8s.io/cluster-api/cluster-api-controller
+  - v1.35.0
+- SourceArtifact: registry.k8s.io/cluster-api/cluster-api-controller
   Tags:
   - v1.10.2
   - v1.10.6
@@ -2712,28 +2912,30 @@ Images:
   - v1.8.3
   - v1.9.4
   - v1.9.5
-  TargetImageName: mirrored-cluster-api-controller
-- SourceImage: registry.k8s.io/cpa/cluster-proportional-autoscaler
+  TargetArtifactName: mirrored-cluster-api-controller
+- SourceArtifact: registry.k8s.io/cpa/cluster-proportional-autoscaler
   Tags:
   - 1.8.3
   - 1.8.5
   - 1.8.6
   - v1.8.9
   - v1.9.0
-  TargetImageName: mirrored-cluster-proportional-autoscaler
-- SourceImage: registry.k8s.io/csi-vsphere/driver
+  TargetArtifactName: mirrored-cluster-proportional-autoscaler
+- SourceArtifact: registry.k8s.io/csi-vsphere/driver
   Tags:
   - v3.3.1
   - v3.4.0
   - v3.5.0
-  TargetImageName: mirrored-cloud-provider-vsphere-csi-release-driver
-- SourceImage: registry.k8s.io/csi-vsphere/syncer
+  - v3.6.0
+  TargetArtifactName: mirrored-cloud-provider-vsphere-csi-release-driver
+- SourceArtifact: registry.k8s.io/csi-vsphere/syncer
   Tags:
   - v3.3.1
   - v3.4.0
   - v3.5.0
-  TargetImageName: mirrored-cloud-provider-vsphere-csi-release-syncer
-- SourceImage: registry.k8s.io/dns/k8s-dns-dnsmasq-nanny
+  - v3.6.0
+  TargetArtifactName: mirrored-cloud-provider-vsphere-csi-release-syncer
+- SourceArtifact: registry.k8s.io/dns/k8s-dns-dnsmasq-nanny
   Tags:
   - 1.17.3
   - 1.17.4
@@ -2742,8 +2944,8 @@ Images:
   - 1.22.28
   - 1.22.8
   - 1.23.0
-  TargetImageName: mirrored-k8s-dns-dnsmasq-nanny
-- SourceImage: registry.k8s.io/dns/k8s-dns-kube-dns
+  TargetArtifactName: mirrored-k8s-dns-dnsmasq-nanny
+- SourceArtifact: registry.k8s.io/dns/k8s-dns-kube-dns
   Tags:
   - 1.17.3
   - 1.17.4
@@ -2752,8 +2954,8 @@ Images:
   - 1.22.28
   - 1.22.8
   - 1.23.0
-  TargetImageName: mirrored-k8s-dns-kube-dns
-- SourceImage: registry.k8s.io/dns/k8s-dns-node-cache
+  TargetArtifactName: mirrored-k8s-dns-kube-dns
+- SourceArtifact: registry.k8s.io/dns/k8s-dns-node-cache
   Tags:
   - 1.17.3
   - 1.17.4
@@ -2763,8 +2965,8 @@ Images:
   - 1.22.20
   - 1.22.28
   - 1.23.0
-  TargetImageName: mirrored-k8s-dns-node-cache
-- SourceImage: registry.k8s.io/dns/k8s-dns-sidecar
+  TargetArtifactName: mirrored-k8s-dns-node-cache
+- SourceArtifact: registry.k8s.io/dns/k8s-dns-sidecar
   Tags:
   - 1.17.3
   - 1.17.4
@@ -2773,16 +2975,16 @@ Images:
   - 1.22.28
   - 1.22.8
   - 1.23.0
-  TargetImageName: mirrored-k8s-dns-sidecar
-- SourceImage: registry.k8s.io/git-sync/git-sync
+  TargetArtifactName: mirrored-k8s-dns-sidecar
+- SourceArtifact: registry.k8s.io/git-sync/git-sync
   Tags:
   - v3.5.0
-  TargetImageName: mirrored-git-sync
-- SourceImage: registry.k8s.io/gmsa-webhook/k8s-gmsa-webhook
+  TargetArtifactName: mirrored-git-sync
+- SourceArtifact: registry.k8s.io/gmsa-webhook/k8s-gmsa-webhook
   Tags:
   - v0.13.0
   - v0.7.0
-- SourceImage: registry.k8s.io/ingress-nginx/kube-webhook-certgen
+- SourceArtifact: registry.k8s.io/ingress-nginx/kube-webhook-certgen
   Tags:
   - v1.0
   - v1.1.1
@@ -2801,11 +3003,15 @@ Images:
   - v1.6.1
   - v1.6.2
   - v1.6.3
+  - v1.6.4
+  - v1.6.5
+  - v1.6.6
+  - v1.6.7
   - v20221220-controller-v1.5.1-58-g787ea74b6
   - v20230312-helm-chart-4.5.2-28-g66a760794
   - v20231011-8b53cabe0
   - v20231226-1a7112e06
-- SourceImage: registry.k8s.io/kube-state-metrics/kube-state-metrics
+- SourceArtifact: registry.k8s.io/kube-state-metrics/kube-state-metrics
   Tags:
   - v1.9.8
   - v2.0.0
@@ -2817,11 +3023,11 @@ Images:
   - v2.17.0
   - v2.2.0
   - v2.6.0
-- SourceImage: registry.k8s.io/metrics-server/metrics-server
+- SourceArtifact: registry.k8s.io/metrics-server/metrics-server
   Tags:
   - v0.4.1
-  TargetImageName: metrics-server
-- SourceImage: registry.k8s.io/metrics-server/metrics-server
+  TargetArtifactName: metrics-server
+- SourceArtifact: registry.k8s.io/metrics-server/metrics-server
   Tags:
   - v0.4.1
   - v0.4.4
@@ -2836,8 +3042,8 @@ Images:
   - v0.7.1
   - v0.7.2
   - v0.8.0
-  TargetImageName: mirrored-metrics-server
-- SourceImage: registry.k8s.io/pause
+  TargetArtifactName: mirrored-metrics-server
+- SourceArtifact: registry.k8s.io/pause
   Tags:
   - "3.10"
   - 3.4.1
@@ -2846,14 +3052,14 @@ Images:
   - "3.7"
   - "3.8"
   - "3.9"
-  TargetImageName: mirrored-pause
-- SourceImage: registry.k8s.io/prometheus-adapter/prometheus-adapter
+  TargetArtifactName: mirrored-pause
+- SourceArtifact: registry.k8s.io/prometheus-adapter/prometheus-adapter
   Tags:
   - v0.10.0
   - v0.11.2
   - v0.12.0
   - v0.9.0
-- SourceImage: registry.k8s.io/sig-storage/csi-attacher
+- SourceArtifact: registry.k8s.io/sig-storage/csi-attacher
   Tags:
   - v3.2.0
   - v3.3.0
@@ -2870,7 +3076,7 @@ Images:
   - v4.8.0
   - v4.8.1
   - v4.9.0
-- SourceImage: registry.k8s.io/sig-storage/csi-node-driver-registrar
+- SourceArtifact: registry.k8s.io/sig-storage/csi-node-driver-registrar
   Tags:
   - v2.10.0
   - v2.10.1
@@ -2885,7 +3091,7 @@ Images:
   - v2.8.0
   - v2.9.0
   - v2.9.1
-- SourceImage: registry.k8s.io/sig-storage/csi-provisioner
+- SourceArtifact: registry.k8s.io/sig-storage/csi-provisioner
   Tags:
   - v2.2.0
   - v3.0.0
@@ -2902,7 +3108,7 @@ Images:
   - v5.1.0
   - v5.2.0
   - v5.3.0
-- SourceImage: registry.k8s.io/sig-storage/csi-resizer
+- SourceArtifact: registry.k8s.io/sig-storage/csi-resizer
   Tags:
   - v1.10.0
   - v1.10.1
@@ -2917,7 +3123,7 @@ Images:
   - v1.9.0
   - v1.9.1
   - v1.9.2
-- SourceImage: registry.k8s.io/sig-storage/csi-snapshotter
+- SourceArtifact: registry.k8s.io/sig-storage/csi-snapshotter
   Tags:
   - v5.0.1
   - v6.0.1
@@ -2927,7 +3133,7 @@ Images:
   - v7.0.2
   - v8.1.0
   - v8.2.0
-- SourceImage: registry.k8s.io/sig-storage/livenessprobe
+- SourceArtifact: registry.k8s.io/sig-storage/livenessprobe
   Tags:
   - v2.10.0
   - v2.11.0
@@ -2940,34 +3146,88 @@ Images:
   - v2.7.0
   - v2.8.0
   - v2.9.0
-- SourceImage: registry.k8s.io/sig-storage/snapshot-controller
+- SourceArtifact: registry.k8s.io/sig-storage/snapshot-controller
   Tags:
   - v6.1.0
   - v6.2.1
   - v8.1.0
   - v8.2.0
   - v8.4.0
-- SourceImage: registry.k8s.io/sig-storage/snapshot-validation-webhook
+- SourceArtifact: registry.k8s.io/sig-storage/snapshot-validation-webhook
   Tags:
   - v6.1.0
   - v6.2.1
   - v6.2.2
   - v8.1.0
-- SourceImage: registry.suse.com/bci/bci-busybox
+- SourceArtifact: registry.rancher.com/suse-observability/container-tools
+  Tags:
+  - 1.8.1-bci
+  TargetArtifactName: mirrored-suse-observability-agent-container-tools
+  TargetRepositories:
+  - docker.io/rancher
+- SourceArtifact: registry.rancher.com/suse-observability/generic-sidecar-injector
+  Tags:
+  - d03e11f3-21
+  TargetArtifactName: mirrored-suse-observability-agent-generic-sidecar-injector
+  TargetRepositories:
+  - docker.io/rancher
+- SourceArtifact: registry.rancher.com/suse-observability/http-header-injector-proxy
+  Tags:
+  - cb2eb8ab-194
+  TargetArtifactName: mirrored-suse-observability-agent-http-header-injector-proxy
+  TargetRepositories:
+  - docker.io/rancher
+- SourceArtifact: registry.rancher.com/suse-observability/http-header-injector-proxy-init
+  Tags:
+  - cb2eb8ab-194
+  TargetArtifactName: mirrored-suse-observability-agent-http-header-injector-proxy-init
+  TargetRepositories:
+  - docker.io/rancher
+- SourceArtifact: registry.rancher.com/suse-observability/kubernetes-rbac-agent
+  Tags:
+  - 35ec5206
+  TargetArtifactName: mirrored-suse-observability-agent-kubernetes-rbac-agent
+  TargetRepositories:
+  - docker.io/rancher
+- SourceArtifact: registry.rancher.com/suse-observability/promtail
+  Tags:
+  - 2.9.15-2a5cc100
+  TargetArtifactName: mirrored-suse-observability-agent-promtail
+  TargetRepositories:
+  - docker.io/rancher
+- SourceArtifact: registry.rancher.com/suse-observability/stackstate-k8s-agent
+  Tags:
+  - 289d9a9e
+  TargetArtifactName: mirrored-suse-observability-agent-k8s-agent
+  TargetRepositories:
+  - docker.io/rancher
+- SourceArtifact: registry.rancher.com/suse-observability/stackstate-k8s-cluster-agent
+  Tags:
+  - 289d9a9e
+  TargetArtifactName: mirrored-suse-observability-agent-k8s-cluster-agent
+  TargetRepositories:
+  - docker.io/rancher
+- SourceArtifact: registry.rancher.com/suse-observability/stackstate-k8s-process-agent
+  Tags:
+  - 5d0ec298
+  TargetArtifactName: mirrored-suse-observability-agent-k8s-process-agent
+  TargetRepositories:
+  - docker.io/rancher
+- SourceArtifact: registry.suse.com/bci/bci-busybox
   Tags:
   - 15.4.11.2
   - 15.6.19.1
   - 15.6.24.2
-  TargetImageName: mirrored-bci-busybox
-- SourceImage: registry.suse.com/bci/bci-micro
+  TargetArtifactName: mirrored-bci-busybox
+- SourceArtifact: registry.suse.com/bci/bci-micro
   Tags:
   - 15.4.14.3
   - 15.6.19.1
   - 15.6.24.2
-  TargetImageName: mirrored-bci-micro
+  TargetArtifactName: mirrored-bci-micro
 - DoNotMirror:
   - 1.3.4
-  SourceImage: registry.suse.com/rancher/elemental-operator
+  SourceArtifact: registry.suse.com/rancher/elemental-operator
   Tags:
   - 1.3.4
   - 1.4.2
@@ -2979,8 +3239,8 @@ Images:
   - 1.6.8
   - 1.6.9
   - 1.7.3
-  TargetImageName: mirrored-elemental-operator
-- SourceImage: registry.suse.com/rancher/seedimage-builder
+  TargetArtifactName: mirrored-elemental-operator
+- SourceArtifact: registry.suse.com/rancher/seedimage-builder
   Tags:
   - 1.3.4
   - 1.4.2
@@ -2992,15 +3252,15 @@ Images:
   - 1.6.8
   - 1.6.9
   - 1.7.3
-  TargetImageName: mirrored-elemental-seedimage-builder
-- SourceImage: rpardini/docker-registry-proxy
+  TargetArtifactName: mirrored-elemental-seedimage-builder
+- SourceArtifact: rpardini/docker-registry-proxy
   Tags:
   - 0.6.1
-  TargetImageName: rpardini-docker-registry-proxy
-- SourceImage: sigwindowstools/k8s-gmsa-webhook
+  TargetArtifactName: rpardini-docker-registry-proxy
+- SourceArtifact: sigwindowstools/k8s-gmsa-webhook
   Tags:
   - v0.3.0
-- SourceImage: sonobuoy/sonobuoy
+- SourceArtifact: sonobuoy/sonobuoy
   Tags:
   - v0.16.3
   - v0.19.0
@@ -3015,39 +3275,39 @@ Images:
   - v0.57.1
   - v0.57.2
   - v0.57.3
-- SourceImage: sonobuoy/sonobuoy
+- SourceArtifact: sonobuoy/sonobuoy
   Tags:
   - v0.19.0
-  TargetImageName: sonobuoy-sonobuoy
-- SourceImage: squareup/ghostunnel
+  TargetArtifactName: sonobuoy-sonobuoy
+- SourceArtifact: squareup/ghostunnel
   Tags:
   - v1.5.2
-- SourceImage: squareup/ghostunnel
+- SourceArtifact: squareup/ghostunnel
   Tags:
   - v1.5.2
-  TargetImageName: squareup-ghostunnel
-- SourceImage: thanosio/thanos
+  TargetArtifactName: squareup-ghostunnel
+- SourceArtifact: thanosio/thanos
   Tags:
   - v0.15.0
   - v0.21.1
-- SourceImage: thanosio/thanos
+- SourceArtifact: thanosio/thanos
   Tags:
   - v0.15.0
-  TargetImageName: thanosio-thanos
-- SourceImage: tonistiigi/xx
+  TargetArtifactName: thanosio-thanos
+- SourceArtifact: tonistiigi/xx
   Tags:
   - 1.3.0
   - 1.5.0
   - 1.6.0
   - 1.6.1
-- SourceImage: us.gcr.io/k8s-artifacts-prod/external-dns/external-dns
+- SourceArtifact: us.gcr.io/k8s-artifacts-prod/external-dns/external-dns
   Tags:
   - v0.7.3
-  TargetImageName: kubernetes-external-dns
-- SourceImage: us.gcr.io/k8s-artifacts-prod/external-dns/external-dns
+  TargetArtifactName: kubernetes-external-dns
+- SourceArtifact: us.gcr.io/k8s-artifacts-prod/external-dns/external-dns
   Tags:
   - v0.7.3
-  TargetImageName: mirrored-kubernetes-external-dns
+  TargetArtifactName: mirrored-kubernetes-external-dns
 Repositories:
 - BaseUrl: docker.io/rancher
   DefaultTarget: true
