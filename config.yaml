@@ -3152,6 +3152,7 @@ Artifacts:
   - v6.2.1
   - v8.1.0
   - v8.2.0
+  - v8.4.0
 - SourceArtifact: registry.k8s.io/sig-storage/snapshot-validation-webhook
   Tags:
   - v6.1.0
