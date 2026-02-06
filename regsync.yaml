@@ -5537,6 +5537,9 @@ sync:
 - source: longhornio/backing-image-manager:v1.10.1
   target: docker.io/rancher/mirrored-longhornio-backing-image-manager:v1.10.1
   type: image
+- source: longhornio/backing-image-manager:v1.10.2
+  target: docker.io/rancher/mirrored-longhornio-backing-image-manager:v1.10.2
+  type: image
 - source: longhornio/backing-image-manager:v1.4.0
   target: docker.io/rancher/mirrored-longhornio-backing-image-manager:v1.4.0
   type: image
@@ -5639,6 +5642,9 @@ sync:
 - source: longhornio/backing-image-manager:v1.10.1
   target: registry.suse.com/rancher/mirrored-longhornio-backing-image-manager:v1.10.1
   type: image
+- source: longhornio/backing-image-manager:v1.10.2
+  target: registry.suse.com/rancher/mirrored-longhornio-backing-image-manager:v1.10.2
+  type: image
 - source: longhornio/backing-image-manager:v1.4.0
   target: registry.suse.com/rancher/mirrored-longhornio-backing-image-manager:v1.4.0
   type: image
@@ -5740,6 +5746,9 @@ sync:
   type: image
 - source: longhornio/backing-image-manager:v1.10.1
   target: stgregistry.suse.com/rancher/mirrored-longhornio-backing-image-manager:v1.10.1
+  type: image
+- source: longhornio/backing-image-manager:v1.10.2
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-backing-image-manager:v1.10.2
   type: image
 - source: longhornio/backing-image-manager:v1.4.0
   target: stgregistry.suse.com/rancher/mirrored-longhornio-backing-image-manager:v1.4.0
@@ -5900,6 +5909,9 @@ sync:
 - source: longhornio/csi-attacher:v4.10.0-20251030
   target: docker.io/rancher/mirrored-longhornio-csi-attacher:v4.10.0-20251030
   type: image
+- source: longhornio/csi-attacher:v4.10.0-20251226
+  target: docker.io/rancher/mirrored-longhornio-csi-attacher:v4.10.0-20251226
+  type: image
 - source: longhornio/csi-attacher:v4.2.0
   target: docker.io/rancher/mirrored-longhornio-csi-attacher:v4.2.0
   type: image
@@ -5945,6 +5957,9 @@ sync:
 - source: longhornio/csi-attacher:v4.10.0-20251030
   target: registry.suse.com/rancher/mirrored-longhornio-csi-attacher:v4.10.0-20251030
   type: image
+- source: longhornio/csi-attacher:v4.10.0-20251226
+  target: registry.suse.com/rancher/mirrored-longhornio-csi-attacher:v4.10.0-20251226
+  type: image
 - source: longhornio/csi-attacher:v4.2.0
   target: registry.suse.com/rancher/mirrored-longhornio-csi-attacher:v4.2.0
   type: image
@@ -5989,6 +6004,9 @@ sync:
   type: image
 - source: longhornio/csi-attacher:v4.10.0-20251030
   target: stgregistry.suse.com/rancher/mirrored-longhornio-csi-attacher:v4.10.0-20251030
+  type: image
+- source: longhornio/csi-attacher:v4.10.0-20251226
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-csi-attacher:v4.10.0-20251226
   type: image
 - source: longhornio/csi-attacher:v4.2.0
   target: stgregistry.suse.com/rancher/mirrored-longhornio-csi-attacher:v4.2.0
@@ -6080,6 +6098,9 @@ sync:
 - source: longhornio/csi-node-driver-registrar:v2.15.0-20251030
   target: docker.io/rancher/mirrored-longhornio-csi-node-driver-registrar:v2.15.0-20251030
   type: image
+- source: longhornio/csi-node-driver-registrar:v2.15.0-20251226
+  target: docker.io/rancher/mirrored-longhornio-csi-node-driver-registrar:v2.15.0-20251226
+  type: image
 - source: longhornio/csi-node-driver-registrar:v2.3.0
   target: docker.io/rancher/mirrored-longhornio-csi-node-driver-registrar:v2.3.0
   type: image
@@ -6116,6 +6137,9 @@ sync:
 - source: longhornio/csi-node-driver-registrar:v2.15.0-20251030
   target: registry.suse.com/rancher/mirrored-longhornio-csi-node-driver-registrar:v2.15.0-20251030
   type: image
+- source: longhornio/csi-node-driver-registrar:v2.15.0-20251226
+  target: registry.suse.com/rancher/mirrored-longhornio-csi-node-driver-registrar:v2.15.0-20251226
+  type: image
 - source: longhornio/csi-node-driver-registrar:v2.3.0
   target: registry.suse.com/rancher/mirrored-longhornio-csi-node-driver-registrar:v2.3.0
   type: image
@@ -6151,6 +6175,9 @@ sync:
   type: image
 - source: longhornio/csi-node-driver-registrar:v2.15.0-20251030
   target: stgregistry.suse.com/rancher/mirrored-longhornio-csi-node-driver-registrar:v2.15.0-20251030
+  type: image
+- source: longhornio/csi-node-driver-registrar:v2.15.0-20251226
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-csi-node-driver-registrar:v2.15.0-20251226
   type: image
 - source: longhornio/csi-node-driver-registrar:v2.3.0
   target: stgregistry.suse.com/rancher/mirrored-longhornio-csi-node-driver-registrar:v2.3.0
@@ -6245,6 +6272,9 @@ sync:
 - source: longhornio/csi-provisioner:v5.3.0-20251030
   target: docker.io/rancher/mirrored-longhornio-csi-provisioner:v5.3.0-20251030
   type: image
+- source: longhornio/csi-provisioner:v5.3.0-20251226
+  target: docker.io/rancher/mirrored-longhornio-csi-provisioner:v5.3.0-20251226
+  type: image
 - source: longhornio/csi-provisioner:v1.6.0-lh1
   target: registry.suse.com/rancher/mirrored-longhornio-csi-provisioner:v1.6.0-lh1
   type: image
@@ -6290,6 +6320,9 @@ sync:
 - source: longhornio/csi-provisioner:v5.3.0-20251030
   target: registry.suse.com/rancher/mirrored-longhornio-csi-provisioner:v5.3.0-20251030
   type: image
+- source: longhornio/csi-provisioner:v5.3.0-20251226
+  target: registry.suse.com/rancher/mirrored-longhornio-csi-provisioner:v5.3.0-20251226
+  type: image
 - source: longhornio/csi-provisioner:v1.6.0-lh1
   target: stgregistry.suse.com/rancher/mirrored-longhornio-csi-provisioner:v1.6.0-lh1
   type: image
@@ -6334,6 +6367,9 @@ sync:
   type: image
 - source: longhornio/csi-provisioner:v5.3.0-20251030
   target: stgregistry.suse.com/rancher/mirrored-longhornio-csi-provisioner:v5.3.0-20251030
+  type: image
+- source: longhornio/csi-provisioner:v5.3.0-20251226
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-csi-provisioner:v5.3.0-20251226
   type: image
 - source: longhornio/csi-resizer:v0.3.0
   target: docker.io/rancher/longhornio-csi-resizer:v0.3.0
@@ -6401,6 +6437,9 @@ sync:
 - source: longhornio/csi-resizer:v1.14.0-20251030
   target: docker.io/rancher/mirrored-longhornio-csi-resizer:v1.14.0-20251030
   type: image
+- source: longhornio/csi-resizer:v1.14.0-20260119
+  target: docker.io/rancher/mirrored-longhornio-csi-resizer:v1.14.0-20260119
+  type: image
 - source: longhornio/csi-resizer:v1.2.0
   target: docker.io/rancher/mirrored-longhornio-csi-resizer:v1.2.0
   type: image
@@ -6443,6 +6482,9 @@ sync:
 - source: longhornio/csi-resizer:v1.14.0-20251030
   target: registry.suse.com/rancher/mirrored-longhornio-csi-resizer:v1.14.0-20251030
   type: image
+- source: longhornio/csi-resizer:v1.14.0-20260119
+  target: registry.suse.com/rancher/mirrored-longhornio-csi-resizer:v1.14.0-20260119
+  type: image
 - source: longhornio/csi-resizer:v1.2.0
   target: registry.suse.com/rancher/mirrored-longhornio-csi-resizer:v1.2.0
   type: image
@@ -6484,6 +6526,9 @@ sync:
   type: image
 - source: longhornio/csi-resizer:v1.14.0-20251030
   target: stgregistry.suse.com/rancher/mirrored-longhornio-csi-resizer:v1.14.0-20251030
+  type: image
+- source: longhornio/csi-resizer:v1.14.0-20260119
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-csi-resizer:v1.14.0-20260119
   type: image
 - source: longhornio/csi-resizer:v1.2.0
   target: stgregistry.suse.com/rancher/mirrored-longhornio-csi-resizer:v1.2.0
@@ -6566,6 +6611,9 @@ sync:
 - source: longhornio/csi-snapshotter:v8.4.0-20251030
   target: docker.io/rancher/mirrored-longhornio-csi-snapshotter:v8.4.0-20251030
   type: image
+- source: longhornio/csi-snapshotter:v8.4.0-20251226
+  target: docker.io/rancher/mirrored-longhornio-csi-snapshotter:v8.4.0-20251226
+  type: image
 - source: longhornio/csi-snapshotter:v2.1.1-lh1
   target: registry.suse.com/rancher/mirrored-longhornio-csi-snapshotter:v2.1.1-lh1
   type: image
@@ -6607,6 +6655,9 @@ sync:
   type: image
 - source: longhornio/csi-snapshotter:v8.4.0-20251030
   target: registry.suse.com/rancher/mirrored-longhornio-csi-snapshotter:v8.4.0-20251030
+  type: image
+- source: longhornio/csi-snapshotter:v8.4.0-20251226
+  target: registry.suse.com/rancher/mirrored-longhornio-csi-snapshotter:v8.4.0-20251226
   type: image
 - source: longhornio/csi-snapshotter:v2.1.1-lh1
   target: stgregistry.suse.com/rancher/mirrored-longhornio-csi-snapshotter:v2.1.1-lh1
@@ -6650,6 +6701,9 @@ sync:
 - source: longhornio/csi-snapshotter:v8.4.0-20251030
   target: stgregistry.suse.com/rancher/mirrored-longhornio-csi-snapshotter:v8.4.0-20251030
   type: image
+- source: longhornio/csi-snapshotter:v8.4.0-20251226
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-csi-snapshotter:v8.4.0-20251226
+  type: image
 - source: longhornio/livenessprobe:v2.11.0
   target: docker.io/rancher/mirrored-longhornio-livenessprobe:v2.11.0
   type: image
@@ -6676,6 +6730,9 @@ sync:
   type: image
 - source: longhornio/livenessprobe:v2.17.0-20251030
   target: docker.io/rancher/mirrored-longhornio-livenessprobe:v2.17.0-20251030
+  type: image
+- source: longhornio/livenessprobe:v2.17.0-20251226
+  target: docker.io/rancher/mirrored-longhornio-livenessprobe:v2.17.0-20251226
   type: image
 - source: longhornio/livenessprobe:v2.8.0
   target: docker.io/rancher/mirrored-longhornio-livenessprobe:v2.8.0
@@ -6710,6 +6767,9 @@ sync:
 - source: longhornio/livenessprobe:v2.17.0-20251030
   target: registry.suse.com/rancher/mirrored-longhornio-livenessprobe:v2.17.0-20251030
   type: image
+- source: longhornio/livenessprobe:v2.17.0-20251226
+  target: registry.suse.com/rancher/mirrored-longhornio-livenessprobe:v2.17.0-20251226
+  type: image
 - source: longhornio/livenessprobe:v2.8.0
   target: registry.suse.com/rancher/mirrored-longhornio-livenessprobe:v2.8.0
   type: image
@@ -6743,6 +6803,9 @@ sync:
 - source: longhornio/livenessprobe:v2.17.0-20251030
   target: stgregistry.suse.com/rancher/mirrored-longhornio-livenessprobe:v2.17.0-20251030
   type: image
+- source: longhornio/livenessprobe:v2.17.0-20251226
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-livenessprobe:v2.17.0-20251226
+  type: image
 - source: longhornio/livenessprobe:v2.8.0
   target: stgregistry.suse.com/rancher/mirrored-longhornio-livenessprobe:v2.8.0
   type: image
@@ -6751,6 +6814,9 @@ sync:
   type: image
 - source: longhornio/longhorn-cli:v1.10.1
   target: docker.io/rancher/mirrored-longhornio-longhorn-cli:v1.10.1
+  type: image
+- source: longhornio/longhorn-cli:v1.10.2
+  target: docker.io/rancher/mirrored-longhornio-longhorn-cli:v1.10.2
   type: image
 - source: longhornio/longhorn-cli:v1.7.0
   target: docker.io/rancher/mirrored-longhornio-longhorn-cli:v1.7.0
@@ -6779,6 +6845,9 @@ sync:
 - source: longhornio/longhorn-cli:v1.10.1
   target: registry.suse.com/rancher/mirrored-longhornio-longhorn-cli:v1.10.1
   type: image
+- source: longhornio/longhorn-cli:v1.10.2
+  target: registry.suse.com/rancher/mirrored-longhornio-longhorn-cli:v1.10.2
+  type: image
 - source: longhornio/longhorn-cli:v1.7.0
   target: registry.suse.com/rancher/mirrored-longhornio-longhorn-cli:v1.7.0
   type: image
@@ -6805,6 +6874,9 @@ sync:
   type: image
 - source: longhornio/longhorn-cli:v1.10.1
   target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-cli:v1.10.1
+  type: image
+- source: longhornio/longhorn-cli:v1.10.2
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-cli:v1.10.2
   type: image
 - source: longhornio/longhorn-cli:v1.7.0
   target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-cli:v1.7.0
@@ -6962,6 +7034,9 @@ sync:
 - source: longhornio/longhorn-engine:v1.10.1
   target: docker.io/rancher/mirrored-longhornio-longhorn-engine:v1.10.1
   type: image
+- source: longhornio/longhorn-engine:v1.10.2
+  target: docker.io/rancher/mirrored-longhornio-longhorn-engine:v1.10.2
+  type: image
 - source: longhornio/longhorn-engine:v1.2.0
   target: docker.io/rancher/mirrored-longhornio-longhorn-engine:v1.2.0
   type: image
@@ -7082,6 +7157,9 @@ sync:
 - source: longhornio/longhorn-engine:v1.10.1
   target: registry.suse.com/rancher/mirrored-longhornio-longhorn-engine:v1.10.1
   type: image
+- source: longhornio/longhorn-engine:v1.10.2
+  target: registry.suse.com/rancher/mirrored-longhornio-longhorn-engine:v1.10.2
+  type: image
 - source: longhornio/longhorn-engine:v1.2.0
   target: registry.suse.com/rancher/mirrored-longhornio-longhorn-engine:v1.2.0
   type: image
@@ -7201,6 +7279,9 @@ sync:
   type: image
 - source: longhornio/longhorn-engine:v1.10.1
   target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-engine:v1.10.1
+  type: image
+- source: longhornio/longhorn-engine:v1.10.2
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-engine:v1.10.2
   type: image
 - source: longhornio/longhorn-engine:v1.2.0
   target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-engine:v1.2.0
@@ -7391,6 +7472,9 @@ sync:
 - source: longhornio/longhorn-instance-manager:v1.10.1
   target: docker.io/rancher/mirrored-longhornio-longhorn-instance-manager:v1.10.1
   type: image
+- source: longhornio/longhorn-instance-manager:v1.10.2
+  target: docker.io/rancher/mirrored-longhornio-longhorn-instance-manager:v1.10.2
+  type: image
 - source: longhornio/longhorn-instance-manager:v1.4.0
   target: docker.io/rancher/mirrored-longhornio-longhorn-instance-manager:v1.4.0
   type: image
@@ -7499,6 +7583,9 @@ sync:
 - source: longhornio/longhorn-instance-manager:v1.10.1
   target: registry.suse.com/rancher/mirrored-longhornio-longhorn-instance-manager:v1.10.1
   type: image
+- source: longhornio/longhorn-instance-manager:v1.10.2
+  target: registry.suse.com/rancher/mirrored-longhornio-longhorn-instance-manager:v1.10.2
+  type: image
 - source: longhornio/longhorn-instance-manager:v1.4.0
   target: registry.suse.com/rancher/mirrored-longhornio-longhorn-instance-manager:v1.4.0
   type: image
@@ -7606,6 +7693,9 @@ sync:
   type: image
 - source: longhornio/longhorn-instance-manager:v1.10.1
   target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-instance-manager:v1.10.1
+  type: image
+- source: longhornio/longhorn-instance-manager:v1.10.2
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-instance-manager:v1.10.2
   type: image
 - source: longhornio/longhorn-instance-manager:v1.4.0
   target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-instance-manager:v1.4.0
@@ -7850,6 +7940,9 @@ sync:
 - source: longhornio/longhorn-manager:v1.10.1-hotfix-2
   target: docker.io/rancher/mirrored-longhornio-longhorn-manager:v1.10.1-hotfix-2
   type: image
+- source: longhornio/longhorn-manager:v1.10.2
+  target: docker.io/rancher/mirrored-longhornio-longhorn-manager:v1.10.2
+  type: image
 - source: longhornio/longhorn-manager:v1.2.0
   target: docker.io/rancher/mirrored-longhornio-longhorn-manager:v1.2.0
   type: image
@@ -7979,6 +8072,9 @@ sync:
 - source: longhornio/longhorn-manager:v1.10.1-hotfix-2
   target: registry.suse.com/rancher/mirrored-longhornio-longhorn-manager:v1.10.1-hotfix-2
   type: image
+- source: longhornio/longhorn-manager:v1.10.2
+  target: registry.suse.com/rancher/mirrored-longhornio-longhorn-manager:v1.10.2
+  type: image
 - source: longhornio/longhorn-manager:v1.2.0
   target: registry.suse.com/rancher/mirrored-longhornio-longhorn-manager:v1.2.0
   type: image
@@ -8107,6 +8203,9 @@ sync:
   type: image
 - source: longhornio/longhorn-manager:v1.10.1-hotfix-2
   target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-manager:v1.10.1-hotfix-2
+  type: image
+- source: longhornio/longhorn-manager:v1.10.2
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-manager:v1.10.2
   type: image
 - source: longhornio/longhorn-manager:v1.2.0
   target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-manager:v1.2.0
@@ -8300,6 +8399,9 @@ sync:
 - source: longhornio/longhorn-share-manager:v1.10.1
   target: docker.io/rancher/mirrored-longhornio-longhorn-share-manager:v1.10.1
   type: image
+- source: longhornio/longhorn-share-manager:v1.10.2
+  target: docker.io/rancher/mirrored-longhornio-longhorn-share-manager:v1.10.2
+  type: image
 - source: longhornio/longhorn-share-manager:v1.4.0
   target: docker.io/rancher/mirrored-longhornio-longhorn-share-manager:v1.4.0
   type: image
@@ -8411,6 +8513,9 @@ sync:
 - source: longhornio/longhorn-share-manager:v1.10.1
   target: registry.suse.com/rancher/mirrored-longhornio-longhorn-share-manager:v1.10.1
   type: image
+- source: longhornio/longhorn-share-manager:v1.10.2
+  target: registry.suse.com/rancher/mirrored-longhornio-longhorn-share-manager:v1.10.2
+  type: image
 - source: longhornio/longhorn-share-manager:v1.4.0
   target: registry.suse.com/rancher/mirrored-longhornio-longhorn-share-manager:v1.4.0
   type: image
@@ -8521,6 +8626,9 @@ sync:
   type: image
 - source: longhornio/longhorn-share-manager:v1.10.1
   target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-share-manager:v1.10.1
+  type: image
+- source: longhornio/longhorn-share-manager:v1.10.2
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-share-manager:v1.10.2
   type: image
 - source: longhornio/longhorn-share-manager:v1.4.0
   target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-share-manager:v1.4.0
@@ -8762,6 +8870,9 @@ sync:
 - source: longhornio/longhorn-ui:v1.10.1
   target: docker.io/rancher/mirrored-longhornio-longhorn-ui:v1.10.1
   type: image
+- source: longhornio/longhorn-ui:v1.10.2
+  target: docker.io/rancher/mirrored-longhornio-longhorn-ui:v1.10.2
+  type: image
 - source: longhornio/longhorn-ui:v1.2.0
   target: docker.io/rancher/mirrored-longhornio-longhorn-ui:v1.2.0
   type: image
@@ -8882,6 +8993,9 @@ sync:
 - source: longhornio/longhorn-ui:v1.10.1
   target: registry.suse.com/rancher/mirrored-longhornio-longhorn-ui:v1.10.1
   type: image
+- source: longhornio/longhorn-ui:v1.10.2
+  target: registry.suse.com/rancher/mirrored-longhornio-longhorn-ui:v1.10.2
+  type: image
 - source: longhornio/longhorn-ui:v1.2.0
   target: registry.suse.com/rancher/mirrored-longhornio-longhorn-ui:v1.2.0
   type: image
@@ -9001,6 +9115,9 @@ sync:
   type: image
 - source: longhornio/longhorn-ui:v1.10.1
   target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-ui:v1.10.1
+  type: image
+- source: longhornio/longhorn-ui:v1.10.2
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-ui:v1.10.2
   type: image
 - source: longhornio/longhorn-ui:v1.2.0
   target: stgregistry.suse.com/rancher/mirrored-longhornio-longhorn-ui:v1.2.0
@@ -9185,6 +9302,9 @@ sync:
 - source: longhornio/support-bundle-kit:v0.0.71
   target: docker.io/rancher/mirrored-longhornio-support-bundle-kit:v0.0.71
   type: image
+- source: longhornio/support-bundle-kit:v0.0.79
+  target: docker.io/rancher/mirrored-longhornio-support-bundle-kit:v0.0.79
+  type: image
 - source: longhornio/support-bundle-kit:v0.0.17
   target: registry.suse.com/rancher/mirrored-longhornio-support-bundle-kit:v0.0.17
   type: image
@@ -9245,6 +9365,9 @@ sync:
 - source: longhornio/support-bundle-kit:v0.0.71
   target: registry.suse.com/rancher/mirrored-longhornio-support-bundle-kit:v0.0.71
   type: image
+- source: longhornio/support-bundle-kit:v0.0.79
+  target: registry.suse.com/rancher/mirrored-longhornio-support-bundle-kit:v0.0.79
+  type: image
 - source: longhornio/support-bundle-kit:v0.0.17
   target: stgregistry.suse.com/rancher/mirrored-longhornio-support-bundle-kit:v0.0.17
   type: image
@@ -9304,6 +9427,9 @@ sync:
   type: image
 - source: longhornio/support-bundle-kit:v0.0.71
   target: stgregistry.suse.com/rancher/mirrored-longhornio-support-bundle-kit:v0.0.71
+  type: image
+- source: longhornio/support-bundle-kit:v0.0.79
+  target: stgregistry.suse.com/rancher/mirrored-longhornio-support-bundle-kit:v0.0.79
   type: image
 - source: messagebird/sachet:0.2.3
   target: docker.io/rancher/mirrored-messagebird-sachet:0.2.3
