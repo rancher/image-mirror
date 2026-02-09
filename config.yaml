@@ -3240,6 +3240,7 @@ Artifacts:
   - 1.6.5
   - 1.6.8
   - 1.6.9
+  - 1.6.10
   - 1.7.3
   TargetArtifactName: mirrored-elemental-operator
 - SourceArtifact: registry.suse.com/rancher/seedimage-builder
@@ -3253,6 +3254,7 @@ Artifacts:
   - 1.6.5
   - 1.6.8
   - 1.6.9
+  - 1.6.10
   - 1.7.3
   TargetArtifactName: mirrored-elemental-seedimage-builder
 - SourceArtifact: rpardini/docker-registry-proxy

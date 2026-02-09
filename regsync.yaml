@@ -22127,6 +22127,9 @@ sync:
 - source: registry.suse.com/rancher/elemental-operator:1.6.9
   target: docker.io/rancher/mirrored-elemental-operator:1.6.9
   type: image
+- source: registry.suse.com/rancher/elemental-operator:1.6.10
+  target: docker.io/rancher/mirrored-elemental-operator:1.6.10
+  type: image
 - source: registry.suse.com/rancher/elemental-operator:1.7.3
   target: docker.io/rancher/mirrored-elemental-operator:1.7.3
   type: image
@@ -22154,6 +22157,9 @@ sync:
 - source: registry.suse.com/rancher/elemental-operator:1.6.9
   target: registry.suse.com/rancher/mirrored-elemental-operator:1.6.9
   type: image
+- source: registry.suse.com/rancher/elemental-operator:1.6.10
+  target: registry.suse.com/rancher/mirrored-elemental-operator:1.6.10
+  type: image
 - source: registry.suse.com/rancher/elemental-operator:1.7.3
   target: registry.suse.com/rancher/mirrored-elemental-operator:1.7.3
   type: image
@@ -22180,6 +22186,9 @@ sync:
   type: image
 - source: registry.suse.com/rancher/elemental-operator:1.6.9
   target: stgregistry.suse.com/rancher/mirrored-elemental-operator:1.6.9
+  type: image
+- source: registry.suse.com/rancher/elemental-operator:1.6.10
+  target: stgregistry.suse.com/rancher/mirrored-elemental-operator:1.6.10
   type: image
 - source: registry.suse.com/rancher/elemental-operator:1.7.3
   target: stgregistry.suse.com/rancher/mirrored-elemental-operator:1.7.3
@@ -22211,6 +22220,9 @@ sync:
 - source: registry.suse.com/rancher/seedimage-builder:1.6.9
   target: docker.io/rancher/mirrored-elemental-seedimage-builder:1.6.9
   type: image
+- source: registry.suse.com/rancher/seedimage-builder:1.6.10
+  target: docker.io/rancher/mirrored-elemental-seedimage-builder:1.6.10
+  type: image
 - source: registry.suse.com/rancher/seedimage-builder:1.7.3
   target: docker.io/rancher/mirrored-elemental-seedimage-builder:1.7.3
   type: image
@@ -22241,6 +22253,9 @@ sync:
 - source: registry.suse.com/rancher/seedimage-builder:1.6.9
   target: registry.suse.com/rancher/mirrored-elemental-seedimage-builder:1.6.9
   type: image
+- source: registry.suse.com/rancher/seedimage-builder:1.6.10
+  target: registry.suse.com/rancher/mirrored-elemental-seedimage-builder:1.6.10
+  type: image
 - source: registry.suse.com/rancher/seedimage-builder:1.7.3
   target: registry.suse.com/rancher/mirrored-elemental-seedimage-builder:1.7.3
   type: image
@@ -22270,6 +22285,9 @@ sync:
   type: image
 - source: registry.suse.com/rancher/seedimage-builder:1.6.9
   target: stgregistry.suse.com/rancher/mirrored-elemental-seedimage-builder:1.6.9
+  type: image
+- source: registry.suse.com/rancher/seedimage-builder:1.6.10
+  target: stgregistry.suse.com/rancher/mirrored-elemental-seedimage-builder:1.6.10
   type: image
 - source: registry.suse.com/rancher/seedimage-builder:1.7.3
   target: stgregistry.suse.com/rancher/mirrored-elemental-seedimage-builder:1.7.3
