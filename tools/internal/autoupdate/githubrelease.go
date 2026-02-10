@@ -7,7 +7,7 @@ import (
 	"regexp"
 
 	"github.com/Masterminds/semver/v3"
-	"github.com/google/go-github/v80/github"
+	"github.com/google/go-github/v82/github"
 	"github.com/rancher/artifact-mirror/internal/config"
 )
 
