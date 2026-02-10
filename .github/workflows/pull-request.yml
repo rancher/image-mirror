@@ -10,7 +10,7 @@ jobs:
 
       - uses: actions/setup-go@44694675825211faa026b3c33043df3e48a5fa00 # v6
         with:
-          go-version: '1.24'
+          go-version: '1.25'
 
       - name: Run unit tests
         run: |
@@ -24,7 +24,7 @@ jobs:
 
       - uses: actions/setup-go@44694675825211faa026b3c33043df3e48a5fa00 # v6
         with:
-          go-version: '1.24'
+          go-version: '1.25'
 
       - name: Run linter
         uses: golangci/golangci-lint-action@0a35821d5c230e903fcfe077583637dea1b27b47 # v9
@@ -39,7 +39,7 @@ jobs:
 
       - uses: actions/setup-go@44694675825211faa026b3c33043df3e48a5fa00 # v6
         with:
-          go-version: '1.24'
+          go-version: '1.25'
 
       - name: Ensure that files are formatted correctly
         run: |
@@ -55,7 +55,7 @@ jobs:
 
       - uses: actions/setup-go@44694675825211faa026b3c33043df3e48a5fa00 # v6
         with:
-          go-version: '1.24'
+          go-version: '1.25'
 
       - name: Ensure that regsync.yaml is in sync with config.yaml
         run: |
@@ -73,7 +73,7 @@ jobs:
 
       - uses: actions/setup-go@44694675825211faa026b3c33043df3e48a5fa00 # v6
         with:
-          go-version: '1.24'
+          go-version: '1.25'
 
       - name: Run bin/artifact-mirror-tools validate
         run: |
