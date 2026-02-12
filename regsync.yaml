@@ -5207,6 +5207,9 @@ sync:
 - source: library/traefik:2.11.36
   target: docker.io/rancher/mirrored-library-traefik:2.11.36
   type: image
+- source: library/traefik:2.11.37
+  target: docker.io/rancher/mirrored-library-traefik:2.11.37
+  type: image
 - source: library/traefik:2.11.8
   target: docker.io/rancher/mirrored-library-traefik:2.11.8
   type: image
@@ -5324,6 +5327,9 @@ sync:
 - source: library/traefik:2.11.36
   target: registry.suse.com/rancher/mirrored-library-traefik:2.11.36
   type: image
+- source: library/traefik:2.11.37
+  target: registry.suse.com/rancher/mirrored-library-traefik:2.11.37
+  type: image
 - source: library/traefik:2.11.8
   target: registry.suse.com/rancher/mirrored-library-traefik:2.11.8
   type: image
@@ -5440,6 +5446,9 @@ sync:
   type: image
 - source: library/traefik:2.11.36
   target: stgregistry.suse.com/rancher/mirrored-library-traefik:2.11.36
+  type: image
+- source: library/traefik:2.11.37
+  target: stgregistry.suse.com/rancher/mirrored-library-traefik:2.11.37
   type: image
 - source: library/traefik:2.11.8
   target: stgregistry.suse.com/rancher/mirrored-library-traefik:2.11.8
