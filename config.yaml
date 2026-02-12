@@ -948,6 +948,7 @@ Artifacts:
   - 3.6.4
   - 3.6.6
   - 3.6.7
+  - 3.6.8
 - SourceArtifact: longhornio/backing-image-manager
   Tags:
   - v1_20210422
