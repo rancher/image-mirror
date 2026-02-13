@@ -3138,6 +3138,7 @@ Artifacts:
   - v7.0.2
   - v8.1.0
   - v8.2.0
+  - v8.5.0
 - SourceArtifact: registry.k8s.io/sig-storage/livenessprobe
   Tags:
   - v2.10.0
