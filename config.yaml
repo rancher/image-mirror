@@ -3128,6 +3128,7 @@ Artifacts:
   - v1.9.0
   - v1.9.1
   - v1.9.2
+  - v2.1.0
 - SourceArtifact: registry.k8s.io/sig-storage/csi-snapshotter
   Tags:
   - v5.0.1
