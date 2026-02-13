@@ -21821,6 +21821,9 @@ sync:
 - source: registry.k8s.io/sig-storage/csi-snapshotter:v8.2.0
   target: docker.io/rancher/mirrored-sig-storage-csi-snapshotter:v8.2.0
   type: image
+- source: registry.k8s.io/sig-storage/csi-snapshotter:v8.5.0
+  target: docker.io/rancher/mirrored-sig-storage-csi-snapshotter:v8.5.0
+  type: image
 - source: registry.k8s.io/sig-storage/csi-snapshotter:v5.0.1
   target: registry.suse.com/rancher/mirrored-sig-storage-csi-snapshotter:v5.0.1
   type: image
@@ -21845,6 +21848,9 @@ sync:
 - source: registry.k8s.io/sig-storage/csi-snapshotter:v8.2.0
   target: registry.suse.com/rancher/mirrored-sig-storage-csi-snapshotter:v8.2.0
   type: image
+- source: registry.k8s.io/sig-storage/csi-snapshotter:v8.5.0
+  target: registry.suse.com/rancher/mirrored-sig-storage-csi-snapshotter:v8.5.0
+  type: image
 - source: registry.k8s.io/sig-storage/csi-snapshotter:v5.0.1
   target: stgregistry.suse.com/rancher/mirrored-sig-storage-csi-snapshotter:v5.0.1
   type: image
@@ -21868,6 +21874,9 @@ sync:
   type: image
 - source: registry.k8s.io/sig-storage/csi-snapshotter:v8.2.0
   target: stgregistry.suse.com/rancher/mirrored-sig-storage-csi-snapshotter:v8.2.0
+  type: image
+- source: registry.k8s.io/sig-storage/csi-snapshotter:v8.5.0
+  target: stgregistry.suse.com/rancher/mirrored-sig-storage-csi-snapshotter:v8.5.0
   type: image
 - source: registry.k8s.io/sig-storage/livenessprobe:v2.10.0
   target: docker.io/rancher/mirrored-sig-storage-livenessprobe:v2.10.0
